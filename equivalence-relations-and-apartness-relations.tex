@@ -1,0 +1,959 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Equivalence Relations and Apartness Relations}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about reflexive, symmetric, transitive, equivalence, and apartness relations.
+%Notably, we discuss and explore:
+%\begin{enumerate}
+%    \item Equivalence relations (\cref{section-equivalence-relations}) and quotient sets (\cref{section-quotients-by-equivalence-relations}).
+%\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Reflexive Relations}\label{section-reflexive-relations}
+\subsection{Foundations}\label{subsection-reflexive-relations-foundations}
+Let $A$ be a set.
+\begin{definition}{Reflexive Relations}{reflexive-relations}%
+    A \index[set-theory]{relation!reflexive}\textbf{reflexive relation} is equivalently:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that since $\eRel(A,A)$ is posetal, reflexivity is a property of a relation, rather than extra structure.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item An $\E_{0}$-monoid in $(\NerveB(\eRel(A,A)),\chi_{A})$.
+        \item A pointed object   in $(\eRel(A,A),\chi_{A})$.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{reflexive-relations}}{unwinding-reflexive-relations}%
+    In detail, a relation $R$ on $A$ is \index[set-theory]{relation!reflexive}\textbf{reflexive} if we have an inclusion
+    \[
+        \eta_{R}%
+        \colon%
+        \chi_{A}%
+        \subset%
+        R%
+    \]%
+    of relations in $\eRel(A,A)$, i.e.\ if, for each $a\in A$, we have $a\sim_{R}a$.%
+\end{remark}
+\begin{definition}{The Po/Set of Reflexive Relations on a Set}{the-po-set-of-reflexive-relations-on-a-set}%
+    Let $A$ be a set.
+    \begin{enumerate}
+        \item\label{the-po-set-of-reflexive-relations-on-a-set-1}The \index[set-theory]{relation!reflexive, set of}\textbf{set of reflexive relations on $A$} is the subset \index[notation]{RelreflA@$\Rel^{\rmrefl}(A,A)$}$\smash{\Rel^{\rmrefl}(A,A)}$ of $\Rel(A,A)$ spanned by the reflexive relations.
+        \item\label{the-po-set-of-reflexive-relations-on-a-set-2}The \index[set-theory]{relation!reflexive, poset of}\textbf{poset of relations on $A$} is is the subposet \index[notation]{RelreflA@$\eRel^{\refl}(A,A)$}$\smash{\eRel^{\refl}(A,A)}$ of $\eRel(A,A)$ spanned by the reflexive relations.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Reflexive Relations}{properties-of-reflexive-relations}%
+    Let $R$ and $S$ be relations on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-reflexive-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }If $R$ is reflexive, then so is $R^{\dagger}$.
+        \item\label{properties-of-reflexive-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }If $R$ and $S$ are reflexive, then so is $S\procirc R$.
+        %\item\label{properties-of-reflexive-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-reflexive-relations}}%
+    \FirstProofBox{\cref{properties-of-reflexive-relations-interaction-with-inverses}: Interaction With Inverses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-reflexive-relations-interaction-with-composition}: Interaction With Composition}%
+    Clear.
+\end{Proof}
+\subsection{The Reflexive Closure of a Relation}\label{subsection-reflexive-relations-the-reflexive-closure-of-a-relation}
+Let $R$ be a relation on $A$.
+\begin{definition}{The Reflexive Closure of a Relation}{the-reflexive-closure-of-a-relation}%
+    The \index[set-theory]{relation!reflexive closure of}\textbf{reflexive closure} of $\unsim_{R}$ is the relation \index[notation]{simreflR@$\unsim^{\rmrefl}_{R}$}$\smash{\unsim^{\rmrefl}_{R}}$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{Rrefl@$R^{\rmrefl}$}$R^{\rmrefl}$.
+    } %
+    %---  End Footnote  ---%
+    satisfying the following universal property:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Slogan: }The reflexive closure of $R$ is the smallest reflexive relation containing $R$.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item[$(\star)$]Given another reflexive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmrefl}_{R}}\subset\unsim_{S}$.
+    \end{itemize}
+\end{definition}
+\begin{construction}{The Reflexive Closure of a Relation}{construction-of-the-reflexive-closure-of-a-relation}%
+    Concretely, $\smash{\unsim^{\rmrefl}_{R}}$ is the free pointed object on $R$ in $(\eRel(A,A),\chi_{A})$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Or, equivalently, the free $\E_{0}$-monoid on $R$ in $(\NerveB(\eRel(A,A)),\chi_{A})$.
+        \par\vspace*{-1.75\baselineskip}
+    }, %
+    %---  End Footnote  ---%
+    being given by
+    \begin{align*}
+        R^{\rmrefl} &\defeq R\mathbin{\icoprod^{\eRel(A,A)}}\Delta_{A}\\
+                    &=      R\cup\Delta_{A}\\
+                    &=      \{(a,b)\in A\times A\ \middle|\ \text{we have $a\sim_{R}b$ or $a=b$}\}.%
+    \end{align*}
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-reflexive-closure-of-a-relation}}%
+    Clear.
+\end{Proof}
+\begin{proposition}{Properties of the Reflexive Closure of a Relation}{properties-of-the-reflexive-closure-of-a-relation}%
+    Let $R$ be a relation on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-the-reflexive-closure-of-a-relation-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#(-)^{\rmrefl}#\Wasureru#\eRel(A,A)#\eRel^{\refl}(A,A),#
+            \end{webcompile}
+            witnessed by a bijection of sets%
+            \[
+                \eRel^{\refl}(R^{\rmrefl},S)
+                \cong
+                \eRel(R,S),
+            \]%
+            natural in $R\in\Obj(\eRel^{\refl}(A,A))$ and $S\in\Obj(\eRel(A,A))$.
+        \item\label{properties-of-the-reflexive-closure-of-a-relation-the-reflexive-closure-of-a-reflexive-relation}\SloganFont{The Reflexive Closure of a Reflexive Relation. }If $R$ is reflexive, then $R^{\rmrefl}=R$.
+        \item\label{properties-of-the-reflexive-closure-of-a-relation-idempotency}\SloganFont{Idempotency. }We have
+            \[
+                (R^{\rmrefl})^{\rmrefl}
+                =
+                R^{\rmrefl}.
+            \]%
+        \item\label{properties-of-the-reflexive-closure-of-a-relation-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+            \begin{webcompile}
+                \Big(R^{\dagger}\Big)^{\rmrefl}%
+                =%
+                \Big(R^{\rmrefl}\Big)^{\dagger},%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmrefl}}"]
+                    \arrow[d,"{(-)^{\dagger}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\dagger}}"]
+                    \\
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmrefl}}"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-the-reflexive-closure-of-a-relation-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \begin{webcompile}
+                (S\procirc R)^{\rmrefl}%
+                =%
+                S^{\rmrefl}\procirc R^{\rmrefl},%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"]
+                    \arrow[d,"{(-)^{\rmrefl}}\times{(-)^{\rmrefl}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\rmrefl}}"]
+                    \\
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        %\item\label{properties-of-the-reflexive-closure-of-a-relation-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-reflexive-closure-of-a-relation}}%
+    \FirstProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-adjointness}: Adjointness}%
+    This is a rephrasing of the universal property of the reflexive closure of a relation, stated in \cref{the-reflexive-closure-of-a-relation}.
+
+    \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-the-reflexive-closure-of-a-reflexive-relation}: The Reflexive Closure of a Reflexive Relation}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-idempotency}: Idempotency}%
+    This follows from \cref{properties-of-the-reflexive-closure-of-a-relation-the-reflexive-closure-of-a-reflexive-relation}.
+
+    \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-interaction-with-inverses}: Interaction With Inverses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
+    This follows from \cref{properties-of-reflexive-relations-interaction-with-composition} of \cref{properties-of-reflexive-relations}.
+\end{Proof}
+\section{Symmetric Relations}\label{section-symmetric-relations}
+\subsection{Foundations}\label{subsection-symmetric-relations-foundations}
+Let $A$ be a set.
+\begin{definition}{Symmetric Relations}{symmetric-relations}%
+    A relation $R$ on $A$ is \index[set-theory]{relation!symmetric}\textbf{symmetric} if we have $R^{\dagger}=R$.
+\end{definition}
+\begin{remark}{Unwinding \cref{symmetric-relations}}{unwinding-symmetric-relations}%
+    In detail, a relation $R$ is symmetric if it satisfies the following condition:
+    \begin{itemize}
+        \item[$(\star)$]For each $a,b\in A$, if $a\sim_{R}b$, then $b\sim_{R}a$.
+    \end{itemize}
+\end{remark}
+\begin{definition}{The Po/Set of Symmetric Relations on a Set}{the-po-set-of-symmetric-relations-on-a-set}%
+    Let $A$ be a set.
+    \begin{enumerate}
+        \item\label{the-po-set-of-symmetric-relations-on-a-set-1}The \index[set-theory]{relation!symmetric, set of}\textbf{set of symmetric relations on $A$} is the subset \index[notation]{RelsymmA@$\Rel^{\rmsymm}(A,A)$}$\smash{\Rel^{\rmsymm}(A,A)}$ of $\Rel(A,A)$ spanned by the symmetric relations.
+        \item\label{the-po-set-of-symmetric-relations-on-a-set-2}The \index[set-theory]{relation!poset of}\textbf{poset of relations on $A$} is is the subposet \index[notation]{RelsymmA@$\eRel^{\symm}(A,A)$}$\smash{\eRel^{\symm}(A,A)}$ of $\eRel(A,A)$ spanned by the symmetric relations.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Symmetric Relations}{properties-of-symmetric-relations}%
+    Let $R$ and $S$ be relations on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-symmetric-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }If $R$ is symmetric, then so is $R^{\dagger}$.
+        \item\label{properties-of-symmetric-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }If $R$ and $S$ are symmetric, then so is $S\procirc R$.
+        %\item\label{properties-of-symmetric-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-symmetric-relations}}%
+    \FirstProofBox{\cref{properties-of-symmetric-relations-interaction-with-inverses}: Interaction With Inverses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-symmetric-relations-interaction-with-composition}: Interaction With Composition}%
+    Clear.
+\end{Proof}
+\subsection{The Symmetric Closure of a Relation}\label{subsection-symmetric-relations-the-symmetric-closure-of-a-relation}
+Let $R$ be a relation on $A$.
+\begin{definition}{The Symmetric Closure of a Relation}{the-symmetric-closure-of-a-relation}%
+    The \index[set-theory]{relation!symmetric closure of}\textbf{symmetric closure} of $\unsim_{R}$ is the relation \index[notation]{simsymmR@$\unsim^{\rmsymm}_{R}$}$\smash{\unsim^{\rmsymm}_{R}}$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{Rsymm@$R^{\rmsymm}$}$R^{\rmsymm}$.
+    } %
+    %---  End Footnote  ---%
+    satisfying the following universal property:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Slogan: }The symmetric closure of $R$ is the smallest symmetric relation containing $R$.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+
+    \begin{itemize}
+        \item[$(\star)$]Given another symmetric relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmsymm}_{R}}\subset\unsim_{S}$.
+    \end{itemize}
+\end{definition}
+\begin{construction}{The Symmetric Closure of a Relation}{construction-of-the-symmetric-closure-of-a-relation}%
+    Concretely, $\smash{\unsim^{\rmsymm}_{R}}$ is the symmetric relation on $A$ defined by
+    \begin{align*}
+        R^{\rmsymm} &\defeq R\cup R^{\dagger}\\%
+                    &=      \{(a,b)\in A\times A\ \middle|\ \text{we have $a\sim_{R}b$ or $b\sim_{R}a$}\}.%
+    \end{align*}
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-symmetric-closure-of-a-relation}}%
+    Clear.
+\end{Proof}
+\begin{proposition}{Properties of the Symmetric Closure of a Relation}{properties-of-the-symmetric-closure-of-a-relation}%
+    Let $R$ be a relation on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-the-symmetric-closure-of-a-relation-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#(-)^{\rmsymm}#\Wasureru#\eRel(A,A)#\eRel^{\symm}(A,A),#
+            \end{webcompile}
+            witnessed by a bijection of sets%
+            \[
+                \eRel^{\symm}(R^{\rmsymm},S)
+                \cong
+                \eRel(R,S),
+            \]%
+            natural in $R\in\Obj(\eRel^{\symm}(A,A))$ and $S\in\Obj(\eRel(A,A))$.
+        \item\label{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation}\SloganFont{The Symmetric Closure of a Symmetric Relation. }If $R$ is symmetric, then $R^{\rmsymm}=R$.
+        \item\label{properties-of-the-symmetric-closure-of-a-relation-idempotency}\SloganFont{Idempotency. }We have
+            \[
+                (R^{\rmsymm})^{\rmsymm}
+                =
+                R^{\rmsymm}.
+            \]%
+        \item\label{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+            \begin{webcompile}%
+                \Big(R^{\dagger}\Big)^{\rmsymm}%
+                =%
+                \Big(R^{\rmsymm}\Big)^{\dagger},%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmsymm}}"]
+                    \arrow[d,"{(-)^{\dagger}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\dagger}}"]
+                    \\
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmsymm}}"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-the-symmetric-closure-of-a-relation-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \begin{webcompile}
+                (S\procirc R)^{\rmsymm}%
+                =%
+                S^{\rmsymm}\procirc R^{\rmsymm},%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"]
+                    \arrow[d,"{(-)^{\rmsymm}}\times{(-)^{\rmsymm}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\rmsymm}}"]
+                    \\
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        %\item\label{properties-of-the-symmetric-closure-of-a-relation-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-symmetric-closure-of-a-relation}}%
+    \FirstProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-adjointness}: Adjointness}%
+    This is a rephrasing of the universal property of the symmetric closure of a relation, stated in \cref{the-symmetric-closure-of-a-relation}.
+
+    \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation}: The Symmetric Closure of a Symmetric Relation}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-idempotency}: Idempotency}%
+    This follows from \cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation}.
+
+    \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses}: Interaction With Inverses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
+    This follows from \cref{properties-of-symmetric-relations-interaction-with-composition} of \cref{properties-of-symmetric-relations}.
+\end{Proof}
+\section{Transitive Relations}\label{section-transitive-relations}
+\subsection{Foundations}\label{subsection-transitive-relations-foundations}
+Let $A$ be a set.
+\begin{definition}{Transitive Relations}{transitive-relations}%
+    A \index[set-theory]{relation!transitive}\textbf{transitive relation} is equivalently:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that since $\eRel(A,A)$ is posetal, transitivity is a property of a relation, rather than extra structure.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item A non-unital $\E_{1}$-monoid in $(\NerveB(\eRel(A,A)),\procirc)$.
+        \item A non-unital monoid          in $(\eRel(A,A),\procirc)$.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{transitive-relations}}{unwinding-transitive-relations}%
+    In detail, a relation $R$ on $A$ is \textbf{transitive} if we have an inclusion
+    \[
+        \mu_{R}%
+        \colon%
+        R\procirc R%
+        \subset%
+        R%
+    \]%
+    of relations in $\eRel(A,A)$, i.e.\ if, for each $a,c\in A$, the following condition is satisfied:
+    \begin{itemize}
+        \item[$(\star)$]If there exists some $b\in A$ such that $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
+    \end{itemize}
+\end{remark}
+\begin{definition}{The Po/Set of Transitive Relations on a Set}{the-po-set-of-transitive-relations-on-a-set}%
+    Let $A$ be a set.
+    \begin{enumerate}
+        \item\label{the-po-set-of-transitive-relations-on-a-set-1}The \index[set-theory]{relation!transitive, set of}\textbf{set of transitive relations from $A$ to $B$} is the subset \index[notation]{ReltransA@$\Rel^{\rmtrans}(A)$}$\smash{\Rel^{\rmtrans}(A)}$ of $\Rel(A,A)$ spanned by the transitive relations.
+        \item\label{the-po-set-of-transitive-relations-on-a-set-2}The \index[set-theory]{relation!poset of}\textbf{poset of relations from $A$ to $B$} is is the subposet \index[notation]{ReltransA@$\eRel^{\trans}(A)$}$\smash{\eRel^{\trans}(A)}$ of $\eRel(A,A)$ spanned by the transitive relations.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Transitive Relations}{properties-of-transitive-relations}%
+    Let $R$ and $S$ be relations on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-transitive-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }If $R$ is transitive, then so is $R^{\dagger}$.
+        \item\label{properties-of-transitive-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }If $R$ and $S$ are transitive, then $S\procirc R$ \demph{may fail to be transitive}.
+        %\item\label{properties-of-transitive-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-transitive-relations}}%
+    \FirstProofBox{\cref{properties-of-transitive-relations-interaction-with-inverses}: Interaction With Inverses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-transitive-relations-interaction-with-composition}: Interaction With Composition}%
+    See \cite{MSE2096272}.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Intuition: }Transitivity for $R$ and $S$ fails to imply that of $S\procirc R$ because the composition operation for relations intertwines $R$ and $S$ in an incompatible way:
+        \begin{enumerate}
+            \item If $a\sim_{S\procirc R}c$ and $c\sim_{S\procirc r}e$, then:
+                \begin{enumerate}
+                    \item There is some $b\in A$ such that:
+                        \begin{enumerate}
+                            \item $a\sim_{R}b$;
+                            \item $b\sim_{S}c$;
+                        \end{enumerate}
+                    \item There is some $d\in A$ such that:
+                        \begin{enumerate}
+                            \item $c\sim_{R}d$;
+                            \item $d\sim_{S}e$.
+                        \end{enumerate}
+                \end{enumerate}
+        \end{enumerate}
+        \par\vspace*{-2.25\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{Proof}
+\subsection{The Transitive Closure of a Relation}\label{subsection-transitive-relations-the-transitive-closure-of-a-relation}
+Let $R$ be a relation on $A$.
+\begin{definition}{The Transitive Closure of a Relation}{the-transitive-closure-of-a-relation}%
+    The \index[set-theory]{relation!transitive closure of}\textbf{transitive closure} of $\unsim_{R}$ is the relation \index[notation]{simtransR@$\unsim^{\rmtrans}_{R}$}$\smash{\unsim^{\rmtrans}_{R}}$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{Rtrans@$R^{\rmtrans}$}$R^{\rmtrans}$.
+    } %
+    %---  End Footnote  ---%
+    satisfying the following universal property:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Slogan: }The transitive closure of $R$ is the smallest transitive relation containing $R$.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item[$(\star)$]Given another transitive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmtrans}_{R}}\subset\unsim_{S}$.
+    \end{itemize}
+\end{definition}
+\begin{construction}{The Transitive Closure of a Relation}{construction-of-the-transitive-closure-of-a-relation}%
+    Concretely, $\smash{\unsim^{\rmtrans}_{R}}$ is the free non-unital monoid on $R$ in $(\eRel(A,A),\procirc)$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Or, equivalently, the free non-unital $\E_{1}$-monoid on $R$ in $(\NerveB(\eRel(A,A)),\procirc)$.
+        \par\vspace*{-1.75\baselineskip}
+    }, %
+    %---  End Footnote  ---%
+    being given by
+    \begin{align*}
+        R^{\rmtrans} &\defeq \coprod_{n=1}^{\infty}R^{\procirc n}\\%
+                     &\defeq \bigcup_{n=1}^{\infty}R^{\procirc n}\\%
+                     &\defeq \{
+                                 (a,b)\in A\times B%
+                                 \ \middle|\ %
+                                 \begin{aligned}
+                                     &\text{there exists some $(x_{1},\ldots,x_{n})\in R^{\times n}$}\\
+                                     &\text{such that $a\sim_{R}x_{1}\sim_{R}\cdots\sim_{R}x_{n}\sim_{R}b$}%
+                                 \end{aligned}
+                             \}.%
+    \end{align*}
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-transitive-closure-of-a-relation}}%
+    Clear.
+\end{Proof}
+\begin{proposition}{Properties of the Transitive Closure of a Relation}{properties-of-the-transitive-closure-of-a-relation}%
+    Let $R$ be a relation on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-the-transitive-closure-of-a-relation-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#(-)^{\rmtrans}#\Wasureru#\eRel(A,A)#\eRel^{\trans}(A,A),#
+            \end{webcompile}
+            witnessed by a bijection of sets%
+            \[
+                \eRel^{\trans}(R^{\rmtrans},S)
+                \cong
+                \eRel(R,S),
+            \]%
+            natural in $R\in\Obj(\eRel^{\trans}(A,A))$ and $S\in\Obj(\eRel(A,B))$.
+        \item\label{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation}\SloganFont{The Transitive Closure of a Transitive Relation. }If $R$ is transitive, then $R^{\rmtrans}=R$.
+        \item\label{properties-of-the-transitive-closure-of-a-relation-idempotency}\SloganFont{Idempotency. }We have
+            \[
+                (R^{\rmtrans})^{\rmtrans}
+                =
+                R^{\rmtrans}.
+            \]%
+        \item\label{properties-of-the-transitive-closure-of-a-relation-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+            \begin{webcompile}
+                \Big(R^{\dagger}\Big)^{\rmtrans}%
+                =%
+                \Big(R^{\rmtrans}\Big)^{\dagger},%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmtrans}}"]
+                    \arrow[d,"{(-)^{\dagger}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\dagger}}"]
+                    \\
+                    \Rel(A,A)
+                    \arrow[r,"{(-)^{\rmtrans}}"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-the-transitive-closure-of-a-relation-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \begin{webcompile}
+                (S\procirc R)^{\rmtrans}%
+                \nneq%
+                S^{\rmtrans}\procirc R^{\rmtrans},%%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"]
+                    \arrow[d,"{(-)^{\rmtrans}}\times{(-)^{\rmtrans}}"']
+                    \&
+                    \Rel(A,A)
+                    \arrow[d,"{(-)^{\rmtrans}}"]
+                    \\
+                    \Rel(A,A)\times\Rel(A,A)
+                    \arrow[r,"\procirc"']
+                    \&
+                    \Rel(A,A)\mrp{.}
+                    % Symbols
+                    \arrow[from=2-2,to=1-2,"{\ncomm}"description,phantom,shorten=0.5*\the\DL,Rightarrow,xshift=-4.5*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+        %\item\label{properties-of-the-transitive-closure-of-a-relation-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-transitive-closure-of-a-relation}}%
+    \FirstProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-adjointness}: Adjointness}%
+    This is a rephrasing of the universal property of the transitive closure of a relation, stated in \cref{the-transitive-closure-of-a-relation}.
+
+    \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation}: The Transitive Closure of a Transitive Relation}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-idempotency}: Idempotency}%
+    This follows from \cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation}.
+
+    \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-interaction-with-inverses}: Interaction With Inverses}%
+    We have
+    \begin{align*}
+        (R^{\dagger})^{\rmtrans} &= \bigcup_{n=1}^{\infty}(R^{\dagger})^{\procirc n}\\
+                                 &= \bigcup_{n=1}^{\infty}(R^{\procirc n})^{\dagger}\\
+                                 &= (\bigcup_{n=1}^{\infty}R^{\procirc n})^{\dagger}\\
+                                 &= (R^{\rmtrans})^{\dagger},
+    \end{align*}
+    where we have used, respectively:
+    \begin{enumerate}
+        \item \cref{construction-of-the-transitive-closure-of-a-relation}.
+        \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-interaction-with-inverses} of \cref{properties-of-composition-of-relations}}.
+        \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-unions-of-families-of-relations}}{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-unions-of-families-of-relations}}.
+        \item \cref{construction-of-the-transitive-closure-of-a-relation}.
+    \end{enumerate}
+
+    \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
+    This follows from \cref{properties-of-transitive-relations-interaction-with-composition} of \cref{properties-of-transitive-relations}.
+\end{Proof}
+\section{Equivalence Relations}\label{section-equivalence-relations}
+\subsection{Foundations}\label{subsection-equivalence-relations-foundations}
+Let $A$ be a set.
+\begin{definition}{Equivalence Relations}{equivalence-relations}%
+    A relation $R$ is an \index[set-theory]{relation!equivalence relation}\textbf{equivalence relation} if it is reflexive, symmetric, and transitive.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }If instead $R$ is just symmetric and transitive, then it is called a \index[set-theory]{relation!partial equivalence relation}\textbf{partial equivalence relation}.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\begin{example}{The Kernel of a Function}{the-kernel-of-a-function}%
+    The \index[set-theory]{equivalence relation!kernel}\index[set-theory]{function!kernel of}\textbf{kernel of a function $f\colon A\to B$} is the equivalence relation $\unsim_{\Ker(f)}$ on $A$ obtained by declaring $a\sim_{\Ker(f)}b$ \textiff $f(a)=f(b)$.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        The kernel $\Ker(f)\colon A\rightproarrow A$ of $f$ is the underlying functor of the monad induced by the adjunction $\Gr(f)\dashv f^{-1}\colon A\rightleftadjointarrows B$ in $\sfbfRel$ of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{example}
+\begin{definition}{The Po/Set of Equivalence Relations on a Set}{the-po-set-of-equivalence-relations-on-a-set}%
+    Let $A$ and $B$ be sets.
+    \begin{enumerate}
+        \item\label{the-po-set-of-equivalence-relations-on-a-set-1}The \index[set-theory]{relation!equivalence, set of}\textbf{set of equivalence relations from $A$ to $B$} is the subset \index[notation]{ReleqAB@$\Rel^{\rmeq}(A,B)$}$\smash{\Rel^{\rmeq}(A,B)}$ of $\Rel(A,B)$ spanned by the equivalence relations.
+        \item\label{the-po-set-of-equivalence-relations-on-a-set-2}The \index[set-theory]{relation!poset of}\textbf{poset of relations from $A$ to $B$} is is the subposet \index[notation]{ReleqAB@$\eRel^{\eq}(A,B)$}$\smash{\eRel^{\eq}(A,B)}$ of $\eRel(A,B)$ spanned by the equivalence relations.
+    \end{enumerate}
+\end{definition}
+\subsection{The Equivalence Closure of a Relation}\label{subsection-equivalence-relations-the-equivalence-closure-of-a-relation}
+Let $R$ be a relation on $A$.
+\begin{definition}{The Equivalence Closure of a Relation}{the-equivalence-closure-of-a-relation}%
+    The \index[set-theory]{relation!equivalence closure of}\textbf{equivalence closure}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{equivalence relation associated to $\unsim_{R}$}.
+    } %
+    %---  End Footnote  ---%
+    of $\unsim_{R}$ is the relation \index[notation]{simtransR@$\unsim^{\rmeq}_{R}$}$\smash{\unsim^{\rmeq}_{R}}$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{Req@$R^{\eq}$}$R^{\eq}$.
+    } %
+    %---  End Footnote  ---%
+    satisfying the following universal property:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Slogan: }The equivalence closure of $R$ is the smallest equivalence relation containing $R$.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item[$(\star)$]Given another equivalence relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmeq}_{R}}\subset\unsim_{S}$.
+    \end{itemize}
+\end{definition}
+\begin{construction}{The Equivalence Closure of a Relation}{construction-of-the-equivalence-closure-of-a-relation}%
+    Concretely, $\smash{\unsim^{\rmeq}_{R}}$ is the equivalence relation on $A$ defined by
+    \begin{align*}
+        R^{\rmeq} &\defeq ((R^{\rmrefl})^{\rmsymm})^{\rmtrans}\\%
+                  &=      ((R^{\rmsymm})^{\rmtrans})^{\rmrefl}\\%
+                  &=      \{
+                               (a,b)\in A\times B%
+                               \ \middle|\ %
+                               \begin{aligned}
+                                   &\text{there exists $(x_{1},\ldots,x_{n})\in R^{\times n}$ satisfying at}\\[-2.5pt]
+                                   &\text{least one of the following conditions:}\\[7.5pt]
+                                   &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{The following conditions are satisfied:}\\[7.5pt]%
+                                   &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $a\sim_{R}x_{1}$       or $x_{1}\sim_{R}a$;}\\
+                                   &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $x_{i}\sim_{R}x_{i+1}$ or $x_{i+1}\sim_{R}x_{i}$}\\[-2.5pt]
+                                   &\mspace{81.25mu}\text{for each $1\leq i\leq n-1$;}\\
+                                   &\mspace{50mu}\rlap{\text{\norg(c\norg)}}\mspace{30mu}\text{We have $b\sim_{R}x_{n}$       or $x_{n}\sim_{R}b$;}\\[7.5pt]%
+                                   &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{We have $a=b$.}%
+                               \end{aligned}
+                           \}.%
+    \end{align*}
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-equivalence-closure-of-a-relation}}%
+    From the universal properties of the reflexive, symmetric, and transitive closures of a relation (\cref{the-reflexive-closure-of-a-relation,the-symmetric-closure-of-a-relation,the-transitive-closure-of-a-relation}), we see that it suffices to prove that:%
+    \begin{enumerate}
+        \item\label{proof-of-construction-of-the-equivalence-closure-of-a-relation-item-1}The symmetric  closure of a reflexive relation is still reflexive.
+        \item\label{proof-of-construction-of-the-equivalence-closure-of-a-relation-item-2}The transitive closure of a symmetric relation is still symmetric.
+    \end{enumerate}
+    which are both clear.
+\end{Proof}
+\begin{proposition}{Properties of Equivalence Relations}{properties-of-equivalence-relations}%
+    Let $R$ be a relation on $A$.
+    \begin{enumerate}
+        \item\label{properties-of-equivalence-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#(-)^{\rmeq}#\Wasureru#\eRel(A,B)#\eRel^{\eq}(A,B),#
+            \end{webcompile}
+            witnessed by a bijection of sets%
+            \[
+                \eRel^{\eq}(R^{\rmeq},S)
+                \cong
+                \eRel(R,S),
+            \]%
+            natural in $R\in\Obj(\eRel^{\eq}(A,B))$ and $S\in\Obj(\eRel(A,B))$.
+        \item\label{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}\SloganFont{The Equivalence Closure of an Equivalence Relation. }If $R$ is an equivalence relation, then $R^{\rmeq}=R$.
+        \item\label{properties-of-equivalence-relations-idempotency}\SloganFont{Idempotency. }We have
+            \[
+                (R^{\rmeq})^{\rmeq}
+                =
+                R^{\rmeq}.
+            \]%
+        %\item\label{properties-of-equivalence-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-equivalence-relations}}%
+    \FirstProofBox{\cref{properties-of-equivalence-relations-adjointness}: Adjointness}%
+    This is a rephrasing of the universal property of the equivalence closure of a relation, stated in \cref{the-equivalence-closure-of-a-relation}.
+
+    \ProofBox{\cref{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}: The Equivalence Closure of an Equivalence Relation}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-equivalence-relations-idempotency}: Idempotency}%
+    This follows from \cref{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}.
+\end{Proof}
+\section{Quotients by Equivalence Relations}\label{section-quotients-by-equivalence-relations}
+\subsection{Equivalence Classes}\label{subsection-quotients-by-equivalence-relations-equivalence-classes}
+Let $A$ be a set, let $R$ be a relation on $A$, and let $a\in A$.
+\begin{definition}{Equivalence Classes}{equivalence-classes}%
+    The \index[set-theory]{equivalence class}\textbf{equivalence class associated to $a$} is the set \index[notation]{a@$[a]$}$[a]$ defined by%
+    \begin{align*}
+        [a] &\defeq \{x\in X\ \middle|\ x\sim_{R}a\}\\%
+            &=      \{x\in X\ \middle|\ a\sim_{R}x\}\tag{since $R$ is symmetric}.%
+    \end{align*}
+\end{definition}
+\subsection{Quotients of Sets by Equivalence Relations}\label{subsection-quotients-by-equivalence-relations-quotients-of-sets-by-equivalence-relations}
+Let $A$ be a set and let $R$ be a relation on $A$.
+\begin{definition}{Quotients of Sets by Equivalence Relations}{quotients-of-sets-by-equivalence-relations}%
+    The \index[set-theory]{quotient!by an equivalence relation}\textbf{quotient of $X$ by $R$} is the set \index[notation]{XmodR@$X/\unsim_{R}$}$X/\unsim_{R}$ defined by%
+    \[
+        X/\unsim_{R}%
+        \defeq%
+        \{%
+            [a]\in\mathcal{P}(X)%
+            \ \middle|\ %
+            a\in X%
+        \}.%
+    \]%
+\end{definition}
+\begin{remark}{Why Use ``Equivalence'' Relations for Quotient Sets}{why-use-equivalence-relations-for-quotient-sets}%
+    The reason we define quotient sets for equivalence relations only is that each of the properties of being an equivalence relation---reflexivity, symmetry, and transitivity---ensures that the equivalences classes $[a]$ of $X$ under $R$ are well-behaved:
+    \begin{itemize}
+        \item\SloganFont{Reflexivity. }If $R$ is reflexive, then, for each $a\in X$, we have $a\in[a]$.
+        \item\SloganFont{Symmetry. }The equivalence class $[a]$ of an element $a$ of $X$ is defined by
+            \[
+                [a]%
+                \defeq%
+                \{x\in X\ \middle|\ x\sim_{R}a\},%
+            \]%
+            but we could equally well define
+            \[
+                [a]'%
+                \defeq%
+                \{x\in X\ \middle|\ a\sim_{R}x\}%
+            \]%
+            instead. This is not a problem when $R$ is symmetric, as we then have $[a]=[a]'$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                When categorifying equivalence relations, one finds that $[a]$ and $[a]'$ correspond to presheaves and copresheaves; see \ChapterRef{\ChapterConstructionsWithCategories, \cref{constructions-with-categories:equivalence-classes-of-objects-by-profunctors}}{\cref{equivalence-classes-of-objects-by-profunctors}}.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+        \item\SloganFont{Transitivity. }If $R$ is transitive, then $[a]$ and $[b]$ are disjoint \textiff $a\nsim_{R}b$, and equal otherwise.
+    \end{itemize}
+\end{remark}
+\begin{proposition}{Properties of Quotient Sets}{properties-of-quotient-sets}%
+    Let $f\colon X\to Y$ be a function and let $R$ be a relation on $X$.
+    \begin{enumerate}
+        \item\label{properties-of-quotient-sets-as-a-coequaliser}\SloganFont{As a Coequaliser. }We have an isomorphism of sets%
+            \[
+                X/\unsim^{\rmeq}_{R}%
+                \cong
+                \CoEq(R\hookrightarrow X\times X\xrightrightarrows{\pr_{1}}{\pr_{2}}X),%
+            \]%
+            where $\unsim^{\rmeq}_{R}$ is the equivalence relation generated by $\unsim_{R}$.
+        \item\label{properties-of-quotient-sets-as-a-pushout}\SloganFont{As a Pushout. }We have an isomorphism of sets%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Dually, we also have an isomorphism of sets
+                \begin{webcompile}
+                    \Eq(\pr_{1},\pr_{2})%
+                    \cong
+                    X\times_{X/\unsim^{\rmeq}_{R}}X,%
+                    \quad
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        \Eq(\pr_{1},\pr_{2})%
+                        \arrow[r]
+                        \arrow[d]
+                        \arrow[rd,very near start,phantom,"\lrcorner"]
+                        \&
+                        X
+                        \arrow[d]
+                        \\
+                        X
+                        \arrow[r]
+                        \&
+                        X/\unsim^{\rmeq}_{R}\mrp{.}
+                    \end{tikzcd}
+                \end{webcompile}
+                \par\vspace*{-0.5\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \begin{webcompile}
+                X/\unsim^{\rmeq}_{R}%
+                \cong
+                X\ipushout{\Eq(\pr_{1},\pr_{2})}X,%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X/\unsim^{\rmeq}_{R}
+                    \arrow[from=r]
+                    \arrow[from=d]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    X
+                    \arrow[from=d]
+                    \\
+                    X
+                    \arrow[from=r]
+                    \&
+                    \Eq(\pr_{1},\pr_{2})\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            where $\unsim^{\rmeq}_{R}$ is the equivalence relation generated by $\unsim_{R}$.
+        \item\label{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets}\SloganFont{The First Isomorphism Theorem for Sets. }We have an isomorphism of sets%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }The set $X/\unsim_{\Ker(f)}$ is often called the \index[set-theory]{coimage}\index[set-theory]{function!coimage of}\textbf{coimage of $f$}, and denoted by \index[notation]{Coimf@$\Coim(f)$}$\Coim(f)$.
+            }%
+            %---  End Footnote  ---%
+            %--- Begin Footnote ---%
+            \footnote{%
+                In a sense this is a result relating the monad in $\sfbfRel$ induced by $f$ with the comonad in $\sfbfRel$ induced by $f$, as the kernel and image
+                \begin{gather*}
+                    \Ker(f)\colon X\rightproarrow X,\\
+                    \Im(f)\subset Y
+                \end{gather*}
+                of $f$ are the underlying functors of (respectively) the induced monad and comonad of the adjunction
+                \begin{webcompile}
+                    \RelAdjunctionShortSize#4.0#\Gr(f)#f^{-1}#A#B#
+                \end{webcompile}
+                of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}.
+            }%
+            %---  End Footnote  ---%
+            \[
+                X/\unsim_{\Ker(f)}
+                \cong
+                \Im(f).
+            \]%
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-1}\SloganFont{Descending Functions to Quotient Sets, \rmI. }Let $R$ be an equivalence relation on $X$. The following conditions are equivalent:
+            \begin{enumerate}
+                \item There exists a map
+                    \[
+                        \widebar{f}%
+                        \colon%
+                        X/\unsim_{R}%
+                        \to%
+                        Y%
+                    \]%
+                    making the diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            X
+                            \arrow[r,"f"]
+                            \arrow[d,two heads,"q"']
+                            \&
+                            Y
+                            \\
+                            X/\unsim_{R}
+                            \arrow[ru,"\widebar{f}"',"\exists",dotted]
+                            \&
+                        \end{tikzcd}
+                    \]%
+                    commute.
+                \item We have $R\subset\Ker(f)$.
+                \item For each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$.
+            \end{enumerate}
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-2}\SloganFont{Descending Functions to Quotient Sets, \rmII. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then $\widebar{f}$ is the \emph{unique} map making the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f"]
+                    \arrow[d,two heads,"q"']
+                    \&
+                    Y
+                    \\
+                    X/\unsim_{R}
+                    \arrow[ru,"\widebar{f}"',"\exists!",dashed]
+                    \&
+                \end{tikzcd}
+            \]%
+            commute.
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-3}\SloganFont{Descending Functions to Quotient Sets, \rmIII. }Let $R$ be an equivalence relation on $X$. We have a bijection
+            \[
+                \Hom_{\Sets}(X/\unsim_{R},Y)%
+                \cong%
+                \Hom^{R}_{\Sets}(X,Y),%
+            \]%
+            natural in $X,Y\in\Obj(\Sets)$, given by the assignment $f\mapsto\widebar{f}$ of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2}, where $\Hom^{R}_{\Sets}(X,Y)$ is the set defined by
+            \[
+                \Hom^{R}_{\Sets}(X,Y)%
+                \defeq%
+                \{%
+                    f\in\Hom_{\Sets}(X,Y)%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $x,y\in X$,}\\
+                        &\text{if $x\sim_{R}y$, then}\\
+                        &\text{$f(x)=f(y)$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-4}\SloganFont{Descending Functions to Quotient Sets, \rmIV. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then the following conditions are equivalent:
+            \begin{enumerate}
+                \item The map $\widebar{f}$ is an injection.
+                \item We have $R=\Ker(f)$.
+                \item For each $x,y\in X$, we have $x\sim_{R}y$ \textiff $f(x)=f(y)$.
+            \end{enumerate}
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5}\SloganFont{Descending Functions to Quotient Sets, \rmV. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then the following conditions are equivalent:
+            \begin{enumerate}
+                \item The map $f\colon X\to Y$ is surjective.
+                \item The map $\widebar{f}\colon X/\unsim_{R}\to Y$ is surjective.
+            \end{enumerate}
+        \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-6}\SloganFont{Descending Functions to Quotient Sets, \rmVI. }Let $R$ be a relation on $X$ and let $\unsim^{\rmeq}_{R}$ be the equivalence relation associated to $R$. The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-a}The map $f$ satisfies the equivalent conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1}:
+                    \begin{itemize}
+                        \item There exists a map
+                            \[
+                                \widebar{f}%
+                                \colon%
+                                X/\unsim^{\rmeq}_{R}%
+                                \to%
+                                Y%
+                            \]%
+                            making the diagram
+                            \[
+                                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                                    X
+                                    \arrow[r,"f"]
+                                    \arrow[d,two heads,"q"']
+                                    \&
+                                    Y
+                                    \\
+                                    X/\unsim^{\rmeq}_{R}
+                                    \arrow[ru,"\widebar{f}"',"\exists",dotted]
+                                    \&
+                                \end{tikzcd}
+                            \]%
+                            commute.
+                        \item For each $x,y\in X$, if $x\sim^{\rmeq}_{R}y$, then $f(x)=f(y)$.
+                    \end{itemize}
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-b}For each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-quotient-sets}}%
+    \FirstProofBox{\cref{properties-of-quotient-sets-as-a-coequaliser}: As a Coequaliser}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-quotient-sets-as-a-pushout}: As a Pushout}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets}: The First Isomorphism Theorem for Sets}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1}: Descending Functions to Quotient Sets, \rmI}%
+    See \cite{proof-wiki:condition-for-mapping-from-quotient-set-to-be-well-defined}.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-2}: Descending Functions to Quotient Sets, \rmII}%
+    See \cite{proof-wiki:mapping-from-quotient-set-when-defined-is-unique}.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-3}: Descending Functions to Quotient Sets, \rmIII}%
+    This follows from \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-2,properties-of-quotient-sets-descending-functions-to-quotient-sets-3}.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-4}: Descending Functions to Quotient Sets, \rmIV}%
+    See \cite{proof-wiki:condition-for-mapping-from-quotient-set-to-be-an-injection}.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-5}: Descending Functions to Quotient Sets, \rmV}%
+    See \cite{proof-wiki:condition-for-mapping-from-quotient-set-to-be-a-surjection}.
+
+    \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-6}: Descending Functions to Quotient Sets, \rmVI}%
+    The implication \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-a}$\implies$\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-b} is clear.
+
+    Conversely, suppose that, for each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$. Spelling out the definition of the equivalence closure of $R$, we see that the condition $x\sim^{\rmeq}_{R}y$ unwinds to the following:
+    \begin{itemize}
+        \item[$(\star)$]There exist $(x_{1},\ldots,x_{n})\in R^{\times n}$ satisfying at least one of the following conditions:%
+            \begin{enumerate}%
+                \item The following conditions are satisfied:
+                    \begin{enumerate}
+                        \item We have $x\sim_{R}x_{1}$       or $x_{1}\sim_{R}x$;
+                        \item We have $x_{i}\sim_{R}x_{i+1}$ or $x_{i+1}\sim_{R}x_{i}$ for each $1\leq i\leq n-1$;
+                        \item We have $y\sim_{R}x_{n}$       or $x_{n}\sim_{R}y$;
+                    \end{enumerate}
+                \item We have $x=y$.%
+            \end{enumerate}%
+    \end{itemize}
+    Now, if $x=y$, then $f(x)=f(y)$ trivially; otherwise, we have
+    \begin{align*}
+        f(x)       &= f(x_{1}),\\
+        f(x_{1})   &= f(x_{2}),\\
+                   &\vdots     \\
+        f(x_{n-1}) &= f(x_{n}),\\
+        f(x_{n})   &= f(y),
+    \end{align*}
+    and $f(x)=f(y)$, as we wanted to show.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

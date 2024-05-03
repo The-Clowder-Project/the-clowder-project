@@ -1,0 +1,23 @@
+\usepackage[cal=cm]{mathalfa}
+\usepackage{fontspec}
+\SetTracking{encoding=*, shape=sc}{-5}
+\newfontfamily\JapaneseFont[Scale=1.0]{Tazugane Info StdN Light}
+\newcommand{\Japanese}[1]{{\text{\JapaneseFont{#1}}}}
+\newfontfamily\SimplifiedChineseFont[Path=ABSOLUTEPATH/fonts/chinese/,Scale=1.0]{NotoSansSC-Regular.ttf}
+\newcommand{\SimplifiedChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
+\newfontfamily\TraditionalChineseFont[Path=ABSOLUTEPATH/fonts/chinese/,Scale=1.0]{NotoSansTC-Regular.ttf}
+\newcommand{\TraditionalChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
+\newcommand{\FontForCategories}[1]{\mathsf{#1}}
+\newcommand{\FontForEnrichedCategories}[1]{\textup{\textsf{\textbf{#1}}}}
+\DeclareMathAlphabet{\dutchcal}{U}{dutchcal}{m}{n}
+\SetMathAlphabet{\dutchcal}{bold}{U}{dutchcal}{b}{n}
+\DeclareMathAlphabet{\CatFont}{U}{tx-cal}{m}{n}
+\SetMathAlphabet{\CatFont}{bold}{U}{tx-cal}{b}{n}
+\newcommand{\SheafFont}[1]{\dutchcal{#1}}
+\newcommand{\mathsfup}[1]{\textsf{#1}}
+\newcommand{\demph}[1]{\textbf{\emph{#1}}}
+\usepackage{manfnt}
+\newcommand{\textdbendEnd}{}
+\newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{-\dimen0}}
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}

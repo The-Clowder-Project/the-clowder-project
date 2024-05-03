@@ -1,0 +1,49 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{TransBlue}{rgb}{0.33333333333, 0.80392156862, 0.98823529411}
+\definecolor{TransPink}{rgb}{0.9725490196,0.54509803921,0.76078431372}
+\begin{document}
+        \begin{tikzpicture}[scale=0.3, baseline={(+0.0,-0.28)}, opacity=1, anchor=base, [every node/.style={inner sep=0,outer sep=0}]]
+            %--- Blues ---%
+            \fill[fill=TransBlue]%
+            (-0.0,-0.0) --%
+            (-0.0,-0.21) --%
+            (-1.0,-0.21) --%
+            (-1.0,-0.0) --%
+            cycle;
+            \fill[fill=TransBlue]%
+            (-0.0,-0.8) --%
+            (-0.0,-1.0) --%
+            (-1.0,-1.0) --%
+            (-1.0,-0.8) --%
+            cycle;
+            %--- Pinks ---%
+            \fill[fill=TransPink]%
+            (-0.0,-0.2) --%
+            (-0.0,-0.4) --%
+            (-1.0,-0.4) --%
+            (-1.0,-0.2) --%
+            cycle;
+            \fill[fill=TransPink]%
+            (-0.0,-0.6) --%
+            (-0.0,-0.8) --%
+            (-1.0,-0.8) --%
+            (-1.0,-0.6) --%
+            cycle;
+            %--- White ---%
+            \fill[fill=white]%
+            (-0.0,-0.4) --%
+            (-0.0,-0.6) --%
+            (-1.0,-0.6) --%
+            (-1.0,-0.4) --%
+            cycle;
+            %--- Borders ---%
+            \draw[black,thin]%
+            (-0.0,-0.0) --%
+            (-0.0,-1.0) --%
+            (-1.0,-1.0) --%
+            (-1.0,-0.0) --%
+            cycle;
+        \end{tikzpicture}
+\end{document}

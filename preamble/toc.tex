@@ -1,0 +1,64 @@
+\usepackage{shorttoc}
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents (detailed)}
+\let\ToCFont\relax
+\let\ToCBolFont\relax
+\newcommand{\ToCFont}{}
+\newcommand{\ToCBoldFont}{\bfseries}
+
+\newcommand{\TableOfContents}{%
+    {%
+        \hypersetup{hidelinks}\tableofcontents
+    }
+}
+\newcommand{\ShortTableOfContents}{%
+    {%
+        \hypersetup{hidelinks}\shorttoc{Contents}{1}
+    }
+}
+
+\makeatletter
+\newcommand \DotFill {\leavevmode \cleaders \hb@xt@ .33em{\hss .\hss }\hfill \kern \z@}
+\makeatother
+
+\definecolor{ToCGrey}{rgb}{0.4,0.4,0.4}
+\definecolor{mainColor}{rgb}{0.82745098,0.18431373,0.18431373}
+\newcommand{\cftsubsecfont}{\ToCFont\color{ToCGrey}}
+
+\usepackage{titletoc}
+
+\titlecontents{part}
+[0.0em]
+{\addvspace{1pc}\color{mainColor}\large\bfseries\ToCBoldFont\text{Part }}
+{\ToCBoldFont\bfseries\textcolor{mainColor}{\contentslabel{0.0em}}\hspace*{0.0em}}
+{}
+{\textcolor{mainColor}{{\hfill\ToCBoldFont\bfseries\contentspage\nobreak}}}
+[]
+
+\titlecontents{chapter}
+[0.0em]
+{\addvspace{1pc}}
+{\ToCBoldFont\color{black}\bfseries\textcolor{mainColor}{\contentslabel{0.0em}}\hspace*{1.8em}}
+{}
+{\textcolor{black}{\textbf{\DotFill}{\ToCBoldFont\bfseries\contentspage\nobreak}}}
+[]
+
+\titlecontents{section}
+[0.0em]
+{}
+{\hspace*{1.8em}\color{ToCGrey}\ToCFont{\contentslabel{0.0em}}\hspace*{2.55em}}
+{}
+{{\textcolor{ToCGrey}\DotFill}\textcolor{ToCGrey}{\ToCFont\contentspage}\nobreak}
+[]
+
+\titlecontents{subsection}
+[0.0em]
+{}
+{\hspace*{4.45em}\color{ToCGrey}\ToCFont{\contentslabel{0.0em}}\hspace*{3.2em}}
+{}
+{{\textcolor{ToCGrey}\DotFill}\textcolor{ToCGrey}{\ToCFont\contentspage}\nobreak}
+[]
+\makeindex[intoc=true, options= -s index_style.ist, name=notation, columns=2, title={Index of Notation}]
+\makeindex[intoc=true, options= -s index_style.ist, name=set-theory, columns=2, title={Index of Set Theory}]
+\makeindex[intoc=true, options= -s index_style.ist, name=categories, columns=2, title={Index of Category Theory}]
+\makeindex[intoc=true, options= -s index_style.ist, name=higher-categories, columns=2, title={Index of Higher Category Theory}]

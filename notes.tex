@@ -1,0 +1,224 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Miscellaneous Notes}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+\ChapterTableOfContents
+
+\section{To Do List}\label{section-to-do-list}
+\subsection{Omitted Proofs To Add}\label{subsection-proofs-to-add}
+% BEGIN RAW HTML %
+<div class="epigraph-container">
+  <div class="epigraph">
+
+  <p>Не так благотворна истина, как зловредна ее видимость.<audio id="audioPlayer" src="/static/sounds/Данковский.ogg" type="audio/ogg"></audio><span class="dark-svg"><button id="playButton"></button></span></p>
+    <div class="line"></div>
+    <p class="author-left">Даниил Данковский</p>
+  </div>
+
+  <div class="epigraph">
+    <p>Truth does not do as much good in the world as the appearance of truth does evil.<audio id="audioPlayer2" src="/static/sounds/Dankovsky.ogg" type="audio/ogg"></audio><span class="dark-svg"><button id="playButton2"></button></span></p>
+    <div class="line"></div>
+    <p class="author-right">Daniil Dankovsky</p>
+  </div>
+</div>
+% BEGIN LATEX HTML %
+\doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
+% END RAW HTML %
+There's a very large number of omitted proofs throughout these notes. Here I list them in decreasing order of how nice it would be to add them.
+\begin{remark}{Omitted Proofs To Add}{omitted-proofs-to-add}%
+    Proofs that \emph{need} to be added at some point:
+    \begin{enumerate}
+        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-1}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-1}}.
+        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-2}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-2}}.
+        \item Horizontal composition of natural transformations is associative: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{categories:properties-of-horizontal-composition-of-natural-transformations}}{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{properties-of-horizontal-composition-of-natural-transformations}}.
+        \item Fully faithful functors are essentially injective: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-essential-injectivity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-essential-injectivity} of \cref{properties-of-fully-faithful-functors}}.
+    \end{enumerate}
+    Proofs that \emph{would be very nice} to be added at some point:
+    \begin{enumerate}
+        \item Properties of pseudomonic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudomonic-functors}}{\cref{properties-of-pseudomonic-functors}}.
+        \item Characterisation of fully faithful functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-characterisations} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-characterisations} of \cref{properties-of-fully-faithful-functors}}.
+    \end{enumerate}
+
+    Proofs that \emph{would be nice} to be added at some point:
+    \begin{enumerate}
+        \item Properties of posetal categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories}}{\cref{properties-of-posetal-categories}}.
+        \item The quadruple adjunction between categories and sets: \ChapterRef{\ChapterCategories, \cref{categories:the-quadruple-adjunction-between-sets-and-cats}}{\cref{the-quadruple-adjunction-between-sets-and-cats}}.
+        \item Properties of groupoid completions: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-groupoid-completion}}{\cref{properties-of-groupoid-completion}}.
+        \item Properties of cores: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-the-core-of-a-category}}{\cref{properties-of-the-core-of-a-category}}.
+        \item $F_{*}$ faithful iff $F$ faithful: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
+        \item $F_{*}$ full iff $F$ full: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors-interaction-with-postcomposition} of \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors-interaction-with-postcomposition} of \cref{properties-of-full-functors}}.
+        \item Injective on objects functors are precisely the isocofibrations in $\TwoCategoryOfCategories$: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-injective-on-objects-functors-characterisations} of \cref{categories:properties-of-injective-on-objects-functors}}{\cref{properties-of-injective-on-objects-functors-characterisations} of \cref{properties-of-injective-on-objects-functors}}.
+        \item Characterisations of monomorphisms of categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-monomorphisms-of-categories-characterisations} of \cref{categories:properties-of-monomorphisms-of-categories}}{\cref{properties-of-monomorphisms-of-categories-characterisations} of \cref{properties-of-monomorphisms-of-categories}}.
+        \item Epimorphisms of categories are surjective on objects: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{categories:properties-of-epimorphisms-of-categories}}{\cref{properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{properties-of-epimorphisms-of-categories}}.
+        \item Properties of pseudoepic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudoepic-functors}}{\cref{properties-of-pseudoepic-functors}}.
+    \end{enumerate}
+\end{remark}
+\subsection{Things To Explore/Add}\label{subsection-things-to-explore}
+Here we list things to be explored/added to this work in the future.
+\begin{remark}{Things To Explore/Add}{things-to-explore-add}%
+    Set theory through a category theory lens:
+    \begin{enumerate}
+        \item Isbell duality for sets.
+        \item Density comonads and codensity monads for sets.
+    \end{enumerate}
+    Relations:
+    \begin{enumerate}
+        \item 2-Categorical monomorphisms and epimorphisms in $\sfbfRel$.
+        \item Co/limits in $\sfbfRel$.
+        \item Apartness composition, categorical properties of $\sfbfRel$ with apartness, and apartness relations.
+        \item Apartness defines a composition for relations, but its analogue
+            \[
+                \mathfrak{q}\mathbin{\square}\mathfrak{p}%
+                \defeq%
+                \int_{A\in\CatFont{C}}\mathfrak{p}^{-_{1}}_{A}\icoprod\mathfrak{q}^{A}_{-_{2}}%
+            \]%
+            fails to be unital for profunctors. Is there a less obvious analogue of apartness composition for profunctors?
+        \item Codensity monad $\Ran_{J}(J)$ of a relation (What about $\Rift_{J}(J)$?)
+        \item Relative comonads in the $2$-category of relations
+        \item Discrete fibrations and Street fibrations in $\sfbfRel$.
+        \item Consider adding the sections
+            \begin{itemize}
+                \item The Monoidal Bicategory of Relations
+                \item The Monoidal Double Category of Relations
+            \end{itemize}
+            to \ChapterRelations.
+    \end{enumerate}
+    Spans:
+    \begin{enumerate}
+        \item Universal property of the bicategory of spans, \url{https://ncatlab.org/nlab/show/span}
+        \item Write about cospans.
+    \end{enumerate}
+    Un/Straightening:
+    \begin{enumerate}
+        \item Write proper sections on straightening for lax functors from sets to Rel or Span (displayed sets)
+    \end{enumerate}
+    Categories:
+    \begin{enumerate}
+        \item Expand \cref{construction-of-the-groupoid-completion-of-a-category} and add a proof to it.
+        \item Sections and retractions; retracts, \url{https://ncatlab.org/nlab/show/retract}.
+        \item Regular categories: \url{https://arxiv.org/pdf/2004.08964.pdf}.
+        \item Are pseudoepic functors those functors whose restricted Yoneda embedding is pseudomonic and Yoneda preserves absolute colimits?
+        \item Absolutely dense functors enriched over $\R^{+}$ apparently reduce to topological density
+    \end{enumerate}
+    Types of Morphisms in Categories:
+    \begin{enumerate}
+        \item Behaviour in $\Fun(\CatFont{C},\CatFont{D})$, e.g.\ pointwise sections vs.\ sections in $\Fun(\CatFont{C},\CatFont{D})$.
+        \item A faithful functor from balanced category is conservative
+    \end{enumerate}
+    Yoneda stuff:
+    \begin{enumerate}
+        \item Properties of restricted Yoneda embedding, e.g.\ if the restricted Yoneda embedding is full, then what can we conclude? Related: \url{https://qchu.wordpress.com/2015/05/17/generators/}
+    \end{enumerate}
+    Adjunctions:
+    \begin{enumerate}
+        \item Adjunctions, units, counits, and fully faithfulness as in \url{https://mathoverflow.net/questions/100808/properties-of-functors-and-their-adjoints}.
+        \item Morphisms between adjunctions and bicategory $\Adj(\CatFont{C})$.
+        \item \url{https://ncatlab.org/nlab/show/transformation+of+adjoints}
+    \end{enumerate}
+    Constructions With Categories:
+    \begin{enumerate}
+        \item Comparison between pseudopullbacks and isocomma categories: the \say{evident} functor $\CatFont{C}\times^{\sfps}_{\CatFont{E}}\CatFont{D}\to\CatFont{C}\isocomma_{\CatFont{E}}\CatFont{D}$ is essentially surjective and full, but not faithful in general.
+    \end{enumerate}
+    Co/limits:
+    \begin{enumerate}
+        \item Add the characterisations of absolutely dense functors given in \cref{https://ncatlab.org/nlab/show/absolutely+dense+functor} to \cref{properties-of-fully-faithful-functors-interaction-with-precomposition-4}.
+        \item Absolutely dense functors, \url{https://ncatlab.org/nlab/show/absolutely+dense+functor}. Also theorem 1.1 here: \url{http://www.tac.mta.ca/tac/volumes/8/n20/n20.pdf}.
+        \item Dense functors, codense functors, and absolutely codense functors.
+    \end{enumerate}
+    Co/ends:
+    \begin{enumerate}
+        \item Examples of co/ends: \url{https://mathoverflow.net/a/461814}
+        \item Cofinality for co/ends, \url{https://mathoverflow.net/questions/353876}
+    \end{enumerate}
+    Fibred category theory:
+    \begin{enumerate}
+        \item Internal $\eHom$ in categories of co/Cartesian fibrations.
+        \item \textit{Tensor structures on fibered categories} by Luca Terenzi: \url{https://arxiv.org/abs/2401.13491}. Check also the other papers by Luca Terenzi.
+        \item \url{https://ncatlab.org/nlab/show/cartesian+natural+transformation} (this is a cartesian morphism in $\Fun(\CatFont{C},\CatFont{D})$ apparently)
+        \item CoCartesian fibration classifying $\Fun(F,G)$, \url{https://mathoverflow.net/questions/457533/cocartesian-fibration-classifying-mathrmfunf-g}
+    \end{enumerate}
+    Monoidal categories:
+    \begin{enumerate}
+        \item Free braided monoidal category with a braided monoid: \url{https://ncatlab.org/nlab/show/vine}
+    \end{enumerate}
+    Skew monoidal categories:
+    \begin{enumerate}
+        \item Does the $\E_{1}$ tensor product of monoids admit a skew monoidal category structure?
+        \item Is there a (right?) skew monoidal category structure on $\Fun(\CatFont{C},\CatFont{D})$ using right Kan extensions instead of left Kan extensions?
+        \item Similarly, are there skew monoidal category structures on the subcategory of $\eRel(A,B)$ spanned by the functions using left Kan extensions and left Kan lifts?
+    \end{enumerate}
+    Higher categories:
+    \begin{enumerate}
+        \item Internal adjunctions in $\Mod$ as in \cite[Section 6.3]{2-categories-book}; see \cite[Example 6.2.6]{2-categories-book}.
+        \item Comonads in the bicategory of profunctors.
+    \end{enumerate}
+    Monoids:
+    \begin{enumerate}
+        \item Isbell's zigzag theorem for semigroups: the following conditions are equivalent:
+            \begin{enumerate}
+                \item A morphism $f\colon A\to B$ of semigroups is an epimorphism.
+                \item For each $b\in B$, one of the following conditions is satisfied:
+                    \begin{itemize}
+                        \item We have $f(a)=b$.
+                        \item There exist some $m\in\N_{\geq1}$ and two factorisations
+                            \begin{align*}
+                                b &= a_{0}y_{1},\\
+                                b &= x_{m}a_{2m}
+                            \end{align*}
+                            connected by relations
+                            \begin{align*}
+                                a_{0}         = x_{1}a_{1},\\
+                                a_{1}y_{1}    = a_{2}y_{2},\\
+                                x_{1}a_{2}    = x_{2}a_{3},\\
+                                a_{2m-1}y_{m} = a_{2m}
+                            \end{align*}
+                            such that, for each $1\leq i\leq m$, we have $a_{i}\in\Im(f)$.
+                    \end{itemize}
+            \end{enumerate}
+            Wikipedia says in \url{https://en.wikipedia.org/wiki/Isbell\%27s\_zigzag\_theorem}:
+            \begin{quote}
+                For monoids, this theorem can be written more concisely:
+            \end{quote}
+    \end{enumerate}
+    Types of morphisms in bicategories:
+    \begin{enumerate}
+        \item Behaviour in 2-categories of pseudofunctors (or lax functors, etc.), e.g.\ pointwise pseudoepic morphisms in vs.\ pseudoepic morphisms in 2-categories of pseudofunctors.
+        \item Statements like \say{coequifiers are lax epimorphisms}, Item 2 of Examples 2.4 of \url{https://arxiv.org/abs/2109.09836}, along with most of the other statements/examples there.
+        \item Dense, absolutely dense, etc.\ morphisms in bicategories
+    \end{enumerate}
+    Other:
+    \begin{enumerate}
+        \item \url{https://qchu.wordpress.com/}
+        \item \url{https://aroundtoposes.com/}
+        \item \url{https://ncatlab.org/nlab/show/essentially+surjective+and+full+functor}
+        \item \url{https://mathoverflow.net/questions/415363/objects-whose-representable-presheaf-is-a-fibration}
+        \item \url{https://mathoverflow.net/questions/460146/universal-property-of-isbell-duality}
+        \item \url{http://www.tac.mta.ca/tac/volumes/36/12/36-12abs.html} ( Isbell conjugacy and the reflexive completion )
+        \item \url{https://ncatlab.org/nlab/show/enrichment+versus+internalisation}
+        \item The works of Philip Saville, \url{https://philipsaville.co.uk/}
+        \item \url{https://golem.ph.utexas.edu/category/2024/02/from\_cartesian\_to\_symmetric\_mo.html}
+        \item \url{https://mathoverflow.net/q/463855} (One-object lax transformations)
+        \item \url{https://ncatlab.org/nlab/show/analytic+completion+of+a+ring}
+        \item \url{https://en.wikipedia.org/wiki/Quaternionic\_analysis}
+        \item \url{https://arxiv.org/abs/2401.15051} (The Norm Functor over Schemes)
+        \item \url{https://mathoverflow.net/questions/407291/} (Adjunctions with respect to profunctors)
+        \item \url{https://mathoverflow.net/a/462726} ($\Prof$ is free completion of $\Cats$ under right extensions)
+        \item there's some cool stuff in \url{https://arxiv.org/abs/2312.00990} (Polynomial Functors: A Mathematical Theory of Interaction), e.g.\ on cofunctors.
+        \item \url{https://ncatlab.org/nlab/show/adjoint+lifting+theorem}
+        \item \url{https://ncatlab.org/nlab/show/Gabriel\%E2\%80\%93Ulmer+duality}
+    \end{enumerate}
+\end{remark}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

@@ -1,0 +1,91 @@
+\IfFileExists{stacks-project.cls}{\documentclass{stacks-project}}{\documentclass{amsart}}
+%\usepackage{amsthm}
+\newenvironment{UniversalProperty}{%
+    \begin{itemize}%
+        \item[\text{({\footnotesize\textsc{\textbf{UP}}})}]%
+}%
+{%
+    \end{itemize}%
+}
+% For dealing with references we use the comment environment
+\usepackage[margin=4.5cm]{geometry}
+\usepackage{verbatim}
+\newenvironment{reference}{\comment}{\endcomment}
+%\newenvironment{reference}{}{}
+\newenvironment{slogan}{\comment}{\endcomment}
+\newenvironment{history}{\comment}{\endcomment}
+% We use multicol for the list of chapters between chapters
+\usepackage{multicol}
+
+\input{preamble/xcolor.tex}
+% This is generally recommended for better output
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
+
+% For cross-file-references
+\input{preamble/zref.tex}
+\input{preamble/lengths.tex}
+\input{preamble/webpreamble-refs.tex}
+
+% Package for hypertext links:
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks,%
+    citecolor=TitlingRed,%
+    filecolor=TitlingRed,%
+    linkcolor=TitlingRed,%
+     urlcolor=TitlingRed%
+}%
+%%%% COMMANDS %%%%
+\usepackage{amssymb}
+\usepackage{minitoc}
+\setcounter{minitocdepth}{2}
+\newcommand{\Minitoc}{{\hypersetup{hidelinks}\minitoc}}
+%%%% MATH DEFINITIONS %%%%
+\usepackage{centernot}
+\newcommand{\nin}{\centernot{\in}}
+%
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+%%%%%%
+\newenvironment{webcompile}{\[}{\]}
+\usepackage{mathtools}
+\newcommand{\mcp}[1]{\mathclap{#1}}
+\newcommand{\mrp}[1]{\mathrlap{#1}}
+\newcommand{\mlp}[1]{\mathllap{#1}}
+\input{preamble/todo.tex}
+\usepackage{amsthm}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\usepackage{xspace}
+\input{preamble/amsthm.tex}
+\input{preamble/tikzcd.tex}
+\input{preamble/fonts.tex}
+\input{preamble/cm.tex}
+\input{preamble/commands.tex}
+\input{preamble/biber.tex}
+\input{preamble/splitindex.tex}
+\setlength{\parindent}{0pt}
+\input{preamble/footnotes.tex}
+\input{preamble/fancyheader.tex}
+\raggedbottom
+\usepackage{bigfoot}
+\DeclareNewFootnote{default}
+\newcommand{\ChapterRef}[2]{#2}
+\input{preamble/nonweb.tex}
+\newcommand{\say}[1]{``#1''}
+\definecolor{darkGreen}{rgb}{0.2,0.5,0.2}
+\definecolor{darkRed}{rgb}{0.65,0.05,0.05}%
+\setlength\premulticols{10\baselineskip}
+\newcommand{\UP}{({\footnotesize\textsc{\textbf{UP}}})}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\makeatletter
+\renewcommand\thesubsubsection{\thesubsection.\ifnum\value{subsubsection}=0 \relax 1\else \arabic{subsubsection}\fi}
+\makeatother
+\newcommand{\ptag}[1]{\tag{#1}}
+\newcommand{\norg}{}
+\author{The Clowder Project Authors}

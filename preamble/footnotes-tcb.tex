@@ -1,0 +1,13 @@
+\usepackage{footnotehyper}
+
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\newsavebox{\footnotebox}
+\renewcommand\footnote[1]{%
+    \sbox{\footnotebox}{\oldFootnote{#1}}%
+    \smash{\usebox{\footnotebox}}%
+    \futurelet\nextToken\isFootnote%
+}%
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi%
+}%

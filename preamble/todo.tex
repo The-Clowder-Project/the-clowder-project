@@ -1,0 +1,52 @@
+%\usepackage{graphicx}
+\newcommand{\icoprod}{%
+    \mathchoice%
+    {\mathbin{\textstyle\coprod}}%
+    {\mathbin{\textstyle\coprod}}%
+    {\mathbin{\scriptstyle\textstyle\coprod}}%
+    {\mathbin{\scriptscriptstyle\textstyle\coprod}}%
+}%
+%\newcommand{\ipushout}[1]{%
+%    \mathchoice%
+%    {\mathbin{\textstyle\coprod_{#1}}}%
+%    {\mathbin{\textstyle\coprod_{#1}}}%
+%    {\mathbin{\scalebox{0.75}{$\textstyle\coprod_{#1}$}}}%
+%    {\mathbin{\scalebox{0.75}{$\textstyle\coprod_{#1}$}}}%
+%}%
+\newcommand{\xlonghookrightarrow}[1]{\overset{#1}{\hookrightarrow}}
+\newcommand{\longhookrightarrow}{\hookrightarrow}
+\newcommand{\xlongrightrightarrows}[2]{\underset{#2}{\overset{#1}{\rightrightarrows}}}
+\newcommand{\xlongleftrightarrows}[2]{\underset{#2}{\overset{#1}{\leftrightarrows}}}
+\newcommand{\xlongleftrightarrow}[1]{\overset{#1}{\leftrightarrow}}
+\newcommand{\xlongtwoheadsrightarrow}[1]{\overset{#1}{\twoheadrightarrow}}
+\newcommand{\rightleftrightarrows}{\overset{\rightleftarrows}{\to}}
+\newcommand{\isorightarrow}{\xrightarrow{\cong}}
+\newcommand{\rightequalsarrow}{\mathbin{\overset{=}{\rightarrow}}}
+\newcommand{\righteqarrow}{\mathbin{\overset{\cong}{\rightarrow}}}
+\newcommand{\uearrow}{\xlongrightarrow{\exists!}}
+\newcommand{\Longrightisoarrow}{\mathbin{\overset{\mathord{\sim}}{\Longrightarrow}}}
+\newcommand{\shortrightarrow}{\rightarrow}
+%\newcommand{\icoprod}{\mathbin{\textstyle\coprod}}
+\newcommand{\ipushout}[1]{\mathbin{\textstyle\coprod_{#1}}}
+\DeclareMathOperator*{\iicoprod}{\textstyle\coprod}
+\newcommand{\iipushout}[1]{\mathbin{\iicoprod_{#1}}}
+%\usepackage{MnSymbol}
+%\newcommand{\twocirc}{\mathbin{\star}}%in commands
+\let\xLongrightarrow\relax
+\newcommand{\xLongrightarrow}[1]{\mathbin{\overset{#1}{\Longrightarrow}}}
+\newcommand{\xsubset}[1]{\mathbin{\overset{#1}{\subset}}}
+\newcommand{\rightleftadjointarrows}{\mathbin{\rightleftarrows}}
+\newcommand{\xrightrightarrows}[2]{\stackrel{\stackrel{#1}{\rightarrow}}{\stackrel{\rightarrow}{\scriptsize#2}}}
+\newcommand{\unnatLongrightarrow}{\mathbin{\overset{\mathrm{unnat}}{\Longrightarrow}}}
+\newcommand{\rightrightrightarrows}{\overset{\rightrightarrows}{\to}}
+\newcommand{\rightrightrightrightarrows}{\overset{\rightrightarrows}{\rightrightarrows}}
+\newcommand{\udashv}{\rotatebox[origin=c]{270}{$\dashv$}}
+\newcommand{\longsqrightarrow}{\rightsquigarrow}
+\newcommand{\longleftdotsrightarrows}{TODO}
+\DeclareMathOperator*{\ccolim}{\mathrm{colim}^{\tiny\rotatebox[origin=c]{90}{$\circlearrowleft$}}}
+\DeclareMathOperator*{\clim}{\mathrm{lim}^{\tiny\rotatebox[origin=c]{90}{$\circlearrowleft$}}}
+\makeatletter
+\DeclareRobustCommand{\evdots}{% vdots but with equal spacing
+    \vbox{\baselineskip4\p@\lineskiplimit\z@\kern0\p@\hbox{.}\hbox{.}\hbox{.}}}
+\makeatother
+\renewcommand\restriction[2]{\left.#1\right\vert_{#2}}

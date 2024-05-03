@@ -1,0 +1,1597 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Types of Morphisms in Bicategories}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+In this chapter, we study special kinds of morphisms in bicategories:
+\begin{enumerate}
+    \item\SloganFont{Monomorphisms and Epimorphisms in Bicategories (\cref{section-monomorphisms-in-bicategories,section-epimorphisms-in-bicategories}). }There is a large number of different notions capturing the idea of a \say{monomorphism} or of an \say{epimorphism} in a bicategory.
+
+        Arguably, the notion that best captures these concepts is that of a \emph{pseudomonic morphism} (\cref{pseudomonic-morphisms}) and of a \emph{pseudoepic morphism} (\cref{pseudoepic-morphisms}), although the other notions introduced in \cref{section-monomorphisms-in-bicategories,section-epimorphisms-in-bicategories} are also interesting on their own.
+\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Monomorphisms in Bicategories}\label{section-monomorphisms-in-bicategories}
+\subsection{Representably Faithful Morphisms}\label{subsection-representably-faithful-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Representably Faithful Morphisms}{representably-faithful-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably faithful}\textbf{representably faithful}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called simply a \textbf{faithful morphism}, based on \cref{examples-of-representably-faithful-morphisms-in-cats} of \cref{examples-of-representably-faithful-morphisms}.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is faithful.
+\end{definition}
+\begin{remark}{Unwinding \cref{representably-faithful-morphisms}}{unwinding-representably-faithful-morphisms}%
+    In detail, $f$ is representably faithful if, for all diagrams in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B\mrp{,}
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \]%
+    if we have
+    \[
+        \id_{f}\twocirc\alpha%
+        =%
+        \id_{f}\twocirc\beta,%
+    \]%
+    then $\alpha=\beta$.
+\end{remark}
+\begin{example}{Examples of Representably Faithful Morphisms}{examples-of-representably-faithful-morphisms}%
+    Here are some examples of representably faithful morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-representably-faithful-morphisms-in-cats}\SloganFont{Representably Faithful Morphisms in $\TwoCategoryOfCategories$. }The representably faithful morphisms in $\TwoCategoryOfCategories$ are precisely the faithful functors; see \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
+        \item\label{examples-of-representably-faithful-morphisms-in-rel}\SloganFont{Representably Faithful Morphisms in $\sfbfRel$. }Every morphism of $\sfbfRel$ is representably faithful; see \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-monomorphisms-in-rel-representably-faithful-morphisms-in-rel} of \cref{relations:2-categorical-monomorphisms-in-rel}}{\cref{2-categorical-monomorphisms-in-rel-representably-faithful-morphisms-in-rel} of \cref{2-categorical-monomorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Representably Full Morphisms}\label{subsection-full-monomorphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Representably Full Morphisms}{representably-full-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably full}\textbf{representably full}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called simply a \textbf{full morphism}, based on \cref{examples-of-representably-full-morphisms-in-cats} of \cref{examples-of-representably-full-morphisms}.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is full.
+\end{definition}
+\begin{remark}{Unwinding \cref{representably-full-morphisms}}{unwinding-representably-full-morphisms}%
+    In detail, $f$ is representably full if, for each $X\in\Obj(\CatFont{C})$ and each $2$-morphism
+    \begin{webcompile}
+        \beta%
+        \colon%
+        f\circ\phi%
+        \Longrightarrow%
+        f\circ\psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+            \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+            \&
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, there exists a $2$-morphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$ such that we have an equality
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+        \quad
+        \bigequalssign
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+            \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+            \&
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+    \[
+        \beta%
+        =%
+        \id_{f}\twocirc\alpha.%
+    \]%
+\end{remark}
+\begin{example}{Examples of Representably Full Morphisms}{examples-of-representably-full-morphisms}%
+    Here are some examples of representably full morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-representably-full-morphisms-in-cats}\SloganFont{Representably Full Morphisms in $\TwoCategoryOfCategories$. }The representably full morphisms in $\TwoCategoryOfCategories$ are precisely the full functors; see \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors-interaction-with-postcomposition} of \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors-interaction-with-postcomposition} of \cref{properties-of-full-functors}}.
+        \item\label{examples-of-representably-full-morphisms-in-rel}\SloganFont{Representably Full Morphisms in $\sfbfRel$. }The representably full morphisms in $\sfbfRel$ are characterised in \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel} of \cref{relations:2-categorical-monomorphisms-in-rel}}{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel} of \cref{2-categorical-monomorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Representably Fully Faithful Morphisms}\label{subsection-representably-fully-faithful-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Representably Fully Faithful Morphisms}{representably-fully-faithful-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably fully faithful}\textbf{representably fully faithful}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called simply a \textbf{fully faithful morphism}, based on \cref{examples-of-representably-fully-faithful-morphisms-in-cats} of \cref{examples-of-representably-fully-faithful-morphisms}.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    if the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{representably-fully-faithful-morphisms-1}The $1$-morphism $f$ is representably faithful (\cref{representably-faithful-morphisms}) and representably full (\cref{representably-full-morphisms}).
+        \item\label{representably-fully-faithful-morphisms-2}For each $X\in\Obj(\CatFont{C})$, the functor
+            \[
+                f_{*}%
+                \colon%
+                \cHom_{\CatFont{C}}(X,A)%
+                \to%
+                \cHom_{\CatFont{C}}(X,B)%
+            \]%
+            given by postcomposition by $f$ is fully faithful.
+    \end{enumerate}
+\end{definition}
+\begin{remark}{Unwinding Representably Fully Faithful Morphisms}{unwinding-representably-fully-faithful-morphisms}%
+    In detail, $f$ is representably fully faithful if the conditions in \cref{unwinding-representably-faithful-morphisms} and \cref{unwinding-representably-full-morphisms} hold:
+    \begin{enumerate}
+        \item For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if we have
+            \[
+                \id_{f}\twocirc\alpha%
+                =%
+                \id_{f}\twocirc\beta,%
+            \]%
+            then $\alpha=\beta$.
+        \item For each $X\in\Obj(\CatFont{C})$ and each $2$-morphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                f\circ\phi%
+                \Longrightarrow%
+                f\circ\psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-morphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \id_{f}\twocirc\alpha.%
+            \]%
+    \end{enumerate}
+\end{remark}
+\begin{example}{Examples of Representably Fully Faithful Morphisms}{examples-of-representably-fully-faithful-morphisms}%
+    Here are some examples of representably fully faithful morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-representably-fully-faithful-morphisms-in-cats}\SloganFont{Representably Fully Faithful Morphisms in $\TwoCategoryOfCategories$. }The representably fully faithful morphisms in $\TwoCategoryOfCategories$ are precisely the fully faithful functors; see \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-fully-faithful-functors}}.
+        \item\label{examples-of-representably-fully-faithful-morphisms-in-rel}\SloganFont{Representably Fully Faithful Morphisms in $\sfbfRel$. }The representably fully faithful morphisms of $\sfbfRel$ coincide (\ChapterRef{\ChapterRelations, \cref{relations:2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel} of \cref{relations:2-categorical-monomorphisms-in-rel}}{\cref{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel} of \cref{2-categorical-monomorphisms-in-rel}}) with the representably full morphisms in $\sfbfRel$, which are characterised in \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel} of \cref{relations:2-categorical-monomorphisms-in-rel}}{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel} of \cref{2-categorical-monomorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Morphisms Representably Faithful on Cores}\label{subsection-morphisms-representably-faithful-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Representably Faithful on Cores}{morphisms-representably-faithful-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably faithful on cores}\textbf{representably faithful on cores} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \Core(\cHom_{\CatFont{C}}(X,A))%
+        \to%
+        \Core(\cHom_{\CatFont{C}}(X,B))%
+    \]%
+    given by postcomposition by $f$ is faithful.
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-representably-faithful-on-cores}}{unwinding-morphisms-representably-faithful-on-cores}%
+    In detail, $f$ is representably faithful on cores if, for all diagrams in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B\mrp{,}
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \]%
+    if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
+    \[
+        \id_{f}\twocirc\alpha%
+        =%
+        \id_{f}\twocirc\beta,%
+    \]%
+    then $\alpha=\beta$.
+\end{remark}
+\subsection{Morphisms Representably Full on Cores}\label{subsection-morphisms-representably-full-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Representably Full on Cores}{morphisms-representably-full-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably full on cores}\textbf{representably full on cores} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \Core(\cHom_{\CatFont{C}}(X,A))%
+        \to%
+        \Core(\cHom_{\CatFont{C}}(X,B))%
+    \]%
+    given by postcomposition by $f$ is full.
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-representably-full-on-cores}}{unwinding-morphisms-representably-full-on-cores}%
+    In detail, $f$ is representably full on cores if, for each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+    \begin{webcompile}
+        \beta%
+        \colon%
+        f\circ\phi%
+        \Longrightisoarrow%
+        f\circ\psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+            \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+            \&
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, there exists a $2$-isomorphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightisoarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$ such that we have an equality
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+        \quad
+        \bigequalssign
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+            \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+            \&
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+    \[
+        \beta%
+        =%
+        \id_{f}\twocirc\alpha.%
+    \]%
+\end{remark}
+\subsection{Morphisms Representably Fully Faithful on Cores}\label{subsection-morphisms-representably-fully-faithful-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Representably Fully Faithful on Cores}{morphisms-representably-fully-faithful-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably fully faithful on cores}\textbf{representably fully faithful on cores} if the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{morphisms-representably-fully-faithful-on-cores-1}The $1$-morphism $f$ is representably faithful on cores (\cref{morphisms-representably-full-on-cores}) and representably full on cores (\cref{morphisms-representably-faithful-on-cores}).
+        \item\label{morphisms-representably-fully-faithful-on-cores-2}For each $X\in\Obj(\CatFont{C})$, the functor
+            \[
+                f_{*}%
+                \colon%
+                \Core(\cHom_{\CatFont{C}}(X,A))%
+                \to%
+                \Core(\cHom_{\CatFont{C}}(X,B))%
+            \]%
+            given by postcomposition by $f$ is fully faithful.
+    \end{enumerate}
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-representably-fully-faithful-on-cores}}{unwinding-morphisms-representably-fully-faithful-on-cores}%
+    In detail, $f$ is representably fully faithful on cores if the conditions in \cref{unwinding-morphisms-representably-faithful-on-cores} and \cref{unwinding-morphisms-representably-full-on-cores} hold:
+    \begin{enumerate}
+            \item For all diagrams in $\CatFont{C}$ of the form
+                \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        X
+                        \arrow[r,"\phi"{name=1}, bend left=30]
+                        \arrow[r,"\psi"'{name=2},bend right=30]
+                        \&
+                        A
+                        \arrow[r,"f"]
+                        \&[-1.5*\the\DL]
+                        B\mrp{,}
+                        % 2-Arrows
+                        \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                        \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \end{tikzcd}
+                \]%
+                if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
+                \[
+                    \id_{f}\twocirc\alpha%
+                    =%
+                    \id_{f}\twocirc\beta,%
+                \]%
+                then $\alpha=\beta$.
+            \item For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+                \begin{webcompile}
+                    \beta%
+                    \colon%
+                    f\circ\phi%
+                    \Longrightisoarrow%
+                    f\circ\psi,%
+                    \quad%
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        X
+                        \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                        \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                        \&
+                        B
+                        % 2-Arrows
+                        \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                    \end{tikzcd}
+                \end{webcompile}
+                of $\CatFont{C}$, there exists a $2$-isomorphism
+                \begin{webcompile}
+                    \alpha%
+                    \colon%
+                    \phi%
+                    \Longrightisoarrow%
+                    \psi,%
+                    \quad%
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        X
+                        \arrow[r,"\phi"{name=1}, bend left=30]
+                        \arrow[r,"\psi"'{name=2},bend right=30]
+                        \&
+                        A
+                        % 2-Arrows
+                        \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                    \end{tikzcd}
+                \end{webcompile}
+                of $\CatFont{C}$ such that we have an equality
+                \begin{webcompile}
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        X
+                        \arrow[r,"\phi"{name=1}, bend left=30]
+                        \arrow[r,"\psi"'{name=2},bend right=30]
+                        \&
+                        A
+                        \arrow[r,"f"]
+                        \&[-1.5*\the\DL]
+                        B
+                        % 2-Arrows
+                        \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                    \end{tikzcd}
+                    \quad
+                    \bigequalssign
+                    \quad
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        X
+                        \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                        \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                        \&
+                        B
+                        % 2-Arrows
+                        \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                    \end{tikzcd}
+                \end{webcompile}
+                of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+                \[
+                    \beta%
+                    =%
+                    \id_{f}\twocirc\alpha.%
+                \]%
+    \end{enumerate}
+\end{remark}
+\subsection{Representably Essentially Injective Morphisms}\label{subsection-representably-essentially-injective-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Representably Essentially Injective Morphisms}{representably-essentially-injective-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably essentially injective}\textbf{representably essentially injective} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is essentially injective.
+\end{definition}
+\begin{remark}{Unwinding \cref{representably-essentially-injective-morphisms}}{unwinding-representably-essentially-injective-morphisms}%
+    In detail, $f$ is representably essentially injective if, for each pair of morphisms $\phi,\psi\colon X\rightrightarrows A$ of $\CatFont{C}$, the following condition is satisfied:
+    \begin{itemize}% PROCESS %
+        \item[$(\star)$]If $f\circ\phi\cong f\circ\psi$, then $\phi\cong\psi$.
+    \end{itemize}% PROCESS %
+\end{remark}
+\subsection{Representably Conservative Morphisms}\label{subsection-representably-conservative-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Representably Conservative Morphisms}{representably-conservative-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!representably conservative}\textbf{representably conservative} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is conservative.
+\end{definition}
+\begin{remark}{Unwinding \cref{representably-conservative-morphisms}}{unwinding-representably-conservative-morphisms}%
+    In detail, $f$ is representably conservative if, for each pair of morphisms $\phi,\psi\colon X\rightrightarrows A$ and each $2$-morphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            A
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, if the $2$-morphism
+    \begin{webcompile}
+        \id_{f}\twocirc\alpha%
+        \colon%
+        f\circ\phi%
+        \Longrightarrow%
+        f\circ\psi,%
+        \quad%
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"f\circ\phi"{name=1}, bend left=45]
+            \arrow[r,"f\circ\psi"'{name=2},bend right=45]
+            \&
+            B
+            % 2-Arrows
+            \arrow[from=1,to=2,"\id_{f}\star\alpha"'description,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    is a $2$-isomorphism, then so is $\alpha$.
+\end{remark}
+\subsection{Strict Monomorphisms}\label{subsection-strict-monomorphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Strict Monomorphisms}{strict-monomorphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is a \index[higher-categories]{monomorphism!strict}\textbf{strict monomorphism} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is injective on objects, i.e.\ its action on objects
+    \[
+        f_{*}%
+        \colon%
+        \Obj(\cHom_{\CatFont{C}}(X,A))%
+        \to%
+        \Obj(\cHom_{\CatFont{C}}(X,B))%
+    \]%
+    is injective.
+\end{definition}
+\begin{remark}{Unwinding \cref{strict-monomorphisms}}{unwinding-strict-monomorphisms}%
+    In detail, $f$ is a strict monomorphism in $\CatFont{C}$ if, for each diagram in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"\phi", shift left =0.25*\the\DL]
+            \arrow[r,"\psi"',shift right=0.25*\the\DL]
+            \&
+            A
+            \arrow[r,"f"]
+            \&
+            B\mrp{,}
+        \end{tikzcd}
+    \]%
+    if $f\circ\phi=f\circ\psi$, then $\phi=\psi$.
+\end{remark}
+\begin{example}{Examples of Strict Monomorphisms}{examples-of-strict-monomorphisms}%
+    Here are some examples of strict monomorphisms.
+    \begin{enumerate}
+        \item\label{examples-of-strict-monomorphisms-in-cats}\SloganFont{Strict Monomorphisms in $\TwoCategoryOfCategories$. }The strict monomorphisms in $\TwoCategoryOfCategories$ are precisely the functors which are injective on objects and injective on morphisms; see \ChapterRef{\ChapterCategories, \cref{categories:properties-of-monomorphisms-of-categories-characterisations} of \cref{categories:properties-of-monomorphisms-of-categories}}{\cref{properties-of-monomorphisms-of-categories-characterisations} of \cref{properties-of-monomorphisms-of-categories}}.
+        \item\label{examples-of-strict-monomorphisms-in-rel}\SloganFont{Strict Monomorphisms in $\sfbfRel$. }The strict monomorphisms in $\sfbfRel$ are characterised in \ChapterRef{\ChapterRelations, \cref{relations:characterisations-of-monomorphisms-in-rel}}{\cref{characterisations-of-monomorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Pseudomonic Morphisms}\label{subsection-pseudomonic-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Pseudomonic Morphisms}{pseudomonic-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!pseudomonic}\textbf{pseudomonic} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f_{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(X,A)%
+        \to%
+        \cHom_{\CatFont{C}}(X,B)%
+    \]%
+    given by postcomposition by $f$ is pseudomonic.
+\end{definition}
+\begin{remark}{Unwinding \cref{pseudomonic-morphisms}}{unwinding-pseudomonic-morphisms}%
+    In detail, a $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is pseudomonic if it satisfies the following conditions:
+    \begin{enumerate}
+        \item\label{unwinding-pseudomonic-morphisms-1}For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if we have
+            \[
+                \id_{f}\twocirc\alpha%
+                =%
+                \id_{f}\twocirc\beta,%
+            \]%
+            then $\alpha=\beta$.
+        \item\label{unwinding-pseudomonic-morphisms-2}For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                f\circ\phi%
+                \Longrightisoarrow%
+                f\circ\psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-isomorphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightisoarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \id_{f}\twocirc\alpha.%
+            \]%
+    \end{enumerate}
+\end{remark}
+\begin{proposition}{Properties of Pseudomonic Morphisms}{properties-of-pseudomonic-morphisms}%
+    Let $f\colon A\to B$ be a $1$-morphism of $\CatFont{C}$.
+    \begin{enumerate}
+        \item\label{properties-of-pseudomonic-morphisms-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-pseudomonic-morphisms-characterisations-a}The morphism $f$ is pseudomonic.
+                \item\label{properties-of-pseudomonic-morphisms-characterisations-b}The morphism $f$ is representably full on cores and representably faithful.
+                \item\label{properties-of-pseudomonic-morphisms-characterisations-c}We have an isocomma square of the form
+                    \begin{webcompile}
+                        A%
+                        \eqcong%
+                        A\isocomma_{B}A,%
+                        \quad
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,"\id_{A}"]
+                            \arrow[d,"\id_{A}"']
+                            \&
+                            A
+                            \arrow[d,"F"]
+                            \\
+                            A
+                            \arrow[r,"F"']
+                            \&
+                            B
+                            % 2-Arrows
+                            \arrow[from=2-1,to=1-2,Leftrightarrow,dashed,shorten=0.5em]%
+                        \end{tikzcd}
+                    \end{webcompile}
+                    in $\CatFont{C}$ up to equivalence.
+            \end{enumerate}
+        \item\label{properties-of-pseudomonic-morphisms-interaction-with-cotensors}\SloganFont{Interaction With Cotensors. }If $\CatFont{C}$ has cotensors with $\OrdinalCategoryN{1}$, then the following conditions are equivalent:
+            \begin{enumerate}
+                \item The morphism $f$ is pseudomonic.
+                \item We have an isocomma square of the form
+                    \begin{webcompile}
+                        A%
+                        \eqcong%
+                        A\isocomma_{\OrdinalCategoryN{1}\pitchfork F}B,%
+                        \quad
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,hook']
+                            \arrow[d,"F"']
+                            \&
+                            \OrdinalCategoryN{1}\pitchfork A
+                            \arrow[d,"\OrdinalCategoryN{1}\pitchfork F"]
+                            \\
+                            B
+                            \arrow[r,hook]
+                            \&
+                            \OrdinalCategoryN{1}\pitchfork B
+                            % 2-Arrows
+                            \arrow[from=2-1,to=1-2,Leftrightarrow,dashed,shorten=0.5em]%
+                        \end{tikzcd}
+                    \end{webcompile}
+                    in $\CatFont{C}$ up to equivalence.
+            \end{enumerate}
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-pseudomonic-morphisms}}%
+    \FirstProofBox{\cref{properties-of-pseudomonic-morphisms-characterisations}: Characterisations}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-pseudomonic-morphisms-interaction-with-cotensors}: Interaction With Cotensors}%
+    Omitted.
+\end{Proof}
+\section{Epimorphisms in Bicategories}\label{section-epimorphisms-in-bicategories}
+\subsection{Corepresentably Faithful Morphisms}\label{subsection-corepresentably-faithful-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Corepresentably Faithful Morphisms}{corepresentably-faithful-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably faithful}\textbf{corepresentably faithful} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is faithful.
+\end{definition}
+\begin{remark}{Unwinding \cref{corepresentably-faithful-morphisms}}{unwinding-corepresentably-faithful-morphisms}%
+    In detail, $f$ is corepresentably faithful if, for all diagrams in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X\mrp{,}
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \]%
+    if we have
+    \[
+        \alpha\twocirc\id_{f}%
+        =%
+        \beta\twocirc\id_{f},%
+    \]%
+    then $\alpha=\beta$.
+\end{remark}
+\begin{example}{Examples of Corepresentably Faithful Morphisms}{examples-of-corepresentably-faithful-morphisms}%
+    Here are some examples of corepresentably faithful morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-corepresentably-faithful-morphisms-in-cats}\SloganFont{Corepresentably Faithful Morphisms in $\TwoCategoryOfCategories$. }The corepresentably faithful morphisms in $\TwoCategoryOfCategories$ are characterised in \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-precomposition-3} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-precomposition-3} of \cref{properties-of-faithful-functors}}.
+        \item\label{examples-of-corepresentably-faithful-morphisms-in-rel}\SloganFont{Corepresentably Faithful Morphisms in $\sfbfRel$. }Every morphism of $\sfbfRel$ is corepresentably faithful; see \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-epimorphisms-in-rel-corepresentably-faithful-morphisms-in-rel} of \cref{relations:2-categorical-epimorphisms-in-rel}}{\cref{2-categorical-epimorphisms-in-rel-corepresentably-faithful-morphisms-in-rel} of \cref{2-categorical-epimorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Corepresentably Full Morphisms}\label{subsection-corepresentably-full-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Corepresentably Full Morphisms}{corepresentably-full-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably full}\textbf{corepresentably full} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is full.
+\end{definition}
+\begin{remark}{Unwinding \cref{corepresentably-full-morphisms}}{unwinding-corepresentably-full-morphisms}%
+    In detail, $f$ is corepresentably full if, for each $X\in\Obj(\CatFont{C})$ and each $2$-morphism
+    \begin{webcompile}
+        \beta%
+        \colon%
+        \phi\circ f%
+        \Longrightarrow%
+        \psi\circ f,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+            \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, there exists a $2$-morphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$ such that we have an equality
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+        \quad
+        \bigequalssign
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+            \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+    \[
+        \beta%
+        =%
+        \alpha\twocirc\id_{f}.%
+    \]%
+\end{remark}
+\begin{example}{Examples of Corepresentably Full Morphisms}{examples-of-corepresentably-full-morphisms}%
+    Here are some examples of corepresentably full morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-corepresentably-full-morphisms-in-cats}\SloganFont{Corepresentably Full Morphisms in $\TwoCategoryOfCategories$. }The corepresentably full morphisms in $\TwoCategoryOfCategories$ are characterised in \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors-interaction-with-precomposition-4} of \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors-interaction-with-precomposition-4} of \cref{properties-of-full-functors}}.
+        \item\label{examples-of-corepresentably-full-morphisms-in-rel}\SloganFont{Corepresentably Full Morphisms in $\sfbfRel$. }The corepresentably full morphisms in $\sfbfRel$ are characterised in \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel} of \cref{relations:2-categorical-epimorphisms-in-rel}}{\cref{2-categorical-monomorphisms-in-rel-corepresentably-full-morphisms-in-rel} of \cref{2-categorical-monomorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Corepresentably Fully Faithful Morphisms}\label{subsection-corepresentably-fully-faithful-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Corepresentably Fully Faithful Morphisms}{corepresentably-fully-faithful-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably fully faithful}\textbf{corepresentably fully faithful}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Corepresentably fully faithful morphisms have also been called \textbf{lax epimorphisms} in the literature (e.g.\ in \cite{on-functors-which-are-lax-epimorphisms}), though we will always use the name \say{corepresentably fully faithful morphism} instead in this work.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    if the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{corepresentably-fully-faithful-morphisms-1}The $1$-morphism $f$ is corepresentably full (\cref{corepresentably-full-morphisms}) and corepresentably faithful (\cref{corepresentably-faithful-morphisms}).
+        \item\label{corepresentably-fully-faithful-morphisms-2}For each $X\in\Obj(\CatFont{C})$, the functor
+            \[
+                f^{*}%
+                \colon%
+                \cHom_{\CatFont{C}}(B,X)%
+                \to%
+                \cHom_{\CatFont{C}}(A,X)%
+            \]%
+            given by precomposition by $f$ is fully faithful.
+    \end{enumerate}
+\end{definition}
+\begin{remark}{Unwinding \cref{corepresentably-fully-faithful-morphisms}}{unwinding-corepresentably-fully-faithful-morphisms}%
+    In detail, $f$ is corepresentably fully faithful if the conditions in \cref{unwinding-corepresentably-faithful-morphisms} and \cref{unwinding-corepresentably-full-morphisms} hold:
+    \begin{enumerate}
+        \item For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if we have
+            \[
+                \alpha\twocirc\id_{f}%
+                =%
+                \beta\twocirc\id_{f},%
+            \]%
+            then $\alpha=\beta$.
+        \item For each $X\in\Obj(\CatFont{C})$ and each $2$-morphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                \phi\circ f%
+                \Longrightarrow%
+                \psi\circ f,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-morphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \alpha\twocirc\id_{f}.%
+            \]%
+    \end{enumerate}
+\end{remark}
+\begin{example}{Examples of Corepresentably Fully Faithful Morphisms}{examples-of-corepresentably-fully-faithful-morphisms}%
+    Here are some examples of corepresentably fully faithful morphisms.
+    \begin{enumerate}
+        \item\label{examples-of-corepresentably-fully-faithful-morphisms-in-cats}\SloganFont{Corepresentably Fully Faithful Morphisms in $\TwoCategoryOfCategories$. }The fully faithful epimorphisms in $\TwoCategoryOfCategories$ are characterised in \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-interaction-with-precomposition-4} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-interaction-with-precomposition-4} of \cref{properties-of-fully-faithful-functors}}.
+        \item\label{examples-of-corepresentably-fully-faithful-morphisms-in-rel}\SloganFont{Corepresentably Fully Faithful Morphisms in $\sfbfRel$. }The corepresentably fully faithful morphisms of $\sfbfRel$ coincide (\ChapterRef{\ChapterRelations, \cref{relations:2-categorical-epimorphisms-in-rel-corepresentably-fully-faithful-morphisms-in-rel} of \cref{relations:2-categorical-epimorphisms-in-rel}}{\cref{2-categorical-epimorphisms-in-rel-corepresentably-fully-faithful-morphisms-in-rel} of \cref{2-categorical-epimorphisms-in-rel}}) with the corepresentably full morphisms in $\sfbfRel$, which are characterised in \ChapterRef{\ChapterRelations, \cref{relations:2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel} of \cref{relations:2-categorical-epimorphisms-in-rel}}{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel} of \cref{2-categorical-epimorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Morphisms Corepresentably Faithful on Cores}\label{subsection-morphisms-corepresentably-faithful-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Corepresentably Faithful on Cores}{morphisms-corepresentably-faithful-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably faithful on cores}\textbf{corepresentably faithful on cores} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \Core(\cHom_{\CatFont{C}}(B,X))%
+        \to%
+        \Core(\cHom_{\CatFont{C}}(A,X))%
+    \]%
+    given by precomposition by $f$ is faithful.
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-corepresentably-faithful-on-cores}}{unwinding-morphisms-corepresentably-faithful-on-cores}%
+    In detail, $f$ is corepresentably faithful on cores if, for all diagrams in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X\mrp{,}
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \]%
+    if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
+    \[
+        \alpha\twocirc\id_{f}%
+        =%
+        \beta\twocirc\id_{f},%
+    \]%
+    then $\alpha=\beta$.
+\end{remark}
+\subsection{Morphisms Corepresentably Full on Cores}\label{subsection-morphisms-corepresentably-full-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Corepresentably Full on Cores}{morphisms-corepresentably-full-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably full on cores}\textbf{corepresentably full on cores} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \Core(\cHom_{\CatFont{C}}(B,X))%
+        \to%
+        \Core(\cHom_{\CatFont{C}}(A,X))%
+    \]%
+    given by precomposition by $f$ is full.
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-corepresentably-full-on-cores}}{unwinding-morphisms-corepresentably-full-on-cores}%
+    In detail, $f$ is corepresentably full on cores if, for each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+    \begin{webcompile}
+        \beta%
+        \colon%
+        \phi\circ f%
+        \Longrightisoarrow%
+        \psi\circ f,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+            \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, there exists a $2$-isomorphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightisoarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$ such that we have an equality
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \&[-1.5*\the\DL]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+        \quad
+        \bigequalssign
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+            \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+    \[
+        \beta%
+        =%
+        \alpha\twocirc\id_{f}.%
+    \]%
+\end{remark}
+\subsection{Morphisms Corepresentably Fully Faithful on Cores}\label{subsection-morphisms-corepresentably-fully-faithful-on-cores}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Morphisms Corepresentably Fully Faithful on Cores}{morphisms-corepresentably-fully-faithful-on-cores}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably fully faithful on cores}\textbf{corepresentably fully faithful on cores} if the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{morphisms-corepresentably-fully-faithful-on-cores-1}The $1$-morphism $f$ is corepresentably full on cores (\cref{morphisms-corepresentably-full-on-cores}) and corepresentably faithful on cores (\cref{corepresentably-faithful-morphisms}).
+        \item\label{morphisms-corepresentably-fully-faithful-on-cores-2}For each $X\in\Obj(\CatFont{C})$, the functor
+            \[
+                f^{*}%
+                \colon%
+                \Core(\cHom_{\CatFont{C}}(B,X))%
+                \to%
+                \Core(\cHom_{\CatFont{C}}(A,X))%
+            \]%
+            given by precomposition by $f$ is fully faithful.
+    \end{enumerate}
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-corepresentably-fully-faithful-on-cores}}{unwinding-morphisms-corepresentably-fully-faithful-on-cores}%
+    In detail, $f$ is corepresentably fully faithful on cores if the conditions in \cref{unwinding-morphisms-corepresentably-faithful-on-cores} and \cref{unwinding-morphisms-corepresentably-full-on-cores} hold:
+    \begin{enumerate}
+        \item For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
+            \[
+                \alpha\twocirc\id_{f}%
+                =%
+                \beta\twocirc\id_{f},%
+            \]%
+            then $\alpha=\beta$.
+        \item For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                \phi\circ f%
+                \Longrightisoarrow%
+                \psi\circ f,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-isomorphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightisoarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \alpha\twocirc\id_{f}.%
+            \]%
+    \end{enumerate}
+\end{remark}
+\subsection{Corepresentably Essentially Injective Morphisms}\label{subsection-corepresentably-essentially-injective-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Corepresentably Essentially Injective Morphisms}{corepresentably-essentially-injective-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably essentially injective}\textbf{corepresentably essentially injective} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is essentially injective.
+\end{definition}
+\begin{remark}{Unwinding \cref{corepresentably-essentially-injective-morphisms}}{unwinding-corepresentably-essentially-injective-morphisms}%
+    In detail, $f$ is corepresentably essentially injective if, for each pair of morphisms $\phi,\psi\colon B\rightrightarrows X$ of $\CatFont{C}$, the following condition is satisfied:
+    \begin{itemize}% PROCESS %
+        \item[$(\star)$]If $\phi\circ f\cong\psi\circ f$, then $\phi\cong\psi$.
+    \end{itemize}% PROCESS %
+\end{remark}
+\subsection{Corepresentably Conservative Morphisms}\label{subsection-corepresentably-conservative-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Corepresentably Conservative Morphisms}{corepresentably-conservative-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!corepresentably conservative}\textbf{corepresentably conservative} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is conservative.
+\end{definition}
+\begin{remark}{Unwinding \cref{corepresentably-conservative-morphisms}}{unwinding-corepresentably-conservative-morphisms}%
+    In detail, $f$ is corepresentably conservative if, for each pair of morphisms $\phi,\psi\colon B\rightrightarrows X$ and each $2$-morphism
+    \begin{webcompile}
+        \alpha%
+        \colon%
+        \phi%
+        \Longrightisoarrow%
+        \psi,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            B
+            \arrow[r,"\phi"{name=1}, bend left=30]
+            \arrow[r,"\psi"'{name=2},bend right=30]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    of $\CatFont{C}$, if the $2$-morphism
+    \begin{webcompile}
+        \alpha\twocirc\id_{f}%
+        \colon%
+        \phi\circ f%
+        \Longrightarrow%
+        \psi\circ f,%
+        \quad%
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"\phi\circ f"{name=1}, bend left=45]
+            \arrow[r,"\psi\circ f"'{name=2},bend right=45]
+            \&
+            X
+            % 2-Arrows
+            \arrow[from=1,to=2,"\alpha\star\id_{f}"'description,shorten=0.25em,Rightarrow]%
+        \end{tikzcd}
+    \end{webcompile}
+    is a $2$-isomorphism, then so is $\alpha$.
+\end{remark}
+\subsection{Strict Epimorphisms}\label{subsection-strict-epimorphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Strict Epimorphisms}{strict-epimorphisms}%
+    A $1$-morphism $f\colon A\to B$ is a \index[higher-categories]{epimorphism!strict}\textbf{strict epimorphism in $\CatFont{C}$} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is injective on objects, i.e.\ its action on objects
+    \[
+        f_{*}%
+        \colon%
+        \Obj(\cHom_{\CatFont{C}}(B,X))%
+        \to%
+        \Obj(\cHom_{\CatFont{C}}(A,X))%
+    \]%
+    is injective.
+\end{definition}
+\begin{remark}{Unwinding \cref{strict-epimorphisms}}{unwinding-strict-epimorphisms}%
+    In detail, $f$ is a strict epimorphism if, for each diagram in $\CatFont{C}$ of the form
+    \[
+        \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \&
+            B
+            \arrow[r,"\phi", shift left =0.25*\the\DL]
+            \arrow[r,"\psi"',shift right=0.25*\the\DL]
+            \&
+            X\mrp{,}
+        \end{tikzcd}
+    \]%
+    if $\phi\circ f=\psi\circ f$, then $\phi=\psi$.
+\end{remark}
+\begin{example}{Examples of Strict Epimorphisms}{examples-of-strict-epimorphisms}%
+    Here are some examples of strict epimorphisms.
+    \begin{enumerate}
+        \item\label{examples-of-strict-epimorphisms-in-cats}\SloganFont{Strict Epimorphisms in $\TwoCategoryOfCategories$. }The strict epimorphisms in $\TwoCategoryOfCategories$ are characterised in \ChapterRef{\ChapterCategories, \cref{categories:properties-of-epimorphisms-of-categories-characterisations} of \cref{categories:properties-of-epimorphisms-of-categories}}{\cref{properties-of-epimorphisms-of-categories-characterisations} of \cref{properties-of-epimorphisms-of-categories}}.
+        \item\label{examples-of-strict-epimorphisms-in-rel}\SloganFont{Strict Epimorphisms in $\sfbfRel$. }The strict epimorphisms in $\sfbfRel$ are characterised in \ChapterRef{\ChapterRelations, \cref{relations:characterisations-of-epimorphisms-in-rel}}{\cref{characterisations-of-epimorphisms-in-rel}}.
+    \end{enumerate}
+\end{example}
+\subsection{Pseudoepic Morphisms}\label{subsection-pseudoepic-morphisms}
+Let $\CatFont{C}$ be a bicategory.
+\begin{definition}{Pseudoepic Morphisms}{pseudoepic-morphisms}%
+    A $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is \index[higher-categories]{one-morphism@$1$-morphism!pseudoepic}\textbf{pseudoepic} if, for each $X\in\Obj(\CatFont{C})$, the functor
+    \[
+        f^{*}%
+        \colon%
+        \cHom_{\CatFont{C}}(B,X)%
+        \to%
+        \cHom_{\CatFont{C}}(A,X)%
+    \]%
+    given by precomposition by $f$ is pseudomonic.
+\end{definition}
+\begin{remark}{Unwinding \cref{pseudoepic-morphisms}}{unwinding-pseudoepic-morphisms}%
+    In detail, a $1$-morphism $f\colon A\to B$ of $\CatFont{C}$ is pseudoepic if it satisfies the following conditions:
+    \begin{enumerate}
+        \item\label{unwinding-pseudoepic-morphisms-1}For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if we have
+            \[
+                \alpha\twocirc\id_{f}%
+                =%
+                \beta\twocirc\id_{f},%
+            \]%
+            then $\alpha=\beta$.
+        \item\label{unwinding-pseudoepic-morphisms-2}For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                \phi\circ f%
+                \Longrightisoarrow%
+                \psi\circ f,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-isomorphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightisoarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"\phi\circ f"{name=1}, bend left=30]
+                    \arrow[r,"\psi\circ f"'{name=2},bend right=30]
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \alpha\twocirc\id_{f}.%
+            \]%
+    \end{enumerate}
+\end{remark}
+\begin{proposition}{Properties of Pseudoepic Morphisms}{properties-of-pseudoepic-morphisms}%
+    Let $f\colon A\to B$ be a $1$-morphism of $\CatFont{C}$.
+    \begin{enumerate}
+        \item\label{properties-of-pseudoepic-morphisms-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-pseudoepic-morphisms-characterisations-a}The morphism $f$ is pseudoepic.
+                \item\label{properties-of-pseudoepic-morphisms-characterisations-b}The morphism $f$ is corepresentably full on cores and corepresentably faithful.
+                \item\label{properties-of-pseudoepic-morphisms-characterisations-c}We have an isococomma square of the form
+                    \begin{webcompile}
+                        B%
+                        \eqcong%
+                        B\isococomma_{A}B,%
+                        \quad
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            B
+                            \arrow[from=r,"\id_{B}"']
+                            \arrow[from=d,"\id_{B}"]
+                            \&
+                            B
+                            \arrow[from=d,"F"']
+                            \\
+                            B
+                            \arrow[from=r,"F"]
+                            \&
+                            A
+                            % 2-Arrows
+                            \arrow[from=2-1,to=1-2,Leftrightarrow,dashed,shorten=0.5em]%
+                        \end{tikzcd}
+                    \end{webcompile}
+                    in $\CatFont{C}$ up to equivalence.
+            \end{enumerate}
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-pseudoepic-morphisms}}%
+    \FirstProofBox{\cref{properties-of-pseudoepic-morphisms-characterisations}: Characterisations}%
+    Omitted.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{xcolor}
+\definecolor{thmColor}{rgb}{0.95,0.05,0.05}%
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[line width=0.5mm,fill=thmColor]
+
+% middle fill
+\begin{scope}
+    \clip (0,0) circle (1);
+    \fill (1,0) circle (1);
+\end{scope}
+
+% left circle
+\draw (0,0) circle (1);
+
+% right circle
+\draw (1,0) circle (1);
+
+% outline
+\draw (-1.25,-1.25) rectangle (2.25,1.25);
+\end{tikzpicture}
+\end{document}

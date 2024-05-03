@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{xcolor}
+\color{white}
+\definecolor{thmColor}{RGB}{196,107,255}%
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[line width=0.5mm,fill=thmColor]
+% left hand
+\scope
+\fill (0,0) circle (1);
+\endscope
+% right hand
+\scope
+\clip (-1,-1) rectangle (2,1)
+      (0,0) circle (1);
+\fill (1,0) circle (1);
+\endscope
+% outline
+\draw (0,0) circle (1)
+      (1,0) circle (1);
+\draw (-1.25,-1.25) -- (-1.25,1.25) -- (2.25,1.25) -- (2.25,-1.25) -- cycle;
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,93 @@
+\section{Miscellany}\label{section-miscellany}
+\subsection{Concrete Categories}\label{subsection-concrete-categories}
+\begin{definition}{Concrete Categories}{concrete-categories}%
+    A category $\CatFont{C}$ is \index[categories]{category!concrete}\textbf{concrete} if there exists a faithful functor $F\colon\CatFont{C}\to\Sets$.
+\end{definition}
+\subsection{Balanced Categories}\label{subsection-balanced-categories}
+\begin{definition}{Balanced Categories}{balanced-categories}%
+    A category is \index[categories]{category!balanced}\textbf{balanced} if every morphism which is both a monomorphism and an epimorphism is an isomorphism.
+\end{definition}
+\subsection{Monoid Actions on Objects of Categories}\label{subsection-monoid-actions-on-objects-of-categories}
+Let $A$ be a monoid, let $\CatFont{C}$ be a category, and let $X\in\Obj(\CatFont{C})$.
+\begin{definition}{Monoid Actions on Objects of Categories}{monoid-actions-on-objects-of-categories}%
+    An \index[categories]{monoid action!on an object of a category}\textbf{$A$-action on $X$} is a functor $\lambda\colon\B{A}\to\CatFont{C}$ with $\lambda(\point)=X$.
+\end{definition}
+\begin{remark}{Unwinding \cref{monoid-actions-on-objects-of-categories}}{unwinding-monoid-actions-on-objects-of-categories}%
+    In detail, an \textbf{$A$-action on $X$} is an $A$-action on $\sfEnd_{\CatFont{C}}(X)$, consisting of a morphism
+    \[
+        \lambda
+        \colon
+        A
+        \to
+        \underbrace{\sfEnd_{\CatFont{C}}(X)}_{\defeq\Hom_{\CatFont{C}}(X,X)}
+    \]%
+    satisfying the following conditions:
+    \begin{enumerate}
+        \item\SloganFont{Preservation of Identities. }We have
+            \[
+                \lambda_{1_{A}}
+                =
+                \id_{X}.
+            \]%
+        \item\SloganFont{Preservation of Composition. }For each $a,b\in A$, we have
+            \begin{webcompile}
+                \lambda_{b}\circ\lambda_{a}
+                =
+                \lambda_{ab},
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\lambda_{a}"]
+                    \arrow[rd,"\lambda_{ab}"']
+                    \&
+                    X
+                    \arrow[d,"\lambda_{b}"]
+                    \\
+                    \&
+                    X\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+    \end{enumerate}
+\end{remark}
+\subsection{Group Actions on Objects of Categories}\label{subsection-group-actions-on-objects-of-categories}
+Let $G$ be a group, let $\CatFont{C}$ be a category, and let $X\in\Obj(\CatFont{C})$.
+\begin{definition}{Group Actions on Objects of Categories}{group-actions-on-objects-of-categories}%
+    A \index[categories]{group action!on an object of a category}\textbf{$G$-action on $X$} is a functor $\lambda\colon\B{G}\to\CatFont{C}$ with $\lambda(\point)=X$.
+\end{definition}
+\begin{remark}{Unwinding \cref{group-actions-on-objects-of-categories}}{unwinding-group-actions-on-objects-of-categories}%
+    In detail, a \textbf{$G$-action on $X$} is a $G$-action on $\sfAut_{\CatFont{C}}(X)$, consisting of a morphism
+    \[
+        \lambda
+        \colon
+        G
+        \to
+        \underbrace{\sfEnd_{\CatFont{C}}(X)}_{\defeq\Hom_{\CatFont{C}}(X,X)}
+    \]%
+    satisfying the following conditions:
+    \begin{enumerate}
+        \item\SloganFont{Preservation of Identities. }We have
+            \[
+                \lambda_{1_{A}}
+                =
+                \id_{X}.
+            \]%
+        \item\SloganFont{Preservation of Composition. }For each $a,b\in A$, we have
+            \begin{webcompile}
+                \lambda_{b}\circ\lambda_{a}
+                =
+                \lambda_{ab},
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\lambda_{a}"]
+                    \arrow[rd,"\lambda_{ab}"']
+                    \&
+                    X
+                    \arrow[d,"\lambda_{b}"]
+                    \\
+                    \&
+                    X\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+    \end{enumerate}
+\end{remark}

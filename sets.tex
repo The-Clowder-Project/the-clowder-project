@@ -1,0 +1,590 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Sets}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter (will eventually) contain material on axiomatic set theory, as well as a couple other things.
+
+\ChapterTableOfContents
+
+\section{Sets and Functions}\label{section-sets-and-functions}
+\subsection{Functions}\label{subsection-sets-and-functions-functions}
+\begin{definition}{Functions}{functions}%
+    A \index[set-theory]{function}\textbf{function} is a functional and total relation.
+\end{definition}
+\begin{notation}{Additional Notation for Functions}{additional-notation-for-functions}%
+    Throughout this work, we will sometimes denote a function $f\colon X\to Y$ by
+    \[
+        f%
+        \defeq%
+        \llbracket x\mapsto f(x)\rrbracket.%
+    \]%
+    \begin{enumerate}
+        \item For example, given a function%
+            \[
+                \Phi%
+                \colon%
+                \Hom_{\Sets}(X,Y)%
+                \to%
+                K%
+            \]%
+            taking values on a set of functions such as $\Hom_{\Sets}(X,Y)$, we will sometimes also write
+            \[
+                \Phi(f)%
+                \defeq%
+                \Phi(\llbracket x\mapsto f(x)\rrbracket).%
+            \]%
+        \item This notational choice is based on the lambda notation
+            \[
+                f%
+                \defeq%
+                (\lambda x.\ f(x)),%
+            \]%
+            but uses a \say{$\mathord{\mapsto}$} symbol for better spacing and double brackets instead of either:
+            \begin{enumerate}
+                \item Square brackets $[x\mapsto f(x)]$;
+                \item Parentheses $(x\mapsto f(x))$;
+            \end{enumerate}
+            hoping to improve readability when dealing with e.g.:
+            \begin{enumerate}
+                \item Equivalence classes, cf.:
+                    \begin{enumerate}
+                        \item $\llbracket[x]\mapsto f([x])\rrbracket$%
+                        \item $[[x]\mapsto f([x])]$%
+                        \item $(\lambda[x].\ f([x]))$%
+                    \end{enumerate}
+                \item Function evaluations, cf.:
+                    \begin{enumerate}
+                        \item $\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
+                        \item $\Phi((x\mapsto f(x)))$%
+                        \item $\Phi((\lambda x.\ f(x)))$%
+                    \end{enumerate}
+            \end{enumerate}
+        \item We will also sometimes write $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+            \begin{enumerate}
+                \item Writing $f(-_{1})$ for a function $f\colon A\to B$.
+                \item Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
+                \item Given a function $f\colon A\times B\to C$, writing
+                    \[
+                        f(a,-)%
+                        \colon%
+                        B%
+                        \to%
+                        C%
+                    \]%
+                    for the function $\llbracket b\mapsto f(a,b)\rrbracket$.
+                \item Denoting a composition of the form%
+                    \[
+                        A\times B%
+                        \xlongrightarrow{\phi\times\id_{B}}%
+                        A'\times B%
+                        \xlongrightarrow{f}%
+                        C%
+                    \]%
+                    by $f(\phi(-_{1}),-_{2})$.
+            \end{enumerate}
+        \item Finally, given a function $f\colon A\to B$, we write
+            \[
+                \ev_{a}(f)%
+                \defeq%
+                f(a)%
+            \]%
+            for the value of $f$ at some $a\in A$.
+    \end{enumerate}
+    For an example of the above notations being used in practice, see the proof of the adjunction
+    \begin{webcompile}
+        \AdjunctionShort#A\times -#{\Hom_{\Sets}(A,-)}#\Sets#\Sets,#
+    \end{webcompile}
+    stated in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets}}.
+\end{notation}
+\section{The Enrichment of Sets in Classical Truth Values}\label{section-the-enrichment-of-sets-in-classical-truth-values}
+\subsection{\texorpdfstring{$(-2)$}{(-2)}-Categories}\label{subsection-minus-two-categories}
+\begin{definition}{$(-2)$-Categories}{minus-two-categories}%
+    A \index[set-theory]{minus two category@$(-2)$-category}\textbf{$(-2)$-category} is the \say{necessarily true} truth value.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Thus, there is only one $(-2)$-category.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        A $(-n)$-category for $n=3,4,\ldots$ is also the \say{necessarily true} truth value, coinciding with a $(-2)$-category.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For motivation, see \cite[p.~13]{lectures-on-n-categories-and-cohomology}.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\subsection{\texorpdfstring{$(-1)$}{(-1)}-Categories}\label{subsection-minus-one-categories}
+\begin{definition}{$(-1)$-Categories}{minus-one-categories}%
+    A \index[set-theory]{minus one category@$(-1)$-category}\textbf{$(-1)$-category} is a classical truth value.%
+\end{definition}
+\begin{remark}{Motivation for $(-1)$-Categories}{motivation-for-minus-one-categories}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For more motivation, see \cite[p.~13]{lectures-on-n-categories-and-cohomology}.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    $(-1)$-categories should be thought of as being \say{categories enriched in $(-2)$-categories}, having a collection of objects and, for each pair of objects, a $\Hom$-object $\Hom(x,y)$ that is a $(-2)$-category (i.e.\ trivial).
+
+    Therefore, a $(-1)$-category $\CatFont{C}$ is either (\cite[pp.~33--34]{lectures-on-n-categories-and-cohomology}):%
+    \begin{enumerate}
+        \item \emph{Empty}, having no objects;
+        \item \emph{Contractible}, having a collection of objects $\{a,b,c,\ldots\}$, but with $\Hom_{\CatFont{C}}(a,b)$ being a $(-2)$-category (i.e.\ trivial) for all $a,b\in\Obj(\CatFont{C})$, forcing all objects of $\CatFont{C}$ to be uniquely isomorphic to each other.
+    \end{enumerate}
+    As such, there are only two $(-1)$-categories, up to equivalence:
+    \begin{itemize}
+        \item The $(-1)$-category $\false$ (the empty one);
+        \item The $(-1)$-category $\true$  (the contractible one).%
+    \end{itemize}
+\end{remark}
+\begin{definition}{The Poset of Truth Values}{the-poset-of-truth-values}%
+    The \index[set-theory]{poset!of truth values}\textbf{poset of truth values}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[set-theory]{poset!of minus one categories@of $(-1)$-categories}\textbf{poset of $(-1)$-categories}.%
+    } %
+    %---  End Footnote  ---%
+    is the poset \index[notation]{truefalse@$\TV$}$\smash{(\TV,\preceq)}$ consisting of%
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $\TV$ whose elements are the truth values $\true$ and $\false$.
+        \item\SloganFont{The Partial Order. }The partial order
+            \[
+                \preceq%
+                \colon%
+                \TV\times\TV%
+                \to
+                \TV%
+            \]%
+            on $\TV$ defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This partial order coincides with logical implication.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \begin{align*}
+                \false\preceq\false &\defeq \true,\\
+                \true\preceq\false  &\defeq \false,\\
+                \false\preceq\true  &\defeq \true,\\
+                \true\preceq\true   &\defeq \true.
+            \end{align*}
+    \end{itemize}
+\end{definition}
+\begin{notation}{Further Notation for The Poset of Truth Values}{further-notation-for-the-poset-of-truth-values}%
+    We also write \index[notation]{tf@$\TTV$}$\TTV$ for the poset $\TV$.
+\end{notation}
+\begin{proposition}{Cartesian Closedness of the Poset of Truth Values}{cartesian-closedness-of-the-poset-of-truth-values}%
+    The poset of truth values $\TTV$ is Cartesian closed with product given by%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that $\times$ coincides with the \say{and} operator, while $\eHom_{\TTV}$ coincides with the logical implication operator.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{align*}
+        \ttrue  \times \ttrue  &= \ttrue,\\
+        \ttrue  \times \tfalse &= \tfalse,\\
+        \tfalse \times \ttrue  &= \tfalse,\\
+        \tfalse \times \tfalse &= \tfalse,
+    \end{align*}
+    and internal Hom $\eHom_{\TTV}$ given by the partial order of $\TTV$, i.e.\ by
+    \begin{align*}
+        \eHom_{\TTV}(\ttrue,\ttrue)   &= \ttrue,\\
+        \eHom_{\TTV}(\ttrue,\tfalse)  &= \tfalse,\\
+        \eHom_{\TTV}(\tfalse,\ttrue)  &= \ttrue,\\
+        \eHom_{\TTV}(\tfalse,\tfalse) &= \ttrue.
+    \end{align*}
+\end{proposition}
+\begin{Proof}{Proof of \cref{cartesian-closedness-of-the-poset-of-truth-values}}%
+    \ProofBox{Existence of Products}%
+    We claim that the products $\ttrue\times\ttrue$, $\ttrue\times\tfalse$, $\tfalse\times\ttrue$, and $\tfalse\times\tfalse$ satisfy the universal property of the product in $\TTV$. Indeed, consider the diagrams
+    \begin{webcompile}
+        \resizebox{\textwidth}{!}{$%
+            \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \&
+                P_{1}
+                \arrow[rd, "p^{1}_{2}", bend left=15]
+                \arrow[d, "\exists!" description,dashed]
+                \arrow[ld, "p^{1}_{1}"', bend right=15]
+                \&
+                \\
+                \ttrue
+                \&
+                \underbrace{\ttrue\times\ttrue}_{=\ttrue}%
+                \arrow[l, "\pr_{1}", two heads]
+                \arrow[r, "\pr_{2}"', two heads]
+                \&
+                \ttrue
+            \end{tikzcd}
+            \quad
+            \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \&
+                P_{2}
+                \arrow[rd, "p^{2}_{2}", bend left=15]
+                \arrow[d, "\exists!" description,dashed]
+                \arrow[ld, "p^{2}_{1}"', bend right=15]
+                \&
+                \\
+                \ttrue
+                \&
+                \underbrace{\ttrue\times\tfalse}_{=\tfalse}%
+                \arrow[l, "\pr_{1}", two heads]
+                \arrow[r, "\pr_{2}"', two heads]
+                \&
+                \tfalse
+            \end{tikzcd}
+            \quad
+            \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \&
+                P_{3}
+                \arrow[rd, "p^{3}_{2}", bend left=15]
+                \arrow[d, "\exists!" description,dashed]
+                \arrow[ld, "p^{3}_{1}"', bend right=15]
+                \&
+                \\
+                \tfalse
+                \&
+                \underbrace{\tfalse\times\ttrue}_{=\tfalse}%
+                \arrow[l, "\pr_{1}", two heads]
+                \arrow[r, "\pr_{2}"', two heads]
+                \&
+                \ttrue
+            \end{tikzcd}
+            \quad
+            \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \&
+                P_{4}
+                \arrow[rd, "p^{4}_{2}", bend left=15]
+                \arrow[d, "\exists!" description,dashed]
+                \arrow[ld, "p^{4}_{1}"', bend right=15]
+                \&
+                \\
+                \tfalse
+                \&
+                \underbrace{\tfalse\times\tfalse}_{=\tfalse}%
+                \arrow[l, "\pr_{1}", two heads]
+                \arrow[r, "\pr_{2}"', two heads]
+                \&
+                \tfalse\mrp{.}
+            \end{tikzcd}
+        $}%
+    \end{webcompile}
+    Here:
+    \begin{enumerate}
+        \item If $P_{1}=\ttrue$, then $p^{1}_{1}=p^{1}_{2}=\id_{\ttrue}$, and there's indeed a unique morphism from $P_{1}$ to $\ttrue$ making the diagram commute, namely $\id_{\ttrue}$;
+        \item If $P_{1}=\tfalse$, then $p^{1}_{1}=p^{1}_{2}$ are given by the unique morphism from $\tfalse$ to $\ttrue$, and there's indeed a unique morphism from $P_{1}$ to $\ttrue$ making the diagram commute, namely the unique morphism from $\tfalse$ to $\ttrue$;
+        \item If $P_{2}=\ttrue$, then there is no morphism $p^{2}_{2}$.
+        \item If $P_{2}=\tfalse$, then $p^{2}_{1}$ is the unique morphism from $\tfalse$ to $\ttrue$ while $p^{2}_{2}=\id_{\tfalse}$, and there's indeed a unique morphism from $P_{2}$ to $\tfalse$ making the diagram commute, namely $\id_{\tfalse}$;
+        \item The proof for $P_{3}$ is similar to the one for $P_{2}$;
+        \item If $P_{4}=\ttrue$, then there is no morphism $p^{4}_{1}$ or $p^{4}_{2}$.
+        \item If $P_{4}=\tfalse$, then $p^{4}_{1}=p^{4}_{2}=\id_{\tfalse}$, and there's indeed a unique morphism from $P_{4}$ to $\tfalse$ making the diagram commute, namely $\id_{\tfalse}$.
+    \end{enumerate}
+
+    \ProofBox{Cartesian Closedness}%
+    We claim there's a bijection
+    \[
+        \Hom_{\TTV}(A\times B,C)%
+        \cong%
+        \Hom_{\TTV}(A,\eHom_{\TTV}(B,C))%
+    \]%
+    natural in $A,B,C\in\TTV$. Indeed:
+    \begin{itemize}
+        \item For $(A,B,C)=(\ttrue,\ttrue,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\ttrue,\ttrue)    &\cong \Hom_{\TTV}(\ttrue,\ttrue)\\
+                                                          &=     \{\id_{\true}\}\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\ttrue,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\ttrue,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\ttrue,\tfalse)   &\cong \Hom_{\TTV}(\ttrue,\tfalse)\\
+                                                          &=     \emptyset\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\ttrue,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\tfalse,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\tfalse,\ttrue)   &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\tfalse,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\tfalse,\tfalse)  &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\tfalse,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\ttrue,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\ttrue,\ttrue)   &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\ttrue,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\ttrue,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\ttrue,\tfalse)  &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\ttrue,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\tfalse,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\tfalse,\ttrue)  &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\tfalse,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\tfalse,\tfalse) &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &=     \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\tfalse)).
+            \end{align*}
+    \end{itemize}
+    The proof of naturality is omitted.
+\end{Proof}
+\subsection{$0$-Categories}\label{subsection-zero-categories}
+\begin{definition}{$0$-Categories}{zero-categories}%
+    A \index[set-theory]{zero category@$0$-category}\textbf{$0$-category} is a poset.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Motivation: }A $0$-category is precisely a category enriched in the poset of $(-1)$-categories.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\begin{definition}{$0$-Groupoids}{zero-groupoids}%
+    A \index[set-theory]{zero groupoid@$0$-groupoid}\textbf{$0$-groupoid} is a $0$-category in which every morphism is invertible.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        That is, a \emph{set}.
+        \par\vspace*{-1.75\baselineskip}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\subsection{Tables of Analogies Between Set Theory and Category Theory}\label{subsection-table-of-analogies-between-set-theory-and-category-theory}
+Here we record some analogies between notions in set theory and category theory. Note that the analogies relating to presheaves relate equally well to copresheaves, as the opposite $X^{\mathrm{op}}$ of a set $X$ is just $X$ again.
+% BEGIN RAW HTML %
+<p>Basics:</p>
+<table>
+  <tr>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
+  </tr>
+  <tr>
+    <td>Enrichment in $\TV$</td>
+    <td>Enrichment in $\Sets$</td>
+  </tr>
+  <tr>
+    <td>Set $X$</td>
+    <td>Category $\mathcal{C}$</td>
+  </tr>
+  <tr>
+    <td>Element $x\in X$</td>
+    <td>Object $X\in\Obj(\mathcal{C})$</td>
+  </tr>
+  <tr>
+    <td>Function</td>
+    <td>Functor</td>
+  </tr>
+  <tr>
+    <td>Function $X\to\TV$</td>
+    <td>Functor $\mathcal{C}\to\mathsf{Sets}$</td>
+  </tr>
+  <tr>
+    <td>Function $X\to\TV$</td>
+    <td>Presheaf $\mathcal{C}^{\op}\to\mathsf{Sets}$</td>
+  </tr>
+</table>
+<p></p>
+<p>Powersets and categories of presheaves:</p>
+<table>
+  <tr>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
+  </tr>
+  <tr>
+    <td>Powerset $\mathcal{P}(X)$<br>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:powersets}}{\cref{powersets}})</td>
+    <td>Presheaf category $\mathsf{PSh}(\mathcal{C})$<br>(\ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:the-category-of-presheaves-on-a-category}}{\cref{the-category-of-presheaves-on-a-category}})</td>
+  </tr>
+  <tr>
+    <td>Characteristic function $\chi_{x}$<br>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions}})</td>
+    <td>Representable Presheaf $h_{X}$<br>(\ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:the-representable-presheaf-associated-to-an-object}}{\cref{the-representable-presheaf-associated-to-an-object}})</td>
+  </tr>
+  <tr>
+    <td>Characteristic embedding<p style="margin-top:0.5em;margin-bottom:0.5em">$\chi_{(-)}\colon X\hookrightarrow\mathcal{P}(X)$</p>(<a href="/tag/004R" data-tag="004R">Item 4</a> of <a href="/tag/004M" data-tag="004M">Definition 2.3.1.1</a>)</td>
+    <td>Yoneda embedding<p style="margin-top:0.5em;margin-bottom:0.5em">$\yo\colon\mathcal{C}\hookrightarrow\mathsf{PSh}(\mathcal{C})$</p>(\cref{TODO})</td>
+  </tr>
+  <tr>
+    <td>Characteristic relation $\chi_{X}(-_{1},-_{2})$<br>(<a href="/tag/004Q" data-tag="004Q">Item 3</a> of <a href="/tag/004M" data-tag="004M">Definition 2.3.1.1</a>)</td>
+    <td>$\Hom$ profunctor $\Hom_{\mathcal{C}}(-_{1},-_{2})$<br>(\cref{TODO})</td>
+  </tr>
+  <tr>
+  <td>The Yoneda lemma for sets<p style="margin-top:0.5em;margin-bottom:0.5em">$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{U})\cong\chi_{U}(x)$</p>(<a href="/tag/004T" data-tag="004T">Proposition 2.3.1.3</a>)</td>
+    <td>The Yoneda lemma for categories<p style="margin-top:0.5em;margin-bottom:0.5em">$\Nat(h_{X},\mathcal{F})\cong\mathcal{F}(X)$</p>(<a href="/tag/001G" data-tag="001G">Definition 2.1.6.1</a>)</td>
+  </tr>
+  <tr>
+    <td>The characteristic<br>embedding is fully faithful,<p style="margin-top:0.5em;margin-bottom:0.5em">$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})\cong\chi_{X}(x,y)$</p>(<a href="/tag/004U" data-tag="004U">Corollary 2.3.1.4</a>)</td>
+    <td>The Yoneda<br>embedding is fully faithful,<p style="margin-top:0.5em;margin-bottom:0.5em">$\Nat(h_{X},h_{Y})\cong\Hom_{\mathcal{C}}(X,Y)$</p>(\cref{TODO})</td>
+  </tr>
+  <tr>
+    <td>Subsets are unions of their elements,<p style="margin-top:0.5em;margin-bottom:0.5em">$\displaystyle U=\bigcup_{x\in U}\{x\}$ or $\displaystyle\chi_{U}=\mkern-18mu\colim_{\chi_{x}\in\Sets(U,\TTV)}(\chi_{x})$</p></td>
+    <td>Presheaves are colimits of representables,<p style="margin-top:0.5em;margin-bottom:0.5em">$\displaystyle\mathcal{F}\cong\colim_{h_{X}\in\int_{\mathcal{C}}\mathcal{F}}(h_{X})$</p></td>
+  </tr>
+</table>
+<p></p>
+<p>Categories of elements:</p>
+<table>
+  <tr>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
+  </tr>
+  <tr>
+    <td>Assignment $U\mapsto\chi_{U}$</td>
+    <td>Assignment $\mathcal{F}\mapsto\int_{\mathcal{C}}\mathcal{F}$</td>
+  </tr>
+  <tr>
+  <td>Assignment<p style="margin-top:0.5em;margin-bottom:0.5em">$U\mapsto\chi_{U}$</p>giving an isomorphism<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathcal{P}(X)\cong\Sets(X,\TTV)$</p>(<a href="/tag/0054" data-tag="0054">Item 6</a> of <a href="/tag/004Y" data-tag="004Y">Proposition 2.3.2.3</a>)</td>
+    <td>Assignment<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathcal{F}\mapsto\int_{\mathcal{C}}\mathcal{F}$</p>giving an equivalence<p style="margin-top:0.5em;margin-bottom:0.5em">$\PSh(\mathcal{C})\eqcong\DFib(\mathcal{C})$</p></td>
+  </tr>
+</table>
+<p></p>
+<p>Functions between powersets and functors between presheaf categories:</p>
+<table>
+  <tr>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
+  </tr>
+  <tr>
+    <td>Direct image function<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}})</td>
+    <td>Direct image functor<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{*}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p></td>
+  </tr>
+  <tr>
+    <td>Inverse image function<p style="margin-top:0.5em;margin-bottom:0.5em">$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-inverse-image-function-associated-to-a-function}}{\cref{the-inverse-image-function-associated-to-a-function}})</td>
+    <td>Inverse image functor<p style="margin-top:0.5em;margin-bottom:0.5em">$f^{-1}\colon\mathsf{PSh}(\mathcal{D})\to\mathsf{PSh}(\mathcal{C})$</p>(\cref{TODO})</td>
+  </tr>
+  <tr>
+    <td>Direct image with<br>compact support function<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-with-compact-support-function-associated-to-a-function}}{\cref{the-direct-image-with-compact-support-function-associated-to-a-function}})</td>
+    <td>Direct image with<br>compact support functor<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{!}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p>(\cref{TODO})</td>
+  </tr>
+</table>
+<p></p>
+<p>Relations and profunctors:</p>
+<table>
+  <tr>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
+    <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
+  </tr>
+  <tr>
+    <td>Relation<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon X\times Y\to\TTV$</p></td>
+    <td>Profunctor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathcal{D}^{\op}\times\mathcal{C}\to\Sets$</p></td>
+  </tr>
+  <tr>
+    <td>Relation<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon X\to\mathcal{P}(Y)$</p></td>
+    <td>Profunctor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathcal{C}\to\PSh(\mathcal{D})$</p></td>
+  </tr>
+  <tr>
+    <td>Relation as a cocontinuous<br>morphism of posets<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon(\mathcal{P}(X),\subset)\to(\mathcal{P}(Y),\subset)$</p></td>
+    <td>Profunctor as a<br>colimit-preserving functor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p></td>
+  </tr>
+</table>
+% BEGIN LATEX HTML %
+\newline
+Basics:
+\begingroup%
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|c|c|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{\textsc{Set Theory}}} & \textcolor{white}{\textsc{Category Theory}} \\\hline\rowcolor{backgroundColor}
+        Enrichment in $\TV$                    & Enrichment in $\Sets$                       \\\rowcolor{black!05!backgroundColor}
+        Set $X$                                & Category $\CatFont{C}$                      \\\rowcolor{backgroundColor}
+        Element $x\in X$                       & Object $X\in\Obj(\CatFont{C})$              \\\rowcolor{black!05!backgroundColor}
+        Function                               & Functor                                     \\\rowcolor{backgroundColor}
+        Function $X\to\TV$                     & Functor  $\CatFont{C}\to\Sets$              \\\rowcolor{black!05!backgroundColor}
+        Function $X\to\TV$                     & Presheaf $\CatFont{C}^{\op}\to\Sets$        \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+Powersets and categories of presheaves:
+\begingroup%
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                                                                                    & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                   \\\hline\rowcolor{backgroundColor}
+        Powerset $\mathcal{P}(X)$                                                                                                                                                          & Presheaf category $\PSh(\CatFont{C})$                                                                                                         \\\rowcolor{black!05!backgroundColor}
+        Characteristic function $\chi_{\{x\}}$                                                                                                                                             & Representable presheaf $h_{X}$                                                                                                                \\\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Characteristic embedding\\$\chi_{(-)}\colon X\hookrightarrow\mathcal{P}(X)$}}                                                                            & \Gape[0pt][2pt]{\makecell{Yoneda embedding\\$\yo\colon\CatFont{C}^{\op}\hookrightarrow\PSh(\CatFont{C})$}}                                                    \\\rowcolor{black!05!backgroundColor}
+        Characteristic relation $\chi_{X}(-_{1},-_{2})$                                                                                                                                    & Hom profunctor $\Hom_{\CatFont{C}}(-_{1},-_{2})$                                                                                              \\\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{The Yoneda lemma for sets\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{U})=\chi_{U}(x)$}}                                                               & \Gape[0pt][2pt]{\makecell{The Yoneda lemma for categories\\$\Nat(h_{X},\SheafFont{F})\cong\SheafFont{F}(X)$}}                                                  \\\rowcolor{black!05!backgroundColor}
+        \Gape[0pt][2pt]{\makecell{The characteristic\\ embedding is fully faithful,\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})=\chi_{X}(x,y)$}}                                     & \Gape[0pt][2pt]{\makecell{The Yoneda\\ embedding is fully faithful,\\$\Nat(h_{X},h_{Y})\cong\Hom_{\CatFont{C}}(X,Y)$}}                                        \\\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Subsets are unions of their elements\\ $\displaystyle U=\bigcup_{x\in U}\{x\}$\\or\\$\displaystyle\chi_{U}=\colim_{\chi_{x}\in\Sets(U,\TTV)}(\chi_{x})$}} & \Gape[0pt][2pt]{\makecell{Presheaves are\\ colimits of representables,\\$\displaystyle\mathcal{F}\cong\colim_{h_{X}\in\int_{\mathcal{C}}\mathcal{F}}(h_{X})$}} \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+Categories of elements:
+\begingroup%
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                      & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                                        \\\hline\rowcolor{backgroundColor}
+        Assignment $U\mapsto\chi_{U}$                                                                                        & \Gape[0pt][2pt]{\makecell{Assignment $\mathcal{F}\mapsto\catEl{\CatFont{C}}{\SheafFont{F}}$\\(the category of elements)}}                                          \\\rowcolor{black!05!backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Assignment $U\mapsto\chi_{U}$\\giving an isomorphism\\$\mathcal{P}(X)\cong\Sets(X,\TTV)$}} & \Gape[0pt][2pt]{\makecell{Assignment $\mathcal{F}\mapsto\catEl{\CatFont{C}}{\SheafFont{F}}$\\giving an equivalence\\$\PSh(\CatFont{C})\eqcong\DFib(\CatFont{C})$}} \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+Functions between powersets and functors between presheaf categories:
+\begingroup%
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                       & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                \\\hline\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Direct image function\\$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}}                       & \Gape[0pt][2pt]{\makecell{Inverse image functor\\$f^{-1}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}}                     \\\rowcolor{black!05!backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Inverse image function\\$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$}}                     & \Gape[0pt][2pt]{\makecell{Direct image functor\\$f_{*}\colon\PSh(\CatFont{D})\to\PSh(\CatFont{C})$}}                       \\\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Direct image with\\compact support function\\$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}} & \Gape[0pt][2pt]{\makecell{Direct image with\\compact support functor\\$f_{!}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+Relations and profunctors:
+\begingroup%
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                                                                                       & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                               \\\hline\rowcolor{backgroundColor}
+        Relation $R\colon X\times Y\to\TTV$                                                                                                                                                   & Profunctor $\mathfrak{p}\colon\CatFont{D}^{\op}\times\CatFont{C}\to\Sets$                                                                                 \\\rowcolor{black!05!backgroundColor}
+        Relation $R\colon X\to\mathcal{P}(Y)$                                                                                                                                      & Profunctor $\mathfrak{p}\colon\CatFont{C}\to\PSh(\CatFont{D})$                                                                                 \\\rowcolor{backgroundColor}
+        \Gape[0pt][2pt]{\makecell{Relation as a \\cocontinuous morphism of posets\\$R\colon(\mathcal{P}(X),\subset)\to(\mathcal{P}(Y),\subset)$}} & \Gape[0pt][2pt]{\makecell{Profunctor as a \\colimit-preserving functor\\$\mathfrak{p}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+% END RAW HTML %
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

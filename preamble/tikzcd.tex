@@ -1,0 +1,39 @@
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.markings,fit,patterns,decorations.pathreplacing,3d,decorations.pathmorphing}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\usepackage{tikz-cd}
+\newlength{\DL}
+\setlength{\DL}{0.9em}% 0.9 / 1.1625
+\tikzset{double line with arrow/.style args={#1,#2}{decorate,decoration={markings,mark=at position 0 with {\coordinate (ta-base-1) at (0,1pt);\coordinate (ta-base-2) at (0,-1pt);},mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);\draw[#2] (ta-base-2) -- (0,-1pt);}}}}
+\tikzset{Equals/.style={-,double line with arrow={-,-}}}
+\tikzcdset{
+    arrow style=tikz,
+    %diagrams={>={Straight Barb[scale=0.75]}}
+    diagrams={>={Stealth[round,length=4pt,width=4.95pt,inset=2.75pt]}}
+}
+\tikzcdset{%
+    bigisoarrow/.style={%
+        "\scalebox{1.75}{$\unsim$}"{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-1.5pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    bigisoarrowprime/.style={%
+        "\scalebox{1.75}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=+0.1pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    isoarrow/.style={%
+        "\scalebox{1.25}{$\unsim$}"{sloped,pos=0.45}, dash pattern=on 1.65pt off 1.65pt, outer sep=-2.5pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    isoarrowprime/.style={%
+        "\scalebox{1.25}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-0.0pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}

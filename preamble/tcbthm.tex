@@ -1,0 +1,348 @@
+\SetTracking{encoding=*, shape=sc}{-5}
+\usepackage{fontspec}
+\newfontfamily\SmallCapsFont[Path = ABSOLUTEPATH/fonts/alegreya-sans/,Scale=1.0,Ligatures=TeX,RawFeature={+smcp}]{AlegreyaSans-Medium.ttf}
+\usepackage{pgfkeys}
+\usepackage{xpatch}
+
+\makeatletter
+\xpatchcmd\pgfkeys@unpack
+  {\pgfkeys@case@one}
+  { 
+    \pgfkeyslet{\pgfkeyscurrentkey/.@last}{\pgfkeyscurrentvalue}%
+    \pgfkeys@case@one
+  }
+  {}{\fail}
+
+\def\pgfkeysLastValueOf#1{\csname pgfk@#1/.@last\endcsname}
+\makeatother
+%\usepackage{amsthm}
+\newcommand{\hyperwhite}{\hypersetup{citecolor=white,filecolor=white,linkcolor=white,urlcolor=white}}
+\newcommand{\hyperred}{%
+\hypersetup{%
+    citecolor=TitlingRed,%
+    filecolor=TitlingRed,%
+    linkcolor=TitlingRed,%
+     urlcolor=TitlingRed%
+}}
+\theoremstyle{remark}
+\newtheorem{numbered-proof}{Proof}
+\usepackage[breakable,skins,theorems,most]{tcolorbox}
+\tcbuselibrary{theorems,skins}
+%
+\newcommand{\tcbsay}[1]{“#1”}
+\newcommand{\tcbdoublehyphen}{--}
+%
+\definecolor{defColor}{rgb}{0.3,0.3,0.5}%#4D4D80
+\definecolor{conColor}{rgb}{0.5,0.4,0.01392156862}%#806605
+\definecolor{thmColor}{rgb}{0.65,0.05,0.05}%#A60D0D
+\definecolor{othColor}{rgb}{0.5,0.2,0.0}%#803300
+\definecolor{corColor}{RGB}{82,0,122}%52007A
+\definecolor{notColor}{RGB}{212,97,166}%#B00B69
+\definecolor{queColor}{RGB}{0,163,175}%#00A3AF
+\definecolor{remColor}{rgb}{0.2,0.5,0.2}%338033
+\definecolor{prfColor}{rgb}{0.35,0.35,0.35}%595959
+\definecolor{UPColor}{rgb}{0.3,0.3,0.5}
+\definecolor{conjColor}{RGB}{195,50,145}
+%\usepackage{fontawesome} % For \faTransgenderAlt
+
+%--- Arabic Footnotes ---%
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+
+%--------------------------%
+%--------Definition--------% (Has to be declared before the other environments because of the definition counter)
+%--------------------------%
+\newtcbtheorem[number within=subsection,crefname={Definition}{Definitions}]{tcbdefinition}{\textsc{\bfseries\SmallCapsFont Definition}}{%
+    sharp corners,
+    left=0.25cm,
+    right=0.25cm,
+    colframe=defColor,
+    colback=backgroundColor,
+    fonttitle=\bfseries\scshape\SmallCapsFont,
+    coltitle=white,
+    breakable,
+    shrink break goal=1.00cm,
+    before upper={},
+    separator sign={\ $\blacktriangleright$},
+}{%
+    \textsc{\SmallCapsFont Definition}%
+}
+
+\newenvironment{definition}[2]{%
+    \begin{tcbdefinition}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries\SmallCapsFont #1}}}{}\hyperred%
+}%
+{%
+    \end{tcbdefinition}%
+}%
+
+\newcommand{\Newtcbtheorem}[5]{%
+    \newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={#2}{#3}]{#4}{\bfseries\textsc{\SmallCapsFont #2}}{%
+        sharp corners,%
+        left=0.25cm,%
+        right=0.25cm,%
+        colframe=#1,%
+        colback=backgroundColor,%
+        fonttitle=\scshape\bfseries\SmallCapsFont,%
+        coltitle=white,%
+        breakable,%
+        shrink break goal=1.00cm,%
+        before upper={},%
+        separator sign={\ $\blacktriangleright$}%
+    }{%
+        \textsc{\SmallCapsFont #2}%
+    }%
+%
+    \expandafter\newenvironment{#5}[2]{%
+        \begin{#4}[label={##2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries\SmallCapsFont ##1}}}{}\hyperred%
+    }%
+    {%
+        \end{#4}%
+    }%
+}%
+
+%(SEE ABOVE) \Newtcbtheorem{defColor}{Definition}{Definitions}{tcbdefinition}{definition}
+\Newtcbtheorem{thmColor}{Proposition}{Propositions}{tcbproposition}{proposition}
+\Newtcbtheorem{queColor}{Question}{Questions}{tcbquestion}{question}
+\Newtcbtheorem{thmColor}{Lemma}{Lemmas}{tcblemma}{lemma}
+\Newtcbtheorem{corColor}{Corollary}{Corollaries}{tcbcorollary}{corollary}
+\Newtcbtheorem{thmColor}{Theorem}{Theorems}{tcbtheorem}{theorem}
+\Newtcbtheorem{notColor}{Notation}{Notations}{tcbnotation}{notation}
+\Newtcbtheorem{remColor}{Remark}{Remarks}{tcbremark}{remark}
+\Newtcbtheorem{remColor}{Remarks}{Remarks}{tcbremarks}{remarks}
+\Newtcbtheorem{conjColor}{Conjecture}{Conjectures}{tcbconjecture}{conjecture}
+\Newtcbtheorem{othColor}{Axiom}{Axioms}{tcbaxiom}{axiom}
+\Newtcbtheorem{othColor}{Example}{Examples}{tcbexample}{example}
+\Newtcbtheorem{othColor}{Counterexample}{Counterexamples}{tcbcounterexample}{counterexample}
+\Newtcbtheorem{othColor}{Nonexample}{Nonexamples}{tcbnonexample}{nonexample}
+\Newtcbtheorem{othColor}{Convention}{Conventions}{tcbconvention}{convention}
+%
+\newcommand{\NewtcbtheoremTwoColours}[6]{%
+    \newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={#3}{#4}]{#5}{\textsc{\bfseries\SmallCapsFont #3}}{%
+        %frame style={left color=red!75!black,right color=blue!75!black},
+        skin=enhanced,
+        frame style={left color=#1,right color=#2},
+        sharp corners,
+        left=0.25cm,
+        right=0.25cm,
+        colback=backgroundColor,
+        fonttitle=\bfseries\scshape\SmallCapsFont,
+        coltitle=white,
+        breakable,
+        shrink break goal=1.00cm,
+        before upper={},
+        separator sign={\ $\blacktriangleright$},
+        %
+    }{%
+        \textsc{\SmallCapsFont #3}%
+    }%
+%
+    \expandafter\newenvironment{#6}[2]{%
+        \begin{#5}[label={##2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries\SmallCapsFont ##1}}}{}\hyperred%
+    }%
+    {%
+        \end{#5}%
+    }%
+}%
+\NewtcbtheoremTwoColours{thmColor}{defColor}{Theorem-Definition}{Theorem-Definitions}{tcbtheoremdefinition}{theorem-definition}
+\NewtcbtheoremTwoColours{thmColor}{defColor}{Proposition-Definition}{Proposition-Definitions}{tcbpropositiondefinition}{proposition-definition}
+\NewtcbtheoremTwoColours{corColor}{defColor}{Corollary-Definition}{Corollary-Definitions}{tcbcorollarydefinition}{corollary-definition}
+%----------------------------%
+%--------Construction--------%
+%----------------------------%
+\usepackage{pdfrender}
+\newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={Construction}{Constructions}]{tcbconstruction}{\textsc{\bfseries\SmallCapsFont Construction}}{%
+    enhanced,
+    sharp corners,
+    left=0.25cm,
+    right=0.25cm,
+    %frame style tile={width=5.0cm}{/home/emily/mess-project/pictures/construction_stripes.png},
+    % :(
+    colback=backgroundColor,
+    fonttitle=\bfseries\scshape\SmallCapsFont,
+    colframe=conColor,
+    coltitle=white,
+    breakable,
+    shrink break goal=1.00cm,
+    before upper={},
+    separator sign={\ $\blacktriangleright$}%
+}{%
+    Construction%
+}
+
+\newenvironment{construction}[2]{%
+    \begin{tcbconstruction}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred%
+}
+{
+    \end{tcbconstruction}
+}
+%--- Warning Environment ---%
+\newtcbtheorem[use counter from=tcbdefinition,crefname={Warning}{Warnings}]{tcbwarning}{\textsc{\bfseries\SmallCapsFont Warning}}%
+{%
+sharp corners,
+left=0.25cm,
+right=0.25cm,
+colframe=remColor,
+colback=backgroundColor,
+fonttitle=\bfseries\scshape\SmallCapsFont,
+coltitle=white,
+breakable,
+shrink break goal=1.00cm,
+before upper={},
+separator sign={\ $\blacktriangleright$}%
+}{\textsc{Warning}}
+
+\newenvironment{warning}[2]{
+    \begin{tcbwarning}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred
+    \begin{dnote}
+}
+{
+    \end{dnote}
+    \end{tcbwarning}
+}
+
+%--- Proof Environment ---%
+\definecolor{proofBackgroundColor}{rgb}{0.9,0.9,0.9}
+
+\newtcbtheorem[%
+use counter from=tcbdefinition,%
+crefname={Proof}{Proofs}%
+]{tcbproof}{\textsc{\bfseries\SmallCapsFont Proof}}%
+{%
+sharp corners,
+left=0.25cm,
+right=0.25cm,
+colframe=white!25!black,
+colback=backgroundColor,
+fonttitle=\bfseries\scshape\SmallCapsFont,
+coltitle=white,
+breakable,
+shrink break goal=1.00cm,
+before upper={},
+separator sign={\ $\blacktriangleright$}%
+}{Proof}
+
+\newenvironment{Proof}[1]{%
+    \begin{tcbproof}{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred%
+}%
+{%
+    \hfill%\faTransgenderAlt%
+    $\smash{\includegraphics[width=0.025\textwidth]{../../pictures/trans-flag/trans-flag.pdf}}$%
+    %$\smash{\includegraphics[width=0.01725\textwidth]{../../pictures/trans-flag/trans-flag.pdf}}$%
+    \end{tcbproof}\hyperred%
+}%
+
+%--------------------------------%
+%--Definition-Proof Environment--%
+%--------------------------------%
+\newtcbtheorem[%
+use counter from=tcbdefinition,%
+crefname={Definition-Proof}{Definition-Proofs}%
+]{tcbdefinitionproof}{\textsc{\bfseries\SmallCapsFont Definition-Proof}}%
+{%
+sharp corners,
+left=0.25cm,
+right=0.25cm,
+colframe=prfColor,
+colback=backgroundColor,
+fonttitle=\bfseries\scshape\SmallCapsFont,
+coltitle=white,
+breakable,
+shrink break goal=1.00cm,
+before upper={},
+separator sign={\ $\blacktriangleright$}%
+}{Definition-Proof}
+
+\newenvironment{definitionProof}[1]{%
+    \begin{tcbdefinitionproof}{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred%
+}
+{
+    \hfill%\faTransgenderAlt
+    $\smash{\includegraphics[width=0.01725\textwidth]{../../pictures/trans-flag/trans-flag.pdf}}$%
+    \end{tcbdefinitionproof}\hyperred%
+}
+
+%--------------------------------%
+%----Proof Sketch Environment----%
+%--------------------------------%
+\definecolor{proofSketchBackgroundColor}{rgb}{0.9,0.9,0.9}
+
+\newtcbtheorem[%
+use counter from=tcbdefinition,%
+crefname={Proof Sketch}{Proof Sketches}%
+]{tcbproofsketch}{\textsc{\bfseries\SmallCapsFont Proof Sketch}}%
+{%
+sharp corners,
+left=0.25cm,
+right=0.25cm,
+colframe=white!25!black,
+colback=backgroundColor,
+fonttitle=\bfseries\scshape\SmallCapsFont,
+coltitle=white,
+breakable,
+shrink break goal=1.00cm,
+before upper={},
+separator sign={\ $\blacktriangleright$}%
+}{Proof Sketch}
+
+\newenvironment{ProofSketch}[1]{%
+    \begin{tcbproofsketch}{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred%
+}
+{
+    \hfill%\faTransgenderAlt%
+    $\smash{\includegraphics[width=0.01725\textwidth]{../../pictures/trans-flag/trans-flag.pdf}}$%
+    \end{tcbproofsketch}\hyperred%
+}
+
+%--- Proof Box
+\definecolor{ProofBoxColor}{rgb}{0.4,0.4,0.4}
+
+\let\proofBox\relax
+\newtcbox{\proofBox}{
+    width=\linewidth,%
+    sharp corners,
+    enhanced,
+    nobeforeafter,
+    tcbox raise base,
+    %boxrule=0.0pt,
+    top=-0.5mm,
+    bottom=-0.5mm,
+    right=0mm,
+    left=0mm,
+    %arc=0.5mm,
+    %boxsep=2pt,
+    colframe=ProofBoxColor,
+    coltext=white,
+    colback=ProofBoxColor,
+}
+
+\robustify{\proofBox}
+
+%--- Inline Fancy Small Box
+\definecolor{InlineProofBoxColor}{rgb}{0.5,0.5,0.5}
+\newcommand{\FirstProofBox}[1]{%
+    \let\widthProofBox\relax%
+    \newlength{\widthProofBox}%
+    \settowidth{\widthProofBox}{%
+        \widthof{%
+            \hyperwhite #1%\mdseries\textsf{#1}%
+        }%
+    }%
+    \noindent\proofBox{%
+        \hyperwhite #1%\mdseries\textsf{#1}%
+        \hspace{\textwidth}%
+        \hspace{-\widthProofBox}%
+        \hspace{-\pgfkeysLastValueOf{/tcb/left}}%
+        \hspace{-\pgfkeysLastValueOf{/tcb/right}}%
+        \hspace{-\pgfkeysLastValueOf{/tcb/boxsep}}%
+        \hspace{-5.725pt}%
+        $\mlp{\phantom{Ayd}}$% Fix height to descender + max(ascender,caps)
+    }%
+    \vspace{0.25\baselineskip}%
+    \newline\hyperred%
+    \let\widthProofBox\relax%
+    \let\toEndLine\relax%
+}
+\newcommand{\ProofBox}[1]{%
+    \vspace{0.25\baselineskip}
+    \FirstProofBox{#1}
+}%
+\tcbsetforeverylayer{shield externalize}% <--- interim solution before bug fix

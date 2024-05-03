@@ -1,0 +1,2792 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Pointed Sets}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some foundational material on pointed sets.
+
+\ChapterTableOfContents
+
+\section{Pointed Sets}\label{section-pointed-sets}
+\subsection{Foundations}\label{subsection-pointed-sets-foundations}
+\begin{definition}{Pointed Sets}{pointed-sets}%
+    A \index[set-theory]{pointed set}\textbf{pointed set}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }In the context of monoids with zero as models for $\F_{1}$-algebras, pointed sets are viewed as \index[set-theory]{field with one element!module over}\textbf{$\F_{1}$-modules}.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    is equivalently:
+    \begin{itemize}
+        \item An $\E_{0}$-monoid in $(\NerveB(\Sets),\pt)$.
+        \item A pointed object in $(\Sets,\pt)$.%
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{pointed-sets}}{unwinding-pointed-sets}%
+    In detail, a \textbf{pointed set} is a pair $(X,x_{0})$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }A set $X$, called the \textbf{underlying set of $(X,x_{0})$}.
+        \item\SloganFont{The Basepoint. }A morphism
+            \[
+                [x_{0}]%
+                \colon%
+                \pt%
+                \to%
+                X%
+            \]%
+            in $\Sets$, determining an element $x_{0}\in X$, called the \textbf{basepoint of $X$}.
+    \end{itemize}
+\end{remark}
+\begin{example}{The Zero Sphere}{the-zero-sphere}%
+    The \index[set-theory]{pointed set!zero sphere@$0$-sphere}\textbf{$0$-sphere}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }In the context of monoids with zero as models for $\F_{1}$-algebras, the $0$-sphere is viewed as the \index[set-theory]{pointed set!Fone@$\F_{1}$}\textbf{underlying pointed set of the field with one element}.
+    } %
+    %---  End Footnote  ---%
+    is the pointed set \index[notation]{Szero@$S^{0}$}$\smash{(S^{0},0)}$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }In the context of monoids with zero as models for $\F_{1}$-algebras, $S^{0}$ is also denoted \index[notation]{Fone@$\F_{1}$}$(\F_{1},0)$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $S^{0}$ defined by
+            \[
+                S^{0}
+                \defeq
+                \{0,1\}.
+            \]%
+        \item\SloganFont{The Basepoint. }The element $0$ of $S^{0}$.
+    \end{itemize}
+\end{example}
+\begin{example}{The Trivial Pointed Set}{the-trivial-pointed-set}%
+    The \index[set-theory]{pointed set!trivial}\textbf{trivial pointed set} is the pointed set \index[notation]{pt@$\pt$}$(\pt,\point)$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The punctual set $\pt\defeq\{\point\}$.
+        \item\SloganFont{The Basepoint. }The element $\point$ of $\pt$.
+    \end{itemize}
+\end{example}
+\begin{example}{The Underlying Pointed Set of a Semimodule}{the-underlying-pointed-set-of-a-semimodule}%
+    The \index[set-theory]{pointed set!underlying a semimodule}\index[set-theory]{semimodule!underlying pointed set of}\textbf{underlying pointed set} of a semimodule $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
+\end{example}
+\begin{example}{The Underlying Pointed Set of a Module}{the-underlying-pointed-set-of-a-module}%
+    The \index[set-theory]{pointed set!underlying a module}\index[set-theory]{module!underlying pointed set of}\textbf{underlying pointed set} of a module $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
+\end{example}
+\subsection{Morphisms of Pointed Sets}\label{subsection-morphisms-of-pointed-sets}
+\begin{definition}{Morphisms of Pointed Sets}{morphisms-of-pointed-sets}%
+    A \index[set-theory]{pointed set!morphism of}\textbf{morphism of pointed sets}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called a \index[set-theory]{pointed function|see {pointed set, morphism of}}\textbf{pointed function}.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }In the context of monoids with zero as models for $\F_{1}$-algebras, morphisms of pointed sets are also called \index[set-theory]{field with one element!module over, morphism of}\textbf{morphism of $\F_{1}$-modules}.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    is equivalently:
+    \begin{itemize}
+        \item A morphism of $\E_{0}$-monoids in $(\NerveB(\Sets),\pt)$.%
+        \item A morphism of pointed objects in $(\Sets,\pt)$.%
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{morphisms-of-pointed-sets}}{unwinding-morphisms-of-pointed-sets}%
+    In detail, a \textbf{morphism of pointed sets} $f\colon(X,x_{0})\to(Y,y_{0})$ is a morphism of sets $f\colon X\to Y$ such that the diagram
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            \pt
+            \arrow[ld,"{[x_{0}]}"']
+            \arrow[rd,"{[y_{0}]}"]
+            \&
+            \\
+            X
+            \arrow[rr,"f"']
+            \&
+            \&
+            Y
+        \end{tikzcd}
+    \]%
+    commutes, i.e.\ such that
+    \[
+        f(x_{0})
+        =
+        y_{0}.
+    \]%
+\end{remark}
+\subsection{The Category of Pointed Sets}\label{subsection-the-category-of-pointed-sets}
+\begin{definition}{The Category of Pointed Sets}{the-category-of-pointed-sets}%
+    The \index[set-theory]{pointed set!category of}\textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ defined equivalently as
+    \begin{itemize}
+        \item The homotopy category of the $\infty$-category $\Mon_{\E_{0}}(\NerveB(\Sets),\pt)$ of \ChapterRef{\ChapterMonoidsInMonoidalInftyCategories, \cref{monoids-in-symmetric-monoidal-infty-categories:the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}}{\cref{the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}};
+        \item The category $\Sets_{*}$ of \ChapterRef{\ChapterConstructionsWithCategories, \cref{constructions-with-categories:the-category-of-pointed-objects-in-a-category-with-a-terminal-object}}{\cref{the-category-of-pointed-objects-in-a-category-with-a-terminal-object}}.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{the-category-of-pointed-sets}}{unwinding-the-category-of-pointed-sets}%
+    In detail, the \textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\Sets_{*}$ are pointed sets;
+        \item\SloganFont{Morphisms. }The morphisms of $\Sets_{*}$ are morphisms of pointed sets;
+        \item\SloganFont{Identities. }For each $(X,x_{0})\in\Obj(\Sets_{*})$, the unit map
+            \[
+                \Unit^{\Sets_{*}}_{(X,x_{0})}
+                \colon
+                \pt
+                \to
+                \Sets_{*}((X,x_{0}),(X,x_{0}))
+            \]%
+            of $\Sets_{*}$ at $(X,x_{0})$ is defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Note that $\id_{X}$ is indeed a morphism of pointed sets, as we have $\id_{X}(x_{0})=x_{0}$.
+            }%
+            %---  End Footnote  ---%
+            \[
+                \id^{\Sets_{*}}_{(X,x_{0})}
+                \defeq
+                \id_{X};
+            \]%
+        \item\SloganFont{Composition. }For each $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$, the composition map
+            \begingroup\tiny
+            \[
+                \circ^{\Sets_{*}}_{(X,x_{0}),(Y,y_{0}),(Z,z_{0})}
+                \colon
+                \Sets_{*}((Y,y_{0}),(Z,z_{0}))
+                \times
+                \Sets_{*}((X,x_{0}),(Y,y_{0}))
+                \to
+                \Sets_{*}((X,x_{0}),(Z,z_{0}))
+            \]%
+            \endgroup
+            of $\Sets_{*}$ at $((X,x_{0}),(Y,y_{0}),(Z,z_{0}))$ is defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Note that the composition of two morphisms of pointed sets is indeed a morphism of pointed sets, as we have
+                \begin{align*}
+                    g(f(x_{0})) &= g(y_{0})\\
+                                &= z_{0},
+                \end{align*}
+                or
+                \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        \&
+                        \pt
+                        \arrow[ld,"{[x_{0}]}"']
+                        \arrow[d,"{[y_{0}]}"description]
+                        \arrow[rd,"{[z_{0}]}"]
+                        \&
+                        \\
+                        X
+                        \arrow[r,"f"']
+                        \&
+                        Y
+                        \arrow[r,"g"']
+                        \&
+                        Z
+                    \end{tikzcd}
+                \]%
+                in terms of diagrams.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \[
+                g\mathbin{{\circ}^{\Sets_{*}}_{(X,x_{0}),(Y,y_{0}),(Z,z_{0})}}f
+                \defeq
+                g\circ f.
+            \]%
+    \end{itemize}
+\end{remark}
+\subsection{Elementary Properties of Pointed Sets}\label{subsection-elementary-properties-of-pointed-sets}
+\begin{proposition}{Elementary Properties of Pointed Sets}{elementary-properties-of-pointed-sets}%
+    Let $(X,x_{0})$ be a pointed set.
+    \begin{enumerate}
+        \item\label{elementary-properties-of-pointed-sets-completeness}\SloganFont{Completeness. }The category $\Sets_{*}$ of pointed sets and morphisms between them is complete, having in particular:
+            \begin{enumerate}
+                \item\label{elementary-properties-of-pointed-sets-completeness-products}Products, described as in \cref{products-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-pullbacks}Pullbacks, described as in \cref{pullbacks-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-equalisers}Equalisers, described as in \cref{equalisers-of-pointed-sets}.
+            \end{enumerate}
+        \item\label{elementary-properties-of-pointed-sets-cocompleteness}\SloganFont{Cocompleteness. }The category $\Sets_{*}$ of pointed sets and morphisms between them is cocomplete, having in particular:
+            \begin{enumerate}
+                \item\label{elementary-properties-of-pointed-sets-completeness-coproduct}Coproducts, described as in \cref{coproducts-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-pushouts}Pushouts, described as in \cref{pushouts-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-coequalisers}Coequalisers, described as in \cref{coequalisers-of-pointed-sets}.
+            \end{enumerate}
+        \item\label{elementary-properties-of-pointed-sets-failure-to-be-cartesian-closed}\SloganFont{Failure To Be Cartesian Closed. }The category $\Sets_{*}$ is not Cartesian closed.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                The category $\Sets_{*}$ does admit monoidal closed structures however; see \ChapterTensorProductsOfPointedSets.
+            }%
+            %---  End Footnote  ---%
+        \item\label{elementary-properties-of-pointed-sets-morphisms-from-the-monoidal-unit}\SloganFont{Morphisms From the Monoidal Unit. }We have a bijection of sets%
+            %--- Begin Footnote ---%
+            \footnote{%
+                In other words, the forgetful functor
+                \[%
+                    \Wasureru%
+                    \colon%
+                    \Sets_{*}%
+                    \to%
+                    \Sets%
+                \]%
+                defined on objects by sending a pointed set to its underlying set is corepresentable by $S^{0}$.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \Sets_{*}(S^{0},X)
+                \cong
+                X,
+            \]%
+            natural in $(X,x_{0})\in\Obj(\Sets_{*})$, internalising also to an isomorphism of pointed sets
+            \[
+                \eSets_{*}(S^{0},X)
+                \cong
+                (X,x_{0}),
+            \]%
+            again natural in $(X,x_{0})\in\Obj(\Sets_{*})$.
+        \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions}\SloganFont{Relation to Partial Functions. }We have an equivalence of categories%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \textdbend\SloganFont{Warning: }This is not an isomorphism of categories, only an equivalence.
+
+                END TEXTDBEND
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \Sets_{*}%
+                \eqcong%
+                \Sets^{\mathrm{part.}}
+            \]%
+            between the category of pointed sets and pointed functions between them and the category of sets and partial functions between them, where:
+            \begin{enumerate}
+                \item\SloganFont{From Pointed Sets to Sets With Partial Functions. }The equivalence
+                    \[
+                        \xi%
+                        \colon%
+                        \Sets_{*}%
+                        \righteqarrow%
+                        \Sets^{\mathrm{part.}}%
+                    \]%
+                    sends:
+                    \begin{enumerate}
+                        \item A pointed set $(X,x_{0})$ to $X$.
+                        \item A pointed function
+                            \[
+                                f%
+                                \colon%
+                                (X,x_{0})%
+                                \to%
+                                (Y,y_{0})%
+                            \]%
+                             to the partial function
+                            \[
+                                \xi_{f}%
+                                \colon%
+                                X%
+                                \to%
+                                Y%
+                            \]%
+                            defined on $f^{-1}(Y\setminus y_{0})$ and given by
+                            \[
+                                \xi_{f}(x)%
+                                \defeq%
+                                f(x)%
+                            \]%
+                            for each $x\in f^{-1}(Y\setminus y_{0})$.
+                    \end{enumerate}
+                \item\SloganFont{From Sets With Partial Functions to Pointed Sets. }The equivalence
+                    \[
+                        \xi^{-1}%
+                        \colon%
+                        \Sets^{\mathrm{part.}}%
+                        \righteqarrow%
+                        \Sets_{*}%
+                    \]%
+                    sends:
+                    \begin{enumerate}
+                        \item A set $X$ is to the pointed set $(X,\star)$ with $\star$ an element that is not in $X$.
+                        \item A partial function
+                            \[
+                                f%
+                                \colon%
+                                X%
+                                \to%
+                                Y%
+                            \]%
+                            defined on $U\subset X$ to the pointed function
+                            \[
+                                \xi^{-1}_{f}%
+                                \colon%
+                                (X,x_{0})%
+                                \to%
+                                (Y,y_{0})%
+                            \]%
+                            defined by
+                            \[
+                                \xi_{f}(x)%
+                                \defeq%
+                                \begin{cases}
+                                    f(x)  &\text{if $x\in U$,}\\
+                                    y_{0} &\text{otherwise.}
+                                \end{cases}
+                            \]%
+                            for each $x\in X$.
+                    \end{enumerate}
+            \end{enumerate}
+        %\item\label{elementary-properties-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{elementary-properties-of-pointed-sets}}%
+    \FirstProofBox{\cref{elementary-properties-of-pointed-sets-completeness}: Completeness}%
+    This follows from (the proofs) of \cref{products-of-pointed-sets,pullbacks-of-pointed-sets,equalisers-of-pointed-sets} and \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:TODO}}{\cref{TODO}}.
+
+    \ProofBox{\cref{elementary-properties-of-pointed-sets-cocompleteness}: Cocompleteness}%
+    This follows from (the proofs) of \cref{coproducts-of-pointed-sets,pushouts-of-pointed-sets,coequalisers-of-pointed-sets} and \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:TODO}}{\cref{TODO}}.
+
+    \ProofBox{\cref{elementary-properties-of-pointed-sets-failure-to-be-cartesian-closed}: Failure To Be Cartesian Closed}%
+    See \cite{MSE2855868}.
+
+    \ProofBox{\cref{elementary-properties-of-pointed-sets-morphisms-from-the-monoidal-unit}: Morphisms From the Monoidal Unit}%
+    Since a morphism from $S^{0}$ to a pointed set $(X,x_{0})$ sends $0\in S^{0}$ to $x_{0}$ and then can send $1\in S^{0}$ to any element of $X$, we obtain a bijection between pointed maps $S^{0}\to X$ and the elements of $X$.
+
+    The isomorphism then
+    \[
+        \eSets_{*}(S^{0},X)
+        \cong
+        (X,x_{0})
+    \]%
+    follows by noting that $\Delta_{x_{0}}\colon S^{0}\to X$, the basepoint of $\eSets_{*}(S^{0},X)$, corresponds to the pointed map $S^{0}\to X$ picking the element $x_{0}$ of $X$, and thus we see that the bijection between pointed maps $S^{0}\to X$ and elements of $X$ is compatible with basepoints, lifting to an isomorphism of pointed sets.
+
+    \ProofBox{\cref{elementary-properties-of-pointed-sets-relation-to-partial-functions}: Relation to Partial Functions}%
+    See \cite{MSE884460}.
+\end{Proof}
+\section{Limits of Pointed Sets}\label{section-limits-of-pointed-sets}
+\subsection{The Terminal Pointed Set}\label{subsection-the-terminal-pointed-set}
+\begin{definition}{The Terminal Pointed Set}{the-terminal-pointed-set}%
+    The \index[set-theory]{terminal pointed set}\textbf{terminal pointed set} is the pair \index[notation]{pt@$\pt$}$((\pt,\point),\{!_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(\pt,\point)$.
+        \item\SloganFont{The Cone. }The collection of morphisms of pointed sets
+            \[
+                \{%
+                    !_{X}%
+                    \colon%
+                    (X,x_{0})%
+                    \to%
+                    (\pt,\point)%
+                \}_{(X,x_{0})\in\Obj(\Sets)}%
+            \]%
+            defined by
+            \[
+                !_{X}(x)%
+                \defeq%
+                \point%
+            \]%
+            for each $x\in X$ and each $(X,x_{0})\in\Obj(\Sets)$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{the-terminal-pointed-set}}%
+    We claim that $(\pt,\point)$ is the terminal object of $\Sets_{*}$. Indeed, suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X,x_{0})}
+            \&
+            {(\pt,\point)}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (X,x_{0})%
+        \to%
+        (\pt,\point)%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X,x_{0})}
+            \arrow[r,"\phi"{pos=0.425},"\exists!"'{pos=0.425}, dashed]
+            \&
+            {(\pt,\point)}
+        \end{tikzcd}
+    \]%
+    commute, namely $!_{X}$.
+\end{Proof}
+\subsection{Products of Families of Pointed Sets}\label{subsection-products-of-families-of-pointed-sets}
+Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
+\begin{definition}{The Product of a Family of Pointed Sets}{the-product-of-a-family-of-pointed-sets}%
+    The \index[set-theory]{product of a family of pointed sets}\textbf{product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$} is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$\smash{((\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I}),\{\pr_{i}\}_{i\in I})}$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})$.%
+        \item\SloganFont{The Cone. }The collection
+            \[
+                \{%
+                    \pr_{i}
+                    \colon%
+                    (\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})%
+                    \to%
+                    (X_{i},x^{i}_{0})%
+                \}_{i\in I}%
+            \]%
+            of maps given by
+            \[
+                \pr_{i}((x_{j})_{j\in I})%
+                \defeq%
+                x_{i}%
+            \]%
+            for each $(x_{j})_{j\in I}\in\prod_{i\in I}X_{i}$ and each $i\in I$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{the-product-of-a-family-of-pointed-sets}}%
+    We claim that $\smash{(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})}$ is the categorical product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$ in $\Sets_{*}$. Indeed, suppose we have, for each $i\in I$, a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[rd,"p_{i}"]
+            \&
+            \\
+            {(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})}
+            \arrow[r,"\pr_{i}"']
+            \&
+            {(X_{i},x^{i}_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (P,*)%
+        \to%
+        (\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[rd,"p_{i}"]
+            \arrow[d,"\phi"',"\exists!",dashed]
+            \&
+            \\
+            {(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})}
+            \arrow[r,"\pr_{i}"']
+            \&
+            {(X_{i},x^{i}_{0})}
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the condition $\pr_{i}\circ\phi=p_{i}$ for each $i\in I$ via
+    \[
+        \phi(x)%
+        =%
+        (p_{i}(x))_{i\in I}
+    \]%
+    for each $x\in P$. Note that this is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(*) &= (p_{i}(*))_{i\in I}\\%
+                &= (x^{i}_{0})_{i\in I},%
+    \end{align*}
+    where we have used that $p_{i}$ is a morphism of pointed sets for each $i\in I$.
+\end{Proof}
+\begin{proposition}{Properties of Products of Families of Pointed Sets}{properties-of-products-of-families-of-pointed-sets}%
+    Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
+    \begin{enumerate}
+        \item\label{properties-of-products-of-families-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignment $\{(X_{i},x^{i}_{0})\}_{i\in I}\mapsto(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})$ defines a functor
+            \[
+                \prod_{i\in I}%
+                \colon%
+                \Fun(I_{\disc},\Sets_{*})%
+                \to%
+                \Sets_{*}.%
+            \]%
+        %\item\label{properties-of-products-of-families-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-products-of-families-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-products-of-families-of-pointed-sets-functoriality}: Functoriality}%
+    This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+\end{Proof}
+\subsection{Products}\label{subsection-products-of-pointed-sets}
+Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
+\begin{definition}{Products of Pointed Sets}{products-of-pointed-sets}%
+    The \index[set-theory]{pointed set!product of}\textbf{product of $(X,x_{0})$ and $(Y,y_{0})$} is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(X\times Y,(x_{0},y_{0}))$.%
+        \item\SloganFont{The Cone. }The morphisms of pointed sets
+            \begin{align*}
+                \pr_{1} &\colon (X\times Y,(x_{0},y_{0}))\to(X,x_{0}),\\
+                \pr_{2} &\colon (X\times Y,(x_{0},y_{0}))\to(Y,y_{0}) 
+            \end{align*}
+            defined by
+            \begin{align*}
+                \pr_{1}(x,y) &\defeq x,\\
+                \pr_{2}(x,y) &\defeq y
+            \end{align*}
+            for each $(x,y)\in X\times Y$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{products-of-pointed-sets}}%
+    We claim that $(X\times Y,(x_{0},y_{0}))$ is the categorical product of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$. Indeed, suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(P,*)}
+            \arrow[ld,"p_{1}"',bend right = 20]
+            \arrow[rd,"p_{2}", bend left  = 20]
+            \&
+            \\
+            {(X,x_{0})}
+            \&
+            {(X\times Y,(x_{0},y_{0}))}
+            \arrow[l,"\pr_{1}"]
+            \arrow[r,"\pr_{2}"']
+            \&
+            {(Y,y_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (P,*)%
+        \to%
+        (X\times Y,(x_{0},y_{0}))%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(P,*)}
+            \arrow[ld,"p_{1}"',bend right = 20]
+            \arrow[rd,"p_{2}", bend left  = 20]
+            \arrow[d,"\phi"'{pos=0.5},"\exists!"{pos=0.5}, densely dashed]
+            \&
+            \\
+            {(X,x_{0})}
+            \&
+            {(X\times Y,(x_{0},y_{0}))}
+            \arrow[l,"\pr_{1}"{pos=0.45}]
+            \arrow[r,"\pr_{2}"'{pos=0.45}]
+            \&
+            {(Y,y_{0})}
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the conditions
+    \begin{align*}
+        \pr_{1}\circ\phi &= p_{1},\\
+        \pr_{2}\circ\phi &= p_{2}
+    \end{align*}
+    via
+    \[
+        \phi(x)%
+        =%
+        (p_{1}(x),p_{2}(x))%
+    \]%
+    for each $x\in P$. Note that this is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(*) &= (p_{1}(*),p_{2}(*))\\%
+                &= (x_{0},y_{0}),%
+    \end{align*}
+    where we have used that $p_{1}$ and $p_{2}$ are morphisms of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Products of Pointed Sets}{properties-of-products-of-pointed-sets}%
+    Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-products-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments
+            \[
+                (X,x_{0}),(Y,y_{0}),((X,x_{0}),(Y,y_{0}))\mapsto(X\times Y,(x_{0},y_{0}))%
+            \]%
+            define functors
+            \begin{gather*}
+                \begin{aligned}
+                    X\times-    &\colon                \Sets_{*} \to \Sets_{*},\\
+                    -\times Y   &\colon \Sets_{*}                \to \Sets_{*},
+                \end{aligned}\\
+                -_{1}\times-_{2} \colon \Sets_{*}\times\Sets_{*} \to \Sets_{*},
+            \end{gather*}
+            defined in the same way as the functors of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-functoriality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-functoriality} of \cref{properties-of-products-of-sets}}.
+        \item\label{properties-of-products-of-pointed-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of pointed sets%
+            \[
+                ((X\times Y)\times Z,((x_{0},y_{0}),z_{0}))
+                \cong
+                (X\times(Y\times Z),(x_{0},(y_{0},z_{0})))
+            \]%
+            natural in $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$.
+        \item\label{properties-of-products-of-pointed-sets-unitality}\SloganFont{Unitality. }We have isomorphisms of pointed sets
+            \begin{align*}
+                (\pt,\star)\times(X,x_{0}) &\cong (X,x_{0}),\\
+                (X,x_{0})\times(\pt,\star) &\cong (X,x_{0}),
+            \end{align*}
+            natural in $(X,x_{0})\in\Obj(\Sets_{*})$.
+        \item\label{properties-of-products-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of pointed sets
+            \[
+                (X\times Y,(x_{0},y_{0}))
+                \cong
+                (Y\times X,(y_{0},x_{0})),
+            \]%
+            natural in $(X,x_{0}),(Y,y_{0})\in\Obj(\Sets_{*})$.
+        \item\label{properties-of-products-of-pointed-sets-symmetric-monoidality}\SloganFont{Symmetric Monoidality. }The triple $(\Sets_{*},\times,(\pt,\star))$ is a symmetric monoidal category.
+        %\item\label{properties-of-products-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-products-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-products-of-pointed-sets-functoriality}: Functoriality}%
+    This is a special case of functoriality of limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+
+    \ProofBox{\cref{properties-of-products-of-pointed-sets-associativity}: Associativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-associativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-associativity} of \cref{properties-of-products-of-sets}}.
+
+    \ProofBox{\cref{properties-of-products-of-pointed-sets-unitality}: Unitality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-unitality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-unitality} of \cref{properties-of-products-of-sets}}.
+
+    \ProofBox{\cref{properties-of-products-of-pointed-sets-commutativity}: Commutativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-commutativity} of \cref{properties-of-products-of-sets}}.
+
+    \ProofBox{\cref{properties-of-products-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-monoidality} of \cref{properties-of-products-of-sets}}.
+\end{Proof}
+\subsection{Pullbacks}\label{subsection-pullbacks-of-pointed-sets}
+Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(X,x_{0})\to(Z,z_{0})$ and $g\colon(Y,y_{0})\to(Z,z_{0})$ be morphisms of pointed sets.
+\begin{definition}{Pullbacks of Pointed Sets}{pullbacks-of-pointed-sets}%
+    The \index[set-theory]{pointed set!pullback of}\textbf{pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(X\times_{Z}Y,(x_{0},y_{0}))$.
+        \item\SloganFont{The Cone. }The morphisms of pointed sets
+            \begin{align*}
+                \pr_{1} &\colon (X\times_{Z}Y,(x_{0},y_{0}))\to (X,x_{0}),\\
+                \pr_{2} &\colon (X\times_{Z}Y,(x_{0},y_{0}))\to (Y,y_{0})
+            \end{align*}
+            defined by
+            \begin{align*}
+                \pr_{1}(x,y) &\defeq x,\\
+                \pr_{2}(x,y) &\defeq y
+            \end{align*}
+            for each $(x,y)\in X\times_{Z}Y$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{pullbacks-of-pointed-sets}}%
+    We claim that $X\times_{Z}Y$ is the categorical pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ with respect to $(f,g)$ in $\Sets_{*}$. First we need to check that the relevant pullback diagram commutes, i.e.\ that we have
+    \begin{webcompile}
+        f\circ\pr_{1}%
+        =%
+        g\circ\pr_{2},%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X\times_{Z}Y,(x_{0},y_{0}))}
+            \arrow[r,"\pr_{2}"]
+            \arrow[d,"\pr_{1}"']
+            \&
+            {(Y,y_{0})}
+            \arrow[d,"g"]
+            \\
+            {(X,x_{0})}
+            \arrow[r,"f"']
+            \&
+            {(Z,z_{0})}\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+    Indeed, given $(x,y)\in X\times_{Z}Y$, we have
+    \begin{align*}
+        [f\circ\pr_{1}](x,y) &= f(\pr_{1}(x,y))\\%
+                             &= f(x)\\%
+                             &= g(y)\\%
+                             &= g(\pr_{2}(x,y))\\%
+                             &= [g\circ\pr_{2}](x,y),%
+    \end{align*}
+    where $f(x)=g(y)$ since $(x,y)\in X\times_{Z}Y$. Next, we prove that $X\times_{Z}Y$ satisfies the universal property of the pullback. Suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[rrd, "p_{2}",  bend left =22.5]
+            \arrow[rdd, "p_{1}"', bend right=32.5]
+            \&[-2.0*\the\DL]
+            \&
+            \\[-2.0*\the\DL]
+            \&[-2.0*\the\DL]
+            {(X\times_{Z}Y,(x_{0},y_{0}))}
+            \arrow[rd, phantom, "\lrcorner", very near start]
+            \arrow[r, "\pr_{2}"description]
+            \arrow[d, "\pr_{1}"description]
+            \&
+            {(Y,y_{0})}
+            \arrow[d, "g"]
+            \\
+            \&[-2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[r, "f"']
+            \&
+            {(Z,z_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (P,*)%
+        \to%
+        (X\times_{Z}Y,(x_{0},y_{0}))%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[rrd, "p_{2}",  bend left =22.5]
+            \arrow[rdd, "p_{1}"', bend right=32.5]
+            \arrow[rd,  "\phi","\exists!"', dashed]
+            \&[-2.0*\the\DL]
+            \&
+            \\[-2.0*\the\DL]
+            \&[-2.0*\the\DL]
+            {(X\times_{Z}Y,(x_{0},y_{0}))}
+            \arrow[rd, phantom, "\lrcorner", very near start]
+            \arrow[r, "\pr_{2}"description]
+            \arrow[d, "\pr_{1}"description]
+            \&
+            {(Y,y_{0})}
+            \arrow[d, "g"]
+            \\
+            \&[-2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[r, "f"']
+            \&
+            {(Z,z_{0})}
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the conditions%
+    \begin{align*}
+        \pr_{1}\circ\phi &= p_{1},\\%
+        \pr_{2}\circ\phi &= p_{2}%
+    \end{align*}
+    via
+    \[
+        \phi(x)%
+        =%
+        (p_{1}(x),p_{2}(x))%
+    \]%
+    for each $x\in P$, where we note that $(p_{1}(x),p_{2}(x))\in X\times Y$ indeed lies in $X\times_{Z}Y$ by the condition
+    \[
+        f\circ p_{1}%
+        =%
+        g\circ p_{2},%
+    \]%
+    which gives
+    \[
+        f(p_{1}(x))%
+        =%
+        g(p_{2}(x))%
+    \]%
+    for each $x\in P$, so that $(p_{1}(x),p_{2}(x))\in X\times_{Z}Y$. Lastly, we note that $\phi$ is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(*) &= (p_{1}(*),p_{2}(*))\\%
+                &= (x_{0},y_{0}),%
+    \end{align*}
+    where we have used that $p_{1}$ and $p_{2}$ are morphisms of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Pullbacks of Pointed Sets}{properties-of-pullbacks-of-pointed-sets}%
+    Let $(X,x_{0})$, $(Y,y_{0})$, $(Z,z_{0})$, and $(A,a_{0})$ be pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-pullbacks-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignment $(X,Y,Z,f,g)\mapsto X\times_{f,Z,g}Y$ defines a functor
+            \[
+                -_{1}\times_{-_{3}}-_{1}%
+                \colon%
+                \Fun(\CatFont{P},\Sets_{*})%
+                \to%
+                \Sets_{*},%
+            \]%
+            where $\CatFont{P}$ is the category that looks like this:
+            \[
+                \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \bullet
+                    \arrow[d]
+                    \\
+                    \bullet
+                    \arrow[r]
+                    \&
+                    \bullet\mrp{.}
+                \end{tikzcd}
+            \]%
+            In particular, the action on morphisms of $-_{1}\times_{-_{3}}-_{1}$ is given by sending a morphism
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\times_{Z}Y
+                    \arrow[rr]
+                    \arrow[dd]
+                    %\arrow[rd, dashed]
+                    \arrow[rd,very near start,phantom,"\lrcorner"{xshift=0.675em}]
+                    \&
+                    \&
+                    Y
+                    \arrow[dd, "g"{description,pos=0.25}]
+                    \arrow[rd, "\psi"]
+                    \&
+                    \\
+                    \&
+                    X'\times_{Z'}Y'
+                    \arrow[rr,crossing over]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    \&
+                    Y'
+                    \arrow[dd, "g'"]
+                    \\
+                    X
+                    \arrow[rr, "f"{pos=0.25}]
+                    \arrow[rd, "\phi"']
+                    \&
+                    \&
+                    Z
+                    \arrow[rd,"\chi"description]
+                    \&
+                    \\
+                    \&
+                    X'
+                    \arrow[rr, "f'"']
+                    \arrow[from=uu, "", crossing over]
+                    \&\&
+                    Z'
+                \end{tikzcd}
+            \]%
+            in $\Fun(\CatFont{P},\Sets_{*})$ to the morphism of pointed sets
+            \[
+                \xi%
+                \colon%
+                (X\times_{Z}Y,(x_{0},y_{0}))%
+                \uearrow%
+                (X'\times_{Z'}Y',(x'_{0},y'_{0}))%
+            \]%
+            given by
+            \[
+                \xi(x,y)%
+                \defeq%
+                (\phi(x),\psi(y))%
+            \]%
+            for each $(x,y)\in X\times_{Z}Y$, which is the unique morphism of pointed sets making the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\times_{Z}Y
+                    \arrow[rr]
+                    \arrow[dd]
+                    \arrow[rd, dashed]
+                    \arrow[rd,very near start,phantom,"\lrcorner"{xshift=0.675em}]
+                    \&
+                    \&
+                    Y
+                    \arrow[dd, "g"{description,pos=0.25}]
+                    \arrow[rd, "\psi"]
+                    \&
+                    \\
+                    \&
+                    X'\times_{Z'}Y'
+                    \arrow[rr,crossing over]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    \&
+                    Y'
+                    \arrow[dd, "g'"]
+                    \\
+                    X
+                    \arrow[rr, "f"{pos=0.25}]
+                    \arrow[rd, "\phi"']
+                    \&
+                    \&
+                    Z
+                    \arrow[rd,"\chi"description]
+                    \&
+                    \\
+                    \&
+                    X'
+                    \arrow[rr, "f'"']
+                    \arrow[from=uu, "", crossing over]
+                    \&\&
+                    Z'
+                \end{tikzcd}
+            \]%
+            commute.
+        \item\label{properties-of-pullbacks-of-pointed-sets-associativity}\SloganFont{Associativity. }Given a diagram
+            \[
+                \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \&
+                    \&
+                    Y
+                    \&
+                    \&
+                    Z
+                    \\
+                    \&
+                    W
+                    \&
+                    \&
+                    V
+                    \&
+                    % 1-Arrows
+                    \arrow[from=1-1,to=2-2,"f"']%
+                    \arrow[from=1-3,to=2-2,"g"]%
+                    %
+                    \arrow[from=1-3,to=2-4,"h"']%
+                    \arrow[from=1-5,to=2-4,"k"]%
+                \end{tikzcd}
+            \]%
+            in $\Sets_{*}$, we have isomorphisms of pointed sets
+            \[
+                (X\times_{W}Y)\times_{V}Z%
+                \cong
+                (X\times_{W}Y)\times_{Y}(Y\times_{V}Z)
+                \cong
+                X\times_{W}(Y\times_{V}Z),%
+            \]%
+            where these pullbacks are built as in the diagrams
+            \begin{webcompile}
+                \resizebox{\textwidth}{!}{$%
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        \&
+                        \&
+                        (X\times_{W}Y)\times_{Y}Z
+                        \&
+                        \&
+                        \\
+                        \&
+                        X\times_{W}Y
+                        \&
+                        \&
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{,}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=1-3,to=2-2]%
+                        \arrow[from=1-3,to=3-5]%
+                        %
+                        \arrow[from=2-2,to=3-1]%
+                        \arrow[from=2-2,to=3-3]%
+                        %
+                        \arrow[from=3-1,to=4-2,"f"']%
+                        \arrow[from=3-3,to=4-2,"g"]%
+                        \arrow[from=3-3,to=4-4,"h"']%
+                        \arrow[from=3-5,to=4-4,"k"]%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
+                        \arrow[from=2-2,to=4-2,very near start,phantom,"\lrcorner"{rotate=-45}]
+                    \end{tikzcd}
+                    \qquad
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
+                        \&
+                        \&
+                        (X\times_{W}Y)\times_{Y}(Y\times_{V}Z)
+                        \&
+                        \&
+                        \\
+                        \&
+                        X\times_{W}Y
+                        \&
+                        \&
+                        Y\times_{V}Z
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{,}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=1-3,to=2-2]%
+                        \arrow[from=1-3,to=2-4]%
+                        %
+                        \arrow[from=2-2,to=3-1]%
+                        \arrow[from=2-2,to=3-3]%
+                        \arrow[from=2-4,to=3-3]%
+                        \arrow[from=2-4,to=3-5]%
+                        %
+                        \arrow[from=3-1,to=4-2,"f"']%
+                        \arrow[from=3-3,to=4-2,"g"]%
+                        \arrow[from=3-3,to=4-4,"h"']%
+                        \arrow[from=3-5,to=4-4,"k"]%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
+                        \arrow[from=2-2,to=4-2,very near start,phantom,"\lrcorner"{rotate=-45}]
+                        \arrow[from=2-4,to=4-4,very near start,phantom,"\lrcorner"{rotate=-45}]
+                    \end{tikzcd}
+                    \qquad
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
+                        \&
+                        \&
+                        X\times_{W}(Y\times_{V}Z)
+                        \&
+                        \&
+                        \\
+                        \&
+                        \&
+                        \&
+                        Y\times_{V}Z
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{.}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=1-3,to=3-1]%
+                        \arrow[from=1-3,to=2-4]%
+                        %
+                        \arrow[from=2-4,to=3-3]%
+                        \arrow[from=2-4,to=3-5]%
+                        %
+                        \arrow[from=3-1,to=4-2,"f"']%
+                        \arrow[from=3-3,to=4-2,"g"]%
+                        \arrow[from=3-3,to=4-4,"h"']%
+                        \arrow[from=3-5,to=4-4,"k"]%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
+                        \arrow[from=2-4,to=4-4,very near start,phantom,"\lrcorner"{rotate=-45}]
+                    \end{tikzcd}
+                $}%
+            \end{webcompile}
+        \item\label{properties-of-pullbacks-of-pointed-sets-unitality}\SloganFont{Unitality. }We have isomorphisms of pointed sets
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,Equals]
+                    \arrow[d,"f"']
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    A
+                    \arrow[d,"f"]
+                    \\
+                    X
+                    \arrow[r,Equals]
+                    \&
+                    X
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    X\times_{X}A &\cong A,\\
+                    A\times_{X}X &\cong A,
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \arrow[d,Equals]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    X
+                    \arrow[d,Equals]
+                    \\
+                    X
+                    \arrow[r,"f"']
+                    \&
+                    X\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pullbacks-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of pointed sets
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A\times_{X}B
+                    \arrow[r]
+                    \arrow[d]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    B
+                    \arrow[d,"g"]
+                    \\
+                    A
+                    \arrow[r,"f"']
+                    \&
+                    X\mrp{,}
+                \end{tikzcd}
+                \qquad
+                A\times_{X}B
+                \cong
+                B\times_{X}A
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    B\times_{X}A
+                    \arrow[r]
+                    \arrow[d]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    A
+                    \arrow[d,"f"]
+                    \\
+                    B
+                    \arrow[r,"g"']
+                    \&
+                    X\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pullbacks-of-pointed-sets-interaction-with-products}\SloganFont{Interaction With Products. }We have an isomorphism of pointed sets
+            \begin{webcompile}
+                X\times_{\pt}Y%
+                \cong%
+                X\times Y,%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\times Y
+                    \arrow[r]
+                    \arrow[d]
+                    \arrow[rd,very near start,phantom,"\lrcorner"]
+                    \&
+                    Y
+                    \arrow[d,"!_{Y}"]
+                    \\
+                    X
+                    \arrow[r,"!_{X}"']
+                    \&
+                    \pt\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pullbacks-of-pointed-sets-symmetric-monoidality}\SloganFont{Symmetric Monoidality. }The triple $(\Sets_{*},\times_{X},X)$ is a symmetric monoidal category.
+        %\item\label{properties-of-pullbacks-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-pullbacks-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-pullbacks-of-pointed-sets-functoriality}: Functoriality}%
+    This is a special case of functoriality of co/limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}, with the explicit expression for $\xi$ following from the commutativity of the cube pullback diagram.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-pointed-sets-associativity}: Associativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-associativity} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-associativity} of \cref{properties-of-pullbacks-of-pointed-sets}}.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-pointed-sets-unitality}: Unitality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-unitality} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-unitality} of \cref{properties-of-pullbacks-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-pointed-sets-commutativity}: Commutativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-commutativity} of \cref{properties-of-pullbacks-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-pointed-sets-interaction-with-products}: Interaction With Products}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-interaction-with-products} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-interaction-with-products} of \cref{properties-of-pullbacks-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{properties-of-pullbacks-of-sets}}.
+\end{Proof}
+\subsection{Equalisers}\label{subsection-equalisers-of-pointed-sets}
+Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
+\begin{definition}{Equalisers of Pointed Sets}{equalisers-of-pointed-sets}%
+    The \index[set-theory]{pointed set!equaliser of}\textbf{equaliser of $(f,g)$} is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(\Eq(f,g),x_{0})$.
+        \item\SloganFont{The Cone. }The morphism of pointed sets
+            \[
+                \eq(f,g)%
+                \colon%
+                (\Eq(f,g),x_{0})%
+                \hookrightarrow%
+                (X,x_{0})%
+            \]%
+            given by the canonical inclusion $\eq(f,g)\hookrightarrow\Eq(f,g)\hookrightarrow X$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{equalisers-of-pointed-sets}}%
+    We claim that $(\Eq(f,g),x_{0})$ is the categorical equaliser of $f$ and $g$ in $\Sets_{*}$. First we need to check that the relevant equaliser diagram commutes, i.e.\ that we have
+    \[
+        f\circ\eq(f,g)%
+        =%
+        g\circ\eq(f,g),%
+    \]%
+    which indeed holds by the definition of the set $\Eq(f,g)$. Next, we prove that $\Eq(f,g)$ satisfies the universal property of the equaliser. Suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\Eq(f,g),x_{0})}
+            \arrow[r,"{\eq(f,g)}",hook]
+            \&[2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[r,"f", shift left =0.8]
+            \arrow[r,"g"',shift right=0.8]
+            \&
+            {(Y,y_{0})}
+            \\
+            {(E,*)}
+            \arrow[ru,"e"']
+            \&[2.0*\the\DL]
+            \&
+            \&
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (E,*)%
+        \to%
+        (\Eq(f,g),x_{0})
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\Eq(f,g),x_{0})}
+            \arrow[r,"{\eq(f,g)}",hook]
+            \&[2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[r,"f", shift left =0.8]
+            \arrow[r,"g"',shift right=0.8]
+            \&
+            {(Y,y_{0})}
+            \\
+            {(E,*)}
+            \arrow[ru,"e"']
+            \arrow[u,"\phi","\exists!"',dashed]
+            \&[2.0*\the\DL]
+            \&
+            \&
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the condition%
+    \[
+        \eq(f,g)\circ\phi%
+        =%
+        e%
+    \]%
+    via
+    \[
+        \phi(x)%
+        =%
+        e(x)
+    \]%
+    for each $x\in E$, where we note that $e(x)\in A$ indeed lies in $\Eq(f,g)$ by the condition
+    \[
+        f\circ e%
+        =%
+        g\circ e,%
+    \]%
+    which gives
+    \[
+        f(e(x))%
+        =%
+        g(e(x))%
+    \]%
+    for each $x\in E$, so that $e(x)\in\Eq(f,g)$. Lastly, we note that $\phi$ is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(*) &= e(*)\\%
+                &= x_{0},%
+    \end{align*}
+    where we have used that $e$ is a morphism of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Equalisers of Pointed Sets}{properties-of-equalisers-of-pointed-sets}%
+    Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets and let $f,g,h\colon(X,x_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-equalisers-of-pointed-sets-associativity}\SloganFont{Associativity. }We have isomorphisms of pointed sets%
+            \begingroup\small
+            \[
+                \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
+                \cong
+                \Eq(f,g,h)
+                \cong
+                \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
+            \]%
+            \endgroup
+            where $\Eq(f,g,h)$ is the limit of the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {(X,x_{0})}%
+                    \arrow[r,"f",shift left=2.2]%
+                    \arrow[r,"g"description]%
+                    \arrow[r,"h"',shift right=2.2]%
+                    \&
+                    {(Y,y_{0})}%
+                \end{tikzcd}
+            \]%
+            in $\Sets_{*}$, being explicitly given by
+            \[
+                \Eq(f,g,h)%
+                \cong%
+                \{a\in A\ \middle|\ f(a)=g(a)=h(a)\}.%
+            \]%
+        \item\label{properties-of-equalisers-of-pointed-sets-unitality}\SloganFont{Unitality. }We have an isomorphism of pointed sets
+            \[
+                \Eq(f,f)%
+                \cong%
+                X.%
+            \]%
+        \item\label{properties-of-equalisers-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of pointed sets
+            \[
+                \Eq(f,g)
+                \cong
+                \Eq(g,f).
+            \]%
+        %\item\label{properties-of-equalisers-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-equalisers-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-equalisers-of-pointed-sets-associativity}: Associativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-equalisers-of-sets-associativity} of \cref{constructions-with-sets:properties-of-equalisers-of-sets}}{\cref{properties-of-equalisers-of-sets-associativity} of \cref{properties-of-equalisers-of-sets}}.
+
+    \ProofBox{\cref{properties-of-equalisers-of-pointed-sets-unitality}: Unitality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-equalisers-of-sets-unitality} of \cref{constructions-with-sets:properties-of-equalisers-of-sets}}{\cref{properties-of-equalisers-of-sets-unitality} of \cref{properties-of-equalisers-of-sets}}.
+
+    \ProofBox{\cref{properties-of-equalisers-of-pointed-sets-commutativity}: Commutativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-equalisers-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-equalisers-of-sets}}{\cref{properties-of-equalisers-of-sets-commutativity} of \cref{properties-of-equalisers-of-sets}}.
+\end{Proof}
+\section{Colimits of Pointed Sets}\label{section-colimits-of-pointed-sets}
+\subsection{The Initial Pointed Set}\label{subsection-the-initial-pointed-set}
+\begin{definition}{The Initial Pointed Set}{the-initial-pointed-set}%
+    The \index[set-theory]{initial pointed set}\textbf{initial pointed set} is the pair \index[notation]{pt@$\pt$}$((\pt,\point),\{\iota_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Limit. }The pointed set $(\pt,\point)$.
+        \item\SloganFont{The Cone. }The collection of morphisms of pointed sets
+            \[
+                \{%
+                    \iota_{X}%
+                    \colon%
+                    (\pt,\point)%
+                    \to%
+                    (X,x_{0})%
+                \}_{(X,x_{0})\in\Obj(\Sets)}%
+            \]%
+            defined by
+            \[
+                \iota_{X}(\point)%
+                \defeq%
+                x_{0}.%
+            \]%
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{the-initial-pointed-set}}%
+    We claim that $(\pt,\point)$ is the initial object of $\Sets_{*}$. Indeed, suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\pt,\point)}
+            \&
+            {(X,x_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (\pt,\point)%
+        \to%
+        (X,x_{0})%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\pt,\point)}
+            \arrow[r,"\phi"{pos=0.425},"\exists!"'{pos=0.425}, dashed]
+            \&
+            {(X,x_{0})}
+        \end{tikzcd}
+    \]%
+    commute, namely $\iota_{X}$.
+\end{Proof}
+\subsection{Coproducts of Families of Pointed Sets}\label{subsection-coproducts-of-families-of-pointed-sets}
+Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
+\begin{definition}{Coproducts of Families of Pointed Sets}{coproducts-of-families-of-pointed-sets}%
+    The \index[set-theory]{coproduct!of a family of pointed sets}\textbf{coproduct of the family $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$}, also called their \index[set-theory]{pointed set!wedge sum of a family of pointed sets}\textbf{wedge sum}, is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Colimit. }The pointed set $(\bigvee_{i\in I}X_{i},p_{0})$ consisting of:
+            \begin{itemize}
+                \item\SloganFont{The Underlying Set. }The set $\bigvee_{i\in I}X_{i}$ defined by%
+                    \[
+                        \bigvee_{i\in I}X_{i}%
+                        \defeq%
+                        (\coprod_{i\in I}X_{i})/\unsim,%
+                    \]%
+                    where $\unsim$ is the equivalence relation on $\coprod_{i\in I}X_{i}$ given by declaring
+                    \[
+                        (i,x^{i}_{0})%
+                        \sim%
+                        (j,x^{j}_{0})%
+                    \]%
+                    for each $i,j\in I$.
+                \item\SloganFont{The Basepoint. }The element $p_{0}$ of $\bigvee_{i\in I}X_{i}$ defined by
+                    \begin{align*}
+                        p_{0} &\defeq [(i,x^{i}_{0})]\\
+                              &=      [(j,x^{j}_{0})]
+                    \end{align*}
+                    for any $i,j\in I$.
+            \end{itemize}
+        \item\SloganFont{The Cocone. }The collection
+            \[
+                \{%
+                    \inj_{i}
+                    \colon%
+                    (X_{i},x^{i}_{0})%
+                    \to%
+                    (\bigvee_{i\in I}X_{i},p_{0})%
+                \}_{i\in I}%
+            \]%
+            of morphism of pointed sets given by
+            \[
+                \inj_{i}(x)%
+                \defeq%
+                (i,x)%
+            \]%
+            for each $x\in X_{i}$ and each $i\in I$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{coproducts-of-families-of-pointed-sets}}%
+    We claim that $\smash{(\bigvee_{i\in I}X_{i},p_{0})}$ is the categorical coproduct of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$ in $\Sets_{*}$. Indeed, suppose we have, for each $i\in I$, a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(C,*)}
+            \\
+            {(X_{i},x^{i}_{0})}
+            \arrow[ru,"\iota_{i}"]
+            \arrow[r,"\inj_{i}"']
+            \&
+            {(\displaystyle\bigvee_{i\in I}X_{i},p_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (\bigvee_{i\in I}X_{i},p_{0})%
+        \to%
+        (C,*)%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(C,*)}
+            \\
+            {(X_{i},x^{i}_{0})}
+            \arrow[ru,"\iota_{i}"]
+            \arrow[r,"\inj_{i}"']
+            \&
+            {(\displaystyle\bigvee_{i\in I}X_{i},p_{0})}
+            \arrow[u,"\phi"{pos=0.45},"\exists!"'{pos=0.45},dashed]
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the condition $\phi\circ\inj_{i}=\iota_{i}$ for each $i\in I$ via
+    \[
+        \phi([(i,x)])%
+        =%
+        \iota_{i}(x)
+    \]%
+    for each $[(i,x)]\in\bigvee_{i\in I}X_{i}$, where we note that $\phi$ is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(p_{0}) &= \iota_{i}([(i,x^{i}_{0})])\\
+                    &= *,
+    \end{align*}
+    as $\iota_{i}$ is a morphism of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Coproducts of Families of Pointed Sets}{properties-of-coproducts-of-families-of-pointed-sets}%
+    Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
+    \begin{enumerate}
+        \item\label{properties-of-coproducts-of-families-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignment $\{(X_{i},x^{i}_{0})\}_{i\in I}\mapsto(\bigvee_{i\in I}X_{i},p_{0})$ defines a functor
+            \[
+                \bigvee_{i\in I}%
+                \colon%
+                \Fun(I_{\disc},\Sets_{*})%
+                \to%
+                \Sets_{*}.%
+            \]%
+        %\item\label{properties-of-coproducts-of-families-of-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-coproducts-of-families-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-coproducts-of-families-of-pointed-sets-functoriality}: Functoriality}%
+    This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+\end{Proof}
+\subsection{Coproducts}\label{subsection-coproducts-of-pointed-sets}
+Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
+\begin{definition}{Coproducts of Pointed Sets}{coproducts-of-pointed-sets}%
+    The \index[set-theory]{pointed set!coproduct of}\textbf{coproduct of $(X,x_{0})$ and $(Y,y_{0})$}, also called their \index[set-theory]{pointed set!wedge sum}\textbf{wedge sum}, is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Colimit. }The pointed set $(X\vee Y,p_{0})$ consisting of:
+            \begin{itemize}
+                \item\SloganFont{The Underlying Set. }The set $X\vee Y$ defined by%
+                    \begin{webcompile}
+                        \begin{aligned}
+                            (X\vee Y,p_{0}) &\defeq (X,x_{0})\icoprod(Y,y_{0})\\
+                                            &\cong  (X\ipushout{\pt}Y,p_{0})\\
+                                            &\cong  (X\icoprod Y/\unsim,p_{0}),
+                        \end{aligned}
+                        \qquad
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            X\vee Y
+                            \arrow[rd, phantom, "\ulcorner", very near start]
+                            \&
+                            Y
+                            \arrow[l]
+                            \\
+                            X
+                            \arrow[u]
+                            \&
+                            \pt\mrp{,}
+                            \arrow[u,"{[y_{0}]}"',hook]
+                            \arrow[l,"{[x_{0}]}",hook']
+                        \end{tikzcd}
+                    \end{webcompile}%
+                    where $\unsim$ is the equivalence relation on $X\icoprod Y$ obtained by declaring $(0,x_{0})\sim(1,y_{0})$.
+                \item\SloganFont{The Basepoint. }The element $p_{0}$ of $X\vee Y$ defined by
+                    \begin{align*}
+                        p_{0} &\defeq [(0,x_{0})]\\
+                              &=      [(1,y_{0})].
+                    \end{align*}
+            \end{itemize}
+        \item\SloganFont{The Cocone. }The morphisms of pointed sets
+            \begin{align*}
+                \inj_{1} &\colon (X,x_{0}) \to (X\vee Y,p_{0}),\\
+                \inj_{2} &\colon (Y,y_{0}) \to (X\vee Y,p_{0}),
+            \end{align*}
+            given by
+            \begin{align*}
+                \inj_{1}(x) &\defeq [(0,x)],\\
+                \inj_{2}(y) &\defeq [(1,y)],
+            \end{align*}
+            for each $x\in X$ and each $y\in Y$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{coproducts-of-pointed-sets}}%
+    We claim that $(X\vee Y,p_{0})$ is the categorical coproduct of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$. Indeed, suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(C,*)}
+            \arrow[from=ld,"\iota_{X}",  bend left  = 20]
+            \arrow[from=rd,"\iota_{Y}"', bend right = 20]
+            \&
+            \\
+            {(X,x_{0})}
+            \&
+            {(X\vee Y,p_{0})}
+            \arrow[from=l,"\inj_{X}"']
+            \arrow[from=r,"\inj_{Y}"]
+            \&
+            {(Y,y_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (X\vee Y,p_{0})%
+        \to%
+        (C,*)%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {(C,*)}
+            \arrow[from=ld,"\iota_{X}",  bend left  = 20]
+            \arrow[from=rd,"\iota_{Y}"', bend right = 20]
+            \arrow[from=d,"\phi","\exists!"', dashed]
+            \&
+            \\
+            {(X,x_{0})}
+            \&
+            {(X\vee Y,p_{0})}
+            \arrow[from=l,"\inj_{X}"']
+            \arrow[from=r,"\inj_{Y}"]
+            \&
+            {(Y,y_{0})}
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the conditions
+    \begin{align*}
+        \phi\circ\inj_{X} &= \iota_{X},\\
+        \phi\circ\inj_{Y} &= \iota_{Y}
+    \end{align*}
+    via
+    \[
+        \phi(z)%
+        =%
+        \begin{cases}
+            \iota_{X}(x) &\text{if $z=[(0,x)]$ with $x\in X$,}\\
+            \iota_{Y}(y) &\text{if $z=[(1,y)]$ with $y\in Y$}
+        \end{cases}
+    \]%
+    for each $z\in X\vee Y$, where we note that $\phi$ is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+         \phi(p_{0}) &= \iota_{X}([(0,x_{0})])\\
+                     &= \iota_{Y}([(1,y_{0})])\\
+                     &= *,
+    \end{align*}
+    as $\iota_{X}$ and $\iota_{Y}$ are morphisms of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Wedge Sums of Pointed Sets}{properties-of-wedge-sums-of-pointed-sets}%
+    Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-wedge-sums-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments
+            \[
+                (X,x_{0}),(Y,y_{0}),((X,x_{0}),(Y,y_{0}))\mapsto(X\vee Y,p_{0})%
+            \]%
+            define functors
+            \begin{align*}
+                X\vee-         &\colon \Sets_{*}                \to \Sets_{*},\\
+                -\vee Y        &\colon \Sets_{*}                \to \Sets_{*},\\
+                -_{1}\vee-_{2} &\colon \Sets_{*}\times\Sets_{*} \to \Sets_{*}.
+            \end{align*}
+        \item\label{properties-of-wedge-sums-of-pointed-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of pointed sets
+            \[
+                (X\vee Y)\vee Z%
+                \cong%
+                X\vee(Y\vee Z),%
+            \]%
+            natural in $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Sets_{*}$.
+        \item\label{properties-of-wedge-sums-of-pointed-sets-unitality}\SloganFont{Unitality. }We have isomorphisms of pointed sets
+            \begin{align*}
+                (\pt,*)\vee (X,x_{0}) &\cong (X,x_{0}),\\%
+                (X,x_{0})\vee(\pt,*)  &\cong (X,x_{0}),%
+            \end{align*}
+            natural in $(X,x_{0})\in\Sets_{*}$.
+        \item\label{properties-of-wedge-sums-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of pointed sets
+            \[
+                X\vee Y
+                \cong
+                Y\vee X,
+            \]%
+            natural in $(X,x_{0}),(Y,y_{0})\in\Sets_{*}$.
+        \item\label{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality}\SloganFont{Symmetric Monoidality. }The triple $(\Sets_{*},\vee,\pt)$ is a symmetric monoidal category.
+        \item\label{properties-of-wedge-sums-of-pointed-sets-the-fold-map}\SloganFont{The Fold Map. }We have a natural transformation
+            \begin{webcompile}
+                \nabla
+                \colon
+                {\vee}\circ\Delta^{\Cats}_{\Sets_{*}}
+                \Longrightarrow
+                \id_{\Sets_{*}},
+                \qquad
+                \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \Sets_{*}\times\Sets_{*}
+                    \arrow[rd,"\vee"]
+                    \&
+                    \\
+                    \Sets_{*}
+                    \arrow[ru,"\Delta^{\Cats}_{\Sets_{*}}"{pos=0.35}]
+                    \arrow[rr,"\id_{\Sets_{*}}"',""'{name=2,pos=0.485},bend right=20]
+                    \&
+                    \&
+                    \Sets_{*}\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2,"\nabla"description,shorten=0.25*\the\DL,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}%
+            called the \textbf{fold map}, whose component
+            \[
+                \nabla_{X}
+                \colon
+                X\vee X
+                \to
+                X
+            \]%
+            at $X$ is given by
+            \[
+                \nabla_{X}(p)%
+                \defeq%
+                \begin{cases}
+                    x &\text{if $p=[(0,x)]$,}\\
+                    x &\text{if $p=[(1,x)]$}
+                \end{cases}
+            \]%
+            for each $p\in X\vee X$.
+        %\item\label{properties-of-wedge-sums-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-wedge-sums-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-functoriality}: Functoriality}%
+    This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+
+    \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-associativity}: Associativity}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-unitality}: Unitality}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-commutativity}: Commutativity}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-the-fold-map}: The Fold Map}%
+    Naturality for the transformation $\nabla$ is the statement that, given a morphism of pointed sets $f\colon(X,x_{0})\to(Y,y_{0})$, we have
+    \begin{webcompile}
+        \nabla_{Y}\circ(f\vee f)%
+        =%
+        f\circ\nabla_{X},%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X\vee X
+            \arrow[r,"\nabla_{X}"]
+            \arrow[d,"f\vee f"']
+            \&
+            X
+            \arrow[d,"f"]
+            \\
+            Y\vee Y
+            \arrow[r,"\nabla_{Y}"']
+            \&
+            Y\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+    Indeed, we have
+    \begin{align*}
+        [\nabla_{Y}\circ(f\vee f)]([(i,x)]) &= \nabla_{Y}([(i,f(x))])\\
+                                            &= f(x)\\
+                                            &= f(\nabla_{X}([(i,x)]))\\
+                                            &= [f\circ\nabla_{X}]([(i,x)])
+    \end{align*}
+    for each $[(i,x)]\in X\vee X$, and thus $\nabla$ is indeed a natural transformation.
+\end{Proof}
+\subsection{Pushouts}\label{subsection-pushouts-of-pointed-sets}
+Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(Z,z_{0})\to(X,x_{0})$ and $g\colon(Z,z_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
+\begin{definition}{Pushouts of Pointed Sets}{pushouts-of-pointed-sets}%
+    The \index[set-theory]{pointed set!pushout of}\textbf{pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Colimit. }The pointed set $(X\coprod_{f,Z,g}Y,p_{0})$, where:
+            \begin{itemize}
+                \item The set $X\coprod_{f,Z,g}Y$ is the pushout (of unpointed sets) of $X$ and $Y$ over $Z$ with respect to $f$ and $g$;
+                \item We have $p_{0}=[x_{0}]=[y_{0}]$.
+            \end{itemize}
+        \item\SloganFont{The Cocone. }The morphisms of pointed sets
+            \begin{align*}
+                \inj_{1} &\colon(X,x_{0})\to(X\ipushout{Z}Y,p_{0}),\\
+                \inj_{2} &\colon(Y,y_{0})\to(X\ipushout{Z}Y,p_{0})
+            \end{align*}
+            given by
+            \begin{align*}
+                \inj_{1}(x) &\defeq [(0,x)]\\%
+                \inj_{2}(y) &\defeq [(1,y)]%
+            \end{align*}
+            for each $x\in X$ and each $y\in Y$.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of \cref{pushouts-of-pointed-sets}}%
+    Firstly, we note that indeed $[x_{0}]=[y_{0}]$, as we have
+    \begin{align*}
+        x_{0} &= f(z_{0}),\\
+        y_{0} &= g(z_{0})
+    \end{align*}
+    since $f$ and $g$ are morphisms of pointed sets, with the relation $\unsim$ on $X\icoprod_{Z}Y$ then identifying $x_{0}=f(z_{0})\sim g(z_{0})=y_{0}$.
+
+    We now claim that $(X\ipushout{Z}Y,p_{0})$ is the categorical pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ with respect to $(f,g)$ in $\Sets_{*}$. First we need to check that the relevant pushout diagram commutes, i.e.\ that we have
+    \begin{webcompile}
+        \inj_{1}\circ f%
+        =%
+        \inj_{2}\circ g,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X\ipushout{Z}Y,p_{0})}
+            \arrow[from=r,"\inj_{2}"']
+            \arrow[from=d,"\inj_{1}"]
+            \&
+            {(Y,y_{0})}
+            \arrow[from=d,"g"']
+            \\
+            {(X,x_{0})}
+            \arrow[from=r,"f"]
+            \&
+            {(Z,z_{0})}\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+    Indeed, given $z\in Z$, we have
+    \begin{align*}
+        [\inj_{1}\circ f](z) &= \inj_{1}(f(z))\\%
+                             &= [(0,f(z))]\\%
+                             &= [(1,g(z))]\\%
+                             &= \inj_{2}(g(z))\\%
+                             &= [\inj_{2}\circ g](z),%
+    \end{align*}
+    where $[(0,f(z))]=[(1,g(z))]$ by the definition of the relation $\unsim$ on $X\icoprod Y$ (the coproduct of unpointed sets of $X$ and $Y$). Next, we prove that $X\icoprod_{Z}Y$ satisfies the universal property of the pushout. Suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[from=rrd, "\iota_{2}"',bend right=25]
+            \arrow[from=rdd, "\iota_{1}", bend left =27.5]
+            \&[-2.0*\the\DL]
+            \&
+            \\[-2.0*\the\DL]
+            \&[-2.0*\the\DL]
+            {(X\ipushout{Z}Y,p_{0})}
+            \arrow[rd, phantom, "\ulcorner", very near start]
+            \arrow[from=r, "\inj_{2}"description]
+            \arrow[from=d, "\inj_{1}"'description]
+            \&
+            {(Y,y_{0})}
+            \arrow[from=d, "g"']
+            \\
+            \&[-2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[from=r, "f"]
+            \&
+            {(Z,z_{0})}
+        \end{tikzcd}
+    \]%
+    in $\Sets_{*}$. Then there exists a unique morphism of pointed sets
+    \[
+        \phi%
+        \colon%
+        (X\ipushout{Z}Y,p_{0})%
+        \to%
+        (P,*)%
+    \]%
+    making the diagram
+    \[
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(P,*)}
+            \arrow[from=rrd, "\iota_{2}"',bend right=25]
+            \arrow[from=rdd, "\iota_{1}", bend left =27.5]
+            \arrow[from=rd,  "\phi","\exists!"',dashed]
+            \&[-2.0*\the\DL]
+            \&
+            \\[-2.0*\the\DL]
+            \&[-2.0*\the\DL]
+            {(X\ipushout{Z}Y,p_{0})}
+            \arrow[rd, phantom, "\ulcorner", very near start]
+            \arrow[from=r, "\inj_{2}"description]
+            \arrow[from=d, "\inj_{1}"'description]
+            \&
+            {(Y,y_{0})}
+            \arrow[from=d, "g"']
+            \\
+            \&[-2.0*\the\DL]
+            {(X,x_{0})}
+            \arrow[from=r, "f"]
+            \&
+            {(Z,z_{0})}
+        \end{tikzcd}
+    \]%
+    commute, being uniquely determined by the conditions%
+    \begin{align*}
+        \phi\circ\inj_{1} &= \iota_{1},\\%
+        \phi\circ\inj_{2} &= \iota_{2}%
+    \end{align*}
+    via
+    \[
+        \phi(p)%
+        =%
+        \begin{cases}
+            \iota_{1}(x) &\text{if $x=[(0,x)]$,}\\
+            \iota_{2}(y) &\text{if $x=[(1,y)]$}
+        \end{cases}
+    \]%
+    for each $p\in X\ipushout{Z}Y$, where the well-definedness of $\phi$ is proven in the same way as in the proof of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:pushouts-of-sets}}{\cref{pushouts-of-sets}}. Finally, we show that $\phi$ is indeed a morphism of pointed sets, as we have
+    \begin{align*}
+        \phi(p_{0}) &= \phi([(0,x_{0})])\\
+                    &= \iota_{1}(x_{0})\\
+                    &= *,
+    \end{align*}
+    or alternatively
+    \begin{align*}
+        \phi(p_{0}) &= \phi([(1,y_{0})])\\
+                    &= \iota_{2}(y_{0})\\
+                    &= *,
+    \end{align*}
+    where we use that $\iota_{1}$ (resp.\ $\iota_{2}$) is a morphism of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Pushouts of Pointed Sets}{properties-of-pushouts-of-pointed-sets}%
+    Let $(X,x_{0})$, $(Y,y_{0})$, $(Z,z_{0})$, and $(A,a_{0})$ be pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-pushouts-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignment $(X,Y,Z,f,g)\mapsto X\ipushout{f,Z,g}Y$ defines a functor
+            \[
+                -_{1}\ipushout{-_{3}}-_{1}%
+                \colon%
+                \Fun(\CatFont{P},\Sets)%
+                \to%
+                \Sets_{*},%
+            \]%
+            where $\CatFont{P}$ is the category that looks like this:
+            \[
+                \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \bullet
+                    \arrow[from=d]
+                    \\
+                    \bullet
+                    \arrow[from=r]
+                    \&
+                    \bullet\mrp{.}
+                \end{tikzcd}
+            \]%
+            In particular, the action on morphisms of $-_{1}\ipushout{-_{3}}-_{1}$ is given by sending a morphism
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\ipushout{Z}Y
+                    \arrow[from=rr]
+                    \arrow[from=dd]
+                    %\arrow[rd, dashed]
+                    \arrow[rd,very near start,phantom,"\ulcorner"{xshift=0.675em}]
+                    \&
+                    \&
+                    Y
+                    \arrow[from=dd, "g"{description,pos=0.25}]
+                    \arrow[rd, "\psi"]
+                    \&
+                    \\
+                    \&
+                    X'\ipushout{Z'}Y'
+                    \arrow[from=rr,crossing over]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    \&
+                    Y'
+                    \arrow[from=dd, "g'"']
+                    \\
+                    X
+                    \arrow[from=rr, "f"'{pos=0.25}]
+                    \arrow[rd, "\phi"']
+                    \&
+                    \&
+                    Z
+                    \arrow[rd,"\chi"description]
+                    \&
+                    \\
+                    \&
+                    X'
+                    \arrow[from=rr, "f'"]
+                    \arrow[uu, "", crossing over]
+                    \&\&
+                    Z'
+                \end{tikzcd}
+            \]%
+            in $\Fun(\CatFont{P},\Sets_{*})$ to the morphism of pointed sets
+            \[
+                \xi%
+                \colon%
+                (X\ipushout{Z}Y,p_{0})%
+                \uearrow%
+                (X'\ipushout{Z'}Y',p'_{0})%
+            \]%
+            given by
+            \[
+                \xi(p)%
+                \defeq%
+                \begin{cases}
+                    \phi(x) &\text{if $p=[(0,x)]$},\\
+                    \psi(y) &\text{if $p=[(1,y)]$}
+                \end{cases}
+            \]%
+            for each $p\in X\ipushout{Z}Y$, which is the unique morphism of pointed sets making the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\ipushout{Z}Y
+                    \arrow[from=rr]
+                    \arrow[from=dd]
+                    \arrow[rd, dashed]
+                    \arrow[rd,very near start,phantom,"\ulcorner"{xshift=0.675em}]
+                    \&
+                    \&
+                    Y
+                    \arrow[from=dd, "g"{description,pos=0.25}]
+                    \arrow[rd, "\psi"]
+                    \&
+                    \\
+                    \&
+                    X'\ipushout{Z'}Y'
+                    \arrow[from=rr,crossing over]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    \&
+                    Y'
+                    \arrow[from=dd, "g'"']
+                    \\
+                    X
+                    \arrow[from=rr, "f"'{pos=0.25}]
+                    \arrow[rd, "\phi"']
+                    \&
+                    \&
+                    Z
+                    \arrow[rd,"\chi"description]
+                    \&
+                    \\
+                    \&
+                    X'
+                    \arrow[from=rr, "f'"]
+                    \arrow[uu, "", crossing over]
+                    \&\&
+                    Z'
+                \end{tikzcd}
+            \]%
+            commute.
+        \item\label{properties-of-pushouts-of-pointed-sets-associativity}\SloganFont{Associativity. }Given a diagram
+            \[
+                \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \&
+                    \&
+                    Y
+                    \&
+                    \&
+                    Z
+                    \\
+                    \&
+                    W
+                    \&
+                    \&
+                    V
+                    \&
+                    % 1-Arrows
+                    \arrow[from=2-2,to=1-1,"f"]%
+                    \arrow[from=2-2,to=1-3,"g"']%
+                    %
+                    \arrow[from=2-4,to=1-3,"h"]%
+                    \arrow[from=2-4,to=1-5,"k"']%
+                \end{tikzcd}
+            \]%
+            in $\Sets$, we have isomorphisms of pointed sets
+            \[
+                (X\ipushout{W}Y)\ipushout{V}Z%
+                \cong
+                (X\ipushout{W}Y)\ipushout{Y}(Y\ipushout{V}Z)
+                \cong
+                X\ipushout{W}(Y\ipushout{V}Z),%
+            \]%
+            where these pullbacks are built as in the diagrams
+            \begin{webcompile}
+                \resizebox{\textwidth}{!}{$%
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
+                        \&
+                        \&
+                        (X\ipushout{W}Y)\ipushout{V}Z
+                        \&
+                        \&
+                        \\
+                        \&
+                        X\ipushout{W}Y
+                        \&
+                        \&
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{,}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=2-2,to=1-3]%
+                        \arrow[from=3-5,to=1-3]%
+                        %
+                        \arrow[from=3-1,to=2-2]%
+                        \arrow[from=3-3,to=2-2]%
+                        %
+                        \arrow[from=4-2,to=3-1,"f"]%
+                        \arrow[from=4-2,to=3-3,"g"']%
+                        \arrow[from=4-4,to=3-3,"h"]%
+                        \arrow[from=4-4,to=3-5,"k"']%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\urcorner"{rotate=45}]
+                        \arrow[from=2-2,to=4-2,very near start,phantom,"\urcorner"{rotate=45}]
+                    \end{tikzcd}
+                    \qquad
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
+                        \&
+                        \&
+                        (X\ipushout{W}Y)\ipushout{Y}(Y\ipushout{V}Z)
+                        \&
+                        \&
+                        \\
+                        \&
+                        X\ipushout{W}Y
+                        \&
+                        \&
+                        Y\ipushout{V}Z
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{,}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=2-2,to=1-3]%
+                        \arrow[from=2-4,to=1-3]%
+                        %
+                        \arrow[from=3-1,to=2-2]%
+                        \arrow[from=3-3,to=2-2]%
+                        \arrow[from=3-3,to=2-4]%
+                        \arrow[from=3-5,to=2-4]%
+                        %
+                        \arrow[from=4-2,to=3-1,"f"]%
+                        \arrow[from=4-2,to=3-3,"g"']%
+                        \arrow[from=4-4,to=3-3,"h"]%
+                        \arrow[from=4-4,to=3-5,"k"']%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\ulcorner"{rotate=-45}]
+                        \arrow[from=2-2,to=4-2,very near start,phantom,"\ulcorner"{rotate=-45}]
+                        \arrow[from=2-4,to=4-4,very near start,phantom,"\ulcorner"{rotate=-45}]
+                    \end{tikzcd}
+                    \qquad
+                    \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
+                        \&
+                        \&
+                        X\ipushout{W}(Y\ipushout{V}Z)
+                        \&
+                        \&
+                        \\
+                        \&
+                        \&
+                        \&
+                        Y\ipushout{V}Z
+                        \&
+                        \\
+                        X
+                        \&
+                        \&
+                        Y
+                        \&
+                        \&
+                        Z\mrp{.}
+                        \\
+                        \&
+                        W
+                        \&
+                        \&
+                        V
+                        \&
+                        % 1-Arrows
+                        \arrow[from=3-1,to=1-3]%
+                        \arrow[from=2-4,to=1-3]%
+                        %
+                        \arrow[from=3-3,to=2-4]%
+                        \arrow[from=3-5,to=2-4]%
+                        %
+                        \arrow[from=4-2,to=3-1,"f"]%
+                        \arrow[from=4-2,to=3-3,"g"']%
+                        \arrow[from=4-4,to=3-3,"h"]%
+                        \arrow[from=4-4,to=3-5,"k"']%
+                        %
+                        \arrow[from=1-3,to=3-3,very near start,phantom,"\ulcorner"{rotate=-45}]
+                        \arrow[from=2-4,to=4-4,very near start,phantom,"\ulcorner"{rotate=-45}]
+                    \end{tikzcd}
+                $}%
+            \end{webcompile}
+        \item\label{properties-of-pushouts-of-pointed-sets-unitality}\SloganFont{Unitality. }We have isomorphisms of sets
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,Equals]
+                    \arrow[from=d,"f"]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    A
+                    \arrow[from=d,"f"']
+                    \\
+                    X
+                    \arrow[r,Equals]
+                    \&
+                    X
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    X\ipushout{X}A &\cong A,\\
+                    A\ipushout{X}X &\cong A,
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[from=r,"f"']
+                    \arrow[d,Equals]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    X
+                    \arrow[d,Equals]
+                    \\
+                    X
+                    \arrow[from=r,"f"]
+                    \&
+                    X\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pushouts-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of sets
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\ipushout{Z}Y
+                    \arrow[from=r]
+                    \arrow[from=d]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    Y
+                    \arrow[from=d,"g"']
+                    \\
+                    X
+                    \arrow[from=r,"f"]
+                    \&
+                    Z\mrp{,}
+                \end{tikzcd}
+                \qquad
+                X\ipushout{Z}Y
+                \cong
+                Y\ipushout{Z}X
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    Y\ipushout{Z}X
+                    \arrow[from=r]
+                    \arrow[from=d]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    X
+                    \arrow[from=d,"f"']
+                    \\
+                    Y
+                    \arrow[from=r,"g"]
+                    \&
+                    Z\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }We have
+            \begin{webcompile}
+                X\ipushout{\pt}Y%
+                \cong%
+                X\vee Y,%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X\vee Y
+                    \arrow[from=r]
+                    \arrow[from=d]
+                    \arrow[rd,very near start,phantom,"\ulcorner"]
+                    \&
+                    Y
+                    \arrow[from=d,"{[y_{0}]}"',hook]
+                    \\
+                    X
+                    \arrow[from=r,"{[x_{0}]}",hook']
+                    \&
+                    \pt\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-pushouts-of-pointed-sets-symmetric-monoidality}\SloganFont{Symmetric Monoidality. }The triple $(\Sets_{*},\ipushout{X},(X,x_{0}))$ is a symmetric monoidal category.
+        %\item\label{properties-of-pushouts-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-pushouts-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-pushouts-of-pointed-sets-functoriality}: Functoriality}%
+    This is a special case of functoriality of co/limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}, with the explicit expression for $\xi$ following from the commutativity of the cube pushout diagram.
+
+    \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-associativity}: Associativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-associativity} of \cref{properties-of-pushouts-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-unitality}: Unitality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-unitality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-unitality} of \cref{properties-of-pushouts-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-commutativity}: Commutativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-commutativity} of \cref{properties-of-pushouts-of-sets}}.
+
+    \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts}: Interaction With Coproducts}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
+    Omitted.
+\end{Proof}
+\subsection{Coequalisers}\label{subsection-coequalisers-of-pointed-sets}
+Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
+\begin{definition}{Coequalisers of Pointed Sets}{coequalisers-of-pointed-sets}%
+    The \index[set-theory]{pointed set!coequaliser of}\textbf{coequaliser of $(f,g)$} is the pointed set $(\CoEq(f,g),[y_{0}])$.
+\end{definition}
+\begin{Proof}{Proof of \cref{coequalisers-of-pointed-sets}}%
+    We claim that $(\CoEq(f,g),[y_{0}])$ is the categorical coequaliser of $f$ and $g$ in $\Sets_{*}$. First we need to check that the relevant coequaliser diagram commutes, i.e.\ that we have
+    \[
+        \coeq(f,g)\circ f%
+        =%
+        \coeq(f,g)\circ g.%
+    \]%
+    Indeed, we have
+    \begin{align*}
+        [\coeq(f,g)\circ f](x) &\defeq [\coeq(f,g)](f(x))\\
+                               &\defeq [f(x)]\\
+                               &=      [g(x)]\\
+                               &\defeq [\coeq(f,g)](g(x))\\
+                               &\defeq [\coeq(f,g)\circ g](x)%
+    \end{align*}
+    for each $x\in X$. Next, we prove that $\CoEq(f,g)$ satisfies the universal property of the coequaliser. Suppose we have a diagram of the form
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X,x_{0})}
+            \arrow[r,"f", shift left =0.8]
+            \arrow[r,"g"',shift right=0.8]
+            \&
+            {(Y,y_{0})}
+            \arrow[r,"{\coeq(f,g)}",hook]
+            \arrow[rd,"c"']
+            \&[4.5*\the\DL]
+            {(\CoEq(f,g),[y_{0}])}
+            \\
+            \&
+            \&[4.5*\the\DL]
+            {(C,*)}
+        \end{tikzcd}
+    \]%
+    in $\Sets$. Then, since $c(f(a))=c(g(a))$ for each $a\in A$, it follows from \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1,equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{properties-of-quotient-sets}} that there exists a unique map $\phi\colon\CoEq(f,g)\uearrow C$ making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(X,x_{0})}
+            \arrow[r,"f", shift left =0.8]
+            \arrow[r,"g"',shift right=0.8]
+            \&
+            {(Y,y_{0})}
+            \arrow[r,"{\coeq(f,g)}",hook]
+            \arrow[rd,"c"']
+            \&[4.5*\the\DL]
+            {(\CoEq(f,g),[y_{0}])}
+            \arrow[d,"\phi"'{pos=0.475},"\exists!"{pos=0.475},dashed]
+            \\
+            \&
+            \&[4.5*\the\DL]
+            {(C,*)}
+        \end{tikzcd}
+    \]%
+    commute, where we note that $\phi$ is indeed a morphism of pointed sets since
+    \begin{align*}
+        \phi([y_{0}]) &= [\phi\circ\coeq(f,g)]([y_{0}])\\
+                      &= c([y_{0}])\\
+                      &= *,
+    \end{align*}
+    where we have used that $c$ is a morphism of pointed sets.
+\end{Proof}
+\begin{proposition}{Properties of Coequalisers of Pointed Sets}{properties-of-coequalisers-of-pointed-sets}%
+    Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets and let $f,g,h\colon(X,x_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-coequalisers-of-pointed-sets-associativity}\SloganFont{Associativity. }We have isomorphisms of pointed sets%
+            \begingroup\scriptsize
+            \[
+                \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
+                \cong
+                \CoEq(f,g,h)
+                \cong
+                \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
+            \]%
+            \endgroup
+            where $\CoEq(f,g,h)$ is the colimit of the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {(X,x_{0})}%
+                    \arrow[r,"f",shift left=2.0]%
+                    \arrow[r,"g"description]%
+                    \arrow[r,"h"',shift right=2.0]%
+                    \&
+                    {(Y,y_{0})}%
+                \end{tikzcd}
+            \]%
+            in $\Sets_{*}$.
+        \item\label{properties-of-coequalisers-of-pointed-sets-unitality}\SloganFont{Unitality. }We have an isomorphism of pointed sets
+            \[
+                \CoEq(f,f)%
+                \cong%
+                B.%
+            \]%
+        \item\label{properties-of-coequalisers-of-pointed-sets-commutativity}\SloganFont{Commutativity. }We have an isomorphism of pointed sets
+            \[
+                \CoEq(f,g)
+                \cong
+                \CoEq(g,f).
+            \]%
+        %\item\label{properties-of-coequalisers-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-coequalisers-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-coequalisers-of-pointed-sets-associativity}: Associativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-associativity} of \cref{properties-of-coequalisers-of-sets}}.
+
+    \ProofBox{\cref{properties-of-coequalisers-of-pointed-sets-unitality}: Unitality}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-unitality} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-unitality} of \cref{properties-of-coequalisers-of-sets}}.
+
+    \ProofBox{\cref{properties-of-coequalisers-of-pointed-sets-commutativity}: Commutativity}%
+    This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-commutativity} of \cref{properties-of-coequalisers-of-sets}}.
+\end{Proof}
+\section{Constructions With Pointed Sets}\label{section-constructions-with-pointed-sets}
+\subsection{Free Pointed Sets}\label{subsection-free-pointed-sets}
+Let $X$ be a set.
+\begin{definition}{Free Pointed Sets}{free-pointed-sets}%
+    The \index[set-theory]{pointed set!free}\textbf{free pointed set on $X$} is the pointed set \index[notation]{Xplus@$X^{+}$}$\smash{X^{+}}$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $X^{+}$ defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Notation: }We sometimes write \index[notation]{pointX@$\point_{X}$}$\point_{X}$ for the basepoint of $X^{+}$ for clarity when there are multiple free pointed sets involved in the current discussion.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \begin{align*}
+                X^{+} &\defeq X\icoprod\pt\\
+                      &\defeq X\icoprod\{\point\}.
+            \end{align*}
+        \item\SloganFont{The Basepoint. }The element $\point$ of $X^{+}$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Free Pointed Sets}{properties-of-free-pointed-sets}%
+    Let $X$ be a set.
+    \begin{enumerate}
+        \item\label{properties-of-free-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignment $X\mapsto X^{+}$ defines a functor
+            \[
+                (-)^{+}
+                \colon
+                \Sets
+                \to
+                \Sets_{*},
+            \]%
+            where
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Sets)$, we have
+                    \[
+                        [(-)^{+}](X)%
+                        \defeq%
+                        X^{+},
+                    \]%
+                    where $X^{+}$ is the pointed set of \cref{free-pointed-sets};
+                \item\SloganFont{Action on Morphisms. }For each morphism $f\colon X\to Y$ of $\Sets$, the image
+                    \[
+                        f^{+}%
+                        \colon%
+                        X^{+}%
+                        \to%
+                        Y^{+}%
+                    \]%
+                    of $f$ by $(-)^{+}$ is the map of pointed sets defined by
+                    \[
+                        f^{+}(x)
+                        \defeq
+                        \begin{cases}
+                            f(x)       &\text{if $x\in X$,}\\
+                            \point_{Y} &\text{if $x=\point_{X}$.}
+                        \end{cases}
+                    \]%
+            \end{itemize}
+        \item\label{properties-of-free-pointed-sets-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{(-)^{+}}#\Wasureru#\Sets#\Sets_{*},#
+            \end{webcompile}%
+            witnessed by a bijection of sets
+            \begin{align*}
+                \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                \cong%
+                \Sets(X,Y),%
+            \end{align*}
+            natural in $X\in\Obj(\Sets)$ and $(Y,y_{0})\in\Obj(\Sets_{*})$.
+        \item\label{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-wedge-sums}\SloganFont{Symmetric Strong Monoidality With Respect to Wedge Sums. }The free pointed set functor of \cref{properties-of-free-pointed-sets-functoriality} has a symmetric strong monoidal structure
+            \[
+                ((-)^{+},(-)^{+,\icoprod},(-)^{+,\icoprod}_{\Unit})
+                \colon
+                (\Sets,\icoprod,\emptyset)
+                \to
+                (\Sets_{*},\vee,\pt),
+            \]%
+            being equipped with isomorphisms of pointed sets%
+            \[
+                \begin{gathered}
+                    (-)^{+,\icoprod}_{X,Y}   \colon X^{+}\vee Y^{+} \isorightarrow (X\icoprod Y)^{+},\\
+                    (-)^{+,\icoprod}_{\Unit} \colon \pt             \isorightarrow \emptyset^{+},
+                \end{gathered}
+            \]%
+            natural in $X,Y\in\Obj(\Sets)$.
+        \item\label{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-smash-products}\SloganFont{Symmetric Strong Monoidality With Respect to Smash Products. }The free pointed set functor of \cref{properties-of-free-pointed-sets-functoriality} has a symmetric strong monoidal structure
+            \[
+                ((-)^{+},(-)^{+,\times},(-)^{+,\times}_{\Unit})
+                \colon
+                (\Sets,\times,\pt)
+                \to
+                (\Sets_{*},\wedge,S^{0}),
+            \]%
+            being equipped with isomorphisms of pointed sets%
+            \[
+                \begin{gathered}
+                    (-)^{+,\times}_{X,Y}   \colon X^{+}\wedge Y^{+} \isorightarrow (X\times Y)^{+},\\
+                    (-)^{+,\times}_{\Unit} \colon S^{0}             \isorightarrow \pt^{+},
+                \end{gathered}
+            \]%
+            natural in $X,Y\in\Obj(\Sets)$.
+        %\item\label{properties-of-free-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-free-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-free-pointed-sets-functoriality}: Functoriality}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-free-pointed-sets-adjointness}: Adjointness}%
+    We claim there's an adjunction $(-)^{+}\dashv\Wasureru$, witnessed by a bijection of sets
+    \begin{align*}
+        \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+        \cong%
+        \Sets(X,Y),%
+    \end{align*}
+    natural in $X\in\Obj(\Sets)$ and $(Y,y_{0})\in\Obj(\Sets_{*})$.
+    \begin{itemize}
+        \item\SloganFont{Map \rmI. }We define a map
+            \[
+                \Phi_{X,Y}%
+                \colon%
+                \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                \to%
+                \Sets(X,Y)%
+            \]%
+            by sending a pointed function
+            \[
+                \xi%
+                \colon%
+                (X^{+},\point_{X})%
+                \to%
+                (Y,y_{0})%
+            \]%
+            to the function%
+            \[
+                \xi^{\dagger}%
+                \colon%
+                X%
+                \to%
+                Y%
+            \]%
+            given by
+            \[
+                \xi^{\dagger}(x)%
+                \defeq
+                \xi(x)%
+            \]%
+            for each $x\in X$.
+        \item\SloganFont{Map \rmII. }We define a map
+            \[
+                \Psi_{X,Y}%
+                \colon%
+                \Sets(X,Y)%
+                \to%
+                \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+            \]%
+            given by sending a function $\xi\colon X\to Y$ to the pointed function
+            \[
+                \xi^{\dagger}%
+                \colon%
+                (X^{+},\point_{X})%
+                \to%
+                (Y,y_{0})%
+            \]%
+            defined by
+            \[
+                \xi^{\dagger}(x)%
+                \defeq%
+                \begin{cases}
+                    \xi(x) & \text{if $x\in X$,}\\
+                    y_{0}  & \text{if $x=\point_{X}$}
+                \end{cases}
+            \]%
+            for each $x\in X^{+}$.
+        \item\SloganFont{Invertibility \rmI. }We claim that
+            \[
+                \Psi_{X,Y}\circ\Phi_{X,Y}%
+                =%
+                \id_{\Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))},%
+            \]%
+            which is clear.
+        \item\SloganFont{Invertibility \rmII. }We claim that
+            \[
+                \Phi_{X,Y}\circ\Psi_{X,Y}%
+                =%
+                \id_{\Sets(X,Y)},%
+            \]%
+            which is clear.
+        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a pointed function $g\colon(Y,y_{0})\to(Y',y'_{0})$, the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                    \arrow[r,"\Phi_{X,Y}"]
+                    \arrow[d,"{g_{*}}"']
+                    \&
+                    \Sets(X,Y)
+                    \arrow[d,"{g_{*}}"]
+                    \\
+                    \Sets_{*}((X^{+},\point_{X}),(Y',y'_{0})),%
+                    \arrow[r,"\Phi_{X,Y'}"']
+                    \&
+                    \Sets(X,Y')%
+                \end{tikzcd}
+            \]%
+            commutes. Indeed, given a pointed function
+            \[
+                \xi^{\dagger}%
+                \colon%
+                (X^{+},\point_{X})%
+                \to%
+                (Y,y_{0})%
+            \]%
+            we have
+            \begin{align*}
+                [\Phi_{X,Y'}\circ g_{*}](\xi) &= \Phi_{X,Y'}(g_{*}(\xi))\\
+                                              &= \Phi_{X,Y'}(g\circ\xi)\\
+                                              &= g\circ\xi\\
+                                              &= g\circ\Phi_{X,Y'}(\xi)\\
+                                              &= g_{*}(\Phi_{X,Y'}(\xi))\\
+                                              &= [g_{*}\circ\Phi_{X,Y'}](\xi).
+            \end{align*}
+        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a pointed function $f\colon(X,x_{0})\to(X',x'_{0})$, the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets_{*}((X^{',+},\point_{X}),(Y,y_{0}))%
+                    \arrow[r,"\Phi_{X',Y}"]
+                    \arrow[d,"f^{*}"']
+                    \&
+                    \Sets(X',Y)
+                    \arrow[d,"f^{*}"]
+                    \\
+                    \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                    \arrow[r,"\Phi_{X,Y}"']
+                    \&
+                    \Sets(X,Y)
+                \end{tikzcd}
+            \]%
+            commutes. Indeed, given a function
+            \[
+                \xi%
+                \colon%
+                X'%
+                \to%
+                Y,%
+            \]%
+            we have
+            \begin{align*}
+                [\Phi_{X,Y}\circ f^{*}](\xi) &= \Phi_{X,Y}(f^{*}(\xi))\\
+                                             &= \Phi_{X,Y}(\xi\circ f)\\
+                                             &= \xi\circ f\\
+                                             &= \Phi_{X',Y}(\xi)\circ f\\
+                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
+                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
+                                             &= [f^{*}\circ\Phi_{X',Y}](\xi).
+            \end{align*}
+        \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+    \end{itemize}
+
+    \ProofBox{\cref{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-wedge-sums}: Symmetric Strong Monoidality With Respect to Wedge Sums}%
+    The isomorphism
+    \[
+        \phi%
+        \colon%
+        X^{+}\vee Y^{+}%
+        \isorightarrow
+        (X\icoprod Y)^{+}
+    \]%
+    is given by
+    \[
+        \phi(z)%
+        =%
+        \begin{cases}%
+            x                   &\text{if $z=[(0,x)]$ with $x\in X$,}\\%
+            y                   &\text{if $z=[(1,y)]$ with $y\in Y$,}\\%
+            \star_{X\icoprod Y} &\text{if $z=[(0,\star_{X})]$,}\\%
+            \star_{X\icoprod Y} &\text{if $z=[(1,\star_{Y})]$}%
+        \end{cases}%
+    \]%
+    for each $z\in X^{+}\vee Y^{+}$, with inverse
+    \[
+        \phi^{-1}
+        \colon%
+        (X\icoprod Y)^{+}
+        \isorightarrow
+        X^{+}\vee Y^{+}%
+    \]%
+    given by
+    \[
+        \phi^{-1}(z)%
+        \defeq%
+        \begin{cases}
+            [(0,x)] &\text{if $z=[(0,x)]$,}\\
+            [(0,y)] &\text{if $z=[(1,y)]$,}\\
+            p_{0} &\text{if $z=\star_{X\icoprod Y}$}
+        \end{cases}
+    \]%
+    for each $z\in(X\icoprod Y)^{+}$.
+
+    Meanwhile, the isomorphism $\pt\cong\emptyset^{+}$ is given by sending $\point_{X}$ to $\star_{\emptyset}$.
+
+    That these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ symmetric strong monoidal can be directly checked element by element.
+
+    \ProofBox{\cref{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-smash-products}: Symmetric Strong Monoidality With Respect to Smash Products}%
+    The isomorphism
+    \[
+        \phi%
+        \colon%
+        X^{+}\wedge Y^{+}%
+        \isorightarrow
+        (X\times Y)^{+}
+    \]%
+    is given by
+    \[
+        \phi(x\wedge y)%
+        =%
+        \begin{cases}%
+            (x,y)             &\text{if $x\neq\star_{X}$ and $y\neq\star_{Y}$}\\%
+            \star_{X\times Y} &\text{otherwise}%
+        \end{cases}%
+    \]%
+    for each $x\wedge y\in X^{+}\wedge Y^{+}$, with inverse
+    \[
+        \phi^{-1}
+        \colon%
+        (X\times Y)^{+}
+        \isorightarrow
+        X^{+}\wedge Y^{+}%
+    \]%
+    given by
+    \[
+        \phi^{-1}(z)%
+        \defeq%
+        \begin{cases}
+            x\wedge y                &\text{if $z=(x,y)$ with $(x,y)\in X\times Y$,}\\
+            \star_{X}\wedge\star_{Y} &\text{if $z=\star_{X\times Y}$,}\\
+        \end{cases}
+    \]%
+    for each $z\in(X\icoprod Y)^{+}$.
+
+    Meanwhile, the isomorphism $S^{0}\cong\pt^{+}$ is given by sending $\point$ to $1\in S^{0}=\{0,1\}$ and $\star_{\pt}$ to $0\in S^{0}$.
+
+    That these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ symmetric strong monoidal can be directly checked element by element.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

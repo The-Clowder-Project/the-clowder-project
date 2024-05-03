@@ -1,0 +1,139 @@
+% TikZ arrows
+\tikzset{
+	sdin/.style={
+			double distance=0.2em,
+			decoration={
+					markings,
+					mark={
+							at position #1
+							with {
+                                    \draw[fill=white] (-0.075,-0.075) -- (+0.075,-0.075) -- (+0.075,+0.075) -- (-0.075,+0.075) -- cycle;
+								}
+						}
+				},
+			postaction=decorate
+		},
+	double,
+	sdin/.default=0em
+}
+\tikzset{
+	din/.style={
+			double distance=0.2em,
+			decoration={
+					markings,
+					mark={
+							at position #1
+							with {
+									\draw[fill=backgroundColor] circle [radius=2pt];
+								}
+						}
+				},
+			postaction=decorate
+		},
+	double,
+	din/.default=0em
+}
+\tikzset{
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
+}
+\tikzcdset{%
+    bigisoarrow/.style={%
+        "\scalebox{1.75}{$\unsim$}"{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-1.5pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    bigisoarrowprime/.style={%
+        "\scalebox{1.75}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=+0.1pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    isoarrow/.style={%
+        "\scalebox{1.25}{$\unsim$}"{sloped,pos=0.45}, dash pattern=on 1.65pt off 1.65pt, outer sep=-2.5pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    isoarrowprime/.style={%
+        "\scalebox{1.25}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-0.0pt%
+        %dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzcdset{%
+    very densely dashed/.style={%
+        dash pattern=on 1.65pt off 1.65pt,%
+    }%
+}%
+\tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},
+%\tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},
+%postaction=decorate,decoration={markings,
+%mark=at position 0.5 with {\draw[-] (0,#1) -- (0,-#1);}}},
+%mid vert/.default=0.75ex}
+postaction=decorate,decoration={markings,
+mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},
+mid vert/.default=0.5}
+
+\tikzset{
+    triplearrow/.style={
+        draw=black,
+        color=black,
+        thick,
+        double=backgroundColor,
+        double distance=6pt,
+        -,
+        %>=latex,
+    },
+    thirdline/.style={
+        draw=black,
+        color=black,
+        thick,
+        -{Straight Barb[scale=2.5]},
+    },
+}
+\tikzset{double line with arrow/.style args={#1,#2}{decorate,decoration={markings,%
+mark=at position 0 with {\coordinate (ta-base-1) at (0,1pt);
+\coordinate (ta-base-2) at (0,-1pt);},
+mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);
+\draw[#2] (ta-base-2) -- (0,-1pt);
+}}}}
+\tikzset{Equals/.style={-,double line with arrow={-,-}}}
+\tikzset{
+  crossover/.style = {
+    decorate,
+    decoration={show path construction, lineto code={
+      \coordinate (crossovertikzinputsegmentfirst) at (\tikzinputsegmentfirst);
+      \coordinate (crossovertikzinputsegmentlast) at (\tikzinputsegmentlast);
+      \pgfmathanglebetweenpoints{\pgfpointanchor{crossovertikzinputsegmentfirst}{center}}
+                                {\pgfpointanchor{crossovertikzinputsegmentlast}{center}}
+      \let\ang\pgfmathresult
+      \path ([shift=(90+\ang:#1)] \tikzinputsegmentfirst) edge[out=\ang, in=180+\ang] ([shift=(-90+\ang:#1)] \tikzinputsegmentlast)
+            ([shift=(-90+\ang:#1)] \tikzinputsegmentfirst) edge[out=\ang, in=180+\ang] ([shift=(90+\ang:#1)] \tikzinputsegmentlast);
+      },
+    },
+    commutative diagrams/labels={inner sep=#1},
+  },
+  crossover/.default=.8ex,
+}
+\tikzcdset{%
+    triple line/.code={\tikzset{%
+        double equal sign distance, % replace by double distance = 'measure'
+        double=\pgfkeysvalueof{/tikz/commutative diagrams/background color}}},
+    quadruple line/.code={\tikzset{%
+        double equal sign distance, % replace by double distance = 'measure'
+        double=\pgfkeysvalueof{/tikz/commutative diagrams/background color}}},
+    Rrightarrow/.code={\tikzcdset{triple line}\pgfsetarrows{tikzcd implies cap-tikzcd implies}},
+    RRightarrow/.code={\tikzcdset{quadruple line}\pgfsetarrows{tikzcd implies cap-tikzcd implies}}
+}
+\tikzset{
+    %Rightarrow/.style={double equal sign distance,>={Implies},->},
+    Rightarrow/.style={double distance=3.5pt,>={Implies},->},
+    triplea/.style={-,preaction={draw,Rightarrow}},
+}
+\newcommand*{\tarrow}[2][]{\arrow[Rrightarrow, #1]{#2}\arrow[dash, shorten >= 0.5pt, #1]{#2}}
+\newcommand*{\qarrow}[2][]{\arrow[RRightarrow, #1]{#2}\arrow[equal, double distance = 0.25pt, shorten >= 1.28pt, #1]{#2}}
+\newcommand{\udashv}{\rotatebox[origin=c]{270}{$\dashv$}}
