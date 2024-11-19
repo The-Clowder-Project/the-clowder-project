@@ -1,0 +1,63 @@
+\documentclass{standalone}
+\input{../../../tikzcd-preamble.tex}
+\usepackage[libertine]{newtxmath}\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}\let\mathrm\relax\newcommand{\mathrm}[1]{\text{#1}}\begingroup\catcode`(\active \xdef({\left\string(}\catcode`)\active \xdef){\right\string)}\catcode`[\active \xdef[{\left\string[}\catcode`]\active \xdef]{\right\string]}\endgroup\mathcode`(="8000\mathcode`)="8000\mathcode`[="8000\mathcode`]="8000
+\begin{document}
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.85\ThreeCm]
+            \textcolor{OIblue}{\pt\times\pt}
+            \&[0.6\ThreeCm]
+            {}
+            \&[0.6\ThreeCm]
+            \textcolor{OIblue}{\pt\otimes_{\Sets}\pt}
+            \&[0.85\ThreeCm]
+            \\[0.5\ThreeCm]
+            \textcolor{OIblue}{\pt}
+            \&[0.85\ThreeCm]
+            \&[0.6\ThreeCm]
+            {}
+            \&[0.6\ThreeCm]
+            \&[0.85\ThreeCm]
+            \pt\otimes_{\Sets}\Unit_{\Sets}
+            \\[1.0*\ThreeCm]
+            \&[0.85\ThreeCm]
+            A\times\pt
+            \&[0.6\ThreeCm]
+            {}
+            \&[0.6\ThreeCm]
+            \textcolor{OIblue}{A\otimes_{\Sets}\pt}
+            \&[0.85\ThreeCm]
+            \\[0.5\ThreeCm]
+            A
+            \&[0.85\ThreeCm]
+            \&[0.6\ThreeCm]
+            {}
+            \&[0.6\ThreeCm]
+            \&[0.85\ThreeCm]
+            \textcolor{OIblue}{A\otimes_{\Sets}\Unit_{\Sets}}
+            % 1-Arrows
+            % First Diagram
+            \arrow[from=2-1,to=1-2,"\RUnitor^{\Sets,-1}_{\pt}"{sloped},color=OIblue]%
+            \arrow[from=1-2,to=1-4,"\id^{\otimes,-1}_{\Sets|\pt,\pt}",pos=0.525,color=OIblue]%
+            \arrow[from=1-4,to=2-5,"\id_{\pt}\times\id^{\otimes,-1}_{\Unit|\Sets}"{sloped}]%
+            % Second Diagram
+            \arrow[from=4-1,to=3-2,"\RUnitor^{\Sets,-1}_{A}"{description,sloped}]%
+            \arrow[from=3-2,to=3-4,"\id^{\otimes,-1}_{\Sets|A,\pt}"description,pos=0.55]%
+            \arrow[from=3-4,to=4-5,"\id_{A}\times\id^{\otimes,-1}_{\Unit|\Sets}"{description,sloped},color=OIblue]%
+            \arrow[from=4-1,to=4-5,"\RUnitor^{\prime,-1}_{A}"description,pos=0.55]%
+            % Connecting Arrows
+            \arrow[from=2-1,to=4-1,"{[a]}"']%
+            \arrow[from=2-1,to=4-1,"{[a]}"']%
+            \arrow[from=1-2,to=3-2,"{[a]\times\id_{\pt}}"description]%
+            \arrow[from=1-4,to=3-4,"{[a]\otimes_{\Sets}\id_{\pt}}"description,color=OIblue]%
+            \arrow[from=2-5,to=4-5,"{[a]\times\id_{\Unit_{\Sets}}}"]%
+            % Crossing Over
+            \arrow[from=2-1,to=2-5,"\RUnitor^{\prime,-1}_{\pt}"'description,pos=0.55,crossing over]%
+            % Subdiagrams
+            \arrow[from=1-3,to=2-3,"\scriptstyle(\dagger)"{xscale=2.0,yscale=0.7,pos=0.4},phantom]%
+            \arrow[from=3-2,to=1-4,"\scriptstyle(1)",phantom]%
+            \arrow[from=3-3,to=4-3,"\scriptstyle(2)"{xscale=2.0,yscale=0.7,pos=0.45},phantom]%
+            \arrow[from=2-1,to=3-2,"(3)"{rotate=34.5+0.0, xslant=0.656, yslant=0},phantom]%
+            \arrow[from=3-4,to=2-5,"(4)"{rotate=-34.5, xslant=-0.656, yslant=0},phantom]%
+            \arrow[from=2-3,to=4-3,"(5)"{xscale=1.3,yscale=1.1},phantom]%
+        \end{tikzcd}
+\end{document}

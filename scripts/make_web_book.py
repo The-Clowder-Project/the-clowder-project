@@ -24,6 +24,10 @@ def print_preamble(path):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
+        if line.find("adjustbox") >= 0:
+            line = ""
+        if line.find("newenvironment{scalemath") >= 0:
+            line = ""
         print line,
     preamble.close()
     return
@@ -79,6 +83,7 @@ print "\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{
 #print "\\end{center}"
 #print "\\vspace*{\\fill}"
 #print "\\endgroup"
+print_list_contrib(path)
 print "\\dominitoc"
 print "{\\ShortTableOfContents}"
 print "\\clearpage"
@@ -106,6 +111,7 @@ for name in lijstje:
         line = preprocess.amsthm(line)
         line = preprocess.proof(line)
         line = preprocess.proofbox_cm(line)
+        line = preprocess.scalemath_to_webcompile(line)
         # Everyone
         line = preprocess.proofbox_two(line)
         line = preprocess.leftright_square_brackets_and_curly_brackets(line)
@@ -175,6 +181,7 @@ print "\\printindex[notation]"
 print "\\printindex[set-theory]"
 print "\\printindex[categories]"
 print "\\printindex[higher-categories]"
+print "\\printindex[representation-theory]"
 #print "\\printindex[algebra]"
 #print "\\printindex[algebraic-geometry]"
 #print "\\printindex[analysis]"

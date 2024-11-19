@@ -8,33 +8,29 @@ def process_iff(content):
     return content
 
 def process_textdbend(content):
-    content = re.sub('by 15by 22Umanual', '<span class="textdbend-container"><span class="textdbend-content"><img alt="Dangerous Bend Symbol" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg">', content)
-    return re.sub('END TEXTDBEND', '</span></span>', content)
+    #content = re.sub('by 15by 22Umanual', '<span class="textdbend-container"><span class="textdbend-content"><img alt="Dangerous Bend Symbol" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg">', content)
+    content = re.sub('BEGIN TEXTDBEND', '<span class="textdbend-container"><span class="textdbend-content"><img alt="Dangerous Bend Symbol" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg">', content)
+    content = re.sub('END TEXTDBEND', '</span></span>', content)
+    return content
+
+def process_warning_sign(content):
+    content = re.sub('WARNINGSIGN', '<img src="/static/images/warning.svg" width="20px" style="margin-top:-5px">', content)
+    return content
 
 def process_chapter_names(content):
     # Mapping dictionary
     mapping = {
         "Chapter 1":  "Chapter 1: Sets",
         "Chapter 2":  "Chapter 2: Constructions With Sets",
-        "Chapter 3":  "Chapter 3: Pointed Sets",
-        "Chapter 4":  "Chapter 4: Tensor Products of Pointed Sets",
-        "Chapter 5":  "Chapter 5: Relations",
-        "Chapter 6":  "Chapter 6: Constructions With Relations",
-        "Chapter 7":  "Chapter 7: Equivalence Relations and Apartness Relations",
-        "Chapter 8":  "Chapter 8: Categories",
-        "Chapter 9":  "Chapter 9: Types of Morphisms in Bicategories",
-        #"Chapter 8":  "Chapter 8: Spans",
-        #"Chapter 9":  "Chapter 9: Constructions With Spans",
-        #"Chapter 10": "Chapter 10: Preorders and Partial Orders",
-        #"Chapter 11": "Chapter 11: Posets",
-        #"Chapter 12": "Chapter 12: Lattices",
-        #"Chapter 13": "Chapter 13: Indexed Sets",
-        #"Chapter 14": "Chapter 14: Fibred Sets",
-        #"Chapter 15": "Chapter 15: Un/Straightening for Indexed and Fibred Sets",
-        #"Chapter 16": "Chapter 16: Categories",
-        #"Chapter 17": "Chapter 17: Types of Morphisms in Categories",
-        #"Chapter 18": "Chapter 18: Adjunctions and the Yoneda Lemma",
-        #"Chapter 19": "Chapter 19: Constructions With Categories",
+        "Chapter 3":  "Chapter 3: Monoidal Structures on the Category of Sets",
+        "Chapter 4":  "Chapter 4: Pointed Sets",
+        "Chapter 5":  "Chapter 5: Tensor Products of Pointed Sets",
+        "Chapter 6":  "Chapter 6: Relations",
+        "Chapter 7":  "Chapter 7: Constructions With Relations",
+        "Chapter 8":  "Chapter 8: Equivalence Relations and Apartness Relations",
+        "Chapter 9":  "Chapter 9: Categories",
+        "Chapter 10": "Chapter 10: Constructions With Monoidal Categories",
+        "Chapter 11": "Chapter 11: Types of Morphisms in Bicategories",
     }
 
     # Define the regex pattern
@@ -59,8 +55,10 @@ def process_references(content):
     mapping = {
         "2-categories-book": "Johnson–Yau, 2-Dimensional Categories",
         "MO119454": "<code>MO 119454</code>",
+        "MO302680": "<code>MO 302680</code>",
         "MO321971": "<code>MO 321971</code>",
         "MO382264": "<code>MO 382264</code>",
+        "MO441087": "<code>MO 441087</code>",
         "MO455260": "<code>MO 455260</code>",
         "MO460656": "<code>MO 460656</code>",
         "MO461592": "<code>MO 461592</code>",
@@ -69,27 +67,54 @@ def process_references(content):
         "MO468125": "<code>MO 468125</code>",
         "MO468334": "<code>MO 468334</code>",
         "MO64365": "<code>MO 64365</code>",
-        "MSE2096272": "<code>MSE 2096272</code>",
+        "martins-ferreira-sobral:schreier-split-extensions-of-preordered-monoids": "Martins-Ferreira–Sobral, Schreier Split Extensions of Preordered Monoids",
+        "MSE102751": "<code>MSE 102751</code>",
+        "MSE1299052": "<code>MSE 1299052</code>",
         "MSE1465107": "<code>MSE 1465107</code>",
+        "MSE1483996": "<code>MSE 1483996</code>",
+        "MSE2096272": "<code>MSE 2096272</code>",
+        "MSE2194": "<code>MSE 2194</code>",
+        "MSE267365": "<code>MSE 267365</code>",
         "MSE267469": "<code>MSE 267469</code>",
+        "MSE2719059": "<code>MSE 2719059</code>",
         "MSE2855868": "<code>MSE 2855868</code>",
         "MSE350788": "<code>MSE 350788</code>",
         "MSE3774686": "<code>MSE 3774686</code>",
+        "MSE4565435": "<code>MSE 4565435</code>",
         "MSE733161": "<code>MSE 733161</code>",
         "MSE733163": "<code>MSE 733163</code>",
         "MSE749304": "<code>MSE 749304</code>",
         "MSE884460": "<code>MSE 884460</code>",
+        "MSE89736": "<code>MSE 89736</code>",
+        "MSE940849": "<code>MSE 940849</code>",
+        "arthan:the-eudoxus-real-numbers": "Arthan, The Eudoxus Real Numbers",
+        "kemp:cauchy-s-construction-of-r": "Kemp, Cauchy's Construction of $\\mathbb{R}$",
+        "belotto:notes-about-dedekind-cuts": "Belotto, Notes About Dedekind Cuts",
         "borceux1994handbook1": "Borceux, Handbook of Categorical Algebra I",
+        "bourbaki-general-topology-1-4": "Bourbaki, General Topology 1–4",
+        "broughan-adic-topologies-for-the-rational-integers": "Broughan, Adic Topologies for the Rational Integers",
         "ciesielski1997set": "Ciesielski, Set Theory for the Working Mathematician",
         "coalgebras-in-symmetric-monoidal-categories-of-spectra": "Péroux–Shipley, Coalgebras in Symmetric Monoidal Categories of Spectra",
-        "frey:on-the-2-categorical-duals-of-full-and-faithful-functors": "Frey, On the 2-Categorical Duals of (Full and) Faithful Functors",
+        "coend-calculus": "Loregian, Coend Calculus",
         "epimorphisms-and-dominions-3": "Isbell, Epimorphisms and Dominions III",
+        "four-notions-of-conjugacy-for-abstract-semigroups": "Araújo–Kinyon–Konieczny–Malheiro, Four Notions of Conjugacy for Abstract Semigroups",
+        "favier:postcompose-not-full": "Favier, Postcompose Not Full",
+        "frey:on-the-2-categorical-duals-of-full-and-faithful-functors": "Frey, On the 2-Categorical Duals of (Full and) Faithful Functors",
+        "homogeneity-of-the-hilbert-cube-notes-taken-by-albert-verbeek-from-lectures-by-j-de-groot": "Verbeek, Homogeneity of the Hilbert Cube",
         "idempotent-triples-and-completion": "Deleanu–Frei–Hilton, Idempotent Triples and Completion",
+        "infinite-dimensional-topology-van-mill": "van Mill, Infinite-Dimensional Topology",
         "lectures-on-n-categories-and-cohomology": "Baez–Shulman, Lectures on $n$-Categories and Cohomology",
+        "megginson-an-introduction-to-banach-space-theory": "Megginson, An Introduction to Banach Space Theory",
+        "munkres-topology": "Munkres, Topology",
         "niefield:change-of-base-for-relational-variable-sets": "Niefield, Change of Base for Relational Variable Sets",
+        "nlab:boundary": "nLab, Boundary",
+        "nlab:bump-function": "nLab, Bump Function",
         "nlab:displayed-category": "nLab, Displayed Category",
         "nlab:groupoid": "nLab, Groupoid",
         "nlab:skeleton": "nLab, Skeleton",
+        "notes-on-homotopical-algebra": "Zhen Lin Low, Notes on Homotopical Algebra",
+        "on-functors-which-are-lax-epimorphisms": "Adámek–Bashir–Sobral–Velebil, On Functors Which Are Lax Epimorphisms",
+        "oplax-natural-transformations-twisted-quantum-field-theories-and-even-higher-morita-categories": "Johnson-Freyd–Scheimbauer, Oplax Natural Transformations, Twisted Quantum Field Theories, and “Even Higher” Morita Categories",
         "proof-wiki:cartesian-product-distributes-over-set-difference": "Proof Wiki, Cartesian Product Distributes Over Set Difference",
         "proof-wiki:cartesian-product-distributes-over-symmetric-difference": "Proof Wiki, Cartesian Product Distributes Over Symmetric Difference",
         "proof-wiki:cartesian-product-distributes-over-union": "Proof Wiki, Cartesian Product Distributes Over Union",
@@ -102,13 +127,17 @@ def process_references(content):
         "proof-wiki:characteristic-function-of-symmetric-difference": "Proof Wiki, Characteristic Function Of Symmetric Difference",
         "proof-wiki:characteristic-function-of-union": "Proof Wiki, Characteristic Function Of Union",
         "proof-wiki:complement-of-complement": "Proof Wiki, Complement Of Complement",
+        "proof-wiki:complement-of-preimage-equals-preimage-of-complement": "Proof Wiki, Complement of Preimage Equals Preimage of Complement",
         "proof-wiki:condition-for-mapping-from-quotient-set-to-be-a-surjection": "Proof Wiki, Condition For Mapping From Quotient Set To Be A Surjection",
         "proof-wiki:condition-for-mapping-from-quotient-set-to-be-an-injection": "Proof Wiki, Condition For Mapping From Quotient Set To Be An Injection",
         "proof-wiki:condition-for-mapping-from-quotient-set-to-be-well-defined": "Proof Wiki, Condition For Mapping From Quotient Set To Be Well Defined",
         "proof-wiki:de-morgan-s-laws-set-theory": "Proof Wiki, De Morgan's Laws (Set Theory)",
         "proof-wiki:de-morgan-s-laws-set-theory-set-difference-difference-with-union": "Proof Wiki, De Morgan's Laws (Set Theory)/Set Difference/Difference With Union",
         "proof-wiki:equivalence-of-definitions-of-symmetric-difference": "Proof Wiki, Equivalence of Definitions of Symmetric Difference",
+        "proof-wiki:fundamental-theorem-on-equivalence-relations": "Proof Wiki, Fundamental Theorem on Equivalence Relations",
+        "proof-wiki:homeomorphism-iff-image-of-closure-equals-closure-of-image": "Proof Wiki, Homeomorphism Iff Image Of Closure Equals Closure Of Image",
         "proof-wiki:image-of-intersection-under-mapping": "Proof Wiki, Image of Intersection Under Mapping",
+        "proof-wiki:image-of-set-difference-under-mapping": "Proof Wiki, Image of Set Difference Under Mapping",
         "proof-wiki:image-of-union-under-mapping": "Proof Wiki, Image of Union Under Mapping",
         "proof-wiki:intersection-distributes-over-symmetric-difference": "Proof Wiki, Intersection Distributes Over Symmetric Difference",
         "proof-wiki:intersection-is-associative": "Proof Wiki, Intersection Is Associative",
@@ -118,6 +147,7 @@ def process_references(content):
         "proof-wiki:intersection-with-subset-is-subset": "Proof Wiki, Intersection With Subset Is Subset",
         "proof-wiki:mapping-from-quotient-set-when-defined-is-unique": "Proof Wiki, Mapping From Quotient Set When Defined Is Unique",
         "proof-wiki:preimage-of-intersection-under-mapping": "Proof Wiki, Preimage of Intersection Under Mapping",
+        "proof-wiki:preimage-of-set-difference-under-mapping": "Proof Wiki, Preimage of Set Difference Under Mapping",
         "proof-wiki:preimage-of-union-under-mapping": "Proof Wiki, Preimage of Union Under Mapping",
         "proof-wiki:quotient-map-is-coequaliser": "Proof Wiki, Quotient Mapping is Coequalizer",
         "proof-wiki:set-difference-as-intersection-with-complement": "Proof Wiki, Set Difference As Intersection With Complement",
@@ -150,12 +180,19 @@ def process_references(content):
         "proof-wiki:union-is-commutative": "Proof Wiki, Union Is Commutative",
         "proof-wiki:union-of-symmetric-differences": "Proof Wiki, Union Of Symmetric Differences",
         "proof-wiki:union-with-empty-set": "Proof Wiki, Union With Empty Set",
-        "on-functors-which-are-lax-epimorphisms": "Adámek–Bashir–Sobral–Velebil, On Functors Which Are Lax Epimorphisms",
-        "notes-on-homotopical-algebra": "Zhen Lin Low, Notes on Homotopical Algebra",
         "riehl:context": "Riehl, Category Theory in Context",
+        "schaefer-wolff-topological-vector-spaces": "Schaefer–Wolff, Topological Vector Spaces",
+        "selected-topics-in-infinite-dimensional-topology": "Bessaga–Pełczyński, Selected Topics in Infinite-Dimensional Topology",
+        "steinberg-representation-theory-of-finite-groups": "Steinberg, Representation Theory of Finite Groups",
         "the-free-adjunction": "Schanuel–Street, The Free Adjunction",
+        "the-homogeneous-property-of-the-hilbert-cube": "Halverson–Wright, The Homogeneous Property of the Hilbert Cube",
+        "theory-of-correspondences": "Klein–Thompson, Theory of Correspondences",
+        "trace-as-an-alternative-decategorification-functor": "Beliakova–Guliyev–Habiro–Lauda, Trace as an Alternative Decategorification Functor",
         "universality-of-multiplicative-infinite-loop-space-machines": "Gepner–Groth–Nikolaus, Universality of Multiplicative Infinite Loop Space Machines",
+        "weiss:the-reals-as-rational-cauchy-filters": "Weiss, The Reals as Rational Cauchy Filters",
+        "wikipedia:james-s-space": "Wikipedia, James's Space",
         "wikipedia:multivalued-function": "Wikipedia, Multivalued Function",
+        "wikipedia:representation-theory-of-finite-groups": "Wikipedia, Representation Theory of Finite Groups",
         "wikipedia:symmetric-difference": "Wikipedia, Symmetric Difference",
     }
 
@@ -275,7 +312,7 @@ def process_enumi(content):
 
 def process_web_environments(content):
     # Define the regex pattern for the article environment
-    article_pattern = re.compile(r'(<article class="env-(definition|theorem|question|proposition|construction|example|remark|notation|corollary)" id="[^"]+">)(.*?)(</article>)', re.DOTALL)
+    article_pattern = re.compile(r'(<article class="env-(definition|theorem|question|proposition|lemma|construction|example|remark|notation|corollary|warning|oldtag)" id="[^"]+">)(.*?)(</article>)', re.DOTALL)
 
     # Define the regex pattern for the environment identifier
     identifier_pattern = re.compile(r'<a class="environment-identifier" href="/tag/[^"]+">[^<]+<span data-tag="[^"]+">[^<]+</span> <span class="named">\((.*?)</span>.</a>')
@@ -297,7 +334,10 @@ def process_web_environments(content):
             identifier = ""
 
         # Create the transformed HTML
-        return f'<div class="env-{match.group(2)}-header"><p>{identifier}</p></div>{article_start}{article_content}{article_end}<div class="env-{match.group(2)}-footer"></div>'
+        if (match.group(2) == "warning"):
+            return f'<div class="env-{match.group(2)}-header"><p>{identifier}</p></div>{article_start}<div class="gogogo-text gogogo-start-1">ゴ</div><div class="gogogo-text gogogo-start-2">ゴ</div><div class="gogogo-text gogogo-start-3">ゴ</div><div class="gogogo-text gogogo-start-4">ゴ</div><div class="gogogo-text gogogo-start-5">ゴ</div><div class="gogogo-text gogogo-start-6">ゴ</div><div class="gogogo-text gogogo-start-7">ゴ</div>{article_content}<div class="gogogo-text gogogo-end-1">ゴ</div><div class="gogogo-text gogogo-end-2">ゴ</div><div class="gogogo-text gogogo-end-3">ゴ</div><div class="gogogo-text gogogo-end-4">ゴ</div><div class="gogogo-text gogogo-end-5">ゴ</div><div class="gogogo-text gogogo-end-6">ゴ</div><div class="gogogo-text gogogo-end-7">ゴ</div><p></p>{article_end}<div class="env-{match.group(2)}-footer"></div>'
+        else:
+            return f'<div class="env-{match.group(2)}-header"><p>{identifier}</p></div>{article_start}{article_content}{article_end}<div class="env-{match.group(2)}-footer"></div>'
     
     # Replace the article environments using the replacer function
     transformed_html = article_pattern.sub(replacer, content)
@@ -396,6 +436,61 @@ def process_ipa(content):
     content = re.sub(r"IPA transcription: \[(.*?)\]\.", r'IPA transcription: [<span class="brill">\1</span>].', content)
     return content
 
+def process_footnotes(content):
+    # Triple footnotes in running text
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)(\s*</p>\n\s*<p>.*?)(<a href=".*?"><sup>\d+</sup></a>)(\s*</p>\n\s*<p>.*?)(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<p>(.*?)</p>',r'\1<sup>,</sup>\3<sup>,</sup>\5 \6', content, re.DOTALL)
+    # Double footnotes in running text
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)(\s*</p>\n\s*<p>.*?)(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<p>(.*?)</p>',r'\1<sup>,</sup>\3 \4', content, re.DOTALL)
+    # Single footnote in running text
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<p>(.*?)</p>',r'\1 \2', content, re.DOTALL)
+    content = re.sub(r'\s*\n\n<p>\n\s*(<a href=".*?"><sup>\d+</sup></a>)\s*\n</p>\n<p>\n(.*?)\n</p>',r'\1 \2', content, re.DOTALL)
+    # Footnotes appearing before lists
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<p><ol',r'\1\n    <ol', content, re.DOTALL)
+    # Footnotes appearing before equations
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<div',r'\1\n    <div', content, re.DOTALL)
+    content = re.sub(r'\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\n\s*<div',r'\1\n    <div', content, re.DOTALL)
+    # Single footnote appearing at the end of an environment
+    content = re.sub(r'\s*</p>\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)(\s*</p>\n\s*<p> <div class="footnotes-section)',r'\1\2', content, re.DOTALL)
+    content = re.sub(r'\n\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*<p>\s*(<div class="footnotes-section")', r'\1\2', content, re.DOTALL)
+    # Single footnote appearing after math in running text
+    content = re.sub(r'\s*<p> (<a href=".*?"><sup>\d+</sup></a>)\s*</p>\s*<p>',r'\1 ', content, re.DOTALL)
+    # Single footnote appearing after an item inside a list
+    content = re.sub(r'\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*</p>\s*</li>',r'\1</li>', content, re.DOTALL)
+    # Single footnote appearing before a ProofBox
+    content = re.sub(r'\s*<p>\s*(<a href=".*?"><sup>\d+</sup></a>)\s*<div class="p-proof">',r'\1<div class="p-proof">', content, re.DOTALL)
+    # Single footnote appearing after colon
+    content = re.sub(r'\s*(<a href=".*?"><sup>\d+</sup></a>)',r'\1', content, re.DOTALL)
+    return content
+
+def process_qed_symbol_should_come_before_the_footnotes_section_in_proof_environments(content):
+    # Check if there are multiple proof environments
+    if (len(re.findall(r"env-proof-header",content)) >= 3):
+        # Case where there is a footnote section on the third proof environment
+        content = re.sub(r'<div class="env-proof-header">(.*?)<div class="env-proof-header">(.*?)<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*?)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*?)<div class="env-proof-footer">',r'<div class="env-proof-header">\1<div class="env-proof-header">\2<div class="env-proof-header">\3<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\4\5<div class="env-proof-footer">',content,flags=re.DOTALL)
+    else:
+        if (len(re.findall(r"env-proof-header",content)) == 2):
+            # Case where there is a footnote section on the first proof environment
+            content = re.sub(r'<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*)<div class="env-proof-footer">(.*)<div class="env-proof-header">',r'<div class="env-proof-header">\1<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\2\3<div class="env-proof-footer">\4<div class="env-proof-header">',content,flags=re.DOTALL)
+            # Case where there are footnote sections on both proof environments
+            content = re.sub(r'<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*)<div class="env-proof-footer">(.*)<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*)<div class="env-proof-footer">',r'<div class="env-proof-header">\1<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\2\3<div class="env-proof-footer">\4<div class="env-proof-header">\5<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\6\7<div class="env-proof-footer">',content,flags=re.DOTALL)
+            # Case where there is a footnote section on the second proof environment
+            content = re.sub(r'<div class="env-proof-header">(.*?)<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*?)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*?)<div class="env-proof-footer">',r'<div class="env-proof-header">\1<div class="env-proof-header">\2<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\3\4<div class="env-proof-footer">',content,flags=re.DOTALL)
+        else:
+            # If the last thing appearing in a proof is a footnote
+            content = re.sub(r'(<a href=".*?"><sup>\d+</sup></a>)\s*<p>\s*<div class="footnotes-section">(.*)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>\s*</p>\s*</article>',r'\1<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><p><div class="footnotes-section">\2</p></article>',content,flags=re.DOTALL)
+            # General case
+            content = re.sub(r'<div class="env-proof-header">(.*?)<div class="footnotes-section">(.*)<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>(.*)<div class="env-proof-footer">',r'<div class="env-proof-header">\1<span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span><div class="footnotes-section">\2\3<div class="env-proof-footer">',content,flags=re.DOTALL)
+    return content
+
+def process_less_than_and_greater_than_symbols(content):
+    content = re.sub(r'LESSTHANMATHSYMBOL',r'&lt;',content,flags=re.DOTALL)
+    content = re.sub(r'GREATERTHANMATHSYMBOL',r'&gt;',content,flags=re.DOTALL)
+    return content
+
+def process_code_environment(content):
+    content = re.sub(r'<pre class="code-block language-latex"><code>\n',r'<pre class="code-block language-latex"><code>',content,flags=re.DOTALL)
+    return content
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python script.py <filepath>")
@@ -407,6 +502,7 @@ if __name__ == "__main__":
         content = file.read()
 
     content = process_textdbend(content)
+    content = process_warning_sign(content)
     content = process_references(content)
     content = process_data_content(content)
     content = process_itemize(content)
@@ -428,6 +524,10 @@ if __name__ == "__main__":
     content = process_chapter_names(content)
     content = process_iff(content)
     content = process_ipa(content)
+    content = process_footnotes(content)
+    content = process_qed_symbol_should_come_before_the_footnotes_section_in_proof_environments(content)
+    content = process_less_than_and_greater_than_symbols(content)
+    content = process_code_environment(content)
 
     with open(filepath, 'w', encoding='utf-8') as file:
         file.write(content)

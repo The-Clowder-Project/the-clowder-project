@@ -41,24 +41,16 @@ def missing_chapters(line):
         "ChapterBicategories",
         "ChapterConstructionsWithCategories",
         "ChapterDiagonalCategoryTheory",
-        "ChapterFibredSets",
         "ChapterHypergroups",
         "ChapterHypermonoids",
-        "ChapterIndexedSets",
-        "ChapterInternalAdjunctions",
-        "ChapterKanExtensions",
-        "ChapterLimitsAndColimits",
         "ChapterMonads",
-        "ChapterMonoidalCategories",
         "ChapterMonoidsInMonoidalInftyCategories",
         "ChapterMonoidsWithZero",
         "ChapterPreordersAndPartialOrders",
         "ChapterProfunctors",
         "ChapterSpans",
         "ChapterTensorProductsOfMonoids",
-        "ChapterTopologicalSpaces",
-        "ChapterTypesOfMorphismsInCategories",
-        "ChapterUnStraighteningForIndexedAndFibredSets"]
+        "ChapterTypesOfMorphismsInCategories"]
     for chapter in future_chapters:
         if line.find(chapter) >= 0:
             line = re.sub(chapter,"cref{TODO}",line)
@@ -69,35 +61,54 @@ def pdf_only(line):
     else:
         return line
 def tcbthm(line):
-    return re.sub(r"\\begin\{(definition|question|proposition|corollary|remark|notation|theorem|construction|example)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
+    return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
 def textdbend(line):
-    return re.sub('END TEXTDBEND', '', line)
+    line = re.sub('END TEXTDBEND', '', line)
+    return line
+def textdbend_2(line):
+    line = re.sub(r'\\textdbend', 'BEGIN TEXTDBEND', line)
+    return line
 def amsthm(line):
-    return re.sub(r"\\begin\{(definition|question|proposition|corollary|remark|notation|theorem|construction|example)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
+    return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
 def amsthm_web(line):
-    line= re.sub(r"\\begin\{(definition|question|proposition|corollary|remark|notation|theorem|construction|example)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}\\newline",line)
-    return re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
+    line = re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}\\newline",line)
+    line = re.sub(r"\\begin\{Proof\}\{(.*?):(.*?)\}%",r"\\begin{proof}[\1:\2}]",line)
+    line = re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
+    return line
 def proof(line):
     line = re.sub(r"\\begin\{Proof\}\{.*?\}%",r"\\begin{proof}",line)
     line = re.sub(r"\\end\{Proof\}",r"\\end{proof}",line)
     return line
+def rmIendproofbox(line):
+    line = re.sub(r"\\rmIENDPROOFBOX",r"\\rmI ENDPROOFBOX",line)
+    line = re.sub(r"\\rmIIENDPROOFBOX",r"\\rmII ENDPROOFBOX",line)
+    line = re.sub(r"\\rmIIIENDPROOFBOX",r"\\rmIII ENDPROOFBOX",line)
+    line = re.sub(r"\\rmIVENDPROOFBOX",r"\\rmIV ENDPROOFBOX",line)
+    line = re.sub(r"\\rmVENDPROOFBOX",r"\\rmV ENDPROOFBOX",line)
+    return line
+
 def proofbox_cm(line):
     line = re.sub(r"\\FirstProofBox",r"\\ProofBox",line)
     line = re.sub(r"\\ProofBox{\\cref{([a-zA-Z0-9-]+)}: ([\\`,'a-zA-Z0-9 :\-$_{}\*\(\)\/]+)}%",r"\\textit{\\cref{\1}, \2}:",line)
     line = re.sub(r"\\ProofBox{(.*)}%\n",r"\\textit{STARTPROOFBOX\1ENDPROOFBOX}:",line)
-    #line = re.sub(r"\\ProofBox{\\cref{([a-zA-Z0-9-]+)}: ([a-zA-Z ]+)}%",r"\\textit{Proof of \\cref{\1}, \2}:",line)
     return line
+
+def scalemath_to_webcompile(line):
+    line = re.sub(r"scalemath",r"webcompile",line)
+    return line
+
 def proofbox_two(line):
     line = re.sub(r"STARTPROOFBOX",r"",line)
     line = re.sub(r"ENDPROOFBOX",r"",line)
     return line
+
 def remove_index(line):
     def remove_index_with_parser(line):
         i = 0
         output = []
         while i < len(line):
             # Correcting the condition to look for a single backslash
-            if line[i:i+7] == '\index[':
+            if line[i:i+7] == r'\index[':
                 depth_square = 0
                 depth_brace = 0
                 inside_square = True
@@ -129,8 +140,8 @@ def remove_index(line):
         return ''.join(output)
     return remove_index_with_parser(line)
 def leftright_square_brackets_and_curly_brackets(line):
-    line = re.sub('(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\right)(?!right)}', '\\\\right\\\}', line)
-    line = re.sub('(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\left)(?!left){', '\\\\left\\\{', line)
+    line = re.sub('(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\right)(?!right)}', '\\\\right\\}', line)
+    line = re.sub('(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\left)(?!left){', '\\\\left\\{', line)
     # for square brackets
     #line = re.sub(r'(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!\\right)(?!right)(?<![~[0-9][0-9]])\]', r'\\right\]', line)
     #line = re.sub(r'(?<![Gape|pt|cm|cite.*?])(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!\\left)(?!left)\[', r'\\left\[', line)

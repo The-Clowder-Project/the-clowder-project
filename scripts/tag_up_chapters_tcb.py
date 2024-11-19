@@ -96,9 +96,17 @@ for line in tex_file:
             label = short
         else:
             label = name + ":" + short
-        print line,
+        if line.find(r"\begin{warning") >= 0:
+            if label in label_tags:
+                print "\\vspace{+1.8\\baselineskip}"
+                print "\\hypertarget{" + label_tags[label] + "}{}"
+                print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
+                print "\\vspace{-2.3\\baselineskip}"
+            print line,
+        else:
+            print line,
         # don't put in hypertarget if label does not have a tag
-        if label in label_tags:
+        if label in label_tags and line.find(r"\begin{warning") < 0:
             print "\\hypertarget{" + label_tags[label] + "}{}"
             # there is a bug in marginnotes that eats subsection titles...
             #if short.find("subsection") >= 0:

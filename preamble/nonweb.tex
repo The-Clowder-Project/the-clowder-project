@@ -124,13 +124,37 @@
 \usepackage{stmaryrd}
 \newcommand{\bfLUnitor}{\boldsymbol{\lambda}}
 \newcommand{\bfRUnitor}{\boldsymbol{\rho}}
-\newcommand{\bfsigma}{\boldsymbol{\sigma}}
-\newcommand{\bfbeta}{\boldsymbol{\beta}}
 \newcommand{\bfalpha}{\boldsymbol{\alpha}}
+\newcommand{\bfbeta}{\boldsymbol{\beta}}
+\newcommand{\bfsigma}{\boldsymbol{\sigma}}
+\newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\bfmu}{\boldsymbol{\mu}}
 \newcommand{\textiff}{iff\xspace}
 \newcommand{\OrdinalCategory}{\mathbbold{n}}
 \newcommand{\OrdinalCategoryNPlus}[2]{\mathbbold{#1}+\mathbbold{#2}}
 \newcommand{\OrdinalCategoryN}[1]{\mathbbold{#1}}
 \newcommand{\Unit}{\mathbbold{1}}
+\newcommand{\Zero}{\mathbbold{0}}
 \newfontfamily\IPAFont[Path=ABSOLUTEPATH/fonts/brill/,Scale=1.0]{Brill-Roman.ttf}
 \newcommand{\IPA}[1]{{\text{\IPAFont{#1}}}}
+\newcommand{\coyo}{\mathchoice{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.75}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.6}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}}
+\newcommand{\AugmentedSimplexCategory}{\mathbbold{\Delta}_{+}}
+\newcommand{\SimplexCategory}{\mathbbold{\Delta}}
+\usepackage[mathscr]{eucal}
+%\let\EuScript\relax
+%\newcommand{\EuScript}[1]{\mathscr{#1}}
+\newcommand{\CoContFun}{\FontForCategories{Fun}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\newcommand{\CoContPos}{\FontForCategories{PosFun}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\let\emptyset\relax
+\newcommand{\emptyset}{\text{Ø}}
+\let\mod\relax
+\newcommand{\mod}[1]{\ \ (\mathrm{mod}\ #1)}
+\newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\less}{<}
+\newcommand{\greater}{>}
+\begingroup
+\catcode`(\active \xdef({\left\string(}  % ( is defined as \left(
+\catcode`)\active \xdef){\right\string)} % ) is defined as \right)
+\catcode`[\active \xdef[{\left\string[}  % [ is defined as \left[
+\catcode`]\active \xdef]{\right\string]} % ] is defined as \right]
+\endgroup

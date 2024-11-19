@@ -76,8 +76,8 @@ def compile_tex(output_dir, filename):
     return filename
 
 def main(input_file):
-    output_dir_webcompile           = '../the-clowder-project/tmp/webcompile'
-    output_dir_webcompile_dark_mode = '../the-clowder-project/tmp/webcompile/dark-mode'
+    output_dir_webcompile           = '../clowder-project-prestable/tmp/webcompile'
+    output_dir_webcompile_dark_mode = '../clowder-project-prestable/tmp/webcompile/dark-mode'
 
     # Regular expression pattern to find webcompile environments
     pattern = re.compile(r'\\begin\{webcompile\}(.*?)\\end\{webcompile\}', re.DOTALL)
@@ -173,15 +173,22 @@ def main(input_file):
     with open(input_file, 'r') as file:
         content = file.read()
 
-    output_dir           = '../the-clowder-project/tmp/tikz-cd'
-    output_dir_dark_mode = '../the-clowder-project/tmp/tikz-cd/dark-mode'
-
-    # Regular expression pattern to find tikzcd environments
-    pattern = re.compile(r'\\begin\{tikzcd\}(.*?)\\end\{tikzcd\}', re.DOTALL)
+    output_dir           = '../clowder-project-prestable/tmp/tikz-cd'
+    output_dir_dark_mode = '../clowder-project-prestable/tmp/tikz-cd/dark-mode'
 
     # Read the content of the input file
     with open(input_file, 'r') as file:
         content = file.read()
+
+    # First, let's identify and temporarily replace verbatim environments
+    verbatim_pattern = re.compile(r'\\begin\{verbatim\}(.*?)\\end\{verbatim\}', re.DOTALL)
+    verbatim_blocks = verbatim_pattern.findall(content)
+    for i, block in enumerate(verbatim_blocks):
+        placeholder = f"VERBATIM_PLACEHOLDER_{i}"
+        content = content.replace(f"\\begin{{verbatim}}{block}\\end{{verbatim}}", placeholder)
+
+    # Regular expression pattern to find tikzcd environments
+    pattern = re.compile(r'\\begin\{tikzcd\}(.*?)\\end\{tikzcd\}', re.DOTALL)
 
     # Extract tikzcd environments and store them in a list
     tikzcd_environments = pattern.findall(content)
@@ -193,6 +200,12 @@ def main(input_file):
 
     # Check if the output directory exists, if not create it
     os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(output_dir_dark_mode, exist_ok=True)
+
+    # Restore verbatim environments
+    for i, block in enumerate(verbatim_blocks):
+        placeholder = f"VERBATIM_PLACEHOLDER_{i}"
+        content = content.replace(placeholder, f"\\begin{{verbatim}}{block}\\end{{verbatim}}")
 
     # Write each tikzcd environment to a separate file
     for i, environment in enumerate(tikzcd_environments):

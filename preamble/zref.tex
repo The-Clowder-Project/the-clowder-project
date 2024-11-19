@@ -1,51 +1,201 @@
 \usepackage{nameref,zref-xr}
 \zxrsetup{toltxlabel}
+% Sets
 \zexternaldocument*[sets:]{sets}
 \zexternaldocument*[constructions-with-sets:]{constructions-with-sets}
+\zexternaldocument*[monoidal-structures-on-the-category-of-sets:]{monoidal-structures-on-the-category-of-sets}
 \zexternaldocument*[pointed-sets:]{pointed-sets}
 \zexternaldocument*[tensor-products-of-pointed-sets:]{tensor-products-of-pointed-sets}
+% Relations
 \zexternaldocument*[relations:]{relations}
 \zexternaldocument*[constructions-with-relations:]{constructions-with-relations}
-\zexternaldocument*[equivalence-relations-and-apartness-relations:]{equivalence-relations-and-apartness-relations}
+\zexternaldocument*[conditions-on-relations:]{conditions-on-relations}
+% Preorders, Partial Orders, and Posets
+\zexternaldocument*[preorders:]{preorders}
+\zexternaldocument*[posets:]{posets}
+% Graphs
+\zexternaldocument*[graphs:]{graphs}
+% Indexed and Fibred Sets
+\zexternaldocument*[indexed-sets:]{indexed-sets}
+\zexternaldocument*[fibred-sets:]{fibred-sets}
+\zexternaldocument*[un-straightening-for-indexed-and-fibred-sets:]{un-straightening-for-indexed-and-fibred-sets}
+% Categories
 \zexternaldocument*[categories:]{categories}
+\zexternaldocument*[constructions-with-categories:]{constructions-with-categories}
+\zexternaldocument*[presheaves-and-the-yoneda-lemma:]{presheaves-and-the-yoneda-lemma}
+\zexternaldocument*[adjunctions:]{adjunctions}
+\zexternaldocument*[limits-and-colimits:]{limits-and-colimits}
+\zexternaldocument*[ends-and-coends:]{ends-and-coends}
+\zexternaldocument*[kan-extensions:]{kan-extensions}
+\zexternaldocument*[centres-and-traces-of-categories:]{centres-and-traces-of-categories}
+% Monoidal Categories
+\zexternaldocument*[monoidal-categories:]{monoidal-categories}
+\zexternaldocument*[constructions-with-monoidal-categories:]{constructions-with-monoidal-categories}
+% Higher Category Theory
 \zexternaldocument*[types-of-morphisms-in-bicategories:]{types-of-morphisms-in-bicategories}
+\zexternaldocument*[internal-adjunctions:]{internal-adjunctions}
+% Monoids
+\zexternaldocument*[monoid-actions:]{monoid-actions}
+% Groups
+\zexternaldocument*[groups:]{groups}
+% Preordered Algebraic Structures
+\zexternaldocument*[preordered-monoids:]{preordered-monoids}
+\zexternaldocument*[preordered-groups:]{preordered-groups}
+\zexternaldocument*[preordered-rings:]{preordered-rings}
+\zexternaldocument*[preordered-vector-spaces:]{preordered-vector-spaces}
+% *-Algebras
+\zexternaldocument*[star-rings:]{star-rings}
+\zexternaldocument*[star-modules:]{star-modules}
+\zexternaldocument*[star-algebras:]{star-algebras}
+% Representation Theory
+\zexternaldocument*[representation-theory-of-groups:]{representation-theory-of-groups}
+% Topology
+\zexternaldocument*[topological-spaces:]{topological-spaces}
+\zexternaldocument*[constructions-with-topological-spaces:]{constructions-with-topological-spaces}
+\zexternaldocument*[topologies-on-powersets:]{topologies-on-powersets}
+\zexternaldocument*[conditions-on-topological-spaces:]{conditions-on-topological-spaces}
+\zexternaldocument*[sheaves-on-topological-spaces:]{sheaves-on-topological-spaces}
+\zexternaldocument*[topological-stacks:]{topological-stacks}
+\zexternaldocument*[locales:]{locales}
+\zexternaldocument*[uniform-spaces:]{uniform-spaces}
+\zexternaldocument*[metric-spaces:]{metric-spaces}
+% Topological Algebra
+\zexternaldocument*[topological-monoids:]{topological-monoids}
+\zexternaldocument*[topological-groups:]{topological-groups}
+% Real Analysis
+\zexternaldocument*[real-analysis:]{real-analysis}
+% Measure Theory
+\zexternaldocument*[measurable-spaces:]{measurable-spaces}
+\zexternaldocument*[measures-and-integration:]{measures-and-integration}
+% Functional Analysis
+\zexternaldocument*[topological-vector-spaces:]{topological-vector-spaces}
+\zexternaldocument*[c-star-algebras:]{c-star-algebras}
+\zexternaldocument*[distributions:]{distributions}
+% Differential Geometry
+\zexternaldocument*[topological-manifolds:]{topological-manifolds}
+\zexternaldocument*[smooth-manifolds:]{smooth-manifolds}
+% Simplicial Stuff
+\zexternaldocument*[the-simplex-category:]{the-simplex-category}
+% Cyclic Stuff
+\zexternaldocument*[the-cycle-category:]{the-cycle-category}
+% Cubical Stuff
+\zexternaldocument*[the-cube-category:]{the-cube-category}
+% Cellular Stuff
+\zexternaldocument*[the-cell-category:]{the-cell-category}
+% Globular Stuff
+\zexternaldocument*[the-globe-category:]{the-globe-category}
+% Other
+\zexternaldocument*[research-sandbox:]{research-sandbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ┌─┐┬ ┬┌─┐┌─┐┌┬┐┌─┐┬─┐  ┌┬┐┌─┐┌─┐┬─┐┌─┐┌─┐ %%
+%% │  ├─┤├─┤├─┘ │ ├┤ ├┬┘  │││├─┤│  ├┬┘│ │└─┐ %%
+%% └─┘┴ ┴┴ ┴┴   ┴ └─┘┴└─  ┴ ┴┴ ┴└─┘┴└─└─┘└─┘ %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sets
 \newcommand{\ChapterSets}{\hyperref[sets:section-phantom]{Sets}\xspace}
 \newcommand{\ChapterConstructionsWithSets}{\hyperref[constructions-with-sets:section-phantom]{Constructions With Sets}\xspace}
+\newcommand{\ChapterMonoidalStructuresOnTheCategoryOfSets}{\hyperref[monoidal-structures-on-the-category-of-sets:section-phantom]{Monoidal Structures on the Category of Sets}\xspace}
 \newcommand{\ChapterPointedSets}{\hyperref[pointed-sets:section-phantom]{Pointed Sets}\xspace}
 \newcommand{\ChapterTensorProductsOfPointedSets}{\hyperref[tensor-products-of-pointed-sets:section-phantom]{Tensor Products of Pointed Sets}\xspace}
-
 % Relations
 \newcommand{\ChapterRelations}{\hyperref[relations:section-phantom]{Relations}\xspace}
 \newcommand{\ChapterConstructionsWithRelations}{\hyperref[constructions-with-relations:section-phantom]{Constructions With Relations}\xspace}
-\newcommand{\ChapterEquivalenceRelationsAndApartnessRelations}{\hyperref[equivalence-relations-and-apartness-relations:section-phantom]{Equivalence Relations and Apartness Relations}\xspace}
-
+\newcommand{\ChapterConditionsOnRelations}{\hyperref[conditions-on-relations:section-phantom]{Conditions on Relations}\xspace}
+% Preorders, Partial Orders, and Posets
+\newcommand{\ChapterPreorders}{\hyperref[preorders:section-phantom]{Preorders}\xspace}
+\newcommand{\ChapterPosets}{\hyperref[posets:section-phantom]{Posets}\xspace}
+\newcommand{\ChapterPreordersPartialOrdersAndPosets}{\hyperref[preorders-partial-orders-and-posets:section-phantom]{Preorders, Partial Orders, and Posets}\xspace}
+% Graphs
+\newcommand{\ChapterGraphs}{\hyperref[graphs:section-phantom]{Graphs}\xspace}
+% Indexed and Fibred Sets
+\newcommand{\ChapterIndexedSets}{\hyperref[indexed-sets:section-phantom]{Indexed Sets}\xspace}
+\newcommand{\ChapterFibredSets}{\hyperref[fibred-sets:section-phantom]{Fibred Sets}\xspace}
+\newcommand{\ChapterUnStraighteningForIndexedAndFibredSets}{\hyperref[un-straightening-forindexed-and-fibred-sets:section-phantom]{Un/Straightening for Indexed and Fibred Sets}\xspace}
 % Categories
 \newcommand{\ChapterCategories}{\hyperref[categories:section-phantom]{Categories}\xspace}
-
+\newcommand{\ChapterConstructionsWithCategories}{\hyperref[constructions-with-categories:section-phantom]{Constructions With Categories}\xspace}
+\newcommand{\ChapterPresheavesAndTheYonedaLemma}{\hyperref[presheaves-and-the-yoneda-lemma:section-phantom]{Presheaves and the Yoneda Lemma}\xspace}
+\newcommand{\ChapterAdjunctions}{\hyperref[adjunctions:section-phantom]{Adjunctions}\xspace}
+\newcommand{\ChapterLimitsAndColimits}{\hyperref[limits-and-colimits:section-phantom]{Limits and Colimits}\xspace}
+\newcommand{\ChapterEndsAndCoends}{\hyperref[ends-and-coends:section-phantom]{Ends and Coends}\xspace}
+\newcommand{\ChapterKanExtensions}{\hyperref[kan-extensions:section-phantom]{Kan Extensions}\xspace}
+\newcommand{\ChapterCentresAndTracesOfCategories}{\hyperref[centres-and-traces-of-categories:section-phantom]{Centres and Traces of Categories}\xspace}
+% Monoidal Categories
+\newcommand{\ChapterMonoidalCategories}{\hyperref[monoidal-categories:section-phantom]{Monoidal Categories}\xspace}
+\newcommand{\ChapterConstructionsWithMonoidalCategories}{\hyperref[constructions-with-monoidal-categories:section-phantom]{Constructions With Monoidal Categories}\xspace}
 % Higher Category Theory
 \newcommand{\ChapterTypesOfMorphismsInBicategories}{\hyperref[types-of-morphisms-in-bicategories:section-phantom]{Types of Morphisms in Bicategories}\xspace}
-
+\newcommand{\ChapterInternalAdjunctions}{\hyperref[internal-adjunctions:section-phantom]{Internal Adjunctions}\xspace}
+% Monoids
+\newcommand{\ChapterMonoidActions}{\hyperref[monoid-actions:section-phantom]{Monoid Actions}\xspace}
+% Groups
+\newcommand{\ChapterGroups}{\hyperref[groups:section-phantom]{Groups}\xspace}
+% Preordered Algebraic Structures
+\newcommand{\ChapterPreorderedMonoids}{\hyperref[preordered-monoids:section-phantom]{Preordered Monoids}\xspace}
+\newcommand{\ChapterPreorderedGroups}{\hyperref[preordered-groups:section-phantom]{Preordered Groups}\xspace}
+\newcommand{\ChapterPreorderedRings}{\hyperref[preordered-rings:section-phantom]{Preordered Rings}\xspace}
+\newcommand{\ChapterPreorderedVectorSpaces}{\hyperref[preordered-vector-spaces:section-phantom]{Preordered Vector Spaces}\xspace}
+% *-Algebras
+\newcommand{\ChapterStarRings}{\hyperref[star-rings:section-phantom]{*-Rings}\xspace}
+\newcommand{\ChapterStarModules}{\hyperref[star-modules:section-phantom]{*-Modules}\xspace}
+\newcommand{\ChapterStarAlgebras}{\hyperref[star-algebras:section-phantom]{*-Algebras}\xspace}
+% Representation Theory
+\newcommand{\ChapterRepresentationTheoryOfGroups}{\hyperref[representation-theory-of-groups:section-phantom]{Representation Theory of Groups}\xspace}
+% Topology
+\newcommand{\ChapterTopologicalSpaces}{\hyperref[topological-spaces:section-phantom]{Topological Spaces}\xspace}
+\newcommand{\ChapterConstructionsWithTopologicalSpaces}{\hyperref[constructions-with-topological-spaces:section-phantom]{Constructions With Topological Spaces}\xspace}
+\newcommand{\ChapterTopologiesOnPowersets}{\hyperref[topologies-on-powersets:section-phantom]{Topologies on Powersets}\xspace}
+\newcommand{\ChapterConditionsOnTopologicalSpaces}{\hyperref[conditions-on-topological-spaces:section-phantom]{Conditions on Topological Spaces}\xspace}
+\newcommand{\ChapterSheavesOnTopologicalSpaces}{\hyperref[sheaves-on-topological-spaces:section-phantom]{Sheaves on Topological Spaces}\xspace}
+\newcommand{\ChapterTopologicalStacks}{\hyperref[topological-stacks:section-phantom]{Topological Stacks}\xspace}
+\newcommand{\ChapterLocales}{\hyperref[locales:section-phantom]{Locales}\xspace}
+\newcommand{\ChapterUniformSpaces}{\hyperref[uniform-spaces:section-phantom]{Uniform Spaces}\xspace}
+\newcommand{\ChapterMetricSpaces}{\hyperref[metric-spaces:section-phantom]{Metric Spaces}\xspace}
+% Topological Algebra
+\newcommand{\ChapterTopologicalMonoids}{\hyperref[topological-monoids:section-phantom]{Topological Monoids}\xspace}
+\newcommand{\ChapterTopologicalGroups}{\hyperref[topological-groups:section-phantom]{Topological Groups}\xspace}
+% Real Analysis
+\newcommand{\ChapterRealAnalysis}{\hyperref[real-analysis:section-phantom]{Real Analysis}\xspace}
+% Measure Theory
+\newcommand{\ChapterMeasurableSpaces}{\hyperref[measurable-spaces:section-phantom]{Measurable Spaces}\xspace}
+\newcommand{\ChapterMeasuresAndIntegration}{\hyperref[measures-and-integration:section-phantom]{Measures and Integration}\xspace}
+% Functional Analysis
+\newcommand{\ChapterTopologicalVectorSpaces}{\hyperref[topological-vector-spaces:section-phantom]{Topological Vector Spaces}\xspace}
+\newcommand{\ChapterCStarAlgebras}{\hyperref[c-star-algebras:section-phantom]{$\rmC^{*}$-Algebras}\xspace}
+\newcommand{\ChapterDistributions}{\hyperref[distributions:section-phantom]{Distributions}\xspace}
+% Riesz Spaces
+\newcommand{\ChapterRieszSpaces}{\hyperref[riesz-spaces:section-phantom]{Riesz Spaces}\xspace}
+% Differential Geometry
+\newcommand{\ChapterTopologicalManifolds}{\hyperref[topological-manifolds:section-phantom]{Topological Manifolds}\xspace}
+\newcommand{\ChapterSmoothManifolds}{\hyperref[smooth-manifolds:section-phantom]{Smooth Manifolds}\xspace}
+% Simplicial Stuff
+\newcommand{\ChapterTheSimplexCategory}{\hyperref[the-simplex-category:section-phantom]{The Simplex Category}\xspace}
+% Cyclic Stuff
+\newcommand{\ChapterTheCycleCategory}{\hyperref[the-cycle-category:section-phantom]{The Cycle Category}\xspace}
+% Cubical Stuff
+\newcommand{\ChapterTheCubeCategory}{\hyperref[the-cube-category:section-phantom]{The Cube Category}\xspace}
+% Cellular Stuff
+\newcommand{\ChapterTheCellCategory}{\hyperref[the-cell-category:section-phantom]{The Cell Category}\xspace}
+% Globular Stuff
+\newcommand{\ChapterTheGlobeCategory}{\hyperref[the-globe-category:section-phantom]{The Globe Category}\xspace}
 % Temporary Stuff
+\newcommand{\ChapterMonoidsInMonoidalInftyCategories}{\cref{TODO}}
 \newcommand{\ChapterAdjunctionsAndTheYonedaLemma}{\cref{TODO}}
 \newcommand{\ChapterBicategories}{\cref{TODO}}
-\newcommand{\ChapterConstructionsWithCategories}{\cref{TODO}}
 \newcommand{\ChapterDiagonalCategoryTheory}{\cref{TODO}}
-\newcommand{\ChapterFibredSets}{\cref{TODO}}
 \newcommand{\ChapterHypergroups}{\cref{TODO}}
 \newcommand{\ChapterHypermonoids}{\cref{TODO}}
-\newcommand{\ChapterIndexedSets}{\cref{TODO}}
-\newcommand{\ChapterInternalAdjunctions}{\cref{TODO}}
-\newcommand{\ChapterKanExtensions}{\cref{TODO}}
-\newcommand{\ChapterLimitsAndColimits}{\cref{TODO}}
 \newcommand{\ChapterMonads}{\cref{TODO}}
-\newcommand{\ChapterMonoidalCategories}{\cref{TODO}}
-\newcommand{\ChapterMonoidsInMonoidalInftyCategories}{\cref{TODO}}
+\newcommand{\ChapterModulesInMonoidalCategories}{\cref{TODO}}
+\newcommand{\ChapterMonadsAndComonads}{\cref{TODO}}
+\newcommand{\ChapterEnrichedPresheavesAndTheEnrichedYonedaLemma}{\cref{TODO}}
+\newcommand{\ChapterModulesInMonoidalInftyCategories}{\cref{TODO}}
 \newcommand{\ChapterMonoidsWithZero}{\cref{TODO}}
 \newcommand{\ChapterPreordersAndPartialOrders}{\cref{TODO}}
 \newcommand{\ChapterProfunctors}{\cref{TODO}}
 \newcommand{\ChapterSpans}{\cref{TODO}}
 \newcommand{\ChapterTensorProductsOfMonoids}{\cref{TODO}}
-\newcommand{\ChapterTopologicalSpaces}{\cref{TODO}}
 \newcommand{\ChapterTypesOfMorphismsInCategories}{\cref{TODO}}
-\newcommand{\ChapterUnStraighteningForIndexedAndFibredSets}{\cref{TODO}}
+\newcommand{\ChapterSimplicialObjects}{\cref{TODO}}
+\newcommand{\ChapterSimplicialCategories}{\cref{TODO}}
+\newcommand{\ChapterSimplicialHomotopyTheory}{\cref{TODO}}

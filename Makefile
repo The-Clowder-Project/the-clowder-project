@@ -6,12 +6,14 @@
 # This should be in order.
 LIJST = sets \
 		constructions-with-sets \
+		monoidal-structures-on-the-category-of-sets \
 		pointed-sets \
 		tensor-products-of-pointed-sets \
 		relations \
 		constructions-with-relations \
 		equivalence-relations-and-apartness-relations \
 		categories \
+		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories
 
 # Add index and fdl to get index and license latexed as well.

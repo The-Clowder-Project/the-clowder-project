@@ -71,8 +71,8 @@ def regex_parentheses(content):
 
 def regex_square_brackets(content):
     # Step 1: Replace '[' and ']' not preceded by '\' with '\left[' and '\right]'
-    content = re.sub(r'(?<!\\)\[', r'\\left[', content)
-    content = re.sub(r'(?<!\\)\]', r'\\right]', content)
+    content = re.sub(r'(?<!includegraphics)(?<!clowder-project\/tag\/....}{....}}})(?<!\\&)(?<!index)(?<!\\)\[', r'\\left[', content)
+    content = re.sub(r'(?<!CmPlusOneEighth)(?<!CmPlusThreeQuarters)(?<!CmPlusAQuarter)(?<!CmPlusHalf)(?<!Cm)(?<!algebra)(?<!notation)(?<!representation-theory)(?<!higher-categories)(?<!categories)(?<!set-theory)(?<!baselineskip)(?<!\\)\]', r'\\right]', content)
 
     # Step 2: Revert replacements for specific keywords
     keywords = ['big', 'bigg', 'Big', 'pig', 'pigg', 'Pig', 'Pigg', 'noregex', 'left', 'right']

@@ -94,7 +94,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
             z_{0}
         \]%
         for each $y\in Y$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{itemize}
@@ -176,7 +176,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
             z_{0}
         \]%
         for each $x\in X$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{itemize}
@@ -268,7 +268,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
             f(x,y_{0}) &= z_{0}
         \end{align*}
         for each $x\in X$ and each $y\in Y$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
@@ -376,7 +376,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Often written \index[notation]{AodotX@$A\odot X$}$A\odot X$ for simplicity.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \index[notation]{AodotXxzero@$A\odot(X,x_{0})$}$A\odot(X,x_{0})$ satisfying the following universal property:
@@ -741,13 +741,9 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     \begin{enumerate}
         \item\label{properties-of-tensors-of-pointed-sets-by-sets-functoriality}\SloganFont{Functoriality. }The assignments $A,(X,x_{0}),(A,(X,x_{0}))$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    A\odot-    &\colon            \Sets_{*} \to \Sets_{*},\\
-                    -\odot X   &\colon \Sets                \to \Sets_{*},
-                \end{aligned}\\
-                -_{1}\odot-_{2} \colon \Sets\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{A\odot-}{-\odot X}{-_{1}\odot-_{2}}{\Sets\mrp{{}_{*}}}{\Sets}{\Sets\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given:
             \begin{itemize}
                 \item A map of sets $f\colon A\to B$;
@@ -885,7 +881,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Often written \index[notation]{ApitchforkX@$A\pitchfork X$}$A\pitchfork X$ for simplicity.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \index[notation]{ApitchforkXxzero@$A\pitchfork(X,x_{0})$}$A\pitchfork(X,x_{0})$ satisfying the following universal property:
@@ -1181,13 +1177,9 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     \begin{enumerate}
         \item\label{properties-of-cotensors-of-pointed-sets-by-sets-functoriality}\SloganFont{Functoriality. }The assignments $A,(X,x_{0}),(A,(X,x_{0}))$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    A\pitchfork-    &\colon                  \Sets_{*} \to \Sets_{*},\\
-                    -\pitchfork X   &\colon \Sets^{\op}                \to \Sets_{*},
-                \end{aligned}\\
-                -_{1}\pitchfork-_{2} \colon \Sets^{\op}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{A\pitchfork-}{-\pitchfork X}{-_{1}\pitchfork-_{2}}{\Sets\mrp{{}_{*}}}{\Sets^{\mrp{\op}}}{\Sets^{\op}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given:
             \begin{itemize}
                 \item A map of sets $f\colon A\to B$;
@@ -1325,7 +1317,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{lhdSetsstar@$\lhd_{\Sets_{*}}$}$\lhd_{\Sets_{*}}$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \[
@@ -1420,7 +1412,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{xlefty@$x\lhd_{\Sets_{*}}y$}$x\lhd_{\Sets_{*}}y$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \index[notation]{xlhdy@$x\lhd y$}$x\lhd y$ for the element $[(y,x)]$ of
@@ -1449,13 +1441,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-left-tensor-products-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto X\lhd Y$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    X\lhd-    &\colon \Sets_{*}                \to \Sets_{*},\\
-                    -\lhd Y   &\colon \Sets_{*}                \to \Sets_{*},\\
-                \end{aligned}\\
-                -_{1}\lhd-_{2} \colon \Sets_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{X\lhd-}{-\lhd Y}{-_{1}\lhd-_{2}}{\Sets_{*}}{\Sets_{*}}{\Sets_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -1508,7 +1496,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-left-tensor-products-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-left-tensor-products-of-pointed-sets-functoriality}: Functoriality}%
-    Clear.
+    This follows from the definition of $\lhd$ as a composition of functors (\cref{the-left-tensor-product-of-pointed-sets}).
 
     \ProofBox{\cref{properties-of-left-tensor-products-of-pointed-sets-adjointness-1}: Adjointness \rmI}%
     This follows from \cref{properties-of-tensors-of-pointed-sets-by-sets-adjointness-2} of \cref{properties-of-tensors-of-pointed-sets-by-sets}.
@@ -1556,7 +1544,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         The functor $\eSets_{*}(X,-)$ is instead right adjoint to $X\wedge-$, the smash product of pointed sets of \cref{smash-products-of-pointed-sets}. See \cref{properties-of-smash-products-of-pointed-sets-adjointness} of \cref{properties-of-smash-products-of-pointed-sets}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 \end{remark}
@@ -1617,13 +1605,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-left-internal-homs-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto[X,Y]^{\lhd}_{\Sets_{*}}$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    [X,-]^{\lhd}_{\Sets_{*}}     &\colon \Sets_{*}                      \to \Sets_{*},\\
-                    [-,Y]^{\lhd}_{\Sets_{*}}     &\colon \Sets^{\op}_{*}                \to \Sets_{*},\\
-                \end{aligned}\\
-                [-_{1},-_{2}]^{\lhd}_{\Sets_{*}} \colon \Sets^{\op}_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{[X,-]^{\lhd}_{\Sets_{*}}}{{[-,Y]^{\lhd}_{\Sets_{*}}}}{{[-_{1},-_{2}]^{\lhd}_{\Sets_{*}}}}{\Sets_{*}}{\Sets^{\mrp{\op}}_{*}}{\Sets^{\op}_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -1669,7 +1653,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-left-internal-homs-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-left-internal-homs-of-pointed-sets-functoriality}: Functoriality}%
-    Clear.
+    This follows from the definition of $[-,-]^{\lhd}_{\Sets_{*}}$ as a composition of functors (\cref{the-left-internal-hom-of-pointed-sets}).
 
     \ProofBox{\cref{properties-of-left-internal-homs-of-pointed-sets-adjointness-1}: Adjointness \rmI}%
     This is a repetition of \cref{properties-of-left-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-left-tensor-products-of-pointed-sets}, and is proved there.
@@ -1893,8 +1877,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     where $\bigvee_{x\in X}S^{0}\to X$ is the map given by
     \begin{align*}
         [(x,0)] &\mapsto x_{0},\\
-        [(x,1)] &\mapsto x.
+        [(x,1)] &\mapsto x
     \end{align*}
+    for each $x\in X$.
 \end{definition}
 \begin{Proof}{Proof of \cref{the-left-skew-left-unitor-of-the-left-tensor-product-of-pointed-sets}}%
     (Proven below in a bit.)
@@ -2549,7 +2534,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             0_{A}%
         \]%
         for each $a\in A$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     and morphisms between them.
@@ -2946,7 +2931,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{rhdSetsstar@$\rhd_{\Sets_{*}}$}$\rhd_{\Sets_{*}}$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \[
@@ -3033,7 +3018,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{xrighty@$x\rhd_{\Sets_{*}}y$}$x\rhd_{\Sets_{*}}y$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \index[notation]{xrhdy@$x\rhd y$}$x\rhd y$ for the element $[(x,y)]$ of
@@ -3062,13 +3047,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-right-tensor-products-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto X\rhd Y$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    X\rhd-    &\colon \Sets_{*}                \to \Sets_{*},\\
-                    -\rhd Y   &\colon \Sets_{*}                \to \Sets_{*},\\
-                \end{aligned}\\
-                -_{1}\rhd-_{2} \colon \Sets_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{X\rhd-}{-\rhd Y}{-_{1}\rhd-_{2}}{\Sets_{*}}{\Sets_{*}}{\Sets_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -3121,7 +3102,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-right-tensor-products-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-right-tensor-products-of-pointed-sets-functoriality}: Functoriality}%
-    Clear.
+    This follows from the definition of $\rhd$ as a composition of functors (\cref{the-right-tensor-product-of-pointed-sets}).
 
     \ProofBox{\cref{properties-of-right-tensor-products-of-pointed-sets-adjointness-1}: Adjointness \rmI}%
     This follows from \cref{properties-of-tensors-of-pointed-sets-by-sets-adjointness-2} of \cref{properties-of-tensors-of-pointed-sets-by-sets}.
@@ -3169,7 +3150,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         The functor $\eSets_{*}(Y,-)$ is instead right adjoint to $-\wedge Y$, the smash product of pointed sets of \cref{smash-products-of-pointed-sets}. See \cref{properties-of-smash-products-of-pointed-sets-adjointness} of \cref{properties-of-smash-products-of-pointed-sets}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 \end{remark}
@@ -3238,13 +3219,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-right-internal-homs-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto[X,Y]^{\rhd}_{\Sets_{*}}$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    [X,-]^{\rhd}_{\Sets_{*}}     &\colon \Sets_{*}                      \to \Sets_{*},\\
-                    [-,Y]^{\rhd}_{\Sets_{*}}     &\colon \Sets^{\op}_{*}                \to \Sets_{*},\\
-                \end{aligned}\\
-                [-_{1},-_{2}]^{\rhd}_{\Sets_{*}} \colon \Sets^{\op}_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{[X,-]^{\rhd}_{\Sets_{*}}}{{[-,Y]^{\rhd}_{\Sets_{*}}}}{{[-_{1},-_{2}]^{\rhd}_{\Sets_{*}}}}{\Sets_{*}}{\Sets^{\mrp{\op}}_{*}}{\Sets^{\op}_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -3290,7 +3267,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-right-internal-homs-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-right-internal-homs-of-pointed-sets-functoriality}: Functoriality}%
-    Clear.
+    This follows from the definition of $[-,-]^{\rhd}_{\Sets_{*}}$ as a composition of functors (\cref{the-right-internal-hom-of-pointed-sets}).
 
     \ProofBox{\cref{properties-of-right-internal-homs-of-pointed-sets-adjointness-1}: Adjointness \rmI}%
     This is a repetition of \cref{properties-of-right-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-right-tensor-products-of-pointed-sets}, and is proved there.
@@ -3631,8 +3608,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     where $\bigvee_{x\in X}S^{0}\to X$ is the map given by
     \begin{align*}
         [(x,0)] &\mapsto x_{0},\\
-        [(x,1)] &\mapsto x.
+        [(x,1)] &\mapsto x
     \end{align*}
+    for each $x\in X$.
 \end{definition}
 \begin{Proof}{Proof of \cref{the-right-skew-right-unitor-of-the-right-tensor-product-of-pointed-sets}}%
     (Proven below in a bit.)
@@ -4170,7 +4148,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             0_{A}%
         \]%
         for each $a\in A$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     and morphisms between them.
@@ -4573,7 +4551,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }In the context of monoids with zero as models for $\F_{1}$-algebras, the smash product $X\wedge Y$ is also denoted \index[notation]{XotimesF1Y@$X\otimes_{\F_{1}}Y$}$X\otimes_{\F_{1}}Y$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     satisfying the bijection
@@ -4649,7 +4627,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{itemize}
 \end{construction}
 \begin{Proof}{Proof of \cref{construction-of-smash-products-of-pointed-sets}}%
-    By \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-3} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-3} of \cref{properties-of-quotient-sets}}, we have a natural bijection
+    By \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-3} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-3} of \cref{properties-of-quotient-sets}}, we have a natural bijection
     \[
         \Sets_{*}(X\wedge Y,Z)
         \cong
@@ -4758,13 +4736,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-smash-products-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto X\wedge Y$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    X\wedge-    &\colon \Sets_{*}                \to \Sets_{*},\\
-                    -\wedge Y   &\colon \Sets_{*}                \to \Sets_{*},\\
-                \end{aligned}\\
-                -_{1}\wedge-_{2} \colon \Sets_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{X\wedge-}{-\wedge Y}{-_{1}\wedge-_{2}}{\Sets_{*}}{\Sets_{*}}{\Sets_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -4843,7 +4817,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-smash-products-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-smash-products-of-pointed-sets-functoriality}: Functoriality}%
-    The map $f\wedge g$ comes from \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{properties-of-quotient-sets}} via the map
+    The map $f\wedge g$ comes from \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{properties-of-quotient-sets}} via the map
     \[
         f\wedge g%
         \colon%
@@ -5075,7 +5049,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \cong%
         (\pt\times(X\times Y))/\unsim,%
     \]%
-    where $\unsim$ identifies the elemenet $\point$ in $\pt$ with all elements of the form $(x_{0},y)$ and $(x,y_{0})$ in $X\times Y$. Thus \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{properties-of-quotient-sets}} coupled with \cref{basepoints-of-smash-products-of-pointed-sets} then gives us a well-defined map
+    where $\unsim$ identifies the elemenet $\point$ in $\pt$ with all elements of the form $(x_{0},y)$ and $(x,y_{0})$ in $X\times Y$. Thus \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} of \cref{properties-of-quotient-sets}} coupled with \cref{basepoints-of-smash-products-of-pointed-sets} then gives us a well-defined map
     \[
         \pt\icoprod_{X\vee Y}(X\times Y)%
         \to%
@@ -5105,7 +5079,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{HomSetsstarXY@$\eHom_{\eSets_{*}}(X,Y)$}$\eHom_{\eSets_{*}}(X,Y)$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     consisting of:
@@ -5135,13 +5109,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
         \item\label{properties-of-the-internal-hom-of-pointed-sets-functoriality}\SloganFont{Functoriality. }The assignments $X,Y,(X,Y)\mapsto\eSets_{*}(X,Y)$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    \eSets_{*}(X,-)    &\colon                      \Sets_{*} \to \Sets_{*},\\
-                    \eSets_{*}(-,Y)    &\colon \Sets^{\op}_{*}                \to \Sets_{*},
-                \end{aligned}\\
-                \eSets_{*}(-_{1},-_{2}) \colon \Sets^{\op}_{*}\times\Sets_{*} \to \Sets_{*}.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{\eSets_{*}(X,-)}{\eSets_{*}(-,Y)}{\eSets_{*}(-_{1},-_{2})}{\Sets_{*}}{\Sets^{\mrp{\op}}_{*}}{\Sets^{\op}_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             In particular, given pointed maps
             \begin{align*}
                 f &\colon (X,x_{0}) \to (A,a_{0}),\\
@@ -5306,7 +5276,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     and thus $\alpha^{\Sets_{*}}_{X,Y,Z}$ is a morphism of pointed sets.
 
     \ProofBox{Invertibility}%
-    Clearly, the inverse of $\alpha^{\Sets_{*}}_{X,Y,Z}$ is given by the morphism
+    The inverse of $\alpha^{\Sets_{*}}_{X,Y,Z}$ is given by the morphism
     \[
         \alpha^{\Sets_{*},-1}_{X,Y,Z}
         \colon
@@ -5401,8 +5371,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     at $X\in\Obj(\Sets_{*})$ is given by
     \begin{align*}
         0\wedge x &\mapsto x_{0},\\
-        1\wedge x &\mapsto x.
+        1\wedge x &\mapsto x
     \end{align*}
+    for each $x\in X$.
 \end{definition}
 \begin{Proof}{Proof of \cref{the-left-unitor-of-the-smash-product-of-pointed-sets}}%
     \ProofBox{Well-Definedness}%
@@ -5586,8 +5557,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     at $X\in\Obj(\Sets_{*})$ is given by
     \begin{align*}
         x\wedge 0 &\mapsto x_{0},\\
-        x\wedge 1 &\mapsto x.
+        x\wedge 1 &\mapsto x
     \end{align*}
+    for each $x\in X$.
 \end{definition}
 \begin{Proof}{Proof of \cref{the-right-unitor-of-the-smash-product-of-pointed-sets}}%
     \ProofBox{Well-Definedness}%
@@ -5802,7 +5774,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     and thus $\sigma^{\Sets_{*}}_{X}$ is a morphism of pointed sets.
 
     \ProofBox{Invertibility}%
-    Clearly, the inverse of $\sigma^{\Sets_{*}}_{X,Y}$ is given by the morphism
+    The inverse of $\sigma^{\Sets_{*}}_{X,Y}$ is given by the morphism
     \[
         \sigma^{\Sets_{*},-1}_{X,Y}
         \colon
@@ -6190,7 +6162,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{the-monoidal-structure-on-pointed-sets-associated-to-the-smash-product-of-pointed-sets}}%
-    \ProofBox{The Pentagon Identity}%
+    \FirstProofBox{The Pentagon Identity}%
     Let $(W,w_{0})$, $(X,x_{0})$, $(Y,y_{0})$ and $(Z,z_{0})$ be pointed sets. We have to show that the diagram
     \[
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]

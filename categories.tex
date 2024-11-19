@@ -15,6 +15,7 @@
 This chapter contains some elementary material about categories, functors, and natural transformations. Notably, we discuss and explore:
 \begin{enumerate}
     \item Categories (\cref{section-categories}).
+    \item Examples of categories (\cref{section-examples-of-categories}).
     \item The quadruple adjunction $\pi_{0}\dashv{(-)_{\disc}}\dashv\Obj\dashv{(-)_{\indisc}}$ between the category of categories and the category of sets (\cref{section-the-quadruple-adjunction-with-sets}).
     \item Groupoids, categories in which all morphisms admit inverses (\cref{section-groupoids}).
     \item Functors (\cref{section-functors}).
@@ -67,39 +68,37 @@ This chapter contains some elementary material about categories, functors, and n
     such that the following conditions are satisfied:%
     \begin{enumerate}
         \item\SloganFont{Associativity. }The diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{$%
-                    \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        \&[0.5\FourCmPlusOneEighth]
-                        \Hom_{\CatFont{C}}(C,D)\times(\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B))
-                        \&[0.5\FourCmPlusOneEighth]
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        \\[0.58778525229\FourCmPlusOneEighth]
-                        (\Hom_{\CatFont{C}}(C,D)\times\Hom_{\CatFont{C}}(B,C))\times\Hom_{\CatFont{C}}(A,B)
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        \&[0.5\FourCmPlusOneEighth]
-                        \&[0.5\FourCmPlusOneEighth]
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        \Hom_{\CatFont{C}}(C,D)\times\Hom_{\CatFont{C}}(A,C)
-                        \\[0.95105651629\FourCmPlusOneEighth]
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
-                        \&[0.5\FourCmPlusOneEighth]
-                        \&[0.5\FourCmPlusOneEighth]
-                        \Hom_{\CatFont{C}}(A,D)
-                        \&[0.30901699437\FourCmPlusOneEighth]
-                        % 1-Arrows
-                        % Left Boundary
-                        \arrow[from=2-1,to=1-3,"\alpha^{\Sets}_{\Hom_{\CatFont{C}}(C,D),\Hom_{\CatFont{C}}(B,C),\Hom_{\CatFont{C}}(A,B)}"{pos=0.4125},isoarrowprime]%
-                        \arrow[from=1-3,to=2-5,"\id_{\Hom_{\CatFont{C}}(C,D)}\times\circ^{\CatFont{C}}_{A,B,C}"{pos=0.6}]%
-                        \arrow[from=2-5,to=3-4,"\circ^{\CatFont{C}}_{A,C,D}"{pos=0.425}]%
-                        % Right Boundary
-                        \arrow[from=2-1,to=3-2,"\circ^{\CatFont{C}}_{B,C,D}\times\id_{\Hom_{\CatFont{C}}(A,B)}"'{pos=0.425}]%
-                        \arrow[from=3-2,to=3-4,"\circ^{\CatFont{C}}_{A,B,D}"']%
-                    \end{tikzcd}
-                $}
-            \end{webcompile}%
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    \&[0.5\FourCmPlusOneEighth]
+                    \Hom_{\CatFont{C}}(C,D)\times(\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B))
+                    \&[0.5\FourCmPlusOneEighth]
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    \\[0.58778525229\FourCmPlusOneEighth]
+                    (\Hom_{\CatFont{C}}(C,D)\times\Hom_{\CatFont{C}}(B,C))\times\Hom_{\CatFont{C}}(A,B)
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    \&[0.5\FourCmPlusOneEighth]
+                    \&[0.5\FourCmPlusOneEighth]
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    \Hom_{\CatFont{C}}(C,D)\times\Hom_{\CatFont{C}}(A,C)
+                    \\[0.95105651629\FourCmPlusOneEighth]
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
+                    \&[0.5\FourCmPlusOneEighth]
+                    \&[0.5\FourCmPlusOneEighth]
+                    \Hom_{\CatFont{C}}(A,D)
+                    \&[0.30901699437\FourCmPlusOneEighth]
+                    % 1-Arrows
+                    % Left Boundary
+                    \arrow[from=2-1,to=1-3,"\alpha^{\Sets}_{\Hom_{\CatFont{C}}(C,D),\Hom_{\CatFont{C}}(B,C),\Hom_{\CatFont{C}}(A,B)}"{pos=0.4125},isoarrowprime]%
+                    \arrow[from=1-3,to=2-5,"\id_{\Hom_{\CatFont{C}}(C,D)}\times\circ^{\CatFont{C}}_{A,B,C}"{pos=0.6}]%
+                    \arrow[from=2-5,to=3-4,"\circ^{\CatFont{C}}_{A,C,D}"{pos=0.425}]%
+                    % Right Boundary
+                    \arrow[from=2-1,to=3-2,"\circ^{\CatFont{C}}_{B,C,D}\times\id_{\Hom_{\CatFont{C}}(A,B)}"'{pos=0.425}]%
+                    \arrow[from=3-2,to=3-4,"\circ^{\CatFont{C}}_{A,B,D}"']%
+                \end{tikzcd}
+            \end{scalemath}%
             commutes, i.e.\ for each composable triple $(f,g,h)$ of morphisms of $\CatFont{C}$, we have
             \[
                 (f\circ g)\circ h
@@ -166,300 +165,6 @@ This chapter contains some elementary material about categories, functors, and n
         \item\label{size-conditions-on-categories-d}\index[categories]{category!kappa-small@$\kappa$-small}\textbf{$\kappa$-Small} if $\CatFont{C}$ is locally small, $\Obj(\CatFont{C})$ is a set, and we have $\Card{\Obj(\CatFont{C})}<\kappa$.%
     \end{enumerate}
 \end{definition}
-\subsection{Examples of Categories}\label{subsection-examples-of-categories}
-\begin{example}{The Punctual Category}{punctual-category}%
-    The \index[categories]{punctual category}\textbf{punctual category}%
-    %--- Begin Footnote ---%
-    \footnote{%
-        \SloganFont{Further Terminology: }Also called the \index[categories]{singleton category|see {punctual category}}\textbf{singleton category}.
-        \par\vspace*{-1.75\baselineskip}
-    } %
-    %---  End Footnote  ---%
-    is the category \index[notation]{ptcat@$\PunctualCategory$}$\PunctualCategory$ where
-    \begin{itemize}
-        \item\SloganFont{Objects. }We have
-            \[
-                \Obj(\PunctualCategory)
-                \defeq
-                \{\point\}.
-            \]
-        \item\SloganFont{Morphisms. }The unique $\Hom$-set of $\PunctualCategory$ is defined by
-            \[
-                \Hom_{\PunctualCategory}(\point,\point)
-                \defeq
-                \{\id_{\point}\}.
-            \]%
-        \item\SloganFont{Identities. }The unit map
-            \[
-                \Unit^{\PunctualCategory}_{\point}
-                \colon
-                \pt
-                \to
-                \Hom_{\PunctualCategory}(\point,\point)
-            \]%
-            of $\PunctualCategory$ at $\point$ is defined by
-            \[
-                \id^{\PunctualCategory}_{\point}
-                \defeq
-                \id_{\point}.
-            \]%
-        \item\SloganFont{Composition. }The composition map
-            \[
-                \circ^{\PunctualCategory}_{\point,\point,\point}
-                \colon
-                \Hom_{\PunctualCategory}(\point,\point)
-                \times
-                \Hom_{\PunctualCategory}(\point,\point)
-                \to
-                \Hom_{\PunctualCategory}(\point,\point)
-            \]%
-            of $\PunctualCategory$ at $(\point,\point,\point)$ is given by the bijection $\pt\times\pt\cong\pt$.
-    \end{itemize}
-\end{example}
-\begin{example}{Monoids as One-Object Categories}{monoids-as-one-object-categories}%
-    We have an isomorphism of categories%
-    %--- Begin Footnote ---%
-    \footnote{%
-        This can be enhanced to an isomorphism of $2$-categories
-        \begin{webcompile}
-            \Mon_{\twodisc}%
-            \cong
-            \PunctualBicategory\ttimes_{\Sets_{\twodisc}}\Cats_{\sftwo,*},%
-            \quad%
-            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \Mon_{\twodisc}
-                \arrow[r]
-                \arrow[d]
-                \arrow[rd,very near start,phantom,"\lrcorner"]
-                \&
-                \Cats_{\sftwo,*}
-                \arrow[d,"\Obj"]
-                \\
-                \PunctualBicategory
-                \arrow[r,"{[\pt]}"']
-                \&
-                \Sets_{\twodisc}
-            \end{tikzcd}
-        \end{webcompile}%
-        between the discrete $2$-category $\Mon_{\twodisc}$ on $\Mon$ and the $2$-category of pointed categories with one object.
-        \par\vspace*{-1.75\baselineskip}
-    }%
-    %---  End Footnote  ---%
-    \begin{webcompile}
-        \Mon%
-        \cong%
-        \PunctualCategory\ttimes_{\Sets}\Cats,
-        \quad
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \Mon
-            \arrow[r]
-            \arrow[d]
-            \arrow[rd,very near start,phantom,"\lrcorner"]
-            \&
-            \Cats
-            \arrow[d,"\Obj"]
-            \\
-            \PunctualCategory
-            \arrow[r,"{[\pt]}"']
-            \&
-            \Sets
-        \end{tikzcd}
-    \end{webcompile}%
-    via the delooping functor $\B\colon\Mon\to\Cats$ of \cref{categories-properties-of-deloopings-of-monoids-functoriality} of \cref{categories-properties-of-deloopings-of-monoids}, exhibiting monoids as exactly those categories having a single object.%TODO
-\end{example}
-\begin{Proof}{Proof of \cref{monoids-as-one-object-categories}}%
-    Omitted.%TODO
-\end{Proof}
-\begin{example}{The Empty Category}{the-empty-category}%
-    The \index[categories]{category!empty}\textbf{empty category} is the category \index[notation]{emptycat@$\EmptyCategory$}$\EmptyCategory$ where%
-    \begin{itemize}
-        \item\SloganFont{Objects. }We have
-            \[
-                \Obj(\EmptyCategory)
-                \defeq
-                \emptyset.
-            \]%
-        \item\SloganFont{Morphisms. }We have
-            \[
-                \Mor(\EmptyCategory)
-                \defeq
-                \emptyset.
-            \]%
-        \item\SloganFont{Identities and Composition. }Having no objects, $\EmptyCategory$ has no unit nor composition maps.
-    \end{itemize}
-\end{example}
-\begin{example}{Ordinal Categories}{ordinal-categories}%
-    The \index[categories]{ordinal category}\textbf{$n$th ordinal category} is the category \index[notation]{n@$\OrdinalCategory$}$\OrdinalCategory$ where%
-    %--- Begin Footnote ---%
-    \footnote{%
-        In other words, $\OrdinalCategory$ is the category associated to the poset
-        \[%
-            [0]\to[1]\to\cdots\to[n-1]\to[n].%
-        \]%
-        The category $\OrdinalCategory$ for $n\geq2$ may also be defined in terms of $\OrdinalCategoryN{0}$ and joins (\ChapterRef{\ChapterConstructionsWithCategories, \cref{constructions-with-categories:the-join-of-two-categories}}{\cref{the-join-of-two-categories}}): we have isomorphisms of categories
-        \begin{align*}
-            \OrdinalCategoryN{1} &\cong \OrdinalCategoryN{0}\star\OrdinalCategoryN{0},\\
-            \OrdinalCategoryN{2} &\cong \OrdinalCategoryN{1}\star\OrdinalCategoryN{0}\\
-                                 &\cong (\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},\\
-            \OrdinalCategoryN{3} &\cong \OrdinalCategoryN{2}\star\OrdinalCategoryN{0}\\
-                                 &\cong (\OrdinalCategoryN{1}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
-                                 &\cong ((\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},\\
-            \OrdinalCategoryN{4} &\cong \OrdinalCategoryN{3}\star\OrdinalCategoryN{0}\\
-                                 &\cong (\OrdinalCategoryN{2}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
-                                 &\cong ((\OrdinalCategoryN{1}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
-                                 &\cong (((\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},
-        \end{align*}
-        and so on.
-        \par\vspace*{-2.25\baselineskip}
-    }%
-    %---  End Footnote  ---%
-    \begin{itemize}
-        \item\SloganFont{Objects. }We have
-            \[
-                \Obj(\OrdinalCategory)
-                \defeq
-                \{[0],\ldots,[n]\}.
-            \]%
-        \item\SloganFont{Morphisms. }For each $[i],[j]\in\Obj(\OrdinalCategory)$, we have
-            \[
-                \Hom_{\OrdinalCategory}([i],[j])
-                \defeq
-                \begin{cases}
-                    \{\id_{[i]}\}                &\text{if $[i]=[j]$,}\\
-                    \{[i]\to[j]\}    &\text{if $[j]<[i]$,}\\
-                    \emptyset                    &\text{if $[j]>[i]$.}
-                \end{cases}
-            \]%
-        \item\SloganFont{Identities. }For each $[i]\in\Obj(\OrdinalCategory)$, the unit map
-            \[
-                \Unit^{\OrdinalCategory}_{[i]}
-                \colon
-                \pt
-                \to
-                \Hom_{\OrdinalCategory}([i],[i])
-            \]%
-            of $\OrdinalCategory$ at $[i]$ is defined by
-            \[
-                \id^{\OrdinalCategory}_{[i]}
-                \defeq
-                \id_{[i]}.
-            \]%
-        \item\SloganFont{Composition. }For each $[i],[j],[k]\in\Obj(\OrdinalCategory)$, the composition map
-            \[
-                \circ^{\OrdinalCategory}_{[i],[j],[k]}
-                \colon
-                \Hom_{\OrdinalCategory}([j],[k])
-                \times
-                \Hom_{\OrdinalCategory}([i],[j])
-                \to
-                \Hom_{\OrdinalCategory}([i],[k])
-            \]%
-            of $\OrdinalCategory$ at $([i],[j],[k])$ is defined by%
-            \[
-                \begin{gathered}
-                    \id_{[i]}\circ\id_{[i]}                             = \id_{[i]},\\%
-                    ([j]\to[k])\circ([i]\to[j]) = ([i]\to[k]).%
-                \end{gathered}
-            \]%
-    \end{itemize}
-\end{example}
-\begin{example}{More Examples of Categories}{more-examples-of-categories}%
-    Here we list some of the other categories appearing throughout this work.
-    \begin{enumerate}
-        \item\label{more-examples-of-categories-pointed-sets}The category $\Sets_{*}$ of pointed sets of \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:the-category-of-pointed-sets}}{\cref{the-category-of-pointed-sets}}.
-        \item\label{more-examples-of-categories-relations}The category $\sfRel$ of sets and relations of \ChapterRef{\ChapterRelations, \cref{relations:the-category-of-relations}}{\cref{the-category-of-relations}}.
-        \item\label{more-examples-of-categories-spans}The category $\Span(A,B)$ of spans from a set $A$ to a set $B$ of \ChapterRef{\ChapterSpans, \cref{spans:the-category-of-spans-from-a-to-b}}{\cref{the-category-of-spans-from-a-to-b}}.
-        \item\label{more-examples-of-categories-indexed-sets-k}The category $\ISets(K)$ of $K$-indexed sets of \ChapterRef{\ChapterIndexedSets, \cref{indexed-sets:the-category-of-k-indexed-sets}}{\cref{the-category-of-k-indexed-sets}}.
-        \item\label{more-examples-of-categories-indexed-sets}The category $\ISets$ of indexed sets of \ChapterRef{\ChapterIndexedSets, \cref{indexed-sets:the-category-of-indexed-sets}}{\cref{the-category-of-indexed-sets}}.
-        \item\label{more-examples-of-categories-fibred-sets-k}The category $\FibSets(K)$ of $K$-fibred sets of \ChapterRef{\ChapterFibredSets, \cref{fibred-sets:the-category-of-k-fibred-sets}}{\cref{the-category-of-k-fibred-sets}}.
-        \item\label{more-examples-of-categories-fibred-sets}The category $\FibSets$ of fibred sets of \ChapterRef{\ChapterFibredSets, \cref{fibred-sets:the-category-of-fibred-sets}}{\cref{the-category-of-fibred-sets}}.
-        \item\label{more-examples-of-categories-functor-categories}Categories of functors $\Fun(\CatFont{C},\CatFont{D})$ as in \cref{functor-categories}.
-        \item\label{more-examples-of-categories-categories}The category of categories $\Cats$ of \cref{the-category-of-categories-and-functors}.
-        \item\label{more-examples-of-categories-groupoids}The category of groupoids $\Grpd$ of \cref{the-category-of-small-groupoids}.
-    \end{enumerate}
-\end{example}
-\subsection{Posetal Categories}\label{subsection-posetal-categories}
-\begin{definition}{Posetal Categories}{posetal-categories}%
-    Let $(X,\preceq_{X})$ be a poset.
-    \begin{enumerate}
-        \item\label{posetal-categories-posetal-category-associated-to-poset}The \index[categories]{posetal category!associated to a poset}\textbf{posetal category associated to $(X,\preceq_{X})$} is the category \index[notation]{Xpos@$X_{\pos}$}$X_{\pos}$ where
-            \begin{itemize}
-                \item\SloganFont{Objects. }We have
-                    \[
-                        \Obj(X_{\pos})%
-                        \defeq%
-                        X.%
-                    \]%
-                \item\SloganFont{Morphisms. }For each $a,b\in\Obj(X_{\pos})$, we have
-                    \[
-                        \Hom_{X_{\pos}}(a,b)%
-                        \defeq%
-                        \begin{cases}
-                            \pt       &\text{if $a\preceq_{X}b$},\\%
-                            \emptyset &\text{otherwise.}%
-                        \end{cases}
-                    \]%
-                \item\SloganFont{Identities. }For each $a\in\Obj(X_{\pos})$, the unit map
-                    \[%
-                        \Unit^{X_{\pos}}_{a}%
-                        \colon%
-                        \pt%
-                        \to%
-                        \Hom_{X_{\pos}}(a,a)%
-                    \]%
-                    of $X_{\pos}$ at $a$ is given by the identity map.
-                \item\SloganFont{Composition. }For each $a,b,c\in\Obj(X_{\pos})$, the composition map
-                    \[
-                        \circ^{X_{\pos}}_{a,b,c}%
-                        \colon%
-                        \Hom_{X_{\pos}}(b,c)%
-                        \times%
-                        \Hom_{X_{\pos}}(a,b)%
-                        \to%
-                        \Hom_{X_{\pos}}(a,c)%
-                    \]%
-                    of $X_{\pos}$ at $(a,b,c)$ is defined as either the inclusion $\emptyset\hookrightarrow\pt$ or the identity map of $\pt$, depending on whether we have $a\preceq_{X}b$, $b\preceq_{X}c$, and $a\preceq_{X}c$.
-            \end{itemize}
-        \item\label{posetal-categories-posetal-categories}A category $\CatFont{C}$ is \index[categories]{posetal category}\textbf{posetal}%
-            %--- Begin Footnote ---%
-            \footnote{%
-                \SloganFont{Further Terminology: }Also called a \index[categories]{category!thin}\textbf{thin} category or a \index[categories]{zeroonecategory@$(0,1)$-category}\textbf{$(0,1)$-category}.
-                \par\vspace*{-1.75\baselineskip}
-            } %
-            %---  End Footnote  ---%
-            if $\CatFont{C}$ is equivalent to $X_{\pos}$ for some poset $(X,\preceq_{X})$.
-    \end{enumerate}
-\end{definition}
-\begin{proposition}{Properties of Posetal Categories}{properties-of-posetal-categories}%
-    Let $(X,\preceq_{X})$ be a poset and let $\CatFont{C}$ be a category.
-    \begin{enumerate}
-        \item\label{properties-of-posetal-categories-functoriality}\SloganFont{Functoriality. }The assignment $(X,\preceq_{X})\mapsto X_{\pos}$ defines a functor
-            \[
-                (-)_{\pos}%
-                \colon%
-                \Pos%
-                \to%
-                \Cats.
-            \]%
-        \item\label{properties-of-posetal-categories-fully-faithfulness}\SloganFont{Fully Faithfulness. }The functor $(-)_{\pos}$ of \cref{properties-of-posetal-categories-functoriality} is fully faithful.
-        \item\label{properties-of-posetal-categories-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
-            \begin{enumerate}
-                \item\label{properties-of-posetal-categories-characterisations-a}The category $\CatFont{C}$ is posetal.
-                \item\label{properties-of-posetal-categories-characterisations-b}For each $A,B\in\Obj(\CatFont{C})$ and each $f,g\in\Hom_{\CatFont{C}}(A,B)$, we have $f=g$.
-            \end{enumerate}
-        %\item\label{properties-of-posetal-categories-}\SloganFont{. }
-    \end{enumerate}
-\end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-posetal-categories}}%
-    \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
-    Omitted.
-
-    \ProofBox{\cref{properties-of-posetal-categories-fully-faithfulness}: Fully Faithfulness}%
-    Omitted.
-
-    \ProofBox{\cref{properties-of-posetal-categories-characterisations}: Characterisations}%
-    Clear.
-\end{Proof}
 \subsection{Subcategories}\label{subsection-subcategories}
 Let $\CatFont{C}$ be a category.
 \begin{definition}{Subcategories}{subcategories}%
@@ -505,7 +210,7 @@ Let $\CatFont{C}$ be a category.
             %--- Begin Footnote ---%
             \footnote{%
                 That is, given $A\in\Obj(\CatFont{A})$ and $C\in\Obj(\CatFont{C})$, if $C\cong A$, then $C\in\Obj(\CatFont{A})$.%
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
     \end{enumerate}
@@ -515,7 +220,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called \index[categories]{subcategory!lluf}\textbf{lluf}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     if $\Obj(\CatFont{A})=\Obj(\CatFont{C})$.
@@ -526,7 +231,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         Due to \cref{properties-of-skeletons-of-categories-uniqueness-up-to-equivalence} of \cref{properties-of-skeletons-of-categories}, we often refer to any such full subcategory $\Sk(\CatFont{C})$ of $\CatFont{C}$ as \emph{the} skeleton of $\CatFont{C}$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \index[categories]{category!skeleton of}\textbf{skeleton} of a category $\CatFont{C}$ is a full subcategory $\Sk(\CatFont{C})$ with one object from each isomorphism class of objects of $\CatFont{C}$.
@@ -536,7 +241,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         That is, $\CatFont{C}$ is \textbf{skeletal} if isomorphic objects of $\CatFont{C}$ are equal.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 \end{definition}
@@ -767,6 +472,323 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-identities}: Interaction With Identities}%
     Clear.
 \end{Proof}
+\section{Examples of Categories}\label{section-examples-of-categories}
+\subsection{The Empty Category}\label{subsection-the-empty-category}
+\begin{example}{The Empty Category}{the-empty-category}%
+    The \index[categories]{category!empty}\textbf{empty category} is the category \index[notation]{emptycat@$\EmptyCategory$}$\EmptyCategory$ where%
+    \begin{itemize}
+        \item\SloganFont{Objects. }We have
+            \[
+                \Obj(\EmptyCategory)
+                \defeq
+                \emptyset.
+            \]%
+        \item\SloganFont{Morphisms. }We have
+            \[
+                \Mor(\EmptyCategory)
+                \defeq
+                \emptyset.
+            \]%
+        \item\SloganFont{Identities and Composition. }Having no objects, $\EmptyCategory$ has no unit nor composition maps.
+    \end{itemize}
+\end{example}
+\subsection{The Punctual Category}\label{subsection-the-punctual-category}
+\begin{example}{The Punctual Category}{punctual-category}%
+    The \index[categories]{punctual category}\textbf{punctual category}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[categories]{singleton category|see {punctual category}}\textbf{singleton category}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    is the category \index[notation]{ptcat@$\PunctualCategory$}$\PunctualCategory$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }We have
+            \[
+                \Obj(\PunctualCategory)
+                \defeq
+                \{\point\}.
+            \]
+        \item\SloganFont{Morphisms. }The unique $\Hom$-set of $\PunctualCategory$ is defined by
+            \[
+                \Hom_{\PunctualCategory}(\point,\point)
+                \defeq
+                \{\id_{\point}\}.
+            \]%
+        \item\SloganFont{Identities. }The unit map
+            \[
+                \Unit^{\PunctualCategory}_{\point}
+                \colon
+                \pt
+                \to
+                \Hom_{\PunctualCategory}(\point,\point)
+            \]%
+            of $\PunctualCategory$ at $\point$ is defined by
+            \[
+                \id^{\PunctualCategory}_{\point}
+                \defeq
+                \id_{\point}.
+            \]%
+        \item\SloganFont{Composition. }The composition map
+            \[
+                \circ^{\PunctualCategory}_{\point,\point,\point}
+                \colon
+                \Hom_{\PunctualCategory}(\point,\point)
+                \times
+                \Hom_{\PunctualCategory}(\point,\point)
+                \to
+                \Hom_{\PunctualCategory}(\point,\point)
+            \]%
+            of $\PunctualCategory$ at $(\point,\point,\point)$ is given by the bijection $\pt\times\pt\cong\pt$.
+    \end{itemize}
+\end{example}
+\subsection{Monoids as One-Object Categories}\label{subsection-monoids-as-one-object-categories}
+\begin{example}{Monoids as One-Object Categories}{monoids-as-one-object-categories}%
+    We have an isomorphism of categories%
+    %--- Begin Footnote ---%
+    \footnote{%
+        This can be enhanced to an isomorphism of $2$-categories
+        \begin{webcompile}
+            \Mon_{\twodisc}%
+            \cong
+            \PunctualBicategory\ttimes_{\Sets_{\twodisc}}\Cats_{\sftwo,*},%
+            \quad%
+            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \Mon_{\twodisc}
+                \arrow[r]
+                \arrow[d]
+                \arrow[rd,very near start,phantom,"\lrcorner"]
+                \&
+                \Cats_{\sftwo,*}
+                \arrow[d,"\Obj"]
+                \\
+                \PunctualBicategory
+                \arrow[r,"{[\pt]}"']
+                \&
+                \Sets_{\twodisc}
+            \end{tikzcd}
+        \end{webcompile}%
+        between the discrete $2$-category $\Mon_{\twodisc}$ on $\Mon$ and the $2$-category of pointed categories with one object.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{webcompile}
+        \Mon%
+        \cong%
+        \PunctualCategory\ttimes_{\Sets}\Cats,
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Mon
+            \arrow[r]
+            \arrow[d]
+            \arrow[rd,very near start,phantom,"\lrcorner"]
+            \&
+            \Cats
+            \arrow[d,"\Obj"]
+            \\
+            \PunctualCategory
+            \arrow[r,"{[\pt]}"']
+            \&
+            \Sets
+        \end{tikzcd}
+    \end{webcompile}%
+    via the delooping functor $\B\colon\Mon\to\Cats$ of \cref{categories-properties-of-deloopings-of-monoids-functoriality} of \cref{categories-properties-of-deloopings-of-monoids}, exhibiting monoids as exactly those categories having a single object.%TODO
+\end{example}
+\begin{Proof}{Proof of \cref{monoids-as-one-object-categories}}%
+    Omitted.%TODO
+\end{Proof}
+\subsection{Ordinal Categories}\label{subsection-ordinal-categories}
+\begin{example}{Ordinal Categories}{ordinal-categories}%
+    The \index[categories]{ordinal category}\textbf{$n$th ordinal category} is the category \index[notation]{n@$\OrdinalCategory$}$\OrdinalCategory$ where%
+    %--- Begin Footnote ---%
+    \footnote{%
+        In other words, $\OrdinalCategory$ is the category associated to the poset
+        \[%
+            [0]\to[1]\to\cdots\to[n-1]\to[n].%
+        \]%
+        The category $\OrdinalCategory$ for $n\geq2$ may also be defined in terms of $\OrdinalCategoryN{0}$ and joins (\ChapterRef{\ChapterConstructionsWithCategories, \cref{constructions-with-categories:the-join-of-two-categories}}{\cref{the-join-of-two-categories}}): we have isomorphisms of categories
+        \begin{align*}
+            \OrdinalCategoryN{1} &\cong \OrdinalCategoryN{0}\star\OrdinalCategoryN{0},\\
+            \OrdinalCategoryN{2} &\cong \OrdinalCategoryN{1}\star\OrdinalCategoryN{0}\\
+                                 &\cong (\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},\\
+            \OrdinalCategoryN{3} &\cong \OrdinalCategoryN{2}\star\OrdinalCategoryN{0}\\
+                                 &\cong (\OrdinalCategoryN{1}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
+                                 &\cong ((\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},\\
+            \OrdinalCategoryN{4} &\cong \OrdinalCategoryN{3}\star\OrdinalCategoryN{0}\\
+                                 &\cong (\OrdinalCategoryN{2}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
+                                 &\cong ((\OrdinalCategoryN{1}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0}\\
+                                 &\cong (((\OrdinalCategoryN{0}\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0})\star\OrdinalCategoryN{0},
+        \end{align*}
+        and so on.
+        \par\vspace*{-2.25\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \item\SloganFont{Objects. }We have
+            \[
+                \Obj(\OrdinalCategory)
+                \defeq
+                \{[0],\ldots,[n]\}.
+            \]%
+        \item\SloganFont{Morphisms. }For each $[i],[j]\in\Obj(\OrdinalCategory)$, we have
+            \[
+                \Hom_{\OrdinalCategory}([i],[j])
+                \defeq
+                \begin{cases}
+                    \{\id_{[i]}\}                &\text{if $[i]=[j]$,}\\
+                    \{[i]\to[j]\}    &\text{if $[j]<[i]$,}\\
+                    \emptyset                    &\text{if $[j]>[i]$.}
+                \end{cases}
+            \]%
+        \item\SloganFont{Identities. }For each $[i]\in\Obj(\OrdinalCategory)$, the unit map
+            \[
+                \Unit^{\OrdinalCategory}_{[i]}
+                \colon
+                \pt
+                \to
+                \Hom_{\OrdinalCategory}([i],[i])
+            \]%
+            of $\OrdinalCategory$ at $[i]$ is defined by
+            \[
+                \id^{\OrdinalCategory}_{[i]}
+                \defeq
+                \id_{[i]}.
+            \]%
+        \item\SloganFont{Composition. }For each $[i],[j],[k]\in\Obj(\OrdinalCategory)$, the composition map
+            \[
+                \circ^{\OrdinalCategory}_{[i],[j],[k]}
+                \colon
+                \Hom_{\OrdinalCategory}([j],[k])
+                \times
+                \Hom_{\OrdinalCategory}([i],[j])
+                \to
+                \Hom_{\OrdinalCategory}([i],[k])
+            \]%
+            of $\OrdinalCategory$ at $([i],[j],[k])$ is defined by%
+            \[
+                \begin{gathered}
+                    \id_{[i]}\circ\id_{[i]}                             = \id_{[i]},\\%
+                    ([j]\to[k])\circ([i]\to[j]) = ([i]\to[k]).%
+                \end{gathered}
+            \]%
+    \end{itemize}
+\end{example}
+\subsection{The Walking Arrow}\label{subsection-the-walking-arrow}
+\begin{definition}{The Walking Arrow}{the-walking-arrow}%
+    The \index[categories]{walking arrow}\textbf{walking arrow} is the category $\WalkingArrow$ defined as the first ordinal category.%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-walking-arrow}}{unwinding-the-walking-arrow}%
+    In detail, the walking arrow is the category $\WalkingArrow$ where:
+    \begin{itemize}
+        \item\SloganFont{Objects. }We have $\Obj(\WalkingArrow)=\{0,1\}$.
+        \item\SloganFont{Morphisms. }We have
+            \begin{align*}
+                \Hom_{\WalkingArrow}(0,0) &= \{\id_{0}\},\\
+                \Hom_{\WalkingArrow}(1,1) &= \{\id_{1}\},\\
+                \Hom_{\WalkingArrow}(0,1) &= \{f_{01}\},\\
+                \Hom_{\WalkingArrow}(1,0) &= \emptyset.
+            \end{align*}
+        \item\SloganFont{Identities and Composition. }The identities and composition of $\WalkingArrow$ are completely determined by the unitality and associativity axioms for $\WalkingArrow$.
+    \end{itemize}
+\end{remark}
+\subsection{More Examples of Categories}\label{subsection-more-examples-of-categories}
+\begin{example}{More Examples of Categories}{more-examples-of-categories}%
+    Here we list some of the other categories appearing throughout this work.
+    \begin{enumerate}
+        \item\label{more-examples-of-categories-pointed-sets}The category $\Sets_{*}$ of pointed sets of \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:the-category-of-pointed-sets}}{\cref{the-category-of-pointed-sets}}.
+        \item\label{more-examples-of-categories-relations}The category $\sfRel$ of sets and relations of \ChapterRef{\ChapterRelations, \cref{relations:the-category-of-relations}}{\cref{the-category-of-relations}}.
+        \item\label{more-examples-of-categories-spans}The category $\Span(A,B)$ of spans from a set $A$ to a set $B$ of \ChapterRef{\ChapterSpans, \cref{spans:the-category-of-spans-from-a-to-b}}{\cref{the-category-of-spans-from-a-to-b}}.
+        \item\label{more-examples-of-categories-indexed-sets-k}The category $\ISets(K)$ of $K$-indexed sets of \ChapterRef{\ChapterIndexedSets, \cref{indexed-sets:the-category-of-k-indexed-sets}}{\cref{the-category-of-k-indexed-sets}}.
+        \item\label{more-examples-of-categories-indexed-sets}The category $\ISets$ of indexed sets of \ChapterRef{\ChapterIndexedSets, \cref{indexed-sets:the-category-of-indexed-sets}}{\cref{the-category-of-indexed-sets}}.
+        \item\label{more-examples-of-categories-fibred-sets-k}The category $\FibSets(K)$ of $K$-fibred sets of \ChapterRef{\ChapterFibredSets, \cref{fibred-sets:the-category-of-k-fibred-sets}}{\cref{the-category-of-k-fibred-sets}}.
+        \item\label{more-examples-of-categories-fibred-sets}The category $\FibSets$ of fibred sets of \ChapterRef{\ChapterFibredSets, \cref{fibred-sets:the-category-of-fibred-sets}}{\cref{the-category-of-fibred-sets}}.
+        \item\label{more-examples-of-categories-functor-categories}Categories of functors $\Fun(\CatFont{C},\CatFont{D})$ as in \cref{functor-categories}.
+        \item\label{more-examples-of-categories-categories}The category of categories $\Cats$ of \cref{the-category-of-categories-and-functors}.
+        \item\label{more-examples-of-categories-groupoids}The category of groupoids $\Grpd$ of \cref{the-category-of-small-groupoids}.
+    \end{enumerate}
+\end{example}
+\subsection{Posetal Categories}\label{subsection-posetal-categories}
+\begin{definition}{Posetal Categories}{posetal-categories}%
+    Let $(X,\preceq_{X})$ be a poset.
+    \begin{enumerate}
+        \item\label{posetal-categories-posetal-category-associated-to-poset}The \index[categories]{posetal category!associated to a poset}\textbf{posetal category associated to $(X,\preceq_{X})$} is the category \index[notation]{Xpos@$X_{\pos}$}$X_{\pos}$ where
+            \begin{itemize}
+                \item\SloganFont{Objects. }We have
+                    \[
+                        \Obj(X_{\pos})%
+                        \defeq%
+                        X.%
+                    \]%
+                \item\SloganFont{Morphisms. }For each $a,b\in\Obj(X_{\pos})$, we have
+                    \[
+                        \Hom_{X_{\pos}}(a,b)%
+                        \defeq%
+                        \begin{cases}
+                            \pt       &\text{if $a\preceq_{X}b$},\\%
+                            \emptyset &\text{otherwise.}%
+                        \end{cases}
+                    \]%
+                \item\SloganFont{Identities. }For each $a\in\Obj(X_{\pos})$, the unit map
+                    \[%
+                        \Unit^{X_{\pos}}_{a}%
+                        \colon%
+                        \pt%
+                        \to%
+                        \Hom_{X_{\pos}}(a,a)%
+                    \]%
+                    of $X_{\pos}$ at $a$ is given by the identity map.
+                \item\SloganFont{Composition. }For each $a,b,c\in\Obj(X_{\pos})$, the composition map
+                    \[
+                        \circ^{X_{\pos}}_{a,b,c}%
+                        \colon%
+                        \Hom_{X_{\pos}}(b,c)%
+                        \times%
+                        \Hom_{X_{\pos}}(a,b)%
+                        \to%
+                        \Hom_{X_{\pos}}(a,c)%
+                    \]%
+                    of $X_{\pos}$ at $(a,b,c)$ is defined as either the inclusion $\emptyset\hookrightarrow\pt$ or the identity map of $\pt$, depending on whether we have $a\preceq_{X}b$, $b\preceq_{X}c$, and $a\preceq_{X}c$.
+            \end{itemize}
+        \item\label{posetal-categories-posetal-categories}A category $\CatFont{C}$ is \index[categories]{posetal category}\textbf{posetal}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }Also called a \index[categories]{category!thin}\textbf{thin} category or a \index[categories]{zeroonecategory@$(0,1)$-category}\textbf{$(0,1)$-category}.
+                \par\vspace*{\TCBBoxCorrection}
+            } %
+            %---  End Footnote  ---%
+            if $\CatFont{C}$ is equivalent to $X_{\pos}$ for some poset $(X,\preceq_{X})$.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Posetal Categories}{properties-of-posetal-categories}%
+    Let $(X,\preceq_{X})$ be a poset and let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-posetal-categories-functoriality}\SloganFont{Functoriality. }The assignment $(X,\preceq_{X})\mapsto X_{\pos}$ defines a functor
+            \[
+                (-)_{\pos}%
+                \colon%
+                \Pos%
+                \to%
+                \Cats.
+            \]%
+        \item\label{properties-of-posetal-categories-fully-faithfulness}\SloganFont{Fully Faithfulness. }The functor $(-)_{\pos}$ of \cref{properties-of-posetal-categories-functoriality} is fully faithful.
+        \item\label{properties-of-posetal-categories-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-posetal-categories-characterisations-a}The category $\CatFont{C}$ is posetal.
+                \item\label{properties-of-posetal-categories-characterisations-b}For each $A,B\in\Obj(\CatFont{C})$ and each $f,g\in\Hom_{\CatFont{C}}(A,B)$, we have $f=g$.
+            \end{enumerate}
+        %\item\label{properties-of-posetal-categories-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-posetal-categories}}%
+    \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-posetal-categories-fully-faithfulness}: Fully Faithfulness}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-posetal-categories-characterisations}: Characterisations}%
+    Clear.
+\end{Proof}
 \section{The Quadruple Adjunction With Sets}\label{section-the-quadruple-adjunction-with-sets}
 \subsection{Statement}\label{subsection-the-quadruple-adjunction-with-sets-statement}
 Let $\CatFont{C}$ be a category.
@@ -832,7 +854,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         In other words, a \textbf{connected component} of $\CatFont{C}$ is an element of the set $\Obj(\CatFont{C})/\unsim$ with $\unsim$ the equivalence relation generated by the relation $\unsim'$ obtained by declaring $A\sim' B$ \textiff there exists a morphism of $\CatFont{C}$ from $A$ to $B$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
@@ -944,7 +966,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Example: }A groupoid is connected \textiff any two of its objects are isomorphic.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 \end{definition}
@@ -1074,7 +1096,7 @@ Let $\CatFont{C}$ be a category.
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Further Terminology: }Sometimes called the \textbf{chaotic category on $X$}.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             } %
             %---  End Footnote  ---%
             is the category \index[notation]{Xindisc@$X_{\indisc}$}$X_{\indisc}$ where
@@ -1169,7 +1191,7 @@ Let $\CatFont{C}$ be a category.
     Clear.
 \end{Proof}
 \section{Groupoids}\label{section-groupoids}
-\subsection{Foundations}\label{subsection-groupoids-foundations}
+\subsection{Isomorphisms}\label{subsection-isomorphisms}
 Let $\CatFont{C}$ be a category.
 \begin{definition}{Isomorphisms}{isomorphisms}%
     A morphism $f\colon A\to B$ of $\CatFont{C}$ is an \index[categories]{isomorphism}\textbf{isomorphism} if there exists a morphism $\smash{f^{-1}\colon B\to A}$ of $\CatFont{C}$ such that
@@ -1181,9 +1203,42 @@ Let $\CatFont{C}$ be a category.
 \begin{notation}{The Set of Isomorphisms Between Two Objects in a Category}{the-set-of-isomorphisms-between-two-objects-in-a-category}%
     We write \index[notation]{IsoCAB@$\Iso_{\CatFont{C}}(A,B)$}$\Iso_{\CatFont{C}}(A,B)$ for the set of all isomorphisms in $\CatFont{C}$ from $A$ to $B$.
 \end{notation}
+\subsection{Groupoids}\label{subsection-groupoids}
 \begin{definition}{Groupoids}{groupoids}%
     A \index[categories]{groupoid}\textbf{groupoid} is a category in which every morphism is an isomorphism.
 \end{definition}
+\begin{example}{Groups as One-Object Groupoids}{one-object-groupoids}%
+    The isomorphism of categories of \cref{monoids-as-one-object-categories} restricts to an isomorphism
+    \begin{webcompile}
+        \Grp%
+        \cong
+        \PunctualCategory\ttimes_{\Sets}\Grpd,%
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Grp
+            \arrow[r]
+            \arrow[d]
+            \arrow[rd,very near start,phantom,"\lrcorner"]
+            \&
+            \Grpd
+            \arrow[d,"\Obj"]
+            \\
+            \PunctualCategory
+            \arrow[r,"{[\pt]}"']
+            \&
+            \Sets
+        \end{tikzcd}
+    \end{webcompile}%
+    where $\Grpd$ is the full subcategory of $\Cats$ spanned by the groupoids.
+
+    In other words, we have an identification
+    \[
+        \{\text{Groups}\}
+        \cong%
+        \{\text{One-object groupoids}\}.
+    \]%
+    % TODO
+\end{example}
 \subsection{The Groupoid Completion of a Category}\label{subsection-the-groupoid-completion-of-a-category}
 Let $\CatFont{C}$ be a category.
 \begin{definition}{The Groupoid Completion of a Category}{the-groupoid-completion-of-a-category}%
@@ -1191,7 +1246,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called the \index[categories]{Grothendieck groupoid!of a category}\textbf{Grothendieck groupoid of $\CatFont{C}$} or the \textbf{Grothendieck groupoid completion of $\CatFont{C}$}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     is the pair $(\K_{0}(\CatFont{C}),\iota_{\CatFont{C}})$ consisting of
@@ -1203,7 +1258,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         See \cref{properties-of-groupoid-completion-interaction-with-classifying-spaces} of \cref{properties-of-groupoid-completion} for an explicit construction.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 
@@ -1414,7 +1469,7 @@ Let $\CatFont{C}$ be a category.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Slogan: }The groupoid $\Core(\CatFont{C})$ is the maximal subgroupoid of $\CatFont{C}$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
@@ -1538,7 +1593,7 @@ Let $\CatFont{C}$ be a category.
     %%--- Begin Footnote ---%
     %\footnote{%
     %    \SloganFont{Reference: }\cite[Example 4.1.15]{riehl:context}.%
-    %    \par\vspace*{-1.75\baselineskip}
+    \par\vspace*{\TCBBoxCorrection}
     %}%
     %%---  End Footnote  ---%
 
@@ -1584,7 +1639,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Further Terminology: }Also called \textbf{action on $\Hom$-sets of $F$ at $(A,B)$}.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }.%
             %---  End Footnote  ---%
     \end{enumerate}
@@ -1770,7 +1825,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             %--- Begin Footnote ---%
             \footnote{%
                 When the converse holds, we call $F$ \emph{conservative}, see \cref{conservative-functors}.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
         %\item\label{elementary-properties-of-functors-}\SloganFont{. }
@@ -1842,39 +1897,37 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
                 \id_{F(A)}.
             \]
         \item\SloganFont{Preservation of Composition. }For each $A,B,C\in\Obj(\CatFont{C})$, the diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{$%
-                    \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        {\Hom_{\CatFont{D}}(F(C),F(B))\times\Hom_{\CatFont{D}}(F(B),F(A))}
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \\[0.58778525229\ThreeCmPlusHalf]
-                        {\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)}
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        {\Hom_{\CatFont{D}}(F(B),F(A))\times\Hom_{\CatFont{D}}(F(C),F(B))}
-                        \\[0.95105651629\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        {\Hom_{\CatFont{C}}(A,C)}
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        {\Hom_{\CatFont{D}}(F(C),F(A))}
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        % 1-Arrows
-                        % Left Boundary
-                        \arrow[from=2-1,to=1-3,"{F_{B,C}\times F_{A,B}}"{pos=0.4125}]%
-                        \arrow[from=1-3,to=2-5,isoarrowprime,"\sigma^{\Sets}_{\Hom_{\CatFont{D}}(F(C),F(B)),\Hom_{\CatFont{D}}(F(B),F(A))}"{pos=0.575}]%
-                        \arrow[from=2-5,to=3-4,"\circ^{\CatFont{D}}_{F(C),F(B),F(A)}"{pos=0.425}]%
-                        % Right Boundary
-                        \arrow[from=2-1,to=3-2,"\circ^{\CatFont{C}}_{A,B,C}"'{pos=0.425}]%
-                        \arrow[from=3-2,to=3-4,"F_{A,C}"']%
-                    \end{tikzcd}
-                $}
-            \end{webcompile}%
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    {\Hom_{\CatFont{D}}(F(C),F(B))\times\Hom_{\CatFont{D}}(F(B),F(A))}
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \\[0.58778525229\ThreeCmPlusHalf]
+                    {\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)}
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    {\Hom_{\CatFont{D}}(F(B),F(A))\times\Hom_{\CatFont{D}}(F(C),F(B))}
+                    \\[0.95105651629\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    {\Hom_{\CatFont{C}}(A,C)}
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    {\Hom_{\CatFont{D}}(F(C),F(A))}
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    % 1-Arrows
+                    % Left Boundary
+                    \arrow[from=2-1,to=1-3,"{F_{B,C}\times F_{A,B}}"{pos=0.4125}]%
+                    \arrow[from=1-3,to=2-5,isoarrowprime,"\sigma^{\Sets}_{\Hom_{\CatFont{D}}(F(C),F(B)),\Hom_{\CatFont{D}}(F(B),F(A))}"{pos=0.575}]%
+                    \arrow[from=2-5,to=3-4,"\circ^{\CatFont{D}}_{F(C),F(B),F(A)}"{pos=0.425}]%
+                    % Right Boundary
+                    \arrow[from=2-1,to=3-2,"\circ^{\CatFont{C}}_{A,B,C}"'{pos=0.425}]%
+                    \arrow[from=3-2,to=3-4,"F_{A,C}"']%
+                \end{tikzcd}
+            \end{scalemath}%
             commutes, i.e.\ for each composable pair $(g,f)$ of morphisms of $\CatFont{C}$, we have
             \[
                 F(g\circ f)
@@ -2087,49 +2140,47 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
                 \item\label{properties-of-natural-transformations-associated-to-functors-interaction-with-natural-isomorphisms-b}The functor $F$ is fully faithful.
             \end{enumerate}
         \item\label{properties-of-natural-transformations-associated-to-functors-interaction-with-composition}\SloganFont{Interaction With Composition. }We have an equality of pasting diagrams
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{$%
-                    \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={4.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \CatFont{C}^{\op}\times\CatFont{C}
-                        \arrow[rr,"F^{\op}\times F"]
-                        \arrow[rrd,"\Hom_{\CatFont{C}}"',""'{name=1}]
-                        \&
-                        \&
-                        \CatFont{D}^{\op}\times\CatFont{D}
-                        \arrow[rr,"G^{\op}\times G"]
-                        \arrow[d,"\Hom_{\CatFont{D}}"description,""'{name=2}]
-                        \&
-                        \&
-                        \CatFont{E}^{\op}\times\CatFont{E}
-                        \arrow[lld,"\Hom_{\CatFont{E}}"]
-                        \\
-                        \&
-                        \&
-                        \Sets
-                        \&
-                        \&
-                        % 2-Arrows
-                        \arrow[from=1,to=1-3,"F^{\dagger}"{description,pos=0.6},shorten <= 0.5em, shorten >= -0.25em,Rightarrow]%
-                        \arrow[from=2,to=1-5,"G^{\dagger}"{description,pos=0.6},shorten <= 1.5em,shorten >= +0.25em,Rightarrow]%
-                    \end{tikzcd}
-                    \bigequalssign
-                    \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \CatFont{C}^{\op}\times\CatFont{C}
-                        \arrow[rr,"{(G\circ F)^{\op}\times(G\circ F)}"]
-                        \arrow[rd,"\Hom_{\CatFont{C}}"'{pos=0.475},""'{name=1}]
-                        \&
-                        \&
-                        \CatFont{E}^{\op}\times\CatFont{E}\mrp{,}
-                        \arrow[ld,"\Hom_{\CatFont{E}}"{pos=0.475}]
-                        \\
-                        \&
-                        \Sets
-                        \&
-                        % 2-Arrows
-                        \arrow[from=1,to=1-3,"{(G\circ F)^{\dagger}}"{description,pos=0.525},shorten <= 0.5em,shorten >= 0.0em,Rightarrow]%
-                    \end{tikzcd}
-                $}%
-            \end{webcompile}%
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={4.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \CatFont{C}^{\op}\times\CatFont{C}
+                    \arrow[rr,"F^{\op}\times F"]
+                    \arrow[rrd,"\Hom_{\CatFont{C}}"',""'{name=1}]
+                    \&
+                    \&
+                    \CatFont{D}^{\op}\times\CatFont{D}
+                    \arrow[rr,"G^{\op}\times G"]
+                    \arrow[d,"\Hom_{\CatFont{D}}"description,""'{name=2}]
+                    \&
+                    \&
+                    \CatFont{E}^{\op}\times\CatFont{E}
+                    \arrow[lld,"\Hom_{\CatFont{E}}"]
+                    \\
+                    \&
+                    \&
+                    \Sets
+                    \&
+                    \&
+                    % 2-Arrows
+                    \arrow[from=1,to=1-3,"F^{\dagger}"{description,pos=0.6},shorten <= 0.5em, shorten >= -0.25em,Rightarrow]%
+                    \arrow[from=2,to=1-5,"G^{\dagger}"{description,pos=0.6},shorten <= 1.5em,shorten >= +0.25em,Rightarrow]%
+                \end{tikzcd}
+                \bigequalssign
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \CatFont{C}^{\op}\times\CatFont{C}
+                    \arrow[rr,"{(G\circ F)^{\op}\times(G\circ F)}"]
+                    \arrow[rd,"\Hom_{\CatFont{C}}"'{pos=0.475},""'{name=1}]
+                    \&
+                    \&
+                    \CatFont{E}^{\op}\times\CatFont{E}\mrp{,}
+                    \arrow[ld,"\Hom_{\CatFont{E}}"{pos=0.475}]
+                    \\
+                    \&
+                    \Sets
+                    \&
+                    % 2-Arrows
+                    \arrow[from=1,to=1-3,"{(G\circ F)^{\dagger}}"{description,pos=0.525},shorten <= 0.5em,shorten >= 0.0em,Rightarrow]%
+                \end{tikzcd}
+            \end{scalemath}%
             in $\TwoCategoryOfCategories$, i.e.\ we have
             \[
                 (G\circ F)^{\dagger}%
@@ -2171,8 +2222,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     of $F$ at $(A,B)$ is injective.
 \end{definition}
 \begin{proposition}{Properties of Faithful Functors}{properties-of-faithful-functors}%
-    Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ and $G\colon\CatFont{D}\to\CatFont{E}$ be functors.
     \begin{enumerate}
+        \item\label{properties-of-faithful-functors-interaction-with-composition}\SloganFont{Interaction With Composition. }If $F$ and $G$ are faithful, then so is $G\circ F$.
         \item\label{properties-of-faithful-functors-interaction-with-postcomposition}\SloganFont{Interaction With Postcomposition. }The following conditions are equivalent:
             \begin{enumerate}
                 \item\label{properties-of-faithful-functors-interaction-with-postcomposition-a}The functor $F\colon\CatFont{C}\to\CatFont{D}$ is faithful.
@@ -2197,7 +2249,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                         \to
                         \Fun(\CatFont{C},\CatFont{X})
                     \]%
-                    \emph{can fail} to be faithful.
+                    \demph{can fail} to be faithful.
                 \item\label{properties-of-faithful-functors-interaction-with-precomposition-1-b}Conversely, if the precomposition functor
                     \[
                         F^{*}
@@ -2206,7 +2258,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                         \to
                         \Fun(\CatFont{C},\CatFont{X})
                     \]%
-                    is faithful, then $F$ \emph{can fail} to be faithful.
+                    is faithful, then $F$ \demph{can fail} to be faithful.
             \end{enumerate}
         \item\label{properties-of-faithful-functors-interaction-with-precomposition-2}\SloganFont{Interaction With Precomposition \rmII. }If $F$ is essentially surjective, then the precomposition functor
             \[
@@ -2295,7 +2347,26 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-faithful-functors}}%
-    \FirstProofBox{\cref{properties-of-faithful-functors-interaction-with-postcomposition}: Interaction With Postcomposition}%
+    \FirstProofBox{\cref{properties-of-faithful-functors-interaction-with-composition}: Interaction With Composition}%
+    Since the map
+    \[
+        (G\circ F)_{A,B}
+        \colon
+        \Hom_{\CatFont{C}}(A,B)
+        \to
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    defined as the composition
+    \[
+        \Hom_{\CatFont{C}}(A,B)%
+        \xrightarrow{F_{A,B}}%
+        \Hom_{\CatFont{D}}(F_{A},F_{B})%
+        \xrightarrow{G_{F(A),F(B)}}%
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    is a composition of injective functions, it follows from \cref{TODO} that it is also injective. Therefore $G\circ F$ is faithful.
+
+    \ProofBox{\cref{properties-of-faithful-functors-interaction-with-postcomposition}: Interaction With Postcomposition}%
     Omitted.
 
     \ProofBox{\cref{properties-of-faithful-functors-interaction-with-precomposition-1}: Interaction With Precomposition \rmI}%
@@ -2327,22 +2398,27 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     of $F$ at $(A,B)$ is surjective.
 \end{definition}
 \begin{proposition}{Properties of Full Functors}{properties-of-full-functors}%
-    Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ and $G\colon\CatFont{D}\to\CatFont{E}$ be functors.
     \begin{enumerate}
-        \item\label{properties-of-full-functors-interaction-with-postcomposition}\SloganFont{Interaction With Postcomposition. }The following conditions are equivalent:
-            \begin{enumerate}
-                \item\label{properties-of-full-functors-interaction-with-postcomposition-a}The functor $F\colon\CatFont{C}\to\CatFont{D}$ is full.
-                \item\label{properties-of-full-functors-interaction-with-postcomposition-b}For each $\CatFont{X}\in\Obj(\Cats)$, the postcomposition functor
-                    \[
-                        F_{*}
-                        \colon
-                        \Fun(\CatFont{X},\CatFont{C})
-                        \to
-                        \Fun(\CatFont{X},\CatFont{D})
-                    \]%
-                    is full.
-                \item\label{properties-of-full-functors-interaction-with-postcomposition-c}The functor $F\colon\CatFont{C}\to\CatFont{D}$ is a representably full morphism in $\TwoCategoryOfCategories$ in the sense of \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:representably-full-morphisms}}{\cref{representably-full-morphisms}}.
-            \end{enumerate}
+        \item\label{properties-of-full-functors-interaction-with-composition}\SloganFont{Interaction With Composition. }If $F$ and $G$ are full, then so is $G\circ F$.
+        \item\label{properties-of-full-functors-interaction-with-postcomposition-1}\SloganFont{Interaction With Postcomposition \rmI. }If $F$ is full, then the postcomposition functor
+            \[
+                F_{*}
+                \colon
+                \Fun(\CatFont{X},\CatFont{C})
+                \to
+                \Fun(\CatFont{X},\CatFont{D})
+            \]%
+            \demph{can fail} to be full.
+        \item\label{properties-of-full-functors-interaction-with-postcomposition-2}\SloganFont{Interaction With Postcomposition \rmII. }If, for each $\CatFont{X}\in\Obj(\Cats)$, the postcomposition functor
+            \[
+                F_{*}
+                \colon
+                \Fun(\CatFont{X},\CatFont{C})
+                \to
+                \Fun(\CatFont{X},\CatFont{D})
+            \]%
+            is full, then $F$ is also full.
         \item\label{properties-of-full-functors-interaction-with-precomposition-1}\SloganFont{Interaction With Precomposition \rmI. }If $F$ is full, then the precomposition functor
             \[
                 F^{*}
@@ -2351,8 +2427,8 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                 \to
                 \Fun(\CatFont{C},\CatFont{X})
             \]%
-            \emph{can fail} to be full.
-        \item\label{properties-of-full-functors-interaction-with-precomposition-2}\SloganFont{Interaction With Precomposition \rmII. }If the precomposition functor
+            \demph{can fail} to be full.
+        \item\label{properties-of-full-functors-interaction-with-precomposition-2}\SloganFont{Interaction With Precomposition \rmII. }If, for each $\CatFont{X}\in\Obj(\Cats)$, the precomposition functor
             \[
                 F^{*}
                 \colon
@@ -2360,7 +2436,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                 \to
                 \Fun(\CatFont{C},\CatFont{X})
             \]%
-            is full, then $F$ \emph{can fail} to be full.
+            is full, then $F$ \demph{can fail} to be full.
         \item\label{properties-of-full-functors-interaction-with-precomposition-3}\SloganFont{Interaction With Precomposition \rmIII. }If $F$ is essentially surjective and full, then the precomposition functor
             \[
                 F^{*}
@@ -2441,8 +2517,256 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-full-functors}}%
-    \FirstProofBox{\cref{properties-of-full-functors-interaction-with-postcomposition}: Interaction With Postcomposition}%
-    Omitted.
+    \FirstProofBox{\cref{properties-of-full-functors-interaction-with-composition}: Interaction With Composition}%
+    Since the map
+    \[
+        (G\circ F)_{A,B}
+        \colon
+        \Hom_{\CatFont{C}}(A,B)
+        \to
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    defined as the composition
+    \[
+        \Hom_{\CatFont{C}}(A,B)%
+        \xrightarrow{F_{A,B}}%
+        \Hom_{\CatFont{D}}(F_{A},F_{B})%
+        \xrightarrow{G_{F(A),F(B)}}%
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    is a composition of surjective functions, it follows from \cref{TODO} that it is also surjective. Therefore $G\circ F$ is full.
+
+    \ProofBox{\cref{properties-of-full-functors-interaction-with-postcomposition-1}: Interaction With Postcomposition \rmI}%
+    We follow the proof (completely formalised in cubical Agda!) given by Naïm Camille Favier in \cite{favier:postcompose-not-full}. Let $\CatFont{C}$ be the category where:
+    \begin{itemize}
+        \item\SloganFont{Objects. }We have $\Obj(\CatFont{C})=\{A,B\}$.
+        \item\SloganFont{Morphisms. }We have
+            \begin{align*}
+                \Hom_{\CatFont{C}}(A,A) &= \{e_{A},\id_{A}\},\\
+                \Hom_{\CatFont{C}}(B,B) &= \{e_{B},\id_{B}\},\\
+                \Hom_{\CatFont{C}}(A,B) &= \{f,g\},\\
+                \Hom_{\CatFont{C}}(B,A) &= \emptyset.
+            \end{align*}
+        \item\SloganFont{Composition. }The nontrivial compositions in $\CatFont{C}$ are the following:
+            \[
+                \begin{aligned}
+                    e_{A}\circ e_{A} &= \id_{A},\\
+                    e_{B}\circ e_{B} &= \id_{B},
+                \end{aligned}
+                \quad
+                \begin{aligned}
+                    f\circ e_{A}     &= g,\\
+                    g\circ e_{A}     &= f,
+                \end{aligned}
+                \quad
+                \begin{aligned}
+                    e_{B}\circ f     &= f,\\
+                    e_{B}\circ g     &= g.
+                \end{aligned}
+            \]%
+    \end{itemize}
+    We may picture $\CatFont{C}$ as follows:
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f" ,shift left =0.8]
+            \arrow[r,"g"',shift right=0.8]
+            \arrow["e_{A}"',loop, distance=2em, in=215, out=145]
+            \&
+            B
+            \arrow["e_{B}\mrp{.}", loop, distance=2em, in=325, out=35]
+        \end{tikzcd}
+    \]%
+    Next, let $\CatFont{D}$ be the walking arrow category $\WalkingArrow$ of \cref{the-walking-arrow} and let $F\colon\CatFont{C}\to\WalkingArrow$ be the functor given on objects by
+    \begin{align*}
+        F(A) &= 0,\\
+        F(B) &= 1
+    \end{align*}
+    and on non-identity morphisms by
+    \[
+        \begin{aligned}
+            F(f)     &= f_{01},\\
+            F(g)     &= f_{01},
+        \end{aligned}
+        \quad
+        \begin{aligned}
+            F(e_{A}) &= \id_{0},\\
+            F(e_{B}) &= \id_{1}.
+        \end{aligned}
+    \]%
+    Finally, let $\CatFont{X}=\B\Zn{2}$ be the walking involution and let $\iota_{A},\iota_{B}\colon\B\Zn{2}\rightrightarrows\CatFont{C}$ be the inclusion functors from $\B\Zn{2}$ to $\CatFont{C}$ with
+    \begin{align*}
+        \iota_{A}(\bullet) &= A,\\
+        \iota_{B}(\bullet) &= B.
+    \end{align*}
+    Since every morphism in $\WalkingArrow$ has a preimage in $\CatFont{C}$ by $F$, the functor $F$ is full. Now, for $F_{*}$ to be full, the map
+    \begin{webcompile}
+        \phantom{F_{*|\iota_{A},\iota_{B}}\colon}
+        \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.5*\the\DL, background color=backgroundColor, ampersand replacement=\&]
+            \mathllap{F_{*|\iota_{A},\iota_{B}}\colon}\Nat(\iota_{A},\iota_{B})%
+            \arrow[r]
+            \&
+            \Nat(F\circ\iota_{A},F\circ\iota_{B})%
+            \\
+            \alpha
+            \arrow[r, mapsto]
+            \&
+            \id_{F}\twocirc\alpha
+        \end{tikzcd}
+        \mkern50mu
+    \end{webcompile}%
+    would need to be surjective. However, as we will show next, we have
+    \begin{gather*}
+        \Nat(\iota_{A},\iota_{B})             =     \emptyset,\\
+        \Nat(F\circ\iota_{A},F\circ\iota_{B}) \cong \pt,
+    \end{gather*}
+    so this is impossible:
+    \begin{itemize}
+        \item\SloganFont{Proof of $\Nat(\iota_{A},\iota_{B})=\emptyset$: }A natural transformation $\alpha\colon\iota_{A}\Rightarrow\iota_{B}$ consists of a morphism
+            \[
+                \alpha%
+                \colon%
+                \underbrace{\iota_{A}(\bullet)}_{=A}%
+                \to%
+                \underbrace{\iota_{B}(\bullet)}_{=B}%
+            \]%
+            in $\CatFont{C}$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\iota_{A}(\bullet)}
+                    \arrow[r,"{\iota_{A}(e)}"]
+                    \arrow[d,"\alpha"']
+                    \&
+                    {\iota_{A}(\bullet)}
+                    \arrow[d,"\alpha"]
+                    \\
+                    {\iota_{B}(\bullet)}
+                    \arrow[r,"{\iota_{B}(e)}"']
+                    \&
+                    {\iota_{B}(\bullet)}
+                \end{tikzcd}
+            \]%
+            commute for each $e\in\Hom_{\B\Zn{2}}(\bullet,\bullet)\cong\Zn{2}$. We have two cases:
+            \begin{enumerate}
+                \item If $\alpha=f$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,"e_{A}"]
+                            \arrow[d,"f"']
+                            \&
+                            A
+                            \arrow[d,"f"]
+                            \\
+                            B
+                            \arrow[r,"e_{B}"']
+                            \&
+                            B\mrp{.}
+                        \end{tikzcd}
+                    \]%
+                    However, $e_{B}\circ f=f$ and $f\circ e_{A}=g$, so this diagram does not commute.
+                \item If $\alpha=g$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,"e_{A}"]
+                            \arrow[d,"g"']
+                            \&
+                            A
+                            \arrow[d,"g"]
+                            \\
+                            B
+                            \arrow[r,"e_{B}"']
+                            \&
+                            B\mrp{.}
+                        \end{tikzcd}
+                    \]%
+                    However, $e_{B}\circ g=g$ and $g\circ e_{A}=f$, so this diagram does not commute.
+            \end{enumerate}
+            As a result, there are no natural transformations from $\iota_{A}$ to $\iota_{B}$.
+        \item\SloganFont{Proof of $\Nat(F\circ\iota_{A},F\circ\iota_{B})\cong\pt$: }A natural transformation
+            \[
+                \beta%
+                \colon%
+                F\circ\iota_{A}%
+                \Rightarrow%
+                F\circ\iota_{B}%
+            \]%
+            consists of a morphism
+            \[
+                \beta%
+                \colon%
+                \underbrace{[F\circ\iota_{A}](\bullet)}_{=0}%
+                \to%
+                \underbrace{[F\circ\iota_{B}](\bullet)}_{=1}%
+            \]%
+            in $\WalkingArrow$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {[F\circ\iota_{A}](\bullet)}
+                    \arrow[r,"{[F\circ\iota_{A}](e)}"]
+                    \arrow[d,"\beta"']
+                    \&
+                    {[F\circ\iota_{A}](\bullet)}
+                    \arrow[d,"\beta"]
+                    \\
+                    {[F\circ\iota_{B}](\bullet)}
+                    \arrow[r,"{[F\circ\iota_{B}](e)}"']
+                    \&
+                    {[F\circ\iota_{B}](\bullet)}
+                \end{tikzcd}
+            \]%
+            commute for each $e\in\Hom_{\B\Zn{2}}(\bullet,\bullet)\cong\Zn{2}$. Since the only morphism from $0$ to $1$ in $\WalkingArrow$ is $f_{01}$, we must have $\beta=f_{01}$ if such a transformation were to exist, and in fact it indeed does, as in this case the naturality diagram above becomes
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    0
+                    \arrow[r,"\id_{0}"]
+                    \arrow[d,"f_{01}"']
+                    \&
+                    0
+                    \arrow[d,"f_{01}"]
+                    \\
+                    1
+                    \arrow[r,"\id_{1}"']
+                    \&
+                    1
+                \end{tikzcd}
+            \]%
+            for each $e\in\Zn{2}$, and this diagram indeed commutes, making $\beta$ into a natural transformation.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-full-functors-interaction-with-postcomposition-2}: Interaction With Postcomposition \rmII}%
+    Taking $\CatFont{X}=\PunctualCategory$, it follows by assumption that the functor
+    \[
+        F_{*}%
+        \colon%
+        \Fun(\PunctualCategory,\CatFont{C})%
+        \to%
+        \Fun(\PunctualCategory,\CatFont{D})%
+    \]%
+    is full. However, by \cref{properties-of-functor-categories-interaction-with-punctual-categories} of \cref{properties-of-functor-categories}, we have isomorphisms of categories
+    \begin{align*}
+        \Fun(\PunctualCategory,\CatFont{C}) &\cong \CatFont{C},\\
+        \Fun(\PunctualCategory,\CatFont{D}) &\cong \CatFont{D}
+    \end{align*}
+    and the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {\Fun(\PunctualCategory,\CatFont{C})}%
+            \arrow[r,"F_{*}"]
+            \arrow[d,bigisoarrow]
+            \&
+            {\Fun(\PunctualCategory,\CatFont{D})}%
+            \arrow[d,bigisoarrowprime]
+            \\
+            \CatFont{C}
+            \arrow[r,"F"']
+            \&
+            \CatFont{D}
+        \end{tikzcd}
+    \]%
+    commutes. It then follows from \cref{properties-of-full-functors-interaction-with-composition} that $F$ is full.
 
     \ProofBox{\cref{properties-of-full-functors-interaction-with-precomposition-1}: Interaction With Precomposition \rmI}%
     Omitted.
@@ -2481,7 +2805,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     of $F$ at $(A,B)$ is bijective.
 \end{definition}
 \begin{proposition}{Properties of Fully Faithful Functors}{properties-of-fully-faithful-functors}%
-    Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ and $G\colon\CatFont{D}\to\CatFont{E}$ be functors.
     \begin{enumerate}
         \item\label{properties-of-fully-faithful-functors-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
             \begin{enumerate}
@@ -2509,6 +2833,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \end{webcompile}
                     in $\Cats$.
             \end{enumerate}
+        \item\label{properties-of-fully-faithful-functors-interaction-with-composition}\SloganFont{Interaction With Composition. }If $F$ and $G$ are fully faithful, then so is $G\circ F$.
         \item\label{properties-of-fully-faithful-functors-conservativity}\SloganFont{Conservativity. }If $F$ is fully faithful, then $F$ is conservative.
         \item\label{properties-of-fully-faithful-functors-essential-injectivity}\SloganFont{Essential Injectivity. }If $F$ is fully faithful, then $F$ is essentially injective.
         \item\label{properties-of-fully-faithful-functors-interaction-with-co-limits}\SloganFont{Interaction With Co/Limits. }If $F$ is fully faithful, then $F$ reflects co/limits.
@@ -2534,7 +2859,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                 \to
                 \Fun(\CatFont{C},\CatFont{X})
             \]%
-            \emph{can fail} to be fully faithful.
+            \demph{can fail} to be fully faithful.
         \item\label{properties-of-fully-faithful-functors-interaction-with-precomposition-2}\SloganFont{Interaction With Precomposition \rmII. }If the precomposition functor
             \[
                 F^{*}
@@ -2543,7 +2868,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                 \to
                 \Fun(\CatFont{C},\CatFont{X})
             \]%
-            is fully faithful, then $F$ \emph{can fail} to be fully faithful (and in fact it can also fail to be either full or faithful).
+            is fully faithful, then $F$ \demph{can fail} to be fully faithful (and in fact it can also fail to be either full or faithful).
         \item\label{properties-of-fully-faithful-functors-interaction-with-precomposition-3}\SloganFont{Interaction With Precomposition \rmIII. }If $F$ is essentially surjective and full, then the precomposition functor
             \[
                 F^{*}
@@ -2665,6 +2990,25 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \FirstProofBox{\cref{properties-of-fully-faithful-functors-characterisations}: Characterisations}%
     Omitted.
 
+    \ProofBox{\cref{properties-of-fully-faithful-functors-interaction-with-composition}: Interaction With Composition}%
+    Since the map
+    \[
+        (G\circ F)_{A,B}
+        \colon
+        \Hom_{\CatFont{C}}(A,B)
+        \to
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    defined as the composition
+    \[
+        \Hom_{\CatFont{C}}(A,B)%
+        \xrightarrow{F_{A,B}}%
+        \Hom_{\CatFont{D}}(F_{A},F_{B})%
+        \xrightarrow{G_{F(A),F(B)}}%
+        \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
+    \]%
+    is a composition of bijective functions, it follows from \cref{TODO} that it is also bijective. Therefore $G\circ F$ is fully faithful.
+
     \ProofBox{\cref{properties-of-fully-faithful-functors-conservativity}: Conservativity}%
     This is a repetition of \cref{properties-of-conservative-functors-interaction-with-fully-faithfulness} of \cref{properties-of-conservative-functors}, and is proved there.
 
@@ -2703,7 +3047,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Slogan: }A functor $F$ is \textbf{conservative} if it reflects isomorphisms.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{itemize}
@@ -2807,7 +3151,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called an \index[categories]{functor!eso}\textbf{eso} functor, where the name \say{eso} comes from \emph{essentially surjective on objects}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     if it satisfies the following condition:
@@ -2940,7 +3284,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             %--- Begin Footnote ---%
             \footnote{%
                 More precisely, we can promote an equivalence of categories $(F,G,\eta,\epsilon)$ to adjoint equivalences $(F,G,\eta',\epsilon)$ and $(F,G,\eta,\epsilon')$.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
         \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids}\SloganFont{Interaction With Groupoids. }If $\CatFont{C}$ and $\CatFont{D}$ are groupoids, then the following conditions are equivalent:
@@ -3209,14 +3553,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Further Terminology: }This statement is known as \index[categories]{Isbell's zigzag theorem}\textbf{Isbell's zigzag theorem}.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \begin{enumerate}
                 \item\label{properties-of-epimorphisms-of-categories-characterisations-a}The functor $F$ is a epimorphism of categories.
                 \item\label{properties-of-epimorphisms-of-categories-characterisations-b}For each morphism $f\colon A\to B$ of $\CatFont{D}$, we have a diagram
-                    \begin{webcompile}
-                        \resizebox{\textwidth}{!}{%
+                    \begin{scalemath}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \&
                             \&
@@ -3287,8 +3630,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                             \arrow[from=3-6,to=4-5,"\psi_{3}"description]%
                             \arrow[from=3-8,to=4-5,"\psi_{m}"description]%
                         \end{tikzcd}
-                        }%
-                    \end{webcompile}
+                    \end{scalemath}
                     in $\CatFont{D}$ satisfying the following conditions:
                     \begin{enumerate}
                         \item\label{properties-of-epimorphisms-of-categories-characterisations-b-a}We have $f=\alpha_{0}\circ\phi_{1}$.
@@ -3515,7 +3857,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                             \Fun(\CatFont{C},\CatFont{X})%
                         \]%
                         to be pseudomonic leads to pseudoepic functors; see \cref{properties-of-pseudoepic-functors-characterisations-b} of \cref{properties-of-pseudoepic-functors-characterisations} of \cref{properties-of-pseudoepic-functors}.
-                        \par\vspace*{-1.75\baselineskip}
+                        \par\vspace*{\TCBBoxCorrection}
                     } %
                     %---  End Footnote  ---%
                     functor
@@ -3790,7 +4132,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called a \index[categories]{functor!bo}\textbf{bo} functor.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     if the action on objects
@@ -4285,13 +4627,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 \end{question}
 \section{Natural Transformations}\label{section-natural-transformations}
 \subsection{Transformations}\label{subsection-natural-transformations-transformations}
-Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors.
+Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors.
 \begin{definition}{Transformations}{transformations-between-functors}%
     A \index[categories]{transformation between functors}\index[categories]{functor!transformation of}\textbf{transformation}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called an \textbf{unnatural transformation} for emphasis.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     \textbf{$\smash{\alpha\colon F\Rightarrow G}$ from $F$ to $G$} is a collection%
@@ -4309,10 +4651,21 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \begin{notation}{The Set of Transformations Between Two Functors}{the-set-of-transformations-between-two-functors}%
     We write \index[notation]{TransFG@$\Trans(F,G)$}$\Trans(F,G)$ for the set of transformations from $F$ to $G$.
 \end{notation}
+\begin{remark}{The Set of Transformations as a Product}{the-set-of-transformations-as-a-product}%
+    We have an isomorphism
+    \[
+        \Trans(F,G)%
+        \cong%
+        \prod_{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A}).%
+    \]%
+\end{remark}
+\begin{Proof}{Proof of \cref{the-set-of-transformations-as-a-product}}%
+    Clear.
+\end{Proof}
 \subsection{Natural Transformations}\label{subsection-natural-transformations-natural-transformations}
 Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors.
 \begin{definition}{Natural Transformations}{natural-transformations}%
-    A \index[categories]{natural transformation}\textbf{natural transformation $\alpha\colon F\Longrightarrow G$ from $F$ to $G$} is a transformation%
+    A \index[categories]{natural transformation}\textbf{natural transformation $\alpha\colon F\Rightarrow G$ from $F$ to $G$} is a transformation%
     \[
         \{%
             \alpha_{A}%
@@ -4339,33 +4692,52 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
         \end{tikzcd}
     \]%
     commutes.%
-    %--- Begin Footnote ---%
-    \footnote{%
-        \SloganFont{Further Terminology: }The morphism $\alpha_{A}\colon F_{A}\to G_{A}$ is called the \textbf{component of $\alpha$ at $A$}.
-        \par\vspace*{-1.75\baselineskip}
-    }%
-    %---  End Footnote  ---%
 \end{definition}
-\begin{remark}{Picturing Natural Transformations in Diagrams}{picturing-natural-transformations-in-diagrams}%
-    We denote natural transformations in diagrams as
-    \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \CatFont{C}
-            \arrow[r, "F"{name=F}, bend left=30]
-            \arrow[r, "G"'{name=G}, bend right=30]
-            \&
-            \CatFont{D}\mrp{.}
-            %--- Adjunction Symbol
-            \arrow[from=F, to=G, Rightarrow, shorten=0.25em, "\alpha"'{pos=0.45}]
-        \end{tikzcd}
-    \]%
+\begin{remark}{Further Terminology and Notation for Natural Transformations}{further-terminology-and-notation-for-natural-transformations}%
+    Let $\alpha\colon F\Rightarrow G$ be a natural transformation.
+    \begin{enumerate}
+        \item\label{further-terminology-and-notation-for-natural-transformations-1}For each $A\in\Obj(\CatFont{C})$, the morphism $\alpha_{A}\colon F_{A}\to G_{A}$ is called the \index[categories]{natural transformation!component of}\textbf{component of $\alpha$ at $A$}.
+        \item\label{further-terminology-and-notation-for-natural-transformations-2}We denote natural transformations such as $\alpha$ in diagrams as
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \CatFont{C}
+                    \arrow[r, "F"{name=F}, bend left=30]
+                    \arrow[r, "G"'{name=G}, bend right=30]
+                    \&
+                    \CatFont{D}\mrp{.}
+                    %--- Adjunction Symbol
+                    \arrow[from=F, to=G, Rightarrow, shorten=0.25em, "\alpha"'{pos=0.45}]
+                \end{tikzcd}
+            \]%
+    \end{enumerate}
 \end{remark}
 \begin{notation}{The Set of Natural Transformations Between Two Functors}{the-set-of-natural-transformations-between-two-functors}%
     We write \index[notation]{NatFG@$\Nat(F,G)$}$\Nat(F,G)$ for the set of natural transformations from $F$ to $G$.
 \end{notation}
+\begin{definition}{Equality of Natural Transformations}{equality-of-natural-transformations}%
+    Two natural transformations $\alpha,\beta\colon F\Rightarrow G$ are \index[categories]{natural transformation!equality of}\textbf{equal} if we have
+    \[\alpha_{A}=\beta_{A}\]%
+    for each $A\in\Obj(\CatFont{C})$.
+\end{definition}
+\subsection{Examples of Natural Transformations}\label{subsection-examples-of-natural-transformations}
 \begin{example}{Identity Natural Transformations}{identity-natural-transformations}%
-    The \index[categories]{natural transformation!identity natural transformation}\textbf{identity natural transformation} \index[notation]{idF@$\id_{F}$}$\id_{F}\colon F\Longrightarrow F$ \textbf{of $F$} is the natural transformation consisting of the collection
-    \[\{\id_{F(A)}\colon F(A)\to F(A)\}_{A\in\Obj(\CatFont{C})}.\]
+    The \index[categories]{natural transformation!identity natural transformation}\textbf{identity natural transformation} \index[notation]{idF@$\id_{F}$}$\id_{F}\colon F\Rightarrow F$ \textbf{of $F$} is the natural transformation consisting of the collection
+    \[
+        \{%
+            (\id_{F})_{A}%
+            \colon%
+            F(A)%
+            \to%
+            F(A)%
+        \}_{A\in\Obj(\CatFont{C})}
+    \]
+    defined by
+    \[
+        (\id_{F})_{A}%
+        \defeq%
+        \id_{F(A)}%
+    \]%
+    for each $A\in\Obj(\CatFont{C})$.
 \end{example}
 \begin{Proof}{Proof of \cref{identity-natural-transformations}}%
     The naturality condition for $\id_{F}$ is the requirement that, for each morphism $f\colon A\to B$ of $\CatFont{C}$, the diagram
@@ -4384,13 +4756,73 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
             {F(B)}
         \end{tikzcd}
     \]%
-    commutes, which follows from unitality of the composition of $\CatFont{C}$.
+    commutes. This follows from unitality of the composition of $\CatFont{D}$, as we have
+    \begin{align*}
+        F(f)\circ\id_{F(A)} &= F(f)\\
+                            &= \id_{F(B)}\circ F(f),\\
+    \end{align*}
+    where we have applied unitality twice.
 \end{Proof}
-\begin{definition}{Equality of Natural Transformations}{equality-of-natural-transformations}%
-    Two natural transformations $\alpha,\beta\colon F\Longrightarrow G$ are \index[categories]{natural transformation!equality of}\textbf{equal} if we have
-    \[\alpha_{A}=\beta_{A}\]%
-    for each $A\in\Obj(\CatFont{C})$.
-\end{definition}
+\begin{example}{Natural Transformations Between Morphisms of Monoids}{natural-transformations-between-morphisms-of-monoids}%
+    Let $A$ and $B$ be monoids and let $f,g\colon A\rightrightarrows B$ be morphisms of monoids. Applying the delooping construction of \cref{TODO}, we obtain functors $\B{f},\B{g}\colon\B{A}\rightrightarrows\B{B}$. We then have
+    \[
+        \Nat(\B{f},\B{g})%
+        \cong%
+        \{%
+            b\in B%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{for each $a\in A$, we}\\%
+                &\text{have $bf(a)=g(a)b$}%
+            \end{aligned}
+        \}.%
+    \]%
+\end{example}
+\begin{Proof}{Proof of \cref{natural-transformations-between-morphisms-of-monoids}}%
+    Unwinding the definitions in this case, we see that a transformation $\alpha$ from $\B{f}$ to $\B{g}$ consists of a collection
+    \[
+        \{%
+            \alpha_{\bullet}%
+            \colon%
+            \bullet%
+            \to%
+            \bullet%
+        \}_{\bullet\in\Obj(\B{A})}%
+    \]%
+    of morphisms of $\B{B}$ indexed by $\Obj(\B{A})$. Since $\Obj(\B{A})=\pt$ and the morphisms of $\B{B}$ are precisely the elements of $B$, it follows that $\alpha$ corresponds precisely to the data of an element $b\in B$. Now, a transformation $[b]\colon\B{f}\Rightarrow\B{g}$ is natural precisely if, for each $a\in\Hom_{\B{A}}(\bullet,\bullet)\defeq A$, the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \B{f}(\bullet)
+            \arrow[r,"{\B{f}(a)}"]
+            \arrow[d,"{[b]_{\bullet}}"']
+            \&
+            \B{f}(\bullet)
+            \arrow[d,"{[b]_{\bullet}}"]
+            \\
+            \B{g}(\bullet)
+            \arrow[r,"{\B{g}(a)}"']
+            \&
+            \B{g}(\bullet)
+        \end{tikzcd}
+    \]%
+    commutes. Unwinding the definitions, we see that this diagram is given by
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \bullet
+            \arrow[r,"{f(a)}"]
+            \arrow[d,"b"']
+            \&
+            \bullet
+            \arrow[d,"b"]
+            \\
+            \bullet
+            \arrow[r,"{g(a)}"']
+            \&
+            \bullet\mrp{,}
+        \end{tikzcd}
+    \]%
+    and hence corresponds precisely to the condition $g(a)b=bf(a)$.
+\end{Proof}
 \subsection{Vertical Composition of Natural Transformations}\label{subsection-vertical-composition-of-natural-transformations}
 \begin{definition}{Vertical Composition of Natural Transformations}{vertical-composition-of-natural-transformations}%
     The \index[categories]{natural transformation!vertical composition}\textbf{vertical composition} of two natural transformations $\alpha\colon F\Longrightarrow G$ and $\beta\colon G\Longrightarrow H$ as in the diagram%
@@ -4473,39 +4905,37 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                 \Nat(F,H).%
             \]%
         \item\label{properties-of-vertical-composition-of-natural-transformations-associativity}\SloganFont{Associativity. }Let $F,G,H,K\colon\CatFont{C}\rightrightrightrightarrows\CatFont{D}$ be functors. The diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{%
-                    \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \Nat(H,K)\times(\Nat(G,H)\times\Nat(F,G))
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \\[0.58778525229\ThreeCmPlusHalf]
-                        (\Nat(H,K)\times\Nat(G,H))\times\Nat(F,G)
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \Nat(H,K)\times\Nat(F,H)
-                        \\[0.95105651629\ThreeCmPlusHalf]
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        \Nat(G,K)\times\Nat(F,G)
-                        \&[0.5\ThreeCmPlusHalf]
-                        \&[0.5\ThreeCmPlusHalf]
-                        \Nat(F,K)
-                        \&[0.30901699437\ThreeCmPlusHalf]
-                        % 1-Arrows
-                        % Left Boundary
-                        \arrow[from=2-1,to=1-3,"\alpha^{\Sets}_{\Nat(H,K),\Nat(G,H),\Nat(F,G)}"{pos=0.4125},isoarrowprime]%
-                        \arrow[from=1-3,to=2-5,"\id_{\Nat(H,K)}\times\circ_{F,G,H}"{pos=0.6}]%
-                        \arrow[from=2-5,to=3-4,"\circ_{F,H,K}"{pos=0.425}]%
-                        % Right Boundary
-                        \arrow[from=2-1,to=3-2,"\circ_{G,H,K}\times\id_{\Nat(F,G)}"'{pos=0.425}]%
-                        \arrow[from=3-2,to=3-4,"\circ_{F,G,K}"']%
-                    \end{tikzcd}
-                }%
-            \end{webcompile}%
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \Nat(H,K)\times(\Nat(G,H)\times\Nat(F,G))
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \\[0.58778525229\ThreeCmPlusHalf]
+                    (\Nat(H,K)\times\Nat(G,H))\times\Nat(F,G)
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \Nat(H,K)\times\Nat(F,H)
+                    \\[0.95105651629\ThreeCmPlusHalf]
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    \Nat(G,K)\times\Nat(F,G)
+                    \&[0.5\ThreeCmPlusHalf]
+                    \&[0.5\ThreeCmPlusHalf]
+                    \Nat(F,K)
+                    \&[0.30901699437\ThreeCmPlusHalf]
+                    % 1-Arrows
+                    % Left Boundary
+                    \arrow[from=2-1,to=1-3,"\alpha^{\Sets}_{\Nat(H,K),\Nat(G,H),\Nat(F,G)}"{pos=0.4125},isoarrowprime]%
+                    \arrow[from=1-3,to=2-5,"\id_{\Nat(H,K)}\times\circ_{F,G,H}"{pos=0.6}]%
+                    \arrow[from=2-5,to=3-4,"\circ_{F,H,K}"{pos=0.425}]%
+                    % Right Boundary
+                    \arrow[from=2-1,to=3-2,"\circ_{G,H,K}\times\id_{\Nat(F,G)}"'{pos=0.425}]%
+                    \arrow[from=3-2,to=3-4,"\circ_{F,G,K}"']%
+                \end{tikzcd}
+            \end{scalemath}%
             commutes, i.e.\ given natural transformations
             \[
                 F\xLongrightarrow{\alpha}G\xLongrightarrow{\beta}H\xLongrightarrow{\gamma}K,%
@@ -4558,34 +4988,32 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                     \]%
             \end{enumerate}
         \item\label{properties-of-vertical-composition-of-natural-transformations-middle-four-exchange}\SloganFont{Middle Four Exchange. }\index[categories]{middle four exchange!in Cats@in $\Cats$}Let $F_{1},F_{2},F_{3}\colon\CatFont{C}\to\CatFont{D}$ and $G_{1},G_{2},G_{3}\colon\CatFont{D}\to\CatFont{E}$ be functors. The diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{%
-                    \begin{tikzcd}[row sep={10.0*\the\DL,between origins}, column sep={15.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        (\Nat(G_{2},G_{3})\times\Nat(G_{1},G_{2}))\times(\Nat(F_{2},F_{3})\times\Nat(F_{1},F_{2}))
-                        \arrow[rr,leftrightarrow,dashed,"\mu_{4}","\scalebox{1.5}{$\sim$}"'{sloped,outer sep=-0.0em}]
-                        \arrow[d,"\circ_{G_{1},G_{2},G_{3}}\times\circ_{F_{1},F_{2},F_{3}}"']
-                        \&
-                        {}
-                        \&
-                        (\Nat(G_{2},G_{3})\times\Nat(F_{2},F_{3}))\times(\Nat(G_{1},G_{2})\times\Nat(F_{1},F_{2}))
-                        \arrow[d,"\twocirc_{F_{2},F_{3},G_{2},G_{3}}\times\twocirc_{F_{1},F_{2},G_{1},G_{2}}"]
-                        \\
-                        \Nat(G_{1},G_{3})\times\Nat(F_{1},F_{3})
-                        \arrow[rd,"\twocirc_{F_{1},F_{3},G_{1},G_{3}}"']
-                        \&
-                        {}
-                        \&
-                        \Nat(G_{2}\circ F_{2},G_{3}\circ F_{3})\times\Nat(G_{1}\circ F_{1},G_{2}\circ F_{2})
-                        \arrow[ld,"\circ_{G_{1}\circ F_{1},G_{2}\circ F_{2},G_{3}\circ F_{3}}"]
-                        \\[-2.0*\the\DL]
-                        {}
-                        \&
-                        \Nat(G_{1}\circ F_{1},G_{3}\circ F_{3})
-                        \&
-                        {}
-                    \end{tikzcd}%
-                }%
-            \end{webcompile}
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={10.0*\the\DL,between origins}, column sep={15.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (\Nat(G_{2},G_{3})\times\Nat(G_{1},G_{2}))\times(\Nat(F_{2},F_{3})\times\Nat(F_{1},F_{2}))
+                    \arrow[rr,leftrightarrow,dashed,"\mu_{4}","\scalebox{1.5}{$\sim$}"'{sloped,outer sep=-0.0em}]
+                    \arrow[d,"\circ_{G_{1},G_{2},G_{3}}\times\circ_{F_{1},F_{2},F_{3}}"']
+                    \&
+                    {}
+                    \&
+                    (\Nat(G_{2},G_{3})\times\Nat(F_{2},F_{3}))\times(\Nat(G_{1},G_{2})\times\Nat(F_{1},F_{2}))
+                    \arrow[d,"\twocirc_{F_{2},F_{3},G_{2},G_{3}}\times\twocirc_{F_{1},F_{2},G_{1},G_{2}}"]
+                    \\
+                    \Nat(G_{1},G_{3})\times\Nat(F_{1},F_{3})
+                    \arrow[rd,"\twocirc_{F_{1},F_{3},G_{1},G_{3}}"']
+                    \&
+                    {}
+                    \&
+                    \Nat(G_{2}\circ F_{2},G_{3}\circ F_{3})\times\Nat(G_{1}\circ F_{1},G_{2}\circ F_{2})
+                    \arrow[ld,"\circ_{G_{1}\circ F_{1},G_{2}\circ F_{2},G_{3}\circ F_{3}}"]
+                    \\[-2.0*\the\DL]
+                    {}
+                    \&
+                    \Nat(G_{1}\circ F_{1},G_{3}\circ F_{3})
+                    \&
+                    {}
+                \end{tikzcd}%
+            \end{scalemath}
             commutes, i.e.\ given a diagram
             \[
                 \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4664,7 +5092,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
             \to%
             \Nat(H\circ F,K\circ G).%
         \]%
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     of two natural transformations $\alpha\colon F\Longrightarrow G$ and $\beta\colon H\Longrightarrow K$ as in the diagram
@@ -4786,7 +5214,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Reference: }\cite[Proposition 1.3.4]{borceux1994handbook1}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
 \end{Proof}
@@ -4828,7 +5256,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Further Notation: }Also written \index[notation]{alphaF@$\alpha F$}$\alpha F$ or \index[notation]{Fstaralpha@$\alpha\twocirc F$}$\alpha\twocirc F$, although we won't use either of these notations in this work.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
@@ -4872,30 +5300,28 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                 \end{tikzcd}
             \]%
             be a diagram in $\TwoCategoryOfCategories$. The diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{%
-                    \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={25.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \Nat(F_{3},G_{3})\times
-                        \Nat(F_{2},G_{2})
-                        \times
-                        \Nat(F_{1},G_{1})
-                        \arrow[r,"\twocirc_{(F_{2},G_{2}),(F_{3},G_{3})}\times\sfid"]
-                        \arrow[d,"\sfid\times\twocirc_{(F_{1},G_{1}),(F_{2},G_{2})}"']
-                        \&
-                        \Nat(F_{3}\circ F_{2},G_{3}\circ G_{2})
-                        \times
-                        \Nat(F_{1},G_{1})
-                        \arrow[d,"\twocirc_{(F_{3}\circ F_{2}),(G_{3}\circ G_{2},F_{1},G_{1})}"]
-                        \\
-                        \Nat(F_{3},G_{3})
-                        \times
-                        \Nat(F_{2}\circ F_{1},G_{2}\circ G_{1})
-                        \arrow[r,"\twocirc_{(F_{2}\circ F_{1}),(G_{2}\circ G_{1},F_{3},G_{3})}"']
-                        \&
-                        \Nat(F_{3}\circ F_{2}\circ F_{1},G_{3}\circ G_{2}\circ G_{1})
-                    \end{tikzcd}%
-                }%
-            \end{webcompile}
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={25.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Nat(F_{3},G_{3})\times
+                    \Nat(F_{2},G_{2})
+                    \times
+                    \Nat(F_{1},G_{1})
+                    \arrow[r,"\twocirc_{(F_{2},G_{2}),(F_{3},G_{3})}\times\sfid"]
+                    \arrow[d,"\sfid\times\twocirc_{(F_{1},G_{1}),(F_{2},G_{2})}"']
+                    \&
+                    \Nat(F_{3}\circ F_{2},G_{3}\circ G_{2})
+                    \times
+                    \Nat(F_{1},G_{1})
+                    \arrow[d,"\twocirc_{(F_{3}\circ F_{2}),(G_{3}\circ G_{2},F_{1},G_{1})}"]
+                    \\
+                    \Nat(F_{3},G_{3})
+                    \times
+                    \Nat(F_{2}\circ F_{1},G_{2}\circ G_{1})
+                    \arrow[r,"\twocirc_{(F_{2}\circ F_{1}),(G_{2}\circ G_{1},F_{3},G_{3})}"']
+                    \&
+                    \Nat(F_{3}\circ F_{2}\circ F_{1},G_{3}\circ G_{2}\circ G_{1})
+                \end{tikzcd}%
+            \end{scalemath}
             commutes, i.e.\ given natural transformations
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4947,34 +5373,32 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                 \id_{G\circ F}.%
             \]
         \item\label{properties-of-horizontal-composition-of-natural-transformations-middle-four-exchange}\SloganFont{Middle Four Exchange. }\index[categories]{middle four exchange!in Cats@in $\Cats$}Let $F_{1},F_{2},F_{3}\colon\CatFont{C}\to\CatFont{D}$ and $G_{1},G_{2},G_{3}\colon\CatFont{D}\to\CatFont{E}$ be functors. The diagram
-            \begin{webcompile}
-                \resizebox{\textwidth}{!}{%
-                    \begin{tikzcd}[row sep={10.0*\the\DL,between origins}, column sep={15.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        (\Nat(G_{2},G_{3})\times\Nat(G_{1},G_{2}))\times(\Nat(F_{2},F_{3})\times\Nat(F_{1},F_{2}))
-                        \arrow[rr,leftrightarrow,dashed,"\mu_{4}","\scalebox{1.5}{$\sim$}"'{sloped,outer sep=-0.0em}]
-                        \arrow[d,"\circ_{G_{1},G_{2},G_{3}}\times\circ_{F_{1},F_{2},F_{3}}"']
-                        \&
-                        {}
-                        \&
-                        (\Nat(G_{2},G_{3})\times\Nat(F_{2},F_{3}))\times(\Nat(G_{1},G_{2})\times\Nat(F_{1},F_{2}))
-                        \arrow[d,"\twocirc_{F_{2},F_{3},G_{2},G_{3}}\times\twocirc_{F_{1},F_{2},G_{1},G_{2}}"]
-                        \\
-                        \Nat(G_{1},G_{3})\times\Nat(F_{1},F_{3})
-                        \arrow[rd,"\twocirc_{F_{1},F_{3},G_{1},G_{3}}"']
-                        \&
-                        {}
-                        \&
-                        \Nat(G_{2}\circ F_{2},G_{3}\circ F_{3})\times\Nat(G_{1}\circ F_{1},G_{2}\circ F_{2})
-                        \arrow[ld,"\circ_{G_{1}\circ F_{1},G_{2}\circ F_{2},G_{3}\circ F_{3}}"]
-                        \\[-2.0*\the\DL]
-                        {}
-                        \&
-                        \Nat(G_{1}\circ F_{1},G_{3}\circ F_{3})
-                        \&
-                        {}
-                    \end{tikzcd}%
-                }%
-            \end{webcompile}
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={10.0*\the\DL,between origins}, column sep={15.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (\Nat(G_{2},G_{3})\times\Nat(G_{1},G_{2}))\times(\Nat(F_{2},F_{3})\times\Nat(F_{1},F_{2}))
+                    \arrow[rr,leftrightarrow,dashed,"\mu_{4}","\scalebox{1.5}{$\sim$}"'{sloped,outer sep=-0.0em}]
+                    \arrow[d,"\circ_{G_{1},G_{2},G_{3}}\times\circ_{F_{1},F_{2},F_{3}}"']
+                    \&
+                    {}
+                    \&
+                    (\Nat(G_{2},G_{3})\times\Nat(F_{2},F_{3}))\times(\Nat(G_{1},G_{2})\times\Nat(F_{1},F_{2}))
+                    \arrow[d,"\twocirc_{F_{2},F_{3},G_{2},G_{3}}\times\twocirc_{F_{1},F_{2},G_{1},G_{2}}"]
+                    \\
+                    \Nat(G_{1},G_{3})\times\Nat(F_{1},F_{3})
+                    \arrow[rd,"\twocirc_{F_{1},F_{3},G_{1},G_{3}}"']
+                    \&
+                    {}
+                    \&
+                    \Nat(G_{2}\circ F_{2},G_{3}\circ F_{3})\times\Nat(G_{1}\circ F_{1},G_{2}\circ F_{2})
+                    \arrow[ld,"\circ_{G_{1}\circ F_{1},G_{2}\circ F_{2},G_{3}\circ F_{3}}"]
+                    \\[-2.0*\the\DL]
+                    {}
+                    \&
+                    \Nat(G_{1}\circ F_{1},G_{3}\circ F_{3})
+                    \&
+                    {}
+                \end{tikzcd}%
+            \end{scalemath}
             commutes, i.e.\ given a diagram
             \[
                 \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -5025,43 +5449,40 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-middle-four-exchange}: Middle Four Exchange}%
     Let $A\in\Obj(\CatFont{C})$ and consider the diagram
-    \begin{webcompile}
-        \resizebox{\textwidth}{!}{%
-            \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[3.0*\the\DL]
-                \&
-                G_{1}(F_{3}(A))
-                \arrow[rd, "\beta_{F_{3}(A)}"]
-                \&
-                \&[3.0*\the\DL]
-                \\
-                G_{1}(F_{1}(A))
-                \arrow[r, "{G_{1}(\alpha_{A})}"]
-                \&[3.0*\the\DL]
-                G_{1}(F_{2}(A))
-                \arrow[ru, "{G_{1}(\alpha'_{A})}"]
-                \arrow[rd, "\beta_{F_{2}(A)}"']
-                \&
-                \&
-                G_{2}(F_{3}(A))
-                \arrow[r, "\beta'_{F_{3}(A)}"]
-                \&[3.0*\the\DL]
-                G_{3}(F_{3}(A))\mrp{.}
-                \\
-                \&[3.0*\the\DL]
-                \&
-                G_{2}(F_{2}(A))
-                \arrow[ru, "{G_{2}(\alpha'_{A})}"']
-                \&
-                \&[3.0*\the\DL]
-                % Subdiagrams
-                \arrow[from=1-3,to=3-3, phantom, "(1)"]
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[3.0*\the\DL]
+            \&
+            G_{1}(F_{3}(A))
+            \arrow[rd, "\beta_{F_{3}(A)}"]
+            \&
+            \&[3.0*\the\DL]
+            \\
+            G_{1}(F_{1}(A))
+            \arrow[r, "{G_{1}(\alpha_{A})}"]
+            \&[3.0*\the\DL]
+            G_{1}(F_{2}(A))
+            \arrow[ru, "{G_{1}(\alpha'_{A})}"]
+            \arrow[rd, "\beta_{F_{2}(A)}"']
+            \&
+            \&
+            G_{2}(F_{3}(A))
+            \arrow[r, "\beta'_{F_{3}(A)}"]
+            \&[3.0*\the\DL]
+            G_{3}(F_{3}(A))\mrp{.}
+            \\
+            \&[3.0*\the\DL]
+            \&
+            G_{2}(F_{2}(A))
+            \arrow[ru, "{G_{2}(\alpha'_{A})}"']
+            \&
+            \&[3.0*\the\DL]
+            % Subdiagrams
+            \arrow[from=1-3,to=3-3, phantom, "(1)"]
+        \end{tikzcd}
+    \end{scalemath}
     The top composition
-    \begin{webcompile}
-        \resizebox{\textwidth}{!}{%
+    \begin{scalemath}
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&[3.0*\the\DL]
             \&
@@ -5092,11 +5513,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
             % Subdiagrams
             \arrow[from=1-3,to=3-3, phantom, "(1)",gray!40]
         \end{tikzcd}
-        }%
-    \end{webcompile}
+    \end{scalemath}
     is given by $((\beta'\circ\beta)\twocirc(\alpha'\circ\alpha))_{A}$, while the bottom composition
-    \begin{webcompile}
-        \resizebox{\textwidth}{!}{%
+    \begin{scalemath}
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&[3.0*\the\DL]
             \&
@@ -5127,8 +5546,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
             % Subdiagrams
             \arrow[from=1-3,to=3-3, phantom, "(1)",gray!40]
         \end{tikzcd}
-        }%
-    \end{webcompile}
+    \end{scalemath}
     is given by $((\beta'\twocirc\alpha')\circ(\beta\twocirc\alpha))_{A}$. Now, Subdiagram (1) corresponds to the naturality condition
     \begin{webcompile}
         G_{2}(\alpha'_{A})\circ\beta_{F_{2}(A)}%
@@ -5169,7 +5587,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
     %--- Begin Footnote ---%
     \footnote{%
         Taken from \cite{MO64365}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
@@ -5359,7 +5777,7 @@ Let $\CatFont{C}$ be a category and $\CatFont{D}$ be a small category.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{DC@$\CatFont{D}^{\CatFont{C}}$}$\CatFont{D}^{\CatFont{C}}$ and \index[notation]{CD@$[\CatFont{C},\CatFont{D}]$}$[\CatFont{C},\CatFont{D}]$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     where
@@ -5409,21 +5827,13 @@ Let $\CatFont{C}$ be a category and $\CatFont{D}$ be a small category.
     Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
     \begin{enumerate}
         \item\label{properties-of-functor-categories-functoriality}\SloganFont{Functoriality. }The assignments $\CatFont{C},\CatFont{D},(\CatFont{C},\CatFont{D})\mapsto\Fun(\CatFont{C},\CatFont{D})$ define functors
-            \begin{gather*}
-                \begin{aligned}
-                    \Fun(\CatFont{C},-_{2})    &\colon                  \Cats \to \Cats,\\
-                    \Fun(-_{1},\CatFont{D})    &\colon \Cats^{\op}            \to \Cats,
-                \end{aligned}\\
-                \Fun(-_{1},-_{2})               \colon \Cats^{\op}\times\Cats \to \Cats.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{\Fun(\CatFont{C},-)}{\Fun(-,\CatFont{D})}{\Fun(-_{1},-_{2})}{\Cats}{\Cats\mrp{{}^{\op}}}{\Cats^{\op}\times\Cats}{\Cats}%
+            \]%
         \item\label{properties-of-functor-categories-2-functoriality}\SloganFont{2-Functoriality. }The assignments $\CatFont{C},\CatFont{D},(\CatFont{C},\CatFont{D})\mapsto\Fun(\CatFont{C},\CatFont{D})$ define 2-functors
-            \begin{gather*}
-                \begin{aligned}
-                    \Fun(\CatFont{C},-_{2})    &\colon                                     \TwoCategoryOfCategories \to \TwoCategoryOfCategories,\\
-                    \Fun(-_{1},\CatFont{D})    &\colon \TwoCategoryOfCategories^{\op}                               \to \TwoCategoryOfCategories,
-                \end{aligned}\\
-                \Fun(-_{1},-_{2})               \colon \TwoCategoryOfCategories^{\op}\times\TwoCategoryOfCategories \to \TwoCategoryOfCategories.
-            \end{gather*}
+            \[
+                \BifunctorialityPeriod{\Fun(\CatFont{C},-)}{\Fun(-,\CatFont{D})}{\Fun(-_{1},-_{2})}{\TwoCategoryOfCategories}{\TwoCategoryOfCategories^{\mrp{\op}}}{\TwoCategoryOfCategories^{\op}\times\TwoCategoryOfCategories}{\TwoCategoryOfCategories}%
+            \]%
         \item\label{properties-of-functor-categories-adjointness}\SloganFont{Adjointness. }We have adjunctions
             \begin{webcompile}
                 \begin{gathered}

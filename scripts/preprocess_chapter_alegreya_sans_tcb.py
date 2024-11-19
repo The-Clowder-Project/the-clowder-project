@@ -2,13 +2,11 @@ import re, os, io, sys, time, preprocess
 
 def replacement(line):
     # Everyone
+    line = preprocess.leftright_square_brackets_and_curly_brackets(line)
     line = preprocess.proofbox_two(line)
     line = preprocess.tcbthm(line)
-    line = preprocess.leftright_square_brackets_and_curly_brackets(line)
     line = preprocess.expand_adjunctions(line)
     line = preprocess.textdbend(line)
-    #if line.find("\\par\\vspace") >= 0:
-    #    line = ""
     if line.find("%\\item") >= 0:
         line = ""
     if line.find("\\item\\label") >= 0:

@@ -79,6 +79,7 @@ print "\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{
 #print "\\end{center}"
 #print "\\vspace*{\\fill}"
 #print "\\endgroup"
+print_list_contrib(path)
 print "\\dominitoc"
 print "{\\ShortTableOfContents}"
 print "\\clearpage"
@@ -103,14 +104,11 @@ for name in lijstje:
     tex_file = open(filename, 'r')
     verbatim = 0
     for line in tex_file:
-        #line = preprocess.amsthm(line)
-        line = preprocess.tcbthm(line)
-        #line = preprocess.proof(line)
-        #line = preprocess.proofbox_cm(line)
-        # Everyone
+        #line = preprocess.leftright_square_brackets_and_curly_brackets(line)
         line = preprocess.proofbox_two(line)
-        line = preprocess.leftright_square_brackets_and_curly_brackets(line)
+        line = preprocess.tcbthm(line)
         line = preprocess.expand_adjunctions(line)
+        line = preprocess.textdbend(line)
         verbatim = verbatim + beginning_of_verbatim(line)
         if verbatim:
             if end_of_verbatim(line):
@@ -141,8 +139,6 @@ for name in lijstje:
             line = line.replace("ABSOLUTEPATH", absolute_path)
         if line.find("%\\item") >= 0:
             continue
-        #if line.find("\\par\\vspace") >= 0:
-        #    continue
         if line.find("\\item\\label") >= 0:
             line = re.sub(r'(\\SloganFont{[^}]+})',r'\1%\n',line)
             #if line.find("\\item\\label{(.*?)}\\SloganFont{(.*?)}") >= 0:
@@ -160,7 +156,7 @@ for name in lijstje:
         if is_label_tcb(line):
             text = "\\label{" + name + ":"
             line = line.replace("\\label{", text)
-            line = re.sub(r"\\begin\{(definition|question|proposition|remark|notation|theorem|example)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{"+name+r":\3}",line)
+            line = re.sub(r"\\begin\{(definition|question|proposition|lemma|remark|warning|notation|theorem|example|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{"+name+r":\3}",line)
         if contains_cref(line):
             line = replace_crefs(line, name)
         print line,
@@ -177,6 +173,7 @@ print "\\printindex[notation]"
 print "\\printindex[set-theory]"
 print "\\printindex[categories]"
 print "\\printindex[higher-categories]"
+print "\\printindex[representation-theory]"
 #print "\\printindex[algebra]"
 #print "\\printindex[algebraic-geometry]"
 #print "\\printindex[analysis]"

@@ -1,0 +1,528 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Constructions With Monoidal Categories}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material on constructions with monoidal categories.
+
+\ChapterTableOfContents
+
+\section{Moduli Categories of Monoidal Structures}\label{section-moduli-categories-of-monoidal-structures}
+\subsection{The Moduli Category of Monoidal Structures on a Category}\label{subsection-the-moduli-category-of-monoidal-structures-on-a-category}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{The Moduli Category of Monoidal Structures on a Category}{the-moduli-category-of-monoidal-structures-on-a-category}%
+    The \index[categories]{moduli category!of monoidal structures}\textbf{moduli category of monoidal structures on $\CatFont{C}$} is the category \index[notation]{MEoneC@$\ModuliCategory_{\E_{1}}(\CatFont{C})$}$\ModuliCategory_{\E_{1}}(\CatFont{C})$ defined by
+    \begin{webcompile}
+        \ModuliCategory_{\E_{1}}(\CatFont{C})%
+        \defeq%
+        \PunctualCategory\times_{\Cats}\MonCats,%
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \ModuliCategory_{\E_{1}}(\CatFont{C})
+            \arrow[r]
+            \arrow[d]
+            \arrow[rd,very near start,phantom,"\lrcorner"]
+            \&
+            \MonCats
+            \arrow[d,"\Wasureru"]
+            \\
+            \PunctualCategory
+            \arrow[r,"{[\CatFont{C}]}"']
+            \&
+            \Cats\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+\end{definition}
+\begin{remark}{Unwinding \cref{the-moduli-category-of-monoidal-structures-on-a-category}, \rmI}{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-1}%
+    In detail, \textbf{the moduli category of monoidal structures on $\CatFont{C}$} is the category $\ModuliCategory_{\E_{1}}(\CatFont{C})$ where:
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\ModuliCategory_{\E_{1}}(\CatFont{C})$ are monoidal categories $\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)$ whose underlying category is $\CatFont{C}$.
+        \item\SloganFont{Morphisms. }A morphism from $\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)$ to $\left(\phantom{\mrp{\LUnitor^{\CatFont{C},\prime}}}\CatFont{C}\right.$, $\boxtimes_{\CatFont{C}}$, $\Unit'_{\CatFont{C}}$, $\alpha^{\CatFont{C},\prime}$, $\LUnitor^{\CatFont{C},\prime}$, $\left.\RUnitor^{\CatFont{C},\prime}\right)$ is a monoidal functor structure
+            \begin{gather*}
+                \id^{\otimes}_{\CatFont{C}}       \colon A\otimes_{\CatFont{C}}B \isorightarrow A\boxtimes_{\CatFont{C}}B,\\
+                \id^{\otimes}_{\Unit|\CatFont{C}} \colon \Unit_{\CatFont{C}}     \isorightarrow \Unit'_{\CatFont{C}}
+            \end{gather*}
+            on the identity functor $\id_{\CatFont{C}}\colon\CatFont{C}\to\CatFont{C}$ of $\CatFont{C}$.
+        \item\SloganFont{Identities. }For each $M\defeq\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)\in\Obj(\ModuliCategory_{\E_{1}}(\CatFont{C}))$, the unit map
+            \[
+                \Unit^{\ModuliCategory_{\E_{1}}(\CatFont{C})}_{M,M}
+                \colon%
+                \pt%
+                \to
+                \Hom_{\ModuliCategory_{\E_{1}}(\CatFont{C})}(M,M)
+            \]%
+            of $\ModuliCategory_{\E_{1}}(\CatFont{C})$ at $M$ is defined by
+            \[
+                \id^{\ModuliCategory_{\E_{1}}(\CatFont{C})}_{M}%
+                \defeq
+                (\id_{\otimes_{\CatFont{C}}},\id_{\Unit_{\CatFont{C}}}),%
+            \]%
+            where $\Big(\id_{\otimes_{\CatFont{C}}},\id_{\Unit_{\CatFont{C}}}\Big)$ is the identity monoidal functor of \cref{TODO}.
+        \item\SloganFont{Composition. }For each $M,N,P\in\Obj(\ModuliCategory_{\E_{1}}(\CatFont{C}))$, the composition map
+            \[
+                \circ^{\ModuliCategory_{\E_{1}}(\CatFont{C})}_{M,N,P}%
+                \colon%
+                \Hom_{\ModuliCategory_{\E_{1}}(\CatFont{C})}(N,P)%
+                \times%
+                \Hom_{\ModuliCategory_{\E_{1}}(\CatFont{C})}(M,N)%
+                \to%
+                \Hom_{\ModuliCategory_{\E_{1}}(\CatFont{C})}(M,P)%
+            \]%
+            of $\ModuliCategory_{\E_{1}}(\CatFont{C})$ at $(M,N,P)$ is defined by
+            \[
+                \Big(\id^{\otimes,\prime}_{\CatFont{C}},\id^{\otimes,\prime}_{\Unit|\CatFont{C}}\Big)%
+                \mathbin{\circ^{\ModuliCategory_{\E_{1}}(\CatFont{C})}_{M,N,P}}%
+                \Big(\id^{\otimes}_{\CatFont{C}},\id^{\otimes}_{\Unit|\CatFont{C}}\Big)%
+                \defeq
+                \Big(\id^{\otimes,\prime}_{\CatFont{C}}\circ\id^{\otimes}_{\CatFont{C}},\id^{\otimes,\prime}_{\Unit|\CatFont{C}}\circ\id^{\otimes}_{\Unit|\CatFont{C}}\Big).%
+            \]%
+    \end{itemize}
+\end{remark}
+\begin{remark}{Unwinding \cref{the-moduli-category-of-monoidal-structures-on-a-category}, \rmII}{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}%
+    In particular, a morphism in $\ModuliCategory_{\E_{1}}(\CatFont{C})$ from $\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)$ to $\left(\phantom{\mrp{\LUnitor^{\CatFont{C},\prime}}}\CatFont{C}\right.$, $\boxtimes_{\CatFont{C}}$, $\Unit'_{\CatFont{C}}$, $\alpha^{\CatFont{C},\prime}$, $\LUnitor^{\CatFont{C},\prime}$, $\left.\RUnitor^{\CatFont{C},\prime}\right)$ satisfies the following conditions:
+    \begin{enumerate}
+        \item\label{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-naturality}\SloganFont{Naturality. }For each pair $f\colon A\to X$ and $g\colon B\to Y$ of morphisms of $\CatFont{C}$, the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A\otimes_{\CatFont{C}}B
+                    \arrow[r,"f\otimes_{\CatFont{C}}g"]
+                    \arrow[d,"\id^{\otimes}_{A,B}"']
+                    \&
+                    X\otimes_{\CatFont{C}}Y
+                    \arrow[d,"\id^{\otimes}_{X,Y}"]
+                    \\
+                    A\boxtimes_{\CatFont{C}}B
+                    \arrow[r,"f\boxtimes_{\CatFont{C}}g"']
+                    \&
+                    X\boxtimes_{\CatFont{C}}Y
+                \end{tikzcd}
+            \]%
+            commutes.
+        \item\label{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality}\SloganFont{Monoidality. }For each $A,B,C\in\Obj(\CatFont{C})$, the diagram
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \arrow[ld,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"',pos=0.525]
+                    \arrow[rd,"\alpha^{\CatFont{C}}_{A,B,C}",pos=0.525]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    \\[0.5\TwoCmPlusHalf]
+                    (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \arrow[d,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                    \arrow[d,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                    \\[\TwoCmPlusHalf]
+                    (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                    \arrow[rd,"\alpha^{\CatFont{C},\prime}_{A,B,C}"',pos=0.425]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \arrow[ld,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}",pos=0.425]
+                    \\[0.5\TwoCmPlusHalf]
+                    \&[0.86602540378\TwoCmPlusHalf]
+                    A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \&[0.86602540378\TwoCmPlusHalf]
+                \end{tikzcd}
+            \]%
+            commutes.
+        \item\label{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-left-monoidal-unity}\SloganFont{Left Monoidal Unity. }For each $A\in\Obj(\CatFont{C})$, the diagram
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.5\ThreeCm]
+                    \Unit'_{\CatFont{C}}\otimes_{\CatFont{C}}A
+                    \&[0.8\ThreeCm]
+                    \Unit'_{\CatFont{C}}\boxtimes_{\CatFont{C}}A
+                    \&[0.5\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
+                    \&[0.5\ThreeCm]
+                    \&[0.8\ThreeCm]
+                    \&[0.5\ThreeCm]
+                    A
+                    % 1-Arrows
+                    \arrow[from=2-1,to=1-2,"\id^{\otimes}_{\Unit}\otimes_{\CatFont{C}}\id_{A}",pos=0.325]%
+                    \arrow[from=1-2,to=1-3,"\id^{\otimes}_{\Unit'_{\CatFont{C}},A}"]%
+                    \arrow[from=1-3,to=2-4,"\LUnitor^{\CatFont{C},\prime}_{A}",pos=0.525]%
+                    %
+                    \arrow[from=2-1,to=2-4,"\LUnitor^{\CatFont{C}}_{A}"']%
+                \end{tikzcd}
+            \]%
+            commutes.
+        \item\label{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-right-monoidal-unity}\SloganFont{Right Monoidal Unity. }For each $A\in\Obj(\CatFont{C})$, the diagram
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.5\ThreeCm]
+                    A\otimes_{\CatFont{C}}\Unit'_{\CatFont{C}}
+                    \&[0.8\ThreeCm]
+                    A\boxtimes_{\CatFont{C}}\Unit'_{\CatFont{C}}
+                    \&[0.5\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+                    \&[0.5\ThreeCm]
+                    \&[0.8\ThreeCm]
+                    \&[0.5\ThreeCm]
+                    A
+                    % 1-Arrows
+                    \arrow[from=2-1,to=1-2,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{\Unit}",pos=0.325]%
+                    \arrow[from=1-2,to=1-3,"\id^{\otimes}_{A,\Unit'_{\CatFont{C}}}"]%
+                    \arrow[from=1-3,to=2-4,"\RUnitor^{\CatFont{C},\prime}_{A}",pos=0.525]%
+                    %
+                    \arrow[from=2-1,to=2-4,"\RUnitor^{\CatFont{C}}_{A}"']%
+                \end{tikzcd}
+            \]%
+            commutes.
+    \end{enumerate}
+\end{remark}
+\begin{proposition}{Properties of the Moduli Category of Monoidal Structures on a Category}{properties-of-the-moduli-category-of-monoidal-structures-on-a-category}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions}\SloganFont{Extra Monoidality Conditions. }Let $\big(\id^{\otimes}_{\CatFont{C}},\id^{\otimes}_{\Unit|\CatFont{C}}\big)$ be a morphism of $\ModuliCategory_{\E_{1}}(\CatFont{C})$ from $\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)$ to $\left(\phantom{\mrp{\LUnitor^{\CatFont{C},\prime}}}\CatFont{C}\right.$, $\boxtimes_{\CatFont{C}}$, $\Unit'_{\CatFont{C}}$, $\alpha^{\CatFont{C},\prime}$, $\LUnitor^{\CatFont{C},\prime}$, $\left.\RUnitor^{\CatFont{C},\prime}\right)$.
+            \begin{enumerate}
+                \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-1}The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"]
+                            \arrow[d,"\id^{\otimes}_{A\otimes_{\CatFont{C}}B,C}"']
+                            \&
+                            (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[d,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"]
+                            \\
+                            (A\otimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\id^{\otimes}_{A,B}\boxtimes_{\CatFont{C}}\id_{C}"']
+                            \&
+                            (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                        \end{tikzcd}
+                    \]%
+                    commutes.
+                \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-2}The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[r,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A,B\otimes_{\CatFont{C}}C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                            \arrow[d,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}"]
+                            \\
+                            A\boxtimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[r,"\id_{A}\boxtimes_{\CatFont{C}}\id^{\otimes}_{B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    commutes.
+            \end{enumerate}
+        \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators}\SloganFont{Mixed Associators. }Let $\left(\phantom{\mrp{\LUnitor^{\CatFont{C}}}}\CatFont{C}\right.$, $\otimes_{\CatFont{C}}$, $\Unit_{\CatFont{C}}$, $\alpha^{\CatFont{C}}$, $\LUnitor^{\CatFont{C}}$, $\left.\RUnitor^{\CatFont{C}}\right)$ and $\left(\phantom{\mrp{\LUnitor^{\CatFont{C},\prime}}}\CatFont{C}\right.$, $\boxtimes_{\CatFont{C}}$, $\Unit'_{\CatFont{C}}$, $\alpha^{\CatFont{C},\prime}$, $\LUnitor^{\CatFont{C},\prime}$, $\left.\RUnitor^{\CatFont{C},\prime}\right)$ be monoidal structures on $\CatFont{C}$ and let
+            \[
+                \id^{\otimes}_{-_{1},-_{2}}%
+                \colon%
+                -_{1}\otimes_{\CatFont{C}}-_{2}%
+                \to%
+                -_{1}\boxtimes_{\CatFont{C}}-_{2}%
+            \]%
+            be a natural transformation. 
+            \begin{enumerate}
+                \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-1}If there exists a natural transformation
+                    \[
+                        \alpha^{\otimes}_{A,B,C}%
+                        \colon%
+                        (A\otimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C%
+                        \to%
+                        A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)%
+                    \]%
+                    making the diagrams
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C}}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A\otimes_{\CatFont{C}}B,C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[d,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                            \\
+                            (A\otimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\otimes}_{A,B,C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    and
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\otimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\otimes}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A,B}\boxtimes_{\CatFont{C}}\id_{C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                            \arrow[d,"\id_{A,B\boxtimes_{\CatFont{C}}C}"]
+                            \\
+                            (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C},\prime}_{A,B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    commute, then the natural transformation $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+                \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-2}If there exists a natural transformation
+                    \[
+                        \alpha^{\boxtimes}_{A,B,C}%
+                        \colon%
+                        (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C%
+                        \to%
+                        A\boxtimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)%
+                    \]%
+                    making the diagrams
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C}}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[d,"\id^{\otimes}_{A,B\otimes_{\CatFont{C}}C}"]
+                            \\
+                            (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\boxtimes}_{A,B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    and
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\boxtimes}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[d,"\id_{A}\boxtimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                            \\
+                            (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C},\prime}_{A,B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    commute, then the natural transformation $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+                \item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-3}If there exists a natural transformation
+                    \[
+                        \alpha^{\boxtimes,\otimes}_{A,B,C}%
+                        \colon%
+                        (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C%
+                        \to%
+                        A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)%
+                    \]%
+                    making the diagrams
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C}}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                            \arrow[d,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                            \\
+                            (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\boxtimes,\otimes}_{A,B,C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    and
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\boxtimes,\otimes}_{A,B,C}"]
+                            \arrow[d,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                            \&
+                            A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                            \arrow[d,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}"]
+                            \\
+                            (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                            \arrow[r,"\alpha^{\CatFont{C},\prime}_{A,B,C}"']
+                            \&
+                            A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                        \end{tikzcd}
+                    \]%
+                    commute, then the natural transformation $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+            \end{enumerate}
+        %\item\label{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category}}%
+    \FirstProofBox{\cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions}: Extra Monoidality Conditions}%
+    We claim that \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-1,properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-2} are indeed true:
+    \begin{enumerate}
+        \item\SloganFont{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-1}: }This follows from the naturality of $\id^{\otimes}$ with respect to the morphisms $\id^{\otimes}_{A,B}$ and $\id_{C}$.
+        \item\SloganFont{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-2}: }This follows from the naturality of $\id^{\otimes}$ with respect to the morphisms $\id_{A}$ and $\id^{\otimes}_{B,C}$.
+    \end{enumerate}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators}: Mixed Associators}%
+    We claim that \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-1,properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-2,properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-3} are indeed true:
+    \begin{enumerate}
+        \item\label{proof-of-properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-1}\SloganFont{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-1}: }We may partition the monoidality diagram for $\id^{\otimes}$ of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2} as follows:
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.86602540378\ThreeCm]
+                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    (A\otimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \&[0.86602540378\ThreeCm]
+                    % 1-Arrows
+                    % Hexagon Left
+                    \arrow[from=1-2,to=2-1,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"',pos=0.55]%
+                    \arrow[from=2-1,to=4-1,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                    \arrow[from=4-1,to=5-2,"\alpha^{\CatFont{C},\prime}_{A,B,C}"',pos=0.425]%
+                    % Hexagon Right
+                    \arrow[from=1-2,to=2-3,"\alpha^{\CatFont{C}}_{A,B,C}",pos=0.45]
+                    \arrow[from=2-3,to=4-3,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                    \arrow[from=4-3,to=5-2,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}",pos=0.425]
+                    % Internal Arrows
+                    \arrow[from=1-2,to=3-2,"\id^{\otimes}_{A\otimes_{\CatFont{C}}B,C}"description]%
+                    \arrow[from=3-2,to=4-1,"\id^{\otimes}_{A,B}\boxtimes_{\CatFont{C}}\id_{C}"description]%
+                    \arrow[from=3-2,to=4-3,"\alpha^{\otimes}_{A,B,C}"description]%
+                    % Subdiagrams
+                    \arrow[from=2-1,to=3-2,"\scriptstyle(1)",phantom]%
+                    \arrow[from=3-2,to=2-3,"\scriptstyle(2)",phantom]%
+                    \arrow[from=3-2,to=5-2,"\scriptstyle(3)",phantom]%
+                \end{tikzcd}
+            \]%
+            Since:
+            \begin{itemize}
+                \item Subdiagram (1) commutes by \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-1} of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions}.
+                \item Subdiagram (2) commutes by assumption.
+                \item Subdiagram (3) commutes by assumption.
+            \end{itemize}
+            it follows that the boundary diagram also commutes, i.e.\ $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+        \item\label{proof-of-properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-2}\SloganFont{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-2}: }We may partition the monoidality diagram for $\id^{\otimes}$ of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2} as follows:
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.86602540378\ThreeCm]
+                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\boxtimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \&[0.86602540378\ThreeCm]
+                    % 1-Arrows
+                    % Hexagon Left
+                    \arrow[from=1-2,to=2-1,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"',pos=0.55]%
+                    \arrow[from=2-1,to=4-1,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                    \arrow[from=4-1,to=5-2,"\alpha^{\CatFont{C},\prime}_{A,B,C}"',pos=0.425]%
+                    % Hexagon Right
+                    \arrow[from=1-2,to=2-3,"\alpha^{\CatFont{C}}_{A,B,C}",pos=0.45]
+                    \arrow[from=2-3,to=4-3,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                    \arrow[from=4-3,to=5-2,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}",pos=0.425]
+                    % Internal Arrows
+                    \arrow[from=2-1,to=3-2,"\alpha^{\boxtimes}_{A,B,C}"description]%
+                    \arrow[from=2-3,to=3-2,"\id^{\otimes}_{A,B\otimes_{\CatFont{C}}C}"description]%
+                    \arrow[from=3-2,to=5-2,"\id_{A}\boxtimes_{\CatFont{C}}\id^{\otimes}_{B,C}"description]%
+                    % Subdiagrams
+                    \arrow[from=1-2,to=3-2,"\scriptstyle(1)",phantom]%
+                    \arrow[from=4-1,to=3-2,"\scriptstyle(2)",phantom]%
+                    \arrow[from=3-2,to=4-3,"\scriptstyle(3)",phantom]%
+                \end{tikzcd}
+            \]%
+            Since:
+            \begin{itemize}
+                \item Subdiagram (1) commutes by assumption.
+                \item Subdiagram (2) commutes by assumption.
+                \item Subdiagram (3) commutes by \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions-2} of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidality-conditions}.
+            \end{itemize}
+            it follows that the boundary diagram also commutes, i.e.\ $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+        \item\label{proof-of-properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-3}\SloganFont{Proof of \cref{properties-of-the-moduli-category-of-monoidal-structures-on-a-category-mixed-associators-3}: }We may partition the monoidality diagram for $\id^{\otimes}$ of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2} as follows:
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.86602540378\ThreeCm]
+                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    {}
+                    \&[0.86602540378\ThreeCm]
+                    \\[0.5\ThreeCm]
+                    (A\boxtimes_{\CatFont{C}}B)\boxtimes_{\CatFont{C}}C
+                    \&[0.86602540378\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\otimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \\[0.5\ThreeCm]
+                    \&[0.86602540378\ThreeCm]
+                    A\boxtimes_{\CatFont{C}}(B\boxtimes_{\CatFont{C}}C)
+                    \&[0.86602540378\ThreeCm]
+                    % 1-Arrows
+                    % Hexagon Left
+                    \arrow[from=1-2,to=2-1,"\id^{\otimes}_{A,B}\otimes_{\CatFont{C}}\id_{C}"',pos=0.55]%
+                    \arrow[from=2-1,to=4-1,"\id^{\otimes}_{A\boxtimes_{\CatFont{C}}B,C}"']
+                    \arrow[from=4-1,to=5-2,"\alpha^{\CatFont{C},\prime}_{A,B,C}"',""'{name=2},pos=0.425]%
+                    % Hexagon Right
+                    \arrow[from=1-2,to=2-3,"\alpha^{\CatFont{C}}_{A,B,C}"{pos=0.45},""{name=1}]
+                    \arrow[from=2-3,to=4-3,"\id_{A}\otimes_{\CatFont{C}}\id^{\otimes}_{B,C}"]
+                    \arrow[from=4-3,to=5-2,"\id^{\otimes}_{A,B\boxtimes_{\CatFont{C}}C}",pos=0.425]
+                    % Internal Arrows
+                    \arrow[from=2-1,to=4-3,"\alpha^{\boxtimes,\otimes}_{A,B,C}"description]%
+                    % Subdiagrams
+                    \arrow[from=1,to=3-2,"\scriptstyle(1)"{pos=0.525},phantom]%
+                    \arrow[from=3-2,to=2,"\scriptstyle(2)"{pos=0.45},phantom]%
+                \end{tikzcd}
+            \]%
+            Since subdiagrams (1) and (2) commute by assumption, it follows that the boundary diagram also commutes, i.e.\ $\id^{\otimes}$ satisfies the monoidality condition of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2-monoidality} of \cref{unwinding-the-moduli-category-of-monoidal-structures-on-a-category-2}.
+    \end{enumerate}
+    This finishes the proof.
+\end{Proof}
+\subsection{The Moduli Category of Braided Monoidal Structures on a Category}\label{subsection-the-moduli-category-of-braided-monoidal-structures-on-a-category}
+\subsection{The Moduli Category of Symmetric Monoidal Structures on a Category}\label{subsection-the-moduli-category-of-symmetric-monoidal-structures-on-a-category}
+\section{Moduli Categories of Closed Monoidal Structures}\label{section-moduli-categories-of-closed-monoidal-structures}
+\section{Moduli Categories of Refinements of Monoidal Structures}\label{section-moduli-categories-of-refinements-of-monoidal-structures}
+\subsection{The Moduli Category of Braided Refinements of a Monoidal Structure}\label{subsection-the-moduli-category-of-braided-refinements-of-a-monoidal-structure}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

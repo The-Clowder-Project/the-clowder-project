@@ -36,10 +36,12 @@
 \definecolor{conColor}{rgb}{0.5,0.4,0.01392156862}%#806605
 \definecolor{thmColor}{rgb}{0.65,0.05,0.05}%#A60D0D
 \definecolor{othColor}{rgb}{0.5,0.2,0.0}%#803300
+\definecolor{oldtagColor}{RGB}{153,137,101}
 \definecolor{corColor}{RGB}{82,0,122}%52007A
 \definecolor{notColor}{RGB}{212,97,166}%#B00B69
 \definecolor{queColor}{RGB}{0,163,175}%#00A3AF
 \definecolor{remColor}{rgb}{0.2,0.5,0.2}%338033
+\definecolor{warColor}{rgb}{0,0,0}%338033
 \definecolor{prfColor}{rgb}{0.35,0.35,0.35}%595959
 \definecolor{UPColor}{rgb}{0.3,0.3,0.5}
 \definecolor{conjColor}{RGB}{195,50,145}
@@ -60,7 +62,7 @@
     fonttitle=\bfseries\scshape\SmallCapsFont,
     coltitle=white,
     breakable,
-    shrink break goal=1.00cm,
+    %shrink break goal=1.00cm,
     before upper={},
     separator sign={\ $\blacktriangleright$},
 }{%
@@ -84,7 +86,7 @@
         fonttitle=\scshape\bfseries\SmallCapsFont,%
         coltitle=white,%
         breakable,%
-        shrink break goal=1.00cm,%
+        %shrink break goal=1.00cm,%
         before upper={},%
         separator sign={\ $\blacktriangleright$}%
     }{%
@@ -114,6 +116,7 @@
 \Newtcbtheorem{othColor}{Counterexample}{Counterexamples}{tcbcounterexample}{counterexample}
 \Newtcbtheorem{othColor}{Nonexample}{Nonexamples}{tcbnonexample}{nonexample}
 \Newtcbtheorem{othColor}{Convention}{Conventions}{tcbconvention}{convention}
+\Newtcbtheorem{oldtagColor}{Old Tag}{Old Tags}{tcboldtag}{oldtag}
 %
 \newcommand{\NewtcbtheoremTwoColours}[6]{%
     \newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={#3}{#4}]{#5}{\textsc{\bfseries\SmallCapsFont #3}}{%
@@ -154,7 +157,7 @@
     sharp corners,
     left=0.25cm,
     right=0.25cm,
-    %frame style tile={width=5.0cm}{/home/emily/mess-project/pictures/construction_stripes.png},
+    %frame style tile={width=5.0cm}{ABSOLUTEPATH/pictures/construction_stripes.png},
     % :(
     colback=backgroundColor,
     fonttitle=\bfseries\scshape\SmallCapsFont,
@@ -180,7 +183,7 @@
 sharp corners,
 left=0.25cm,
 right=0.25cm,
-colframe=remColor,
+colframe=warColor,
 colback=backgroundColor,
 fonttitle=\bfseries\scshape\SmallCapsFont,
 coltitle=white,
@@ -190,9 +193,52 @@ before upper={},
 separator sign={\ $\blacktriangleright$}%
 }{\textsc{Warning}}
 
+\definecolor{purpleGOGOGO}{RGB}{89,10,145}%#00A3AF
+\makeatletter
+\newcommand*{\shiftbox}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
+}
+\makeatother
+\newenvironment{dnote}[1]{%
+    \noindent% I guess this is intended...
+    \begin{tabular}{@{}m{0.00\textwidth}@{}m{1.0\textwidth}@{}}%
+    %\begin{tabular}{@{}m{0.12\textwidth}@{}m{0.88\textwidth}@{}}%
+        \shiftbox{-3.75cm}{\raisebox{0.55cm}{\huge\textdbend}}%
+        &#1%
+        \begin{tikzpicture}[opacity=0.15, overlay, anchor=base]
+            %\node[inner sep=0pt] (go) at (+2.50cm,-0.00cm) {\LARGE\Japanese{ゴ}};
+            %\node[inner sep=0pt] (go) at (+1.75cm,-0.15cm) {\LARGE\Japanese{ゴ}};
+            %\node[inner sep=0pt] (go) at (+1.00cm,-0.30cm) {\LARGE\Japanese{ゴ}};
+            %\node[inner sep=0pt] (go) at (+0.25cm,-0.45cm) {\LARGE\Japanese{ゴ}};
+            %\node[inner sep=0pt] (go) at (-0.50cm,-0.60cm) {\LARGE\Japanese{ゴ}};
+            %\node[inner sep=0pt] (go) at (-1.25cm,-0.75cm) {\LARGE\Japanese{ゴ}};
+            % Without textdbend:
+            \node[inner sep=0pt] (go) at (+0.00cm,-0.75cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (+0.75cm,-0.60cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (+1.50cm,-0.45cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (+2.25cm,-0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (+3.00cm,-0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (+3.75cm,-0.00cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+        \end{tikzpicture}
+}
+{
+        \\
+        \begin{tikzpicture}[opacity=0.15, overlay, anchor=base]
+            \node[inner sep=0pt] (go) at (\textwidth-4.00cm,+0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (\textwidth-3.25cm,+0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (\textwidth-2.50cm,+0.45cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (\textwidth-1.75cm,+0.60cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (\textwidth-1.00cm,+0.75cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            \node[inner sep=0pt] (go) at (\textwidth-0.25cm,+0.90cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+            %{\includegraphics[width=0.05\textwidth]{ABSOLUTEPATH/pictures/go.png}};
+        \end{tikzpicture}
+    \end{tabular}%
+    \vspace{-\baselineskip}
+}
 \newenvironment{warning}[2]{
     \begin{tcbwarning}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred
-    \begin{dnote}
+    \begin{dnote}%
 }
 {
     \end{dnote}

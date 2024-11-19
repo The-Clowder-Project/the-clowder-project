@@ -6,12 +6,14 @@ def process_labels(text):
     chapter_labels = [
             "sets",
             "constructions-with-sets",
+            "monoidal-structures-on-the-category-of-sets",
             "pointed-sets",
             "tensor-products-of-pointed-sets",
             "relations",
             "constructions-with-relations",
             "equivalence-relations-and-apartness-relations",
             "categories",
+            "constructions-with-monoidal-categories",
             "types-of-morphisms-in-bicategories",
     ]
     # Define the regex pattern

@@ -7,7 +7,7 @@ def main(input_file):
         content = file.read()
 
     # Define the regex pattern to search for and the replacement string
-    pattern = r'\\end\{(definition|example|question|proposition|theorem|corollary|lemma|remark|notation)\}\n\\begin\{(definition|example|question|proposition|theorem|corollary|lemma|remark|notation)\}'
+    pattern = r'\\end\{(definition|example|question|proposition|lemma|theorem|corollary|lemma|warning|remark|notation|warning|oldtag)\}\n\\begin\{(definition|example|question|proposition|theorem|corollary|lemma|warning|remark|notation|warning|oldtag)\}'
     replacement = r'\\end{\1}\n\n\\begin{\2}'
     # Perform the regex substitution
     content = re.sub(pattern, replacement, content)

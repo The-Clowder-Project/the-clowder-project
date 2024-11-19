@@ -66,6 +66,10 @@ def print_preamble(path):
             continue
         if line.find("mathtools") >= 0:
             continue
+        if line.find("adjustbox") >= 0:
+            line = ""
+        if line.find("newenvironment{scalemath") >= 0:
+            line = ""
         print line,
     preamble.close()
     return
@@ -111,6 +115,9 @@ for name in lijstje:
         line = preprocess.remove_index(line)
         line = preprocess.parbox(line)
         line = preprocess.proofbox_cm(line)
+        line = preprocess.textdbend_2(line)
+        line = preprocess.rmIendproofbox(line)
+        line = preprocess.scalemath_to_webcompile(line)
         # CM exclusive
         line = preprocess.amsthm_web(line)
         line = preprocess.proof(line)

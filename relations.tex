@@ -52,120 +52,60 @@ Let $A$ and $B$ be sets.
     A \index[set-theory]{relation}\textbf{relation $R\colon A\rightproarrow B$ from $A$ to $B$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }Also called a \textbf{multivalued function from $A$ to $B$}, a \textbf{relation over $A$ and $B$}, \textbf{relation on $A$ and $B$}, a \textbf{binary relation over $A$ and $B$}, or a \textbf{binary relation on $A$ and $B$}.
+        \SloganFont{Further Terminology: }Also called a \index[set-theory]{multivalued function!see {relation}}\textbf{multivalued function from $A$ to $B$}.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }When $A=B$, we also call $R\subset A\times A$ a \textbf{relation on $A$}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    is a subset $R$ of $A\times B$.%
-\end{definition}
-\begin{notation}{Further Notation for Relations}{further-notation-for-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    is equivalently:
     \begin{enumerate}
-        \item\label{further-notation-for-relations-1}Given elements $a\in A$ and $b\in B$ and a relation $R\colon A\rightproarrow B$, we write $a\sim_{R}b$ to mean $(a,b)\in R$.
-        \item\label{further-notation-for-relations-2}Viewing $R$ as a function
-            \[
-                R%
-                \colon%
-                A\times B%
-                \to%
-                \TTV%
-            \]%
-            via \cref{equivalent-definitions-of-relations}, we write $R^{b}_{a}$ for the value of $R$ at $(a,b)$.%
-            %--- Begin Footnote ---%
-            \footnote{%
-                The choice $R^{b}_{a}$ in place of $R^{a}_{b}$ is to keep the notation consistent with the notation we will later employ for profunctors.
-                \par\vspace*{-1.75\baselineskip}
-            }%
-            %---  End Footnote  ---%
-    \end{enumerate}
-\end{notation}
-\begin{definition}{The Po/Set of Relations Over Two Sets}{the-po-set-of-relations-over-two-sets}%
-    Let $A$ and $B$ be sets.
-    \begin{enumerate}
-        \item\label{the-po-set-of-relations-over-two-sets-1}The \index[set-theory]{relation!set of}\textbf{set of relations from $A$ to $B$} is the set \index[notation]{RelAB@$\Rel(A,B)$}$\Rel(A,B)$ defined by
-            \[
-                \Rel(A,B)
-                \defeq
-                \{%
-                    \text{Relations from $A$ to $B$}%
-                \}.%
-            \]%
-        \item\label{the-po-set-of-relations-over-two-sets-2}The \index[set-theory]{relation!poset of}\textbf{poset of relations from $A$ to $B$} is the poset \index[notation]{RelAB@$\eRel(A,B)$}%
-            \[
-                \eRel(A,B)%
-                \defeq%
-                (\Rel(A,B),\subset)%
-            \]%
-            consisting of:
-            \begin{itemize}
-                \item\SloganFont{The Underlying Set. }The set $\Rel(A,B)$ of \cref{the-po-set-of-relations-over-two-sets-1}.
-                \item\SloganFont{The Partial Order. }The partial order
-                    \[
-                        \subset%
-                        \colon%
-                        \Rel(A,B)\times\Rel(A,B)%
-                        \to%
-                        \TV%
-                    \]%
-                    on $\Rel(A,B)$ given by inclusion of relations.
-            \end{itemize}
-        \item\label{the-po-set-of-relations-over-two-sets-3}The \index[set-theory]{relation!category of}\textbf{category of relations from $A$ to $B$} is the posetal category \index[notation]{RelAB@$\eRel(A,B)$}$\eRel(A,B)$%
-            %--- Begin Footnote ---%
-            \footnote{%
-                Here we choose to slightly abuse notation by writing $\eRel(A,B)$ (instead of e.g.\ $\eRel(A,B)_{\pos}$) for the posetal category of relations from $A$ to $B$, even though the same notation is used for the poset of relations from $A$ to $B$.
-                \par\vspace*{-1.75\baselineskip}
-            } %
-            %---  End Footnote  ---%
-            associated to the poset $\eRel(A,B)$ of \cref{the-po-set-of-relations-over-two-sets-2} via \ChapterRef{\ChapterCategories, \cref{categories:posetal-categories}}{\cref{posetal-categories}}.%
+        \item\label{relations-1}A subset $R$ of $A\times B$.%
+        \item\label{relations-2}A function from $A\times B$                                       to $\TV$.
+        \item\label{relations-3}A function from $A$                                               to $\mathcal{P}(B)$.
+        \item\label{relations-4}A function from $B$                                               to $\mathcal{P}(A)$.
+        \item\label{relations-5}A cocontinuous morphism of posets from $(\mathcal{P}(A),\subset)$ to $(\mathcal{P}(B),\subset)$.
     \end{enumerate}
 \end{definition}
-\begin{remark}{Equivalent Definitions of Relations}{equivalent-definitions-of-relations}%
-    A relation from $A$ to $B$ is equivalently:%
-    %--- Begin Footnote ---%
-    \footnote{%
-        \SloganFont{Intuition: }In particular, we may think of a relation $R\colon A\to\mathcal{P}(B)$ from $A$ to $B$ as a multivalued function from $A$ to $B$ (including the possibility of a given $a\in A$ having no value at all).
-        \par\vspace*{-1.75\baselineskip}
-    }%
-    %---  End Footnote  ---%
-    \begin{enumerate}
-        \item\label{equivalent-definitions-of-relations-item-1}A subset of $A\times B$.
-        \item\label{equivalent-definitions-of-relations-item-2}A function from $A\times B$                                                  to $\TV$.
-        \item\label{equivalent-definitions-of-relations-item-3}A function from $A$                                                          to $\mathcal{P}(B)$.
-        \item\label{equivalent-definitions-of-relations-item-4}A function from $B$                                                          to $\mathcal{P}(A)$.
-        \item\label{equivalent-definitions-of-relations-item-5}A cocontinuous morphism of posets from $(\mathcal{P}(A),\subset)$ to $(\mathcal{P}(B),\subset)$.
-    \end{enumerate}
-    That is: we have bijections of sets
-    \begin{align*}
-        \Rel(A,B) &\defeq \mathcal{P}(A\times B),\\
-                  &\cong  \Hom_{\Sets}(A\times B,\TV),\\
-                  &\cong  \Hom_{\Sets}(A,\mathcal{P}(B)),\\
-                  &\cong  \Hom_{\Sets}(B,\mathcal{P}(A)),\\
-                  &\cong  \Hom^{\cocont}_{\Pos}(\mathcal{P}(A),\mathcal{P}(B)),
-    \end{align*}
-    natural in $A,B\in\Obj(\Sets)$.
+\begin{Proof}{Proof of \cref{relations}}%
+    We will prove that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent in just a moment.
+\end{Proof}
+\begin{remark}{Unwinding \cref{relations-1}, \rmI}{unwinding-relations-1}%
+    We may think of a relation $R\colon A\rightproarrow B$ as a function from $A$ to $B$ that is \emph{multivalued}, assigning to each element $a$ in $A$ a set $R(a)$ of elements of $B$, thought of as the \emph{set of values of $R$ at $a$}.
+
+    Note that this includes also the possibility of $R$ having no value at all on a given $a\in A$ when $R(a)=\emptyset$.
 \end{remark}
-\begin{Proof}{Proof of \cref{equivalent-definitions-of-relations}}%
-    We claim that \cref{equivalent-definitions-of-relations-item-1,equivalent-definitions-of-relations-item-2,equivalent-definitions-of-relations-item-3,equivalent-definitions-of-relations-item-4,equivalent-definitions-of-relations-item-5} are indeed equivalent:
+\begin{remark}{Unwinding \cref{relations-2}, \rmII}{unwinding-relations-2}%
+    Another way of stating the equivalence between \cref{relations-1,relations-2,relations-3,relations-4,relations-5} of \cref{relations} is by saying that we have bijections of sets
+    \begin{align*}
+        \{\text{relations from $A$ to $B$}\} &\defeq \mathcal{P}(A\times B)\\
+                                             &\cong  \Sets(A\times B,\TV)\\
+                                             &\cong  \Sets(A,\mathcal{P}(B))\\
+                                             &\cong  \Sets(B,\mathcal{P}(A))\\
+                                             &\cong  \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
+    \end{align*}
+    natural in $A,B\in\Obj(\Sets)$, where $\mathcal{P}(A)$ and $\mathcal{P}(B)$ are endowed with the poset structure given by inclusion.
+\end{remark}
+\begin{Proof}{Proof of \cref{relations}}%
+    We claim that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{equivalent-definitions-of-relations-item-1}$\iff$\cref{equivalent-definitions-of-relations-item-2}: }This is a special case of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
-        \item\SloganFont{\cref{equivalent-definitions-of-relations-item-2}$\iff$\cref{equivalent-definitions-of-relations-item-3}: }This follows from the bijections
+        \item\SloganFont{\cref{relations-1}$\iff$\cref{relations-2}: }This is a special case of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
+        \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-3}: }This follows from the bijections
             \begin{align*}
-                \Hom_{\Sets}(A\times B,\TV) &\cong \Hom_{\Sets}(A,\Hom_{\Sets}(B,\TV))\\
-                                            &\cong \Hom_{\Sets}(A,\mathcal{P}(B)),
+                \Sets(A\times B,\TV) &\cong \Sets(A,\Sets(B,\TV))\\
+                                     &\cong \Sets(A,\mathcal{P}(B)),
             \end{align*}
             where the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
-        \item\SloganFont{\cref{equivalent-definitions-of-relations-item-2}$\iff$\cref{equivalent-definitions-of-relations-item-4}: }This follows from the bijections
+        \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-4}: }This follows from the bijections
             \begin{align*}
-                \Hom_{\Sets}(A\times B,\TV) &\cong \Hom_{\Sets}(B,\Hom_{\Sets}(B,\TV))\\
-                                            &\cong \Hom_{\Sets}(B,\mathcal{P}(A)),
+                \Sets(A\times B,\TV) &\cong \Sets(B,\Sets(B,\TV))\\
+                                     &\cong \Sets(B,\mathcal{P}(A)),
             \end{align*}
             where again the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
-        \item\SloganFont{\cref{equivalent-definitions-of-relations-item-2}$\iff$\cref{equivalent-definitions-of-relations-item-5}: }This follows from the universal property of the powerset $\mathcal{P}(X)$ of a set $X$ as the free cocompletion of $X$ via the characteristic embedding
+        \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-5}: }This follows from the universal property of the powerset $\mathcal{P}(X)$ of a set $X$ as the free cocompletion of $X$ via the characteristic embedding
             \[
                 \chi_{X}
                 \colon
@@ -181,11 +121,17 @@ Let $A$ and $B$ be sets.
             % END RAW HTML %
             In particular, the bijection
             \[
-                \Rel(A,B)%
+                \Sets(A,\mathcal{P}(B))%
                 \cong
                 \Hom^{\cocont}_{\Pos}(\mathcal{P}(A),\mathcal{P}(B))
             \]%
-            is given by taking a relation $R\colon A\rightproarrow B$, passing to its associated function $f\colon A\to\mathcal{P}(B)$ from $A$ to $B$ and then extending $f$ from $A$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$.
+            is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Note that by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:unwinding-the-direct-image-function-associated-to-a-function}}{\cref{unwinding-the-direct-image-function-associated-to-a-function}}, we have $\Lan_{\chi}(f)=f_{*}$, the direct image of $f$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
             % BEGIN RAW HTML %
             <br>
             % BEGIN LATEX HTML %
@@ -195,6 +141,29 @@ Let $A$ and $B$ be sets.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
+\begin{notation}{Further Notation for Relations}{further-notation-for-relations}%
+    Let $A$ and $B$ be sets and let $R\colon\rightproarrow B$ be a relation from $A$ to $B$.
+    \begin{enumerate}
+        \item\label{further-notation-for-relations-the-set-of-relations-between-two-sets}We write \index[notation]{RelAB@$\Rel(A,B)$}$\Rel(A,B)$ for the set of relations from $A$ to $B$.
+        \item\label{further-notation-for-relations-the-poset-of-relations-between-two-sets}We write \index[notation]{RelAB@$\eRel(A,B)$}$\eRel(A,B)$ for the sub-poset of $(\mathcal{P}(A\times B),\subset)$ spanned by the relations from $A$ to $B$.
+        \item\label{further-notation-for-relations-a-simr-b}Given $a\in A$ and $b\in B$, we write $a\sim_{R}b$ to mean $(a,b)\in R$.
+        \item\label{further-notation-for-relations-r-b-a}When viewing $R$ as a function
+            \[
+                R%
+                \colon%
+                A\times B%
+                \to%
+                \TTV%
+            \]%
+            via \cref{equivalent-definitions-of-relations}, we write $R^{b}_{a}$ for the value of $R$ at $(a,b)$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                The choice to write $R^{b}_{a}$ in place of $R^{a}_{b}$ is to keep the notation consistent with the notation we will later employ for profunctors in \ChapterProfunctors.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+    \end{enumerate}
+\end{notation}
 \begin{proposition}{Properties of Relations}{properties-of-relations}%
     Let $A$ and $B$ be sets and let $R,S\colon A\rightproarrow B$ be relations.
     \begin{enumerate}
@@ -542,6 +511,22 @@ Let $A$ and $B$ be sets.
     This finishes the proof.
 \end{Proof}
 \section{Categories of Relations}\label{subsection-categories-of-relations}
+\subsection{The Category of Relations Between Two Sets}\label{subsection-the-category-of-relations-between-two-sets}
+\begin{definition}{The Category of Relations Between Two Sets}{the-category-of-relations-between-two-sets}%
+    The \index[set-theory]{relation!category of}\textbf{category of relations from $A$ to $B$} is the category \index[notation]{RelAB@$\eRel(A,B)$}$\eRel(A,B)$ defined by%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Here we choose to abuse notation by writing $\eRel(A,B)$ instead of $\eRel(A,B)_{\pos}$ for the posetal category of relations from $A$ to $B$, even though the same notation is used for the poset of relations from $A$ to $B$.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    \[
+        \eRel(A,B)%
+        \defeq
+        \eRel(A,B)_{\pos},%
+    \]%
+    where $\eRel(A,B)_{\pos}$ is the posetal category associated to the poset $\eRel(A,B)$ of \cref{further-notation-for-relations-the-poset-of-relations-between-two-sets} of \cref{further-notation-for-relations} and \ChapterRef{\ChapterCategories, \cref{categories:posetal-categories}}{\cref{posetal-categories}}.%
+\end{definition}
 \subsection{The Category of Relations}\label{subsection-the-category-of-relations}
 \begin{definition}{The Category of Relations}{the-category-of-relations}%
     The \index[set-theory]{category of relations}\index[set-theory]{relation!category of@category of}\textbf{category of relations} is the category \index[notation]{Rel@$\sfRel$}$\sfRel$ where
@@ -846,7 +831,7 @@ Let $A$ and $B$ be sets.
     \]%
     defined
     \begin{itemize}
-        \item On objects by sending $A,B\in\Obj(\sfRel)$ to the set $\Rel(A,B)$ of \cref{the-po-set-of-relations-over-two-sets-1} of \cref{the-po-set-of-relations-over-two-sets}.
+        \item On objects by sending $A,B\in\Obj(\sfRel)$ to the set $\Rel(A,B)$ of \cref{the-set-of-relations-between-two-sets-1} of \cref{the-set-of-relations-between-two-sets}.
         \item On morphisms by pre/post-composition defined as in \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:composition-of-relations}}{\cref{composition-of-relations}}.
     \end{itemize}
 \end{definition}
@@ -887,7 +872,7 @@ Let $A$ and $B$ be sets.
         \textdbend\SloganFont{Warning: }This is not a Cartesian monoidal structure, as the product on $\sfRel$ is in fact given by the disjoint union of sets; see \ChapterRef{\ChapterConstructionsWithRelations, \cref{TODO}}{\cref{TODO}}.
 
         END TEXTDBEND
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{itemize}
@@ -994,7 +979,7 @@ Let $A$ and $B$ be sets.
                     S_{1} &\subset S_{2},
                 \end{align*}
                 we have also $S_{1}\procirc R_{1}\subset S_{2}\procirc R_{2}$.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
@@ -1546,7 +1531,7 @@ Let $A$ and $B$ be sets.
     %--- Begin Footnote ---%
     \footnote{%
         This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-associativity} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-associativity} of \cref{properties-of-composition-of-relations}}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{webcompile}
@@ -1605,7 +1590,7 @@ Let $A$ and $B$ be sets.
     %--- Begin Footnote ---%
     \footnote{%
         This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-unitality} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{webcompile}
@@ -1664,7 +1649,7 @@ Let $A$ and $B$ be sets.
     %--- Begin Footnote ---%
     \footnote{%
         This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-unitality} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{webcompile}
@@ -1924,7 +1909,7 @@ Let $A$ be a set.
     %--- Begin Footnote ---%
     \footnote{%
         See also \cref{section-relative-preorders} for an extension of this correspondence to \say{relative monads in $\sfbfRel$}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \[
@@ -2003,7 +1988,7 @@ Let $A$ be a set.
         \item For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
         \item For each $a\in A$, we have $a\sim_{R}a$.
     \end{enumerate}% PROCESS %
-    These are exactly the requirements for $R$ to be a preorder (\ChapterRef{\ChapterPreordersAndPartialOrders, \cref{preorders-and-partial-orders:preorders}}{\cref{preorders}}). Conversely any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
+    These are exactly the requirements for $R$ to be a preorder (\ChapterRef{\ChapterPreordersAndPartialOrders, \cref{preorders-and-partial-orders:preorders}}{\cref{preorders}}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
 \end{Proof}
 \subsection{Comonads in $\sfbfRel$}\label{subsection-comonads-in-rel}
 Let $A$ be a set.
@@ -2262,7 +2247,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
 
     A similar argument shows that if $(x,a)\in T$, then $(x,a)\in S$, and thus $S=T$ and it follows that $R$ is a monomorphism.
 \end{Proof}
-\subsection{2-Categorical Monomorphisms in $\sfbfRel$}\label{subsection-2-categorical-monomorphism-in-rel}
+\subsection{2-Categorical Monomorphisms in $\sfbfRel$}\label{subsection-2-categorical-monomorphisms-in-rel}
 In this section we characterise (for now, some of) the $2$-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-monomorphisms-in-bicategories}}{\cref{section-monomorphisms-in-bicategories}}.
 \begin{proposition}{2-Categorical Monomorphisms in $\sfbfRel$}{2-categorical-monomorphisms-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
@@ -2966,7 +2951,7 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
             %--- Begin Footnote ---%
             \footnote{%
                 Since $\eRel(A,B)$ is posetal, this is to say that if $S\subset S'$ and $R\subset R'$, then $S\lhd_{J}R\subset S'\lhd_{J}R'$.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \begin{webcompile}
@@ -3192,7 +3177,7 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
 \begin{proposition}{The Left $J$-Skew Monoidal Structure on $\eRel(A,B)$}{the-left-j-skew-monoidal-structure-on-erelab}%
     The category $\eRel(A,B)$ admits a left skew monoidal category structure consisting of%
     \begin{itemize}
-        \item\SloganFont{The Underlying Category. }The posetal category associated to the poset $\eRel(A,B)$ of relations from $A$ to $B$ of \cref{the-po-set-of-relations-over-two-sets-2} of \cref{the-po-set-of-relations-over-two-sets}.
+        \item\SloganFont{The Underlying Category. }The posetal category associated to the poset $\eRel(A,B)$ of relations from $A$ to $B$ of \cref{the-set-of-relations-between-two-sets-2} of \cref{the-set-of-relations-between-two-sets}.
         \item\SloganFont{The Left Skew Monoidal Product. }The left $J$-skew monoidal product
             \[
                 \lhd_{J}%
@@ -3297,7 +3282,7 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
             %--- Begin Footnote ---%
             \footnote{%
                 Since $\eRel(A,B)$ is posetal, this is to say that if $S\subset S'$ and $R\subset R'$, then $S\rhd_{J}R\subset S'\rhd_{J}R'$.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \begin{webcompile}
@@ -3519,7 +3504,7 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
 \begin{proposition}{The Right $J$-Skew Monoidal Structure on $\eRel(A,B)$}{the-right-j-skew-monoidal-structure-on-erelab}%
     The category $\eRel(A,B)$ admits a right skew monoidal category structure consisting of%
     \begin{itemize}
-        \item\SloganFont{The Underlying Category. }The posetal category associated to the poset $\eRel(A,B)$ of relations from $A$ to $B$ of \cref{the-po-set-of-relations-over-two-sets-2} of \cref{the-po-set-of-relations-over-two-sets}.
+        \item\SloganFont{The Underlying Category. }The posetal category associated to the poset $\eRel(A,B)$ of relations from $A$ to $B$ of \cref{the-set-of-relations-between-two-sets-2} of \cref{the-set-of-relations-between-two-sets}.
         \item\SloganFont{The Right Skew Monoidal Product. }The right $J$-skew monoidal product
             \[
                 \lhd_{J}%

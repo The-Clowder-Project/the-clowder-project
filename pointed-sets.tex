@@ -23,7 +23,7 @@ This chapter contains some foundational material on pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }In the context of monoids with zero as models for $\F_{1}$-algebras, pointed sets are viewed as \index[set-theory]{field with one element!module over}\textbf{$\F_{1}$-modules}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     is equivalently:
@@ -58,7 +58,7 @@ This chapter contains some foundational material on pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }In the context of monoids with zero as models for $\F_{1}$-algebras, $S^{0}$ is also denoted \index[notation]{Fone@$\F_{1}$}$(\F_{1},0)$.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     consisting of:
@@ -79,15 +79,21 @@ This chapter contains some foundational material on pointed sets.
         \item\SloganFont{The Basepoint. }The element $\point$ of $\pt$.
     \end{itemize}
 \end{example}
-\begin{example}{The Underlying Pointed Set of a Semimodule}{the-underlying-pointed-set-of-a-semimodule}%
-    The \index[set-theory]{pointed set!underlying a semimodule}\index[set-theory]{semimodule!underlying pointed set of}\textbf{underlying pointed set} of a semimodule $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
-\end{example}
-\begin{example}{The Underlying Pointed Set of a Module}{the-underlying-pointed-set-of-a-module}%
-    The \index[set-theory]{pointed set!underlying a module}\index[set-theory]{module!underlying pointed set of}\textbf{underlying pointed set} of a module $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
+\begin{example}{The Standard Pointed Set With $n+1$ Elements}{the-pointed-set-with-n-plus-one-elements}%
+    The \index[set-theory]{pointed set!standard pointed set with $n+1$ elements}\textbf{standard pointed set with $n+1$ elements} is the pointed set \index[notation]{n@$\langle n\rangle$}$\langle n\rangle$ consisting of
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $\langle n\rangle$ defined by
+            \[
+                \langle n\rangle%
+                \defeq%
+                \{*\}\cup\{1,\ldots,n\}.%
+            \]%
+        \item\SloganFont{The Basepoint. }The element $*$ of $\langle n\rangle$.
+    \end{itemize}
 \end{example}
 \subsection{Morphisms of Pointed Sets}\label{subsection-morphisms-of-pointed-sets}
 \begin{definition}{Morphisms of Pointed Sets}{morphisms-of-pointed-sets}%
-    A \index[set-theory]{pointed set!morphism of}\textbf{morphism of pointed sets}%
+    A \index[set-theory]{morphism of pointed sets}\index[set-theory]{pointed set!morphism of}\textbf{morphism of pointed sets}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called a \index[set-theory]{pointed function|see {pointed set, morphism of}}\textbf{pointed function}.
@@ -96,7 +102,7 @@ This chapter contains some foundational material on pointed sets.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }In the context of monoids with zero as models for $\F_{1}$-algebras, morphisms of pointed sets are also called \index[set-theory]{field with one element!module over, morphism of}\textbf{morphism of $\F_{1}$-modules}.
-        \par\vspace*{-1.75\baselineskip}
+        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     is equivalently:
@@ -131,17 +137,17 @@ This chapter contains some foundational material on pointed sets.
 \end{remark}
 \subsection{The Category of Pointed Sets}\label{subsection-the-category-of-pointed-sets}
 \begin{definition}{The Category of Pointed Sets}{the-category-of-pointed-sets}%
-    The \index[set-theory]{pointed set!category of}\textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ defined equivalently as
+    The \index[set-theory]{pointed set!category of}\textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ defined equivalently as:
     \begin{itemize}
-        \item The homotopy category of the $\infty$-category $\Mon_{\E_{0}}(\NerveB(\Sets),\pt)$ of \ChapterRef{\ChapterMonoidsInMonoidalInftyCategories, \cref{monoids-in-symmetric-monoidal-infty-categories:the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}}{\cref{the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}};
+        \item The homotopy category of the $\infty$-category $\Mon_{\E_{0}}(\NerveB(\Sets),\pt)$ of \ChapterRef{\ChapterMonoidsInMonoidalInftyCategories, \cref{monoids-in-symmetric-monoidal-infty-categories:the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}}{\cref{the-infty-category-of-e-k-monoids-over-an-ek-monoid-in-a-symmetric-monoidal-infty-category}}.
         \item The category $\Sets_{*}$ of \ChapterRef{\ChapterConstructionsWithCategories, \cref{constructions-with-categories:the-category-of-pointed-objects-in-a-category-with-a-terminal-object}}{\cref{the-category-of-pointed-objects-in-a-category-with-a-terminal-object}}.
     \end{itemize}
 \end{definition}
 \begin{remark}{Unwinding \cref{the-category-of-pointed-sets}}{unwinding-the-category-of-pointed-sets}%
-    In detail, the \textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ where
+    In detail, the \textbf{category of pointed sets} is the category \index[notation]{Setsstar@$\Sets_{*}$}$\Sets_{*}$ where:
     \begin{itemize}
-        \item\SloganFont{Objects. }The objects of $\Sets_{*}$ are pointed sets;
-        \item\SloganFont{Morphisms. }The morphisms of $\Sets_{*}$ are morphisms of pointed sets;
+        \item\SloganFont{Objects. }The objects of $\Sets_{*}$ are pointed sets.
+        \item\SloganFont{Morphisms. }The morphisms of $\Sets_{*}$ are morphisms of pointed sets.
         \item\SloganFont{Identities. }For each $(X,x_{0})\in\Obj(\Sets_{*})$, the unit map
             \[
                 \Unit^{\Sets_{*}}_{(X,x_{0})}
@@ -159,7 +165,7 @@ This chapter contains some foundational material on pointed sets.
             \[
                 \id^{\Sets_{*}}_{(X,x_{0})}
                 \defeq
-                \id_{X};
+                \id_{X}.
             \]%
         \item\SloganFont{Composition. }For each $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$, the composition map
             \begingroup\tiny
@@ -177,12 +183,12 @@ This chapter contains some foundational material on pointed sets.
             %--- Begin Footnote ---%
             \footnote{%
                 Note that the composition of two morphisms of pointed sets is indeed a morphism of pointed sets, as we have
-                \begin{align*}
-                    g(f(x_{0})) &= g(y_{0})\\
-                                &= z_{0},
-                \end{align*}
-                or
-                \[
+                \begin{webcompile}
+                    \begin{aligned}
+                        g(f(x_{0})) &= g(y_{0})\\
+                                    &= z_{0},
+                    \end{aligned}
+                    \qquad
                     \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         \&
                         \pt
@@ -199,9 +205,9 @@ This chapter contains some foundational material on pointed sets.
                         \&
                         Z
                     \end{tikzcd}
-                \]%
+                \end{webcompile}
                 in terms of diagrams.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
@@ -245,7 +251,7 @@ This chapter contains some foundational material on pointed sets.
                     \Sets%
                 \]%
                 defined on objects by sending a pointed set to its underlying set is corepresentable by $S^{0}$.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
@@ -266,7 +272,7 @@ This chapter contains some foundational material on pointed sets.
                 \textdbend\SloganFont{Warning: }This is not an isomorphism of categories, only an equivalence.
 
                 END TEXTDBEND
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
@@ -376,6 +382,157 @@ This chapter contains some foundational material on pointed sets.
 
     \ProofBox{\cref{elementary-properties-of-pointed-sets-relation-to-partial-functions}: Relation to Partial Functions}%
     See \cite{MSE884460}.
+\end{Proof}
+\subsection{Active and Inert Morphisms of Pointed Sets}\label{subsection-active-and-inert-morphisms-of-pointed-sets}
+\begin{definition}{Active and Inert Morphisms of Pointed Sets}{active-and-inert-morphisms-of-pointed-sets}%
+    Let $f\colon(X,x_{0})\to(Y,y_{0})$ be a morphism of pointed sets.
+    \begin{enumerate}
+        \item\label{active-and-inert-morphisms-of-pointed-sets-active-morphisms-of-pointed-sets}The morphism $f$ is \index[set-theory]{morphism of pointed sets!active}\textbf{active} if $f^{-1}(y_{0})=x_{0}$.
+        \item\label{active-and-inert-morphisms-of-pointed-sets-inert-morphisms-of-pointed-sets}The morphism $f$ is \index[set-theory]{morphism of pointed sets!inert}\textbf{inert} if, for each $y\in Y$, the set $f^{-1}(y)$ has exactly one element.
+    \end{enumerate}
+\end{definition}
+\begin{notation}{The Category of Pointed Sets and Active Morphisms}{the-category-of-pointed-sets-and-active-morphisms}%
+    We write \index[notation]{Setsactivestar@$\Sets^{\actv}_{*}$}$\Sets^{\actv}_{*}$ for the wide subcategory of $\Sets_{*}$ spanned by pointed sets and the active maps between them.
+\end{notation}
+\begin{example}{Examples of Active and Inert Maps of Pointed Sets}{examples-of-active-and-inert-morphisms-of-pointed-sets}%
+    Here are some examples of active and inert maps of pointed sets.
+    \begin{enumerate}
+        \item\label{examples-of-active-and-inert-morphisms-of-pointed-sets-multiplication}The map $\mu\colon\langle 2\rangle\to\langle 1\rangle$ given by
+            \[
+                \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    1
+                    \&
+                    1
+                    \\
+                    2
+                    \&
+                    \\
+                    *
+                    \&
+                    *
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-2,mapsto]%
+                    \arrow[from=2-1,to=1-2,mapsto]%
+                    \arrow[from=3-1,to=3-2,mapsto]%
+                \end{tikzcd}
+            \]%
+            is active but not inert.
+        \item\label{examples-of-active-and-inert-morphisms-of-pointed-sets-2-to-2-send-2-to-basepoint}The map $f\colon\langle 2\rangle\to\langle 2\rangle$ given by
+            \[
+                \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    1
+                    \&
+                    1
+                    \\
+                    2
+                    \&
+                    2
+                    \\
+                    *
+                    \&
+                    *
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-2,mapsto]%
+                    \arrow[from=2-1,to=3-2,mapsto]%
+                    \arrow[from=3-1,to=3-2,mapsto]%
+                \end{tikzcd}
+            \]%
+            is inert but not active.
+        \item\label{examples-of-active-and-inert-morphisms-of-pointed-sets-factoring-maps}The map $f\colon\langle 3\rangle\to\langle 1\rangle$ given by
+            \[
+                \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    1
+                    \&
+                    1
+                    \\
+                    2
+                    \&
+                    \\
+                    3
+                    \&
+                    \\
+                    *
+                    \&
+                    *
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-2,mapsto]%
+                    \arrow[from=2-1,to=1-2,mapsto]%
+                    \arrow[from=3-1,to=4-2,mapsto]%
+                    \arrow[from=4-1,to=4-2,mapsto]%
+                \end{tikzcd}
+            \]%
+            is neither inert nor active. However, it factors as $f=a\circ i$, where
+            \begin{align*}
+                i &\colon \langle 3\rangle\to\langle 2\rangle,\\
+                a &\colon \langle 2\rangle\to\langle 1\rangle
+            \end{align*}
+            are the morphisms of pointed sets given by
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    1
+                    \&
+                    1
+                    \\
+                    2
+                    \&
+                    2
+                    \\
+                    3
+                    \&
+                    \\
+                    *
+                    \&
+                    *
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-2,mapsto]%
+                    \arrow[from=2-1,to=2-2,mapsto]%
+                    \arrow[from=3-1,to=4-2,mapsto]%
+                    \arrow[from=4-1,to=4-2,mapsto]%
+                \end{tikzcd}
+                \quad
+                \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    1
+                    \&
+                    1
+                    \\
+                    2
+                    \&
+                    \\
+                    *
+                    \&
+                    *\mrp{,}
+                    \\
+                    \&
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-2,mapsto]%
+                    \arrow[from=2-1,to=1-2,mapsto]%
+                    \arrow[from=3-1,to=3-2,mapsto]%
+                \end{tikzcd}
+            \end{webcompile}
+            with $i$ being inert and $a$ being active.
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of Active and Inert Maps of Pointed Sets}{properties-of-active-and-inert-morphisms-of-pointed-sets}%
+    Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
+    \begin{enumerate}
+        \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation}\SloganFont{Active-Inert Factorisation. }Every morphism of pointed sets $f\colon(X,x_{0})\to(Y,y_{0})$ factors as
+            \[
+                f%
+                =%
+                a\circ i,%
+            \]%
+            where:
+            \begin{enumerate}
+                \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation-1}The map $i\colon(X,x_{0})\to(K,k_{0})$ is an inert morphism of pointed sets
+                \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation-2}The map $a\colon(K,k_{0})\to(Y,y_{0})$ is an active morphism of pointed sets.
+            \end{enumerate}
+            Moreover, this determines a factorisation system in $\Sets_{*}$.
+        %\item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-active-and-inert-morphisms-of-pointed-sets}}%
+    \FirstProofBox{\cref{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation}: Active-Inert Factorisation}%
+    Omitted.
 \end{Proof}
 \section{Limits of Pointed Sets}\label{section-limits-of-pointed-sets}
 \subsection{The Terminal Pointed Set}\label{subsection-the-terminal-pointed-set}
@@ -531,7 +688,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item\SloganFont{The Cone. }The morphisms of pointed sets
             \begin{align*}
                 \pr_{1} &\colon (X\times Y,(x_{0},y_{0}))\to(X,x_{0}),\\
-                \pr_{2} &\colon (X\times Y,(x_{0},y_{0}))\to(Y,y_{0}) 
+                \pr_{2} &\colon (X\times Y,(x_{0},y_{0}))\to(Y,y_{0})
             \end{align*}
             defined by
             \begin{align*}
@@ -613,13 +770,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 (X,x_{0}),(Y,y_{0}),((X,x_{0}),(Y,y_{0}))\mapsto(X\times Y,(x_{0},y_{0}))%
             \]%
             define functors
-            \begin{gather*}
-                \begin{aligned}
-                    X\times-    &\colon                \Sets_{*} \to \Sets_{*},\\
-                    -\times Y   &\colon \Sets_{*}                \to \Sets_{*},
-                \end{aligned}\\
-                -_{1}\times-_{2} \colon \Sets_{*}\times\Sets_{*} \to \Sets_{*},
-            \end{gather*}
+            \[
+                \Bifunctoriality{A\times-}{-\times B}{-_{1}\times-_{2}}{\Sets_{*}}{\Sets_{*}}{\Sets_{*}\times\Sets_{*}}{\Sets_{*}}%
+            \]%
             defined in the same way as the functors of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-functoriality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-functoriality} of \cref{properties-of-products-of-sets}}.
         \item\label{properties-of-products-of-pointed-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of pointed sets%
             \[
@@ -1730,13 +1883,13 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
 
     \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-associativity}: Associativity}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-unitality}: Unitality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-commutativity}: Commutativity}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
     Omitted.
@@ -2323,7 +2476,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(Z
     This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-commutativity} of \cref{properties-of-pushouts-of-sets}}.
 
     \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts}: Interaction With Coproducts}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-pushouts-of-pointed-sets-symmetric-monoidality}: Symmetric Monoidality}%
     Omitted.
@@ -2366,7 +2519,7 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             {(C,*)}
         \end{tikzcd}
     \]%
-    in $\Sets$. Then, since $c(f(a))=c(g(a))$ for each $a\in A$, it follows from \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1,equivalence-relations-and-apartness-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{properties-of-quotient-sets}} that there exists a unique map $\phi\colon\CoEq(f,g)\uearrow C$ making the diagram
+    in $\Sets$. Then, since $c(f(a))=c(g(a))$ for each $a\in A$, it follows from \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1,conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{properties-of-quotient-sets}} that there exists a unique map $\phi\colon\CoEq(f,g)\uearrow C$ making the diagram
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(X,x_{0})}
@@ -2453,7 +2606,7 @@ Let $X$ be a set.
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Further Notation: }We sometimes write \index[notation]{pointX@$\point_{X}$}$\point_{X}$ for the basepoint of $X^{+}$ for clarity when there are multiple free pointed sets involved in the current discussion.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \begin{align*}
@@ -2549,7 +2702,7 @@ Let $X$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-free-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-free-pointed-sets-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-free-pointed-sets-adjointness}: Adjointness}%
     We claim there's an adjunction $(-)^{+}\dashv\Wasureru$, witnessed by a bijection of sets
@@ -2785,6 +2938,86 @@ Let $X$ be a set.
     Meanwhile, the isomorphism $S^{0}\cong\pt^{+}$ is given by sending $\point$ to $1\in S^{0}=\{0,1\}$ and $\star_{\pt}$ to $0\in S^{0}$.
 
     That these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ symmetric strong monoidal can be directly checked element by element.
+\end{Proof}
+\subsection{Deleting Basepoints}\label{subsection-deleting-basepoints}
+Let $(X,x_{0})$ be a pointed set.
+\begin{definition}{Sets With Deleted Basepoints}{sets-with-deleted-basepoints}%
+    The \index[set-theory]{pointed set!deleting the basepoint}\textbf{set with deleted basepoint associated to $X$} is the set \index[notation]{Xminus@$X^{-}$}$\smash{X^{-}}$ defined by
+    \[
+        X^{-}%
+        \defeq%
+        X\setminus\{x_{0}\}.%
+    \]%
+\end{definition}
+\begin{proposition}{Properties of Sets With Deleted Basepoints}{properties-of-sets-with-deleted-basepoints}%
+    Let $(X,x_{0})$ be a pointed set.
+    \begin{enumerate}
+        \item\label{properties-of-sets-with-deleted-basepoints-functoriality}\SloganFont{Functoriality. }The assignment $(X,x_{0})\mapsto X^{-}$ defines a functor
+            \[
+                X^{-}%
+                \colon%
+                \Sets^{\actv}_{*}%
+                \to%
+                \Sets.%
+            \]%
+        \item\label{properties-of-sets-with-deleted-basepoints-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{(-)^{-}}#(-)^{+}#\Sets^{\actv}_{*}#\Sets,#
+            \end{webcompile}%
+            witnessed by a bijection of sets
+            \begin{align*}
+                \Sets(X^{-},Y)%
+                \cong%
+                \Sets_{*}(X,Y^{+}),%
+            \end{align*}
+            natural in $X\in\Obj(\Sets_{*})$ and $Y\in\Obj(\Sets)$.
+        \item\label{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums}\SloganFont{Symmetric Strong Monoidality With Respect to Wedge Sums. }The functor of \cref{properties-of-sets-with-deleted-basepoints-functoriality} has a symmetric strong monoidal structure
+            \[
+                ((-)^{-},(-)^{-,\vee},(-)^{-,\vee}_{\Unit})
+                \colon
+                (\Sets^{\actv}_{*},\vee,\pt),
+                \to
+                (\Sets,\icoprod,\emptyset),
+            \]%
+            being equipped with isomorphisms of pointed sets%
+            \[
+                \begin{gathered}
+                    (-)^{-,\vee}_{X,Y}   \colon X^{-}\icoprod Y^{-} \isorightarrow (X\vee Y)^{-},\\
+                    (-)^{-,\vee}_{\Unit} \colon \emptyset           \isorightarrow \pt^{-},
+                \end{gathered}
+            \]%
+            natural in $X,Y\in\Obj(\Sets)$.
+        \item\label{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-smash-products}\SloganFont{Symmetric Strong Monoidality With Respect to Smash Products. }The free pointed set functor of \cref{properties-of-sets-with-deleted-basepoints-functoriality} has a symmetric strong monoidal structure
+            \[
+                ((-)^{-},(-)^{-,\times},(-)^{-,\times}_{\Unit})
+                \colon
+                (\Sets^{\actv}_{*},\wedge,S^{0}),
+                \to
+                (\Sets,\times,\pt)
+            \]%
+            being equipped with isomorphisms of pointed sets%
+            \[
+                \begin{gathered}
+                    (-)^{-,\times}_{X,Y}   \colon X^{-}\times Y^{-} \isorightarrow (X\wedge Y)^{-},\\
+                    (-)^{-,\times}_{\Unit} \colon \pt               \isorightarrow (S^{0})^{-},
+                \end{gathered}
+            \]%
+            natural in $X,Y\in\Obj(\Sets)$.
+        %\item\label{properties-of-sets-with-deleted-basepoints-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-sets-with-deleted-basepoints}}%
+    \FirstProofBox{\cref{properties-of-sets-with-deleted-basepoints-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-adjointness}: Adjointness}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums}: Symmetric Strong Monoidality With Respect to Wedge Sums}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-smash-products}: Symmetric Strong Monoidality With Respect to Smash Products}%
+    Omitted.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

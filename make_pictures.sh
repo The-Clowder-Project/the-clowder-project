@@ -1,5 +1,10 @@
 #/bin/bash
-cd pictures/light-mode/symmetric-difference/associativity/
+cd pictures/light-mode/monoidal-left-unity-of-id-otimes-sets/
+./make.sh
+exit
+cd ../monoidal-right-unity-of-id-otimes-sets/
+./make.sh
+cd ../symmetric-difference/associativity/
 lualatex A.tex
 lualatex A_sdiff_B.tex
 lualatex A_sdiff_B_sdiff_C.tex
@@ -10,7 +15,11 @@ lualatex Venn0001.tex
 lualatex Venn0110.tex
 lualatex Venn0111.tex
 cd ../../../../
-cd pictures/dark-mode/symmetric-difference/associativity/
+cd pictures/dark-mode/monoidal-left-unity-of-id-otimes-sets/
+./make.sh
+cd ../monoidal-right-unity-of-id-otimes-sets/
+./make.sh
+cd ../symmetric-difference/associativity/
 lualatex A.tex
 lualatex A_sdiff_B.tex
 lualatex A_sdiff_B_sdiff_C.tex

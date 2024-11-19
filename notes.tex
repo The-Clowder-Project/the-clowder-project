@@ -1,7 +1,6 @@
 \input{preamble}
 
 % OK, start here.
-%
 \input{chapter_modifications.tex}
 \begin{document}
 
@@ -12,10 +11,12 @@
 \phantomsection
 \label{section-phantom}
 
+This chapter contains some notes regarding the Clowder Project.
+
 \ChapterTableOfContents
 
-\section{To Do List}\label{section-to-do-list}
-\subsection{Omitted Proofs To Add}\label{subsection-proofs-to-add}
+\section{To Do Lists}\label{section-to-do-list}
+\subsection{List of Omitted Proofs}\label{subsection-proofs-to-add}
 % BEGIN RAW HTML %
 <div class="epigraph-container">
   <div class="epigraph">
@@ -34,90 +35,444 @@
 % BEGIN LATEX HTML %
 \doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
 % END RAW HTML %
-There's a very large number of omitted proofs throughout these notes. Here I list them in decreasing order of how nice it would be to add them.
+There's a very large number of omitted proofs throughout these notes. Here we list them in decreasing order of importance, noting also whether they rely on material that has yet to be developed, marked by a WARNINGSIGN sign. This list is under construction.
 \begin{remark}{Omitted Proofs To Add}{omitted-proofs-to-add}%
     Proofs that \emph{need} to be added at some point:
     \begin{enumerate}
-        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-1}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-1}}.
-        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-2}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-2}}.
+        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-1}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-1}}WARNINGSIGN.
+        \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-2}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-2}}WARNINGSIGN.
         \item Horizontal composition of natural transformations is associative: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{categories:properties-of-horizontal-composition-of-natural-transformations}}{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{properties-of-horizontal-composition-of-natural-transformations}}.
         \item Fully faithful functors are essentially injective: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-essential-injectivity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-essential-injectivity} of \cref{properties-of-fully-faithful-functors}}.
     \end{enumerate}
     Proofs that \emph{would be very nice} to be added at some point:
     \begin{enumerate}
-        \item Properties of pseudomonic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudomonic-functors}}{\cref{properties-of-pseudomonic-functors}}.
+        \item Properties of pseudomonic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudomonic-functors}}{\cref{properties-of-pseudomonic-functors}}WARNINGSIGN.
         \item Characterisation of fully faithful functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-characterisations} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-characterisations} of \cref{properties-of-fully-faithful-functors}}.
-    \end{enumerate}
-
-    Proofs that \emph{would be nice} to be added at some point:
-    \begin{enumerate}
-        \item Properties of posetal categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories}}{\cref{properties-of-posetal-categories}}.
         \item The quadruple adjunction between categories and sets: \ChapterRef{\ChapterCategories, \cref{categories:the-quadruple-adjunction-between-sets-and-cats}}{\cref{the-quadruple-adjunction-between-sets-and-cats}}.
+        \item $F_{*}$ faithful iff $F$ faithful: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
         \item Properties of groupoid completions: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-groupoid-completion}}{\cref{properties-of-groupoid-completion}}.
         \item Properties of cores: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-the-core-of-a-category}}{\cref{properties-of-the-core-of-a-category}}.
-        \item $F_{*}$ faithful iff $F$ faithful: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
-        \item $F_{*}$ full iff $F$ full: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors-interaction-with-postcomposition} of \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors-interaction-with-postcomposition} of \cref{properties-of-full-functors}}.
-        \item Injective on objects functors are precisely the isocofibrations in $\TwoCategoryOfCategories$: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-injective-on-objects-functors-characterisations} of \cref{categories:properties-of-injective-on-objects-functors}}{\cref{properties-of-injective-on-objects-functors-characterisations} of \cref{properties-of-injective-on-objects-functors}}.
+        \item $\Rel$ is isomorphic to the category of free algebras of the powerset monad: \ChapterRef{\ChapterRelations, \cref{relations:rel-as-a-category-of-free-algebras}}{\cref{rel-as-a-category-of-free-algebras}}WARNINGSIGN.
+        \item Non/existence of left Kan extensions in $\sfbfRel$:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{left-kan-extensions-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{left-kan-extensions-in-rel}}.
+            \end{enumerate}
+        \item Non/existence of left Kan lifts in $\sfbfRel$:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{left-kan-lifts-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{left-kan-lifts-in-rel}}.
+            \end{enumerate}
+    \end{enumerate}
+    Proofs that \emph{would be nice} to be added at some point:
+    \begin{enumerate}
+        \item Quotient by an equivalence relation is a coequaliser: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:examples-of-coequalisers-of-sets}}{\cref{examples-of-coequalisers-of-sets}}.
+        \item Quotient by an equivalence relation is a coequaliser, repetition: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-quotient-sets-2}}{\cref{construction-of-quotient-sets-2}}.
+        \item Properties of posetal categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories}}{\cref{properties-of-posetal-categories}}.
+        \item Injective on objects functors are precisely the isocofibrations in $\TwoCategoryOfCategories$: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-injective-on-objects-functors-characterisations} of \cref{categories:properties-of-injective-on-objects-functors}}{\cref{properties-of-injective-on-objects-functors-characterisations} of \cref{properties-of-injective-on-objects-functors}}WARNINGSIGN.
         \item Characterisations of monomorphisms of categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-monomorphisms-of-categories-characterisations} of \cref{categories:properties-of-monomorphisms-of-categories}}{\cref{properties-of-monomorphisms-of-categories-characterisations} of \cref{properties-of-monomorphisms-of-categories}}.
         \item Epimorphisms of categories are surjective on objects: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{categories:properties-of-epimorphisms-of-categories}}{\cref{properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{properties-of-epimorphisms-of-categories}}.
-        \item Properties of pseudoepic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudoepic-functors}}{\cref{properties-of-pseudoepic-functors}}.
+        \item Properties of pseudoepic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudoepic-functors}}{\cref{properties-of-pseudoepic-functors}}WARNINGSIGN.
+    \end{enumerate}
+    Proofs that \emph{would be nice but not essential} to be added at some point:
+    \begin{enumerate}
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-bimonoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-bimonoidality} of \cref{properties-of-products-of-sets}}WARNINGSIGN.
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}{\cref{the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}WARNINGSIGN.
+        \item Proof that $(\Sets,\times_{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{properties-of-pullbacks-of-sets}}WARNINGSIGN.
+        \item Proof that $(\Sets,\icoprod,\emptyset)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{properties-of-coproducts-of-sets}}WARNINGSIGN.
+        \item Proof that $(\Sets,\ipushout{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-sets}}WARNINGSIGN.
+    \end{enumerate}
+    Proofs that have been (temporarily) omitted because they are \say{clear}, \say{straightforward}, or \say{tedious}:
+    \begin{enumerate}
+        \item Properties of products of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-associativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-associativity} of \cref{properties-of-products-of-sets}}.
+                \item Left Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-unitality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-unitality} of \cref{properties-of-products-of-sets}}.
+                \item Right Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-unitality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-unitality} of \cref{properties-of-products-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-commutativity} of \cref{properties-of-products-of-sets}}.
+                \item Left Distributivity Over Coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-distributivity-over-coproducts} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-distributivity-over-coproducts} of \cref{properties-of-products-of-sets}}.
+                \item Right Distributivity Over Coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-distributivity-over-coproducts} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-distributivity-over-coproducts} of \cref{properties-of-products-of-sets}}.
+                \item Left Annihilation With the Empty Set: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-annihilation-with-the-empty-set} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-annihilation-with-the-empty-set} of \cref{properties-of-products-of-sets}}.
+                \item Right Annihilation With the Empty Set: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-annihilation-with-the-empty-set} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-annihilation-with-the-empty-set} of \cref{properties-of-products-of-sets}}.
+                \item Symmetric Monoidality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-monoidality} of \cref{properties-of-products-of-sets}}.
+                \item Symmetric Bionoidality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-bimonoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-bimonoidality} of \cref{properties-of-products-of-sets}}.
+            \end{enumerate}
+        \item Properties of coproducts of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-associativity} of \cref{properties-of-coproducts-of-sets}}.
+                \item Left unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-left-unitality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-left-unitality} of \cref{properties-of-coproducts-of-sets}}.
+                \item Right unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-right-unitality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-right-unitality} of \cref{properties-of-coproducts-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-commutativity} of \cref{properties-of-coproducts-of-sets}}.
+            \end{enumerate}
+        \item Properties of pushouts of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-associativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-unitality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-unitality} of \cref{properties-of-pushouts-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-commutativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Pushout of sets over the empty set recovers the coproduct of sets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-sets}}.
+            \end{enumerate}
+        \item Properties of coequalisers of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-associativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-unitality} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-unitality} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-commutativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Interaction with composition: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{properties-of-coequalisers-of-sets}}.
+            \end{enumerate}
+        \item Properties of set differences:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-unions-2} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-unions-2} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-left-annihilation} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-left-annihilation} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-containment} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-containment} of \cref{properties-of-differences}}.
+            \end{enumerate}
+        \item Complements and characteristic functions: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-interaction-with-characteristic-functions} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-interaction-with-characteristic-functions} of \cref{properties-of-complements}}.
+        \item Properties of symmetric differences:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-lack-of-functoriality} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-lack-of-functoriality} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-lack-of-functoriality} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-lack-of-functoriality} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-bijectivity} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-bijectivity} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2} of \cref{properties-of-symmetric-differences}}.
+            \end{enumerate}
+        \item The Yoneda lemma for sets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-yoneda-lemma-for-sets}}{\cref{the-yoneda-lemma-for-sets}}.
+        \item Co/completeness of powersets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-categories-co-completeness} of \cref{constructions-with-sets:properties-of-powersets-as-categories}}{\cref{properties-of-powersets-as-categories-co-completeness} of \cref{properties-of-powersets-as-categories}}.
+        \item Properties of direct images:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-functoriality} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-coproducts} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i}}.
+            \end{enumerate}
+        \item Properties of inverse images:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-functoriality} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-coproducts} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with products; \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i}}.
+            \end{enumerate}
+        \item Properties of direct images with compact support:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-functoriality} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Lax preservation of colimits: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-coproducts} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i}}.
+            \end{enumerate}
+        \item Left distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Right distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Left annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-annihilator-of-the-product-of-sets}}{\cref{the-left-annihilator-of-the-product-of-sets}}.
+        \item Right annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-annihilator-of-the-product-of-sets}}{\cref{the-right-annihilator-of-the-product-of-sets}}.
+        \item Properties of wedge products of pointed sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Unitality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+            \end{enumerate}
+        \item Properties of pushouts of pointed sets:
+            \begin{enumerate}
+                \item Interaction with coproducts: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-pointed-sets}}.
+            \end{enumerate}
+        \item Properties of free pointed sets:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-free-pointed-sets-functoriality} of \cref{pointed-sets:properties-of-free-pointed-sets}}{\cref{properties-of-free-pointed-sets-functoriality} of \cref{properties-of-free-pointed-sets}}.
+            \end{enumerate}
+        \item $\Rel$ with $\times$ is closed symmetric monoidal: \ChapterRef{\ChapterRelations, \cref{relations:the-closed-symmetric-monoidal-category-of-relations}}{\cref{the-closed-symmetric-monoidal-category-of-relations}}.
+        \item Properties of graphs:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-functoriality} of \cref{properties-of-graphs-of-functions}}.
+                \item Interaction With Inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-interaction-with-inverses} of \cref{properties-of-graphs-of-functions}}.
+            \end{enumerate}
+        \item Properties of inverses of functions (as relations):
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-functoriality} of \cref{properties-of-inverses-of-functions}}.
+                \item Interaction With Inverses of Relations: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{properties-of-inverses-of-functions}}.
+            \end{enumerate}
+        \item Binary unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-unions-of-relations}}{\cref{properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{properties-of-binary-unions-of-relations}}.
+        \item Unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-unions-of-families-of-relations}}{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-unions-of-families-of-relations}}.
+        \item Binary Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-intersections-of-relations}}{\cref{properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{properties-of-binary-intersections-of-relations}}.
+        \item Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations}}{\cref{properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-intersections-of-families-of-relations}}.
+        \item Properties of inverses of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations}}.
+        \item Properties of composition of relations: some items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations}}.
+        \item Properties of collages of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-collages-of-relations}}{\cref{properties-of-collages-of-relations}}.
+        \item Properties of direct images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+                \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of strong inverse images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+                \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of weak inverse images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+                \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of direct images with compact support of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+                \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Functoriality of Powersets \rmII: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-2}}{\cref{functoriality-of-powersets-2}}.
+        \item Proof that the reflexive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-reflexive-closure-of-a-relation}}{\cref{construction-of-the-reflexive-closure-of-a-relation}}.
+        \item Properties of Symmetric Relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-symmetric-relations}}{\cref{properties-of-symmetric-relations}}.
+        \item Proof that the symmetric closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-symmetric-closure-of-a-relation}}{\cref{construction-of-the-symmetric-closure-of-a-relation}}.
+        \item Properties of the symmetric closure of a relation:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+            \end{enumerate}
+        \item Properties of transitive relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-transitive-relations}}{\cref{properties-of-transitive-relations}}.
+        \item Proof that the transitive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-transitive-closure-of-a-relation}}{\cref{construction-of-the-transitive-closure-of-a-relation}}.
+        \item Properties of the transitive closure of a relation:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation}}{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{properties-of-the-transitive-closure-of-a-relation}}.
+            \end{enumerate}
+        \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation}}{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{properties-of-the-equivalence-closure-of-a-relation}}.
+        \item Properties of Quotient Sets, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets}}:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-coequaliser} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-coequaliser} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-pushout} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-pushout} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{properties-of-quotient-sets}}.
+            \end{enumerate}
     \end{enumerate}
 \end{remark}
-\subsection{Things To Explore/Add}\label{subsection-things-to-explore}
-Here we list things to be explored/added to this work in the future.
-\begin{remark}{Things To Explore/Add}{things-to-explore-add}%
-    Set theory through a category theory lens:
+\subsection{List of Missing Examples}\label{subsection-missing-examples}
+Adding new examples is always welcome! In this section, we list some subjects and sections which could do with more examples:
+\begin{remark}{List of Missing Examples}{list-of-missing-examples}%
+    Potentially interesting examples to add include, but are definitely not limited to:
     \begin{enumerate}
-        \item Isbell duality for sets.
-        \item Density comonads and codensity monads for sets.
+        \item Examples of 2-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-monomorphisms-in-rel}}{\cref{subsection-2-categorical-monomorphisms-in-rel}}.
+        \item Examples of 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-epimorphisms-in-rel}}{\cref{subsection-2-categorical-epimorphisms-in-rel}}.
+        \item Examples of left Kan extensions and left Kan lifts in $\sfbfRel$.
+        \item Examples of functors satisfying the conditions described in \ChapterCategories.
+    \end{enumerate}
+\end{remark}
+\subsection{List of Open Problems}\label{subsection-open-problems}
+There's a number of questions and open problems listed throughout this project. Here we collect them in a single place.
+\begin{remark}{List of Open Problems}{list-of-open-problems}%
+    On relations:
+    \begin{enumerate}
+        \item \ChapterRef{\ChapterRelations, \cref{relations:better-characterisations-of-representably-full-morphisms-in-rel}}{\cref{better-characterisations-of-representably-full-morphisms-in-rel}}, on better characterisations of representably full morphisms in $\sfbfRel$. This question also appears as \cite{MO467527}.
+        \item \ChapterRef{\ChapterRelations, \cref{relations:better-characterisations-of-corepresentably-full-morphisms-in-rel}}{\cref{better-characterisations-of-corepresentably-full-morphisms-in-rel}}, on better characterisations of corepresentably full morphisms in $\sfbfRel$. This question also appears as \cite{MO467527}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-extensions-of-relations}}{\cref{existence-of-specific-left-kan-extensions-of-relations}}, seeking a characterisation of which left Kan extensions exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:explicit-description-of-left-kan-extensions-along-functions}}{\cref{explicit-description-of-left-kan-extensions-along-functions}}, seeking an explicit descriptions of left Kan extensions along relations of the form $f^{-1}$ (which always exist in $\sfbfRel$). This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-lifts-of-relations}}{\cref{existence-of-specific-left-kan-lifts-of-relations}}, seeking a characterisation of which left Kan lifts exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:explicit-description-of-left-kan-lifts-along-functions}}{\cref{explicit-description-of-left-kan-lifts-along-functions}}, seeking an explicit descriptions of left Kan lifts along relations of the form $\Gr(f)$ (which always exist in $\sfbfRel$). This question also appears as \cite{MO461592}.
+    \end{enumerate}
+    On categories:
+    \begin{enumerate}
+        \item \ChapterRef{\ChapterCategories, \cref{categories:better-characterisations-of-functors-with-full-precomposition}}{\cref{better-characterisations-of-functors-with-full-precomposition}}, seeking a better characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ to always be full. This question also appears as \cite{MO468121}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-conservative-pre-postcomposition}}{\cref{characterisations-of-functors-with-conservative-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be conservative. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-injective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-injective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially injective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially surjective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-dominant-pre-postcomposition}}{\cref{characterisations-of-functors-with-dominant-pre-postcomposition}}, , seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be dominant. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-monic-pre-postcomposition}}{\cref{characterisations-of-functors-with-monic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be monic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-epic-pre-postcomposition}}{\cref{characterisations-of-functors-with-epic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be epic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-pseudoepic-pre-postcomposition}}{\cref{characterisations-of-functors-with-pseudoepic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be pseudoepic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-pseudoepic-functors}}{\cref{characterisations-of-pseudoepic-functors}}, seeking a characterisation of pseudoepic functors. This question also appears as \cite{MO321971}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}{\cref{must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}, which asks whether a pseudomonic and pseudoepic functor must necessarily be an equivalence of categories. This question also appears as \cite{MO468334}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-faithful-on-cores}}{\cref{characterisation-of-functors-representably-faithful-on-cores}}, seeking a characterisation of functors representably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-full-on-cores}}{\cref{characterisation-of-functors-representably-full-on-cores}}, seeking a characterisation of functors representably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-representably-fully-faithful-on-cores}}, seeking a characterisation of functors representably fully faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-faithful-on-cores}}, seeking a characterisation of functors corepresentably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-full-on-cores}}{\cref{characterisation-of-functors-corepresentably-full-on-cores}}, seeking a characterisation of functors corepresentably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-fully-faithful-on-cores}}, seeking a characterisation of functors corepresentably fully faithful on cores.
+    \end{enumerate}
+\end{remark}
+\subsection{List of Things To Explore/Add}\label{subsection-things-to-explore-add}
+Here we list things to be explored in or added to this work in the future. This is a very quick and dirty list; some items may not be fully intelligible.
+\begin{remark}{Things To Explore/Add}{things-to-explore-add}%
+    Set Theory:
+    \begin{enumerate}
+        \item \url{https://math.stackexchange.com/questions/200389/show-that-the-set-of-all-finite-subsets-of-mathbbn-is-countable}
+        \item \url{https://mathoverflow.net/a/479528}
+        \item \url{https://www.maths.ed.ac.uk/~tl/ast/ast.pdf}
+    \end{enumerate}
+    Pointed sets:
+    \begin{enumerate}
+        \item Universal property of the smash product of pointed sets:
+            \begin{enumerate}
+                \item Record the weaker version of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:universal-properties-of-the-smash-product-of-pointed-sets-1}}{\cref{universal-properties-of-the-smash-product-of-pointed-sets-1}} saying that $\wedge$ is uniquely determined by those requirements:
+                    \begin{enumerate}
+                        \item State as is
+                        \item Restate as saying that a \say{moduli category} of those is contractible/equivalent to $\PunctualCategory$
+                    \end{enumerate}
+                \item Study the \say{moduli category} of monoidal structures on $\Sets_{*}$ having $\wedge$ and $S^{0}$; is it contractible?
+                    \begin{enumerate}
+                        \item Lax vs.\ oplax vs.\ etc.\ is a thing here.
+                        \item Do the same for $(\Sets,\times,\pt)$
+                    \end{enumerate}
+            \end{enumerate}
+        \item Universal properties (plural!) of the left tensor product of pointed sets
+        \item Universal properties (plural!) of the right tensor product of pointed sets
     \end{enumerate}
     Relations:
     \begin{enumerate}
-        \item 2-Categorical monomorphisms and epimorphisms in $\sfbfRel$.
+        \item Alternative compositions for $\sfbfRel$:
+            \begin{enumerate}
+                \item Figure which magma structures on $\TTV$ induce associative and unital compositions on $\Rel$.
+                    \begin{enumerate}
+                        \item One that does is
+                            \[
+                                (S\circ R)^{c}_{a}%
+                                \defeq%
+                                \int^{b\in B}S^{c}_{b}\mathbin{\text{xor}}R^{b}_{a}%
+                            \]%
+                            with unit given by $\Delta_{\mathtt{f}}$.
+                        \item Another is apartness composition
+                    \end{enumerate}
+                \item Figure what are the 2-categorical properties (internal monomorphisms, internal adjunctions, monads, etc.) of $\sfbfRel$ equipped with alternative compositions such as the apartness composition of the xor composition defined above
+                    \begin{enumerate}
+                        \item In particular: Apartness composition, categorical properties of $\sfbfRel$ with apartness, and apartness relations.
+                    \end{enumerate}
+            \end{enumerate}
+        \item Characterise the 2-categorical monomorphisms and epimorphisms in $\sfbfRel$.
         \item Co/limits in $\sfbfRel$.
-        \item Apartness composition, categorical properties of $\sfbfRel$ with apartness, and apartness relations.
-        \item Apartness defines a composition for relations, but its analogue
-            \[
-                \mathfrak{q}\mathbin{\square}\mathfrak{p}%
-                \defeq%
-                \int_{A\in\CatFont{C}}\mathfrak{p}^{-_{1}}_{A}\icoprod\mathfrak{q}^{A}_{-_{2}}%
-            \]%
-            fails to be unital for profunctors. Is there a less obvious analogue of apartness composition for profunctors?
         \item Codensity monad $\Ran_{J}(J)$ of a relation (What about $\Rift_{J}(J)$?)
-        \item Relative comonads in the $2$-category of relations
-        \item Discrete fibrations and Street fibrations in $\sfbfRel$.
+            \begin{enumerate}
+                \item Density comonad $\Lan_{J}(J)$ of a relation when it exists (what about $\Lift_{J}(J)$?)
+            \end{enumerate}
+        \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
+        \item Fibrations in $\sfbfRel$, like discrete fibrations and Street fibrations
         \item Consider adding the sections
             \begin{itemize}
                 \item The Monoidal Bicategory of Relations
                 \item The Monoidal Double Category of Relations
             \end{itemize}
             to \ChapterRelations.
+        \item internal relations, \url{https://ncatlab.org/nlab/show/internal+relation}
     \end{enumerate}
     Spans:
     \begin{enumerate}
-        \item Universal property of the bicategory of spans, \url{https://ncatlab.org/nlab/show/span}
-        \item Write about cospans.
+        \item Spans: study certain compositions of spans like composing $B\xleftarrow{f}A=A$ and $A=A\xleftarrow{g}B$ into a span $B\xleftarrow{f}A\xleftarrow{g}B$
+        \item Comparison \emph{double functor} from Span to Rel and vice versa
+        \item Apartness composition for spans and alternate compositions for spans in general
+        \item non-Cartesian analogue of spans
+            \begin{enumerate}
+                \item View spans as morphisms $S\to A\times B$ and consider instead morphisms $S\to A\otimes_{\CatFont{C}}B$
+            \end{enumerate}
+        \item Record the universal property of the bicategory of spans of \url{https://ncatlab.org/nlab/show/span}
+        \item \url{https://ncatlab.org/nlab/show/span+trace}
+        \item Cospans.
+        \item Multispans.
     \end{enumerate}
-    Un/Straightening:
+    Un/Straightening for Indexed and Fibred Sets:
     \begin{enumerate}
-        \item Write proper sections on straightening for lax functors from sets to Rel or Span (displayed sets)
+        \item Analogue of adjoints for Grothendieck construction for indexed and fibred sets
+        \item Write proper sections on straightening for lax functors from Sets to Rel or Span (displayed sets)
+        \item co/units for un/straightening adjunction
     \end{enumerate}
     Categories:
     \begin{enumerate}
-        \item Expand \cref{construction-of-the-groupoid-completion-of-a-category} and add a proof to it.
-        \item Sections and retractions; retracts, \url{https://ncatlab.org/nlab/show/retract}.
-        \item Regular categories: \url{https://arxiv.org/pdf/2004.08964.pdf}.
+        \item \url{https://en.wikipedia.org/wiki/Category_algebra}
+        \item simple objects
+        \item \url{https://mathoverflow.net/questions/442212/properties-of-categorical-zeta-function}
+        \item Polynomial functors, \url{https://ncatlab.org/nlab/show/polynomial+functor}, \url{https://arxiv.org/abs/2312.00990}
+        \item \url{https://ncatlab.org/nlab/show/simple+object}
+        \item \url{https://mathoverflow.net/questions/442212/properties-of-categorical-zeta-function}
+        \item \url{https://arxiv.org/abs/2409.17489}
+        \item \url{https://mathoverflow.net/a/478644}
+        \item Posetal category associated to a poset as a right adjoint
+        \item \say{Presetal category} associated to a preordered set
+        \item Vopenka's principle simplifies stuff in the theory of locally presentable categories. If we build categories using type theory or HoTT, what stuff from vopenka holds?
         \item Are pseudoepic functors those functors whose restricted Yoneda embedding is pseudomonic and Yoneda preserves absolute colimits?
         \item Absolutely dense functors enriched over $\R^{+}$ apparently reduce to topological density
+        \item Is there a reasonable notion of category homology? It is very common for the geometric realisation of a category to be contractible (e.g.\ having an initial or terminal object), but maybe some notion of directed homology could work here
+        \item Nerves of categories:
+            \begin{enumerate}
+                \item Dihedral and symmetric nerves of categories via groupoids (define them first for groupoids and then Kan extend along $\Grpd\hookrightarrow\Cats$)
+                    \begin{enumerate}
+                        \item Same applies to twisted nerves
+                    \end{enumerate}
+                \item Cyclic nerve of a category
+                \item Crossed Simplicial Group Categorical Nerves, \url{https://arxiv.org/abs/1603.08768}
+            \end{enumerate}
+        \item Define contractible categories and add a discussion of universal properties as stating that certain categories are contractible. (Example of non-unique isomorphisms as e.g.\ being a group of order $5$ corresponds to all objects being isomorphic but the category not being contractible)
+        \item Expand \cref{construction-of-the-groupoid-completion-of-a-category} and add a proof to it.
+        \item Sections and retractions; retracts, \url{https://ncatlab.org/nlab/show/retract}.
+        \item Groupoid cardinality
+            \begin{enumerate}
+                \item \url{https://ncatlab.org/nlab/show/groupoid+cardinality}
+                \item \url{https://arxiv.org/abs/2104.11399}
+                \item \url{https://terrytao.wordpress.com/2017/04/13/counting-objects-up-to-isomorphism-groupoid-cardinality/}
+                \item \url{https://arxiv.org/abs/0809.2130}
+                \item \url{https://qchu.wordpress.com/2012/11/08/groupoid-cardinality/}
+                \item \url{https://mathoverflow.net/questions/363292/what-is-the-groupoid-cardinality-of-the-category-of-vector-spaces-over-a-finite}
+            \end{enumerate}
+        \item combinatorial species
+            \begin{enumerate}
+                \item \url{https://mathoverflow.net/questions/22462/what-are-some-examples-of-interesting-uses-of-the-theory-of-combinatorial-specie}
+                \item \url{https://en.wikipedia.org/wiki/Combinatorial_species}
+            \end{enumerate}
+        \item Leinster's the eventual image, \url{https://arxiv.org/abs/2210.00302}
+        \item \url{https://ncatlab.org/nlab/show/separable+functor}
+        \item Dagger categories:
+            \begin{enumerate}
+                \item \url{https://en.wikipedia.org/wiki/Dagger_category}
+                \item \url{https://ncatlab.org/nlab/show/dagger+category}
+                \item Dagger compact categories, \url{https://en.wikipedia.org/wiki/Dagger_compact_category}
+                \item \url{https://mathoverflow.net/questions/220032/are-dagger-categories-truly-evil}
+                \item generalisation of dagger categories to categories with duality, i.e.\ categories $\CatFont{C}$ together with a functor $\dagger\colon\CatFont{C}^{\op}\to\CatFont{C}$
+                    \begin{enumerate}
+                        \item Perhaps with the additional condition that $\dagger\circ\dagger=\id$
+                        \item categories with involutions in general
+                    \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    Regular Categories:
+    \begin{enumerate}
+        \item \url{https://arxiv.org/pdf/2004.08964.pdf}.
+        \item Internal relations
     \end{enumerate}
     Types of Morphisms in Categories:
     \begin{enumerate}
+        \item Characterisation of epimorphisms in the category of fields, \url{https://math.stackexchange.com/q/4941660}
+        \item Strong epimorphisms
         \item Behaviour in $\Fun(\CatFont{C},\CatFont{D})$, e.g.\ pointwise sections vs.\ sections in $\Fun(\CatFont{C},\CatFont{D})$.
-        \item A faithful functor from balanced category is conservative
-    \end{enumerate}
-    Yoneda stuff:
-    \begin{enumerate}
-        \item Properties of restricted Yoneda embedding, e.g.\ if the restricted Yoneda embedding is full, then what can we conclude? Related: \url{https://qchu.wordpress.com/2015/05/17/generators/}
+        \item Faithful functors from balanced categories are conservative
+        \item Natural cotransformations:
+            \begin{enumerate}
+                \item If there is a natural transformation between functors between categories, taking nerves gives a homotopy equivalence (or something like that). What happens for natural cotransformations?
+                \item Natural transformations come with a vertical composition map
+                    \[
+                        \circ%
+                        \colon%
+                        \coprod_{G\in\Fun(\CatFont{C},\CatFont{D})}\Nat(G,H)\times\Nat(F,G)%
+                        \to%
+                        \Nat(F,H).%
+                    \]%
+                    As Morgan Rogers shows \href{https://categorytheory.zulipchat.com/#narrow/stream/229136-theory.3A-category-theory/topic/.E2.80.9CNatural.20cotransformations.E2.80.9D/near/436863628}{here}, there's no vertical cocomposition map of the form
+                    \[
+                        \CoNat(F,H)%
+                        \to%
+                        \prod_{G\in\Fun(\CatFont{C},\CatFont{D})}\CoNat(G,H)\times\CoNat(F,G)%
+                    \]%
+                    or of the form
+                    \[
+                        \CoNat(F,H)%
+                        \to%
+                        \prod_{G\in\Fun(\CatFont{C},\CatFont{D})}\CoNat(G,H)\icoprod\CoNat(F,G)%
+                    \]%
+                    for natural cotransformations.
+                \item Cap product for CoNat and Nat
+                    \begin{enumerate}
+                        \item recovers map $\rmZ(G)\times\Cl(G)\to\Cl(G)$.
+                    \end{enumerate}
+                \item What is the geometric realisation of $\mathrm{CoTrans}(F,G)$?
+                    \begin{enumerate}
+                        \item Related: \url{https://mathoverflow.net/questions/89753/geometric-realization-of-hochschild-complex}
+                    \end{enumerate}
+                \item What is the totalisation of $\mathrm{Trans}(F,G)$?
+                    \begin{enumerate}
+                        \item If we view sets as discrete topological spaces, what are the homotopy/homology groups of it? The nLab says this (\url{https://ncatlab.org/nlab/show/totalization}):
+                            \begin{quote}
+                                The homotopy groups of the totalization of a cosimplicial space are computed by a Bousfield-Kan spectral sequence.
+
+                                The homology groups by an Eilenberg-Moore spectral sequence.
+                            \end{quote}
+                    \end{enumerate}
+                \item Abstract
+            \end{enumerate}
     \end{enumerate}
     Adjunctions:
     \begin{enumerate}
@@ -125,20 +480,441 @@ Here we list things to be explored/added to this work in the future.
         \item Morphisms between adjunctions and bicategory $\Adj(\CatFont{C})$.
         \item \url{https://ncatlab.org/nlab/show/transformation+of+adjoints}
     \end{enumerate}
+    Presheaves and the Yoneda Lemma:
+    \begin{enumerate}
+        \item Yoneda extension along $\yo_{\CatFont{D}}\circ F\colon\CatFont{C}\to\PSh(\CatFont{D})$, giving a functor left adjoint to the precomposition functor $F^{*}\colon\PSh(\CatFont{D})\to\PSh(\CatFont{C})$.
+        \item Consider the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \PSh(\CatFont{C})
+                    \arrow[d,dashed]
+                    \arrow[rd,dashed]
+                    \&
+                    \\
+                    \CatFont{C}
+                    \arrow[r]
+                    \arrow[ru,hook]
+                    \&
+                    \CatFont{D}
+                    \arrow[r,hook]
+                    \&
+                    \PSh(\CatFont{D})
+                \end{tikzcd}
+            \]%
+        \item Does the functor tensor product admit a right adjoint (\say{Hom}) in some sense?
+        \item Yoneda embedding preserves limits
+        \item universal objects and universal elements
+        \item adjoints to the Yoneda embedding and total categories
+        \item The co-Yoneda lemma: co/presheaves are colimits of co/representables
+        \item Properties of categories of copresheaves
+        \item Contravariant restricted Yoneda embedding
+        \item Contravariant Yoneda extensions
+        \item Make table of $\Lift_{\yo}(\yo)$, $\Ran_{\yo}(\yo)$, $\Ran_{\yo}(\coyo)$, etc.
+        \item Properties of restricted Yoneda embedding, e.g.\ if the restricted Yoneda embedding is full, then what can we conclude? Related: \url{https://qchu.wordpress.com/2015/05/17/generators/}
+        \item Tensor product of functors and relation to profunctors
+        \item rifts and rans and lifts and lans involving yoneda in $\Cats$ and $\Prof$
+        \item Tensor product of functors and relation to rifts and rans of profunctors
+    \end{enumerate}
+    Isbell Duality:
+    \begin{enumerate}
+        \item \textbf{Important: }I should reconsider going with the notation $\IsbellO$ and $\IsbellSpec$. Although a bit common in the (somewhat scarce) literature on Isbell duality, I have doubts regarding how useful/nice of a choice $\IsbellO$ and $\IsbellSpec$ are, and whether there are better choices of notation for them.
+        \item Interaction with $\times$, $\Hom$, $F_{!}$, $F^{*}$, and $F_{*}$
+        \item Interactions between presheaves and copresheaves:
+            \begin{enumerate}
+                \item Natural transformations from a presheaf to a copresheaf and vice versa
+                \item Mixed Day convolution?
+            \end{enumerate}
+        \item Isbell duality for monoids:
+            \begin{enumerate}
+                \item Set up a dictionary between properties of $\Sets^{\rmL}_{A}$ or $\Sets^{\rmR}_{A}$ and properties of $A$
+                \item Do the same for $\IsbellO$ given by $A\mapsto\Sets^{\rmL}_{A}(X,A)$
+                \item Do the same for $\IsbellSpec$ given by $A\mapsto\Sets^{\rmR}_{A}(X,A)$
+                \item Do the same for $\IsbellO\circ\IsbellSpec$
+                \item Do the same for $\IsbellSpec\circ\IsbellO$
+                \item Algebras for $\IsbellSpec\circ\IsbellO$
+                \item Coalgebras for $\IsbellO\circ\IsbellSpec$
+            \end{enumerate}
+        \item Properties of $\IsbellSpec$ (e.g.\ fully faithfulness) vs.\ properties of $\CatFont{C}$
+        \item Properties of $\IsbellO$ (e.g.\ fully faithfulness) vs.\ properties of $\CatFont{C}$
+        \item co/unit being monomorphism/epimorphism
+        \item reflexive completion
+        \item Isbell duality for simplicial sets; what's the reflexive completion?
+        \item Isbell envelope
+        \item What does Isbell duality look like, when Cat(Aop,Set) is identified with the category of discrete opfibrations over A, using A.5.14?
+        \item Generalizations of Isbell duality:
+            \begin{enumerate}
+                \item Monoidal Isbell duality: monoidality for Isbell adjunction with day convolution (6.3 of coend cofriend)
+                \item Isbell duality with sheaves
+                \item Isbell duality with Lawvere theories, product preserving functors or whatever
+                \item Isbell duality for profunctors
+                    \begin{enumerate}
+                        \item In view of \cref{properties-of-the-isbell-o-functor-as-a-right-kan-lift-in-prof} of \cref{properties-of-the-isbell-o-functor}, can we just use right Kan lifts/extensions?
+                        \item Right Kan lift/extension of Hom functors (there's probably a version of the Yoneda lemma here)
+                            \begin{enumerate}
+                                \item What is $\Rift_{F}(\Hom_{\CatFont{C}})$
+                                \item What is $\Ran_{F}(\Hom_{\CatFont{C}})$
+                                \item What is $\Rift_{\Hom_{\CatFont{C}}}(F)$
+                                \item What is $\Ran_{\Hom_{\CatFont{C}}}(F)$
+                                \item What is $\Lift_{F}(\Hom_{\CatFont{C}})$
+                                \item What is $\Lan_{F}(\Hom_{\CatFont{C}})$
+                                \item What is $\Lift_{\Hom_{\CatFont{C}}}(F)$
+                                \item What is $\Lan_{\Hom_{\CatFont{C}}}(F)$
+                            \end{enumerate}
+                    \end{enumerate}
+            \end{enumerate}
+        \item Tensor product of functors and Isbell duality
+            \begin{enumerate}
+                \item What is $\SheafFont{F}\boxtimes_{\CatFont{C}}\IsbellO(\SheafFont{F})$?
+                \item What is $\IsbellSpec(F)\boxtimes_{\CatFont{C}}F$?
+                \item I think there is a canonical morphism
+                    \[
+                        \SheafFont{F}\boxtimes_{\CatFont{C}}\IsbellO(\SheafFont{F})%
+                        \to%
+                        \Tr(\CatFont{C}).%
+                    \]%
+                    By the way, what is $\Tr(\SimplexCategory)$? What is $\Tr(\B{A})$? What about $\Nat(\id_{\CatFont{C}},\id_{\CatFont{C}})$ for $\CatFont{C}=\B{A}$ or $\CatFont{C}=\SimplexCategory$
+            \end{enumerate}
+        \item Isbell with coends:
+            \begin{enumerate}
+                \item $\Hom(F(A),h_A)$ but it's a coend
+                \item Conatural transformations and all that
+            \end{enumerate}
+        \item Co/limit preservation for O/Spec
+        \item Isbell duality for N vs. N + N
+        \item What do we get if we replace $\IsbellO\defeq\Nat(-,h_{X})$ by $\Nat^{[W]}(-,h_{X})$, and in particular by $\DiNat(-,h_{X})$?
+    \end{enumerate}
     Constructions With Categories:
     \begin{enumerate}
         \item Comparison between pseudopullbacks and isocomma categories: the \say{evident} functor $\CatFont{C}\times^{\sfps}_{\CatFont{E}}\CatFont{D}\to\CatFont{C}\isocomma_{\CatFont{E}}\CatFont{D}$ is essentially surjective and full, but not faithful in general.
+        \item Quotients of categories by actions of monoidal categories
+            \begin{enumerate}
+                \item Quotients of categories by actions of monoids $\B{A}$
+                \item Quotients of categories by actions of monoids $A_{\disc}$
+                \item Lax, oplax, pseudo, strict, etc.\ quotients of categories
+                \item lax Kan extensions along $\B{\CatFont{C}}\to\B{\CatFont{D}}$ for $\CatFont{C}\to\CatFont{D}$ a monoidal functor
+            \end{enumerate}
+        \item Quotient of $\Fun(\B{A},\CatFont{C})$ by the $A$-action.
+            \begin{enumerate}
+                \item This is used to build the cycle and $p$-cycle categories from the paracycle category.
+                \item The quotient of $\Fun(\B\N,\CatFont{C})$ by the $\N$-action should act as a kind of cyclic directed loop space of $\CatFont{C}$
+            \end{enumerate}
+        \item $\Fun(\B\N,\CatFont{C})$ as a homotopy pullback in $\TwoCategoryOfCategories$
+            \begin{enumerate}
+                \item $\Fun(\B\Z,\CatFont{C})$ as a homotopy pullback in $\TwoCategoryOfGroupoids$
+                \item Free loop space objects
+            \end{enumerate}
     \end{enumerate}
-    Co/limits:
+    Limits and colimits:
     \begin{enumerate}
+        \item Initial/terminal objects as left/right adjoints to $!_{\CatFont{C}}\colon\CatFont{C}\to\PunctualCategory$.
+        \item A small cocomplete category is a poset, \url{https://mathoverflow.net/questions/108737/small-categories-and-completeness}
+        \item Co/limits in $\B{A}$, including e.g.\ co/equalisers in $\B{A}$
         \item Add the characterisations of absolutely dense functors given in \cref{https://ncatlab.org/nlab/show/absolutely+dense+functor} to \cref{properties-of-fully-faithful-functors-interaction-with-precomposition-4}.
         \item Absolutely dense functors, \url{https://ncatlab.org/nlab/show/absolutely+dense+functor}. Also theorem 1.1 here: \url{http://www.tac.mta.ca/tac/volumes/8/n20/n20.pdf}.
         \item Dense functors, codense functors, and absolutely codense functors.
+        \item van kampen colimits
     \end{enumerate}
-    Co/ends:
+    Completions and cocompletions:
     \begin{enumerate}
+        \item \url{https://mathoverflow.net/questions/429003/manifolds-as-cauchy-completed-objects}
+        \item what is the conservative cocompletion of smooth manifolds? Is it related to diffeological spaces?
+        \item what is the conservative completion of smooth manifolds? Is it related to diffeological spaces?
+        \item what is the conservative bicompletion of smooth manifolds? Is it related to diffeological spaces?
+        \item completion of a category under exponentials
+        \item \url{https://mathoverflow.net/questions/468897/cocompletion-without-cocontinuous-functors}
+        \item The free cocompletion of a category;
+        \item The free completion of a category;
+        \item The free completion under finite products;
+        \item The free cocompletion under finite coproducts;
+        \item The free bicompletion of a category;
+        \item The free bicompletion of a category under nonempty products and nonempty coproducts (\url{https://ncatlab.org/nlab/show/free+bicompletion});
+        \item Cauchy completions
+        \item Dedekind--MacNeille completions
+        \item Isbell completion (\url{https://ncatlab.org/nlab/show/reflexive+completion})
+        \item Isbell envelope
+    \end{enumerate}
+    Ends and Coends:
+    \begin{enumerate}
+        \item Ask Fosco about whether composition of dinatural transformations into higher dinaturals could be useful for https://arxiv.org/abs/2409.10237
+        \item Cyclic co/ends
+            \begin{enumerate}
+                \item Try to mimic the construction given in Haugseng for the cycle, paracycle, cube, etc.\ categories
+                \item cyclotomic stuff for cyclic co/ends
+                    \begin{enumerate}
+                        \item Check out Ayala--Mazel-Gee--Rozenblyum's \textit{\href{https://arxiv.org/abs/2405.03897}{Symmetries of the cyclic nerve}}
+                        \item isogenetic $\N^{\times}$-action (what the fuck does this mean?)
+                    \end{enumerate}
+            \end{enumerate}
+        \item After stating the co/ends
+            \[
+                \begin{aligned}
+                    \int^{A\in\CatFont{C}}h_{A}\odot\SheafFont{F}^{A},\\
+                    \int^{A\in\CatFont{C}}h^{A}\odot F_{A},
+                \end{aligned}
+                \qquad
+                \begin{aligned}
+                    \int_{A\in\CatFont{C}}\Sets(h_{A},\SheafFont{F}^{A}),\\
+                    \int_{A\in\CatFont{C}}\Sets(h^{A},F_{A})
+                \end{aligned}
+            \]%
+            in the co/end version of the Yoneda lemma, add a remark explaining what the co/ends
+            \[
+                \begin{aligned}
+                    \int_{A\in\CatFont{C}}h_{A}\odot\SheafFont{F}^{A},\\
+                    \int_{A\in\CatFont{C}}h^{A}\odot F_{A},
+                \end{aligned}
+                \qquad
+                \begin{aligned}
+                    \int^{A\in\CatFont{C}}\Sets(h_{A},\SheafFont{F}^{A}),\\
+                    \int^{A\in\CatFont{C}}\Sets(h^{A},F_{A})
+                \end{aligned}
+            \]%
+            and the co/ends
+            \[
+                \begin{aligned}
+                    \int^{A\in\CatFont{C}}\SheafFont{F}^{A}\odot h_{A},\\
+                    \int^{A\in\CatFont{C}}F_{A}\odot h^{A},\\
+                    \int_{A\in\CatFont{C}}\SheafFont{F}^{A}\odot h_{A},\\
+                    \int_{A\in\CatFont{C}}F_{A}\odot h^{A},\\
+                \end{aligned}
+                \qquad
+                \begin{aligned}
+                    \int_{A\in\CatFont{C}}\Sets(\SheafFont{F}^{A},h_{A}),\\
+                    \int_{A\in\CatFont{C}}\Sets(F_{A},h^{A}),\\
+                    \int^{A\in\CatFont{C}}\Sets(\SheafFont{F}^{A},h_{A}),\\
+                    \int^{A\in\CatFont{C}}\Sets(F_{A},h^{A})
+                \end{aligned}
+            \]%
+            are.
+        \item ends $\CatFont{C}\to\CatFont{D}$ with $\odot$ is a special case of ends for a certain enrichment over $\CatFont{D}$
+        \item try to figure out what the end/coend
+            \[
+                \int^{X\in\CatFont{C}}h^{A}_{X}\times h^{X}_{B},%
+                \qquad%
+                \int_{X\in\CatFont{C}}h^{A}_{X}\times h^{X}_{B}%
+            \]%
+            are for $\CatFont{C}=\B{A}$. (I think the coend is like tensor product of $A$ as a left $A$-set with it as a right $A$-set)
+        \item Cyclic ends
+        \item Dihedral ends
+        \item Does Haugseng's constructions give a way to define cyclic co/homology with coefficients in a bimodule?
+        \item Category of elements of dinatural transformation classifier
         \item Examples of co/ends: \url{https://mathoverflow.net/a/461814}
         \item Cofinality for co/ends, \url{https://mathoverflow.net/questions/353876}
+        \item \say{Fourier transforms} as in \url{https://arxiv.org/pdf/1501.02503#page=168} or \url{https://tetrapharmakon.github.io/stuff/itaca.pdf}
+    \end{enumerate}
+    Weighted/diagonal category theory:
+    \begin{enumerate}
+        \item co/ends as centre/trace-infused co/limits: compare the co/end of $\Hom_{\CatFont{C}}$ with the co/limit of $\Hom_{\CatFont{C}}$
+        \item Codensity $W$-weighted monads, $\Ran^{[W]}_{F}(F)$;
+        \item Codensity diagonal monads, $\mathrm{DiRan}_{F}(F)$;
+    \end{enumerate}
+    Profunctors:
+    \begin{enumerate}
+        \item Apartness defines a composition for relations, but its analogue
+            \[
+                \mathfrak{q}\mathbin{\square}\mathfrak{p}%
+                \defeq%
+                \int_{A\in\CatFont{C}}\mathfrak{p}^{-_{1}}_{A}\icoprod\mathfrak{q}^{A}_{-_{2}}%
+            \]%
+            fails to be unital for profunctors with the unit $h^{A}_{-}$. Is it unital for some other unit? Is there a less obvious analogue of apartness composition for profunctors? Or maybe does $\Prof$ equipped with $\square$ and units $h^{A}_{-}$ form a skew bicategory?
+
+            Is $\Delta_{\emptyset}$ a unit?
+        \item Figure what monoidal category structures on $\Sets$ induce associative and unital compositions on $\Prof$.
+        \item \url{https://mathoverflow.net/questions/470213/a-distributor-between-categories-induces-a-distributor-between-their-categories}
+        \item Different compositions for profunctors from monoidal structures on the category of sets (e.g.\ \url{https://mathoverflow.net/questions/155939/what-other-monoidal-structures-exist-on-the-category-of-sets})
+        \item Nucleus of a profunctor;
+        \item Isbell duality for profunctors:
+            \begin{enumerate}
+                \item \url{https://mathoverflow.net/questions/259525/isbell-duality-for-profunctors}
+                \item \url{https://mathoverflow.net/questions/260322/the-mathfrak-l-functor-on-textsfprof}
+                \item \url{https://mathoverflow.net/questions/262462/again-on-the-mathfrak-l-functor-on-mathsfprof}
+            \end{enumerate}
+    \end{enumerate}
+    Centres and Traces of Categories:
+    \begin{enumerate}
+        \item Explicitly work out the trace and $\pi_{0}\Fun(\B\N,-)$ for monoids with few elements.
+        \item $[1_{A}]$ can contain more than one element. An example is $\Sets(\N,\N)$ and the maps given by
+            \begin{align*}
+                \{0,1,2,3,\ldots\} &\mapsto \{0,0,1,2,\ldots\},\\
+                \{0,1,2,3,\ldots\} &\mapsto \{2,3,4,5,\ldots\}.
+            \end{align*}
+            Show also that if $c\in[1_{A}]$, then $c$ is idempotent.
+        \item Drinfeld centre
+        \item trace of the symmetric simplex category; it's probably different from that of $\FinSets$
+        \item Trace of $\FontForCategories{Rep}_{G}$ and interaction with induction, restriction, etc.
+        \item $\pi_{0}(\B\N,\B{A})$, $K(\B\N,\B{A})$, and $\Tr(\B\N,\B{A})$ as concepts of conjugacy for monoids, their equivalents for categories, and comparison with traces
+        \item Comparison between $\pi_{0}(\Fun(\B\N,\CatFont{C}))$ and $K(\Fun(\B\N,\CatFont{C}))$
+        \item Lax, oplax, pseudo, and strict trace of simplex 2-category
+        \item duality over $\GammaCategory$ might give a map from product of a monoid with a set to $\Tr(\GammaCategory)$
+        \item Studying the set $\Nat(\id_{\CatFont{C}},F)$ as a notion of categorical trace:
+            \begin{enumerate}
+                \item Ganter–Kapranov define the trace of a $1$-endomorphism $f\colon A\to A$ in a $2$-category $\CatFont{C}$ to be the set $\Hom_{\CatFont{C}}(\id_{A},f)$;
+                    \begin{enumerate}
+                        \item \url{https://arxiv.org/abs/math/0602510}
+                        \item \url{https://golem.ph.utexas.edu/string/archives/000757.html}
+                        \item \url{https://ncatlab.org/nlab/show/categorical+trace}
+                    \end{enumerate}
+                    We should study this notion in detail, and also study $\Nat(F,\id_{\CatFont{C}})$ as well as $\CoNat(\id_{\CatFont{C}},F)$ and $\CoNat(F,\id_{\CatFont{C}})$.
+            \end{enumerate}
+        \item Centre of bicategories
+        \item Lax centres and lax traces
+        \item Examples of traces:
+            \begin{enumerate}
+                \item Discrete categories
+                \item Posets
+                    \begin{enumerate}
+                        \item $\FontForCategories{Open}(X)$
+                    \end{enumerate}
+                \item Trace of small but non-finite categories:
+                    \begin{enumerate}
+                        \item $\Sets$
+                        \item $\FontForCategories{Rep}(G)$
+                        \item category of finite groups
+                        \item category of finite abelian groups
+                        \item category of finite $p$-groups for fixed $p$
+                        \item category of finite $p$-groups for all $p$
+                        \item category of finite fields
+                        \item category of finite topological spaces
+                        \item category of finite [insert a mathematical object here]
+                    \end{enumerate}
+            \end{enumerate}
+        \item When is the trace of a groupoid just the disjoint sum of sets of conjugacy classes?
+        \item Set-theoretical issues when defining traces
+            \begin{enumerate}
+                \item Sets is a large category, and yet we can speak of its centre
+                    \begin{align*}
+                        \rmZ(\Sets) &\defeq \int_{A\in\Sets}\Sets(X,X)\\%
+                                    &\cong  \Nat(\id_{\Sets},\id_{\Sets})\\
+                                    &\cong  \pt.
+                    \end{align*}
+                    Is there a way to do the same for the trace of sets, or otherwise work with traces of large categories?
+            \end{enumerate}
+        \item Understand how traces are defined via universal properties in Xinwen Zhu's \href{https://arxiv.org/abs/1810.07375}{Geometric Satake, categorical traces, and arithmetic of Shimura varieties}.
+        \item trace as an $\Obj(\CatFont{C})$-indexed set
+            \begin{enumerate}
+                \item properties, functoriality, etc.
+            \end{enumerate}
+        \item Maybe actually call $\Fun(\B\N,\CatFont{C})$ the categorical directed loop space of $\CatFont{C}$?
+        \item Cyclic version of $\Fun(\B\N,\CatFont{C})$
+        \item Traces of categories, nerves of categories, and the cycle category
+    \end{enumerate}
+    Categorical Hochschild Homology:
+    \begin{enumerate}
+        \item To any functor we have an associated natural transformation (\cref{the-natural-transformation-associated-to-a-functor}). Do we have sharp transformations associated to natural transformation?
+        \item build Hochschild co/simplicial set and study its homotopy groups
+        \item $\Fun(\B\N,X_{\bullet})$ vs.\ $\Fun(\Delta^{1}/\partial\Delta^{1},X_{\bullet})$
+            \begin{enumerate}
+                \item Their $\pi_{0}$'s vs.\ the $\pi_{0}$'s of $\Hom_{X_{\bullet}}(x,x)$, of $\Hom^{\rmL}_{X_{\bullet}}(x,x)$, and $\Hom^{\rmR}_{X_{\bullet}}(x,x)$.
+            \end{enumerate}
+    \end{enumerate}
+    Monoidal Categories:
+    \begin{enumerate}
+        \item Proving a certain diagram between free monoidal categories commutes involves Fermat's little theorem. Can we reverse this and prove Fermat's little theorem from the commutativty of that diagram?
+        \item \url{https://nilesjohnson.net/notes/grPic-P2S.pdf}
+        \item Proof that monoidal equivalences $F$ of monoidal categories automatically admit monoidal natural isomorphisms $\id_{\CatFont{C}}\cong F^{-1}\circ F$ and $\id_{\CatFont{D}}\cong F\circ F^{-1}$.
+        \item Proof that category with products is monoidal under the Cartesian monoidal structure, \cite{MO382264}.
+        \item Explore 2-categorical algebra:
+            \begin{enumerate}
+                \item Find a construction of the free 2-group on a monoidal category. Apply it to the multiplicative structure on the category of finite sets and permutations, as well as to the multiplicative structure on the 1-truncation of the sphere spectrum, and try to figure out whether this looks like a categorification of $\Q$.
+                \item What is the free 2-group on $(\SimplexCategory,\oplus,[0])$?
+            \end{enumerate}
+        \item Categorify the preorder $\leq$ on $\N$ to a promonad $\mathfrak{p}$ on the groupoid of finite sets and permutations $\F$:
+            \begin{enumerate}
+                \item A preorder is a monad in $\Rel$
+                \item A promonad is a monad in $\Prof$.
+                \item There's a promonad $\mathfrak{p}$ in $\F$ defined by
+                    \[
+                        \mathfrak{p}(m,n)%
+                        \defeq%
+                        \{%
+                            \text{surjections from $\{1,\ldots,m\}$ to $\{1,\ldots,n\}$}%
+                        \}%
+                    \]%
+                    This promonad categorifies $\leq$ in that its values are the witnesses to the fact that $m$ is bigger than $n$ (i.e.\ surjections).
+                \item Figure out whether this promonad extends to the 1-truncation of the sphere spectrum, and perhaps to other categorified analogues of monoids/groups/rings.
+            \end{enumerate}
+        \item \url{https://arxiv.org/abs/1307.5969}
+        \item \url{https://arxiv.org/abs/1306.3215}
+        \item \url{https://mathoverflow.net/questions/477219/reference-for-the-monoidal-category-structure-x-otimes-y-x-y-x-times-y}
+        \item Include an explicit proof of \cref{properties-of-products-of-sets-symmetric-monoidality}
+        \item Include an explicit proof of \cref{properties-of-coproducts-of-sets-symmetric-monoidality}
+        \item \cref{the-cartesian-product-of-sets-as-an-e-k-e-ell-tensor-product}
+        \item obstruction theory for braided enhancements of monoidal categories, using the \say{moduli category of braided enhancements}
+        \item Define symmetric and exterior algebras internal to braided monoidal categories
+            \begin{enumerate}
+                \item \url{https://mathoverflow.net/questions/471372/is-there-an-alternating-power-functor-on-braided-monoidal-categories}
+                \item \url{https://arxiv.org/abs/math/0504155}
+            \end{enumerate}
+        \item \url{https://mathoverflow.net/q/382364}
+        \item \url{https://mathoverflow.net/q/471490}
+        \item Concepts of bicategories applied to monoidal categories (e.g.\ internal adjunctions lead to dualisable objects)
+        \item Involutive Category Theory
+        \item \url{https://mathoverflow.net/questions/474662/the-analogy-between-dualizable-categories-and-compact-hausdorff-spaces}
+    \end{enumerate}
+    Bimonoidal categories:
+    \begin{enumerate}
+        \item Include an explicit proof of \cref{properties-of-products-of-sets-symmetric-bimonoidality}
+    \end{enumerate}
+    Six functor formalisms:
+    \begin{enumerate}
+        \item \url{https://mathoverflow.net/questions/258159/yoga-of-six-functors-for-group-representations}
+        \item Is the 1-categorical analogue of six functor formalisms given by Mann interesting?
+            \begin{enumerate}
+                \item Mann defines:
+                    \begin{quote}
+                        A six functor formalism is an $\infty$-functor $f\colon\FontForCategories{Corr}(C,E)\to\Cats_{\infty}$ such that $-\otimes A$, $f^{*}$, and $f_{!}$ admit right adjoints
+                    \end{quote}
+                \item Is the notion
+                    \begin{quote}
+                        A 1-categorical six functor formalism is a (lax?) $2$-functor $f\colon\FontForCategories{Corr}(C,E)\to\Cats_{2}$ (or should $\Cats$ be the target?) such that $-\otimes A$, $f^{*}$, and $f_{!}$ admit right adjoints
+                    \end{quote}
+                    interesting?
+            \end{enumerate}
+        \item Interaction of the six functors with Kan extensions (e.g.\ how the left Kan extension of $-\otimes A$ may interact with the other functors)
+        \item Contexts like Wirthmuller Grothendieck etc
+        \item formalisation by cisinski and deglise
+        \item How do the following examples fit?
+            \begin{enumerate}
+                \item base change between $\CatFont{C}_{/X}$ and $\CatFont{C}_{/Y}$
+                \item $f_{!}\dashv f_{*}\dashv f^{*}$ adjunction between powersets
+                \item $f_{!}\dashv f_{*}\dashv f^{*}$ adjunction between $\Span(\pt,A)$ and $\Span(\pt,B)$
+                \item quadruple adjunction between powersets induced by a relation
+                \item adjunctions between categories of presheaves induced by a functor or a profunctor
+                \item Adjunction between left $A$-sets and left $B$-sets
+            \end{enumerate}
+            Do they have exceptional $f^{!}$? Is there a notion of Fourier--Mukai transform for them? What kind of compatibility conditions (proper base change, etc.) do we have?
+    \end{enumerate}
+    Skew monoidal categories:
+    \begin{enumerate}
+        \item Does the $\E_{1}$ tensor product of monoids admit a skew monoidal category structure?
+        \item Is there a (right?) skew monoidal category structure on $\Fun(\CatFont{C},\CatFont{D})$ using right Kan extensions instead of left Kan extensions?
+        \item Similarly, are there skew monoidal category structures on the subcategory of $\eRel(A,B)$ spanned by the functions using left Kan extensions and left Kan lifts?
+        \item Add example: $\CatFont{C}$ with coproducts, take $\CatFont{C}_{X/}$ and define
+            \[
+                (X\xrightarrow{f}A)\oplus(X\xrightarrow{g}B)%
+                \defeq%
+                [%
+                    X%
+                    \to%
+                    X\icoprod X%
+                    \xrightarrow{f\icoprod g}%
+                    A\icoprod B%
+                ]%
+            \]%
+        \item Duals:
+            \begin{enumerate}
+                \item Dualisable objects in monoidal categories and traces of endomorphisms of them, including also examples for monoidal categories which are not autonomous/rigid, such as $(\Fun(\CatFont{C},\CatFont{C}),\circ,\id_{\CatFont{C}})$.
+                \item compact closed categories
+                \item star autonomous categories
+                \item Chu construction
+                \item Balanced monoidal categories, \url{https://ncatlab.org/nlab/show/balanced+monoidal+category}
+                \item Traced monoidal categories, \url{https://ncatlab.org/nlab/show/traced+monoidal+category}
+            \end{enumerate}
+        \item Invertible objects and Picard groupoids
+        \item \url{https://mathoverflow.net/questions/155939/what-other-monoidal-structures-exist-on-the-category-of-sets}
+        \item Free braided monoidal category with a braided monoid: \url{https://ncatlab.org/nlab/show/vine}
+        \item \url{https://golem.ph.utexas.edu/category/2024/08/skew_monoidal_categories_throu.html}
     \end{enumerate}
     Fibred category theory:
     \begin{enumerate}
@@ -147,23 +923,162 @@ Here we list things to be explored/added to this work in the future.
         \item \url{https://ncatlab.org/nlab/show/cartesian+natural+transformation} (this is a cartesian morphism in $\Fun(\CatFont{C},\CatFont{D})$ apparently)
         \item CoCartesian fibration classifying $\Fun(F,G)$, \url{https://mathoverflow.net/questions/457533/cocartesian-fibration-classifying-mathrmfunf-g}
     \end{enumerate}
-    Monoidal categories:
+    Operads and multicategories:
     \begin{enumerate}
-        \item Free braided monoidal category with a braided monoid: \url{https://ncatlab.org/nlab/show/vine}
+        \item \href{https://arxiv.org/abs/2405.10072}{Simplicial lists in operad theory I}
     \end{enumerate}
-    Skew monoidal categories:
+    Monads:
     \begin{enumerate}
-        \item Does the $\E_{1}$ tensor product of monoids admit a skew monoidal category structure?
-        \item Is there a (right?) skew monoidal category structure on $\Fun(\CatFont{C},\CatFont{D})$ using right Kan extensions instead of left Kan extensions?
-        \item Similarly, are there skew monoidal category structures on the subcategory of $\eRel(A,B)$ spanned by the functions using left Kan extensions and left Kan lifts?
+        \item Kantorovich monad (\url{https://ncatlab.org/nlab/show/Kantorovich+monad}) and probability monads in general, \url{https://ncatlab.org/nlab/show/monads+of+probability\%2C+measures\%2C+and+valuations}.
     \end{enumerate}
-    Higher categories:
+    Enriched Categories:
     \begin{enumerate}
+        \item $\CatFont{V}$-matrices
+    \end{enumerate}
+    Bicategories:
+    \begin{enumerate}
+        \item Bicategories of matrices, as in Street's Variation through enrichment, also \url{https://arxiv.org/abs/2410.18877}
+        \item \url{https://mathoverflow.net/a/86933}
+        \item What are the internal 2-adjunctions in the fundamental $2$-groupoid of a space?
+        \item 2-category structure on $\Mod_{R}$, where a $2$-morphism is a commutative square. Characterisation of adjuntions therein (but be careful if this ends up being in an NDA)
+        \item Cook up a very large list of examples of bicategories, like the ones I made for the AI problems. In particular, find an interesting bicategory of representations qualitatively different from the one I described in the Epoch AI problem
+        \item 2-category structure on category of $R$-algebras as enriched $\Mod_{R}$-categories
+        \item Let $\CatFont{C}$ be a bicategory, let $A,B\in\Obj(\CatFont{C})$, and let $F,G\in\Obj(\cHom_{\CatFont{C}}(A,B))$.
+            \begin{enumerate}
+                \item Does precomposition with $\LUnitor^{\CatFont{C}}_{A|F}\colon\id_{A}\circ F\Rightarrow F$ induce an isomorphism of sets
+                    \[
+                        \Hom_{\cHom_{\CatFont{C}}(A,B)}(F,G)%
+                        \cong%
+                        \Hom_{\cHom_{\CatFont{C}}(A,B)}(F\circ\id_{A},G)%
+                    \]%
+                    for each $F,G\in\Obj(\cHom_{\CatFont{C}}(A,B))$?
+                \item Similarly, do we have an induced isomorphism of the form
+                    \[
+                        \Hom_{\cHom_{\CatFont{C}}(A,B)}(F,G)%
+                        \cong%
+                        \Hom_{\cHom_{\CatFont{C}}(A,B)}(F,\id_{B}\circ G)%
+                    \]%
+                    and so on?
+            \end{enumerate}
+        \item Are there two Duskin nerve functors? (lax/oplax/etc.?)
+        \item Interaction with cotransformations:
+            \begin{enumerate}
+                \item Can we abstract the structure provided to $\TwoCategoryOfCategories$ by natural cotransformations?
+                \item Are there analogues of cotransformations for $\sfbfRel$, $\Span$, $\BiMod$, $\MonAct$, etc.?
+                \item Perhaps this might also make sense as a 1-categorical definition, e.g.\ comorphisms of groups from $A$ to $B$ as $\Sets(A,B)$ quotiented by $f(ab)\sim f(a)f(b)$.
+            \end{enumerate}
+        \item Consider developing the analogue of traces for endomorphisms of dualisable objects in monoidal categories to the setting of bicategories, including e.g.\ the trace of a category as a trace internal to $\Prof$.
+        \item Centres of bicategories (lax, strict, etc.)
+        \item Concepts of monoidal categories applied to bicategories (e.g.\ traces)
         \item Internal adjunctions in $\Mod$ as in \cite[Section 6.3]{2-categories-book}; see \cite[Example 6.2.6]{2-categories-book}.
         \item Comonads in the bicategory of profunctors.
+        \item 2-limit of $\id,\id\colon\Sets\rightrightarrows\Sets$ is $\B\Z$, \url{https://mathoverflow.net/questions/209904/van-kampen-colimits?rq=1#comment520288_209904}
+        \item \url{https://mathoverflow.net/questions/473527/universal-property-of-2-presheaves-and-pseudo-lax-colax-natural-transformations}
+        \item \url{https://mathoverflow.net/questions/473526/free-cocompletion-of-a-2-category-under-pseudo-colimits-lax-colimits-and-colax}
+    \end{enumerate}
+    Types of morphisms in bicategories:
+    \begin{enumerate}
+        \item Behaviour in 2-categories of pseudofunctors (or lax functors, etc.), e.g.\ pointwise pseudoepic morphisms in vs.\ pseudoepic morphisms in 2-categories of pseudofunctors.
+        \item Statements like \say{coequifiers are lax epimorphisms}, Item 2 of Examples 2.4 of \url{https://arxiv.org/abs/2109.09836}, along with most of the other statements/examples there.
+        \item Dense, absolutely dense, etc.\ morphisms in bicategories
+    \end{enumerate}
+    Internal adjunctions:
+    \begin{enumerate}
+        \item \url{https://www.google.com/search?q=mate+of+an+adjunction}
+        \item Moreover, by uniqueness of adjoints (\ChapterRef{\ChapterInternalAdjunctions, \cref{internal-adjunctions:properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{internal-adjunctions:properties-of-internal-adjunctions}}{\cref{properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{properties-of-internal-adjunctions}}), this implies also that $S=f^{-1}$.
+        \item define bicategory $\Adj(\CatFont{C})$
+        \item walking monad
+        \item proposition: 2-functors preserve unitors and associators
+        \item https://ncatlab.org/nlab/show/2-category+of+adjunctions. Is there a 3-category too?
+        \item https://ncatlab.org/nlab/show/free+monad
+        \item https://ncatlab.org/nlab/show/CatAdj
+        \item https://ncatlab.org/nlab/show/Adj
+        \item $\Adj(\Adj(\CatFont{C}))$
+        \item Examples of internal adjunctions
+            \begin{enumerate}
+                \item Internal adjunctions in $\Mod$.
+                \item Internal adjunctions in $\PseudoFun(\CatFont{C},\CatFont{D})$.
+                \item Internal adjunctions in $\LaxFun(\CatFont{C},\CatFont{D})$.
+                \item Internal adjunctions in 2-categories related to fibrations.
+            \end{enumerate}
+    \end{enumerate}
+    2-Categorical Limits:
+    \begin{enumerate}
+        \item \url{https://sorilee.github.io/posts/strict-bilimit-and-its-proper-examples}
+    \end{enumerate}
+    Topos theory:
+    \begin{enumerate}
+        \item \url{https://mathoverflow.net/q/479496}
+        \item Grothendieck topologies on $\B{A}$
+        \item Enriched Grothendieck topologies
+            \begin{enumerate}
+                \item Borceux--Quintero, \url{https://www.numdam.org/item/CTGDC_1996__37_2_145_0/}
+                \item \url{https://arxiv.org/abs/2405.19529}
+            \end{enumerate}
+        \item Cotopos theory:
+            \begin{enumerate}
+                \item Copresheaves and copresheaf cotopoi
+                \item Elementary cotopoi
+                    \begin{enumerate}
+                        \item \url{https://mathoverflow.net/questions/474287/intuition-for-the-internal-logic-of-a-cotopos}
+                        \item \url{https://mathoverflow.net/questions/394098/what-is-a-cotopos}
+                            \begin{quote}
+                                In case you haven’t seen it yet, Grothendieck studies (pseudo) cotopos in \href{n case you haven’t seen it yet, Grothendieck studies (pseudo) cotopos in pursuing stacks}{pursuing stacks}
+                            \end{quote}
+                    \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    Formal category theory:
+    \begin{enumerate}
+        \item Yosegi boxes \url{https://arxiv.org/abs/1901.01594}
+    \end{enumerate}
+    Homotopical Algebra:
+    \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2109.07803}
+    \end{enumerate}
+    Simplicial stuff:
+    \begin{enumerate}
+        \item Internal adjunctions in $\SimplexCategory$ are the same as Galois connections between $[n]$ and $[m]$. (NDA)
+        \item \url{https://mathoverflow.net/q/478461}
+        \item draw coherence for lax functors using the diagram for $\Delta^{2}$
+        \item characterisation of simplicial sets such that left, right, and two-sided homotopies agree
+        \item every continuous simplicial set arises as the nerve of a poset.
+        \item Functor $\sd$ is convolution of $\yo_{\SimplexCategory}$ with itself; see \url{https://arxiv.org/pdf/1501.02503.pdf#page=109}
+        \item Extra degeneracies
+            \begin{enumerate}
+                \item \url{https://www.google.com/search?client=firefox-b-d&q=augmented+simplicial+objects+with+extra+degeneracies}
+                \item \url{https://leanprover-community.github.io/mathlib_docs/algebraic_topology/extra_degeneracy.html}
+            \end{enumerate}
+        \item Comparison between $\Delta^{1}/\partial\Delta^{1}$ and $\B\N$
+    \end{enumerate}
+    $\infty$-Categories:
+    \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2410.17102}
+        \item \url{https://arxiv.org/abs/2410.02578}, \url{https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/st74cr650}, \url{https://arxiv.org/abs/2206.00849}
+        \item \url{https://mathoverflow.net/questions/479716/non-strictly-unital-functors-of-infinity-categories}
+        \item \url{https://mathoverflow.net/questions/472253/whats-the-localization-of-the-infty-category-of-categories-under-inverting-f}
     \end{enumerate}
     Monoids:
     \begin{enumerate}
+        \item \url{https://math.stackexchange.com/a/4996051/603207}, \url{https://arxiv.org/abs/1006.5687}
+        \item Six functor formalism for monoids, following \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-a-six-functor-formalism-for-sets}}{\cref{subsection-a-six-functor-formalism-for-sets}}, but in which $\cap$ and $[-,-]$ are replaced with Day convolution.
+        \item Monoid $(\{1,\ldots,n\}\cup\infty,\gcd)$. The element $\infty$ can be replaced by $p^{\min(e^{1}_{1},\ldots,e^{m}_{1})}_{1}\cdots p^{\min(e^{1}_{k},\ldots,e^{m}_{k})}_{k}$.
+        \item Universal property of localisation of monoids as a left adjoint to the forgetful functor $\CatFont{C}\to\CatFont{D}$, where:
+            \begin{itemize}
+                \item $\CatFont{C}$ is the category whose objects are pairs $(A,S)$ with $A$ a monoid and $S$ a submonoid of $A$.
+                \item $\CatFont{D}$ is the category whose objects are pairs $(A,S)$ with $A$ a monoid and $S$ a submonoid of $A$ which is also a group.
+            \end{itemize}
+            Explore this also for localisations of rings
+
+            Explore if we can define field spectra with an approach like this
+        \item Adjunction between monoids and monoids with zero corresponding to $(-)^{-}\dashv(-)^{+}$
+        \item Rock paper scissors as an example of a non-associative operation
+        \item \url{https://mathoverflow.net/questions/438305/grothendieck-group-of-the-fibonacci-monoid}
+        \item Witt monoid, \url{https://www.google.com/search?q=Witt+monoid}
+        \item semi-direct product of monoids, \url{https://ncatlab.org/nlab/show/semidirect+product+group}
+        \item morphisms of monoids as natural transformation between left $A$-sets over $A$ and $B_{A}$.
+        \item Figure out if 2-morphisms of monoids coming from $\Fun^{\otimes}(A_{\disc},B_{\disc})$, $\PseudoFun(\B{A},\B{B})$, etc. are interesting
+        \item Write sections on the quotient and set of fixed points of a set by a monoid action
         \item Isbell's zigzag theorem for semigroups: the following conditions are equivalent:
             \begin{enumerate}
                 \item A morphism $f\colon A\to B$ of semigroups is an epimorphism.
@@ -189,15 +1104,227 @@ Here we list things to be explored/added to this work in the future.
             \begin{quote}
                 For monoids, this theorem can be written more concisely:
             \end{quote}
+        \item Representation theory of monoids
+            \begin{enumerate}
+                \item \url{https://mathoverflow.net/questions/37115/why-arent-representations-of-monoids-studied-so-much}
+                \item Representation theory of groups associated to monoids (groups of units, group completions, etc.)
+            \end{enumerate}
     \end{enumerate}
-    Types of morphisms in bicategories:
+    Monoid Actions:
     \begin{enumerate}
-        \item Behaviour in 2-categories of pseudofunctors (or lax functors, etc.), e.g.\ pointwise pseudoepic morphisms in vs.\ pseudoepic morphisms in 2-categories of pseudofunctors.
-        \item Statements like \say{coequifiers are lax epimorphisms}, Item 2 of Examples 2.4 of \url{https://arxiv.org/abs/2109.09836}, along with most of the other statements/examples there.
-        \item Dense, absolutely dense, etc.\ morphisms in bicategories
+        \item $f_{!}\dashv f^{*}\dashv f_{*}$ adjunction
+            \begin{enumerate}
+                \item Is it related to the Kan extensions adjunction for $f\colon\B{A}\to\B{B}$ and the categories $\Sets^{\rmL}_{A}\cong\PSh(\B{A}^{\op},\Sets)$ and $\Sets^{\rmL}_{B}\cong\PSh(\B{B}^{\op},\Sets)$?
+                \item Is it related to the cobase change adjunction of \url{https://ncatlab.org/nlab/show/base+change}? Maybe we can take a morphism of monoids $f\colon A\to B$ and consider $B^{\rmL}_{A}$ as a left $A$-set, and then $(\Sets^{\rmL}_{A})_{A/}$ and $(\Sets^{\rmL}_{A})_{B^{\rmL}_{A}/}$
+            \end{enumerate}
+        \item \url{https://arxiv.org/abs/2112.10198}
+        \item double category of monoid actions
+        \item Analogue of Brauer groups for $A$-sets
+        \item Hochschild homology for $A$-sets
+    \end{enumerate}
+    Group Theory:
+    \begin{enumerate}
+        \item Is $\sum_{[g]\in\Cl(G)}\frac{1}{\abs{g}}$ an interesting invariant of $G$?
+        \item Idempotent endomorphism $f\colon A\to A$ is the same as a decomposition $A\cong B\oplus C$ via $B\cong\Im(f)$ and $C\cong\Ker(f)$.
+            \begin{enumerate}
+                \item \url{https://mathstrek.blog/2015/03/02/idempotents-and-decomposition/}
+            \end{enumerate}
+        \item \url{https://math.stackexchange.com/questions/34271/order-of-general-and-special-linear-groups-over-finite-fields}
+    \end{enumerate}
+    Linear Algebra:
+    \begin{enumerate}
+        \item \url{https://math.stackexchange.com/questions/1715249/the-number-of-subspaces-over-a-finite-field}
+        \item \url{https://math.stackexchange.com/questions/70801/how-many-k-dimensional-subspaces-there-are-in-n-dimensional-vector-space-over}
+        \item \url{https://en.wikipedia.org/wiki/Gaussian_binomial_coefficient}
+        \item \url{https://en.wikipedia.org/wiki/List_of_q-analogs}
+    \end{enumerate}
+    Commutative Algebra:
+    \begin{enumerate}
+        \item \url{https://math.stackexchange.com/questions/637918/}
+        \item \url{https://categorytheory.zulipchat.com/#narrow/stream/411257-theory.3A-mathematics/topic/Big.20Witt.20ring}
+        \item \url{https://math.stackexchange.com/questions/535623/how-many-irreducible-factors-does-xn-1-have-over-finite-field}
+        \item Derivations between morphisms of $R$-algebras, after \url{https://mathoverflow.net/questions/434488}
+            \begin{enumerate}
+                \item Namely, a derivation from a morphism $f\colon A\to B$ of $R$-algebras to a morphism $g\colon A\to B$ of $R$-algebras is a map $D\colon B\to B$ such that we have
+                    \[
+                        D(ab)%
+                        =%
+                        g(a)D(b)%
+                        +%
+                        D(a)f(b)%
+                    \]%
+                    for each $a,b\in B$.
+            \end{enumerate}
+    \end{enumerate}
+    Topological Algebra:
+    \begin{enumerate}
+        \item \url{https://mathoverflow.net/q/477757}
+        \item \url{https://math.stackexchange.com/questions/2593556/galois-theory-for-topological-fields}
+    \end{enumerate}
+    Differential Graded Algebras:
+    \begin{enumerate}
+        \item \url{https://mathoverflow.net/questions/476150/constructing-an-adjunction-between-algebras-and-differential-graded-algebras}
+    \end{enumerate}
+    Topology:
+    \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2402.12316}
+        \item Write about the 6-functor formalism for sheaves on topological spaces and for topological stacks, with lots of examples.
+            \begin{enumerate}
+                \item MO question titled \emph{6-functor formalism for topological stacks}: \url{https://mathoverflow.net/q/471758}
+            \end{enumerate}
+    \end{enumerate}
+    Measure Theory:
+    \begin{enumerate}
+        \item There's a theorem saying that there does not exist an infinite-dimensional \say{Lebesgue} measure, i.e. (from \url{https://en.wikipedia.org/wiki/Infinite-dimensional_Lebesgue_measure}):
+            \begin{quote}
+                Let $X$ be an infinite-dimensional, separable Banach space. Then, the only locally finite and translation invariant Borel measure $\mu$ on $X$ is a trivial measure. Equivalently, there is no locally finite, strictly positive, and translation invariant measure on $X$.
+            \end{quote}
+            What kind of measures exist/not exist that satisfy all conditions above except being locally finite?
+        \item \url{https://ncatlab.org/nlab/show/categories+of+measure+theory}
+        \item Functions $f_{!}$, $f^{*}$, and $f_{*}$ between spaces of (probability) measures on probability/measurable spaces, mimicking how a map of sets $f\colon X\to Y$ induces morphisms of sets $f_{!}$, $f^{*}$, and $f_{*}$ between $\mathcal{P}(X)$ and $\mathcal{P}(Y)$.
+        \item Analogies between representable presheaves and the Yoneda lemma on the one hand and Dirac probability measures on the other hand
+            \begin{enumerate}
+                \item Universal property of the embedding of a space $X$ into the space of probability measures on $X$
+                \item Same question but for distributions
+                \item non-symmetric metric on space of probability measures where we define $\mathrm{d}(\mu,\nu)$ to be the measure given by
+                    \[
+                        U%
+                        \mapsto%
+                        \int_{U}\rho_{\mu}\,\mathrm{d}\nu,%
+                    \]%
+                    where $\rho_{\mu}$ is the probability density of $\mu$. Can we make this idea work?
+            \end{enumerate}
+        \item \url{https://arxiv.org/abs/0801.2250}
+        \item \url{https://mathoverflow.net/questions/325861}
+            \begin{quote}
+                \textit{In particular, I came across a PhD thesis by Martial Agueh. I thought it was interesting because it explicitly investigated the geodesics of Wasserstein space to produce solutions to a type of parabolic PDE.}
+            \end{quote}
+    \end{enumerate}
+    Probability Theory:
+    \begin{enumerate}
+        \item \url{https://www.epatters.org/wiki/stats-ml/categorical-probability-theory}
+        \item \url{https://ncatlab.org/nlab/show/category-theoretic+approaches+to+probability+theory}
+        \item Categorical probability theory
+        \item \url{https://golem.ph.utexas.edu/category/2024/08/introduction_to_categorical_pr.html}
+        \item \url{https://arxiv.org/abs/1109.1880}
+        \item Connection between fractional differential operators and stochastic processes with jumps
+    \end{enumerate}
+    Statistics:
+    \begin{enumerate}
+        \item \url{https://towardsdatascience.com/t-test-from-application-to-theory-5e5051b0f9dc}
+    \end{enumerate}
+    Metric Spaces:
+    \begin{enumerate}
+        \item Lawvere metric spaces: object of $\CatFont{V}$-natural transformations corresponds to $\inf(\d(f(x),g(x)))$.
+        \item Does the assignment $d(x,y)\mapsto d(x,y)/(1+d(x,y))$ constructing a bounded metric from a metric be given a universal property?
+        \item Explore Lawvere metric spaces in a comprehensive manner
+        \item metric $\lcm(x,y)/\gcd(x,y)$ on $\N$, \url{https://mathoverflow.net/questions/461588/}
+        \item \url{https://golem.ph.utexas.edu/category/2023/05/metric_spaces_as_enriched_categories_ii.html}
+        \item Simon Willerton's work on the Legendre--Fenchel transform:
+            \begin{enumerate}
+                \item \url{https://golem.ph.utexas.edu/category/2014/04/enrichment_and_the_legendrefen.html}
+                \item \url{https://golem.ph.utexas.edu/category/2014/05/enrichment_and_the_legendrefen_1.html}
+                \item \url{https://arxiv.org/abs/1501.03791}
+            \end{enumerate}
+    \end{enumerate}
+    $p$-Adic Analysis:
+    \begin{enumerate}
+        \item Analysis of functions $\Z_{p}\to\Q_{q}$, $\Q_{p}\to\Q_{q}$, $\Z_{p}\to\C_{q}$, etc.
+            \begin{enumerate}
+                \item \url{https://siegelmaxwellc.wordpress.com/publications-pre-prints/}
+            \end{enumerate}
+    \end{enumerate}
+    Partial Differential Equations:
+    \begin{enumerate}
+        \item Geometry of PDEs:
+            \begin{enumerate}
+                \item \url{https://mathoverflow.net/questions/457268/pdes-and-algebraic-varieties}
+                \item Can we build a kind of algebraic geometry of PDEs starting with the notion of the zero locus of a differential operator?
+                    \begin{enumerate}
+                        \item \url{https://ncatlab.org/nlab/show/diffiety}
+                    \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+    Functional Analysis:
+    \begin{enumerate}
+        \item In the Hilbert space $\ell^{2}(\N;\C)$, the operator $(x_{n})_{n\in\N}\mapsto(x_{n+1})_{n\in\N}$ admits $(x_{n})_{n\in\N}\mapsto(0,x_{0},x_{1},\ldots)$ as its adjoint.
+        \item \url{https://arxiv.org/abs/2110.06300}
+    \end{enumerate}
+    Lie algebras:
+    \begin{enumerate}
+        \item Pre-Lie algebras
+        \item Post-Lie algebras
+    \end{enumerate}
+    Modular Representation Theory:
+    \begin{enumerate}
+        \item \url{https://math.stackexchange.com/questions/167979/representation-of-cyclic-group-over-finite-field}
+        \item \url{https://math.stackexchange.com/questions/153429/irreducible-representations-of-a-cyclic-group-over-a-field-of-prime-order}
+    \end{enumerate}
+    Homotopy theory:
+    \begin{enumerate}
+        \item Pascal's triangle via homology of $n$-tori, \url{https://topospaces.subwiki.org/wiki/Homology_of_torus}
+        \item Conditions on morphisms of spaces $f\colon X\to Y$ such that $f^{*}\colon[Y,K]\to[X,K]$ or $f_{*}\colon[K,X]\to[K,Y]$ are injective/surjective (so, epi/monomorphisms in $\Ho(\Top)$) or other conditions.
+    \end{enumerate}
+    Differential Geometry:
+    \begin{enumerate}
+        \item functor of points approach to differential geometry
+    \end{enumerate}
+    Number Theory:
+    \begin{enumerate}
+        \item \url{https://math.stackexchange.com/questions/10233/uses-of-quadratic-reciprocity-theorem/10719#10719}
+        \item \url{https://mathoverflow.net/questions/120067/what-do-theta-functions-have-to-do-with-quadratic-reciprocity}
+    \end{enumerate}
+    Quantum Mechanics:
+    \begin{enumerate}
+        \item \url{https://ncatlab.org/nlab/show/geometrical+formulation+of+quantum+mechanics}
+    \end{enumerate}
+    Quantum Field Theory:
+    \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2309.15913} and \url{https://arxiv.org/abs/2311.09284}
+        \item The current ongoing work on higher gauge theory, specially Christian Saemann's
+        \item The recent work about determining the value of the strong coupling constant in the long-distance range, some pointers and keywords for this are available at \href{https://www.scientificamerican.com/article/physicists-finally-know-how-the-strong-force-gets-its-strength/}{this scientific american article}.
+    \end{enumerate}
+    Combinatorics:
+    \begin{enumerate}
+        \item Catalan numbers, \url{https://mathstrek.blog/2012/02/19/power-series-and-generating-functions-ii-formal-power-series/}
     \end{enumerate}
     Other:
     \begin{enumerate}
+        \item Are sedenions and higher useful for anything?
+        \item \url{https://mathstodon.xyz/@pschwahn/113388126188923908}
+        \item Tambara functors, \url{https://arxiv.org/abs/2410.23052}
+        \item 2-vector spaces
+        \item 2-term chain complexes. They form a 2-category and middle-four exchange holds, the proof using the fact that we have
+            \[
+                h_{1}\circ\alpha+\beta\circ g_{2}%
+                =%
+                k_{1}\circ\alpha+\beta\circ f_{2},%
+            \]%
+            which uses the chain homotopy identities
+            \begin{align*}
+                d_{V}\circ\alpha  &= g_{2}-f_{2},\\
+                -\beta\circ d_{V} &= h_{1}-k_{1}.
+            \end{align*}
+            Can we modify this to work for usual chain complexes, seeking an answer to \url{https://mathoverflow.net/questions/424268}? What seems to make things go wrong in that case is that the chain homotopy identities are replaced with
+            \begin{align*}
+                \alpha_{n+1}\circ d^{V}_{n}+d^{W}_{n-1}\circ\alpha_{n} &= g_{n}-f_{n},\\
+                \beta_{n+1}\circ d^{V}_{n}+d^{W}_{n-1}\circ\beta_{n}   &= k_{n}-h_{n}.
+            \end{align*}
+        \item \url{https://arxiv.org/abs/1402.2600}
+        \item \url{https://grossack.site/blog}
+        \item Classifying space of $\Q_{p}$
+        \item \url{https://www.valth.eu/proc.htm}
+        \item Construction of $\R$ via slopes:
+            \begin{enumerate}
+                \item \url{http://maths.mq.edu.au/~street/EffR.pdf}
+                \item \url{https://arxiv.org/abs/math/0301015}
+                \item \href{https://twitter.com/ColmezPierre/status/1809308351643165181?t=KAESWH44ufE7486diGcxrA}{Pierre Colmez's comment ``Et si on remplace $\Z$ par $\Q$, on obtient les adèles.''}
+                \item I wonder if one could apply an analogue of this construction to the sphere spectrum and obtain a kind of spectral version of the real numbers, as in e.g.\ following the spirit of \href{MO 443018 --- \textit{Looking for analogues of the rational, $p$-adic, and real numbers in homotopy theory via the passage $\N\to\Z\to\Q\to\R$}}{https://mathoverflow.net/questions/443018}.
+            \end{enumerate}
+        \item \url{https://arxiv.org/abs/2406.04936}
+        \item \url{https://mathoverflow.net/a/471510}
+        \item \url{https://mathoverflow.net/questions/279478/the-category-theory-of-span-enriched-categories-2-segal-spaces/448523#448523}
+        \item The works of David Kern, \url{https://dskern.github.io/writings}
         \item \url{https://qchu.wordpress.com/}
         \item \url{https://aroundtoposes.com/}
         \item \url{https://ncatlab.org/nlab/show/essentially+surjective+and+full+functor}
@@ -217,7 +1344,485 @@ Here we list things to be explored/added to this work in the future.
         \item \url{https://ncatlab.org/nlab/show/adjoint+lifting+theorem}
         \item \url{https://ncatlab.org/nlab/show/Gabriel\%E2\%80\%93Ulmer+duality}
     \end{enumerate}
+    General TODO:
+    \begin{enumerate}
+        \item Browse MO questions/answers for interesting ideas/topics
+        %\item Revisit my questions/answers on MO and MSE
+        \item Change Longrightarrow to Rightarrow where appropriate
+        \item Try to minimize the amount of footnotes throughout the project. There should be no long footnotes.
+    \end{enumerate}
 \end{remark}
+\section{Retired Tags}\label{section-retired-tags}
+\subsection{Relations}\label{subsection-retired-tags-relations}
+\begin{oldtag}{Equivalent Definitions of Relations}{equivalent-definitions-of-relations}%
+    The content of this tag has been moved to \ChapterRef{\ChapterRelations, \cref{relations:relations}}{\cref{relations}}.
+\end{oldtag}
+\subsection{Pointed Sets}\label{subsection-retired-tags-pointed-sets}
+\begin{oldtag}{The Underlying Pointed Set of a Semimodule}{the-underlying-pointed-set-of-a-semimodule}%
+    The \index[set-theory]{pointed set!underlying a semimodule}\index[set-theory]{semimodule!underlying pointed set of}\textbf{underlying pointed set} of a semimodule $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
+\end{oldtag}
+\begin{oldtag}{The Underlying Pointed Set of a Module}{the-underlying-pointed-set-of-a-module}%
+    The \index[set-theory]{pointed set!underlying a module}\index[set-theory]{module!underlying pointed set of}\textbf{underlying pointed set} of a module $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
+\end{oldtag}
+\subsection{Categories}\label{subsection-retired-tags-categories}
+\begin{oldtag}{Picturing Natural Transformations in Diagrams}{picturing-natural-transformations-in-diagrams}%
+    We denote natural transformations in diagrams as
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \CatFont{C}
+            \arrow[r, "F"{name=F}, bend left=30]
+            \arrow[r, "G"'{name=G}, bend right=30]
+            \&
+            \CatFont{D}\mrp{.}
+            %--- Adjunction Symbol
+            \arrow[from=F, to=G, Rightarrow, shorten=0.25em, "\alpha"'{pos=0.45}]
+        \end{tikzcd}
+    \]%
+    (This tag has been removed and is now part of \ChapterRef{\ChapterCategories, \cref{categories:further-terminology-and-notation-for-natural-transformations}}{\cref{further-terminology-and-notation-for-natural-transformations}}.)
+\end{oldtag}
+\begin{oldtag}{Interaction Between Fullness and Postcomposition Functors}{interaction-between-fullness-and-postcomposition-functors}%
+    (This Tag was an item of \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors}}, but has since been removed because its statement is incorrect. Naïm Camille Favier provided a counterexample, and the corrected statements now appear as \ChapterRef{\ChapterCategories, \cref{categories:properties-of-full-functors-interaction-with-postcomposition-1,categories:properties-of-full-functors-interaction-with-postcomposition-2} of \cref{categories:properties-of-full-functors}}{\cref{properties-of-full-functors-interaction-with-postcomposition-1,properties-of-full-functors-interaction-with-postcomposition-2} of \cref{properties-of-full-functors}}.)
+    \begin{enumerate}
+        \item\label{properties-of-full-functors-interaction-with-postcomposition}\SloganFont{Interaction With Postcomposition. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-full-functors-interaction-with-postcomposition-a}The functor $F\colon\CatFont{C}\to\CatFont{D}$ is full.
+                \item\label{properties-of-full-functors-interaction-with-postcomposition-b}For each $\CatFont{X}\in\Obj(\Cats)$, the postcomposition functor
+                    \[
+                        F_{*}
+                        \colon
+                        \Fun(\CatFont{X},\CatFont{C})
+                        \to
+                        \Fun(\CatFont{X},\CatFont{D})
+                    \]%
+                    is full.
+                \item\label{properties-of-full-functors-interaction-with-postcomposition-c}The functor $F\colon\CatFont{C}\to\CatFont{D}$ is a representably full morphism in $\TwoCategoryOfCategories$ in the sense of \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:representably-full-morphisms}}{\cref{representably-full-morphisms}}.
+            \end{enumerate}
+    \end{enumerate}
+\end{oldtag}
+\section{TikZ Code for Commutative Diagrams}\label{section-tikz-code-for-commutative-diagrams}
+In this section we gather some useful examples of \texttt{tikz-cd} code for commutative diagrams.
+\subsection{Cube Diagram}\label{subsection-tikz-code-for-commutative-diagrams-cube-diagram}
+Define
+\begin{verbatim}
+\newlength{\DL}
+\setlength{\DL}{0.9em}
+\end{verbatim}
+The code
+\begin{verbatim}
+\begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    1
+    \&
+    \&
+    2
+    \&
+    \\
+    \&
+    1'
+    \&
+    \&
+    2'
+    \\
+    3
+    \&
+    \&
+    4
+    \&
+    \\
+    \&
+    3'
+    \&
+    \&
+    4'
+    % 1-Arrows
+    % First Square
+    \arrow[from=1-1,to=3-1,"f"']%
+    \arrow[from=3-1,to=3-3,"h"{description,pos=0.25}]%
+    \arrow[from=1-1,to=1-3,"g"]%
+    \arrow[from=1-3,to=3-3,"k"{description,pos=0.25}]%
+    % Second Square
+    \arrow[from=2-2,to=4-2,"f'"{description,pos=0.3},crossing over]%
+    \arrow[from=4-2,to=4-4,"h'"']%
+    \arrow[from=2-2,to=2-4,"g'"{description,pos=0.3},crossing over]%
+    \arrow[from=2-4,to=4-4,"k'"]%
+    % Connecting Arrows
+    \arrow[from=1-1,to=2-2,"c_{1}"description]%
+    \arrow[from=1-3,to=2-4,"c_{2}"]%
+    \arrow[from=3-1,to=4-2,"c_{3}"']%
+    \arrow[from=3-3,to=4-4,"c_{4}"description]%
+\end{tikzcd}
+\end{verbatim}
+will produce the following diagram:
+\[
+    \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        1
+        \&
+        \&
+        2
+        \&
+        \\
+        \&
+        1'
+        \&
+        \&
+        2'
+        \\
+        3
+        \&
+        \&
+        4
+        \&
+        \\
+        \&
+        3'
+        \&
+        \&
+        4'
+        % 1-Arrows
+        % First Square
+        \arrow[from=1-1,to=3-1,"f"']%
+        \arrow[from=3-1,to=3-3,"h"{description,pos=0.25}]%
+        \arrow[from=1-1,to=1-3,"g"]%
+        \arrow[from=1-3,to=3-3,"k"{description,pos=0.25}]%
+        % Second Square
+        \arrow[from=2-2,to=4-2,"f'"{description,pos=0.3},crossing over]%
+        \arrow[from=4-2,to=4-4,"h'"']%
+        \arrow[from=2-2,to=2-4,"g'"{description,pos=0.3},crossing over]%
+        \arrow[from=2-4,to=4-4,"k'"]%
+        % Connecting Arrows
+        \arrow[from=1-1,to=2-2,"c_{1}"description]%
+        \arrow[from=1-3,to=2-4,"c_{2}"]%
+        \arrow[from=3-1,to=4-2,"c_{3}"']%
+        \arrow[from=3-3,to=4-4,"c_{4}"description]%
+    \end{tikzcd}
+\]%
+\subsection{Cube Diagram With Labelled Faces}\label{subsection-tikz-code-for-commutative-diagrams-cube-diagram-with-labelled-faces}
+Define
+\begin{verbatim}
+\newlength{\DL}
+\setlength{\DL}{0.9em}
+\end{verbatim}
+The code
+\begin{verbatim}
+\begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    1
+    \&
+    \&
+    2
+    \&
+    \\
+    \&
+    1'
+    \&
+    \&
+    2'
+    \\
+    3
+    \&
+    \&
+    \&
+    \\
+    \&
+    3'
+    \&
+    \&
+    4'
+    % 1-Arrows
+    % First Square
+    \arrow[from=1-1,to=3-1,"f"']%
+    \arrow[from=1-1,to=1-3,"g"]%
+    % Second Square
+    \arrow[from=2-2,to=4-2,"f'"{description},crossing over]%
+    \arrow[from=4-2,to=4-4,"h'"']%
+    \arrow[from=2-2,to=2-4,"g'"{description},crossing over]%
+    \arrow[from=2-4,to=4-4,"k'"]%
+    % Connecting Arrows
+    \arrow[from=1-1,to=2-2,"c_{1}"description]%
+    \arrow[from=1-3,to=2-4,"c_{2}"]%
+    \arrow[from=3-1,to=4-2,"c_{3}"']%
+    % Subdiagrams
+    \arrow[from=2-2,to=1-3,"\scriptstyle(1)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+    \arrow[from=3-1,to=2-2,"\scriptstyle(2)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+    \arrow[from=4-2,to=2-4,"\scriptstyle(3)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    1
+    \&
+    \&
+    2
+    \&
+    \\
+    \&
+    \&
+    \&
+    2'
+    \\
+    3
+    \&
+    \&
+    4
+    \&
+    \\
+    \&
+    3'
+    \&
+    \&
+    4'
+    % 1-Arrows
+    % First Square
+    \arrow[from=1-1,to=3-1,"f"']%
+    \arrow[from=3-1,to=3-3,"h"{description}]%
+    \arrow[from=1-1,to=1-3,"g"]%
+    \arrow[from=1-3,to=3-3,"k"{description}]%
+    % Second Square
+    \arrow[from=4-2,to=4-4,"h'"']%
+    \arrow[from=2-4,to=4-4,"k'"]%
+    % Connecting Arrows
+    \arrow[from=1-3,to=2-4,"c_{2}"]%
+    \arrow[from=3-1,to=4-2,"c_{3}"']%
+    \arrow[from=3-3,to=4-4,"c_{4}"description]%
+    % Subdiagrams
+    \arrow[from=1-1,to=3-3,"\scriptstyle(4)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+    \arrow[from=3-3,to=2-4,"\scriptstyle(5)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+    \arrow[from=4-2,to=3-3,"\scriptstyle(6)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+\end{tikzcd}
+\end{verbatim}
+will produce the following diagram:
+\begin{webcompile}
+    \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        1
+        \&
+        \&
+        2
+        \&
+        \\
+        \&
+        1'
+        \&
+        \&
+        2'
+        \\
+        3
+        \&
+        \&
+        \&
+        \\
+        \&
+        3'
+        \&
+        \&
+        4'
+        % 1-Arrows
+        % First Square
+        \arrow[from=1-1,to=3-1,"f"']%
+        \arrow[from=1-1,to=1-3,"g"]%
+        % Second Square
+        \arrow[from=2-2,to=4-2,"f'"{description},crossing over]%
+        \arrow[from=4-2,to=4-4,"h'"']%
+        \arrow[from=2-2,to=2-4,"g'"{description},crossing over]%
+        \arrow[from=2-4,to=4-4,"k'"]%
+        % Connecting Arrows
+        \arrow[from=1-1,to=2-2,"c_{1}"description]%
+        \arrow[from=1-3,to=2-4,"c_{2}"]%
+        \arrow[from=3-1,to=4-2,"c_{3}"']%
+        % Subdiagrams
+        \arrow[from=2-2,to=1-3,"\scriptstyle(1)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+        \arrow[from=3-1,to=2-2,"\scriptstyle(2)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+        \arrow[from=4-2,to=2-4,"\scriptstyle(3)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        1
+        \&
+        \&
+        2
+        \&
+        \\
+        \&
+        \&
+        \&
+        2'
+        \\
+        3
+        \&
+        \&
+        4
+        \&
+        \\
+        \&
+        3'
+        \&
+        \&
+        4'
+        % 1-Arrows
+        % First Square
+        \arrow[from=1-1,to=3-1,"f"']%
+        \arrow[from=3-1,to=3-3,"h"{description}]%
+        \arrow[from=1-1,to=1-3,"g"]%
+        \arrow[from=1-3,to=3-3,"k"{description}]%
+        % Second Square
+        \arrow[from=4-2,to=4-4,"h'"']%
+        \arrow[from=2-4,to=4-4,"k'"]%
+        % Connecting Arrows
+        \arrow[from=1-3,to=2-4,"c_{2}"]%
+        \arrow[from=3-1,to=4-2,"c_{3}"']%
+        \arrow[from=3-3,to=4-4,"c_{4}"description]%
+        % Subdiagrams
+        \arrow[from=1-1,to=3-3,"\scriptstyle(4)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+        \arrow[from=3-3,to=2-4,"\scriptstyle(5)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+        \arrow[from=4-2,to=3-3,"\scriptstyle(6)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+    \end{tikzcd}
+\end{webcompile}
+\subsection{Pentagon Diagram}\label{subsection-tikz-code-for-commutative-diagrams-pentagon-diagram}
+Define
+\begin{verbatim}
+\newlength{\ThreeCm}
+\setlength{\ThreeCm}{3.0cm}
+\end{verbatim}
+The code
+\begin{verbatim}
+\begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    \&[0.30901699437\ThreeCm]
+    \&[0.5\ThreeCm]
+    A\otimes_{R}(A\otimes_{R}A)
+    \&[0.5\ThreeCm]
+    \&[0.30901699437\ThreeCm]
+    \\[0.58778525229\ThreeCm]
+    (A\otimes_{R}A)\otimes_{R}A
+    \&[0.30901699437\ThreeCm]
+    \&[0.5\ThreeCm]
+    \&[0.5\ThreeCm]
+    \&[0.30901699437\ThreeCm]
+    A\otimes_{R}A
+    \\[0.95105651629\ThreeCm]
+    \&[0.30901699437\ThreeCm]
+    A\otimes_{R}A
+    \&[0.5\ThreeCm]
+    \&[0.5\ThreeCm]
+    A
+    \&[0.30901699437\ThreeCm]
+    % 1-Arrows
+    % Left Boundary
+    \arrow[from=2-1,to=1-3,"\alpha^{\Mod_{R}}_{A,A,A}"{pos=0.4125}]%
+    \arrow[from=1-3,to=2-5,"\id_{A}\otimes_{R}\mu^{\times}_{A}"{pos=0.6}]%
+    \arrow[from=2-5,to=3-4,"\mu^{\times}_{A}"{pos=0.425}]%
+    % Right Boundary
+    \arrow[from=2-1,to=3-2,"\mu^{\times}_{A}\otimes_{R}\id_{A}"'{pos=0.425}]%
+    \arrow[from=3-2,to=3-4,"\mu^{\times}_{A}"']%
+\end{tikzcd}
+\end{verbatim}
+will produce the following pentagon diagram:
+\[
+    \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \&[0.30901699437\ThreeCm]
+        \&[0.5\ThreeCm]
+        A\otimes_{R}(A\otimes_{R}A)
+        \&[0.5\ThreeCm]
+        \&[0.30901699437\ThreeCm]
+        \\[0.58778525229\ThreeCm]
+        (A\otimes_{R}A)\otimes_{R}A
+        \&[0.30901699437\ThreeCm]
+        \&[0.5\ThreeCm]
+        \&[0.5\ThreeCm]
+        \&[0.30901699437\ThreeCm]
+        A\otimes_{R}A
+        \\[0.95105651629\ThreeCm]
+        \&[0.30901699437\ThreeCm]
+        A\otimes_{R}A
+        \&[0.5\ThreeCm]
+        \&[0.5\ThreeCm]
+        A
+        \&[0.30901699437\ThreeCm]
+        % 1-Arrows
+        % Left Boundary
+        \arrow[from=2-1,to=1-3,"\alpha^{\Mod_{R}}_{A,A,A}"{pos=0.4125}]%
+        \arrow[from=1-3,to=2-5,"\id_{A}\otimes_{R}\mu^{\times}_{A}"{pos=0.6}]%
+        \arrow[from=2-5,to=3-4,"\mu^{\times}_{A}"{pos=0.425}]%
+        % Right Boundary
+        \arrow[from=2-1,to=3-2,"\mu^{\times}_{A}\otimes_{R}\id_{A}"'{pos=0.425}]%
+        \arrow[from=3-2,to=3-4,"\mu^{\times}_{A}"']%
+    \end{tikzcd}
+\]%
+To make the diagram larger, one could use e.g.
+\begin{verbatim}
+\newlength{\FourCm}
+\setlength{\FourCm}{2.0cm}
+\end{verbatim}
+and replace all instances of \texttt{\textbackslash ThreeCm} with \texttt{\textbackslash FourCm} in the code above.
+\subsection{Hexagon Diagram}\label{subsection-tikz-code-for-commutative-diagrams-hexagon-diagram}
+Define
+\begin{verbatim}
+\newlength{\OneCmPlusHalf}
+\setlength{\OneCmPlusHalf}{1.5cm}
+\end{verbatim}
+The code
+\begin{verbatim}
+\begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    \&[0.86602540378\OneCmPlusHalf]
+    1
+    \&[0.86602540378\OneCmPlusHalf]
+    \\[0.5\OneCmPlusHalf]
+    2
+    \&[0.86602540378\OneCmPlusHalf]
+    \&[0.86602540378\OneCmPlusHalf]
+    3
+    \\[\OneCmPlusHalf]
+    4
+    \&[0.86602540378\OneCmPlusHalf]
+    \&[0.86602540378\OneCmPlusHalf]
+    5
+    \\[0.5\OneCmPlusHalf]
+    \&[0.86602540378\OneCmPlusHalf]
+    6
+    \&[0.86602540378\OneCmPlusHalf]
+    % 1-Arrows
+    % Left Boundary
+    \arrow[from=1-2,to=2-1,"L_{1}"']%
+    \arrow[from=2-1,to=3-1,"L_{2}"']%
+    \arrow[from=3-1,to=4-2,"L_{3}"']%
+    % Right Boundary
+    \arrow[from=1-2,to=2-3,"R_{1}"]%
+    \arrow[from=2-3,to=3-3,"R_{2}"]%
+    \arrow[from=3-3,to=4-2,"R_{3}"]%
+\end{tikzcd}
+\end{verbatim}
+will produce the following hexagon diagram:
+\[
+    \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \&[0.86602540378\OneCmPlusHalf]
+        1
+        \&[0.86602540378\OneCmPlusHalf]
+        \\[0.5\OneCmPlusHalf]
+        2
+        \&[0.86602540378\OneCmPlusHalf]
+        \&[0.86602540378\OneCmPlusHalf]
+        3
+        \\[\OneCmPlusHalf]
+        4
+        \&[0.86602540378\OneCmPlusHalf]
+        \&[0.86602540378\OneCmPlusHalf]
+        5
+        \\[0.5\OneCmPlusHalf]
+        \&[0.86602540378\OneCmPlusHalf]
+        6
+        \&[0.86602540378\OneCmPlusHalf]
+        % 1-Arrows
+        % Left Boundary
+        \arrow[from=1-2,to=2-1,"L_{1}"']%
+        \arrow[from=2-1,to=3-1,"L_{2}"']%
+        \arrow[from=3-1,to=4-2,"L_{3}"']%
+        % Right Boundary
+        \arrow[from=1-2,to=2-3,"R_{1}"]%
+        \arrow[from=2-3,to=3-3,"R_{2}"]%
+        \arrow[from=3-3,to=4-2,"R_{3}"]%
+    \end{tikzcd}
+\]%
+To make the diagram larger, one could use e.g.
+\begin{verbatim}
+\newlength{\TwoCm}
+\setlength{\TwoCm}{2.0cm}
+\end{verbatim}
+and replace all instances of \texttt{\textbackslash OneCmPlusHalf} with \texttt{\textbackslash TwoCm} in the code above.
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}

@@ -32,8 +32,10 @@
 }%
 \tikzcdset{%
     isoarrowprime/.style={%
-        "\scalebox{1.25}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-0.0pt%
+        "\scalebox{1.25}{$\unsim$}"'{sloped}, dash pattern=on 1.65pt off 1.65pt, outer sep=-0.75pt%
         %dash pattern=on 1.65pt off 1.65pt,%
     }%
 }%
 \tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
+\newcommand{\isorightarrow}{\overset{\scriptstyle\unsim}{\dashrightarrow}}
+\newcommand{\rightisoarrow}{\isorightarrow}

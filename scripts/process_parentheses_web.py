@@ -125,9 +125,15 @@ def regex_exceptions(content):
     content = re.sub(r'\\webleft\[(.*?)DL\]', r'[\1DL]', content)
     content = re.sub(r'([0-9])pt\\webright\]', r'\1pt]', content)
     content = re.sub(r'([0-9])em\\webright\]', r'\1em]', content)
+    content = re.sub(r'PlusHalf\\webright\]', r'PlusHalf]', content)
     content = re.sub(r'\\webleft\[xshift', r'[xshift', content)
+    # to path
+    for n in range(0,10):
+        content = re.sub(r'to path(.*?)\\webleft\((.*?)\\webright\)', r'to path\1(\2)', content)
     # Should be applied last
     content = re.sub(r'\\arrow\\webleft\[', r'\\arrow[', content)
+    content = re.sub(r'\\webleft\\webleft', r'\\webleft', content)
+    content = re.sub(r'\\webright\\webright', r'\\webright', content)
     return content
 
 def regex_tikzcd_arrow(content):
