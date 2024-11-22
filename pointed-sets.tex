@@ -206,7 +206,6 @@ This chapter contains some foundational material on pointed sets.
                         Z
                     \end{tikzcd}
                 \end{webcompile}
-                in terms of diagrams.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
@@ -223,20 +222,20 @@ This chapter contains some foundational material on pointed sets.
     \begin{enumerate}
         \item\label{elementary-properties-of-pointed-sets-completeness}\SloganFont{Completeness. }The category $\Sets_{*}$ of pointed sets and morphisms between them is complete, having in particular:
             \begin{enumerate}
-                \item\label{elementary-properties-of-pointed-sets-completeness-products}Products, described as in \cref{products-of-pointed-sets};
-                \item\label{elementary-properties-of-pointed-sets-completeness-pullbacks}Pullbacks, described as in \cref{pullbacks-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-products}Products, described as in \cref{products-of-pointed-sets}.
+                \item\label{elementary-properties-of-pointed-sets-completeness-pullbacks}Pullbacks, described as in \cref{pullbacks-of-pointed-sets}.
                 \item\label{elementary-properties-of-pointed-sets-completeness-equalisers}Equalisers, described as in \cref{equalisers-of-pointed-sets}.
             \end{enumerate}
         \item\label{elementary-properties-of-pointed-sets-cocompleteness}\SloganFont{Cocompleteness. }The category $\Sets_{*}$ of pointed sets and morphisms between them is cocomplete, having in particular:
             \begin{enumerate}
-                \item\label{elementary-properties-of-pointed-sets-completeness-coproduct}Coproducts, described as in \cref{coproducts-of-pointed-sets};
+                \item\label{elementary-properties-of-pointed-sets-completeness-coproduct}Coproducts, described as in \cref{coproducts-of-pointed-sets}.
                 \item\label{elementary-properties-of-pointed-sets-completeness-pushouts}Pushouts, described as in \cref{pushouts-of-pointed-sets};
                 \item\label{elementary-properties-of-pointed-sets-completeness-coequalisers}Coequalisers, described as in \cref{coequalisers-of-pointed-sets}.
             \end{enumerate}
         \item\label{elementary-properties-of-pointed-sets-failure-to-be-cartesian-closed}\SloganFont{Failure To Be Cartesian Closed. }The category $\Sets_{*}$ is not Cartesian closed.%
             %--- Begin Footnote ---%
             \footnote{%
-                The category $\Sets_{*}$ does admit monoidal closed structures however; see \ChapterTensorProductsOfPointedSets.
+                The category $\Sets_{*}$ does admit a natural monoidal closed structure, however; see \ChapterTensorProductsOfPointedSets.
             }%
             %---  End Footnote  ---%
         \item\label{elementary-properties-of-pointed-sets-morphisms-from-the-monoidal-unit}\SloganFont{Morphisms From the Monoidal Unit. }We have a bijection of sets%
@@ -515,7 +514,7 @@ This chapter contains some foundational material on pointed sets.
 \begin{proposition}{Properties of Active and Inert Maps of Pointed Sets}{properties-of-active-and-inert-morphisms-of-pointed-sets}%
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
-        \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation}\SloganFont{Active-Inert Factorisation. }Every morphism of pointed sets $f\colon(X,x_{0})\to(Y,y_{0})$ factors as
+        \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation}\SloganFont{Active-Inert Factorisation. }Every morphism of pointed sets $f\colon(X,x_{0})\to(Y,y_{0})$ factors uniquely as
             \[
                 f%
                 =%
@@ -526,13 +525,129 @@ This chapter contains some foundational material on pointed sets.
                 \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation-1}The map $i\colon(X,x_{0})\to(K,k_{0})$ is an inert morphism of pointed sets
                 \item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation-2}The map $a\colon(K,k_{0})\to(Y,y_{0})$ is an active morphism of pointed sets.
             \end{enumerate}
-            Moreover, this determines a factorisation system in $\Sets_{*}$.
+            Moreover, this determines an orthogonal factorisation system in $\Sets_{*}$.
         %\item\label{properties-of-active-and-inert-morphisms-of-pointed-sets-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-active-and-inert-morphisms-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-active-and-inert-morphisms-of-pointed-sets-active-inert-factorisation}: Active-Inert Factorisation}%
-    Omitted.
+    Let $f\colon X\to Y$ be a morphism of pointed sets. We can factor $f$ as
+    \[
+        \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"i"]
+            \&
+            K
+            \arrow[r,"a"]
+            \&
+            Y\mrp{,}
+        \end{tikzcd}
+    \]%
+    where:
+    \begin{itemize}
+        \item $K$ is the pointed set given by
+            \begin{align*}
+                K &= \{x\in X\ \middle|\ f(x)\neq y_{0}\}\cup\{x_{0}\}\\
+                  &= (X\setminus f^{-1}(y_{0}))\cup\{x_{0}\};
+            \end{align*}
+        \item $i\colon X\to K$ is the inert morphism of pointed sets given by
+            \[
+                i(x)%
+                \defeq%
+                \begin{cases}
+                    x     &\text{if $x\in K$},\\%
+                    x_{0} &\text{otherwise}
+                \end{cases}
+            \]%
+            for each $x\in X$;
+        \item $a\colon K\to Y$ is the active morphism of pointed sets given by
+            \[
+                a(x)%
+                \defeq%
+                f(x)%
+            \]%
+            for each $x\in K$.
+    \end{itemize}
+    Next, let
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"i"]
+            \arrow[d,"f"']
+            \&
+            Y
+            \arrow[d,"g"]
+            \\
+            A
+            \arrow[r,"a"']
+            \&
+            B
+        \end{tikzcd}
+    \]%
+    be a commutative diagram in $\Sets_{*}$. Consider the morphism $\phi\colon Y\to A$ given by
+    \[
+        \phi(y)%
+        =%
+        f(i^{-1}(y))
+    \]%
+    for each $y\in Y$ (which is well-defined since, as $i$ is inert, $i^{-1}(y)$ is a singleton for all $y\in Y$). We claim that $\phi$ is the unique diagonal filler in the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"i"]
+            \arrow[d,"f"']
+            \&
+            Y
+            \arrow[d,"g"]
+            \arrow[ld,"\exists!"',dashed]
+            \arrow[ld,"\phi",dashed]
+            \\
+            A
+            \arrow[r,"a"']
+            \&
+            B\mrp{.}
+        \end{tikzcd}
+    \]%
+    Indeed, this diagram commutes, as we have
+    \begin{align*}
+        [\phi\circ i](x) &\defeq \phi(i(x))\\
+                         &\defeq f(i^{-1}(i(x)))\\
+                         &=      f(x)
+    \end{align*}
+    for each $x\in X$ and
+    \begin{align*}
+        [a\circ\phi](y) &\defeq a(\phi(y))\\
+                        &\defeq a(f(i^{-1}(y)))\\
+                        &\defeq [a\circ f](i^{-1}(y))\\
+                        &=      [g\circ i](i^{-1}(y))\\
+                        &\defeq g(i(i^{-1}(y)))\\
+                        &\defeq g(y)
+    \end{align*}
+    for each $y\in Y$. Moreover, given another morphism $\psi$ such that the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X
+            \arrow[r,"i"]
+            \arrow[d,"f"']
+            \&
+            Y
+            \arrow[d,"g"]
+            \arrow[ld,"\psi"description,dashed]
+            \\
+            A
+            \arrow[r,"a"']
+            \&
+            B
+        \end{tikzcd}
+    \]%
+    commutes, it follows that we must have $\psi=\phi$, since, given $y\in Y$, there exists a unique $x\in X$ such that $i(x)=y$, so we have
+    \begin{align*}
+        \psi(y) &=      \psi(i(x))\\
+                &=      f(x)\\
+                &=      f(i^{-1}(y))\\
+                &\defeq \phi(y).
+    \end{align*}
+    This finishes the proof.
 \end{Proof}
 \section{Limits of Pointed Sets}\label{section-limits-of-pointed-sets}
 \subsection{The Terminal Pointed Set}\label{subsection-the-terminal-pointed-set}
@@ -774,6 +889,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \Bifunctoriality{A\times-}{-\times B}{-_{1}\times-_{2}}{\Sets_{*}}{\Sets_{*}}{\Sets_{*}\times\Sets_{*}}{\Sets_{*}}%
             \]%
             defined in the same way as the functors of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-functoriality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-functoriality} of \cref{properties-of-products-of-sets}}.
+        \item\label{properties-of-products-of-pointed-sets-lack-of-adjointness}\SloganFont{Lack of Adjointness. }The functors $X\times-$ and $-\times Y$ do not admit right adjoints.
         \item\label{properties-of-products-of-pointed-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of pointed sets%
             \[
                 ((X\times Y)\times Z,((x_{0},y_{0}),z_{0}))
@@ -801,6 +917,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{Proof}{Proof of \cref{properties-of-products-of-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-products-of-pointed-sets-functoriality}: Functoriality}%
     This is a special case of functoriality of limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+
+    \ProofBox{\cref{properties-of-products-of-pointed-sets-lack-of-adjointness}: Lack of Adjointness}%
+    See \cite{MSE2855868}.
 
     \ProofBox{\cref{properties-of-products-of-pointed-sets-associativity}: Associativity}%
     This follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-associativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-associativity} of \cref{properties-of-products-of-sets}}.
@@ -2605,7 +2724,7 @@ Let $X$ be a set.
         \item\SloganFont{The Underlying Set. }The set $X^{+}$ defined by%
             %--- Begin Footnote ---%
             \footnote{%
-                \SloganFont{Further Notation: }We sometimes write \index[notation]{pointX@$\point_{X}$}$\point_{X}$ for the basepoint of $X^{+}$ for clarity when there are multiple free pointed sets involved in the current discussion.
+                \SloganFont{Further Notation: }We sometimes write \index[notation]{pointX@$\point_{X}$}$\point_{X}$ for the basepoint of $X^{+}$ for clarity, specially when there are multiple free pointed sets involved in the current discussion.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
@@ -2627,7 +2746,7 @@ Let $X$ be a set.
                 \to
                 \Sets_{*},
             \]%
-            where
+            where:
             \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Sets)$, we have
                     \[
@@ -2635,7 +2754,7 @@ Let $X$ be a set.
                         \defeq%
                         X^{+},
                     \]%
-                    where $X^{+}$ is the pointed set of \cref{free-pointed-sets};
+                    where $X^{+}$ is the pointed set of \cref{free-pointed-sets}.
                 \item\SloganFont{Action on Morphisms. }For each morphism $f\colon X\to Y$ of $\Sets$, the image
                     \[
                         f^{+}%
@@ -2683,7 +2802,7 @@ Let $X$ be a set.
             natural in $X,Y\in\Obj(\Sets)$.
         \item\label{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-smash-products}\SloganFont{Symmetric Strong Monoidality With Respect to Smash Products. }The free pointed set functor of \cref{properties-of-free-pointed-sets-functoriality} has a symmetric strong monoidal structure
             \[
-                ((-)^{+},(-)^{+,\times},(-)^{+,\times}_{\Unit})
+                ((-)^{+},(-)^{+},(-)^{+}_{\Unit})
                 \colon
                 (\Sets,\times,\pt)
                 \to
@@ -2692,8 +2811,8 @@ Let $X$ be a set.
             being equipped with isomorphisms of pointed sets%
             \[
                 \begin{gathered}
-                    (-)^{+,\times}_{X,Y}   \colon X^{+}\wedge Y^{+} \isorightarrow (X\times Y)^{+},\\
-                    (-)^{+,\times}_{\Unit} \colon S^{0}             \isorightarrow \pt^{+},
+                    (-)^{+}_{X,Y}   \colon X^{+}\wedge Y^{+} \isorightarrow (X\times Y)^{+},\\
+                    (-)^{+}_{\Unit} \colon S^{0}             \isorightarrow \pt^{+},
                 \end{gathered}
             \]%
             natural in $X,Y\in\Obj(\Sets)$.
@@ -2702,26 +2821,53 @@ Let $X$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-free-pointed-sets}}%
     \FirstProofBox{\cref{properties-of-free-pointed-sets-functoriality}: Functoriality}%
-    Omitted.
+    We claim that $(-)^{+}$ is indeed a functor:
+    \begin{itemize}
+        \item\SloganFont{Preservation of Identities. }Let $X\in\Obj(\Sets)$. We have
+            \[
+                \id^{+}_{X}(x)%
+                \defeq%
+                \begin{cases}
+                    x         &\text{if $x\in X$,}\\
+                    \star_{X} &\text{if $x=\star_{X}$,}
+                \end{cases}
+            \]%
+            for each $x\in X^{+}$, so $\id^{+}_{X}=\id_{X^{+}}$.
+        \item\SloganFont{Preservation of Composition. }Given morphisms of sets
+            \begin{align*}
+                f &\colon X \to Y,\\
+                g &\colon Y \to Z,
+            \end{align*}
+            we have
+            \begin{align*}
+                [g^{+}\circ f^{+}](x) &\defeq g^{+}(f^{+}(x))\\
+                                      &\defeq g^{+}(f(x))\\
+                                      &\defeq g(f(x))\\
+                                      &\defeq [g\circ f]^{+}(x)%
+            \end{align*}
+            for each $x\in X$ and
+            \begin{align*}
+                [g^{+}\circ f^{+}](\star_{X}) &\defeq g^{+}(f^{+}(\star_{X}))\\
+                                              &\defeq g^{+}(\star_{Y})\\
+                                              &\defeq \star_{Z}\\
+                                              &\defeq [g\circ f]^{+}(\star_{X}),
+            \end{align*}
+            so $(g\circ f)^{+}=g^{+}\circ f^{+}$.
+    \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-free-pointed-sets-adjointness}: Adjointness}%
-    We claim there's an adjunction $(-)^{+}\dashv\Wasureru$, witnessed by a bijection of sets
-    \begin{align*}
-        \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
-        \cong%
-        \Sets(X,Y),%
-    \end{align*}
-    natural in $X\in\Obj(\Sets)$ and $(Y,y_{0})\in\Obj(\Sets_{*})$.
+    We proceed in a few steps:
     \begin{itemize}
         \item\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{X,Y}%
                 \colon%
-                \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                \Sets_{*}(X^{+},Y)%
                 \to%
                 \Sets(X,Y)%
             \]%
-            by sending a pointed function
+            by sending a morphism of pointed sets
             \[
                 \xi%
                 \colon%
@@ -2750,9 +2896,9 @@ Let $X$ be a set.
                 \colon%
                 \Sets(X,Y)%
                 \to%
-                \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                \Sets_{*}(X^{+},Y)%
             \]%
-            given by sending a function $\xi\colon X\to Y$ to the pointed function
+            given by sending a function $\xi\colon X\to Y$ to the morphism of pointed sets
             \[
                 \xi^{\dagger}%
                 \colon%
@@ -2770,43 +2916,116 @@ Let $X$ be a set.
                 \end{cases}
             \]%
             for each $x\in X^{+}$.
-        \item\SloganFont{Invertibility \rmI. }We claim that
+        \item\SloganFont{Invertibility \rmI. }Given a morphism of pointed sets
+            \[
+                \xi%
+                \colon%
+                (X^{+},\star_{X})%
+                \to%
+                (Y,y_{0}),%
+            \]%
+            we have
+            \begin{align*}
+                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
+                                                 &=      \Psi_{X,Y}(\xi^{\dagger})\\%
+                                                 &\defeq \leftllbracket x\mapsto{\begin{cases}\xi^{\dagger}(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket\\%
+                                                 &=      \leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket\\%
+                                                 &=      \xi\\%
+                                                 &\defeq [\id_{\Sets_{*}(X^{+},Y)}](\xi).%
+            \end{align*}
+            Therefore we have
             \[
                 \Psi_{X,Y}\circ\Phi_{X,Y}%
                 =%
-                \id_{\Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))},%
+                \id_{\Sets_{*}(X^{+},Y)}.%
             \]%
-            which is clear.
-        \item\SloganFont{Invertibility \rmII. }We claim that
+        \item\SloganFont{Invertibility \rmII. }Given a map of sets $\xi\colon X\to Y$, we have
+            \begin{align*}
+                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\defeq \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
+                                                 &=      \Phi_{X,Y}(\xi^{\dagger})\\%
+                                                 &=      \Phi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket)\\%
+                                                 &=      \llbracket x\mapsto\xi(x)\rrbracket\\%
+                                                 &=      \xi\\%
+                                                 &\defeq [\id_{\Sets(X,Y)}](\xi).%
+            \end{align*}
+            Therefore we have
             \[
                 \Phi_{X,Y}\circ\Psi_{X,Y}%
                 =%
-                \id_{\Sets(X,Y)},%
+                \id_{\Sets(X,Y)}.%
             \]%
-            which is clear.
-        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a pointed function $g\colon(Y,y_{0})\to(Y',y'_{0})$, the diagram
+        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
+                f%
+                \colon%
+                (X,x_{0})%
+                \to%
+                (X',x'_{0}),%
+            \]%
+            the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets_{*}(X^{\prime,+},Y)%
+                    \arrow[r,"\Phi_{X',Y}"]
+                    \arrow[d,"f^{*}"']
+                    \&
+                    \Sets(X',Y)
+                    \arrow[d,"f^{*}"]
+                    \\
+                    \Sets_{*}(X^{+},Y)%
+                    \arrow[r,"\Phi_{X,Y}"']
+                    \&
+                    \Sets(X,Y)
+                \end{tikzcd}
+            \]%
+            commutes. Indeed, given a morphism of pointed sets $\xi\colon X^{\prime,+}\to Y$, we have
+            \begin{align*}
+                [\Phi_{X,Y}\circ f^{*}](\xi) &= \Phi_{X,Y}(f^{*}(\xi))\\
+                                             &= \Phi_{X,Y}(\xi\circ f)\\
+                                             &= \xi\circ f\\
+                                             &= \Phi_{X',Y}(\xi)\circ f\\
+                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
+                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
+                                             &= [f^{*}\circ\Phi_{X',Y}](\xi).
+            \end{align*}
+            Therefore we have
+            \[
+                \Phi_{X,Y}\circ f^{*}%
+                =%
+                f^{*}\circ\Phi_{X',Y}%
+            \]%
+            and the naturality diagram for $\Phi$ above indeed commutes.
+        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
+            \[
+                g%
+                \colon%
+                (Y,y_{0})%
+                \to%
+                (Y',y'_{0}),%
+            \]%
+            the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets_{*}(X^{+},Y)%
                     \arrow[r,"\Phi_{X,Y}"]
                     \arrow[d,"{g_{*}}"']
                     \&
                     \Sets(X,Y)
                     \arrow[d,"{g_{*}}"]
                     \\
-                    \Sets_{*}((X^{+},\point_{X}),(Y',y'_{0})),%
+                    \Sets_{*}(X^{+},Y'),%
                     \arrow[r,"\Phi_{X,Y'}"']
                     \&
                     \Sets(X,Y')%
                 \end{tikzcd}
             \]%
-            commutes. Indeed, given a pointed function
+            commutes. Indeed, given a morphism of pointed sets
             \[
                 \xi^{\dagger}%
                 \colon%
-                (X^{+},\point_{X})%
+                X^{+}
                 \to%
-                (Y,y_{0})%
+                Y,%
             \]%
             we have
             \begin{align*}
@@ -2817,127 +3036,119 @@ Let $X$ be a set.
                                               &= g_{*}(\Phi_{X,Y'}(\xi))\\
                                               &= [g_{*}\circ\Phi_{X,Y'}](\xi).
             \end{align*}
-        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a pointed function $f\colon(X,x_{0})\to(X',x'_{0})$, the diagram
+            Therefore we have
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Sets_{*}((X^{',+},\point_{X}),(Y,y_{0}))%
-                    \arrow[r,"\Phi_{X',Y}"]
-                    \arrow[d,"f^{*}"']
-                    \&
-                    \Sets(X',Y)
-                    \arrow[d,"f^{*}"]
-                    \\
-                    \Sets_{*}((X^{+},\point_{X}),(Y,y_{0}))%
-                    \arrow[r,"\Phi_{X,Y}"']
-                    \&
-                    \Sets(X,Y)
-                \end{tikzcd}
+                \Phi_{X,Y'}\circ g_{*}%
+                =%
+                g_{*}\circ\Phi_{X,Y'}%
             \]%
-            commutes. Indeed, given a function
-            \[
-                \xi%
-                \colon%
-                X'%
-                \to%
-                Y,%
-            \]%
-            we have
-            \begin{align*}
-                [\Phi_{X,Y}\circ f^{*}](\xi) &= \Phi_{X,Y}(f^{*}(\xi))\\
-                                             &= \Phi_{X,Y}(\xi\circ f)\\
-                                             &= \xi\circ f\\
-                                             &= \Phi_{X',Y}(\xi)\circ f\\
-                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
-                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
-                                             &= [f^{*}\circ\Phi_{X',Y}](\xi).
-            \end{align*}
+            and the naturality diagram for $\Phi$ above indeed commutes.
         \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-wedge-sums}: Symmetric Strong Monoidality With Respect to Wedge Sums}%
-    The isomorphism
-    \[
-        \phi%
-        \colon%
-        X^{+}\vee Y^{+}%
-        \isorightarrow
-        (X\icoprod Y)^{+}
-    \]%
-    is given by
-    \[
-        \phi(z)%
-        =%
-        \begin{cases}%
-            x                   &\text{if $z=[(0,x)]$ with $x\in X$,}\\%
-            y                   &\text{if $z=[(1,y)]$ with $y\in Y$,}\\%
-            \star_{X\icoprod Y} &\text{if $z=[(0,\star_{X})]$,}\\%
-            \star_{X\icoprod Y} &\text{if $z=[(1,\star_{Y})]$}%
-        \end{cases}%
-    \]%
-    for each $z\in X^{+}\vee Y^{+}$, with inverse
-    \[
-        \phi^{-1}
-        \colon%
-        (X\icoprod Y)^{+}
-        \isorightarrow
-        X^{+}\vee Y^{+}%
-    \]%
-    given by
-    \[
-        \phi^{-1}(z)%
-        \defeq%
-        \begin{cases}
-            [(0,x)] &\text{if $z=[(0,x)]$,}\\
-            [(0,y)] &\text{if $z=[(1,y)]$,}\\
-            p_{0} &\text{if $z=\star_{X\icoprod Y}$}
-        \end{cases}
-    \]%
-    for each $z\in(X\icoprod Y)^{+}$.
-
-    Meanwhile, the isomorphism $\pt\cong\emptyset^{+}$ is given by sending $\point_{X}$ to $\star_{\emptyset}$.
-
-    That these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ symmetric strong monoidal can be directly checked element by element.
+    We construct the strong monoidal structure on $(-)^{+}$ with respect to $\icoprod$ and $\vee$ as follows:
+    \begin{itemize}
+        \item\SloganFont{The Strong Monoidality Constraints. }The isomorphism
+            \[
+                (-)^{+,\icoprod}_{X,Y}%
+                \colon%
+                X^{+}\vee Y^{+}%
+                \isorightarrow
+                (X\icoprod Y)^{+}
+            \]%
+            is given by
+            \[
+                (-)^{+,\icoprod}_{X,Y}(z)%
+                =%
+                \begin{cases}%
+                    x                   &\text{if $z=[(0,x)]$ with $x\in X$,}\\%
+                    y                   &\text{if $z=[(1,y)]$ with $y\in Y$,}\\%
+                    \star_{X\icoprod Y} &\text{if $z=[(0,\star_{X})]$,}\\%
+                    \star_{X\icoprod Y} &\text{if $z=[(1,\star_{Y})]$}%
+                \end{cases}%
+            \]%
+            for each $z\in X^{+}\vee Y^{+}$, with inverse
+            \[
+                (-)^{+,\icoprod,-1}_{X,Y}
+                \colon%
+                (X\icoprod Y)^{+}
+                \isorightarrow
+                X^{+}\vee Y^{+}%
+            \]%
+            given by
+            \[
+                (-)^{+,\icoprod,-1}_{X,Y}(z)%
+                \defeq%
+                \begin{cases}
+                    [(0,x)] &\text{if $z=[(0,x)]$,}\\
+                    [(1,y)] &\text{if $z=[(1,y)]$,}\\
+                    p_{0} &\text{if $z=\star_{X\icoprod Y}$}
+                \end{cases}
+            \]%
+            for each $z\in(X\icoprod Y)^{+}$.
+        \item\SloganFont{The Strong Monoidal Unity Constraint. }The isomorphism
+            \[
+                (-)^{+,\icoprod,\Unit}_{X,Y}%
+                \colon%
+                \pt%
+                \isorightarrow
+                \emptyset^{+}%
+            \]%
+            is given by sending $\point_{X}$ to $\star_{\emptyset}$.
+    \end{itemize}
+    The verification that these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ into a symmetric strong monoidal functor is omitted.
 
     \ProofBox{\cref{properties-of-free-pointed-sets-symmetric-strong-monoidality-with-respect-to-smash-products}: Symmetric Strong Monoidality With Respect to Smash Products}%
-    The isomorphism
-    \[
-        \phi%
-        \colon%
-        X^{+}\wedge Y^{+}%
-        \isorightarrow
-        (X\times Y)^{+}
-    \]%
-    is given by
-    \[
-        \phi(x\wedge y)%
-        =%
-        \begin{cases}%
-            (x,y)             &\text{if $x\neq\star_{X}$ and $y\neq\star_{Y}$}\\%
-            \star_{X\times Y} &\text{otherwise}%
-        \end{cases}%
-    \]%
-    for each $x\wedge y\in X^{+}\wedge Y^{+}$, with inverse
-    \[
-        \phi^{-1}
-        \colon%
-        (X\times Y)^{+}
-        \isorightarrow
-        X^{+}\wedge Y^{+}%
-    \]%
-    given by
-    \[
-        \phi^{-1}(z)%
-        \defeq%
-        \begin{cases}
-            x\wedge y                &\text{if $z=(x,y)$ with $(x,y)\in X\times Y$,}\\
-            \star_{X}\wedge\star_{Y} &\text{if $z=\star_{X\times Y}$,}\\
-        \end{cases}
-    \]%
-    for each $z\in(X\icoprod Y)^{+}$.
-
-    Meanwhile, the isomorphism $S^{0}\cong\pt^{+}$ is given by sending $\point$ to $1\in S^{0}=\{0,1\}$ and $\star_{\pt}$ to $0\in S^{0}$.
-
-    That these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ symmetric strong monoidal can be directly checked element by element.
+    We construct the strong monoidal structure on $(-)^{+}$ with respect to $\times$ and $\wedge$ as follows:
+    \begin{itemize}
+        \item\SloganFont{The Strong Monoidality Constraints. }The isomorphism
+            \[
+                (-)^{+}_{X,Y}%
+                \colon%
+                X^{+}\wedge Y^{+}%
+                \isorightarrow
+                (X\times Y)^{+}
+            \]%
+            is given by
+            \[
+                (-)^{+}_{X,Y}(x\wedge y)%
+                =%
+                \begin{cases}%
+                    (x,y)             &\text{if $x\neq\star_{X}$ and $y\neq\star_{Y}$}\\%
+                    \star_{X\times Y} &\text{otherwise}%
+                \end{cases}%
+            \]%
+            for each $x\wedge y\in X^{+}\wedge Y^{+}$, with inverse
+            \[
+                (-)^{+,-1}_{X,Y}
+                \colon%
+                (X\times Y)^{+}
+                \isorightarrow
+                X^{+}\wedge Y^{+}%
+            \]%
+            given by
+            \[
+                (-)^{+,-1}_{X,Y}(z)%
+                \defeq%
+                \begin{cases}
+                    x\wedge y                &\text{if $z=(x,y)$ with $(x,y)\in X\times Y$,}\\
+                    \star_{X}\wedge\star_{Y} &\text{if $z=\star_{X\times Y}$,}
+                \end{cases}
+            \]%
+            for each $z\in(X\times Y)^{+}$.
+        \item\SloganFont{The Strong Monoidal Unity Constraint. }The isomorphism
+            \[
+                (-)^{+,\Unit}_{X,Y}%
+                \colon%
+                S^{0}%
+                \isorightarrow
+                \pt^{+}%
+            \]%
+            is given by sending $0$ to $\star_{\pt}$ and $1$ to $\point$, where $\pt^{+}=\{\point,\star_{\pt}\}$.
+    \end{itemize}
+    The verification that these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ into a symmetric strong monoidal functor is omitted.
 \end{Proof}
 \subsection{Deleting Basepoints}\label{subsection-deleting-basepoints}
 Let $(X,x_{0})$ be a pointed set.
@@ -2958,8 +3169,33 @@ Let $(X,x_{0})$ be a pointed set.
                 \colon%
                 \Sets^{\actv}_{*}%
                 \to%
-                \Sets.%
+                \Sets,%
             \]%
+            where:
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Sets^{\actv}_{*})$, we have
+                    \[
+                        [(-)^{-}](X)%
+                        \defeq%
+                        X^{-},
+                    \]%
+                    where $X^{-}$ is the set of \cref{sets-with-deleted-basepoints}.
+                \item\SloganFont{Action on Morphisms. }For each morphism $f\colon X\to Y$ of $\Sets^{\actv}_{*}$, the image
+                    \[
+                        f^{-}%
+                        \colon%
+                        X^{-}%
+                        \to%
+                        Y^{-}%
+                    \]%
+                    of $f$ by $(-)^{-}$ is the map defined by
+                    \[
+                        f^{-}(x)
+                        \defeq
+                        f(x)
+                    \]%
+                    for each $x\in X^{-}$.
+            \end{itemize}
         \item\label{properties-of-sets-with-deleted-basepoints-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#{(-)^{-}}#(-)^{+}#\Sets^{\actv}_{*}#\Sets,#
@@ -2998,8 +3234,8 @@ Let $(X,x_{0})$ be a pointed set.
             being equipped with isomorphisms of pointed sets%
             \[
                 \begin{gathered}
-                    (-)^{-,\times}_{X,Y}   \colon X^{-}\times Y^{-} \isorightarrow (X\wedge Y)^{-},\\
-                    (-)^{-,\times}_{\Unit} \colon \pt               \isorightarrow (S^{0})^{-},
+                    (-)^{-}_{X,Y}   \colon X^{-}\times Y^{-} \isorightarrow (X\wedge Y)^{-},\\
+                    (-)^{-}_{\Unit} \colon \pt               \isorightarrow (S^{0})^{-},
                 \end{gathered}
             \]%
             natural in $X,Y\in\Obj(\Sets)$.
@@ -3008,16 +3244,296 @@ Let $(X,x_{0})$ be a pointed set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-sets-with-deleted-basepoints}}%
     \FirstProofBox{\cref{properties-of-sets-with-deleted-basepoints-functoriality}: Functoriality}%
-    Omitted.
+    We claim that $(-)^{-}$ is indeed a functor:
+    \begin{itemize}
+        \item\SloganFont{Preservation of Identities. }Let $X\in\Obj(\Sets)$. We have
+            \[
+                \id^{-}_{X}(x)%
+                \defeq%
+                x
+            \]%
+            for each $x\in X^{-}$, so $\id^{-}_{X}=\id_{X^{-}}$.
+        \item\SloganFont{Preservation of Composition. }Given morphisms of pointed sets
+            \begin{align*}
+                f &\colon (X,x_{0}) \to (Y,y_{0}),\\
+                g &\colon (Y,y_{0}) \to (Z,z_{0}),
+            \end{align*}
+            we have
+            \begin{align*}
+                [g^{-}\circ f^{-}](x) &\defeq g^{-}(f^{-}(x))\\
+                                      &\defeq g^{-}(f(x))\\
+                                      &\defeq g(f(x))\\
+                                      &\defeq [g\circ f]^{-}(x)%
+            \end{align*}
+            for each $x\in X$, so $(g\circ f)^{-}=g^{-}\circ f^{-}$.
+    \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-adjointness}: Adjointness}%
-    Omitted.
+    We proceed in a few steps:
+    \begin{itemize}
+        \item\SloganFont{Map \rmI. }We define a map
+            \[
+                \Phi_{X,Y}%
+                \colon%
+                \Sets(X^{-},Y)%
+                \to%
+                \Sets^{\actv}_{*}(X,Y^{+})%
+            \]%
+            by sending a map $\xi\colon X^{-}\to Y$ to the active morphism of pointed sets%
+            \[
+                \xi^{\dagger}%
+                \colon%
+                X%
+                \to%
+                Y^{+}%
+            \]%
+            given by
+            \[
+                \xi^{\dagger}(x)%
+                \defeq
+                \begin{cases}
+                    \xi(x)    &\text{if $x\in X^{-}$,}\\
+                    \star_{Y} &\text{if $x=x_{0}$,}
+                \end{cases}
+            \]%
+            for each $x\in X$, where this morphism is indeed active since $\xi(x)\in Y=Y^{+}\setminus\{\star_{Y}\}$ for all $x\in X^{-}$.
+        \item\SloganFont{Map \rmII. }We define a map
+            \[
+                \Psi_{X,Y}%
+                \colon%
+                \Sets^{\actv}_{*}(X,Y^{+})%
+                \to%
+                \Sets(X^{-},Y)%
+            \]%
+            given by sending an active morphism of pointed sets $\xi\colon X\to Y^{+}$ to the map
+            \[
+                \xi^{\dagger}%
+                \colon%
+                X^{-}%
+                \to%
+                Y%
+            \]%
+            defined by
+            \[
+                \xi^{\dagger}(x)%
+                \defeq%
+                \xi(x)
+            \]%
+            for each $x\in X^{-}$, which is indeed well-defined (in that $\xi(x)\in Y$ for all $x\in X^{-}$) since $\xi$ is active.
+        \item\SloganFont{Invertibility \rmI. }Given a map of sets $\xi\colon X^{-}\to Y$, we have
+            \begin{align*}
+                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
+                                                 &\defeq \Psi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket)\\%
+                                                 &=      \llbracket x\mapsto\xi(x)\rrbracket\\
+                                                 &=      \xi\\
+                                                 &=      [\id_{\Sets(X^{-},Y)}](\xi).
+            \end{align*}
+            Therefore we have
+            \[
+                \Psi_{X,Y}\circ\Phi_{X,Y}%
+                =%
+                \id_{\Sets(X^{-},Y)}.%
+            \]%
+        \item\SloganFont{Invertibility \rmII. }Given a morphism of pointed sets
+            \[
+                \xi%
+                \colon%
+                (X,x_{0})%
+                \to%
+                (Y^{+},\star_{Y}),%
+            \]%
+            we have
+            \begin{align*}
+                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\defeq \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
+                                                 &=      \Phi_{X,Y}(\llbracket x\mapsto\xi(x)\rrbracket)\\%
+                                                 &=      \leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket\\
+                                                 &=      \xi\\
+                                                 &=      [\id_{\Sets^{\actv}_{*}(X,Y^{+})}](\xi).
+            \end{align*}
+            Therefore we have
+            \[
+                \Phi_{X,Y}\circ\Psi_{X,Y}%
+                =%
+                \id_{\Sets^{\actv}_{*}(X,Y^{+})}.%
+            \]%
+        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
+            \[
+                f%
+                \colon%
+                (X,x_{0})%
+                \to%
+                (X',x'_{0}),%
+            \]%
+            the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets(X^{',-},Y)%
+                    \arrow[r,"\Phi_{X',Y}"]
+                    \arrow[d,"f^{*}"']
+                    \&
+                    \Sets^{\actv}_{*}(X',Y^{+})
+                    \arrow[d,"f^{*}"]
+                    \\
+                    \Sets_{*}(X^{-},Y)%
+                    \arrow[r,"\Phi_{X,Y}"']
+                    \&
+                    \Sets^{\actv}_{*}(X,Y^{+})
+                \end{tikzcd}
+            \]%
+            commutes. Indeed, given a map of sets $\xi\colon X'\to Y$, we have
+            \begin{align*}
+                [\Phi_{X,Y}\circ f^{*}](\xi) &= \Phi_{X,Y}(f^{*}(\xi))\\
+                                             &= \Phi_{X,Y}(\xi\circ f)\\
+                                             &= \leftllbracket x\mapsto{\begin{cases}\xi(f(x))&\text{if $f(x)\in X^{\prime,-}$}\\\star_{Y}&\text{if $f(x)=x'_{0}$}\end{cases}}\rightrrbracket\\
+                                             &= f^{*}(\leftllbracket x'\mapsto{\begin{cases}\xi(x')&\text{if $x'\in X^{\prime,-}$}\\\star_{Y}&\text{if $x'=x'_{0}$}\end{cases}}\rightrrbracket)\\
+                                             &= f^{*}(\Phi_{X',Y}(\xi))\\
+                                             &= [f^{*}\circ\Phi_{X',Y}](\xi).
+            \end{align*}
+            Therefore we have
+            \[
+                \Phi_{X,Y}\circ f^{*}%
+                =%
+                f^{*}\circ\Phi_{X',Y},%
+            \]%
+            and the naturality diagram for $\Phi$ above indeed commutes.
+        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
+            \[
+                g%
+                \colon%
+                (Y,y_{0})%
+                \to%
+                (Y',y'_{0}),%
+            \]%
+            the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Sets(X^{-},Y)
+                    \arrow[r,"\Phi_{X,Y}"]
+                    \arrow[d,"{g_{*}}"']
+                    \&
+                    \Sets^{\actv}_{*}(X,Y^{+})%
+                    \arrow[d,"{g_{*}}"]
+                    \\
+                    \Sets(X^{-},Y')
+                    \arrow[r,"\Phi_{X,Y'}"']
+                    \&
+                    \Sets^{\actv}_{*}(X,Y^{\prime,+})%
+                \end{tikzcd}
+            \]%
+            commutes. Indeed, given a map of sets $\xi\colon X^{-}\to Y$, we have
+            \begin{align*}
+                [\Phi_{X,Y'}\circ g_{*}](\xi) &= \Phi_{X,Y'}(g_{*}(\xi))\\
+                                              &= \Phi_{X,Y'}(g\circ\xi)\\
+                                              &= \leftllbracket x\mapsto{\begin{cases}g(\xi(x))&\text{if $x\in X^{-}$}\\\star_{Y'}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket\\
+                                              &= g_{*}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket)\\
+                                              &= g_{*}(\Phi_{X,Y'}(\xi))\\
+                                              &= [g_{*}\circ\Phi_{X,Y'}](\xi).
+            \end{align*}
+            Therefore we have
+            \[
+                \Phi_{X,Y'}\circ g_{*}%
+                =%
+                g_{*}\circ\Phi_{X,Y'},%
+            \]%
+            and the naturality diagram for $\Phi$ above indeed commutes.
+        \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+    \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums}: Symmetric Strong Monoidality With Respect to Wedge Sums}%
-    Omitted.
+    We construct the strong monoidal structure on $(-)^{-}$ with respect to $\vee$ and $\icoprod$ as follows:
+    \begin{itemize}
+        \item\SloganFont{The Strong Monoidality Constraints. }The isomorphism
+            \[
+                (-)^{-,\vee}_{X,Y}%
+                \colon%
+                X^{-}\icoprod Y^{-}%
+                \isorightarrow
+                (X\vee Y)^{-}
+            \]%
+            is given by
+            \[
+                (-)^{-,\vee}_{X,Y}(z)%
+                =%
+                \begin{cases}%
+                    [(0,x)] &\text{if $z=(0,x)$ with $x\in X$,}\\%
+                    [(1,y)] &\text{if $z=(1,y)$ with $y\in Y$}%
+                \end{cases}%
+            \]%
+            for each $z\in X^{-}\icoprod Y^{-}$, with inverse
+            \[
+                (-)^{-,\vee,-1}_{X,Y}
+                \colon%
+                (X\vee Y)^{-}
+                \isorightarrow
+                X^{-}\icoprod Y^{-}%
+            \]%
+            given by
+            \[
+                (-)^{-,\vee,-1}_{X,Y}(z)%
+                \defeq%
+                \begin{cases}
+                    (0,x) &\text{if $z=[(0,x)]$,}\\
+                    (1,y) &\text{if $z=[(1,y)]$,}
+                \end{cases}
+            \]%
+            for each $z\in(X\vee Y)^{-}$.
+        \item\SloganFont{The Strong Monoidal Unity Constraint. }The isomorphism
+            \[
+                (-)^{+,\vee,\Unit}_{X,Y}%
+                \colon%
+                \emptyset%
+                \isorightarrow
+                \pt^{-}%
+            \]%
+            is an equality.
+    \end{itemize}
+    The verification that these isomorphisms satisfy the coherence conditions making the functor $(-)^{-}$ into a symmetric strong monoidal functor is omitted.
 
     \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-smash-products}: Symmetric Strong Monoidality With Respect to Smash Products}%
-    Omitted.
+    We construct the strong monoidal structure on $(-)^{+}$ with respect to $\wedge$ and $\times$ as follows:
+    \begin{itemize}
+        \item\SloganFont{The Strong Monoidality Constraints. }The isomorphism
+            \[
+                (-)^{-}_{X,Y}%
+                \colon%
+                X^{-}\times Y^{-}%
+                \isorightarrow
+                (X\wedge Y)^{-}
+            \]%
+            is given by
+            \[
+                (-)^{-}_{X,Y}(x,y)%
+                =%
+                x\wedge y
+            \]%
+            for each $(x,y)\in X^{-}\times Y^{-}$, with inverse
+            \[
+                (-)^{-,-1}_{X,Y}
+                \colon%
+                (X\wedge Y)^{-}
+                \isorightarrow
+                X^{-}\times Y^{-}%
+            \]%
+            given by
+            \[
+                (-)^{-,-1}_{X,Y}(x\wedge y)%
+                \defeq%
+                (x,y)%
+            \]%
+            for each $x\wedge y\in(X\wedge Y)^{-}$.
+        \item\SloganFont{The Strong Monoidal Unity Constraint. }The isomorphism
+            \[
+                (-)^{-,\Unit}_{X,Y}%
+                \colon%
+                \pt%
+                \isorightarrow
+                (S^{0})^{-}%
+            \]%
+            is given by sending $\point$ to $1$.
+    \end{itemize}
+    The verification that these isomorphisms satisfy the coherence conditions making the functor $(-)^{+}$ into a symmetric strong monoidal functor is omitted.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
