@@ -2000,7 +2000,7 @@
 01QT,pointed-sets:sets-with-deleted-basepoints
 01QU,pointed-sets:properties-of-sets-with-deleted-basepoints
 01QV,pointed-sets:properties-of-sets-with-deleted-basepoints-functoriality
-01QW,pointed-sets:properties-of-sets-with-deleted-basepoints-adjointness
+01QW,pointed-sets:properties-of-sets-with-deleted-basepoints-adjoint-equivalence
 01QX,pointed-sets:properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums
 01QY,pointed-sets:properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-smash-products
 01QZ,relations:unwinding-relations-1
