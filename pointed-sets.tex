@@ -3196,9 +3196,9 @@ Let $(X,x_{0})$ be a pointed set.
                     \]%
                     for each $x\in X^{-}$.
             \end{itemize}
-        \item\label{properties-of-sets-with-deleted-basepoints-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-sets-with-deleted-basepoints-adjoint-equivalence}\SloganFont{Adjoint Equivalence. }We have an adjoint equivalence of categories
             \begin{webcompile}
-                \Adjunction#{(-)^{-}}#(-)^{+}#\Sets^{\actv}_{*}#\Sets,#
+                \AdjointEquivalence#{(-)^{-}}#(-)^{+}#\Sets^{\actv}_{*}#\Sets,#
             \end{webcompile}%
             witnessed by a bijection of sets
             \begin{align*}
@@ -3206,7 +3206,12 @@ Let $(X,x_{0})$ be a pointed set.
                 \cong%
                 \Sets_{*}(X,Y^{+}),%
             \end{align*}
-            natural in $X\in\Obj(\Sets_{*})$ and $Y\in\Obj(\Sets)$.
+            natural in $X\in\Obj(\Sets_{*})$ and $Y\in\Obj(\Sets)$, and by isomorphisms
+            \begin{align*}
+                (X^{-})^{+} &\cong X,\\
+                (Y^{+})^{-} &\cong Y,
+            \end{align*}
+            once again natural in $X\in\Obj(\Sets_{*})$ and $Y\in\Obj(\Sets)$.
         \item\label{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums}\SloganFont{Symmetric Strong Monoidality With Respect to Wedge Sums. }The functor of \cref{properties-of-sets-with-deleted-basepoints-functoriality} has a symmetric strong monoidal structure
             \[
                 ((-)^{-},(-)^{-,\vee},(-)^{-,\vee}_{\Unit})
@@ -3269,7 +3274,7 @@ Let $(X,x_{0})$ be a pointed set.
     \end{itemize}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-adjoint-equivalence}: Adjoint Equivalence}%
     We proceed in a few steps:
     \begin{itemize}
         \item\SloganFont{Map \rmI. }We define a map
@@ -3438,6 +3443,40 @@ Let $(X,x_{0})$ be a pointed set.
             \]%
             and the naturality diagram for $\Phi$ above indeed commutes.
         \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+        \item\SloganFont{Fully Faithfulness of $(-)^{-}$. }We aim to show that the assignment $f\mapsto f^{-}$ sets up a bijection
+            \[
+                (-)^{-}_{X,Y}%
+                \colon%
+                \Sets^{\actv}_{*}(X,Y)%
+                \isorightarrow%
+                \Sets(X^{-},Y^{-}).%
+            \]%
+            Indeed, the inverse map
+            \[
+                (-)^{-,-1}_{X,Y}%
+                \colon%
+                \Sets(X^{-},Y^{-})%
+                \isorightarrow%
+                \Sets^{\actv}_{*}(X,Y)%
+            \]%
+            is given by sending a map of sets $f\colon X^{-}\to Y^{-}$ to the active morphism of pointed sets $f^{\dagger}\colon X\to Y$ defined by
+            \[
+                f^{\dagger}(x)%
+                \defeq%
+                \begin{cases}
+                    f(x)  &\text{if $x\in X^{-}$,}\\
+                    y_{0} &\text{if $x=x_{0}$}
+                \end{cases}
+            \]%
+            for each $x\in X$.
+        \item\SloganFont{Essential Surjectivity of $(-)^{-}$. }We need to show that, given an object $X\in\Obj(\Sets)$, there exists some $X'\in\Obj(\Sets^{\actv}_{*})$ such that $(X')^{-}\cong X$. Indeed, taking $X'=X^{+}$, we have
+            \begin{align*}
+                (X^{+})^{-} &\defeq (X\cup\{\star_{X}\})^{-}\\
+                            &\defeq (X\cup\{\star_{X}\})\setminus\{\star_{X}\}\\
+                            &=      X,
+            \end{align*}
+            and thus we have in fact an \emph{equality} $(X^{+})^{-}=X$, showing $(-)^{-}$ to be essentially surjective.
+        \item\SloganFont{The Functor $(-)^{-}$ Is an Equivalence. }Since $(-)^{-}$ is fully faithful and essentially surjective, it is an equivalence by \ChapterRef{\ChapterCategories, \cref{categories:properties-of-equivalences-of-categories-characterisations} of \cref{categories:properties-of-equivalences-of-categories}}{\cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories}}.
     \end{itemize}
     This finishes the proof.
 

@@ -1198,16 +1198,16 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
 \begin{theorem}{The Universal Property of $(\Sets,\times,\pt)$}{the-universal-property-of-sets-times-pt}%
     The symmetric monoidal structure on the category $\Sets$ of \cref{the-monoidal-structure-on-sets-associated-to-the-product} is uniquely determined by the following requirements:
     \begin{enumerate}
-        \item\label{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom}\SloganFont{Existence of an Internal Hom. }The product
+        \item\label{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom}\SloganFont{Existence of an Internal Hom. }The tensor product
             \[
-                \times%
+                \otimes_{\Sets}%
                 \colon
                 \Sets\times\Sets
                 \to
                 \Sets
             \]%
             of $\Sets$ admits an internal Hom $[-_{1},-_{2}]_{\Sets}$.
-        \item\label{the-universal-property-of-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}=\pt$.
+        \item\label{the-universal-property-of-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}\cong\pt$.
     \end{enumerate}
     More precisely, the full subcategory of the category $\ModuliCategory^{\cld}_{\E_{\infty}}(\Sets)$ of \cref{TODO} spanned by the closed symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ satisfying \cref{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom,the-universal-property-of-sets-times-pt-the-unit-object-is-pt} is contractible (i.e.\ equivalent to the punctual category).
 \end{theorem}
@@ -1221,13 +1221,15 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \to%
         \Sets%
     \]%
-    admits a \emph{unique} symmetric closed monoidal functor structure
-    \begin{gather*}
-        \id^{\otimes}_{\Sets}       \colon A\otimes_{\Sets}B \isorightarrow A\times B,\\
-        \id^{\Hom}_{\Sets}          \colon [A,B]_{\Sets}     \isorightarrow \Sets(A,B),\\
-        \id^{\otimes}_{\Unit|\Sets} \colon \Unit_{\Sets}     \isorightarrow \pt
-    \end{gather*}
-    making it into a symmetric monoidal strongly closed isomorphism of categories from $\left(\phantom{\mrp{\LUnitor'}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor'$, $\RUnitor'$, $\left.\sigma'\right)$ to the closed symmetric monoidal category $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\times$, $\Sets(-_{1},-_{2})$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ of $\Sets$ and products of \cref{the-monoidal-structure-on-sets-associated-to-the-product}.
+    admits a \emph{unique} closed symmetric monoidal functor structure
+    \[%
+        \begin{array}{cccc}
+            \phantom{\id^{\otimes}_{\Sets}}\mlp{\id^{\otimes}_{\Sets}}       \colon\mkern-10mu & A\otimes_{\Sets}B \mkern-10mu&{}\mathbin{\isorightarrow}&\mkern-10mu{}A\times B,\\
+            \phantom{\id^{\otimes}_{\Sets}}\mlp{\id^{\Hom}_{\Sets}}          \colon\mkern-10mu & [A,B]_{\Sets}     \mkern-10mu&{}\mathbin{\isorightarrow}&\mkern-10mu{}\Sets(A,B),\\
+            \phantom{\id^{\otimes}_{\Sets}}\mlp{\id^{\otimes}_{\Unit|\Sets}} \colon\mkern-10mu & \Unit_{\Sets}     \mkern-10mu&{}\mathbin{\isorightarrow}&\mkern-10mu{}\pt,
+        \end{array}
+    \]%
+    making it into a symmetric monoidal strongly closed isomorphism of categories from $\left(\phantom{\mrp{\LUnitor'}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor'$, $\RUnitor'$, $\left.\sigma'\right)$ to the closed symmetric monoidal category $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\times$, $\Sets(-_{1},-_{2})$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ of \cref{the-monoidal-structure-on-sets-associated-to-the-product}.
 
     \ProofBox{Constructing an Isomorphism $[-_{1},-_{2}]_{\Sets}\cong\Sets(-_{1},-_{2})$}%
     By \cref{TODO}, we have a natural isomorphism
@@ -1440,11 +1442,11 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \]%
     Since:
     \begin{itemize}
-        \item Subdiagram (5) commutes by the naturality of $\LUnitor^{\prime,-1}$.
-        \item Subdiagram ($\dagger$) commutes, as proved above.
-        \item Subdiagram (4) commutes by the naturality of $\id^{\otimes,-1}_{\Unit|\Sets}$.
-        \item Subdiagram (1) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram (3) commutes by the naturality of $\LUnitor^{\Sets,-1}$.
+        \item Subdiagram $(5)$ commutes by the naturality of $\LUnitor^{\prime,-1}$.
+        \item Subdiagram $(\dagger)$ commutes, as proved above.
+        \item Subdiagram $(4)$ commutes by the naturality of $\id^{\otimes,-1}_{\Unit|\Sets}$.
+        \item Subdiagram $(1)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(3)$ commutes by the naturality of $\LUnitor^{\Sets,-1}$.
     \end{itemize}
     it follows that the diagram
     \[
@@ -1485,7 +1487,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         </div>
     </div>
     % BEGIN LATEX HTML %
-    also commutes. See the \href{https://clowderproject.com/tag/01P5}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
+    also commutes. See the \href{https://clowderproject.com/tag/01P8}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
     % END RAW HTML %
     We then have
     \begin{align*}
@@ -1671,11 +1673,11 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \]%
     Since:
     \begin{itemize}
-        \item Subdiagram (5) commutes by the naturality of $\RUnitor^{\prime,-1}$.
-        \item Subdiagram ($\dagger$) commutes, as proved above.
-        \item Subdiagram (4) commutes by the naturality of $\id^{\otimes,-1}_{\Unit|\Sets}$.
-        \item Subdiagram (1) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram (3) commutes by the naturality of $\RUnitor^{\Sets,-1}$.
+        \item Subdiagram $(5)$ commutes by the naturality of $\RUnitor^{\prime,-1}$.
+        \item Subdiagram $(\dagger)$ commutes, as proved above.
+        \item Subdiagram $(4)$ commutes by the naturality of $\id^{\otimes,-1}_{\Unit|\Sets}$.
+        \item Subdiagram $(1)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(3)$ commutes by the naturality of $\RUnitor^{\Sets,-1}$.
     \end{itemize}
     it follows that the diagram
     \[
@@ -1716,7 +1718,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         </div>
     </div>
     % BEGIN LATEX HTML %
-    also commutes. See the \href{https://clowderproject.com/tag/01P5}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
+    also commutes. See the \href{https://clowderproject.com/tag/01P8}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
     % END RAW HTML %
     We then have
     \begin{align*}
@@ -1880,343 +1882,335 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \arrow[from=1-2,to=4-2,"\scriptstyle(\dagger)",phantom]%
         \end{tikzcd}
     \]%
-    commutes as well. Now, let $A\in\Obj(\Sets)$, let $a\in A$, and consider the diagram
-    \begin{webcompile}
-        \scalebox{0.575}{%
-            \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\times(\pt\times\pt)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\times(B\times C)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                (\pt\times\pt)\times\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\times\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                (A\times B)\times C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\otimes_{\Sets}(B\times C)
-                \\[0.55\ThreeCmPlusHalf]
-                (\pt\times\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                (A\times B)\otimes_{\Sets}C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\otimes_{\Sets}(B\otimes_{\Sets}C)
-                \\[0.05\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (A\otimes_{\Sets}B)\otimes_{\Sets}C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                % 1-Arrows
-                % First Hexagon Left
-                \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
-                \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
-                \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
-                % First Hexagon Right
-                \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
-                \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
-                \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.9}]%
-                % Second Hexagon Left
-                \arrow[from=6-4,to=8-5,"\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C}"'{sloped,description}]%
-                % Second Hexagon Right
-                \arrow[from=2-5,to=4-6,"\id^{\otimes,-1}_{\Sets|A,B\times C}"{sloped}]%
-                \arrow[from=4-6,to=6-6,"\id_{A}\otimes_{\Sets}\id^{\otimes,-1}_{\Sets|B,C}"]%
-                \arrow[from=6-6,to=8-5,"\alpha^{\prime,-1}_{A,B,C}"'{sloped}]%
-                % Connecting Arrows
-                \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
-                \arrow[from=3-1,to=4-4,"{([a]\times[b])\times[c]}"{description,sloped},crossing over]%
-                \arrow[from=3-3,to=4-6,"{[a]\otimes_{\Sets}([b]\times[c])}"{description,sloped,pos=0.75}]%
-                \arrow[from=5-1,to=6-4,"{([a]\times[b])\otimes_{\Sets}[c]}"description,sloped,crossing over]%
-                \arrow[from=5-3,to=6-6,"{[a]\otimes_{\Sets}([b]\otimes_{\Sets}[c])}"{description,sloped,pos=0.5}]%
-                \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
-                % Crossing Over
-                \arrow[from=2-5,to=4-4,"\alpha^{\Sets,-1}_{A,B,C}"'{sloped,description},crossing over]%
-                \arrow[from=4-4,to=6-4,"\id^{\otimes,-1}_{\Sets|A\times B,C}"'description,crossing over]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    commutes as well. Now, let $A,B,C\in\Obj(\Sets)$, let $a\in A$, let $b\in B$, let $c\in C$, and consider the diagram
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\times(\pt\times\pt)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\times(B\times C)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            (\pt\times\pt)\times\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\times\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            (A\times B)\times C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\otimes_{\Sets}(B\times C)
+            \\[0.55\ThreeCmPlusHalf]
+            (\pt\times\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            (A\times B)\otimes_{\Sets}C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\otimes_{\Sets}(B\otimes_{\Sets}C)
+            \\[0.05\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (A\otimes_{\Sets}B)\otimes_{\Sets}C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            % 1-Arrows
+            % First Hexagon Left
+            \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
+            \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
+            \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
+            % First Hexagon Right
+            \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
+            \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
+            \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.9}]%
+            % Second Hexagon Left
+            \arrow[from=6-4,to=8-5,"\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C}"'{sloped,description}]%
+            % Second Hexagon Right
+            \arrow[from=2-5,to=4-6,"\id^{\otimes,-1}_{\Sets|A,B\times C}"{sloped}]%
+            \arrow[from=4-6,to=6-6,"\id_{A}\otimes_{\Sets}\id^{\otimes,-1}_{\Sets|B,C}"]%
+            \arrow[from=6-6,to=8-5,"\alpha^{\prime,-1}_{A,B,C}"'{sloped}]%
+            % Connecting Arrows
+            \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
+            \arrow[from=3-1,to=4-4,"{([a]\times[b])\times[c]}"{description,sloped},crossing over]%
+            \arrow[from=3-3,to=4-6,"{[a]\otimes_{\Sets}([b]\times[c])}"{description,sloped,pos=0.75}]%
+            \arrow[from=5-1,to=6-4,"{([a]\times[b])\otimes_{\Sets}[c]}"description,sloped,crossing over]%
+            \arrow[from=5-3,to=6-6,"{[a]\otimes_{\Sets}([b]\otimes_{\Sets}[c])}"{description,sloped,pos=0.5}]%
+            \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
+            % Crossing Over
+            \arrow[from=2-5,to=4-4,"\alpha^{\Sets,-1}_{A,B,C}"'{sloped,description},crossing over]%
+            \arrow[from=4-4,to=6-4,"\id^{\otimes,-1}_{\Sets|A\times B,C}"'description,crossing over]%
+        \end{tikzcd}
+    \end{scalemath}
     which we partition into subdiagrams as follows:
-    \begin{webcompile}
-        \scalebox{0.65}{%
-            \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\times(\pt\times\pt)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                (\pt\times\pt)\times\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\times\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.55\ThreeCmPlusHalf]
-                (\pt\times\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                % 1-Arrows
-                % First Hexagon Left
-                \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
-                \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
-                \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
-                % First Hexagon Right
-                \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
-                \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
-                \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.9}]%
-                % Subdiagram
-                \arrow[from=1-2,to=7-2,"(\dagger)"{xscale=1.25,yscale=1.25},phantom]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
-    \begin{webcompile}
-        \scalebox{0.65}{%
-            \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\times(\pt\times\pt)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\times(B\times C)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                (\pt\times\pt)\times\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                (A\times B)\times C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.55\ThreeCmPlusHalf]
-                (\pt\times\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                {}
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                (A\times B)\otimes_{\Sets}C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (A\otimes_{\Sets}B)\otimes_{\Sets}C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                % 1-Arrows
-                % First Hexagon Left
-                \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
-                \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
-                \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
-                % Second Hexagon Left
-                \arrow[from=6-4,to=8-5,"\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C}"'{sloped,description}]%
-                % Connecting Arrows
-                \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
-                \arrow[from=3-1,to=4-4,"{([a]\times[b])\times[c]}"{description,sloped},crossing over]%
-                \arrow[from=5-1,to=6-4,"{([a]\times[b])\otimes_{\Sets}[c]}"description,sloped,crossing over]%
-                \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
-                % Crossing Over
-                \arrow[from=2-5,to=4-4,"\alpha^{\Sets,-1}_{A,B,C}"'{sloped,description},crossing over]%
-                \arrow[from=4-4,to=6-4,"\id^{\otimes,-1}_{\Sets|A\times B,C}"'description,crossing over]%
-                % Subdiagrams
-                \arrow[from=1-2,to=4-4,"\scriptstyle(1)"{rotate=8.7, xslant=-1.28455656, yslant=0,xscale=10.1931, yscale=3.1857,rotate=-60,xscale=0.25,yscale=0.25},phantom]%
-                \arrow[from=5-1,to=4-4,"\scriptstyle(2)"{rotate=-10,xslant=-0.183534345,yslant=0,xscale=16.9083,yscale=8.0921,rotate=1.0,xscale=0.15,yscale=0.15},phantom]%
-                \arrow[from=7-2,to=6-4,"\scriptstyle(3)"{rotate=-11.1,xslant=-3.23047804,yslant=0,xscale=14.3481,yscale=1.9031,rotate=0.0,xscale=0.2,yscale=0.2},phantom]%
-                % It's a (3)
-                \arrow[from=4-4,to=5-3,dashed,bend left=20,xshift=-7.0em,yshift=-10.0em,end anchor={[xshift=3.0em,yshift=2.0em]}]%
-                \arrow[from=4-4,to=5-3,dashed,bend left=20,xshift=-7.0em,yshift=-10.0em,end anchor={[xshift=3.0em,yshift=2.0em]},phantom,"\scriptstyle(3)",xshift=-2.75em,yshift=-0.9em]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
-    \begin{webcompile}
-        \scalebox{0.65}{%
-            \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\times(\pt\times\pt)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\times(B\times C)
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.05\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\times\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\otimes_{\Sets}(B\times C)
-                \\[0.55\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                A\otimes_{\Sets}(B\otimes_{\Sets}C)\mrp{.}
-                \\[0.05\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \\[0.45\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                \&[0.785\ThreeCmPlusHalf]
-                \&[0.86602540378\ThreeCmPlusHalf]
-                (A\otimes_{\Sets}B)\otimes_{\Sets}C
-                \&[0.86602540378\ThreeCmPlusHalf]
-                % 1-Arrows
-                % First Hexagon Right
-                \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
-                \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
-                \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.4}]%
-                % Second Hexagon Right
-                \arrow[from=2-5,to=4-6,"\id^{\otimes,-1}_{\Sets|A,B\times C}"{sloped}]%
-                \arrow[from=4-6,to=6-6,"\id_{A}\otimes_{\Sets}\id^{\otimes,-1}_{\Sets|B,C}"]%
-                \arrow[from=6-6,to=8-5,"\alpha^{\prime,-1}_{A,B,C}"'{sloped,pos=0.4}]%
-                % Connecting Arrows
-                \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
-                \arrow[from=3-3,to=4-6,"{[a]\otimes_{\Sets}([b]\times[c])}"{description,sloped,pos=0.75}]%
-                \arrow[from=5-3,to=6-6,"{[a]\otimes_{\Sets}([b]\otimes_{\Sets}[c])}"{description,sloped,pos=0.5}]%
-                \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
-                % Subdiagrams
-                \arrow[from=3-3,to=2-5,"\scriptstyle(4)"{rotate=-11.1,xslant=-3.23047804,yslant=0,xscale=14.3481,yscale=1.9031,rotate=0.0,xscale=0.2,yscale=0.2},phantom]%
-                \arrow[from=5-3,to=4-6,"\scriptstyle(5)"{rotate=-10,xslant=-0.183534345,yslant=0,xscale=16.9083,yscale=8.0921,rotate=1.0,xscale=0.15,yscale=0.15},phantom]%
-                \arrow[from=7-2,to=6-6,"\scriptstyle(6)"{rotate=8.7, xslant=-1.28455656, yslant=0,xscale=10.1931, yscale=3.1857,rotate=-60,xscale=0.25,yscale=0.25},phantom]%
-                % It's a (4)
-                \arrow[from=3-3,to=2-5,dashed,bend left=20,crossing over,start anchor={[xshift=6.9em,yshift=0.1em]},end anchor={[xshift=-2.0em,yshift=1.5em]}]%
-                \arrow[from=3-3,to=2-5,dashed,bend left=20,start anchor={[xshift=6.0em,yshift=0.5em]},end anchor={[xshift=-2.0em,yshift=1.5em]},phantom,"\scriptstyle(4)",xshift=2.6em,yshift=0.4em]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\times(\pt\times\pt)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            (\pt\times\pt)\times\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\times\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.55\ThreeCmPlusHalf]
+            (\pt\times\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            % 1-Arrows
+            % First Hexagon Left
+            \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
+            \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
+            \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
+            % First Hexagon Right
+            \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
+            \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
+            \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.9}]%
+            % Subdiagram
+            \arrow[from=1-2,to=7-2,"(\dagger)"{xscale=1.25,yscale=1.25},phantom]%
+        \end{tikzcd}
+    \end{scalemath}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\times(\pt\times\pt)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\times(B\times C)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            (\pt\times\pt)\times\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            (A\times B)\times C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.55\ThreeCmPlusHalf]
+            (\pt\times\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            {}
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            (A\times B)\otimes_{\Sets}C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (A\otimes_{\Sets}B)\otimes_{\Sets}C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            % 1-Arrows
+            % First Hexagon Left
+            \arrow[from=1-2,to=3-1,"\alpha^{\Sets,-1}_{\pt,\pt,\pt}"sloped]%
+            \arrow[from=3-1,to=5-1,"\id^{\otimes,-1}_{\pt\times\pt,\pt}"']%
+            \arrow[from=5-1,to=7-2,"\id^{\otimes,-1}_{\pt,\pt}\otimes_{\Sets}\id_{\pt}"'sloped,pos=0.4]%
+            % Second Hexagon Left
+            \arrow[from=6-4,to=8-5,"\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C}"'{sloped,description}]%
+            % Connecting Arrows
+            \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
+            \arrow[from=3-1,to=4-4,"{([a]\times[b])\times[c]}"{description,sloped},crossing over]%
+            \arrow[from=5-1,to=6-4,"{([a]\times[b])\otimes_{\Sets}[c]}"description,sloped,crossing over]%
+            \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
+            % Crossing Over
+            \arrow[from=2-5,to=4-4,"\alpha^{\Sets,-1}_{A,B,C}"'{sloped,description},crossing over]%
+            \arrow[from=4-4,to=6-4,"\id^{\otimes,-1}_{\Sets|A\times B,C}"'description,crossing over]%
+            % Subdiagrams
+            \arrow[from=1-2,to=4-4,"\scriptstyle(1)"{rotate=8.7, xslant=-1.28455656, yslant=0,xscale=10.1931, yscale=3.1857,rotate=-60,xscale=0.25,yscale=0.25},phantom]%
+            \arrow[from=5-1,to=4-4,"\scriptstyle(2)"{rotate=-10,xslant=-0.183534345,yslant=0,xscale=16.9083,yscale=8.0921,rotate=1.0,xscale=0.15,yscale=0.15},phantom]%
+            \arrow[from=7-2,to=6-4,"\scriptstyle(3)"{rotate=-11.1,xslant=-3.23047804,yslant=0,xscale=14.3481,yscale=1.9031,rotate=0.0,xscale=0.2,yscale=0.2},phantom]%
+            % It's a (3)
+            \arrow[from=4-4,to=5-3,dashed,bend left=20,xshift=-7.0em,yshift=-10.0em,end anchor={[xshift=3.0em,yshift=2.0em]}]%
+            \arrow[from=4-4,to=5-3,dashed,bend left=20,xshift=-7.0em,yshift=-10.0em,end anchor={[xshift=3.0em,yshift=2.0em]},phantom,"\scriptstyle(3)",xshift=-2.75em,yshift=-0.9em]%
+        \end{tikzcd}
+    \end{scalemath}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\times(\pt\times\pt)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\times(B\times C)
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.05\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\times\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\otimes_{\Sets}(B\times C)
+            \\[0.55\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \pt\otimes_{\Sets}(\pt\otimes_{\Sets}\pt)
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            A\otimes_{\Sets}(B\otimes_{\Sets}C)\mrp{.}
+            \\[0.05\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (\pt\otimes_{\Sets}\pt)\otimes_{\Sets}\pt
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \\[0.45\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            \&[0.785\ThreeCmPlusHalf]
+            \&[0.86602540378\ThreeCmPlusHalf]
+            (A\otimes_{\Sets}B)\otimes_{\Sets}C
+            \&[0.86602540378\ThreeCmPlusHalf]
+            % 1-Arrows
+            % First Hexagon Right
+            \arrow[from=1-2,to=3-3,"\id^{\otimes,-1}_{\pt,\pt\times\pt}"{sloped,description}]%
+            \arrow[from=3-3,to=5-3,"\id_{\pt}\otimes_{\Sets}\id^{\otimes,-1}_{\pt,\pt}"description]%
+            \arrow[from=5-3,to=7-2,"\alpha^{\prime,-1}_{\pt,\pt,\pt}"{sloped,pos=0.4}]%
+            % Second Hexagon Right
+            \arrow[from=2-5,to=4-6,"\id^{\otimes,-1}_{\Sets|A,B\times C}"{sloped}]%
+            \arrow[from=4-6,to=6-6,"\id_{A}\otimes_{\Sets}\id^{\otimes,-1}_{\Sets|B,C}"]%
+            \arrow[from=6-6,to=8-5,"\alpha^{\prime,-1}_{A,B,C}"'{sloped,pos=0.4}]%
+            % Connecting Arrows
+            \arrow[from=1-2,to=2-5,"{[a]\times([b]\times[c])}"sloped]%
+            \arrow[from=3-3,to=4-6,"{[a]\otimes_{\Sets}([b]\times[c])}"{description,sloped,pos=0.75}]%
+            \arrow[from=5-3,to=6-6,"{[a]\otimes_{\Sets}([b]\otimes_{\Sets}[c])}"{description,sloped,pos=0.5}]%
+            \arrow[from=7-2,to=8-5,"{([a]\otimes_{\Sets}[b])\otimes_{\Sets}[c]}"',sloped]%
+            % Subdiagrams
+            \arrow[from=3-3,to=2-5,"\scriptstyle(4)"{rotate=-11.1,xslant=-3.23047804,yslant=0,xscale=14.3481,yscale=1.9031,rotate=0.0,xscale=0.2,yscale=0.2},phantom]%
+            \arrow[from=5-3,to=4-6,"\scriptstyle(5)"{rotate=-10,xslant=-0.183534345,yslant=0,xscale=16.9083,yscale=8.0921,rotate=1.0,xscale=0.15,yscale=0.15},phantom]%
+            \arrow[from=7-2,to=6-6,"\scriptstyle(6)"{rotate=8.7, xslant=-1.28455656, yslant=0,xscale=10.1931, yscale=3.1857,rotate=-60,xscale=0.25,yscale=0.25},phantom]%
+            % It's a (4)
+            \arrow[from=3-3,to=2-5,dashed,bend left=20,crossing over,start anchor={[xshift=6.9em,yshift=0.1em]},end anchor={[xshift=-2.0em,yshift=1.5em]}]%
+            \arrow[from=3-3,to=2-5,dashed,bend left=20,start anchor={[xshift=6.0em,yshift=0.5em]},end anchor={[xshift=-2.0em,yshift=1.5em]},phantom,"\scriptstyle(4)",xshift=2.6em,yshift=0.4em]%
+        \end{tikzcd}
+    \end{scalemath}
     Since:
     \begin{itemize}
-        \item Subdiagram (1) commutes by the naturality of $\alpha^{\Sets,-1}$.
-        \item Subdiagram (2) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram (3) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram ($\dagger$) commutes, as proved above.
-        \item Subdiagram (4) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram (5) commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
-        \item Subdiagram (6) commutes by the naturality of $\alpha^{\prime,-1}$.
+        \item Subdiagram $(1)$ commutes by the naturality of $\alpha^{\Sets,-1}$.
+        \item Subdiagram $(2)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(3)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(\dagger)$ commutes, as proved above.
+        \item Subdiagram $(4)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(5)$ commutes by the naturality of $\id^{\otimes,-1}_{\Sets}$.
+        \item Subdiagram $(6)$ commutes by the naturality of $\alpha^{\prime,-1}$.
     \end{itemize}
     it follows that the diagram
     \[
@@ -2311,55 +2305,55 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \ProofBox{Braidedness of the Isomorphism $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$}%
     We have to show that the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A\otimes_{\Sets}B
-            \arrow[r,"\sigma'_{A,B}"]
-            \arrow[d,"\id^{\otimes}_{\Sets|A,B}"']
+            \arrow[r,"\id^{\otimes}_{\Sets|A,B}"]
+            \arrow[d,"\sigma'_{A,B}"']
             \&
-            B\otimes_{\Sets}A
-            \arrow[d,"\id^{\otimes}_{\Sets|B,A}"]
-            \\
             A\times B
-            \arrow[r,"\sigma^{\Sets}_{A,B}"']
+            \arrow[d,"\sigma^{\Sets}_{A,B}"]
+            \\
+            B\otimes_{\Sets}A
+            \arrow[r,"\id^{\otimes}_{\Sets|B,A}"']
             \&
             B\times A
         \end{tikzcd}
     \]%
     commutes. First, note that the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \pt\otimes_{\Sets}\pt
-            \arrow[r,"\sigma'_{\pt,\pt}"]
-            \arrow[d,"\id^{\otimes}_{\Sets|\pt,\pt}"']
+            \arrow[r,"\id^{\otimes}_{\Sets|\pt,\pt}"]
+            \arrow[d,"\sigma'_{\pt,\pt}"']
             \&
-            \pt\otimes_{\Sets}\pt
-            \arrow[d,"\id^{\otimes}_{\Sets|\pt,\pt}"]
-            \&[-1.0*\the\DL]
-            \\
             \pt\times\pt
-            \arrow[r,"\sigma^{\Sets}_{\pt,\pt}"']
+            \arrow[d,"\sigma^{\Sets}_{\pt,\pt}"]
+            \&[-1.5*\the\DL]
+            \\
+            \pt\otimes_{\Sets}\pt
+            \arrow[r,"\id^{\otimes}_{\Sets|\pt,\pt}"']
             \&
             \pt\times\pt
             \arrow[rd,"!_{\pt\times\pt}"sloped]
-            \&[-1.0*\the\DL]
+            \&[-1.5*\the\DL]
             \\[-1.0*\the\DL]
             \&
-            \&[-1.0*\the\DL]
+            \&[-1.5*\the\DL]
             \pt
         \end{tikzcd}
     \]%
     commutes by the terminality of $\pt$ (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:construction-of-the-terminal-set}}{\cref{construction-of-the-terminal-set}}). Since the map $!_{\pt\times\pt}\colon\pt\times\pt\to\pt$ is invertible (e.g.\ with inverse $\LUnitor^{\Sets,-1}_{\pt}$), the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \pt\otimes_{\Sets}\pt
-            \arrow[r,"\sigma'_{\pt,\pt}"]
-            \arrow[d,"\id^{\otimes}_{\Sets|\pt,\pt}"']
+            \arrow[r,"\id^{\otimes}_{\Sets|\pt,\pt}"]
+            \arrow[d,"\sigma'_{\pt,\pt}"']
             \&
-            \pt\otimes_{\Sets}\pt
-            \arrow[d,"\id^{\otimes}_{\Sets|\pt,\pt}"]
-            \\
             \pt\times\pt
-            \arrow[r,"\sigma^{\Sets}_{\pt,\pt}"']
+            \arrow[d,"\sigma^{\Sets}_{\pt,\pt}"]
+            \\
+            \pt\otimes_{\Sets}\pt
+            \arrow[r,"\id^{\otimes}_{\Sets|\pt,\pt}"']
             \&
             \pt\times\pt
         \end{tikzcd}
@@ -2382,7 +2376,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \arrow[from=1-1,to=2-2,"\scriptstyle(\dagger)",phantom]%
         \end{tikzcd}
     \]%
-    commutes as well. Now, let $A\in\Obj(\Sets)$, let $a\in A$, and consider the diagram
+    commutes as well. Now, let $A,B\in\Obj(\Sets)$, let $a\in A$, let $b\in B$, and consider the diagram
     \[
         \begin{tikzcd}[row sep={6.5*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \pt\times\pt
@@ -2427,100 +2421,98 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \end{tikzcd}
     \]%
     which we partition into subdiagrams as follows:
-    \begin{webcompile}
-        \scalebox{0.7}{%
-            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \pt\times\pt
-                \&
-                \&
-                \pt\otimes_{\Sets}\pt
-                \&
-                \\
-                \&
-                B\times A
-                \&
-                \&
-                B\otimes_{\Sets}A
-                \\
-                \pt\times\pt
-                \&
-                \&
-                \&
-                \\
-                \&
-                A\times B
-                \&
-                \&
-                A\otimes_{\Sets}B
-                % 1-Arrows
-                % First Square
-                \arrow[from=1-1,to=3-1,"\sigma^{\Sets,-1}_{\pt,\pt}"']%
-                \arrow[from=1-1,to=1-3,"\id^{\otimes,-1}_{\pt,\pt}"]%
-                % Second Square
-                \arrow[from=2-2,to=4-2,"\sigma^{\Sets,-1}_{A,B}"{description},crossing over]%
-                \arrow[from=4-2,to=4-4,"\id^{\otimes,-1}_{\Sets|A,B}"']%
-                \arrow[from=2-2,to=2-4,"\id^{\otimes,-1}_{\Sets|B,A}"{description},crossing over]%
-                \arrow[from=2-4,to=4-4,"\sigma^{\prime,-1}_{A,B}"]%
-                % Connecting Arrows
-                \arrow[from=1-1,to=2-2,"{[b]\times[a]}"description]%
-                \arrow[from=1-3,to=2-4,"{[b]\otimes_{\Sets}[a]}"]%
-                \arrow[from=3-1,to=4-2,"{[a]\times[b]}"']%
-                % Subdiagrams
-                \arrow[from=2-2,to=1-3,"\scriptstyle(1)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
-                \arrow[from=3-1,to=2-2,"\scriptstyle(2)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
-                \arrow[from=4-2,to=2-4,"\scriptstyle(3)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
-            \end{tikzcd}
-            \quad
-            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \pt\times\pt
-                \&
-                \&
-                \pt\otimes_{\Sets}\pt
-                \&
-                \\
-                \&
-                \&
-                \&
-                B\otimes_{\Sets}A
-                \\
-                \pt\times\pt
-                \&
-                \&
-                \pt\otimes_{\Sets}\pt
-                \&
-                \\
-                \&
-                A\times B
-                \&
-                \&
-                A\otimes_{\Sets}B
-                % 1-Arrows
-                % First Square
-                \arrow[from=1-1,to=3-1,"\sigma^{\Sets,-1}_{\pt,\pt}"']%
-                \arrow[from=3-1,to=3-3,"\id^{\otimes,-1}_{\pt,\pt}"{description}]%
-                \arrow[from=1-1,to=1-3,"\id^{\otimes,-1}_{\pt,\pt}"]%
-                \arrow[from=1-3,to=3-3,"\sigma^{\prime,-1}_{\pt,\pt}"{description}]%
-                % Second Square
-                \arrow[from=4-2,to=4-4,"\id^{\otimes,-1}_{\Sets|A,B}"']%
-                \arrow[from=2-4,to=4-4,"\sigma^{\prime,-1}_{A,B}"]%
-                % Connecting Arrows
-                \arrow[from=1-3,to=2-4,"{[b]\otimes_{\Sets}[a]}"]%
-                \arrow[from=3-1,to=4-2,"{[a]\times[b]}"']%
-                \arrow[from=3-3,to=4-4,"{[a]\otimes_{\Sets}[b]}"description]%
-                % Subdiagrams
-                \arrow[from=1-1,to=3-3,"\scriptstyle(\dagger)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
-                \arrow[from=3-3,to=2-4,"\scriptstyle(4)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
-                \arrow[from=4-2,to=3-3,"\scriptstyle(5)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \pt\times\pt
+            \&
+            \&
+            \pt\otimes_{\Sets}\pt
+            \&
+            \\
+            \&
+            B\times A
+            \&
+            \&
+            B\otimes_{\Sets}A
+            \\
+            \pt\times\pt
+            \&
+            \&
+            \&
+            \\
+            \&
+            A\times B
+            \&
+            \&
+            A\otimes_{\Sets}B
+            % 1-Arrows
+            % First Square
+            \arrow[from=1-1,to=3-1,"\sigma^{\Sets,-1}_{\pt,\pt}"']%
+            \arrow[from=1-1,to=1-3,"\id^{\otimes,-1}_{\pt,\pt}"]%
+            % Second Square
+            \arrow[from=2-2,to=4-2,"\sigma^{\Sets,-1}_{A,B}"{description},crossing over]%
+            \arrow[from=4-2,to=4-4,"\id^{\otimes,-1}_{\Sets|A,B}"']%
+            \arrow[from=2-2,to=2-4,"\id^{\otimes,-1}_{\Sets|B,A}"{description},crossing over]%
+            \arrow[from=2-4,to=4-4,"\sigma^{\prime,-1}_{A,B}"]%
+            % Connecting Arrows
+            \arrow[from=1-1,to=2-2,"{[b]\times[a]}"description]%
+            \arrow[from=1-3,to=2-4,"{[b]\otimes_{\Sets}[a]}"]%
+            \arrow[from=3-1,to=4-2,"{[a]\times[b]}"']%
+            % Subdiagrams
+            \arrow[from=2-2,to=1-3,"\scriptstyle(1)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+            \arrow[from=3-1,to=2-2,"\scriptstyle(2)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+            \arrow[from=4-2,to=2-4,"\scriptstyle(3)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \pt\times\pt
+            \&
+            \&
+            \pt\otimes_{\Sets}\pt
+            \&
+            \\
+            \&
+            \&
+            \&
+            B\otimes_{\Sets}A
+            \\
+            \pt\times\pt
+            \&
+            \&
+            \pt\otimes_{\Sets}\pt
+            \&
+            \\
+            \&
+            A\times B
+            \&
+            \&
+            A\otimes_{\Sets}B
+            % 1-Arrows
+            % First Square
+            \arrow[from=1-1,to=3-1,"\sigma^{\Sets,-1}_{\pt,\pt}"']%
+            \arrow[from=3-1,to=3-3,"\id^{\otimes,-1}_{\pt,\pt}"{description}]%
+            \arrow[from=1-1,to=1-3,"\id^{\otimes,-1}_{\pt,\pt}"]%
+            \arrow[from=1-3,to=3-3,"\sigma^{\prime,-1}_{\pt,\pt}"{description}]%
+            % Second Square
+            \arrow[from=4-2,to=4-4,"\id^{\otimes,-1}_{\Sets|A,B}"']%
+            \arrow[from=2-4,to=4-4,"\sigma^{\prime,-1}_{A,B}"]%
+            % Connecting Arrows
+            \arrow[from=1-3,to=2-4,"{[b]\otimes_{\Sets}[a]}"]%
+            \arrow[from=3-1,to=4-2,"{[a]\times[b]}"']%
+            \arrow[from=3-3,to=4-4,"{[a]\otimes_{\Sets}[b]}"description]%
+            % Subdiagrams
+            \arrow[from=1-1,to=3-3,"\scriptstyle(\dagger)"{rotate=0,xslant=0,yslant=0,xscale=1.5,yscale=1.5},phantom]%
+            \arrow[from=3-3,to=2-4,"\scriptstyle(4)"{rotate=-44.6,xslant=-0.965688775,yslant=0,xscale=8.6931,yscale=8.2852,xscale=0.15,yscale=0.15},phantom]%
+            \arrow[from=4-2,to=3-3,"\scriptstyle(5)"{rotate=-0.3,xslant=-0.903569337,yslant=0,xscale=7.0341,yscale=4.4454,xscale=0.225,yscale=0.225},phantom]%
+        \end{tikzcd}
+    \end{scalemath}
     Since:
     \begin{itemize}
-        \item Subdiagram (2) commutes by the naturality of $\sigma^{\Sets,-1}$.
-        \item Subdiagram (5) commutes by the naturality of $\id^{\otimes,-1}$.
-        \item Subdiagram ($\dagger$) commutes, as proved above.
-        \item Subdiagram (4) commutes by the naturality of $\sigma^{\prime,-1}$.
-        \item Subdiagram (1) commutes by the naturality of $\id^{\otimes,-1}$.
+        \item Subdiagram $(2)$ commutes by the naturality of $\sigma^{\Sets,-1}$.
+        \item Subdiagram $(5)$ commutes by the naturality of $\id^{\otimes,-1}$.
+        \item Subdiagram $(\dagger)$ commutes, as proved above.
+        \item Subdiagram $(4)$ commutes by the naturality of $\sigma^{\prime,-1}$.
+        \item Subdiagram $(1)$ commutes by the naturality of $\id^{\otimes,-1}$.
     \end{itemize}
     it follows that the diagram
     \[
@@ -2565,16 +2557,16 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \]%
     showing that the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A\otimes_{\Sets}B
-            \arrow[r,"\sigma'_{A,B}"]
-            \arrow[d,"\id^{\otimes}_{\Sets|A,B}"']
+            \arrow[r,"\id^{\otimes}_{\Sets|A,B}"]
+            \arrow[d,"\sigma'_{A,B}"']
             \&
-            B\otimes_{\Sets}A
-            \arrow[d,"\id^{\otimes}_{\Sets|B,A}"]
-            \\
             A\times B
-            \arrow[r,"\sigma^{\Sets}_{A,B}"']
+            \arrow[d,"\sigma^{\Sets}_{A,B}"]
+            \\
+            B\otimes_{\Sets}A
+            \arrow[r,"\id^{\otimes}_{\Sets|B,A}"']
             \&
             B\times A
         \end{tikzcd}
@@ -2584,13 +2576,13 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \ProofBox{Uniqueness of the Isomorphism $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$}%
     Let $\phi,\psi\colon-_{1}\otimes_{\Sets}-_{2}\Rightarrow-_{1}\times-_{2}$ be natural isomorphisms. Since these isomorphisms are compatible with the unitors of $\Sets$ with respect to $\times$ and $\otimes$ (as shown above), we have
     \begin{align*}
-        \LUnitor'_{B} &= \LUnitor^{\Sets}_{B}\circ\phi_{\pt,B},\\
-        \LUnitor'_{B} &= \LUnitor^{\Sets}_{B}\circ\psi_{\pt,B}.
+        \LUnitor'_{B} &= \LUnitor^{\Sets}_{B}\circ\phi_{\pt,B}\circ(\id^{\otimes}_{\Unit|\Sets}\otimes_{\Sets}\id_{Y}),\\
+        \LUnitor'_{B} &= \LUnitor^{\Sets}_{B}\circ\psi_{\pt,B}\circ(\id^{\otimes}_{\Unit|\Sets}\otimes_{\Sets}\id_{Y}).
     \end{align*}
-    Postcomposing both sides by $\LUnitor^{\Sets,-1}_{B}$ gives
+    Postcomposing both sides with $\LUnitor^{\Sets,-1}_{B}$ gives
     \begin{align*}
-        \LUnitor^{\Sets,-1}_{B}\circ\LUnitor'_{B} &= \phi_{\pt,B},\\
-        \LUnitor^{\Sets,-1}_{B}\circ\LUnitor'_{B} &= \psi_{\pt,B},
+        \LUnitor^{\Sets,-1}_{B}\circ\LUnitor'_{B}\circ(\id^{\otimes,-1}_{\Unit|\Sets}\otimes_{\Sets}\id_{Y}) &= \phi_{\pt,B},\\
+        \LUnitor^{\Sets,-1}_{B}\circ\LUnitor'_{B}\circ(\id^{\otimes}_{\Unit|\Sets}\otimes_{\Sets}\id_{Y})    &= \psi_{\pt,B},
     \end{align*}
     and thus we have
     \[
@@ -2647,16 +2639,16 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
 \begin{corollary}{A Second Universal Property for $(\Sets,\times,\pt)$}{a-second-universal-property-for-sets-times-pt}%
     The symmetric monoidal structure on the category $\Sets$ of \cref{the-monoidal-structure-on-sets-associated-to-the-product} is uniquely determined by the following requirements:
     \begin{enumerate}
-        \item\label{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits}\SloganFont{Two-Sided Preservation of Colimits. }The product
+        \item\label{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits}\SloganFont{Two-Sided Preservation of Colimits. }The tensor product
             \[
-                \times%
+                \otimes_{\Sets}%
                 \colon
                 \Sets\times\Sets
                 \to
                 \Sets
             \]%
             of $\Sets$ preserves colimits separately in each variable.
-        \item\label{a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}=\pt$.
+        \item\label{a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}\cong\pt$.
     \end{enumerate}
     More precisely, the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets)$ of \cref{TODO} spanned by the symmetric monoidal categories $(\Sets,\otimes_{\Sets},\Unit_{\Sets},\LUnitor^{\Sets},\RUnitor^{\Sets},\sigma^{\Sets})$ satisfying \cref{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits,a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt} is contractible.
 \end{corollary}
@@ -4053,40 +4045,38 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \]%
     \endgroup
     as in the diagram
-    \begin{webcompile}
-        \scalebox{0.8}{%
-            \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCm]
-                (\Sets\times\Sets)\times(\Sets\times\Sets)
-                \&[0.86602540378\ThreeCm]
-                \\[0.5\ThreeCm]
-                \Sets\times(\Sets\times\Sets)
-                \&[0.86602540378\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                (\Sets\times\Sets)\times(\Sets\times\Sets)
-                \\[\ThreeCm]
-                \Sets\times\Sets
-                \&[0.86602540378\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                \Sets\times\Sets\mrp{,}
-                \\[0.5\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                \Sets
-                \&[0.86602540378\ThreeCm]
-                % 1-Arrows
-                % Boundary Left
-                \arrow[from=2-1,to=1-2,"\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets})"{pos=0.35}]%
-                \arrow[from=1-2,to=2-3,"\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}"{pos=0.7}]%
-                \arrow[from=2-3,to=3-3,"\mathord{\times}\times\mathord{\times}"]%
-                \arrow[from=3-3,to=4-2,"\icoprod"]%
-                % Boundary Right
-                \arrow[from=2-1,to=3-1,"\id_{\Sets}\times\mathord{\icoprod}"']%
-                \arrow[from=3-1,to=4-2,"\times"']%
-                % 2-Arrows
-                \arrow[from=3-1,to=2-3,"\delta^{\Sets}_{\ell}"description,shorten=1.0em,Rightarrow]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCm]
+            (\Sets\times\Sets)\times(\Sets\times\Sets)
+            \&[0.86602540378\ThreeCm]
+            \\[0.5\ThreeCm]
+            \Sets\times(\Sets\times\Sets)
+            \&[0.86602540378\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            (\Sets\times\Sets)\times(\Sets\times\Sets)
+            \\[\ThreeCm]
+            \Sets\times\Sets
+            \&[0.86602540378\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            \Sets\times\Sets\mrp{,}
+            \\[0.5\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            \Sets
+            \&[0.86602540378\ThreeCm]
+            % 1-Arrows
+            % Boundary Left
+            \arrow[from=2-1,to=1-2,"\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets})"{pos=0.35}]%
+            \arrow[from=1-2,to=2-3,"\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}"{pos=0.7}]%
+            \arrow[from=2-3,to=3-3,"\mathord{\times}\times\mathord{\times}"]%
+            \arrow[from=3-3,to=4-2,"\icoprod"]%
+            % Boundary Right
+            \arrow[from=2-1,to=3-1,"\id_{\Sets}\times\mathord{\icoprod}"']%
+            \arrow[from=3-1,to=4-2,"\times"']%
+            % 2-Arrows
+            \arrow[from=3-1,to=2-3,"\delta^{\Sets}_{\ell}"description,shorten=1.0em,Rightarrow]%
+        \end{tikzcd}
+    \end{scalemath}
     whose component
     \[
         \delta^{\Sets}_{\ell|X,Y,Z}%
@@ -4122,40 +4112,38 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \]%
     \endgroup
     as in the diagram
-    \begin{webcompile}
-        \scalebox{0.9}{%
-            \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                \&[0.86602540378\ThreeCm]
-                (\Sets\times\Sets)\times(\Sets\times\Sets)
-                \&[0.86602540378\ThreeCm]
-                \\[0.5\ThreeCm]
-                (\Sets\times\Sets)\times\Sets
-                \&[0.86602540378\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                (\Sets\times\Sets)\times(\Sets\times\Sets)
-                \\[\ThreeCm]
-                \Sets\times\Sets
-                \&[0.86602540378\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                \Sets\times\Sets\mrp{,}
-                \\[0.5\ThreeCm]
-                \&[0.86602540378\ThreeCm]
-                \Sets
-                \&[0.86602540378\ThreeCm]
-                % 1-Arrows
-                % Boundary Left
-                \arrow[from=2-1,to=1-2,"(\id_{\Sets}\times\id_{\Sets})\times\Delta_{\Sets}"{pos=0.35}]%
-                \arrow[from=1-2,to=2-3,"\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}"{pos=0.7}]%
-                \arrow[from=2-3,to=3-3,"\mathord{\times}\times\mathord{\times}"]%
-                \arrow[from=3-3,to=4-2,"\icoprod"]%
-                % Boundary Right
-                \arrow[from=2-1,to=3-1,"\mathord{\icoprod}\times\id_{\Sets}"']%
-                \arrow[from=3-1,to=4-2,"\times"']%
-                % 2-Arrows
-                \arrow[from=3-1,to=2-3,"\delta^{\Sets}_{r}"description,shorten=1.0em,Rightarrow]%
-            \end{tikzcd}
-        }%
-    \end{webcompile}
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.86602540378\ThreeCm]
+            (\Sets\times\Sets)\times(\Sets\times\Sets)
+            \&[0.86602540378\ThreeCm]
+            \\[0.5\ThreeCm]
+            (\Sets\times\Sets)\times\Sets
+            \&[0.86602540378\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            (\Sets\times\Sets)\times(\Sets\times\Sets)
+            \\[\ThreeCm]
+            \Sets\times\Sets
+            \&[0.86602540378\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            \Sets\times\Sets\mrp{,}
+            \\[0.5\ThreeCm]
+            \&[0.86602540378\ThreeCm]
+            \Sets
+            \&[0.86602540378\ThreeCm]
+            % 1-Arrows
+            % Boundary Left
+            \arrow[from=2-1,to=1-2,"(\id_{\Sets}\times\id_{\Sets})\times\Delta_{\Sets}"{pos=0.35}]%
+            \arrow[from=1-2,to=2-3,"\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}"{pos=0.7}]%
+            \arrow[from=2-3,to=3-3,"\mathord{\times}\times\mathord{\times}"]%
+            \arrow[from=3-3,to=4-2,"\icoprod"]%
+            % Boundary Right
+            \arrow[from=2-1,to=3-1,"\mathord{\icoprod}\times\id_{\Sets}"']%
+            \arrow[from=3-1,to=4-2,"\times"']%
+            % 2-Arrows
+            \arrow[from=3-1,to=2-3,"\delta^{\Sets}_{r}"description,shorten=1.0em,Rightarrow]%
+        \end{tikzcd}
+    \end{scalemath}
     whose component
     \[
         \delta^{\Sets}_{r|X,Y,Z}%

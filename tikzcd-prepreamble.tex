@@ -4,6 +4,8 @@
 \usepackage{amssymb}
 \newcommand{\webleft}{\left}
 \newcommand{\webright}{\right}
+\usepackage{adjustbox}
+\newenvironment{scalemath}[1][\linewidth]{\[\begin{adjustbox}{width=#1,center}$}{$\end{adjustbox}\]}
 \usepackage{mathtools}
 \newcommand{\mlp}[1]{\mathllap{#1}}
 \newcommand{\mcp}[1]{\mathclap{#1}}
@@ -43,7 +45,9 @@
 \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 \renewcommand{\right}{\aftergroup\egroup\originalright}
 \newcommand{\Longrightisoarrow}{\mathbin{\overset{\cong}{\Longrightarrow}}}
-\usepackage{fp}
-\newcommand{\fsize}[2]{{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont #2}}
-\newcommand{\ffsize}[1]{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont}
-\input{preamble/tikz-preamble-additions.tex}
+\input{preamble/nonweb.tex}
+\let\Top\relax
+\newcommand{\Top}{\FontForCategories{Top}}
+\let\isorightarrow\relax
+\newcommand{\isorightarrow}{\xrightarrow{\cong}}
+\renewcommand\restriction[2]{\left.#1\right\vert_{#2}}

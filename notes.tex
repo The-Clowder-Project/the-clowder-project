@@ -810,6 +810,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Monoidal Categories:
     \begin{enumerate}
+        \item Notion of braided monoidal categories in which the braiding is not an isomorphism. Relation to \url{https://arxiv.org/abs/1307.5969}
         \item Proving a certain diagram between free monoidal categories commutes involves Fermat's little theorem. Can we reverse this and prove Fermat's little theorem from the commutativty of that diagram?
         \item \url{https://nilesjohnson.net/notes/grPic-P2S.pdf}
         \item Proof that monoidal equivalences $F$ of monoidal categories automatically admit monoidal natural isomorphisms $\id_{\CatFont{C}}\cong F^{-1}\circ F$ and $\id_{\CatFont{D}}\cong F\circ F^{-1}$.
@@ -852,11 +853,11 @@ Here we list things to be explored in or added to this work in the future. This 
         \item Involutive Category Theory
         \item \url{https://mathoverflow.net/questions/474662/the-analogy-between-dualizable-categories-and-compact-hausdorff-spaces}
     \end{enumerate}
-    Bimonoidal categories:
+    Bimonoidal Categories:
     \begin{enumerate}
         \item Include an explicit proof of \cref{properties-of-products-of-sets-symmetric-bimonoidality}
     \end{enumerate}
-    Six functor formalisms:
+    Six Functor Formalisms:
     \begin{enumerate}
         \item \url{https://mathoverflow.net/questions/258159/yoga-of-six-functors-for-group-representations}
         \item Is the 1-categorical analogue of six functor formalisms given by Mann interesting?
@@ -885,8 +886,10 @@ Here we list things to be explored in or added to this work in the future. This 
             \end{enumerate}
             Do they have exceptional $f^{!}$? Is there a notion of Fourier--Mukai transform for them? What kind of compatibility conditions (proper base change, etc.) do we have?
     \end{enumerate}
-    Skew monoidal categories:
+    Skew Monoidal Categories:
     \begin{enumerate}
+        \item Free monoidal category on a skew monoidal category
+        \item Skew monoidal structures associated to a locally Cartesian closed category
         \item Does the $\E_{1}$ tensor product of monoids admit a skew monoidal category structure?
         \item Is there a (right?) skew monoidal category structure on $\Fun(\CatFont{C},\CatFont{D})$ using right Kan extensions instead of left Kan extensions?
         \item Similarly, are there skew monoidal category structures on the subcategory of $\eRel(A,B)$ spanned by the functions using left Kan extensions and left Kan lifts?
@@ -916,14 +919,14 @@ Here we list things to be explored in or added to this work in the future. This 
         \item Free braided monoidal category with a braided monoid: \url{https://ncatlab.org/nlab/show/vine}
         \item \url{https://golem.ph.utexas.edu/category/2024/08/skew_monoidal_categories_throu.html}
     \end{enumerate}
-    Fibred category theory:
+    Fibred Category Theory:
     \begin{enumerate}
         \item Internal $\eHom$ in categories of co/Cartesian fibrations.
         \item \textit{Tensor structures on fibered categories} by Luca Terenzi: \url{https://arxiv.org/abs/2401.13491}. Check also the other papers by Luca Terenzi.
         \item \url{https://ncatlab.org/nlab/show/cartesian+natural+transformation} (this is a cartesian morphism in $\Fun(\CatFont{C},\CatFont{D})$ apparently)
         \item CoCartesian fibration classifying $\Fun(F,G)$, \url{https://mathoverflow.net/questions/457533/cocartesian-fibration-classifying-mathrmfunf-g}
     \end{enumerate}
-    Operads and multicategories:
+    Operads and Multicategories:
     \begin{enumerate}
         \item \href{https://arxiv.org/abs/2405.10072}{Simplicial lists in operad theory I}
     \end{enumerate}
@@ -937,6 +940,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Bicategories:
     \begin{enumerate}
+        \item \url{https://mathoverflow.net/questions/478867/2-category-structure-on-modr}
         \item Bicategories of matrices, as in Street's Variation through enrichment, also \url{https://arxiv.org/abs/2410.18877}
         \item \url{https://mathoverflow.net/a/86933}
         \item What are the internal 2-adjunctions in the fundamental $2$-groupoid of a space?
@@ -1038,6 +1042,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Simplicial stuff:
     \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2302.02484} and \url{https://arxiv.org/abs/2411.19751}
         \item Internal adjunctions in $\SimplexCategory$ are the same as Galois connections between $[n]$ and $[m]$. (NDA)
         \item \url{https://mathoverflow.net/q/478461}
         \item draw coherence for lax functors using the diagram for $\Delta^{2}$
@@ -1167,6 +1172,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Topology:
     \begin{enumerate}
+        \item This paper has some cool references on convergence spaces: \url{https://arxiv.org/abs/2410.18245}
         \item \url{https://arxiv.org/abs/2402.12316}
         \item Write about the 6-functor formalism for sheaves on topological spaces and for topological stacks, with lots of examples.
             \begin{enumerate}
@@ -1175,6 +1181,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Measure Theory:
     \begin{enumerate}
+        \item \url{https://en.wikipedia.org/wiki/Valuation_\%28measure_theory\%29}
         \item There's a theorem saying that there does not exist an infinite-dimensional \say{Lebesgue} measure, i.e. (from \url{https://en.wikipedia.org/wiki/Infinite-dimensional_Lebesgue_measure}):
             \begin{quote}
                 Let $X$ be an infinite-dimensional, separable Banach space. Then, the only locally finite and translation invariant Borel measure $\mu$ on $X$ is a trivial measure. Equivalently, there is no locally finite, strictly positive, and translation invariant measure on $X$.
@@ -1218,7 +1225,7 @@ Here we list things to be explored in or added to this work in the future. This 
         \item Lawvere metric spaces: object of $\CatFont{V}$-natural transformations corresponds to $\inf(\d(f(x),g(x)))$.
         \item Does the assignment $d(x,y)\mapsto d(x,y)/(1+d(x,y))$ constructing a bounded metric from a metric be given a universal property?
         \item Explore Lawvere metric spaces in a comprehensive manner
-        \item metric $\lcm(x,y)/\gcd(x,y)$ on $\N$, \url{https://mathoverflow.net/questions/461588/}
+        \item metric $\lcm(x,y)/\gcd(x,y)$ on $\N$, \url{https://mathoverflow.net/questions/461588/}. What shape do balls on $\N\times\N$ have with respect to this metric?
         \item \url{https://golem.ph.utexas.edu/category/2023/05/metric_spaces_as_enriched_categories_ii.html}
         \item Simon Willerton's work on the Legendre--Fenchel transform:
             \begin{enumerate}
@@ -1262,6 +1269,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Homotopy theory:
     \begin{enumerate}
+        \item \url{https://ncatlab.org/nlab/show/group+actions+on+spheres}, \url{https://www.maths.ed.ac.uk/~v1ranick/papers/wall7.pdf}, \url{https://math.stackexchange.com/questions/1575798/which-groups-act-freely-on-sn}, \url{https://arxiv.org/abs/math/0212280}.
         \item Pascal's triangle via homology of $n$-tori, \url{https://topospaces.subwiki.org/wiki/Homology_of_torus}
         \item Conditions on morphisms of spaces $f\colon X\to Y$ such that $f^{*}\colon[Y,K]\to[X,K]$ or $f_{*}\colon[K,X]\to[K,Y]$ are injective/surjective (so, epi/monomorphisms in $\Ho(\Top)$) or other conditions.
     \end{enumerate}
@@ -1319,7 +1327,7 @@ Here we list things to be explored in or added to this work in the future. This 
                 \item \url{http://maths.mq.edu.au/~street/EffR.pdf}
                 \item \url{https://arxiv.org/abs/math/0301015}
                 \item \href{https://twitter.com/ColmezPierre/status/1809308351643165181?t=KAESWH44ufE7486diGcxrA}{Pierre Colmez's comment ``Et si on remplace $\Z$ par $\Q$, on obtient les adèles.''}
-                \item I wonder if one could apply an analogue of this construction to the sphere spectrum and obtain a kind of spectral version of the real numbers, as in e.g.\ following the spirit of \href{MO 443018 --- \textit{Looking for analogues of the rational, $p$-adic, and real numbers in homotopy theory via the passage $\N\to\Z\to\Q\to\R$}}{https://mathoverflow.net/questions/443018}.
+                \item I wonder if one could apply an analogue of this construction to the sphere spectrum and obtain a kind of spectral version of the real numbers, as in e.g.\ following the spirit of \href{MO 443018}{https://mathoverflow.net/questions/443018}.
             \end{enumerate}
         \item \url{https://arxiv.org/abs/2406.04936}
         \item \url{https://mathoverflow.net/a/471510}
@@ -1364,6 +1372,10 @@ Here we list things to be explored in or added to this work in the future. This 
 \begin{oldtag}{The Underlying Pointed Set of a Module}{the-underlying-pointed-set-of-a-module}%
     The \index[set-theory]{pointed set!underlying a module}\index[set-theory]{module!underlying pointed set of}\textbf{underlying pointed set} of a module $(M,\alpha_{M})$ is the pointed set $(M,0_{M})$.
 \end{oldtag}
+\subsection{Tensor Products of Pointed Sets}\label{section-tensor-products-of-pointed-sets}
+\begin{oldtag}{The Underlying Pointed Set of a Semimodule}{subsection-universal-properties-of-the-smash-product-of-pointed-sets-2}%
+    The content of this tag has been absorbed into \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}{\cref{subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}.
+\end{oldtag}{The Underlying Pointed Set of a Semimodule}%
 \subsection{Categories}\label{subsection-retired-tags-categories}
 \begin{oldtag}{Picturing Natural Transformations in Diagrams}{picturing-natural-transformations-in-diagrams}%
     We denote natural transformations in diagrams as
@@ -1400,7 +1412,7 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
 \end{oldtag}
 \section{TikZ Code for Commutative Diagrams}\label{section-tikz-code-for-commutative-diagrams}
-In this section we gather some useful examples of \texttt{tikz-cd} code for commutative diagrams.
+In this section we gather some useful examples of \texttt{tikzcd} code for commutative diagrams.
 \subsection{Cube Diagram}\label{subsection-tikz-code-for-commutative-diagrams-cube-diagram}
 Define
 \begin{verbatim}
@@ -1823,6 +1835,156 @@ To make the diagram larger, one could use e.g.
 \setlength{\TwoCm}{2.0cm}
 \end{verbatim}
 and replace all instances of \texttt{\textbackslash OneCmPlusHalf} with \texttt{\textbackslash TwoCm} in the code above.
+\subsection{Double Hexagon Diagram}\label{subsection-tikz-code-for-commutative-diagrams-double-hexagon-diagram}
+Define
+\begin{verbatim}
+\newlength{\OneCm}
+\setlength{\OneCm}{1.0cm}
+\end{verbatim}
+The code
+\begin{verbatim}
+\begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{1-3}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \\[2.0*\OneCm]
+    \text{2-1}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{2-3}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{2-5}
+    \\[1.0*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{3-2}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{3-4}
+    \&[1.73205081*\OneCm]
+    \\[2.0*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{4-2}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{4-4}
+    \&[1.73205081*\OneCm]
+    \\[1.0*\OneCm]
+    \text{5-1}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{5-3}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{5-5}
+    \\[2.0*\OneCm]
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    \text{6-3}
+    \&[1.73205081*\OneCm]
+    \&[1.73205081*\OneCm]
+    % Arrows
+    \arrow[from=1-3,to=2-1,"1"']%
+    \arrow[from=2-1,to=5-1,"2"']%
+    \arrow[from=5-1,to=6-3,"3"']%
+    %
+    \arrow[from=1-3,to=2-5,"4"]%
+    \arrow[from=2-5,to=5-5,"5"]%
+    \arrow[from=5-5,to=6-3,"6"]%
+    %
+    \arrow[from=2-3,to=3-2,"1'"description]%
+    \arrow[from=3-2,to=4-2,"2'"description]%
+    \arrow[from=4-2,to=5-3,"3'"description]%
+    %
+    \arrow[from=2-3,to=3-4,"4'"description]%
+    \arrow[from=3-4,to=4-4,"5'"description]%
+    \arrow[from=4-4,to=5-3,"6'"description]%
+    %
+    \arrow[from=1-3,to=2-3,"a"description]%
+    \arrow[from=2-1,to=3-2,"b"description]%
+    \arrow[from=2-5,to=3-4,"c"description]%
+    \arrow[from=5-1,to=4-2,"d"description]%
+    \arrow[from=5-5,to=4-4,"e"description]%
+    \arrow[from=5-3,to=6-3,"f"description]%
+\end{tik-zcd}
+\end{verbatim}
+will produce the following double hexagon diagram:
+\[
+    \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{1-3}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \\[2.0*\OneCm]
+        \text{2-1}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{2-3}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{2-5}
+        \\[1.0*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{3-2}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{3-4}
+        \&[1.73205081*\OneCm]
+        \\[2.0*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{4-2}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{4-4}
+        \&[1.73205081*\OneCm]
+        \\[1.0*\OneCm]
+        \text{5-1}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{5-3}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{5-5}
+        \\[2.0*\OneCm]
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        \text{6-3}
+        \&[1.73205081*\OneCm]
+        \&[1.73205081*\OneCm]
+        % Arrows
+        \arrow[from=1-3,to=2-1,"1"']%
+        \arrow[from=2-1,to=5-1,"2"']%
+        \arrow[from=5-1,to=6-3,"3"']%
+        %
+        \arrow[from=1-3,to=2-5,"4"]%
+        \arrow[from=2-5,to=5-5,"5"]%
+        \arrow[from=5-5,to=6-3,"6"]%
+        %
+        \arrow[from=2-3,to=3-2,"1'"description]%
+        \arrow[from=3-2,to=4-2,"2'"description]%
+        \arrow[from=4-2,to=5-3,"3'"description]%
+        %
+        \arrow[from=2-3,to=3-4,"4'"description]%
+        \arrow[from=3-4,to=4-4,"5'"description]%
+        \arrow[from=4-4,to=5-3,"6'"description]%
+        %
+        \arrow[from=1-3,to=2-3,"a"description]%
+        \arrow[from=2-1,to=3-2,"b"description]%
+        \arrow[from=2-5,to=3-4,"c"description]%
+        \arrow[from=5-1,to=4-2,"d"description]%
+        \arrow[from=5-5,to=4-4,"e"description]%
+        \arrow[from=5-3,to=6-3,"f"description]%
+    \end{tikzcd}
+\]%
+To make the diagram larger, one could use e.g.
+\begin{verbatim}
+\newlength{\TwoCm}
+\setlength{\TwoCm}{2.0cm}
+\end{verbatim}
+and replace all instances of \texttt{\textbackslash OneCm} with \texttt{\textbackslash TwoCm} in the code above.
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}

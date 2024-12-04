@@ -296,6 +296,10 @@
     }%
 }%
 \tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
+\tikzset{ldddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+\tikzset{rdddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+\tikzset{ldddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+\tikzset{rdddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
 \usepackage[cal=cm]{mathalfa}
 \usepackage{fontspec}
 \SetTracking{encoding=*, shape=sc}{-5}
@@ -759,6 +763,10 @@
 \newcommand{\QHom}{\mathrm{QHom}}
 \newcommand{\lex}{\mathrm{lex}}
 \newcommand{\WalkingArrow}{\OrdinalCategoryN{1}}
+\let\secS\S
+\let\S\relax
+\let\parP\P
+\let\P\relax
 \usepackage{xurl}%
 \usepackage[maxbibnames=20,backend=biber,backref=true,style=alphabetic,citestyle=alphabetic]{biblatex}%
 \addbibresource{ABSOLUTEPATH/bibliography.bib}
