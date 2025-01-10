@@ -96,42 +96,40 @@ for line in tex_file:
             label = short
         else:
             label = name + ":" + short
-        if line.find(r"\begin{warning") >= 0:
-            if label in label_tags:
-                print "\\vspace{+1.8\\baselineskip}"
-                print "\\hypertarget{" + label_tags[label] + "}{}"
-                print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
-                print "\\vspace{-2.3\\baselineskip}"
+        if (line.find("\\begin{warning}") >= 1):
+            print "\\hypertarget{" + label_tags[label] + "}{}"
+            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[0.0625\\baselineskip]\\par\\vspace{-0.5625\\baselineskip}"
             print line,
         else:
             print line,
         # don't put in hypertarget if label does not have a tag
-        if label in label_tags and line.find(r"\begin{warning") < 0:
-            print "\\hypertarget{" + label_tags[label] + "}{}"
-            # there is a bug in marginnotes that eats subsection titles...
-            #if short.find("subsection") >= 0:
-            #    line = tex_file.next()
-            #    print line,
-            #    line = tex_file.next()
-            #    print line,
-            #    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
-            #    print "yay - " + label
-            #else:
-            if line.find("section-") >= 0 and short.find("phantom") == -1:
-                if line.find(r":section-") >= 0 and short.find("phantom") == -1:
-                    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.925\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                if line.find(r':subsection-') >= 0 and short.find("phantom") == -1:
-                    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                if line.find(":subsubsection-") >= 0 and short.find("phantom") == -1:
-                    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-            else:
-                if line.find("section-") >= 0 and short.find("phantom") >= 0:
-                    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
+        if label in label_tags:
+            if not (line.find("\\begin{warning}") >= 1):
+                print "\\hypertarget{" + label_tags[label] + "}{}"
+                # there is a bug in marginnotes that eats subsection titles...
+                #if short.find("subsection") >= 0:
+                #    line = tex_file.next()
+                #    print line,
+                #    line = tex_file.next()
+                #    print line,
+                #    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
+                #    print "yay - " + label
+                #else:
+                if line.find("section-") >= 0 and short.find("phantom") == -1:
+                    if line.find(r":section-") >= 0 and short.find("phantom") == -1:
+                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.925\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                    if line.find(r':subsection-') >= 0 and short.find("phantom") == -1:
+                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                    if line.find(":subsubsection-") >= 0 and short.find("phantom") == -1:
+                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
                 else:
-                    if line.find("\\item") >= 0:
+                    if line.find("section-") >= 0 and short.find("phantom") >= 0:
                         print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
                     else:
-                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
+                        if line.find("\\item") >= 0:
+                            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
+                        else:
+                            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
         continue
 
     # Lines with labeled environments

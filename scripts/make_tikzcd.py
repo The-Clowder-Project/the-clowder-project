@@ -17,6 +17,20 @@ def has_file_changed(output_dir, filename, content):
         # No backup file means the file is considered changed
         return True
 
+# The modified scalemath function using checksums for persistence
+def scalemath(output_dir, scalemath_environments):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
+        futures = []
+        for i in range(len(scalemath_environments)):
+            filename = f'scalemath-{i:06d}.tex'
+            file = os.path.join(output_dir, f'scalemath-{i:06d}.tex')
+            with open(file, 'r') as f:
+                content = f.read()
+            if has_file_changed(output_dir, filename, content):
+                future = executor.submit(compile_tex, output_dir, filename)
+                futures.append(future)
+        concurrent.futures.wait(futures)
+
 # The modified webcompile function using checksums for persistence
 def webcompile(output_dir, webcompile_environments):
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
@@ -76,8 +90,103 @@ def compile_tex(output_dir, filename):
     return filename
 
 def main(input_file):
-    output_dir_webcompile           = '../clowder-project-prestable/tmp/webcompile'
-    output_dir_webcompile_dark_mode = '../clowder-project-prestable/tmp/webcompile/dark-mode'
+    # SCALEMATH
+    output_dir_scalemath           = '../the-clowder-project/tmp/scalemath'
+    output_dir_scalemath_dark_mode = '../the-clowder-project/tmp/scalemath/dark-mode'
+
+    # Regular expression pattern to find scalemath environments
+    pattern = re.compile(r'\\begin\{scalemath\}(.*?)\\end\{scalemath\}', re.DOTALL)
+
+    # Read the content of the input file
+    with open(input_file, 'r') as file:
+        content = file.read()
+
+    # Extract scalemath environments and store them in a list
+    scalemath_environments = pattern.findall(content)
+
+    # Replace scalemath environments in the content
+    for i, environment in enumerate(scalemath_environments):
+        img_tag = f'<div class="scalemath"><img src="/static/scalemath-images/scalemath-{i:06d}.svg"></div>'
+        content = pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
+
+    # Check if the output directory exists, if not create it
+    os.makedirs(output_dir_scalemath, exist_ok=True)
+    os.makedirs(output_dir_scalemath_dark_mode, exist_ok=True)
+
+    # Write each scalemath environment to a separate file
+    for i, environment in enumerate(scalemath_environments):
+        filename = os.path.join(output_dir_scalemath, f'scalemath-{i:06d}.tex')
+        with open(filename, 'w') as file:
+            file.write("\\documentclass[varwidth]{standalone}\n")
+            file.write(f"\\input{{../../tikzcd-preamble.tex}}\n")
+            file.write("\\usepackage[libertine]{newtxmath}")
+            file.write("\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}")
+            file.write("\\let\\mathrm\\relax")
+            file.write("\\newcommand{\\mathrm}[1]{\\text{#1}}")
+            file.write("\\begingroup")
+            file.write("\\catcode`(\\active \\xdef({\\left\\string(}")
+            file.write("\\catcode`)\\active \\xdef){\\right\\string)}")
+            file.write("\\catcode`[\\active \\xdef[{\\left\\string[}")
+            file.write("\\catcode`]\\active \\xdef]{\\right\\string]}")
+            file.write("\\endgroup")
+            file.write("\\mathcode`(=\"8000")
+            file.write("\\mathcode`)=\"8000")
+            file.write("\\mathcode`[=\"8000")
+            file.write("\\mathcode`]=\"8000")
+            file.write("\\begin{document}\n")
+            file.write("\\begin{scalemath}%")
+            file.write(environment)
+            file.write("\\end{scalemath}\n")
+            file.write("\\end{document}\n")
+        regex(filename)
+    # Write each dark-mode scalemath environment to a separate file
+    for i, environment in enumerate(scalemath_environments):
+        filename = os.path.join(output_dir_scalemath_dark_mode, f'scalemath-{i:06d}.tex')
+        with open(filename, 'w') as file:
+            file.write("\\documentclass[varwidth]{standalone}\n")
+            file.write(f"\\input{{../../../tikzcd-preamble.tex}}\n")
+            file.write("\\usepackage[libertine]{newtxmath}")
+            file.write("\\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}")
+            file.write("\\let\\mathrm\\relax")
+            file.write("\\newcommand{\\mathrm}[1]{\\text{#1}}")
+            file.write("\\color{white}")
+            file.write("\\definecolor{grayEnv}{RGB}{52,53,65}")
+            file.write("\\colorlet{backgroundColor}{grayEnv}")
+            file.write("\\begingroup")
+            file.write("\\catcode`(\\active \\xdef({\\left\\string(}")
+            file.write("\\catcode`)\\active \\xdef){\\right\\string)}")
+            file.write("\\catcode`[\\active \\xdef[{\\left\\string[}")
+            file.write("\\catcode`]\\active \\xdef]{\\right\\string]}")
+            file.write("\\endgroup")
+            file.write("\\mathcode`(=\"8000")
+            file.write("\\mathcode`)=\"8000")
+            file.write("\\mathcode`[=\"8000")
+            file.write("\\mathcode`]=\"8000")
+            file.write("\\begin{document}\n")
+            file.write("\\[%")
+            environment = re.sub("/pictures/light-mode","/pictures/dark-mode",environment)
+            environment = re.sub("gray!40","gray!80!black",environment)
+            file.write(environment)
+            file.write("\\]\n")
+            file.write("\\end{document}\n")
+        regex(filename)
+    scalemath(output_dir_scalemath,scalemath_environments)
+    scalemath(output_dir_scalemath_dark_mode,scalemath_environments)
+    # Write the modified content back to the input file
+    with open(input_file, 'w') as file:
+        file.write(content)
+    # Make backups
+    for i, environment in enumerate(scalemath_environments):
+        filename = os.path.join(output_dir_scalemath_dark_mode, f'scalemath-{i:06d}.tex')
+        shutil.copyfile(filename,filename+".bak")
+        filename = os.path.join(output_dir_scalemath, f'scalemath-{i:06d}.tex')
+        shutil.copyfile(filename,filename+".bak")
+
+    print(f"Processed {len(scalemath_environments)} scalemath environments.")
+
+    # WEBCOMPILE
+    output_dir_webcompile           = '../the-clowder-project/tmp/webcompile'
+    output_dir_webcompile_dark_mode = '../the-clowder-project/tmp/webcompile/dark-mode'
 
     # Regular expression pattern to find webcompile environments
     pattern = re.compile(r'\\begin\{webcompile\}(.*?)\\end\{webcompile\}', re.DOTALL)
@@ -169,12 +278,9 @@ def main(input_file):
 
     print(f"Processed {len(webcompile_environments)} webcompile environments.")
 
-    # Read the content of the input file
-    with open(input_file, 'r') as file:
-        content = file.read()
-
-    output_dir           = '../clowder-project-prestable/tmp/tikz-cd'
-    output_dir_dark_mode = '../clowder-project-prestable/tmp/tikz-cd/dark-mode'
+    # TIKZ-CD
+    output_dir           = '../the-clowder-project/tmp/tikz-cd'
+    output_dir_dark_mode = '../the-clowder-project/tmp/tikz-cd/dark-mode'
 
     # Read the content of the input file
     with open(input_file, 'r') as file:
@@ -184,7 +290,7 @@ def main(input_file):
     verbatim_pattern = re.compile(r'\\begin\{verbatim\}(.*?)\\end\{verbatim\}', re.DOTALL)
     verbatim_blocks = verbatim_pattern.findall(content)
     for i, block in enumerate(verbatim_blocks):
-        placeholder = f"VERBATIM_PLACEHOLDER_{i}"
+        placeholder = f"VERBATIM_PLACEHOLDER_{i}_END"
         content = content.replace(f"\\begin{{verbatim}}{block}\\end{{verbatim}}", placeholder)
 
     # Regular expression pattern to find tikzcd environments
@@ -204,7 +310,7 @@ def main(input_file):
 
     # Restore verbatim environments
     for i, block in enumerate(verbatim_blocks):
-        placeholder = f"VERBATIM_PLACEHOLDER_{i}"
+        placeholder = f"VERBATIM_PLACEHOLDER_{i}_END"
         content = content.replace(placeholder, f"\\begin{{verbatim}}{block}\\end{{verbatim}}")
 
     # Write each tikzcd environment to a separate file

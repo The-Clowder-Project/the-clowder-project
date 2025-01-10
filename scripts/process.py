@@ -248,7 +248,7 @@ def process_tikzcd_tags(content):
         # Use re.sub to replace matched strings in the original string
         return pattern.sub(replace_brackets, input_str)
     # Define a regex pattern to match specific <div> tags
-    pattern = re.compile(r'&lt;div class="(tikz-cd|webcompile)"&gt;.*?&lt;img src="/static/(tikzcd|webcompile)-images/(tikzcd|webcompile)-.*?\.svg".*?&lt;/div&gt;')
+    pattern = re.compile(r'&lt;div class="(tikz-cd|webcompile|scalemath)"&gt;.*?&lt;img src="/static/(tikzcd|webcompile|scalemath)-images/(tikzcd|webcompile|scalemath)-.*?\.svg".*?&lt;/div&gt;')
     # Define a function to replace &lt; and &gt; within matched strings
     def replace_entities(match):
         matched_str = match.group(0)
@@ -259,8 +259,8 @@ def process_tikzcd_tags(content):
     return content
 def process_webcompile_tikzcd_zoom(content):
     # Regular expression pattern to find and replace
-    pattern = r'(<div class="(tikzcd|webcompile)">)(<img src="[^"]+(webcompile.*?)\.svg">)(</div>)'
-    replacement = r'<div class="\2" id="\4">\3\5'
+    pattern = r'(<div class="(tikzcd|webcompile|scalemath)">)(<img src="[^"]+((webcompile|scalemath).*?)\.svg">)(</div>)'
+    replacement = r'<div class="\2" id="\4">\3\6'
     return re.sub(pattern, replacement, content)
 
 def process_leftright_to_webleftright(content):

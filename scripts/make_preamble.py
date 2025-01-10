@@ -2,6 +2,7 @@
 import re
 import time
 import os
+import subprocess
 
 def expand_input(file_path):
     with open(file_path, 'r') as file:
@@ -39,6 +40,15 @@ def main():
             content = expand_input("preamble/web.tex")
             preamble.write(content)
         ####
+    subprocess.run(["cp", "webpreamble.tex", "webpreamble.tex.bak"], check=True)
+    with open('webpreamble.tex.bak', 'r') as prepreamble, open('webpreamble.tex', 'w') as preamble:
+        for line in prepreamble:
+            if line.find(r"lddr_to_path") >= 0:
+                continue
+            if line.find(r"rddl_to_path") >= 0:
+                continue
+            preamble.write(line)
+    subprocess.run(["rm", "webpreamble.tex.bak"], check=True)
     with open('prepreamble.tex', 'r') as prepreamble, open('preamble.tex', 'w') as preamble:
         for line in prepreamble:
             if line.find("\\input{preamble/cm.tex}") >= 0:

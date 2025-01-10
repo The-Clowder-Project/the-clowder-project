@@ -126,7 +126,12 @@ def regex_exceptions(content):
     content = re.sub(r'([0-9])pt\\webright\]', r'\1pt]', content)
     content = re.sub(r'([0-9])em\\webright\]', r'\1em]', content)
     content = re.sub(r'PlusHalf\\webright\]', r'PlusHalf]', content)
+    content = re.sub(r'PlusEighth\\webright\]', r'PlusEighth]', content)
+    content = re.sub(r'OneEighth\\webright\]', r'OneEighth]', content)
+    content = re.sub(r'PlusThreeQuarters\\webright\]', r'PlusThreeQuarters]', content)
     content = re.sub(r'\\webleft\[xshift', r'[xshift', content)
+    content = re.sub(r'\\webleft\[origin', r'[origin', content)
+    content = re.sub(r'origin=c\\webright\]', r'origin=c]', content)
     # to path
     for n in range(0,10):
         content = re.sub(r'to path(.*?)\\webleft\((.*?)\\webright\)', r'to path\1(\2)', content)

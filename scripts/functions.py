@@ -2,7 +2,7 @@
 import re
 def get_path_2():
     from sys import argv
-    if len(argv)-3 >= 2 or len(argv)-3 <= -1:
+    if not len(argv) == 3 and not len(argv) == 4:
         print
         print "This script needs exactly two arguments"
         print "namely the path to the stacks project directory"

@@ -71,8 +71,8 @@ def regex_parentheses(content):
 
 def regex_square_brackets(content):
     # Step 1: Replace '[' and ']' not preceded by '\' with '\left[' and '\right]'
-    content = re.sub(r'(?<!includegraphics)(?<!clowder-project\/tag\/....}{....}}})(?<!\\&)(?<!index)(?<!\\)\[', r'\\left[', content)
-    content = re.sub(r'(?<!CmPlusOneEighth)(?<!CmPlusThreeQuarters)(?<!CmPlusAQuarter)(?<!CmPlusHalf)(?<!Cm)(?<!algebra)(?<!notation)(?<!representation-theory)(?<!higher-categories)(?<!categories)(?<!set-theory)(?<!baselineskip)(?<!\\)\]', r'\\right]', content)
+    content = re.sub(r'(?<!\\&)(?<!rotatebox)(?<!index)(?<!\\)\[', r'\\left[', content)
+    content = re.sub(r'(?<!origin=c)(?<!CmPlusOneEighth)(?<!CmPlusThreeQuarters)(?<!CmPlusAQuarter)(?<!CmPlusHalf)(?<!Cm)(?<!algebra)(?<!notation)(?<!representation-theory)(?<!higher-categories)(?<!categories)(?<!set-theory)(?<!\\)\]', r'\\right]', content)
 
     # Step 2: Revert replacements for specific keywords
     keywords = ['big', 'bigg', 'Big', 'pig', 'pigg', 'Pig', 'Pigg', 'noregex', 'left', 'right']
@@ -115,6 +115,7 @@ def regex_exceptions(content):
     content = re.sub(r'\\arrow\\left\[(.*?)\\right\]\\arrow', r'\\arrow[\1]\\arrow', content)
     content = re.sub(r'\\arrow\[(.*?)\\right\]\\arrow', r'\\arrow[\1]\\arrow', content)
     content = re.sub(r'\\arrow\[(.*?)\\right\]\\arrow', r'\\arrow[\1]\\arrow', content)
+    content = re.sub(r'origin=c\\right\]', r'origin=c]', content)
     # Step 2: \\[length]
     content = re.sub(r'\\\\\\left\[(.*?)\\right\]\n', r'\\\\[\1]\n', content)
     content = re.sub(r'\\\\\[(.*?)\\right\]\n', r'\\\\[\1]\n', content)
@@ -125,7 +126,15 @@ def regex_exceptions(content):
     content = re.sub(r'\\left\[(.*?)DL\]', r'[\1DL]', content)
     content = re.sub(r'([0-9])pt\\right\]', r'\1pt]', content)
     content = re.sub(r'([0-9])em\\right\]', r'\1em]', content)
+    content = re.sub(r'PlusHalf\\right\]', r'PlusHalf]', content)
+    content = re.sub(r'PlusEighth\\right\]', r'PlusEighth]', content)
+    content = re.sub(r'OneEighth\\right\]', r'OneEighth]', content)
+    content = re.sub(r'PlusThreeQuarters\\right\]', r'PlusThreeQuarters]', content)
     content = re.sub(r'\\left\[xshift', r'[xshift', content)
+    content = re.sub(r'\\left\[origin', r'[origin', content)
+    content = re.sub(r'\\left\[-1\.525', r'[-1.525', content)
+    content = re.sub(r'\\left\[-1\.7', r'[-1.7', content)
+    content = re.sub(r'baselineskip\\right\]', r'baselineskip]', content)
     # Should be applied last
     content = re.sub(r'\\arrow\\left\[', r'\\arrow[', content)
     return content

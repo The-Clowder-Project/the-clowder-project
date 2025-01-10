@@ -117,7 +117,7 @@ for name in lijstje:
         line = preprocess.proofbox_cm(line)
         line = preprocess.textdbend_2(line)
         line = preprocess.rmIendproofbox(line)
-        line = preprocess.scalemath_to_webcompile(line)
+        #line = preprocess.scalemath_to_webcompile(line)
         # CM exclusive
         line = preprocess.amsthm_web(line)
         line = preprocess.proof(line)
