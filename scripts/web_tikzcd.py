@@ -17,8 +17,8 @@ def print_preamble(path):
     next(preamble)
     next(preamble)
     next(preamble)
-    print "\\documentclass{book}"
-    print "\\usepackage{amsmath}"
+    print("\\documentclass{book}")
+    print("\\usepackage{amsmath}")
     for line in preamble:
         if line.find("%") == 0:
             continue
@@ -66,7 +66,7 @@ def print_preamble(path):
             continue
         if line.find("mathtools") >= 0:
             continue
-        print line,
+        print(line),
     preamble.close()
     return
 
@@ -74,21 +74,21 @@ path = get_path()
 
 print_preamble(path)
 
-print "\\newcommand{\\dutchcal}[1]{\\mathcal{#1}}"
-print "\\newcommand{\\CatFont}[1]{\\mathcal{#1}}"
-print "\\let\\JapaneseFont\\relax"
-print "\\newcommand{\\JapaneseFont}[1]{#1}"
-print "\\begin{document}"
-print "\\begin{titlepage}"
-print "\\pagestyle{empty}"
-print "\\setcounter{page}{1}"
-print "\\centerline{\\LARGE\\bfseries Stacks Project}"
-print "\\vskip1in"
-print "\\noindent"
-print "\\centerline{"
+print("\\newcommand{\\dutchcal}[1]{\\mathcal{#1}}")
+print("\\newcommand{\\CatFont}[1]{\\mathcal{#1}}")
+print("\\let\\JapaneseFont\\relax")
+print("\\newcommand{\\JapaneseFont}[1]{#1}")
+print("\\begin{document}")
+print("\\begin{titlepage}")
+print("\\pagestyle{empty}")
+print("\\setcounter{page}{1}")
+print("\\centerline{\\LARGE\\bfseries Stacks Project}")
+print("\\vskip1in")
+print("\\noindent")
+print("\\centerline{")
 print_version(path)
-print "}"
-print "\\end{titlepage}"
+print("}")
+print("\\end{titlepage}")
 #print_license_blurp(path)
 
 lijstje = list_text_files(path)
@@ -98,8 +98,8 @@ parts = get_parts(path)
 ext = ".tex"
 for name in lijstje:
     if name in parts:
-        print "\\part{" + parts[name][0] + "}"
-        print "\\label{" + parts[name][1] + "}"
+        print("\\part{" + parts[name][0] + "}")
+        print("\\label{" + parts[name][1] + "}")
     
     filename = path + name + ext
     tex_file = open(filename, 'r')
@@ -121,7 +121,7 @@ for name in lijstje:
             if end_of_verbatim(line):
                 verbatim = 0
             if name != 'introduction':
-                print line,
+                print(line),
             continue
         if line.find("\\input{preamble}") == 0:
             continue
@@ -180,10 +180,10 @@ for name in lijstje:
             line = line.replace("\\label{", text)
         if contains_cref(line):
             line = replace_crefs(line, name)
-        print line,
+        print(line),
 
     tex_file.close()
 
-print "\\bibliography{my}"
-print "\\bibliographystyle{amsalpha}"
-print "\\end{document}"
+print("\\bibliography{my}")
+print("\\bibliographystyle{amsalpha}")
+print("\\end{document}")

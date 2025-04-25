@@ -10,8 +10,8 @@ def regex(filename):
         file.write(content)
 
 def main(input_file):
-    output_dir_webcompile           = '../clowder-project-prestable/tmp/webcompile'
-    output_dir_webcompile_dark_mode = '../clowder-project-prestable/tmp/webcompile/dark-mode'
+    output_dir_webcompile           = '../the-clowder-project/tmp/webcompile'
+    output_dir_webcompile_dark_mode = '../the-clowder-project/tmp/webcompile/dark-mode'
 
     # Read the content of the input file
     with open(input_file, 'r') as file:

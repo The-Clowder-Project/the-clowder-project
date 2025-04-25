@@ -28,7 +28,7 @@ def print_preamble(path):
             line = ""
         if line.find("newenvironment{scalemath") >= 0:
             line = ""
-        print line,
+        print(line),
     preamble.close()
     return
 
@@ -52,44 +52,44 @@ def print_list_contrib(path):
         contributors = contributors + ", " + contributor
     CONTRIBUTORS.close()
     contributors = contributors + "."
-    print contributors
+    print(contributors)
 
 path = get_path()
 
 print_preamble(path)
 
-print "\\begin{document}"
-print "\\frontmatter"
+print("\\begin{document}")
+print("\\frontmatter")
 absolute_path = preprocess.absolute_path()
-print "\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}"
-#print "\\begingroup"
-#print "\\topskip0pt"
-#print "\\thispagestyle{empty}"
-#print "\\vspace*{\\fill}"
-#print "\\begin{center}"
-#print "{\\LARGE\\bfseries The Clowder Project}"
-#print "\\end{center}"
-#print "\\vskip3.0cm"
-#print "\\begin{center}"
-#print "{\\LARGE\\bfseries 2017--2023}"
-#print "\\end{center}"
-#print "\\vskip10.5cm"
-#print "\\begin{center}"
-#print "{\\LARGE Emily}"
-#print "\\end{center}"
-#print "\\vskip1.5cm"
-#print "\\begin{center}"
-#print_version(path)
-#print "\\end{center}"
-#print "\\vspace*{\\fill}"
-#print "\\endgroup"
+print("\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}")
+#print("\\begingroup")
+#print("\\topskip0pt")
+#print("\\thispagestyle{empty}")
+#print("\\vspace*{\\fill}")
+#print("\\begin{center}")
+#print("{\\LARGE\\bfseries The Clowder Project}")
+#print("\\end{center}")
+#print("\\vskip3.0cm")
+#print("\\begin{center}")
+#print("{\\LARGE\\bfseries 2017--2023}")
+#print("\\end{center}")
+#print("\\vskip10.5cm")
+#print("\\begin{center}")
+#print("{\\LARGE Emily}")
+#print("\\end{center}")
+#print("\\vskip1.5cm")
+#print("\\begin{center}")
+#print_version(path))
+#print("\\end{center}")
+#print("\\vspace*{\\fill}")
+#print("\\endgroup")
 print_list_contrib(path)
-print "\\dominitoc"
-print "{\\ShortTableOfContents}"
-print "\\clearpage"
-print "\\setcounter{tocdepth}{2}"
-print "{\\TableOfContents}"
-print "\\mainmatter"
+print("\\dominitoc")
+print("{\\ShortTableOfContents}")
+print("\\clearpage")
+print("\\setcounter{tocdepth}{2}")
+print("{\\TableOfContents}")
+print("\\mainmatter")
 #print_license_blurp(path)
 
 lijstje = list_text_files(path)
@@ -100,7 +100,7 @@ parts = get_parts(path)
 ext = ".tex"
 for name in lijstje:
     if name in parts:
-        print "\\part{" + parts[name][0] + "}"
+        print("\\part{" + parts[name][0] + "}")
     if name == "index":
         filename = path + "tmp/index.tex"
     else:
@@ -121,7 +121,7 @@ for name in lijstje:
             if end_of_verbatim(line):
                 verbatim = 0
             if name != 'introduction':
-                print line,
+                print(line),
             continue
         if line.find("\\input{preamble}") == 0:
             continue
@@ -167,43 +167,43 @@ for name in lijstje:
             line = line.replace("\\label{", text)
         if contains_cref(line):
             line = replace_crefs(line, name)
-        print line,
+        print(line),
 
     tex_file.close()
     print_chapters(path)
 
-print "\\printbibliography"
+print("\\printbibliography")
 # START INDICES
-print "\\pagestyle{plain}"
+print("\\pagestyle{plain}")
 # Notation
-print "\\printindex[notation]"
+print("\\printindex[notation]")
 # Foundations
-print "\\printindex[set-theory]"
-print "\\printindex[categories]"
-print "\\printindex[higher-categories]"
-print "\\printindex[representation-theory]"
-#print "\\printindex[algebra]"
-#print "\\printindex[algebraic-geometry]"
-#print "\\printindex[analysis]"
-#print "\\printindex[cellular-stuff]"
-#print "\\printindex[cubical-stuff]"
-#print "\\printindex[cyclic-stuff]"
-#print "\\printindex[differential-geometry]"
-#print "\\printindex[functional-analysis]"
-#print "\\printindex[globular-stuff]"
-#print "\\printindex[homological-algebra]"
-#print "\\printindex[homotopical-algebra]"
-#print "\\printindex[homotopy-theory]"
-#print "\\printindex[infty-categories]"
-#print "\\printindex[measure-theory]"
-#print "\\printindex[monoids]"
-#print "\\printindex[number-theory]"
-#print "\\printindex[probability-theory]"
-#print "\\printindex[p-adic-geometry]"
-#print "\\printindex[physics]"
-#print "\\printindex[simplicial-stuff]"
-#print "\\printindex[stochastic-analysis]"
-#print "\\printindex[supersymmetry]"
-#print "\\printindex[topology]"
-#print "\\printindex[type-theory]"
-print "\\end{document}"
+print("\\printindex[set-theory]")
+print("\\printindex[categories]")
+print("\\printindex[higher-categories]")
+print("\\printindex[representation-theory]")
+#print("\\printindex[algebra]")
+#print("\\printindex[algebraic-geometry]")
+#print("\\printindex[analysis]")
+#print("\\printindex[cellular-stuff]")
+#print("\\printindex[cubical-stuff]")
+#print("\\printindex[cyclic-stuff]")
+#print("\\printindex[differential-geometry]")
+#print("\\printindex[functional-analysis]")
+#print("\\printindex[globular-stuff]")
+#print("\\printindex[homological-algebra]")
+#print("\\printindex[homotopical-algebra]")
+#print("\\printindex[homotopy-theory]")
+#print("\\printindex[infty-categories]")
+#print("\\printindex[measure-theory]")
+#print("\\printindex[monoids]")
+#print("\\printindex[number-theory]")
+#print("\\printindex[probability-theory]")
+#print("\\printindex[p-adic-geometry]")
+#print("\\printindex[physics]")
+#print("\\printindex[simplicial-stuff]"
+#print("\\printindex[stochastic-analysis]")
+#print("\\printindex[supersymmetry]")
+#print("\\printindex[topology]")
+#print("\\printindex[type-theory]")
+print("\\end{document}")

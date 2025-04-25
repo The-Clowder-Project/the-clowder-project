@@ -2,7 +2,7 @@
 
 # Define a function
 compile() {
-  parallel -j 12 lualatex ::: *.tex
+  parallel -j 1 lualatex ::: *.tex
   #for file in *.tex;do lualatex $file;done
 }
 
@@ -36,14 +36,3 @@ luaotfload-tool --cache=erase
 compile
 for file in *.pdf;do pdf2svg $file ${file%.pdf}.svg;done
 for file in *.svg;do cp $file ../../../gerby-website/gerby/static/webcompile-images/dark-mode/;done
-mkdir ../../scalemath
-cd ../../scalemath
-luaotfload-tool --cache=erase
-for file in *.tex;do lualatex $file;done
-for file in *.pdf;do pdf2svg $file ${file%.pdf}.svg;done
-for file in *.svg;do cp $file ../../gerby-website/gerby/static/scalemath-images/;done
-cd dark-mode
-luaotfload-tool --cache=erase
-for file in *.tex;do lualatex $file;done
-for file in *.pdf;do pdf2svg $file ${file%.pdf}.svg;done
-for file in *.svg;do cp $file ../../../gerby-website/gerby/static/scalemath-images/dark-mode/;done

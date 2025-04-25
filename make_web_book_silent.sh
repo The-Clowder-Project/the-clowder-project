@@ -2,15 +2,15 @@
 python scripts/make_preamble.py
 python scripts/make_tikzcd_preamble.py
 if [ "$1" == "cm" ]; then
-    python2 ./scripts/make_web_book.py ./ > book.tex
+    python ./scripts/make_web_book.py ./ > book.tex
 elif [ "$1" == "alegreya-sans" ]; then
-    python2 ./scripts/make_book_alegreya_sans.py ./ > book.tex
+    python ./scripts/make_book_alegreya_sans.py ./ > book.tex
 elif [ "$1" == "alegreya-sans-tcb" ]; then
-    python2 ./scripts/make_book_alegreya_sans_tcb.py ./ > book.tex
+    python ./scripts/make_book_alegreya_sans_tcb.py ./ > book.tex
 elif [ "$1" == "arno" ]; then
-    python2 ./scripts/make_book_arno.py ./ > book.tex
+    python ./scripts/make_book_arno.py ./ > book.tex
 elif [ "$1" == "darwin" ]; then
-    python2 ./scripts/make_book_darwin.py ./ > book.tex
+    python ./scripts/make_book_darwin.py ./ > book.tex
 fi
 python3 ./scripts/process_parentheses.py book.tex
 mkdir tmp/$1/

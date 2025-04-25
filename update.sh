@@ -25,39 +25,42 @@ end=$(date +%s.%2N)
 duration_cm=$(echo "$end - $start" | bc)
 cp tmp/cm/book.tex tmp/book.tex
 rm tags/tags
+cp tags/tags.old tags/tags
 cd tags
 python3.6 tagger.py >> tags
 cd ../
 rm -rf WEB
 mkdir ../WEB
-echo yes | python2 scripts/add_tags.py
+echo yes | python scripts/add_tags.py
 start_web=$(date +%s.%2N)
 make web
 end_web=$(date +%s.%2N)
 duration_web=$(echo "$end - $start" | bc)
-python2 ./scripts/web_tikzcd.py ./ > ../WEB/tikz.tex
+python ./scripts/web_tikzcd.py ./ > ../WEB/tikz.tex
 cd ../WEB
 start=$(date +%s.%2N)
-python ../the-clowder-project/scripts/process_enumerate_inside_footnotes.py book.tex
-python ../the-clowder-project/scripts/process_raw_html.py book.tex
-python ../the-clowder-project/scripts/process_cite.py book.tex
-python ../the-clowder-project/scripts/process_parentheses_web.py book.tex
-python ../the-clowder-project/scripts/preprocess_separation.py book.tex
-python ../the-clowder-project/scripts/process_itemize_latex.py book.tex
-python ../the-clowder-project/scripts/process_itemize_latex_2.py book.tex
-python ../the-clowder-project/scripts/process_multichapter_cref.py book.tex
-python ../the-clowder-project/scripts/process_multichapter_cref2.py book.tex
-##
-python ../the-clowder-project/scripts/process_enumerate_inside_footnotes.py tikz.tex
-python ../the-clowder-project/scripts/process_raw_html.py tikz.tex
-python ../the-clowder-project/scripts/process_cite.py tikz.tex
-python ../the-clowder-project/scripts/process_parentheses_web.py tikz.tex
-python ../the-clowder-project/scripts/preprocess_separation.py tikz.tex
-python ../the-clowder-project/scripts/process_itemize_latex.py tikz.tex
-python ../the-clowder-project/scripts/process_itemize_latex_2.py tikz.tex
-python ../the-clowder-project/scripts/process_multichapter_cref.py tikz.tex
-python ../the-clowder-project/scripts/process_multichapter_cref2.py tikz.tex
-##
+python3.6 ../the-clowder-project/scripts/process_enumerate_inside_footnotes.py book.tex
+python3.6 ../the-clowder-project/scripts/process_footnotes.py book.tex
+python3.6 ../the-clowder-project/scripts/process_raw_html.py book.tex
+python3.6 ../the-clowder-project/scripts/process_cite.py book.tex
+python3.6 ../the-clowder-project/scripts/process_parentheses_web.py book.tex
+python3.6 ../the-clowder-project/scripts/preprocess_separation.py book.tex
+python3.6 ../the-clowder-project/scripts/process_itemize_latex.py book.tex
+python3.6 ../the-clowder-project/scripts/process_itemize_latex_2.py book.tex
+python3.6 ../the-clowder-project/scripts/process_multichapter_cref.py book.tex
+python3.6 ../the-clowder-project/scripts/process_multichapter_cref2.py book.tex
+python3.6 ../the-clowder-project/scripts/remove_empty_lines.py book.tex
+python3.6 ../the-clowder-project/scripts/process_enumerate_inside_footnotes.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_raw_html.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_cite.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_parentheses_web.py tikz.tex
+python3.6 ../the-clowder-project/scripts/preprocess_separation.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_itemize_latex.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_itemize_latex_2.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_multichapter_cref.py tikz.tex
+python3.6 ../the-clowder-project/scripts/process_multichapter_cref2.py tikz.tex
+python3.6 ../the-clowder-project/scripts/remove_empty_lines.py tikz.tex
+#
 end=$(date +%s.%2N)
 duration_book=$(echo "$end - $start" | bc)
 start=$(date +%s.%2N)

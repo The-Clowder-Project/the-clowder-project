@@ -171,7 +171,7 @@ print("\\printindex[notation]")
 print("\\printindex[set-theory]")
 print("\\printindex[categories]")
 print("\\printindex[higher-categories]")
-print "\\printindex[representation-theory]"
+print("\\printindex[representation-theory]")
 #print("\\printindex[algebra]")
 #print("\\printindex[algebraic-geometry]")
 #print("\\printindex[analysis]")

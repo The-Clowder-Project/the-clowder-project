@@ -2,11 +2,11 @@ from functions import *
 
 from sys import argv
 if not len(argv) == 3:
-    print
-    print "This script needs exactly two arguments"
-    print "namely the path to the stacks project"
-    print "and the stem of the tex file"
-    print
+    print("")
+    print("This script needs exactly two arguments")
+    print("namely the path to the stacks project")
+    print("and the stem of the tex file")
+    print("")
     raise Exception('Wrong arguments')
 
 path = argv[1]
@@ -42,10 +42,10 @@ if name == "preamble":
     from datetime import date
     now = date.today()
 
-    print "\\usepackage{marginnote}"
-    print "\\renewcommand*{\\marginfont}{\\normalfont}"
+    print("\\usepackage{marginnote}")
+    print("\\renewcommand*{\\marginfont}{\\normalfont}")
 
-    print "\\date{This is a chapter of the Stacks Project, version " + version + ", compiled on " + now.strftime('%h %d, %Y.}')
+    print("\\date{This is a chapter of the Stacks Project, version " + version + ", compiled on " + now.strftime('%h %d, %Y.}'))
 
     tex_file.close()
 
@@ -73,7 +73,7 @@ for line in tex_file:
     if verbatim:
         if end_of_verbatim(line):
             verbatim = 0
-        print line,
+        print(line),
         continue
 
     # Do stuff in preamble or just after \begin{document}
@@ -81,11 +81,11 @@ for line in tex_file:
         if name == "book":
             line = replace_newtheorem(line)
             if line.find("\\begin{document}") == 0:
-                print "\\usepackage{marginnote}"
-                print "\\renewcommand*{\\marginfont}{\\normalfont}"
-        print line,
+                print("\\usepackage{marginnote}")
+                print("\\renewcommand*{\\marginfont}{\\normalfont}")
+        print(line),
         if line.find("\\begin{document}") == 0:
-            print "\\newcommand{\\TAG}{ZZZZ}"
+            print("\\newcommand{\\TAG}{ZZZZ}")
             document = 1
         continue
 
@@ -97,39 +97,39 @@ for line in tex_file:
         else:
             label = name + ":" + short
         if (line.find("\\begin{warning}") >= 0):
-            print "\\hypertarget{" + label_tags[label] + "}{}"
-            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[0.0625\\baselineskip]\\par\\vspace{-0.5625\\baselineskip}"
-            print line,
+            print("\\hypertarget{" + label_tags[label] + "}{}")
+            print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[0.0625\\baselineskip]\\par\\vspace{-0.5625\\baselineskip}")
+            print(line),
         else:
-            print line,
+            print(line),
         # don't put in hypertarget if label does not have a tag
         if label in label_tags:
             if not (line.find("\\begin{warning}") >= 0):
-                print "\\hypertarget{" + label_tags[label] + "}{}"
+                print("\\hypertarget{" + label_tags[label] + "}{}")
                 # there is a bug in marginnotes that eats subsection titles...
                 #if short.find("subsection") >= 0:
                 #    line = tex_file.next()
-                #    print line,
+                #    print(line),
                 #    line = tex_file.next()
-                #    print line,
-                #    print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
-                #    print "yay - " + label
+                #    print(line),
+                #    print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}")
+                #    print("yay - " + label)
                 #else:
                 if line.find("section-") >= 0 and short.find("phantom") == -1:
                     if line.find(r"{section-") >= 0 and short.find("phantom") == -1:
-                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.825\\baselineskip]"
+                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.825\\baselineskip]")
                     if line.find(r'{subsection-') >= 0 and short.find("phantom") == -1:
-                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.525\\baselineskip]"
+                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.525\\baselineskip]")
                     if short.find("{subsubsection-") >= 0 and short.find("phantom") == -1:
-                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.525\\baselineskip]"
+                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.525\\baselineskip]")
                 else:
                     if line.find("section-") >= 0 and short.find("phantom") >= 0:
-                        print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
+                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}")
                     else:
                         if line.find("\\item") >= 0:
-                            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}"
+                            print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}")
                         else:
-                            print "\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
+                            print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.7\\baselineskip]")
         continue
 
     # Lines with labeled environments
@@ -143,24 +143,24 @@ for line in tex_file:
             label = name + ":" + short
         if not label in label_tags:
             # ZZZZ is used as pointer to nonexistent tags
-            print "\\renewcommand{\\TAG}{ZZZZ}"
-            print oldline,
-            print line,
+            print("\\renewcommand{\\TAG}{ZZZZ}")
+            print(oldline),
+            print(line),
             continue
-        print "\\renewcommand{\\TAG}{" + label_tags[label] + "}"
-        print oldline,
-        print line,
-        print "\\reversemarginpar\\marginnote{" + label_tags[label] + "}\\hypertarget{" + label_tags[label] + "}{}"
+        print("\\renewcommand{\\TAG}{" + label_tags[label] + "}")
+        print(oldline),
+        print(line),
+        print("\\reversemarginpar\\marginnote{" + label_tags[label] + "}\\hypertarget{" + label_tags[label] + "}{}")
         continue
 
     if line.find("\\begin{reference}") == 0:
-        print "\\normalmarginpar\\marginnote{"
+        print("\\normalmarginpar\\marginnote{")
         continue
 
     if line.find("\\end{reference}") == 0:
-        print "}"
+        print("}")
         continue
 
-    print line,
+    print(line),
 
 tex_file.close()

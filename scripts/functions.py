@@ -3,10 +3,10 @@ import re
 def get_path_2():
     from sys import argv
     if not len(argv) == 3 and not len(argv) == 4:
-        print
-        print "This script needs exactly two arguments"
-        print "namely the path to the stacks project directory"
-        print
+        print("")
+        print("This script needs exactly two arguments")
+        print("namely the path to the stacks project directory")
+        print("")
         raise Exception('Wrong arguments')
     path = argv[2]
     path.rstrip("/")
@@ -16,10 +16,10 @@ def get_path_2():
 def get_path():
     from sys import argv
     if not len(argv) == 2:
-        print
-        print "This script needs exactly one argument"
-        print "namely the path to the stacks project directory"
-        print
+        print("")
+        print("This script needs exactly one argument")
+        print("namely the path to the stacks project directory")
+        print("")
         raise Exception('Wrong arguments')
     path = argv[1]
     path.rstrip("/")
@@ -169,7 +169,7 @@ def get_new_tags(path, tags):
 def print_new_tags(new_tags):
     n = 0
     while n < len(new_tags):
-        print new_tags[n][0] + "," + new_tags[n][1]
+        print(new_tags[n][0] + "," + new_tags[n][1])
         n = n + 1
     return
 
@@ -233,7 +233,7 @@ def list_text_files(path):
         line = line.rstrip()
         line = line.rstrip("\\")
         lijst = lijst + " " + line
-        line = Makefile_file.next()
+        line = next(Makefile_file)
     Makefile_file.close()
     lijst = lijst + " " + line
     lijst = lijst.replace("LIJST = ", "")
@@ -363,7 +363,7 @@ def replace_crefs(line, name):
 def print_chapters(path):
     chapters = open(path + "chapters.tex", 'r')
     for line in chapters:
-        print line,
+        print(line),
     chapters.close()
     return
 
@@ -372,13 +372,13 @@ def version(path):
     from datetime import date
     now = date.today()
     version = git_version(path)
-    return "V\kern-1.0ptersi\kern-0.25pton " + version + ", compiled on " + now.strftime('%h %d, %Y.')
+    return r"V\kern-1.0ptersi\kern-0.25pton " + version + ", compiled on " + now.strftime('%h %d, %Y.')
 # Print version and date
 def print_version(path):
     from datetime import date
     now = date.today()
-    version = git_version(path)
-    print "Version " + version + ", compiled on " + now.strftime('%h %d, %Y.')
+    version = str(git_version(path))
+    print("Version " + version + ", compiled on " + now.strftime('%h %d, %Y.'))
 
 
 # Print license blurp
@@ -391,7 +391,7 @@ def print_license_blurp(path):
             inside = 1
         if inside == 0:
             continue
-        print line,
+        print(line),
         if line.find('\\end{verbatim}') == 0:
             inside = 0
     introduction.close()
