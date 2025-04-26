@@ -72,10 +72,15 @@ python ../the-clowder-project/scripts/make_tikzcd_regex_only.py book.tex
 end=$(date +%s.%2N)
 duration_tikz=$(echo "$end - $start" | bc)
 echo "tikzcd and webcompile images compiled in $duration_tikz seconds."
-cp ../the-clowder-project/tmp/tikz-cd/*.svg ../the-clowder-project/gerby-website/gerby/static/tikzcd-images/
-cp ../the-clowder-project/tmp/webcompile/*.svg ../the-clowder-project/gerby-website/gerby/static/webcompile-images/
-cp ../the-clowder-project/tmp/tikz-cd/dark-mode/*.svg ../the-clowder-project/gerby-website/gerby/static/tikzcd-images/dark-mode/
+# tikz-cd
+cp ../the-clowder-project/tmp/tikz-cd/*.svg              ../the-clowder-project/gerby-website/gerby/static/tikzcd-images/
+cp ../the-clowder-project/tmp/tikz-cd/dark-mode/*.svg    ../the-clowder-project/gerby-website/gerby/static/tikzcd-images/dark-mode/
+# webcompile
+cp ../the-clowder-project/tmp/webcompile/*.svg           ../the-clowder-project/gerby-website/gerby/static/webcompile-images/
 cp ../the-clowder-project/tmp/webcompile/dark-mode/*.svg ../the-clowder-project/gerby-website/gerby/static/webcompile-images/dark-mode/
+# scalemath
+cp ../the-clowder-project/tmp/scalemath/*.svg            ../the-clowder-project/gerby-website/gerby/static/scalemath-images/
+cp ../the-clowder-project/tmp/scalemath/dark-mode/*.svg  ../the-clowder-project/gerby-website/gerby/static/scalemath-images/dark-mode/
 plastex --renderer=Gerby --sec-num-depth 3 book.tex
 cd book/
 start_regex=$(date +%s.%2N)
