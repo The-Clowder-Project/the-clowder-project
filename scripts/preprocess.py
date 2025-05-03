@@ -71,7 +71,7 @@ def textdbend_2(line):
 def amsthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
 def amsthm_web(line):
-    line = re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}\\newline",line)
+    line = re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?):(.*?)\}%",r"\\begin{proof}[\1:\2}]",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
     return line
