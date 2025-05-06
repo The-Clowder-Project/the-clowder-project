@@ -346,5 +346,8 @@ web-and-serve:
 		exit 1; \
 	else \
 		echo "-- Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX)."; \
+		echo "-- Compiling preambles..."; \
+		python scripts/make_preamble.py; \
+		python scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		echo "-- Run target finished successfully."; \
 	fi

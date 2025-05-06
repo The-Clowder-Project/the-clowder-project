@@ -128,6 +128,11 @@ def main():
     with open('prepreamble.tex', 'r') as prepreamble:
         content_prepreamble = prepreamble.read()
 
+    # TIKZCD_PREPREAMBLE
+    content_tikzcd_prepreamble = ""
+    with open('tikzcd-prepreamble.tex', 'r') as tikzcd_prepreamble:
+        content_tikzcd_prepreamble = tikzcd_prepreamble.read()
+
     # PREAMBLE/WEB.TEX
     content_web = ""
     with open('preamble/web.tex', 'r') as web_tex:
@@ -218,6 +223,10 @@ def main():
         preamble_alegreya_sans_tcb.write(content_tcb_footnotes)
         preamble_alegreya_sans_tcb.write(content_alegreya_sans)
         preamble_alegreya_sans_tcb.write(content_toc)
+
+    # PREAMBLE_TIKZCD
+    with open('preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
+        preamble_tikzcd.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
 
 if __name__ == "__main__":
     main()

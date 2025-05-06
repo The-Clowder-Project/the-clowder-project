@@ -15,7 +15,6 @@ regex() {
 mkdir tmp
 mkdir output
 python scripts/make_preamble.py
-python scripts/make_tikzcd_preamble.py
 start=$(date +%s.%2N)
 python scripts/make_chapters_tex.py chapters.tex chapters2.tex
 ./make_web_book_silent.sh cm
