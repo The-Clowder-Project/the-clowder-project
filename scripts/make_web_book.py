@@ -95,7 +95,7 @@ print("\\mainmatter")
 lijstje = list_text_files(path)
 #lijstje.append("index")
 
-parts = get_parts(path)
+parts = get_parts(absolute_path+"/")
 
 ext = ".tex"
 for name in lijstje:

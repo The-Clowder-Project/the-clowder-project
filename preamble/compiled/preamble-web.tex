@@ -306,6 +306,47 @@
 \setlength{\TCBBoxCorrection}{-0.5\baselineskip}
 \setlength{\TwoCmPlusThreeQuarters}{2.75cm}
 
+%%%% PACKAGES %%%%
+% For any local file, say "hello.tex" you want to link to please
+% use \externaldocument[hello-]{hello}
+\externaldocument[sets:]{sets}
+\externaldocument[constructions-with-sets:]{constructions-with-sets}
+\externaldocument[pointed-sets:]{pointed-sets}
+\externaldocument[relations:]{relations}
+\externaldocument[schemes:]{schemes}
+\externaldocument[indexed-and-fibred-sets]{indexed-and-fibred-sets}
+\externaldocument[relations]{relations}
+\externaldocument[spans]{spans}
+\externaldocument[posets]{posets}
+\externaldocument[categories]{categories}
+\externaldocument[constructions-with-categories]{constructions-with-categories}
+\externaldocument[kan-extensions]{kan-extensions}
+\externaldocument[internal-categories]{internal-categories}
+\externaldocument[the-cycle-category]{the-cycle-category}
+\externaldocument[the-cube-category]{the-cube-category}
+\externaldocument[the-globe-category]{the-globe-category}
+\externaldocument[the-cell-category]{the-cell-category}
+\externaldocument[monoids]{monoids}
+\externaldocument[constructions-with-monoids]{constructions-with-monoids}
+\externaldocument[monoids-with-zero]{monoids-with-zero}
+\externaldocument[constructions-with-monoids-with-zero]{constructions-with-monoids-with-zero}
+\externaldocument[groups]{groups}
+\externaldocument[constructions-with-groups]{constructions-with-groups}
+\externaldocument[hypermonoids]{hypermonoids}
+\externaldocument[hypergroups]{hypergroups}
+\externaldocument[hypersemirings-and-hyperrings]{hypersemirings-and-hyperrings}
+\externaldocument[quantales]{quantales}
+\externaldocument[near-semirings]{near-semirings}
+\externaldocument[near-rings]{near-rings}
+\externaldocument[real-analysis-in-one-variable]{real-analysis-in-one-variable}
+\externaldocument[real-analysis-in-several-variables]{real-analysis-in-several-variables}
+\externaldocument[measurable-spaces]{measurable-spaces}
+\externaldocument[measures-and-integration]{measures-and-integration}
+\externaldocument[probability-theory]{probability-theory}
+\externaldocument[stochastic-processes-martingales-and-brownian-motion]{stochastic-processes-martingales-and-brownian-motion}
+\externaldocument[ito-calculus]{ito-calculus}
+\externaldocument[stochastic-differential-equations]{stochastic-differential-equations}
+\externaldocument[topological-and-smooth-manifolds]{topological-and-smooth-manifolds}
 
 
 % Package for hypertext links:
@@ -1192,11 +1233,53 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\usepackage{fontspec}
-\usepackage{inconsolata}
-\setmonofont{inconsolata}%
-\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
-\usepackage{Alegreya}
-\usepackage[libertine]{newtxmath}
-\newcommand{\Russian}[1]{#1}
-\usepackage[margin=4.25cm]{geometry}
+\newcommand{\xlongrightarrow}[1]{\overset{#1}{\to}}
+\newcommand{\FontForEnrichedCategories}[1]{\textbf{#1}}
+\newcommand{\eSets}{\FontForEnrichedCategories{Sets}}
+\newcommand{\GrC}[2]{{\textstyle\int}^{#1}\mspace5mu#2}
+\newcommand{\vGrC}[2]{{\textstyle\int}_{#1}\mspace5mu#2}
+\newcommand{\twocirc}{\mathbin{\star}}
+\newcommand\pig{\big}
+\newcommand\pigl{\big}
+\newcommand\pigr{\big}
+\let\widebar\relax
+\newcommand{\widebar}[1]{\overline{#1}}
+%\newcommand{\llbracket}{\left[\mspace{-3mu}\left[}
+%\newcommand{\rrbracket}{\right]\mspace{-3mu}\right]}
+\newcommand{\llbracket}{[\mspace{-3mu}[}
+\newcommand{\rrbracket}{]\mspace{-3mu}]}
+\newcommand{\leftllbracket}{\left[\mspace{-6mu}\left[}
+\newcommand{\rightrrbracket}{\right]\mspace{-6mu}\right]}
+\newcommand{\bfLUnitor}{\mathbf{\lambda}}
+\newcommand{\bfRUnitor}{\mathbf{\rho}}
+\newcommand{\bfsigma}{\mathbf{\sigma}}
+\newcommand{\bfbeta}{\mathbf{\beta}}
+\newcommand{\bfalpha}{\mathbf{\alpha}}
+\newcommand{\bfepsilon}{\mathbf{\epsilon}}
+\newcommand{\bfmu}{\mathbf{\mu}}
+\newcommand{\textiff}{textiff }
+\newcommand{\OrdinalCategory}{\mathbb{n}}
+\newcommand{\OrdinalCategoryNPlus}[2]{\mathbb{#1}+\mathbb{#2}}
+\newcommand{\OrdinalCategoryN}[1]{\mathbb{#1}}
+\newcommand{\Unit}{\mathbb{1}}
+\newcommand{\Zero}{\mathbb{0}}
+\newcommand{\IPA}[1]{#1}
+\newcommand{\coyo}{\style{display: inline-block; transform: rotate(180deg)}{よ}\mkern-2.5mu}
+\newcommand{\AugmentedSimplexCategory}{\mathbb{\Delta}_{+}}
+\newcommand{\SimplexCategory}{\mathbb{\Delta}}
+\newcommand{\lcm}{\mathrm{lcm}}
+\newcommand{\EuScript}[1]{\mathcal{#1}}
+\let\nsubset\relax
+\newcommand{\nsubset}{\not{\subset}}
+\newcommand{\comathcalC}{\style{display: inline-block; transform: rotate(180deg)}{\mathcal{C}}\mkern-2.5mu}
+\newcommand{\CoContFun}{\FontForCategories{Fun}^{\comathcalC}}
+\newcommand{\CoContPos}{\FontForCategories{PosFun}^{\comathcalC}}
+\let\emptyset\relax
+\newcommand{\emptyset}{\text{Ø}}
+\let\mod\relax
+\newcommand{\mod}[1]{\ \ (\mathrm{mod}\ #1)}
+\newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\less}{LESSTHANMATHSYMBOL}
+\newcommand{\greater}{GREATERTHANMATHSYMBOL}
+\let\parP\relax
+\newcommand{\parP}{¶}

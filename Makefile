@@ -317,6 +317,11 @@ init:
 		python3.6 -m pip install --user .; \
 		echo "-- Cloning Gerby website..."; \
 		git clone $(GERBY_WEBSITE_REPO); \
+		echo "-- Downloading fonts..."; \
+		mkdir fonts; \
+		mkdir fonts/japanese; \
+		cd fonts/japanese; \
+		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansJP-VF.otf" -o NotoSansJP-Regular.otf; \
 		echo "-- Run target finished successfully."; \
 	fi
 

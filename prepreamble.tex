@@ -54,8 +54,11 @@
 \renewcommand{\right}{\aftergroup\egroup\originalright}
 %%%%%%
 \newenvironment{webcompile}{\[}{\]}
-\usepackage{adjustbox}
-\newenvironment{scalemath}[1][\linewidth]{\[\begin{adjustbox}{width=#1,center}$}{$\end{adjustbox}\]}
+\ifplastex
+\else
+    \usepackage{adjustbox}
+    \newenvironment{scalemath}[1][\linewidth]{\[\begin{adjustbox}{width=#1,center}$}{$\end{adjustbox}\]}
+\fi
 \usepackage{mathtools}
 \newcommand{\mcp}[1]{\mathclap{#1}}
 \newcommand{\mrp}[1]{\mathrlap{#1}}

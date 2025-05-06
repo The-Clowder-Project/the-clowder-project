@@ -5,115 +5,93 @@ from typing import Set, Optional, List, Union
 
 def expand_latex_inputs(
     content: str,
-    # Accept a list or set of strings, default to None (meaning no exclusions)
     excluded_filenames: Optional[Union[List[str], Set[str]]] = None,
     base_dir: str = '.',
     visited_files: Optional[Set[str]] = None
 ) -> str:
     """
-    Recursively expands \\input{filename.tex} directives within LaTeX content,
-    skipping specified filenames.
+    Recursively expands \\input{filename.tex} directives within LaTeX content.
+    Specific filenames can be excluded from expansion (their \\input command will
+    be removed from the output).
 
     Args:
         content: The string containing LaTeX code to process.
         excluded_filenames: A list or set of specific filenames (e.g.,
-                           {"file1.tex", "config.tex"}) that should NOT be
-                           expanded if found in an \\input{} command. If None or
-                           empty, no files are explicitly excluded.
+                           {"file1.tex", "config.tex"}) whose \\input{} command
+                           should be removed from the output entirely, rather than
+                           being expanded or kept. If None or empty, no files
+                           are treated this way.
         base_dir: The directory to resolve relative filenames against. Defaults to
                   the current working directory.
         visited_files: A set used internally to track visited files and prevent
                        infinite recursion. Should generally be left as None by the caller.
 
     Returns:
-        The processed string with \\input commands expanded (where applicable).
+        The processed string with \\input commands expanded (where applicable)
+        and commands for excluded files removed.
     """
-    # Initialize the visited files set for the top-level call
-    # This needs to be done *before* the replacer function is defined
-    # if the replacer closes over it.
     if visited_files is None:
         visited_files = set()
 
-    # --- Handle Excluded Filenames ---
-    # Convert the input list/set to a set for efficient lookup.
-    # If None or empty list/set is passed, create an empty set.
     if excluded_filenames:
         excluded_filenames_set = set(excluded_filenames)
     else:
-        excluded_filenames_set = set() # No exclusions if None or empty
+        excluded_filenames_set = set()
 
-    # Regex to find \input{...} commands. Handles optional spaces around filename.
     input_pattern = re.compile(r'\\input\{(?:\s*)(.*?)(?:\s*)\}')
 
-    # Use a function for the replacement logic in re.sub
     def replacer(match):
         filename = match.group(1)
-
-        # Add .tex extension if missing (common in LaTeX)
         if not filename.lower().endswith('.tex'):
             filename_tex = filename + ".tex"
         else:
             filename_tex = filename
 
-        # --- Exclusion Check (MODIFIED) ---
-        # Check if the filename is in the set of excluded filenames
+        # --- Exclusion Check (MODIFIED BEHAVIOR) ---
         if filename_tex in excluded_filenames_set:
-            # If it matches an excluded filename, return the original \input command
-            return match.group(0)
+            # If it matches an excluded filename, return an empty string,
+            # effectively removing the \input command from the output.
+            return "" # MODIFIED LINE
 
-        # Construct the full path relative to the current base directory
         full_path = os.path.abspath(os.path.join(base_dir, filename_tex))
 
-        # --- Circular Dependency Check ---
         if full_path in visited_files:
-            warnings.warn(f"Circular dependency detected: Skipping expansion of {filename_tex} in {base_dir}", stacklevel=2)
-            # Return the original \input command to break the loop
+            warnings.warn(f"Circular dependency detected: Skipping expansion of {filename_tex} in {base_dir}. The \\input command will remain.", stacklevel=2)
+            # For circular dependencies, we still keep the command to avoid breaking syntax unexpectedly further
+            # or to make the circular dependency obvious in the output.
             return match.group(0)
 
-        # --- File Existence and Reading ---
         try:
-            # Check if the file exists before attempting to open
             if not os.path.exists(full_path):
-                 warnings.warn(f"File not found: {filename_tex} (resolved to {full_path}). Skipping expansion.", stacklevel=2)
-                 # Return the original \input command if file not found
+                 warnings.warn(f"File not found: {filename_tex} (resolved to {full_path}). The \\input command will remain.", stacklevel=2)
+                 # If file not found, keep the original \input command
                  return match.group(0)
 
-            # Mark this file as visited *before* reading and recursing
             visited_files.add(full_path)
-
             with open(full_path, 'r', encoding='utf-8') as f_input:
                 file_content = f_input.read()
 
-            # --- Recursive Expansion ---
-            # Recursively expand inputs within the content we just read.
-            # The new base directory is the directory of the file we just read.
-            # Pass the *same set* of excluded filenames down.
             expanded_content = expand_latex_inputs(
                 file_content,
-                excluded_filenames_set, # Pass the exclusion set
+                excluded_filenames_set,
                 base_dir=os.path.dirname(full_path),
-                visited_files=visited_files # Pass the same visited set down
+                visited_files=visited_files
             )
-
-            # Remove the file from visited set after successful recursion (backtracking)
             visited_files.remove(full_path)
-
             return expanded_content
 
         except IOError as e:
-            warnings.warn(f"Error reading {filename_tex} (resolved to {full_path}): {e}. Skipping expansion.", stacklevel=2)
+            warnings.warn(f"Error reading {filename_tex} (resolved to {full_path}): {e}. The \\input command will remain.", stacklevel=2)
             if full_path in visited_files:
                  visited_files.remove(full_path)
-            return match.group(0)
-        except Exception as e: # Catch other potential errors
-             warnings.warn(f"Unexpected error processing {filename_tex} (resolved to {full_path}): {e}. Skipping expansion.", stacklevel=2)
+            return match.group(0) # Keep original command on error
+        except Exception as e:
+             warnings.warn(f"Unexpected error processing {filename_tex} (resolved to {full_path}): {e}. The \\input command will remain.", stacklevel=2)
              if full_path in visited_files:
                  visited_files.remove(full_path)
-             return match.group(0)
+             return match.group(0) # Keep original command on error
 
-    # Perform the substitution using the replacer function
     processed_content = input_pattern.sub(replacer, content)
-
     return processed_content
 
 def main():
@@ -160,7 +138,7 @@ def main():
 
     # PREAMBLE/ALEGREYA_SANS.TEX
     content_alegreya_sans = ""
-    with open('preamble/alegreya_sans.tex', 'r') as alegreya_sans_tex:
+    with open('preamble/alegreya-sans.tex', 'r') as alegreya_sans_tex:
         content_alegreya_sans = alegreya_sans_tex.read()
 
     # PREAMBLE/CRIMSON_PRO.TEX
@@ -183,7 +161,7 @@ def main():
     ###################
 
     # WEBPREAMBLE
-    with open('preamble/compiled/webpreamble.tex', 'w') as webpreamble:
+    with open('preamble/compiled/preamble-web.tex', 'w') as webpreamble:
         webpreamble.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex']))
         webpreamble.write(content_web)
 
@@ -197,22 +175,22 @@ def main():
         preamble_alegreya.write(content_alegreya)
 
     # PREAMBLE_ALEGREYA_SANS
-    with open('preamble/compiled/preamble-alegreya_sans.tex', 'w') as preamble_alegreya_sans:
+    with open('preamble/compiled/preamble-alegreya-sans.tex', 'w') as preamble_alegreya_sans:
         preamble_alegreya_sans.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_alegreya_sans.write(content_alegreya_sans)
 
     # PREAMBLE_CRIMSON_PRO
-    with open('preamble/compiled/preamble-alegreya_sans.tex', 'w') as preamble_crimson_pro:
+    with open('preamble/compiled/preamble-crimson-pro.tex', 'w') as preamble_crimson_pro:
         preamble_crimson_pro.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_crimson_pro.write(content_crimson_pro)
 
     # PREAMBLE_EB_GARAMOND
-    with open('preamble/compiled/preamble-alegreya_sans.tex', 'w') as preamble_eb_garamond:
+    with open('preamble/compiled/preamble-eb-garamond.tex', 'w') as preamble_eb_garamond:
         preamble_eb_garamond.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_eb_garamond.write(content_eb_garamond)
 
     # PREAMBLE_XCHARTER
-    with open('preamble/compiled/preamble-alegreya_sans.tex', 'w') as preamble_xcharter:
+    with open('preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
         preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_xcharter.write(content_xcharter)
 
