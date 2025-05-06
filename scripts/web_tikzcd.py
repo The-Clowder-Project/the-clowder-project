@@ -184,6 +184,6 @@ for name in lijstje:
 
     tex_file.close()
 
-print("\\bibliography{my}")
+print("\\bibliography{bibliography}")
 print("\\bibliographystyle{amsalpha}")
 print("\\end{document}")

@@ -11,7 +11,6 @@
     \let\P\relax
 \fi
 %
-\usepackage[margin=4.5cm]{geometry}
 \usepackage{verbatim}
 \newenvironment{reference}{\comment}{\endcomment}
 \newenvironment{slogan}{\comment}{\endcomment}
@@ -37,6 +36,7 @@
 \definecolor{OIskyBlue}{RGB}{86,180,233}
 \definecolor{OIvermillion}{RGB}{213,94,0}
 \definecolor{OIyellow}{RGB}{240,228,66}
+
 % This is generally recommended for better output
 \usepackage[english]{babel}
 \usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
@@ -44,6 +44,208 @@
 % For cross-file-references
 \ifplastex
 \else
+    \usepackage{nameref,zref-xr}
+\zxrsetup{toltxlabel}
+% Sets
+\zexternaldocument*[sets:]{sets}
+\zexternaldocument*[constructions-with-sets:]{constructions-with-sets}
+\zexternaldocument*[monoidal-structures-on-the-category-of-sets:]{monoidal-structures-on-the-category-of-sets}
+\zexternaldocument*[pointed-sets:]{pointed-sets}
+\zexternaldocument*[tensor-products-of-pointed-sets:]{tensor-products-of-pointed-sets}
+% Relations
+\zexternaldocument*[relations:]{relations}
+\zexternaldocument*[constructions-with-relations:]{constructions-with-relations}
+\zexternaldocument*[conditions-on-relations:]{conditions-on-relations}
+% Preorders, Partial Orders, and Posets
+\zexternaldocument*[preorders:]{preorders}
+\zexternaldocument*[posets:]{posets}
+% Graphs
+\zexternaldocument*[graphs:]{graphs}
+% Indexed and Fibred Sets
+\zexternaldocument*[indexed-sets:]{indexed-sets}
+\zexternaldocument*[fibred-sets:]{fibred-sets}
+\zexternaldocument*[un-straightening-for-indexed-and-fibred-sets:]{un-straightening-for-indexed-and-fibred-sets}
+% Categories
+\zexternaldocument*[categories:]{categories}
+\zexternaldocument*[constructions-with-categories:]{constructions-with-categories}
+\zexternaldocument*[presheaves-and-the-yoneda-lemma:]{presheaves-and-the-yoneda-lemma}
+\zexternaldocument*[adjunctions:]{adjunctions}
+\zexternaldocument*[limits-and-colimits:]{limits-and-colimits}
+\zexternaldocument*[ends-and-coends:]{ends-and-coends}
+\zexternaldocument*[kan-extensions:]{kan-extensions}
+\zexternaldocument*[centres-and-traces-of-categories:]{centres-and-traces-of-categories}
+% Monoidal Categories
+\zexternaldocument*[monoidal-categories:]{monoidal-categories}
+\zexternaldocument*[constructions-with-monoidal-categories:]{constructions-with-monoidal-categories}
+% Higher Category Theory
+\zexternaldocument*[types-of-morphisms-in-bicategories:]{types-of-morphisms-in-bicategories}
+\zexternaldocument*[internal-adjunctions:]{internal-adjunctions}
+% Monoids
+\zexternaldocument*[monoid-actions:]{monoid-actions}
+% Groups
+\zexternaldocument*[groups:]{groups}
+% Preordered Algebraic Structures
+\zexternaldocument*[preordered-monoids:]{preordered-monoids}
+\zexternaldocument*[preordered-groups:]{preordered-groups}
+\zexternaldocument*[preordered-rings:]{preordered-rings}
+\zexternaldocument*[preordered-vector-spaces:]{preordered-vector-spaces}
+% *-Algebras
+\zexternaldocument*[star-rings:]{star-rings}
+\zexternaldocument*[star-modules:]{star-modules}
+\zexternaldocument*[star-algebras:]{star-algebras}
+% Representation Theory
+\zexternaldocument*[representation-theory-of-groups:]{representation-theory-of-groups}
+% Topology
+\zexternaldocument*[topological-spaces:]{topological-spaces}
+\zexternaldocument*[constructions-with-topological-spaces:]{constructions-with-topological-spaces}
+\zexternaldocument*[topologies-on-powersets:]{topologies-on-powersets}
+\zexternaldocument*[conditions-on-topological-spaces:]{conditions-on-topological-spaces}
+\zexternaldocument*[sheaves-on-topological-spaces:]{sheaves-on-topological-spaces}
+\zexternaldocument*[topological-stacks:]{topological-stacks}
+\zexternaldocument*[locales:]{locales}
+\zexternaldocument*[uniform-spaces:]{uniform-spaces}
+\zexternaldocument*[metric-spaces:]{metric-spaces}
+% Topological Algebra
+\zexternaldocument*[topological-monoids:]{topological-monoids}
+\zexternaldocument*[topological-groups:]{topological-groups}
+% Real Analysis
+\zexternaldocument*[real-analysis:]{real-analysis}
+% Measure Theory
+\zexternaldocument*[measurable-spaces:]{measurable-spaces}
+\zexternaldocument*[measures-and-integration:]{measures-and-integration}
+% Functional Analysis
+\zexternaldocument*[topological-vector-spaces:]{topological-vector-spaces}
+\zexternaldocument*[c-star-algebras:]{c-star-algebras}
+\zexternaldocument*[distributions:]{distributions}
+% Differential Geometry
+\zexternaldocument*[topological-manifolds:]{topological-manifolds}
+\zexternaldocument*[smooth-manifolds:]{smooth-manifolds}
+% Simplicial Stuff
+\zexternaldocument*[the-simplex-category:]{the-simplex-category}
+% Cyclic Stuff
+\zexternaldocument*[the-cycle-category:]{the-cycle-category}
+% Cubical Stuff
+\zexternaldocument*[the-cube-category:]{the-cube-category}
+% Cellular Stuff
+\zexternaldocument*[the-cell-category:]{the-cell-category}
+% Globular Stuff
+\zexternaldocument*[the-globe-category:]{the-globe-category}
+% Other
+\zexternaldocument*[research-sandbox:]{research-sandbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ┌─┐┬ ┬┌─┐┌─┐┌┬┐┌─┐┬─┐  ┌┬┐┌─┐┌─┐┬─┐┌─┐┌─┐ %%
+%% │  ├─┤├─┤├─┘ │ ├┤ ├┬┘  │││├─┤│  ├┬┘│ │└─┐ %%
+%% └─┘┴ ┴┴ ┴┴   ┴ └─┘┴└─  ┴ ┴┴ ┴└─┘┴└─└─┘└─┘ %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sets
+\newcommand{\ChapterSets}{\hyperref[sets:section-phantom]{Sets}\xspace}
+\newcommand{\ChapterConstructionsWithSets}{\hyperref[constructions-with-sets:section-phantom]{Constructions With Sets}\xspace}
+\newcommand{\ChapterMonoidalStructuresOnTheCategoryOfSets}{\hyperref[monoidal-structures-on-the-category-of-sets:section-phantom]{Monoidal Structures on the Category of Sets}\xspace}
+\newcommand{\ChapterPointedSets}{\hyperref[pointed-sets:section-phantom]{Pointed Sets}\xspace}
+\newcommand{\ChapterTensorProductsOfPointedSets}{\hyperref[tensor-products-of-pointed-sets:section-phantom]{Tensor Products of Pointed Sets}\xspace}
+% Relations
+\newcommand{\ChapterRelations}{\hyperref[relations:section-phantom]{Relations}\xspace}
+\newcommand{\ChapterConstructionsWithRelations}{\hyperref[constructions-with-relations:section-phantom]{Constructions With Relations}\xspace}
+\newcommand{\ChapterConditionsOnRelations}{\hyperref[conditions-on-relations:section-phantom]{Conditions on Relations}\xspace}
+% Preorders, Partial Orders, and Posets
+\newcommand{\ChapterPreorders}{\hyperref[preorders:section-phantom]{Preorders}\xspace}
+\newcommand{\ChapterPosets}{\hyperref[posets:section-phantom]{Posets}\xspace}
+\newcommand{\ChapterPreordersPartialOrdersAndPosets}{\hyperref[preorders-partial-orders-and-posets:section-phantom]{Preorders, Partial Orders, and Posets}\xspace}
+% Graphs
+\newcommand{\ChapterGraphs}{\hyperref[graphs:section-phantom]{Graphs}\xspace}
+% Indexed and Fibred Sets
+\newcommand{\ChapterIndexedSets}{\hyperref[indexed-sets:section-phantom]{Indexed Sets}\xspace}
+\newcommand{\ChapterFibredSets}{\hyperref[fibred-sets:section-phantom]{Fibred Sets}\xspace}
+\newcommand{\ChapterUnStraighteningForIndexedAndFibredSets}{\hyperref[un-straightening-forindexed-and-fibred-sets:section-phantom]{Un/Straightening for Indexed and Fibred Sets}\xspace}
+% Categories
+\newcommand{\ChapterCategories}{\hyperref[categories:section-phantom]{Categories}\xspace}
+\newcommand{\ChapterConstructionsWithCategories}{\hyperref[constructions-with-categories:section-phantom]{Constructions With Categories}\xspace}
+\newcommand{\ChapterPresheavesAndTheYonedaLemma}{\hyperref[presheaves-and-the-yoneda-lemma:section-phantom]{Presheaves and the Yoneda Lemma}\xspace}
+\newcommand{\ChapterAdjunctions}{\hyperref[adjunctions:section-phantom]{Adjunctions}\xspace}
+\newcommand{\ChapterLimitsAndColimits}{\hyperref[limits-and-colimits:section-phantom]{Limits and Colimits}\xspace}
+\newcommand{\ChapterEndsAndCoends}{\hyperref[ends-and-coends:section-phantom]{Ends and Coends}\xspace}
+\newcommand{\ChapterKanExtensions}{\hyperref[kan-extensions:section-phantom]{Kan Extensions}\xspace}
+\newcommand{\ChapterCentresAndTracesOfCategories}{\hyperref[centres-and-traces-of-categories:section-phantom]{Centres and Traces of Categories}\xspace}
+% Monoidal Categories
+\newcommand{\ChapterMonoidalCategories}{\hyperref[monoidal-categories:section-phantom]{Monoidal Categories}\xspace}
+\newcommand{\ChapterConstructionsWithMonoidalCategories}{\hyperref[constructions-with-monoidal-categories:section-phantom]{Constructions With Monoidal Categories}\xspace}
+% Higher Category Theory
+\newcommand{\ChapterTypesOfMorphismsInBicategories}{\hyperref[types-of-morphisms-in-bicategories:section-phantom]{Types of Morphisms in Bicategories}\xspace}
+\newcommand{\ChapterInternalAdjunctions}{\hyperref[internal-adjunctions:section-phantom]{Internal Adjunctions}\xspace}
+% Monoids
+\newcommand{\ChapterMonoidActions}{\hyperref[monoid-actions:section-phantom]{Monoid Actions}\xspace}
+% Groups
+\newcommand{\ChapterGroups}{\hyperref[groups:section-phantom]{Groups}\xspace}
+% Preordered Algebraic Structures
+\newcommand{\ChapterPreorderedMonoids}{\hyperref[preordered-monoids:section-phantom]{Preordered Monoids}\xspace}
+\newcommand{\ChapterPreorderedGroups}{\hyperref[preordered-groups:section-phantom]{Preordered Groups}\xspace}
+\newcommand{\ChapterPreorderedRings}{\hyperref[preordered-rings:section-phantom]{Preordered Rings}\xspace}
+\newcommand{\ChapterPreorderedVectorSpaces}{\hyperref[preordered-vector-spaces:section-phantom]{Preordered Vector Spaces}\xspace}
+% *-Algebras
+\newcommand{\ChapterStarRings}{\hyperref[star-rings:section-phantom]{*-Rings}\xspace}
+\newcommand{\ChapterStarModules}{\hyperref[star-modules:section-phantom]{*-Modules}\xspace}
+\newcommand{\ChapterStarAlgebras}{\hyperref[star-algebras:section-phantom]{*-Algebras}\xspace}
+% Representation Theory
+\newcommand{\ChapterRepresentationTheoryOfGroups}{\hyperref[representation-theory-of-groups:section-phantom]{Representation Theory of Groups}\xspace}
+% Topology
+\newcommand{\ChapterTopologicalSpaces}{\hyperref[topological-spaces:section-phantom]{Topological Spaces}\xspace}
+\newcommand{\ChapterConstructionsWithTopologicalSpaces}{\hyperref[constructions-with-topological-spaces:section-phantom]{Constructions With Topological Spaces}\xspace}
+\newcommand{\ChapterTopologiesOnPowersets}{\hyperref[topologies-on-powersets:section-phantom]{Topologies on Powersets}\xspace}
+\newcommand{\ChapterConditionsOnTopologicalSpaces}{\hyperref[conditions-on-topological-spaces:section-phantom]{Conditions on Topological Spaces}\xspace}
+\newcommand{\ChapterSheavesOnTopologicalSpaces}{\hyperref[sheaves-on-topological-spaces:section-phantom]{Sheaves on Topological Spaces}\xspace}
+\newcommand{\ChapterTopologicalStacks}{\hyperref[topological-stacks:section-phantom]{Topological Stacks}\xspace}
+\newcommand{\ChapterLocales}{\hyperref[locales:section-phantom]{Locales}\xspace}
+\newcommand{\ChapterUniformSpaces}{\hyperref[uniform-spaces:section-phantom]{Uniform Spaces}\xspace}
+\newcommand{\ChapterMetricSpaces}{\hyperref[metric-spaces:section-phantom]{Metric Spaces}\xspace}
+% Topological Algebra
+\newcommand{\ChapterTopologicalMonoids}{\hyperref[topological-monoids:section-phantom]{Topological Monoids}\xspace}
+\newcommand{\ChapterTopologicalGroups}{\hyperref[topological-groups:section-phantom]{Topological Groups}\xspace}
+% Real Analysis
+\newcommand{\ChapterRealAnalysis}{\hyperref[real-analysis:section-phantom]{Real Analysis}\xspace}
+% Measure Theory
+\newcommand{\ChapterMeasurableSpaces}{\hyperref[measurable-spaces:section-phantom]{Measurable Spaces}\xspace}
+\newcommand{\ChapterMeasuresAndIntegration}{\hyperref[measures-and-integration:section-phantom]{Measures and Integration}\xspace}
+% Functional Analysis
+\newcommand{\ChapterTopologicalVectorSpaces}{\hyperref[topological-vector-spaces:section-phantom]{Topological Vector Spaces}\xspace}
+\newcommand{\ChapterCStarAlgebras}{\hyperref[c-star-algebras:section-phantom]{$\rmC^{*}$-Algebras}\xspace}
+\newcommand{\ChapterDistributions}{\hyperref[distributions:section-phantom]{Distributions}\xspace}
+% Riesz Spaces
+\newcommand{\ChapterRieszSpaces}{\hyperref[riesz-spaces:section-phantom]{Riesz Spaces}\xspace}
+% Differential Geometry
+\newcommand{\ChapterTopologicalManifolds}{\hyperref[topological-manifolds:section-phantom]{Topological Manifolds}\xspace}
+\newcommand{\ChapterSmoothManifolds}{\hyperref[smooth-manifolds:section-phantom]{Smooth Manifolds}\xspace}
+% Simplicial Stuff
+\newcommand{\ChapterTheSimplexCategory}{\hyperref[the-simplex-category:section-phantom]{The Simplex Category}\xspace}
+% Cyclic Stuff
+\newcommand{\ChapterTheCycleCategory}{\hyperref[the-cycle-category:section-phantom]{The Cycle Category}\xspace}
+% Cubical Stuff
+\newcommand{\ChapterTheCubeCategory}{\hyperref[the-cube-category:section-phantom]{The Cube Category}\xspace}
+% Cellular Stuff
+\newcommand{\ChapterTheCellCategory}{\hyperref[the-cell-category:section-phantom]{The Cell Category}\xspace}
+% Globular Stuff
+\newcommand{\ChapterTheGlobeCategory}{\hyperref[the-globe-category:section-phantom]{The Globe Category}\xspace}
+% Temporary Stuff
+\newcommand{\ChapterMonoidsInMonoidalInftyCategories}{\cref{TODO}}
+\newcommand{\ChapterAdjunctionsAndTheYonedaLemma}{\cref{TODO}}
+\newcommand{\ChapterBicategories}{\cref{TODO}}
+\newcommand{\ChapterDiagonalCategoryTheory}{\cref{TODO}}
+\newcommand{\ChapterHypergroups}{\cref{TODO}}
+\newcommand{\ChapterHypermonoids}{\cref{TODO}}
+\newcommand{\ChapterMonads}{\cref{TODO}}
+\newcommand{\ChapterModulesInMonoidalCategories}{\cref{TODO}}
+\newcommand{\ChapterMonadsAndComonads}{\cref{TODO}}
+\newcommand{\ChapterEnrichedPresheavesAndTheEnrichedYonedaLemma}{\cref{TODO}}
+\newcommand{\ChapterModulesInMonoidalInftyCategories}{\cref{TODO}}
+\newcommand{\ChapterMonoidsWithZero}{\cref{TODO}}
+\newcommand{\ChapterPreordersAndPartialOrders}{\cref{TODO}}
+\newcommand{\ChapterProfunctors}{\cref{TODO}}
+\newcommand{\ChapterSpans}{\cref{TODO}}
+\newcommand{\ChapterTensorProductsOfMonoids}{\cref{TODO}}
+\newcommand{\ChapterTypesOfMorphismsInCategories}{\cref{TODO}}
+\newcommand{\ChapterSimplicialObjects}{\cref{TODO}}
+\newcommand{\ChapterSimplicialCategories}{\cref{TODO}}
+\newcommand{\ChapterSimplicialHomotopyTheory}{\cref{TODO}}
+
 \fi
 \newlength{\HexagonLength}
 \newlength{\OctagonLength}
@@ -103,47 +305,8 @@
 \newlength{\TCBBoxCorrection}
 \setlength{\TCBBoxCorrection}{-0.5\baselineskip}
 \setlength{\TwoCmPlusThreeQuarters}{2.75cm}
-%%%% PACKAGES %%%%
-% For any local file, say "hello.tex" you want to link to please
-% use \externaldocument[hello-]{hello}
-\externaldocument[sets:]{sets}
-\externaldocument[constructions-with-sets:]{constructions-with-sets}
-\externaldocument[pointed-sets:]{pointed-sets}
-\externaldocument[relations:]{relations}
-\externaldocument[schemes:]{schemes}
-\externaldocument[indexed-and-fibred-sets]{indexed-and-fibred-sets}
-\externaldocument[relations]{relations}
-\externaldocument[spans]{spans}
-\externaldocument[posets]{posets}
-\externaldocument[categories]{categories}
-\externaldocument[constructions-with-categories]{constructions-with-categories}
-\externaldocument[kan-extensions]{kan-extensions}
-\externaldocument[internal-categories]{internal-categories}
-\externaldocument[the-cycle-category]{the-cycle-category}
-\externaldocument[the-cube-category]{the-cube-category}
-\externaldocument[the-globe-category]{the-globe-category}
-\externaldocument[the-cell-category]{the-cell-category}
-\externaldocument[monoids]{monoids}
-\externaldocument[constructions-with-monoids]{constructions-with-monoids}
-\externaldocument[monoids-with-zero]{monoids-with-zero}
-\externaldocument[constructions-with-monoids-with-zero]{constructions-with-monoids-with-zero}
-\externaldocument[groups]{groups}
-\externaldocument[constructions-with-groups]{constructions-with-groups}
-\externaldocument[hypermonoids]{hypermonoids}
-\externaldocument[hypergroups]{hypergroups}
-\externaldocument[hypersemirings-and-hyperrings]{hypersemirings-and-hyperrings}
-\externaldocument[quantales]{quantales}
-\externaldocument[near-semirings]{near-semirings}
-\externaldocument[near-rings]{near-rings}
-\externaldocument[real-analysis-in-one-variable]{real-analysis-in-one-variable}
-\externaldocument[real-analysis-in-several-variables]{real-analysis-in-several-variables}
-\externaldocument[measurable-spaces]{measurable-spaces}
-\externaldocument[measures-and-integration]{measures-and-integration}
-\externaldocument[probability-theory]{probability-theory}
-\externaldocument[stochastic-processes-martingales-and-brownian-motion]{stochastic-processes-martingales-and-brownian-motion}
-\externaldocument[ito-calculus]{ito-calculus}
-\externaldocument[stochastic-differential-equations]{stochastic-differential-equations}
-\externaldocument[topological-and-smooth-manifolds]{topological-and-smooth-manifolds}
+
+\input{preamble/webpreamble-refs.tex}
 
 % Package for hypertext links:
 \usepackage{hyperref}
@@ -229,6 +392,7 @@
     \vbox{\baselineskip4\p@\lineskiplimit\z@\kern0\p@\hbox{.}\hbox{.}\hbox{.}}}
 \makeatother
 \renewcommand\restriction[2]{\left.#1\right\vert_{#2}}
+
 \usepackage{amsthm}
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
 \crefname{definition}{Definition}{Definitions}
@@ -262,6 +426,7 @@
 \renewcommand{\theremark}{\thesubsubsection.\arabic{definition}}
 \renewcommand{\theconstruction}{\thesubsubsection.\arabic{definition}}
 \numberwithin{equation}{subsubsection}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,calc,positioning,decorations.markings,fit,patterns,decorations.pathreplacing,3d,decorations.pathmorphing}
 \pgfdeclarelayer{background}
@@ -303,11 +468,16 @@
 \tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
 \ifplastex
 \else
+    \tikzset{lddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+    \tikzset{lddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
     \tikzset{ldddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
     \tikzset{rdddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
     \tikzset{ldddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
     \tikzset{rdddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
 \fi
+
 \usepackage[cal=cm]{mathalfa}
 \usepackage{fontspec}
 \SetTracking{encoding=*, shape=sc}{-5}
@@ -331,6 +501,11 @@
 \newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{-\dimen0}}
 \DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
 \DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+
+\ifplastex
+\else
+    \input{preamble/cm.tex}
+\fi
 \usepackage{centernot}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \let\lim\relax
@@ -766,9 +941,11 @@
 \newcommand{\QHom}{\mathrm{QHom}}
 \newcommand{\lex}{\mathrm{lex}}
 \newcommand{\WalkingArrow}{\OrdinalCategoryN{1}}
+
 \usepackage{xurl}%
 \usepackage[maxbibnames=20,backend=biber,backref=true,style=alphabetic,citestyle=alphabetic]{biblatex}%
 \addbibresource{ABSOLUTEPATH/bibliography.bib}
+
 \usepackage[splitindex]{imakeidx}
 \usepackage{lettrine}
 %
@@ -802,9 +979,192 @@
 %\makeindex[intoc=false, options= -s index_style.ist, name=supersymmetry, columns=2, title={Index of Supersymmetry}]
 %\makeindex[intoc=false, options= -s index_style.ist, name=topology, columns=2, title={Index of Topology}]
 %\makeindex[intoc=false, options= -s index_style.ist, name=type-theory, columns=2, title={Index of Type Theory}]
+
 \setlength{\parindent}{0pt}
 \ifplastex
 \else
+    \usepackage{footnotehyper}
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote%
+}%
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi%
+}%
+
+    \usepackage{fancyhdr}
+\pagestyle{fancy}% Change page style to fancy
+\fancyhf{}% Clear header/footer
+\fancyhead[L]{\nouppercase{\rightmark}\hfill\thepage}%
+\fancyfoot[C]{}%
+\setlength{\headheight}{15.0pt}
+
+    \usepackage{etoolbox}
+\makeatletter
+\displaywidth=\textwidth
+\displayindent=-\leftskip
+\patchcmd\start@gather{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@gather}}
+\patchcmd\start@align{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@align}}
+\patchcmd\start@multline{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@multline}}
+\patchcmd\mathdisplay{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\mathdisplay}}
+\makeatother
+\makeatletter
+\newcommand{\displaybump}{\hbox to \@totalleftmargin{\hfil}}
+\makeatother
+\usepackage{pdfpages}
+\usepackage[page]{appendix}
+\AtBeginEnvironment{subappendices}{%%
+    \section*{\huge Appendices}\vspace{-0.75\baselineskip}%
+}%
+\usepackage{makecell}
+\usepackage{cellspace}
+\let\mathrm\relax
+\let\mathbf\relax
+\newcommand{\mathrm}[1]{\text{#1}}
+\newcommand{\mathbf}[1]{\textbf{#1}}
+\newcommand{\GrC}[2]{
+    \mathchoice%
+    {\scalebox{1.0}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{1.0}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{0.75}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{0.6}{$\textstyle\int^{#1}#2$}}%
+}
+\newcommand{\vGrC}[2]{
+    \mathchoice%
+    {\scalebox{1.0}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{1.0}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{0.75}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{0.6}{$\textstyle\int_{#1}#2$}}%
+}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\pig[1]{\scalerel*[5pt]{\big#1}{\ensurestackMath{\addstackgap[1.5pt]{\big#1}}}}
+\newcommand\pigl[1]{\mathopen{\pig{#1}}}
+\newcommand\pigr[1]{\mathclose{\pig{#1}}}
+\usepackage{epigraph,xpatch}
+
+\epigraphnoindent
+
+\makeatletter
+\newcommand{\doubleepigraph}[4]{%
+  \vspace{\beforeepigraphskip}
+  \vbox{%
+    \xpatchcmd{\@epitext}{{minipage}}{{minipage}[t]}{}{}%
+    \epigraphsize
+    \begin{\epigraphflush}
+    \begin{minipage}[b]{\epigraphwidth}
+      \@epitext{#1}\\
+      \@episource{\begin{flushleft}#2\strut\end{flushleft}}%
+    \end{minipage}\hfill
+    \begin{minipage}[b]{\epigraphwidth}
+      \@epitext{#3}\\
+      \@episource{#4\strut}%
+    \end{minipage}%
+    \end{\epigraphflush}%
+  }%
+  %\nointerlineskip
+  %\vspace*{\afterepigraphskip}%
+  %\ifepigraphnoindent\@afterheading\fi
+}
+\makeatother
+
+\setlength{\epigraphwidth}{0.45\textwidth}
+\tikzcdset{%
+    prompter/.code={%
+        \tikzset{%
+            nodes in empty cells=false,cells={nodes={draw,execute at end node={\makebox[0pt][l]{$~{}_{%
+                \smash{%
+                    \raisebox{-0.75em}{
+                        \colorbox{OIblue}{%
+                            \textcolor{white}{%
+                                \textbf{\textsf{\the\pgfmatrixcurrentrow-\the\pgfmatrixcurrentcolumn}}%
+                            }%
+                        }%
+                    }%
+                }%
+            }$}}}}%
+        }%
+    }%
+}%
+\tikzcdset{%
+    prompter all/.code={%
+        \tikzset{%
+            nodes in empty cells=true,cells={nodes={draw,execute at end node={\makebox[0pt][l]{$~{}_{%
+                \smash{%
+                    \raisebox{-0.75em}{
+                        \colorbox{OIblue}{%
+                            \textcolor{white}{%
+                                \textbf{\textsf{\the\pgfmatrixcurrentrow-\the\pgfmatrixcurrentcolumn}}%
+                            }%
+                        }%
+                    }%
+                }%
+            }$}}}}%
+        }%
+    }%
+}%
+\usepackage{fp}
+\newcommand{\fsize}[2]{{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont #2}}
+\newcommand{\ffsize}[1]{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont}
+\usepackage{stmaryrd}
+\newcommand{\bfLUnitor}{\boldsymbol{\lambda}}
+\newcommand{\bfRUnitor}{\boldsymbol{\rho}}
+\newcommand{\bfalpha}{\boldsymbol{\alpha}}
+\newcommand{\bfbeta}{\boldsymbol{\beta}}
+\newcommand{\bfsigma}{\boldsymbol{\sigma}}
+\newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\bfmu}{\boldsymbol{\mu}}
+\newcommand{\textiff}{iff\xspace}
+\newcommand{\OrdinalCategory}{\mathbbold{n}}
+\newcommand{\OrdinalCategoryNPlus}[2]{\mathbbold{#1}+\mathbbold{#2}}
+\newcommand{\OrdinalCategoryN}[1]{\mathbbold{#1}}
+\newcommand{\Unit}{\mathbbold{1}}
+\newcommand{\Zero}{\mathbbold{0}}
+\newfontfamily\IPAFont[Path=ABSOLUTEPATH/fonts/brill/,Scale=1.0]{Brill-Roman.ttf}
+\newcommand{\IPA}[1]{{\text{\IPAFont{#1}}}}
+\newcommand{\coyo}{\mathchoice{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.75}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.6}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}}
+\newcommand{\AugmentedSimplexCategory}{\mathbbold{\Delta}_{+}}
+\newcommand{\SimplexCategory}{\mathbbold{\Delta}}
+\usepackage[mathscr]{eucal}
+%\let\EuScript\relax
+%\newcommand{\EuScript}[1]{\mathscr{#1}}
+\newcommand{\CoContFun}{\FontForCategories{Fun}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\newcommand{\CoContPos}{\FontForCategories{PosFun}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\let\emptyset\relax
+\newcommand{\emptyset}{\text{Ø}}
+\let\mod\relax
+\newcommand{\mod}[1]{\ \ (\mathrm{mod}\ #1)}
+\newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\less}{<}
+\newcommand{\greater}{>}
+\begingroup
+\catcode`(\active \xdef({\left\string(}  % ( is defined as \left(
+\catcode`)\active \xdef){\right\string)} % ) is defined as \right)
+\catcode`[\active \xdef[{\left\string[}  % [ is defined as \left[
+\catcode`]\active \xdef]{\right\string]} % ] is defined as \right]
+\endgroup
+\let\leftllbracket\relax
+\let\rightrrbracket\relax
+\newcommand{\leftllbracket}{\llbracket}
+\newcommand{\rightrrbracket}{\rrbracket}
+
 \fi
 \raggedbottom
 \usepackage{bigfoot}
@@ -814,6 +1174,7 @@
 \definecolor{darkGreen}{rgb}{0.2,0.5,0.2}
 \definecolor{darkRed}{rgb}{0.65,0.05,0.05}%
 \setlength\premulticols{10\baselineskip}
+\newcommand{\UP}{({\footnotesize\textsc{\textbf{UP}}})}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \makeatletter
@@ -828,53 +1189,11 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\newcommand{\xlongrightarrow}[1]{\overset{#1}{\to}}
-\newcommand{\FontForEnrichedCategories}[1]{\textbf{#1}}
-\newcommand{\eSets}{\FontForEnrichedCategories{Sets}}
-\newcommand{\GrC}[2]{{\textstyle\int}^{#1}\mspace5mu#2}
-\newcommand{\vGrC}[2]{{\textstyle\int}_{#1}\mspace5mu#2}
-\newcommand{\twocirc}{\mathbin{\star}}
-\newcommand\pig{\big}
-\newcommand\pigl{\big}
-\newcommand\pigr{\big}
-\let\widebar\relax
-\newcommand{\widebar}[1]{\overline{#1}}
-%\newcommand{\llbracket}{\left[\mspace{-3mu}\left[}
-%\newcommand{\rrbracket}{\right]\mspace{-3mu}\right]}
-\newcommand{\llbracket}{[\mspace{-3mu}[}
-\newcommand{\rrbracket}{]\mspace{-3mu}]}
-\newcommand{\leftllbracket}{\left[\mspace{-6mu}\left[}
-\newcommand{\rightrrbracket}{\right]\mspace{-6mu}\right]}
-\newcommand{\bfLUnitor}{\mathbf{\lambda}}
-\newcommand{\bfRUnitor}{\mathbf{\rho}}
-\newcommand{\bfsigma}{\mathbf{\sigma}}
-\newcommand{\bfbeta}{\mathbf{\beta}}
-\newcommand{\bfalpha}{\mathbf{\alpha}}
-\newcommand{\bfepsilon}{\mathbf{\epsilon}}
-\newcommand{\bfmu}{\mathbf{\mu}}
-\newcommand{\textiff}{textiff }
-\newcommand{\OrdinalCategory}{\mathbb{n}}
-\newcommand{\OrdinalCategoryNPlus}[2]{\mathbb{#1}+\mathbb{#2}}
-\newcommand{\OrdinalCategoryN}[1]{\mathbb{#1}}
-\newcommand{\Unit}{\mathbb{1}}
-\newcommand{\Zero}{\mathbb{0}}
-\newcommand{\IPA}[1]{#1}
-\newcommand{\coyo}{\style{display: inline-block; transform: rotate(180deg)}{よ}\mkern-2.5mu}
-\newcommand{\AugmentedSimplexCategory}{\mathbb{\Delta}_{+}}
-\newcommand{\SimplexCategory}{\mathbb{\Delta}}
-\newcommand{\lcm}{\mathrm{lcm}}
-\newcommand{\EuScript}[1]{\mathcal{#1}}
-\let\nsubset\relax
-\newcommand{\nsubset}{\not{\subset}}
-\newcommand{\comathcalC}{\style{display: inline-block; transform: rotate(180deg)}{\mathcal{C}}\mkern-2.5mu}
-\newcommand{\CoContFun}{\FontForCategories{Fun}^{\comathcalC}}
-\newcommand{\CoContPos}{\FontForCategories{PosFun}^{\comathcalC}}
-\let\emptyset\relax
-\newcommand{\emptyset}{\text{Ø}}
-\let\mod\relax
-\newcommand{\mod}[1]{\ \ (\mathrm{mod}\ #1)}
-\newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
-\newcommand{\less}{LESSTHANMATHSYMBOL}
-\newcommand{\greater}{GREATERTHANMATHSYMBOL}
-\let\parP\relax
-\newcommand{\parP}{¶}
+\usepackage{fontspec}
+\usepackage{inconsolata}
+\setmonofont{inconsolata}%
+\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
+\usepackage{Alegreya}
+\usepackage[libertine]{newtxmath}
+\newcommand{\Russian}[1]{#1}
+\usepackage[margin=4.25cm]{geometry}

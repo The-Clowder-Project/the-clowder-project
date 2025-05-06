@@ -16,16 +16,13 @@ LIJST = sets \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories
 
-# Add index and fdl to get index and license latexed as well.
-#LIJST_FDL = $(LIJST) fdl index
-
 # Add book to get all stems of tex files needed for tags
 LIJST_TAGS = $(LIJST_FDL) book
 
 # Different extensions
 SOURCES = $(patsubst %,%.tex,$(LIJST))
 TAGS = $(patsubst %,tags/tmp/%.tex,$(LIJST_TAGS))
-TAG_EXTRAS = tags/tmp/my.bib tags/tmp/hyperref.cfg \
+TAG_EXTRAS = tags/tmp/bibliography.bib tags/tmp/hyperref.cfg \
 	tags/tmp/stacks-project.cls tags/tmp/stacks-project-book.cls \
 	tags/tmp/Makefile tags/tmp/chapters.tex \
 	tags/tmp/preamble.tex tags/tmp/bibliography.tex
@@ -62,10 +59,6 @@ default: $(FOO_SOURCES)
 # Target which creates all dvi files of chapters
 .PHONY: dvis
 dvis: $(FOOS) $(BARS) $(DVIS)
-
-# Target which creates all pdf files of chapters
-.PHONY: pdfs
-pdfs: $(FOOS) $(BARS) $(PDFS)
 
 # We need the following to cancel the built-in rule for
 # dvi files (which uses tex not latex).
@@ -163,8 +156,8 @@ tags/tmp/stacks-project-book.cls: stacks-project-book.cls
 tags/tmp/hyperref.cfg: hyperref.cfg
 	cp hyperref.cfg tags/tmp/hyperref.cfg
 
-tags/tmp/my.bib: my.bib
-	cp my.bib tags/tmp/my.bib
+tags/tmp/bibliography.bib: bibliography.bib
+	cp bibliography.bib tags/tmp/bibliography.bib
 
 tags/tmp/Makefile: tags/Makefile
 	cp tags/Makefile tags/tmp/Makefile
@@ -234,6 +227,124 @@ web: tmp/index.tex
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 	@echo "% Stuff in WEBDIR will be overwritten!!!!!!!!!        %"
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	cp my.bib $(WEBDIR)/my.bib
+	cp bibliography.bib $(WEBDIR)/bibliography.bib
 	cp tags/tags $(WEBDIR)/tags
 	python ./scripts/web_book.py "$(CURDIR)" > $(WEBDIR)/book.tex
+
+# Define the name for the conda environment (NO trailing spaces!)
+CONDA_ENV_NAME = clowder_py36_env
+PYTHON_VERSION = 3.6
+#
+PLASTEX_REPO = https://github.com/The-Clowder-Project/plastex.git
+GERBY_WEBSITE_REPO = https://github.com/The-Clowder-Project/gerby-website.git
+PYBTEX_REPO = https://github.com/live-clones/pybtex.git
+PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/110/pybtex-devs/pybtex/1514284299.07/110/no-protected-in-math-mode.patch
+
+# Target to create conda environment
+.PHONY: conda-create
+conda-create:
+	@echo "--- Starting init target ---"
+	@echo "Checking for conda environment '$(CONDA_ENV_NAME)'..."
+	@echo "Running check command: conda env list | grep -E '^$(CONDA_ENV_NAME)\s+'"
+	@conda env list | grep -E '^$(CONDA_ENV_NAME)\s+' > /dev/null; \
+	check_result=$$?; \
+	echo "Check command exit status: $$check_result (0 = found, non-zero = not found)"; \
+	\
+	if [ $$check_result -eq 0 ]; then \
+		echo "-- Conda environment '$(CONDA_ENV_NAME)' already exists."; \
+		echo "-- To activate it, run: conda activate $(CONDA_ENV_NAME)"; \
+	else \
+		echo "-- Environment not found. Proceeding with creation..."; \
+		echo "-- Creating conda environment '$(CONDA_ENV_NAME)' with Python $(PYTHON_VERSION)..."; \
+		conda create -y --name $(CONDA_ENV_NAME) python=$(PYTHON_VERSION); \
+		create_result=$$?; \
+		echo "Conda create exit status: $$create_result"; \
+		if [ $$create_result -eq 0 ]; then \
+			 echo "-- Conda environment created successfully."; \
+			 echo "-- To activate it, run: conda activate $(CONDA_ENV_NAME)"; \
+		else \
+			 echo "-- Failed to create conda environment '$(CONDA_ENV_NAME)'. Please check conda output above."; \
+			 exit 1; \
+		fi; \
+	fi
+	@echo "--- Init target finished ---"
+
+.PHONY: clean-env
+clean-env:
+	@echo "Attempting to remove conda environment '$(CONDA_ENV_NAME)'..."
+	@conda env remove -y --name $(CONDA_ENV_NAME) || echo "-- Environment '$(CONDA_ENV_NAME)' not found or removal failed."
+	@echo "Environment removal attempt finished."
+
+# Target to install dependencies
+.PHONY: init
+init:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		echo "-- Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX)."; \
+		echo "-- Installing/updating requirements from requirements.txt..."; \
+		if [ -f "requirements.txt" ]; then \
+			python$(PYTHON_VERSION) -m pip install -r requirements.txt; \
+		else \
+			echo "-- Warning: requirements.txt not found, skipping pip install."; \
+		fi; \
+		\
+		echo "-- Installing (Clowder's version of) plastex..."; \
+		git clone $(PLASTEX_REPO); \
+		cd plastex; \
+		git checkout gerby; \
+		python3.6 -m pip install --user .; \
+		echo "-- Installing pybtex..."; \
+		git clone $(PYBTEX_REPO); \
+		cd pybtex; \
+		wget $(PYBTEX_PATCH_URL); \
+		git apply ./no-protected-in-math-mode.patch; \
+		python3.6 -m pip install --user .; \
+		echo "-- Cloning Gerby website..."; \
+		git clone $(GERBY_WEBSITE_REPO); \
+		echo "-- Run target finished successfully."; \
+	fi
+
+# Target which creates all pdf files of chapters
+.PHONY: pdfs
+pdfs: $(FOOS) $(BARS) $(PDFS)
+
+# Target which compiles website with Gerby and serves it on 127.0.0.1:5000
+.PHONY: web-and-serve
+web-and-serve:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		echo "-- Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX)."; \
+		echo "-- Run target finished successfully."; \
+	fi

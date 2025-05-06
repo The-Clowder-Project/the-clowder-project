@@ -37,11 +37,14 @@
     }%
 }%
 \tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
-\tikzset{lddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
-\tikzset{rddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
-\tikzset{lddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
-\tikzset{rddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
-\tikzset{ldddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
-\tikzset{rdddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
-\tikzset{ldddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
-\tikzset{rdddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+\ifplastex
+\else
+    \tikzset{lddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+    \tikzset{lddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+    \tikzset{ldddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rdddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+    \tikzset{ldddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
+    \tikzset{rdddl_to_path_large/.style={to path={-| ([xshift=10ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
+\fi

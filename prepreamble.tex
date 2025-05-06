@@ -1,24 +1,20 @@
 \IfFileExists{stacks-project.cls}{\documentclass{stacks-project}}{\documentclass{amsart}}
-%\usepackage{amsthm}
-\newenvironment{UniversalProperty}{%
-    \begin{itemize}%
-        \item[\text{({\footnotesize\textsc{\textbf{UP}}})}]%
-}%
-{%
-    \end{itemize}%
-}
-% For dealing with references we use the comment environment
-\let\secS\S
-\let\S\relax
-\let\parP\P
-\let\P\relax
-\usepackage[margin=4.5cm]{geometry}
+% https://plastex.github.io/plastex/plastex/sect0006.html
+\newif\ifplastex
+\plastexfalse
+%
+\ifplastex
+\else
+    \let\secS\S
+    \let\S\relax
+    \let\parP\P
+    \let\P\relax
+\fi
+%
 \usepackage{verbatim}
 \newenvironment{reference}{\comment}{\endcomment}
-%\newenvironment{reference}{}{}
 \newenvironment{slogan}{\comment}{\endcomment}
 \newenvironment{history}{\comment}{\endcomment}
-% We use multicol for the list of chapters between chapters
 \usepackage{multicol}
 
 \input{preamble/xcolor.tex}
@@ -27,7 +23,10 @@
 \usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
 
 % For cross-file-references
-\input{preamble/zref.tex}
+\ifplastex
+\else
+    \input{preamble/zref.tex}
+\fi
 \input{preamble/lengths.tex}
 \input{preamble/webpreamble-refs.tex}
 
@@ -70,18 +69,24 @@
 \input{preamble/amsthm.tex}
 \input{preamble/tikzcd.tex}
 \input{preamble/fonts.tex}
-\input{preamble/cm.tex}
+\ifplastex
+\else
+    \input{preamble/cm.tex}
+\fi
 \input{preamble/commands.tex}
 \input{preamble/biber.tex}
 \input{preamble/splitindex.tex}
 \setlength{\parindent}{0pt}
-\input{preamble/footnotes.tex}
-\input{preamble/fancyheader.tex}
+\ifplastex
+\else
+    \input{preamble/footnotes.tex}
+    \input{preamble/fancyheader.tex}
+    \input{preamble/nonweb.tex}
+\fi
 \raggedbottom
 \usepackage{bigfoot}
 \DeclareNewFootnote{default}
 \newcommand{\ChapterRef}[2]{#2}
-\input{preamble/nonweb.tex}
 \newcommand{\say}[1]{``#1''}
 \definecolor{darkGreen}{rgb}{0.2,0.5,0.2}
 \definecolor{darkRed}{rgb}{0.65,0.05,0.05}%

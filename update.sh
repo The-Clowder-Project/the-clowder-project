@@ -14,7 +14,6 @@ regex() {
 
 mkdir tmp
 mkdir output
-python scripts/make_bib.py bibliography.bib my.bib
 python scripts/make_preamble.py
 python scripts/make_tikzcd_preamble.py
 start=$(date +%s.%2N)

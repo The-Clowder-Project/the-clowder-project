@@ -120,6 +120,6 @@ for name in lijstje:
     tex_file.close()
     print_chapters(path)
 
-print "\\bibliography{my}"
+print "\\bibliography{bibliography}"
 print "\\bibliographystyle{amsalpha}"
 print "\\end{document}"

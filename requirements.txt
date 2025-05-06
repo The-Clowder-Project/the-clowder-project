@@ -1,0 +1,11 @@
+MarkupSafe==1.1.1
+pybtex
+flask
+feedparser
+peewee
+markdown
+mdx_bleach
+python-markdown-math
+validators
+networkx
+PyPDF2
