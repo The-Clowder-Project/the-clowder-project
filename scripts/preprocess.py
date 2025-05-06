@@ -35,6 +35,7 @@ def expand_cref(line):
 
     # Substitute each \cref{...} match with the new format
     return re.sub(pattern, replacer, line)
+
 def missing_chapters(line):
     future_chapters = [
         "ChapterAdjunctionsAndTheYonedaLemma",
@@ -55,30 +56,38 @@ def missing_chapters(line):
         if line.find(chapter) >= 0:
             line = re.sub(chapter,"cref{TODO}",line)
     return line
+
 def pdf_only(line):
     if line.find("% PDF ONLY %") >= 0:
         return ""
     else:
         return line
+
 def tcbthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
+
 def textdbend(line):
     line = re.sub('END TEXTDBEND', '', line)
     return line
+
 def textdbend_2(line):
     line = re.sub(r'\\textdbend', 'BEGIN TEXTDBEND', line)
     return line
+
 def amsthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
+
 def amsthm_web(line):
     line = re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?):(.*?)\}%",r"\\begin{proof}[\1:\2}]",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
     return line
-def proof(line):
+
+def Proof_to_proof(line):
     line = re.sub(r"\\begin\{Proof\}\{.*?\}%",r"\\begin{proof}",line)
     line = re.sub(r"\\end\{Proof\}",r"\\end{proof}",line)
     return line
+
 def rmIendproofbox(line):
     line = re.sub(r"\\rmIENDPROOFBOX",r"\\rmI ENDPROOFBOX",line)
     line = re.sub(r"\\rmIIENDPROOFBOX",r"\\rmII ENDPROOFBOX",line)
@@ -139,6 +148,7 @@ def remove_index(line):
                 i += 1
         return ''.join(output)
     return remove_index_with_parser(line)
+
 def leftright_square_brackets_and_curly_brackets(line):
     line = re.sub('(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\right)(?!right)}', '\\\\right\\}', line)
     line = re.sub('(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\left)(?!left){', '\\\\left\\{', line)
@@ -152,6 +162,7 @@ def leftright_square_brackets_and_curly_brackets(line):
     line = re.sub('\\\\langle', '\\\\left\\\\langle', line)
     line = re.sub('\\\\rangle', '\\\\right\\\\rangle', line)
     return line
+
 def expand_adjunctions(line):
     line = re.sub('\\\\RelativeAdjunction#(.*)#(.*)#(.*)#(.*)#(.*)#', r'\\left({\2}\\dashv{\3}\\right)\\colon\\enspace\\phantom{{\4}}\\negphantom{$\\FontForCategories{Grp}$}\\begin{tikzcd}[row sep={{5.0*\\the\\DL},between origins}, column sep={{5.0*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\\phantom{\\FontForCategories{Grp}}\\arrow[r,"{\2}"{name=F}, bend left=25]\\&\\phantom{\\FontForCategories{Grp}}\\arrow[l,"{\3}"{name=G}, bend left=25]\\arrow[phantom, from=F, to=G, "{\\rotatebox[origin=c]{-90}{\\dashv}\\mathrlap{\\mkern1.5mu{}_{\\scalebox{0.5}{\1}}}}"{pos=0.55}]\\end{tikzcd}\\negphantom{$\\FontForCategories{Grp}$}\\mspace{-49.25mu}\\negphantom{${\4}$}{\4}\\mspace{+49.25mu}{\5}',line)#
     line = re.sub('\\\\Adjunction#(.*)#(.*)#(.*)#(.*)#', r'\\left({\1}\\dashv{\2}\\right)\\colon\\enspace\\phantom{{\3}}\\negphantom{$\\FontForCategories{Grp}$}\\begin{tikzcd}[row sep={{5.0*\\the\\DL},between origins}, column sep={{5.0*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\\phantom{\\FontForCategories{Grp}}\\arrow[r,"{\1}"{name=F}, bend left=25]\\&\\phantom{\\FontForCategories{Grp}}\\arrow[l,"{\2}"{name=G}, bend left=25]\\arrow[phantom, from=F, to=G, "\\dashv" rotate=-90]\\end{tikzcd}\\negphantom{$\\FontForCategories{Grp}$}\\mspace{-49.25mu}\\negphantom{${\3}$}{\3}\\mspace{+49.25mu}{\4}',line)#
@@ -185,9 +196,11 @@ def expand_adjunctions(line):
     line = re.sub('\\\\RelAdjunctionShort#(.*)#(.*)#(.*)#(.*)#', r'\\left({\1}\\dashv{\2}\\right)\!\\colon\\enspace\\begin{tikzcd}[row sep={{5.0*\\the\\DL},between origins}, column sep={{5.0*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\3\\arrow[r,mid vert,"{\1}"{name=F}, bend left=25]\\&\4\\arrow[l,mid vert,"{\2}"{name=G}, bend left=25]\\arrow[phantom, from=F, to=G, "\\dashv" rotate=-90]\\end{tikzcd}',line)#
     line = re.sub('\\\\RelAdjunctionShortSize#(.*)#(.*)#(.*)#(.*)#(.*)#', r'\\left({\2}\\dashv{\3}\\right)\!\\colon\\enspace\\begin{tikzcd}[row sep={{\1*\\the\\DL},between origins}, column sep={{\1*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\4\\arrow[r,mid vert,"{\2}"{name=F}, bend left=30]\\&\5\\arrow[l,mid vert,"{\3}"{name=G}, bend left=30]\\arrow[phantom, from=F, to=G, "\\dashv" rotate=-90]\\end{tikzcd}',line)#
     return line
+
 def parbox(line):
     #return re.sub(r'\\parbox\{[0-9\.]*\\textwidth\}\s*\{(.*?)\}%', r'\\text{\1}', line, flags=re.DOTALL)
     return re.sub(r'\\parbox\{[0-9\.]*\\textwidth\}\s*\{', r'\\text{', line)
+
 def process_math_expr(match):
     expr = match.group()
     # Transformation for "("
@@ -195,11 +208,13 @@ def process_math_expr(match):
     # Transformation for ")"
     expr = re.sub(r'(?<!\\noregex)(?<!\\left)(?<!\\right)(?<!\\big)(?<!\\bigg)(?<!\\Big)(?<!\\Bigg)(?<!\\pig)(?<!\\pigg)(?<!\\Pig)(?<!\\Pigg)\)', '\\\\right)', expr)
     return expr
+
 def transform_latex_content(text):
     # Define a regex pattern to match math expressions
     math_pattern = re.compile(r'(?<!\\)\$.*?(?<!\\)\$|\[.*?\]')
     # Apply the transformation to the text
     return math_pattern.sub(process_math_expr, text)
+
 def itemize(itemize):
     env_stack = []
     output = ""

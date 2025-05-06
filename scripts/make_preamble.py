@@ -1,7 +1,9 @@
 import re
+import warnings
 import os
 import subprocess
 from typing import Set, Optional, List, Union
+import functions
 
 def expand_latex_inputs(
     content: str,
@@ -30,6 +32,8 @@ def expand_latex_inputs(
         The processed string with \\input commands expanded (where applicable)
         and commands for excluded files removed.
     """
+    absolute_path = functions.absolute_path()
+
     if visited_files is None:
         visited_files = set()
 
@@ -53,7 +57,7 @@ def expand_latex_inputs(
             # effectively removing the \input command from the output.
             return "" # MODIFIED LINE
 
-        full_path = os.path.abspath(os.path.join(base_dir, filename_tex))
+        full_path = absolute_path + "/" + filename_tex
 
         if full_path in visited_files:
             warnings.warn(f"Circular dependency detected: Skipping expansion of {filename_tex} in {base_dir}. The \\input command will remain.", stacklevel=2)
@@ -101,59 +105,60 @@ def main():
     # READ FILES #
     ##############
 
+    absolute_path = functions.absolute_path()
     # PREPREAMBLE
     content_prepreamble = ""
-    with open('prepreamble.tex', 'r') as prepreamble:
+    with open(absolute_path+'/prepreamble.tex', 'r') as prepreamble:
         content_prepreamble = prepreamble.read()
 
     # TIKZCD_PREPREAMBLE
     content_tikzcd_prepreamble = ""
-    with open('tikzcd-prepreamble.tex', 'r') as tikzcd_prepreamble:
+    with open(absolute_path+'/tikzcd-prepreamble.tex', 'r') as tikzcd_prepreamble:
         content_tikzcd_prepreamble = tikzcd_prepreamble.read()
 
     # PREAMBLE/WEB.TEX
     content_web = ""
-    with open('preamble/web.tex', 'r') as web_tex:
+    with open(absolute_path+'/preamble/web.tex', 'r') as web_tex:
         content_web = web_tex.read()
 
     # PREAMBLE/TOC.TEX
     content_toc = ""
-    with open('preamble/toc.tex', 'r') as toc_tex:
+    with open(absolute_path+'/preamble/toc.tex', 'r') as toc_tex:
         content_toc = toc_tex.read()
 
     # PREAMBLE/TCBTHM.TEX
     content_tcbthm = ""
-    with open('preamble/tcbthm.tex', 'r') as tcbthm_tex:
+    with open(absolute_path+'/preamble/tcbthm.tex', 'r') as tcbthm_tex:
         content_tcbthm = tcbthm_tex.read()
 
     # PREAMBLE/TCB_FOOTNOTES.TEX
     content_tcb_footnotes = ""
-    with open('preamble/footnotes-tcb.tex', 'r') as tcb_footnotes_tex:
+    with open(absolute_path+'/preamble/footnotes-tcb.tex', 'r') as tcb_footnotes_tex:
         content_tcb_footnotes = tcb_footnotes_tex.read()
 
     # PREAMBLE/ALEGREYA.TEX
     content_alegreya = ""
-    with open('preamble/alegreya.tex', 'r') as alegreya_tex:
+    with open(absolute_path+'/preamble/alegreya.tex', 'r') as alegreya_tex:
         content_alegreya = alegreya_tex.read()
 
     # PREAMBLE/ALEGREYA_SANS.TEX
     content_alegreya_sans = ""
-    with open('preamble/alegreya-sans.tex', 'r') as alegreya_sans_tex:
+    with open(absolute_path+'/preamble/alegreya-sans.tex', 'r') as alegreya_sans_tex:
         content_alegreya_sans = alegreya_sans_tex.read()
 
     # PREAMBLE/CRIMSON_PRO.TEX
     content_crimson_pro = ""
-    with open('preamble/crimson_pro.tex', 'r') as crimson_pro_tex:
+    with open(absolute_path+'/preamble/crimson_pro.tex', 'r') as crimson_pro_tex:
         content_crimson_pro = crimson_pro_tex.read()
 
     # PREAMBLE/EB_GARAMOND.TEX
     content_eb_garamond = ""
-    with open('preamble/eb_garamond.tex', 'r') as eb_garamond_tex:
+    with open(absolute_path+'/preamble/eb_garamond.tex', 'r') as eb_garamond_tex:
         content_eb_garamond = eb_garamond_tex.read()
 
     # PREAMBLE/XCHARTER.TEX
     content_xcharter = ""
-    with open('preamble/xcharter.tex', 'r') as xcharter_tex:
+    with open(absolute_path+'/preamble/xcharter.tex', 'r') as xcharter_tex:
         content_xcharter = xcharter_tex.read()
 
     ###################
@@ -161,41 +166,41 @@ def main():
     ###################
 
     # WEBPREAMBLE
-    with open('preamble/compiled/preamble-web.tex', 'w') as webpreamble:
+    with open(absolute_path+'/preamble/compiled/preamble-web.tex', 'w') as webpreamble:
         webpreamble.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex']))
         webpreamble.write(content_web)
 
     # PREAMBLE_CM
-    with open('preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:
+    with open(absolute_path+'/preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:
         preamble_cm.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
 
     # PREAMBLE_ALEGREYA
-    with open('preamble/compiled/preamble-alegreya.tex', 'w') as preamble_alegreya:
+    with open(absolute_path+'/preamble/compiled/preamble-alegreya.tex', 'w') as preamble_alegreya:
         preamble_alegreya.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_alegreya.write(content_alegreya)
 
     # PREAMBLE_ALEGREYA_SANS
-    with open('preamble/compiled/preamble-alegreya-sans.tex', 'w') as preamble_alegreya_sans:
+    with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans.tex', 'w') as preamble_alegreya_sans:
         preamble_alegreya_sans.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_alegreya_sans.write(content_alegreya_sans)
 
     # PREAMBLE_CRIMSON_PRO
-    with open('preamble/compiled/preamble-crimson-pro.tex', 'w') as preamble_crimson_pro:
+    with open(absolute_path+'/preamble/compiled/preamble-crimson-pro.tex', 'w') as preamble_crimson_pro:
         preamble_crimson_pro.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_crimson_pro.write(content_crimson_pro)
 
     # PREAMBLE_EB_GARAMOND
-    with open('preamble/compiled/preamble-eb-garamond.tex', 'w') as preamble_eb_garamond:
+    with open(absolute_path+'/preamble/compiled/preamble-eb-garamond.tex', 'w') as preamble_eb_garamond:
         preamble_eb_garamond.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_eb_garamond.write(content_eb_garamond)
 
     # PREAMBLE_XCHARTER
-    with open('preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
+    with open(absolute_path+'/preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
         preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_xcharter.write(content_xcharter)
 
     # PREAMBLE_ALEGREYA_SANS_TCB
-    with open('preamble/compiled/preamble-alegreya-sans-tcb.tex', 'w') as preamble_alegreya_sans_tcb:
+    with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans-tcb.tex', 'w') as preamble_alegreya_sans_tcb:
         preamble_alegreya_sans_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex']))
         preamble_alegreya_sans_tcb.write(content_tcbthm)
         preamble_alegreya_sans_tcb.write(content_tcb_footnotes)
@@ -203,7 +208,7 @@ def main():
         preamble_alegreya_sans_tcb.write(content_toc)
 
     # PREAMBLE_TIKZCD
-    with open('preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
+    with open(absolute_path+'/preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
         preamble_tikzcd.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
 
 if __name__ == "__main__":

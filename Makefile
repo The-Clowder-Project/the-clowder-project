@@ -308,21 +308,54 @@ init:
 		git clone $(PLASTEX_REPO); \
 		cd plastex; \
 		git checkout gerby; \
-		python3.6 -m pip install --user .; \
+		python$(PYTHON_VERSION) -m pip install --user .; \
+		cd ../; \
 		echo "-- Installing pybtex..."; \
 		git clone $(PYBTEX_REPO); \
 		cd pybtex; \
 		wget $(PYBTEX_PATCH_URL); \
 		git apply ./no-protected-in-math-mode.patch; \
-		python3.6 -m pip install --user .; \
+		python$(PYTHON_VERSION) -m pip install --user .; \
+		cd ../; \
 		echo "-- Cloning Gerby website..."; \
 		git clone $(GERBY_WEBSITE_REPO); \
 		echo "-- Downloading fonts..."; \
-		mkdir fonts; \
-		mkdir fonts/japanese; \
-		cd fonts/japanese; \
-		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansJP-VF.otf" -o NotoSansJP-Regular.otf; \
+		mkdir -p fonts/japanese; \
+		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansJP-VF.otf" -o fonts/japanese/NotoSansJP-Regular.otf; \
 		echo "-- Run target finished successfully."; \
+	fi
+
+# Target which creates all pdf files of chapters
+.PHONY: cm
+cm:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir tmp/cm; \
+		echo "Generating the .TEX..."; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/cm/book.tex; \
+		cd tmp/cm/; \
+		echo "Processing the .TEX..."; \
+		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
+		lualatex book.tex; \
 	fi
 
 # Target which creates all pdf files of chapters

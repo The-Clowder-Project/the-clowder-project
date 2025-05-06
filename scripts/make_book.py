@@ -4,41 +4,36 @@ import preprocess
 
 def print_tex_file(tex_file,style):
     for line in tex_file:
-        #if (style == "web"):
-        #    line = preprocess.amsthm(line)
-        #    line = preprocess.proof(line)
-        #    line = preprocess.proofbox_cm(line)
-        #    line = preprocess.scalemath_to_webcompile(line)
-        #elif (style == "cm"):
+        if (style == "web"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_cm(line)
+            line = preprocess.scalemath_to_webcompile(line)
+        elif (style == "cm"):
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_cm(line)
 
         #line = preprocess.proofbox_two(line)
         #line = preprocess.leftright_square_brackets_and_curly_brackets(line)
-        #line = preprocess.expand_adjunctions(line)
-        #verbatim = verbatim + beginning_of_verbatim(line)
-        #if verbatim:
-        #    if end_of_verbatim(line):
-        #        verbatim = 0
-        #    if name != 'introduction':
-        #        print(line,end="")
-        #    continue
-        #if line.find("\\input{preamble}") == 0:
-        #    continue
-        #if line.find("\\begin{Introduction}") == 0:
-        #    continue
-        #if line.find("\\end{Introduction}") == 0:
-        #    continue
-        #if line.find("\\begin{document}") == 0:
-        #    continue
-        #if line.find("\\title{") == 0:
-        #    line = line.replace("\\title{", "\\chapter{")
-        #if line.find("\\maketitle") == 0:
-        #    continue
-        #if line.find("\\tableofcontents") == 0:
-        #    continue
-        #if line.find("chapter_modifications") >= 0:
-        #    continue
-        #if line.find("\\ChapterTableOfContents") == 0:
-        #    line = line.replace("\\ChapterTableOfContents", "\\Minitoc")
+        line = preprocess.expand_adjunctions(line)
+        if line.find("\\input{preamble}") == 0:
+            continue
+        if line.find("\\begin{Introduction}") == 0:
+            continue
+        if line.find("\\end{Introduction}") == 0:
+            continue
+        if line.find("\\begin{document}") == 0:
+            continue
+        if line.find("\\title{") == 0:
+            line = line.replace("\\title{", "\\chapter{")
+        if line.find("\\maketitle") == 0:
+            continue
+        if line.find("\\tableofcontents") == 0:
+            continue
+        if line.find("chapter_modifications") >= 0:
+            continue
+        if line.find("\\ChapterTableOfContents") == 0:
+            line = line.replace("\\ChapterTableOfContents", "\\Minitoc")
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
@@ -50,16 +45,16 @@ def print_tex_file(tex_file,style):
         #    line = re.sub(r'(\\SloganFont{[^}]+})',r'\1%\n',line)
         #    #if line.find("\\item\\label{(.*?)}\\SloganFont{(.*?)}") >= 0:
         #    #line = line.replace("\\item\\label{.*?}\\SloganFont{.*?}", "\\item\\label{\1}\\SloganFont{\2}%\n")
-        #if line.find("\\input{chapters}") == 0:
-        #    continue
-        #if line.find("\\bibliography") == 0:
-        #    continue
-        #if line.find("\\begin{appendices}") == 0:
-        #    line = line.replace("\\begin{appendices}", "\\begin{subappendices}")
-        #if line.find("\\end{appendices}") == 0:
-        #    line = line.replace("\\end{appendices}", "\\end{subappendices}")
-        #if line.find("\\end{document}") == 0:
-        #    continue
+        if line.find("\\input{chapters}") == 0:
+            continue
+        if line.find("\\bibliography") == 0:
+            continue
+        if line.find("\\begin{appendices}") == 0:
+            line = line.replace("\\begin{appendices}", "\\begin{subappendices}")
+        if line.find("\\end{appendices}") == 0:
+            line = line.replace("\\end{appendices}", "\\end{subappendices}")
+        if line.find("\\end{document}") == 0:
+            continue
         #if is_label(line):
         #    text = "\\label{" + name + ":"
         #    line = line.replace("\\label{", text)
@@ -85,6 +80,9 @@ def print_preamble(path,stacks=False):
         else:
             if line.find("\\documentclass") >= 0:
                 line = "\\documentclass[oneside,12pt,a4paper]{book}\n"
+        if line.find("ABSOLUTEPATH") >= 0:
+            absolute_path = preprocess.absolute_path()
+            line = line.replace("ABSOLUTEPATH", absolute_path)
         print(line,end="")
     preamble.close()
     return
@@ -137,10 +135,13 @@ def main(style):
     print("\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}")
     print_list_contrib(absolute_path+"/")
     print("\\dominitoc")
-    print("{\\ShortTableOfContents}")
-    print("\\clearpage")
-    print("\\setcounter{tocdepth}{2}")
-    print("{\\TableOfContents}")
+    if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "crimson-pro", "eb-garamond", "xcharter"]:
+        print("{\\ShortTableOfContents}")
+        print("\\clearpage")
+        print("\\setcounter{tocdepth}{2}")
+        print("{\\TableOfContents}")
+    else:
+        print("\\tableofcontents")
     print("\\mainmatter")
 
     lijstje = list_text_files(absolute_path+"/")

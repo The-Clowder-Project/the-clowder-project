@@ -1,5 +1,18 @@
 # Find location of repository
-import re
+import re, os, sys
+
+def absolute_path():
+    # Get the absolute path of the script
+    script_absolute_path = os.path.abspath(__file__)
+
+    # Get the directory containing the script
+    script_dir = os.path.dirname(script_absolute_path)
+
+    # Construct the parent directory by removing the "scripts/" subdirectory
+    parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
+
+    return parent_dir
+
 def get_path_2():
     from sys import argv
     if not len(argv) == 3 and not len(argv) == 4:
