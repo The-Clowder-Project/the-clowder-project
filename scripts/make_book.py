@@ -155,7 +155,7 @@ def main(style):
     print_list_contrib(absolute_path+"/")
     print("\\end{center}")
     print("\\dominitoc")
-    if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "crimson-pro", "eb-garamond", "xcharter"]:
+    if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "cm", "crimson-pro", "eb-garamond", "xcharter"]:
         print("{\\ShortTableOfContents}")
         print("\\clearpage")
         print("\\setcounter{tocdepth}{2}")

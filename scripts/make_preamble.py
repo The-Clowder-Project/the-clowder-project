@@ -173,6 +173,7 @@ def main():
     # PREAMBLE_CM
     with open(absolute_path+'/preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:
         preamble_cm.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
+        preamble_cm.write(content_toc)
 
     # PREAMBLE_ALEGREYA
     with open(absolute_path+'/preamble/compiled/preamble-alegreya.tex', 'w') as preamble_alegreya:
