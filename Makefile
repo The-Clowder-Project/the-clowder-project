@@ -376,6 +376,7 @@ cm:
 		echo >&2 ""; \
 		exit 1; \
 	else \
+		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/cm; \
 		echo "Generating the .TEX..."; \
