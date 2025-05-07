@@ -385,7 +385,7 @@ def version(path):
     from datetime import date
     now = date.today()
     version = git_version(path)
-    return r"V\kern-1.0ptersi\kern-0.25pton " + version + ", compiled on " + now.strftime('%h %d, %Y.')
+    return r"V\kern-1.0ptersion " + version.decode("utf-8") + ", compiled on " + now.strftime('%h %d, %Y.')
 # Print version and date
 def print_version(path):
     from datetime import date

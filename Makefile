@@ -325,7 +325,37 @@ init:
 		echo "-- Run target finished successfully."; \
 	fi
 
-# Target which creates all pdf files of chapters
+.PHONY: titlepage
+titlepage:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		cd titlepage; \
+		python$(PYTHON_VERSION) make_version.py ../ > text/version.tex; \
+		cd text; \
+		lualatex title.tex; \
+		lualatex year.tex; \
+		lualatex author.tex; \
+		lualatex version.tex; \
+		cd ../; \
+		lualatex titlepage.tex; \
+	fi
+
 .PHONY: cm
 cm:
 	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
@@ -346,16 +376,32 @@ cm:
 		echo >&2 ""; \
 		exit 1; \
 	else \
-		mkdir tmp/cm; \
+		mkdir -p output; \
+		mkdir -p tmp/cm; \
 		echo "Generating the .TEX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/cm/book.tex; \
 		cd tmp/cm/; \
+		cp ../../index_style.ist ./; \
+		cp ../../stacks-project.cls ./; \
+		cp ../../stacks-project-book.cls ./; \
 		echo "Processing the .TEX..."; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
-		lualatex book.tex; \
+		echo "Compiling with LuaLaTeX..."; \
+		max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000 lualatex book; \
+		echo "Compiling indices..."; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		echo "Running Biber..."; \
+		biber book; \
+		echo "Saving PDF..."; \
+		mv book.pdf ../../output/book/cm.pdf; \
 	fi
 
 # Target which creates all pdf files of chapters

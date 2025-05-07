@@ -1,21 +1,21 @@
 from functions import *
 import sys
+import datetime
 import preprocess
 
-def print_tex_file(tex_file,style):
+def print_tex_file(tex_file,name,style):
     for line in tex_file:
         if (style == "web"):
             line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_cm(line)
-            line = preprocess.scalemath_to_webcompile(line)
+            line = preprocess.proofbox_two(line)
         elif (style == "cm"):
+            line = preprocess.amsthm(line)
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_cm(line)
+            line = preprocess.proofbox_two(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
 
-        #line = preprocess.proofbox_two(line)
-        #line = preprocess.leftright_square_brackets_and_curly_brackets(line)
-        line = preprocess.expand_adjunctions(line)
         if line.find("\\input{preamble}") == 0:
             continue
         if line.find("\\begin{Introduction}") == 0:
@@ -37,10 +37,13 @@ def print_tex_file(tex_file,style):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
-        #if line.find("%\\item") >= 0:
-        #    continue
-        #if line.find("\\par\\vspace") >= 0:
-        #    continue
+        if line.find("%\\item") >= 0:
+            continue
+        if style == "alegreya-sans-tcb":
+            line = line # Do nothing
+        else:
+            if line.find("\\par\\vspace") >= 0:
+                continue
         #if line.find("\\item\\label") >= 0:
         #    line = re.sub(r'(\\SloganFont{[^}]+})',r'\1%\n',line)
         #    #if line.find("\\item\\label{(.*?)}\\SloganFont{(.*?)}") >= 0:
@@ -55,12 +58,13 @@ def print_tex_file(tex_file,style):
             line = line.replace("\\end{appendices}", "\\end{subappendices}")
         if line.find("\\end{document}") == 0:
             continue
-        #if is_label(line):
-        #    text = "\\label{" + name + ":"
-        #    line = line.replace("\\label{", text)
-        #if contains_cref(line):
-        #    line = replace_crefs(line, name)
+        if is_label(line):
+            text = "\\label{" + name + ":"
+            line = line.replace("\\label{", text)
+        if contains_cref(line):
+            line = replace_crefs(line, name)
         print(line,end="")
+    tex_file.close()
 
 def print_preamble(path,stacks=False):
     preamble = open(path, 'r')
@@ -133,7 +137,23 @@ def main(style):
     print("\\begin{document}")
     print("\\frontmatter")
     print("\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}")
+    print("\\newpage")
+    print("\\thispagestyle{empty}")
+    print("\\begin{center}")
+    print("\\end{center}")
+    print("\\vspace{3cm}")
+    print("\\begin{center}")
+    print("{\LARGE\\textbf{The Clowder Project Contributors}}")
+    print("\\end{center}")
+    print("\\vspace{1cm}")
+    print("\\begin{center}")
+    print(version(absolute_path+"/"))
+    print("\\end{center}")
+    print("\\vspace{3cm}")
+    print("\\begin{center}")
+    print("The following people have contributed to this project: ")
     print_list_contrib(absolute_path+"/")
+    print("\\end{center}")
     print("\\dominitoc")
     if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "crimson-pro", "eb-garamond", "xcharter"]:
         print("{\\ShortTableOfContents}")
@@ -158,7 +178,7 @@ def main(style):
             filename = absolute_path + "/" + name + ext
         tex_file = open(filename, 'r')
         verbatim = 0
-        print_tex_file(tex_file,style)
+        print_tex_file(tex_file,name,style)
         tex_file.close()
         print_chapters(absolute_path+"/")
 

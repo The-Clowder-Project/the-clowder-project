@@ -149,7 +149,7 @@ def remove_index(line):
         return ''.join(output)
     return remove_index_with_parser(line)
 
-def leftright_square_brackets_and_curly_brackets(line):
+def leftright_square_brackets_and_curly_braces(line):
     line = re.sub('(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\right)(?!right)}', '\\\\right\\}', line)
     line = re.sub('(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\left)(?!left){', '\\\\left\\{', line)
     # for square brackets
