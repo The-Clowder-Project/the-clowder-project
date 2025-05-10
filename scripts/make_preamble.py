@@ -153,7 +153,7 @@ def main():
 
     # PREAMBLE/EB_GARAMOND.TEX
     content_eb_garamond = ""
-    with open(absolute_path+'/preamble/eb_garamond.tex', 'r') as eb_garamond_tex:
+    with open(absolute_path+'/preamble/eb-garamond.tex', 'r') as eb_garamond_tex:
         content_eb_garamond = eb_garamond_tex.read()
 
     # PREAMBLE/XCHARTER.TEX
@@ -201,7 +201,7 @@ def main():
 
     # PREAMBLE_XCHARTER
     with open(absolute_path+'/preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
-        preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex', 'preamble/widebar.tex']))
         preamble_xcharter.write(content_xcharter)
         preamble_xcharter.write(content_toc)
 

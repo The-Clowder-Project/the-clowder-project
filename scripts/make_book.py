@@ -43,6 +43,13 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.remove_START_END_proofbox(line)
             line = preprocess.leftright_square_brackets_and_curly_braces(line)
             line = preprocess.expand_adjunctions(line)
+        elif (style == "xcharter"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
 
         if line.find("\\input{preamble}") == 0:
             continue
@@ -94,7 +101,7 @@ def print_tex_file(tex_file,name,style):
         print(line,end="")
     tex_file.close()
 
-def print_preamble(path,stacks=False):
+def print_preamble(path,style,stacks=False):
     preamble = open(path, 'r')
     for line in preamble:
         if line.find("%") == 0:
@@ -111,7 +118,10 @@ def print_preamble(path,stacks=False):
                 line = line.replace("stacks-project", "stacks-project-book")
         else:
             if line.find("\\documentclass") >= 0:
-                line = "\\documentclass[oneside,12pt,a4paper]{book}\n"
+                if style == "xcharter":
+                    line = "\\documentclass[oneside,11pt,a4paper]{book}\n"
+                else:
+                    line = "\\documentclass[oneside,12pt,a4paper]{book}\n"
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
@@ -161,7 +171,7 @@ def main(style):
     elif (style == "xcharter"):
         path = absolute_path + "/preamble/compiled/preamble-xcharter.tex"
 
-    print_preamble(path)
+    print_preamble(path,style)
     print("\\begin{document}")
     print("\\frontmatter")
     print("\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}")

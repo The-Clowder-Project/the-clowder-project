@@ -640,6 +640,62 @@ eb-garamond:
 		echo "Saving PDF..."; \
 		mv book.pdf ../../output/book/eb-garamond.pdf; \
 	fi
+
+.PHONY: xcharter
+xcharter:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		make titlepage; \
+		mkdir -p output; \
+		mkdir -p tmp/xcharter; \
+		echo "Generating the .TEX..."; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py xcharter > tmp/xcharter/book.tex; \
+		cd tmp/xcharter/; \
+		cp ../../index_style.ist ./; \
+		cp ../../stacks-project.cls ./; \
+		cp ../../stacks-project-book.cls ./; \
+		echo "Processing the .TEX..."; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
+		echo "Compiling with LuaLaTeX 1/3..."; \
+		$(LUALATEX_ARGS) lualatex book; \
+		echo "Compiling indices..."; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		echo "Running Biber..."; \
+		biber book; \
+		echo "Compiling with LuaLaTeX 2/3..."; \
+		$(LUALATEX_ARGS) lualatex book; \
+		echo "Running Biber..."; \
+		biber book; \
+		echo "Compiling with LuaLaTeX 3/3..."; \
+		$(LUALATEX_ARGS) lualatex book; \
+		echo "Saving PDF..."; \
+		mv book.pdf ../../output/book/xcharter.pdf; \
+	fi
+
 # Target which creates all pdf files of chapters
 .PHONY: pdfs
 pdfs: $(FOOS) $(BARS) $(PDFS)
