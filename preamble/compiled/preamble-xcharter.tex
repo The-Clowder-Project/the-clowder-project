@@ -509,6 +509,28 @@
 \else
     
 \fi
+\ifplastex
+\else
+    \makeatletter
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+\newcommand*\widebar[1]{%
+  \begingroup
+  \def\mathaccent##1##2{%
+    \rel@kern{0.8}%
+    \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
+    \rel@kern{-0.2}%
+  }%
+  \macc@depth\@ne
+  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+  \macc@set@skewchar\relax
+  \let\mathaccentV\macc@nested@a
+  \macc@nested@a\relax111{#1}%
+  \endgroup
+}
+\makeatother
+
+\fi
 \usepackage{centernot}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \let\lim\relax
@@ -519,9 +541,7 @@
 \DeclareMathOperator*{\min}{\operatorname{min}}
 \DeclareMathOperator*{\max}{\operatorname{max}}
 \DeclareMathOperator*{\lcm}{\operatorname{lcm}}
-\let\widebar\relax
-\newcommand{\widebar}[1]{\overline{#1}}
-\newcommand{\widebarS}[1]{\smash{\overline{#1}}}
+\newcommand{\widebarS}[1]{\smash{\widebar{#1}}}
 \newcommand{\wcolim}{\operatorname{colim}}
 \newcommand{\wlim}{\operatorname{lim}}
 \newcommand{\Lan}{\operatorname{Lan}}
@@ -1205,3 +1225,67 @@
 \usepackage[XCharter]{newtxmath}
 \newcommand{\Russian}[1]{#1}
 \usepackage[margin=4.5cm]{geometry}
+\usepackage{shorttoc}
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents (detailed)}
+\let\ToCFont\relax
+\let\ToCBoldFont\relax
+\newcommand{\ToCFont}{}
+\newcommand{\ToCBoldFont}{\bfseries}
+
+\newcommand{\TableOfContents}{%
+    {%
+        \hypersetup{hidelinks}\tableofcontents
+    }
+}
+\newcommand{\ShortTableOfContents}{%
+    {%
+        \hypersetup{hidelinks}\shorttoc{Contents}{1}
+    }
+}
+
+\makeatletter
+\newcommand \DotFill {\leavevmode \cleaders \hb@xt@ .33em{\hss .\hss }\hfill \kern \z@}
+\makeatother
+
+\definecolor{ToCGrey}{rgb}{0.4,0.4,0.4}
+\definecolor{mainColor}{rgb}{0.82745098,0.18431373,0.18431373}
+\newcommand{\cftsubsecfont}{\ToCFont\color{ToCGrey}}
+
+\usepackage{titletoc}
+
+\titlecontents{part}
+[0.0em]
+{\addvspace{1pc}\color{mainColor}\large\bfseries\ToCBoldFont\text{Part }}
+{\ToCBoldFont\bfseries\textcolor{mainColor}{\contentslabel{0.0em}}\hspace*{0.0em}}
+{}
+{\textcolor{mainColor}{{\hfill\ToCBoldFont\bfseries\contentspage\nobreak}}}
+[]
+
+\titlecontents{chapter}
+[0.0em]
+{\addvspace{1pc}}
+{\ToCBoldFont\color{black}\bfseries\textcolor{mainColor}{\contentslabel{0.0em}}\hspace*{1.8em}}
+{}
+{\textcolor{black}{\textbf{\DotFill}{\ToCBoldFont\bfseries\contentspage\nobreak}}}
+[]
+
+\titlecontents{section}
+[0.0em]
+{}
+{\hspace*{1.8em}\color{ToCGrey}\ToCFont{\contentslabel{0.0em}}\hspace*{2.55em}}
+{}
+{{\textcolor{ToCGrey}\DotFill}\textcolor{ToCGrey}{\ToCFont\contentspage}\nobreak}
+[]
+
+\titlecontents{subsection}
+[0.0em]
+{}
+{\hspace*{4.45em}\color{ToCGrey}\ToCFont{\contentslabel{0.0em}}\hspace*{3.2em}}
+{}
+{{\textcolor{ToCGrey}\DotFill}\textcolor{ToCGrey}{\ToCFont\contentspage}\nobreak}
+[]
+\makeindex[intoc=true, options= -s index_style.ist, name=notation, columns=2, title={Index of Notation}]
+\makeindex[intoc=true, options= -s index_style.ist, name=set-theory, columns=2, title={Index of Set Theory}]
+\makeindex[intoc=true, options= -s index_style.ist, name=categories, columns=2, title={Index of Category Theory}]
+\makeindex[intoc=true, options= -s index_style.ist, name=higher-categories, columns=2, title={Index of Higher Category Theory}]

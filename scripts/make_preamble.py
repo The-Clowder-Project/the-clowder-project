@@ -177,28 +177,33 @@ def main():
 
     # PREAMBLE_ALEGREYA
     with open(absolute_path+'/preamble/compiled/preamble-alegreya.tex', 'w') as preamble_alegreya:
-        preamble_alegreya.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        preamble_alegreya.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex','preamble/widebar.tex']))
         preamble_alegreya.write(content_alegreya)
+        preamble_alegreya.write(content_toc)
 
     # PREAMBLE_ALEGREYA_SANS
     with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans.tex', 'w') as preamble_alegreya_sans:
-        preamble_alegreya_sans.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        preamble_alegreya_sans.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex','preamble/widebar.tex']))
         preamble_alegreya_sans.write(content_alegreya_sans)
+        preamble_alegreya_sans.write(content_toc)
 
     # PREAMBLE_CRIMSON_PRO
     with open(absolute_path+'/preamble/compiled/preamble-crimson-pro.tex', 'w') as preamble_crimson_pro:
-        preamble_crimson_pro.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        preamble_crimson_pro.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex', 'preamble/widebar.tex']))
         preamble_crimson_pro.write(content_crimson_pro)
+        preamble_crimson_pro.write(content_toc)
 
     # PREAMBLE_EB_GARAMOND
     with open(absolute_path+'/preamble/compiled/preamble-eb-garamond.tex', 'w') as preamble_eb_garamond:
-        preamble_eb_garamond.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        preamble_eb_garamond.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex', 'preamble/widebar.tex']))
         preamble_eb_garamond.write(content_eb_garamond)
+        preamble_eb_garamond.write(content_toc)
 
     # PREAMBLE_XCHARTER
     with open(absolute_path+'/preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
         preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
         preamble_xcharter.write(content_xcharter)
+        preamble_xcharter.write(content_toc)
 
     # PREAMBLE_ALEGREYA_SANS_TCB
     with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans-tcb.tex', 'w') as preamble_alegreya_sans_tcb:

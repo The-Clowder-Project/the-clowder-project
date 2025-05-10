@@ -96,7 +96,7 @@ def rmIendproofbox(line):
     line = re.sub(r"\\rmVENDPROOFBOX",r"\\rmV ENDPROOFBOX",line)
     return line
 
-def proofbox_cm(line):
+def proofbox_to_proof(line):
     line = re.sub(r"\\FirstProofBox",r"\\ProofBox",line)
     line = re.sub(r"\\ProofBox{\\cref{([a-zA-Z0-9-]+)}: ([\\`,'a-zA-Z0-9 :\-$_{}\*\(\)\/]+)}%",r"\\textit{\\cref{\1}, \2}:",line)
     line = re.sub(r"\\ProofBox{(.*)}%\n",r"\\textit{STARTPROOFBOX\1ENDPROOFBOX}:",line)
@@ -106,7 +106,7 @@ def scalemath_to_webcompile(line):
     line = re.sub(r"scalemath",r"webcompile",line)
     return line
 
-def proofbox_two(line):
+def remove_START_END_proofbox(line):
     line = re.sub(r"STARTPROOFBOX",r"",line)
     line = re.sub(r"ENDPROOFBOX",r"",line)
     return line

@@ -11,8 +11,36 @@ def print_tex_file(tex_file,name,style):
         elif (style == "cm"):
             line = preprocess.amsthm(line)
             line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_cm(line)
-            line = preprocess.proofbox_two(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
+        elif (style == "alegreya"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
+        elif (style == "alegreya-sans"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
+        elif (style == "crimson-pro"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
+            line = preprocess.expand_adjunctions(line)
+        elif (style == "eb-garamond"):
+            line = preprocess.amsthm(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.remove_START_END_proofbox(line)
             line = preprocess.leftright_square_brackets_and_curly_braces(line)
             line = preprocess.expand_adjunctions(line)
 
