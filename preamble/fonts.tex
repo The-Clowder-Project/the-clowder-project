@@ -1,11 +1,11 @@
 \usepackage[cal=cm]{mathalfa}
 \usepackage{fontspec}
 \SetTracking{encoding=*, shape=sc}{-5}
-\newfontfamily\JapaneseFont[Path=ABSOLUTEPATH/fonts/japanese/,Scale=1.0]{NotoSansJP-Regular.otf}
+\newfontfamily\JapaneseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}},Extension = {.otf}]{NotoSansJP-VF.otf}
 \newcommand{\Japanese}[1]{{\text{\JapaneseFont{#1}}}}
-\newfontfamily\SimplifiedChineseFont[Path=ABSOLUTEPATH/fonts/chinese/,Scale=1.0]{NotoSansSC-Regular.ttf}
+\newfontfamily\SimplifiedChineseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}},Extension = {.otf}]{NotoSansSC-VF.otf}
 \newcommand{\SimplifiedChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
-\newfontfamily\TraditionalChineseFont[Path=ABSOLUTEPATH/fonts/chinese/,Scale=1.0]{NotoSansTC-Regular.ttf}
+\newfontfamily\TraditionalChineseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}}]{NotoSansTC-VF.otf}
 \newcommand{\TraditionalChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
 \newcommand{\FontForCategories}[1]{\mathsf{#1}}
 \newcommand{\FontForEnrichedCategories}[1]{\textup{\textsf{\textbf{#1}}}}
