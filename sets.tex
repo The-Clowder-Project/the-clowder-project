@@ -29,7 +29,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
         \llbracket x\mapsto f(x)\rrbracket.%
     \]%
     \begin{enumerate}
-        \item For example, given a function%
+        \item\label{additional-notation-for-functions-1}For example, given a function%
             \[
                 \Phi%
                 \colon%
@@ -43,7 +43,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
                 \defeq%
                 \Phi(\llbracket x\mapsto f(x)\rrbracket).%
             \]%
-        \item This notational choice is based on the lambda notation
+        \item\label{additional-notation-for-functions-2}This notational choice is based on the lambda notation
             \[
                 f%
                 \defeq%
@@ -69,7 +69,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
                         \item $\Phi((\lambda x.\ f(x)))$%
                     \end{enumerate}
             \end{enumerate}
-        \item We will also sometimes write $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+        \item\label{additional-notation-for-functions-3}We will also sometimes write $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
             \begin{enumerate}
                 \item Writing $f(-_{1})$ for a function $f\colon A\to B$.
                 \item Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
@@ -92,7 +92,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
                     \]%
                     by $f(\phi(-_{1}),-_{2})$.
             \end{enumerate}
-        \item Finally, given a function $f\colon A\to B$, we write
+        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we write
             \[
                 \ev_{a}(f)%
                 \defeq%
@@ -135,7 +135,6 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
     %--- Begin Footnote ---%
     \footnote{%
         For more motivation, see \cite[p.~13]{lectures-on-n-categories-and-cohomology}.
-        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     $(-1)$-categories should be thought of as being \say{categories enriched in $(-2)$-categories}, having a collection of objects and, for each pair of objects, a $\Hom$-object $\Hom(x,y)$ that is a $(-2)$-category (i.e.\ trivial).
@@ -149,6 +148,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
     %--- Begin Footnote ---%
     \footnote{%
         See \cite[pp.~33--34]{lectures-on-n-categories-and-cohomology}.
+        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}

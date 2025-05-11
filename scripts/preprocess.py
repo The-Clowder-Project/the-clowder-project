@@ -63,6 +63,9 @@ def pdf_only(line):
     else:
         return line
 
+def trans_flag_tcb_fix(line):
+    return re.sub(r"../../pictures/trans-flag",r"../../../pictures/trans-flag",line)
+
 def tcbthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
 

@@ -8,43 +8,14 @@ def print_tex_file(tex_file,name,style):
         if (style == "web"):
             line = preprocess.amsthm(line)
             line = preprocess.proofbox_two(line)
-        elif (style == "cm"):
-            line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_to_proof(line)
+        elif (style == "alegreya-sans-tcb"):
+            line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
             line = preprocess.leftright_square_brackets_and_curly_braces(line)
             line = preprocess.expand_adjunctions(line)
-        elif (style == "alegreya"):
+        else:
             line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_to_proof(line)
-            line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
-        elif (style == "alegreya-sans"):
-            line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_to_proof(line)
-            line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
-        elif (style == "crimson-pro"):
-            line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_to_proof(line)
-            line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
-        elif (style == "eb-garamond"):
-            line = preprocess.amsthm(line)
-            line = preprocess.Proof_to_proof(line)
-            line = preprocess.proofbox_to_proof(line)
-            line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
-        elif (style == "xcharter"):
-            line = preprocess.amsthm(line)
+            line = preprocess.textdbend(line)# changes 'END TEXTDBEND' into ''
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
             line = preprocess.remove_START_END_proofbox(line)
@@ -125,6 +96,8 @@ def print_preamble(path,style,stacks=False):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
+        if style == "alegreya-sans-tcb":
+            line = preprocess.trans_flag_tcb_fix(line)
         print(line,end="")
     preamble.close()
     return

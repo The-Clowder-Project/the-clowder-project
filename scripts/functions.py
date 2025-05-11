@@ -376,7 +376,7 @@ def replace_crefs(line, name):
 def print_chapters(path):
     chapters = open(path + "chapters.tex", 'r')
     for line in chapters:
-        print(line),
+        print(line,end=''),
     chapters.close()
     return
 

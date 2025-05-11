@@ -2,7 +2,11 @@
 \usepackage{inconsolata}
 \setmonofont{inconsolata}%
 \usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
-\usepackage{XCharter}
-\usepackage[xcharter]{newtxmath}
+\let\rmdefaultB\text
 \newcommand{\Russian}[1]{#1}
 \usepackage[margin=4.5cm]{geometry}
+\usepackage[xcharter]{newtxmath}
+\usepackage{XCharter}
+\let\rmdefaultA\text
+\let\rmdefaultB\text
+\let\mathrm\text

@@ -1,3 +1,12 @@
+\usepackage{inconsolata}
+\setmonofont{inconsolata}%
+\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
+\newcommand{\Russian}[1]{#1}
+\usepackage[margin=4.25cm]{geometry}
+\usepackage[libertine]{newtxmath}
+\let\rmdefaultA\text
+\let\rmdefaultB\text
+\let\mathrm\text
 \usepackage{fontspec}
 \setmainfont[%
     Path = ABSOLUTEPATH/fonts/alegreya-sans/,%
@@ -7,8 +16,3 @@
     ItalicFont={AlegreyaSans-Italic.ttf},%
     BoldItalicFont={AlegreyaSans-BoldItalic.ttf},%
 ]{AlegreyaSans}
-\usepackage[libertine]{newtxmath}
-\usepackage{inconsolata}
-\setmonofont{inconsolata}%
-\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
-\newcommand{\Russian}[1]{#1}

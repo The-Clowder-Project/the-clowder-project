@@ -1,7 +1,9 @@
 from functions import *
+import preprocess
+import re
 
 from sys import argv
-if not len(argv) == 3:
+if not len(argv) == 4:
     print("")
     print("This script needs exactly two arguments")
     print("namely the path to the stacks project")
@@ -9,11 +11,10 @@ if not len(argv) == 3:
     print("")
     raise Exception('Wrong arguments')
 
-path = argv[1]
-path.rstrip("/")
-path = path + "/"
+path = preprocess.absolute_path()+"/"
 
-name = argv[2]
+path_name = argv[2]
+name = argv[3]
 
 def replace_newtheorem(line):
     #if line.find("\\newtheorem{definition}{Definition}[subsection]") == 0:
@@ -35,7 +36,7 @@ def replace_newtheorem(line):
 if name == "preamble":
     tex_file = open(path + name + ".tex", 'r')
     for line in tex_file:
-        print replace_newtheorem(line),
+        print(replace_newtheorem(line))
 
     version = git_version(path)
 
@@ -60,12 +61,13 @@ tags = get_tags(path)
 label_tags = dict((tags[n][1], tags[n][0]) for n in range(0, len(tags)))
 
 if name == "book":
-    tex_file = open(path + "tmp/" + name + ".tex", 'r')
+    tex_file = open(path + path_name+name + ".tex", 'r')
 else:
     tex_file = open(path + name + ".tex", 'r')
 
 document = 0
 verbatim = 0
+content = ""
 for line in tex_file:
     
     # Check for verbatim
@@ -73,7 +75,7 @@ for line in tex_file:
     if verbatim:
         if end_of_verbatim(line):
             verbatim = 0
-        print(line),
+        content += line
         continue
 
     # Do stuff in preamble or just after \begin{document}
@@ -81,11 +83,11 @@ for line in tex_file:
         if name == "book":
             line = replace_newtheorem(line)
             if line.find("\\begin{document}") == 0:
-                print("\\usepackage{marginnote}")
-                print("\\renewcommand*{\\marginfont}{\\normalfont}")
-        print(line),
+                content += "\\usepackage{marginnote}"
+                content += "\\renewcommand*{\\marginfont}{\\normalfont}"
+        content += line
         if line.find("\\begin{document}") == 0:
-            print("\\newcommand{\\TAG}{ZZZZ}")
+            content += "\\newcommand{\\TAG}{ZZZZ}"
             document = 1
         continue
 
@@ -96,34 +98,61 @@ for line in tex_file:
             label = short
         else:
             label = name + ":" + short
-        print(line),
-        # don't put in hypertarget if label does not have a tag
-        if label in label_tags:
-                print("\\hypertarget{" + label_tags[label] + "}{}")
-                # there is a bug in marginnotes that eats subsection titles...
-                #if short.find("subsection") >= 0:
-                #    line = tex_file.next()
-                #    print(line),
-                #    line = tex_file.next()
-                #    print(line),
-                #    print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}")
-                #    print("yay - " + label)
-                #else:
-                if line.find("section-") >= 0 and short.find("phantom") == -1:
-                    if line.find(r":section-") >= 0 and short.find("phantom") == -1:
-                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.85\\baselineskip]\\par\\vspace{-0.0\\baselineskip}")
-                    if line.find(r':subsection-') >= 0 and short.find("phantom") == -1:
-                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}")
-                    if line.find(":subsubsection-") >= 0 and short.find("phantom") == -1:
-                        print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}")
+        if path_name == "tmp/tags/alegreya-sans-tcb/":
+            if (re.search(r"\\begin{warning}",line)):
+                content += "\\hypertarget{" + label_tags[label] + "}{}"
+                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[0.0625\\baselineskip]\\par\\vspace{-0.5625\\baselineskip}"
+                content += line
+            else:
+                if label in label_tags and line.find("\\item\\label") >= 0:
+                    content += "\\item"
+                    content += "\\hypertarget{" + label_tags[label] + "}{}"
+                    content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
+                    content += re.sub(r"\\item","",line)
                 else:
-                    print("\\reversemarginpar\\marginnote{\\texttt{\\href{https://topological-modular-forms.github.io/the-clowder-project/tag/" + label_tags[label] + "}{" + label_tags[label] + "}}}")
-        continue
+                    content += line
+                # don't put in hypertarget if label does not have a tag
+                if label in label_tags and not line.find("\\item\\label") >= 0:
+                    content += "\\hypertarget{" + label_tags[label] + "}{}"
+                    if (line.find("section-") >= 0 and short.find("phantom") == -1):
+                        if line.find(r":section-") >= 0 and short.find("phantom") == -1:
+                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.925\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                        if line.find(r':subsection-') >= 0 and short.find("phantom") == -1:
+                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                        if line.find(":subsubsection-") >= 0 and short.find("phantom") == -1:
+                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                    else:
+                        if line.find("section-") >= 0 and short.find("phantom") >= 0:
+                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
+                        else:
+                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.7\\baselineskip]"
+            continue
+        else:
+            if label in label_tags and line.find("\\item\\label") >= 0:
+                content += "\\item"
+                content += "\\hypertarget{" + label_tags[label] + "}{}"
+                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
+                content += re.sub(r"\\item","",line)
+            else:
+                content += line
+            # don't put in hypertarget if label does not have a tag
+            if label in label_tags and not line.find("\\item\\label") >= 0:
+                content += "\\hypertarget{" + label_tags[label] + "}{}"
+                if (line.find("section-") >= 0 and short.find("phantom") == -1):
+                    if line.find(r":section-") >= 0 and short.find("phantom") == -1:
+                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.85\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                    if line.find(r':subsection-') >= 0 and short.find("phantom") == -1:
+                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                    if line.find(":subsubsection-") >= 0 and short.find("phantom") == -1:
+                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                else:
+                    content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
+            continue
 
     # Lines with labeled environments
     if labeled_env(line):
         oldline = line
-        line = tex_file.next()
+        line = next(tex_file)
         short = find_label(line)
         if name == "book":
             label = short
@@ -131,24 +160,27 @@ for line in tex_file:
             label = name + ":" + short
         if not label in label_tags:
             # ZZZZ is used as pointer to nonexistent tags
-            print("\\renewcommand{\\TAG}{ZZZZ}")
-            print(oldline),
-            print(line),
+            content += "\\renewcommand{\\TAG}{ZZZZ}"
+            content += oldline
+            content += line
             continue
-        print("\\renewcommand{\\TAG}{" + label_tags[label] + "}")
-        print(oldline),
-        print(line),
-        print("\\reversemarginpar\\marginnote{" + label_tags[label] + "}\\hypertarget{" + label_tags[label] + "}{}")
+        content += "\\renewcommand{\\TAG}{" + label_tags[label] + "}"
+        content += oldline
+        content += line
+        content += "\\reversemarginpar\\marginnote{" + label_tags[label] + "}\\hypertarget{" + label_tags[label] + "}{}"
         continue
 
     if line.find("\\begin{reference}") == 0:
-        print("\\normalmarginpar\\marginnote{")
+        content += "\\normalmarginpar\\marginnote{"
         continue
 
     if line.find("\\end{reference}") == 0:
-        print("}")
+        content += "}"
         continue
 
-    print(line),
+    content += line
 
 tex_file.close()
+with open(path + path_name+name + ".tex", 'w') as f:
+    f.write(content)
+f.close()

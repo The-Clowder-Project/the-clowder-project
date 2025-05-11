@@ -148,7 +148,7 @@ def main():
 
     # PREAMBLE/CRIMSON_PRO.TEX
     content_crimson_pro = ""
-    with open(absolute_path+'/preamble/crimson_pro.tex', 'r') as crimson_pro_tex:
+    with open(absolute_path+'/preamble/crimson-pro.tex', 'r') as crimson_pro_tex:
         content_crimson_pro = crimson_pro_tex.read()
 
     # PREAMBLE/EB_GARAMOND.TEX
@@ -207,7 +207,7 @@ def main():
 
     # PREAMBLE_ALEGREYA_SANS_TCB
     with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans-tcb.tex', 'w') as preamble_alegreya_sans_tcb:
-        preamble_alegreya_sans_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex']))
+        preamble_alegreya_sans_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
         preamble_alegreya_sans_tcb.write(content_tcbthm)
         preamble_alegreya_sans_tcb.write(content_tcb_footnotes)
         preamble_alegreya_sans_tcb.write(content_alegreya_sans)
