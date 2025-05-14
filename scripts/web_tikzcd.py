@@ -108,13 +108,13 @@ for name in lijstje:
         line = preprocess.expand_cref(line)
         line = preprocess.remove_index(line)
         #line = preprocess.parbox(line)
-        line = preprocess.proofbox_cm(line)
+        line = preprocess.Proof_to_proof(line)
         #line = preprocess.scalemath_to_webcompile(line)
         # CM exclusive
         line = preprocess.amsthm_web(line)
-        line = preprocess.proof(line)
+        line = preprocess.proofbox_to_proof(line)
         # Everyone
-        line = preprocess.leftright_square_brackets_and_curly_brackets(line)
+        line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
         verbatim = verbatim + beginning_of_verbatim(line)
         if verbatim:

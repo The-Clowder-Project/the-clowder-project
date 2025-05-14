@@ -8,7 +8,7 @@ regex() {
   find . -name "*.proof" | xargs -I {} -P 12 python ../../the-clowder-project/scripts/$1 {}
   find . -name "*.footnote" | xargs -I {} -P 12 python ../../the-clowder-project/scripts/$1 {}
   end=$(date +%s.%2N)
-  duration=$(echo "$end - $start" | bc)
+: duration=$(echo "$end - $start" | bc)
   echo "Regex $1 finished in $duration seconds."
 }
 

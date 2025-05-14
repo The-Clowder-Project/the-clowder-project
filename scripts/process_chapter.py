@@ -74,7 +74,7 @@ with open(tex_file) as fp:
                    if line2.find(r"ABSOLUTEPATH") >= 0:
                        absolute_path = preprocess.absolute_path()
                        line2 = line2.replace("ABSOLUTEPATH",absolute_path)
-                   if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+                   if (style == "tags-alegreya-sans-tcb"):
                        line2 = preprocess.trans_flag_tcb_fix(line2)
                    f.write(line2)
            line = fp.readline()

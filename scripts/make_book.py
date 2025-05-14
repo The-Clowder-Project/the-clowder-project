@@ -10,9 +10,9 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
             line = preprocess.scalemath_to_webcompile(line)
-            line = preprocess.leftright_square_brackets_and_curly_brackets(line)
+            line = preprocess.leftright_square_brackets_and_curly_braces(line)
             line = preprocess.expand_adjunctions(line)
-        elif (style == "alegreya-sans-tcb"):
+        elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
             line = preprocess.leftright_square_brackets_and_curly_braces(line)
@@ -100,7 +100,7 @@ def print_preamble(path,style,stacks=False):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
-        if style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
+        if style == "tags-alegreya-sans-tcb":
             line = preprocess.trans_flag_tcb_fix(line)
         print(line,end="")
     preamble.close()
@@ -133,19 +133,19 @@ def main(style):
     # Choose preamble based on style
     if (style == "web"):
         path = absolute_path + "/preamble/compiled/preamble-web.tex"
-    elif (style == "cm"):
+    elif (style == "cm" or style == "tags-cm"):
         path = absolute_path + "/preamble/compiled/preamble-cm.tex"
-    elif (style == "alegreya"):
+    elif (style == "alegreya" or style == "tags-alegreya"):
         path = absolute_path + "/preamble/compiled/preamble-alegreya.tex"
-    elif (style == "alegreya-sans"):
+    elif (style == "alegreya-sans" or style == "tags-alegreya-sans"):
         path = absolute_path + "/preamble/compiled/preamble-alegreya-sans.tex"
-    elif (style == "alegreya-sans-tcb"):
+    elif (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
         path = absolute_path + "/preamble/compiled/preamble-alegreya-sans-tcb.tex"
-    elif (style == "crimson-pro"):
+    elif (style == "crimson-pro" or style == "tags-crimson-pro"):
         path = absolute_path + "/preamble/compiled/preamble-crimson-pro.tex"
-    elif (style == "eb-garamond"):
+    elif (style == "eb-garamond" or style == "tags-eb-garamond"):
         path = absolute_path + "/preamble/compiled/preamble-eb-garamond.tex"
-    elif (style == "xcharter"):
+    elif (style == "xcharter" or style == "tags-xcharter"):
         path = absolute_path + "/preamble/compiled/preamble-xcharter.tex"
 
     print_preamble(path,style)

@@ -968,7 +968,7 @@ tags-alegreya-sans-tcb:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans-tcb > tmp/tags/alegreya-sans-tcb/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya-sans-tcb > tmp/tags/alegreya-sans-tcb/book.tex; \
 		cd tmp/tags/alegreya-sans-tcb/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -2021,10 +2021,14 @@ pdfs: $(FOOS) $(BARS) $(PDFS)
 .PHONY: tikzcd
 tikzcd: echo "nothing for now"
 
+# Define ANSI color codes
+GREEN   := \033[1;32m # Bold Green
+NC      := \033[0m    # No Color / Reset
+
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
 web-and-serve:
-	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@printf "$(GREEN)--Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
 	@# Check if the CONDA_PREFIX environment variable is set and if its
 	@# basename (the last part of the path) matches the desired environment name.
 	@# This is the most common way Conda indicates the active environment.
@@ -2042,16 +2046,22 @@ web-and-serve:
 		echo >&2 ""; \
 		exit 1; \
 	else \
-		echo "-- Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX)."; \
-		echo "-- Compiling preambles..."; \
+		export LC_NUMERIC=C; \
+		start=$$(date +%s.%2N); \
+		printf "$(GREEN)--Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX).$(NC)\n"; \
+		printf "$(GREEN)--Compiling preambles...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		echo "-- Compiling .TeX book..."; \
+		printf "$(GREEN)--Compiling and processing .TeX book...$(NC)\n"; \
+		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
 		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) scripts/process_raw_html_latex.py book.tex; \
 		cp book.tex tmp/; \
-		echo "-- Compiling tags..."; \
+		tex_end=$$(date +%s.%2N); \
+		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
+		printf "$(GREEN)--Compiling tags...$(NC)\n"; \
+		tags_start=$$(date +%s.%2N); \
 		rm tags/tags; \
 		cp tags/tags.old tags/tags; \
 		cd tags; \
@@ -2060,21 +2070,42 @@ web-and-serve:
 		rm -rf WEB; \
 		mkdir ../WEB; \
 		echo yes | python$(PYTHON_VERSION) scripts/add_tags.py; \
+		tags_end=$$(date +%s.%2N); \
+		tags_duration=$$(echo "$$tags_end - $$tags_start" | bc); \
+		printf "$(GREEN)--Compiling TikZ-CD diagrams$(NC)\n"; \
+		tikzcd_start=$$(date +%s.%2N); \
 		make web; \
 		python$(PYTHON_VERSION) ./scripts/web_tikzcd.py ./ > ../WEB/tikz.tex; \
 		make tikzcd; \
 		cd ../WEB; \
-		echo "-- Running plasTeX"; \
+		tikzcd_end=$$(date +%s.%2N); \
+		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
+		printf "$(GREEN)--Running plasTeX$(NC)\n"; \
+		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
+		plastex_end=$$(date +%s.%2N); \
+		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
 		cd ../the-clowder-project; \
 		mv ../WEB ./; \
 		cd gerby-website/gerby/tools/; \
 		rm stacks.sqlite ../stacks.sqlite; \
-		echo "-- Running Gerby"; \
+		printf "$(GREEN)--Running Gerby$(NC)\n"; \
+		gerby_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) update.py; \
 		ln -s tools/stacks.sqlite stacks.sqlite; \
-		echo "-- Serving at localhost"; \
+		gerby_end=$$(date +%s.%2N); \
+		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
+		printf "$(GREEN)--Serving at localhost$(NC)\n"; \
+		end=$$(date +%s.%2N); \
+		duration=$$(echo "$$end - $$start" | bc); \
+        printf "$(GREEN)-- Run target finished successfully.$(NC)\n"; \
+        printf "$(GREEN)-- Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+        printf "$(GREEN)   -->     .TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+        printf "$(GREEN)   -->     Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+        printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+        printf "$(GREEN)   -->  TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+        printf "$(GREEN)   -->    Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+        \
+		cd ../; \
 		FLASK_APP=application.py flask run; \
-		echo "-- ..."; \
-		echo "-- Run target finished successfully."; \
 	fi
