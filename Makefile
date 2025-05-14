@@ -192,12 +192,6 @@ tags_clean:
 .PHONY: book
 book: book.foo book.bar book.dvi book.pdf
 
-.PHONY: clean
-clean:
-	rm -f *.aux *.bbl *.blg *.dvi *.log *.pdf *.ps *.out *.toc *.foo *.bar
-	rm -f tmp/book.tex tmp/index.tex
-	rm -f stacks-project.tar.bz2
-
 .PHONY: distclean
 distclean: clean tags_clean
 
@@ -209,10 +203,6 @@ backup:
 .PHONY: tarball
 tarball:
 	git archive --prefix=stacks-project/ HEAD | bzip2 > stacks-project.tar.bz2
-
-# Target which makes all dvis and all pdfs, as well as the tarball
-.PHONY: all
-all: dvis pdfs book tarball
 
 .PHONY: install
 install:
@@ -423,13 +413,13 @@ cm:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/cm; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/cm/book.tex; \
 		cd tmp/cm/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -475,14 +465,14 @@ alegreya:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/alegreya; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya > tmp/alegreya/book.tex; \
 		cd tmp/alegreya/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -528,14 +518,14 @@ alegreya-sans:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/alegreya-sans; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans > tmp/alegreya-sans/book.tex; \
 		cd tmp/alegreya-sans/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -581,14 +571,14 @@ crimson-pro:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/crimson-pro; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py crimson-pro > tmp/crimson-pro/book.tex; \
 		cd tmp/crimson-pro/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -634,14 +624,14 @@ eb-garamond:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/eb-garamond; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py eb-garamond > tmp/eb-garamond/book.tex; \
 		cd tmp/eb-garamond/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -687,14 +677,14 @@ xcharter:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/xcharter; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py xcharter > tmp/xcharter/book.tex; \
 		cd tmp/xcharter/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -740,14 +730,14 @@ alegreya-sans-tcb:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/alegreya-sans-tcb; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans-tcb > tmp/alegreya-sans-tcb/book.tex; \
 		cd tmp/alegreya-sans-tcb/; \
 		cp ../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
@@ -800,14 +790,14 @@ tags-cm:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/cm; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/tags/cm/book.tex; \
 		cd tmp/tags/cm/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -858,14 +848,14 @@ tags-alegreya:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/alegreya; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya > tmp/tags/alegreya/book.tex; \
 		cd tmp/tags/alegreya/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -916,14 +906,14 @@ tags-alegreya-sans:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/alegreya-sans; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans > tmp/tags/alegreya-sans/book.tex; \
 		cd tmp/tags/alegreya-sans/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -974,14 +964,14 @@ tags-alegreya-sans-tcb:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/alegreya-sans-tcb; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans-tcb > tmp/tags/alegreya-sans-tcb/book.tex; \
 		cd tmp/tags/alegreya-sans-tcb/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -1032,14 +1022,14 @@ tags-crimson-pro:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/crimson-pro; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py crimson-pro > tmp/tags/crimson-pro/book.tex; \
 		cd tmp/tags/crimson-pro/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -1090,14 +1080,14 @@ tags-eb-garamond:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/eb-garamond; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py eb-garamond > tmp/tags/eb-garamond/book.tex; \
 		cd tmp/tags/eb-garamond/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -1148,14 +1138,14 @@ tags-xcharter:
 		make titlepage; \
 		mkdir -p output; \
 		mkdir -p tmp/tags/xcharter; \
-		echo "Generating the .TEX..."; \
+		echo "Generating the .TeX..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_book.py xcharter > tmp/tags/xcharter/book.tex; \
 		cd tmp/tags/xcharter/; \
 		cp ../../../index_style.ist ./; \
-		echo "Processing the .TEX..."; \
+		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
 		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
@@ -1581,7 +1571,7 @@ tags-chapters-cm:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1636,7 +1626,7 @@ tags-chapters-alegreya:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1691,7 +1681,7 @@ tags-chapters-alegreya-sans:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1746,7 +1736,7 @@ tags-chapters-alegreya-sans-tcb:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1801,7 +1791,7 @@ tags-chapters-crimson-pro:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1856,7 +1846,7 @@ tags-chapters-eb-garamond:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1911,7 +1901,7 @@ tags-chapters-xcharter:
 		for item_basename in $(LIJST); do \
 			echo "--------------------------------------------------"; \
 			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TEX..."; \
+			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -1939,9 +1929,97 @@ tags-chapters-xcharter:
 		echo "All chapters processed."; \
 	fi
 
+.PHONY: all
+all:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Current $$CONDA_PREFIX='$$CONDA_PREFIX'"; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		make cm; \
+		make alegreya; \
+		make alegreya-sans; \
+		make alegreya-sans-tcb; \
+		make crimson-pro; \
+		make eb-garamond; \
+		make xcharter; \
+		make tags-cm; \
+		make tags-alegreya; \
+		make tags-alegreya-sans; \
+		make tags-alegreya-sans-tcb; \
+		make tags-crimson-pro; \
+		make tags-eb-garamond; \
+		make tags-xcharter; \
+		make chapters-cm; \
+		make chapters-alegreya; \
+		make chapters-alegreya-sans; \
+		make chapters-alegreya-sans-tcb; \
+		make chapters-crimson-pro; \
+		make chapters-eb-garamond; \
+		make chapters-xcharter; \
+		make tags-chapters-cm; \
+		make tags-chapters-alegreya; \
+		make tags-chapters-alegreya-sans; \
+		make tags-chapters-alegreya-sans-tcb; \
+		make tags-chapters-crimson-pro; \
+		make tags-chapters-eb-garamond; \
+		make tags-chapters-xcharter; \
+	fi
+
+.PHONY: clean
+clean:
+	rm -f tmp/*; \
+	rm -f tmp/cm/*; \
+	rm -f tmp/alegreya/*; \
+	rm -f tmp/alegreya-sans/*; \
+	rm -f tmp/alegreya-sans-tcb/*; \
+	rm -f tmp/crimson-pro/*; \
+	rm -f tmp/eb-garamond/*; \
+	rm -f tmp/xcharter/*; \
+	rm -f tmp/tags/cm/*; \
+	rm -f tmp/tags/alegreya/*; \
+	rm -f tmp/tags/alegreya-sans/*; \
+	rm -f tmp/tags/alegreya-sans-tcb/*; \
+	rm -f tmp/tags/crimson-pro/*; \
+	rm -f tmp/tags/eb-garamond/*; \
+	rm -f tmp/tags/xcharter/*; \
+	rm -f output/book/*; \
+	rm -f output/tags-book/*; \
+	rm -f output/chapters/cm/*; \
+	rm -f output/chapters/alegreya/*; \
+	rm -f output/chapters/alegreya-sans/*; \
+	rm -f output/chapters/alegreya-sans-tcb/*; \
+	rm -f output/chapters/crimson-pro/*; \
+	rm -f output/chapters/eb-garamond/*; \
+	rm -f output/chapters/xcharter/*; \
+	rm -f output/tags-chapters/cm/*; \
+	rm -f output/tags-chapters/alegreya/*; \
+	rm -f output/tags-chapters/alegreya-sans/*; \
+	rm -f output/tags-chapters/alegreya-sans-tcb/*; \
+	rm -f output/tags-chapters/crimson-pro/*; \
+	rm -f output/tags-chapters/eb-garamond/*; \
+	rm -f output/tags-chapters/xcharter/*;
+
 # Target which creates all pdf files of chapters
 .PHONY: pdfs
 pdfs: $(FOOS) $(BARS) $(PDFS)
+
+.PHONY: tikzcd
+tikzcd: echo "nothing for now"
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
@@ -1966,7 +2044,37 @@ web-and-serve:
 	else \
 		echo "-- Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX)."; \
 		echo "-- Compiling preambles..."; \
-		python scripts/make_preamble.py; \
-		python scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		echo "-- Compiling .TeX book..."; \
+		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
+		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
+		python$(PYTHON_VERSION) scripts/process_raw_html_latex.py book.tex; \
+		cp book.tex tmp/; \
+		echo "-- Compiling tags..."; \
+		rm tags/tags; \
+		cp tags/tags.old tags/tags; \
+		cd tags; \
+		python$(PYTHON_VERSION) tagger.py >> tags; \
+		cd ../; \
+		rm -rf WEB; \
+		mkdir ../WEB; \
+		echo yes | python$(PYTHON_VERSION) scripts/add_tags.py; \
+		make web; \
+		python$(PYTHON_VERSION) ./scripts/web_tikzcd.py ./ > ../WEB/tikz.tex; \
+		make tikzcd; \
+		cd ../WEB; \
+		echo "-- Running plasTeX"; \
+		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
+		cd ../the-clowder-project; \
+		mv ../WEB ./; \
+		cd gerby-website/gerby/tools/; \
+		rm stacks.sqlite ../stacks.sqlite; \
+		echo "-- Running Gerby"; \
+		python$(PYTHON_VERSION) update.py; \
+		ln -s tools/stacks.sqlite stacks.sqlite; \
+		echo "-- Serving at localhost"; \
+		FLASK_APP=application.py flask run; \
+		echo "-- ..."; \
 		echo "-- Run target finished successfully."; \
 	fi

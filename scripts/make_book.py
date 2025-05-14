@@ -7,7 +7,11 @@ def print_tex_file(tex_file,name,style):
     for line in tex_file:
         if (style == "web"):
             line = preprocess.amsthm(line)
-            line = preprocess.proofbox_two(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.proofbox_to_proof(line)
+            line = preprocess.scalemath_to_webcompile(line)
+            line = preprocess.leftright_square_brackets_and_curly_brackets(line)
+            line = preprocess.expand_adjunctions(line)
         elif (style == "alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
@@ -96,7 +100,7 @@ def print_preamble(path,style,stacks=False):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
-        if style == "alegreya-sans-tcb":
+        if style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
             line = preprocess.trans_flag_tcb_fix(line)
         print(line,end="")
     preamble.close()
