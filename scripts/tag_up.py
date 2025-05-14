@@ -60,10 +60,7 @@ tags = get_tags(path)
 
 label_tags = dict((tags[n][1], tags[n][0]) for n in range(0, len(tags)))
 
-if name == "book":
-    tex_file = open(path + path_name+name + ".tex", 'r')
-else:
-    tex_file = open(path + name + ".tex", 'r')
+tex_file = open(path + path_name+name + ".tex", 'r')
 
 document = 0
 verbatim = 0

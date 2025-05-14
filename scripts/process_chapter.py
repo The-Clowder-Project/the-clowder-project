@@ -1,7 +1,7 @@
 import re, os, io, sys, time, preprocess
 
 def replacement(line,style):
-    if (style == "alegreya-sans-tcb"):
+    if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
         line = preprocess.tcbthm(line)
         line = preprocess.remove_START_END_proofbox(line)
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
@@ -48,24 +48,24 @@ with open(tex_file) as fp:
        if line.find(r"\input{preamble}") >= 0:
            line = ""
            preamble_path = ""
-           if style == "cm":
+           if style == "cm" or style == "tags-cm":
                preamble_path = "./preamble/compiled/preamble-cm.tex"
-           elif style == "alegreya":
+           elif style == "alegreya" or style == "tags-alegreya":
                preamble_path = "./preamble/compiled/preamble-alegreya.tex"
-           elif style == "alegreya-sans":
+           elif style == "alegreya-sans" or style == "tags-alegreya-sans":
                preamble_path = "./preamble/compiled/preamble-alegreya-sans.tex"
-           elif style == "alegreya-sans-tcb":
+           elif style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
                preamble_path = "./preamble/compiled/preamble-alegreya-sans-tcb.tex"
-           elif style == "crimson-pro":
+           elif style == "crimson-pro" or style == "tags-crimson-pro":
                preamble_path = "./preamble/compiled/preamble-crimson-pro.tex"
-           elif style == "eb-garamond":
+           elif style == "eb-garamond" or style == "tags-eb-garamond":
                preamble_path = "./preamble/compiled/preamble-eb-garamond.tex"
-           elif style == "xcharter":
+           elif style == "xcharter" or style == "tags-xcharter":
                preamble_path = "./preamble/compiled/preamble-xcharter.tex"
            with open(preamble_path,'r') as preamble:
                for line2 in preamble:
                    if line2.find("\documentclass") >= 0:
-                       if style == "xcharter":
+                       if style == "xcharter" or style == "tags-xcharter":
                            line2 = r"\documentclass[oneside,11pt]{article}"
                        else:
                            line2 = r"\documentclass[oneside,12pt]{article}"
@@ -74,6 +74,8 @@ with open(tex_file) as fp:
                    if line2.find(r"ABSOLUTEPATH") >= 0:
                        absolute_path = preprocess.absolute_path()
                        line2 = line2.replace("ABSOLUTEPATH",absolute_path)
+                   if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+                       line2 = preprocess.trans_flag_tcb_fix(line2)
                    f.write(line2)
            line = fp.readline()
            cnt += 1
