@@ -3,7 +3,7 @@
 <p>This is the repository for the <a href="https://topological-modular-forms.github.io/the-clowder-project">Clowder Project</a>, an online resource for category theory and related mathematics.</p>
 
 ## Requirements
-This project uses [Conda](https://anaconda.org/anaconda/conda) due to Gerby requiring `python3.6`.
+This project uses [Conda](https://anaconda.org/anaconda/conda) as Gerby requires `python3.6`.
 
 ## Initial setup
 First, clone the repository via
