@@ -30,4 +30,4 @@ The available styles are:
 
 The default style in the [Clowder website](https://www.clowderproject.com) is `alegreya-sans-tcb`.
 ## Building the web version
-To build and serve the website on localhost, run `make web-and-serve`.
+To build and serve the website on localhost (`127.0.0.1:5000`), run `make web-and-serve`.
