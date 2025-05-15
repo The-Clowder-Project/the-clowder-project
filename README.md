@@ -14,12 +14,19 @@ Then, run `conda-create`, activate the new conda environment via `conda activate
 
 ## Building the PDFs
 The PDFs can be built by running `make all`. There are also `make` commands for particular styles, which are formatted as follows:
-- `make [style]` to build the book PDFs.
-- `make tags-[style]` to build the tagged book PDFs.
-- `make chapters-[style]` to build all chapters individually.
-- `make tags-chapters-[style]` to build all tagged chapters individually.
+1. `make [style]` to build the book PDFs.
+2. `make tags-[style]` to build the tagged book PDFs.
+3. `make chapters-[style]` to build all chapters individually.
+4. `make tags-chapters-[style]` to build all tagged chapters individually.
 
-The available styles are: `cm` (Computer Modern), `alegreya` (Alegreya), `alegreya-sans` (Alegreya Sans), `alegreya-sans-tcb` (Alegreya Sans with `tcbthm` replacing `amsthm`), `crimson-pro`, `eb-garamond`, and `xcharter`.
+The available styles are:
+1. `cm` (Computer Modern).
+2. `alegreya` (Alegreya).
+3. `alegreya-sans` (Alegreya Sans).
+4. `alegreya-sans-tcb` (Alegreya Sans with `tcbthm` replacing `amsthm`)
+5. `crimson-pro` (Crimson Pro).
+6. `eb-garamond` (EB Garamond).
+7. `xcharter` (XCharter).
 
 The default style in the [Clowder website](https://www.clowderproject.com) is `alegreya-sans-tcb`.
 ## Building the web version
