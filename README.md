@@ -18,6 +18,7 @@ The PDFs can be built by running `make all`. There are also `make` commands for 
 - `make tags-[style]` to build the tagged book PDFs.
 - `make chapters-[style]` to build all chapters individually.
 - `make tags-chapters-[style]` to build all tagged chapters individually.
+
 The available styles are: `cm` (Computer Modern), `alegreya` (Alegreya), `alegreya-sans` (Alegreya Sans), `alegreya-sans-tcb` (Alegreya Sans with `tcbthm` replacing `amsthm`), `crimson-pro`, `eb-garamond`, and `xcharter`.
 
 The default style in the [Clowder website](https://www.clowderproject.com) is `alegreya-sans-tcb`.
