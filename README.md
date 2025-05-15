@@ -5,7 +5,7 @@
 ## Requirements
 This project uses [conda](https://anaconda.org/anaconda/conda) due to Gerby requiring python3.6.
 
-## Initial Setup
+## Initial setup
 First, clone the repository via
 ```
 git clone https://github.com/The-Clowder-Project/the-clowder-project
@@ -21,5 +21,5 @@ The PDFs can be built by running `make all`. There are also `make` commands for 
 The available styles are: `cm` (Computer Modern), `alegreya` (Alegreya), `alegreya-sans` (Alegreya Sans), `alegreya-sans-tcb` (Alegreya Sans with `tcbthm` replacing `amsthm`), `crimson-pro`, `eb-garamond`, and `xcharter`.
 
 The default style in the [Clowder website](https://www.clowderproject.com) is `alegreya-sans-tcb`.
-## Building the Web Version
+## Building the web version
 To build and serve the website on localhost, run `make web-and-serve`.
