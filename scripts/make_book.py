@@ -5,26 +5,34 @@ import preprocess
 
 def print_tex_file(tex_file,name,style):
     for line in tex_file:
+        if (style == "tikzcd"):
+            line = preprocess.expand_cref(line)
+            line = preprocess.remove_index(line)
+            line = preprocess.Proof_to_proof(line)
+            line = preprocess.amsthm_web(line)
+            line = preprocess.proofbox_to_proof(line)
         if (style == "web"):
-            line = preprocess.amsthm(line)
+            line = preprocess.amsthm_web(line)
+            line = preprocess.pdf_only(line)
+            line = preprocess.expand_cref(line)
+            line = preprocess.remove_index(line)
+            line = preprocess.parbox(line)
+            line = preprocess.textdbend_2(line)
+            line = preprocess.rmIendproofbox(line)
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
             line = preprocess.scalemath_to_webcompile(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
         elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
         else:
             line = preprocess.amsthm(line)
             line = preprocess.textdbend(line)# changes 'END TEXTDBEND' into ''
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
             line = preprocess.remove_START_END_proofbox(line)
-            line = preprocess.leftright_square_brackets_and_curly_braces(line)
-            line = preprocess.expand_adjunctions(line)
+        line = preprocess.leftright_square_brackets_and_curly_braces(line)
+        line = preprocess.expand_adjunctions(line)
 
         if line.find("\\input{preamble}") == 0:
             continue
@@ -42,8 +50,6 @@ def print_tex_file(tex_file,name,style):
             continue
         if line.find("chapter_modifications") >= 0:
             continue
-        if line.find("\\ChapterTableOfContents") == 0:
-            line = line.replace("\\ChapterTableOfContents", "\\Minitoc")
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
@@ -62,17 +68,54 @@ def print_tex_file(tex_file,name,style):
             continue
         if line.find("\\bibliography") == 0:
             continue
-        if line.find("\\begin{appendices}") == 0:
-            line = line.replace("\\begin{appendices}", "\\begin{subappendices}")
-        if line.find("\\end{appendices}") == 0:
-            line = line.replace("\\end{appendices}", "\\end{subappendices}")
-        if line.find("\\end{document}") == 0:
-            continue
         if is_label(line):
             text = "\\label{" + name + ":"
             line = line.replace("\\label{", text)
         if contains_cref(line):
             line = replace_crefs(line, name)
+        if line.find("\\end{document}") == 0:
+            continue
+        # WEB specific fixes
+        if (style == "web"):
+            if line.find("\\SloganFont") == 0:
+                line = line.replace("\\SloganFont", "\\textit")
+            if line.find("\\footnote{%") >= 0:
+                line = line.replace("\\footnote{", "\\footnote{\\textit{}%")
+            if line.find("\\begin{appendices}") >= 0:
+                continue
+            if line.find("chapters2.tex}") >= 0:
+                continue
+            if line.find("\\end{appendices}") >= 0:
+                continue
+            if line.find("\\begingroup\\tiny") >= 0:
+                print(r'<div class="tinysize">')
+                continue
+            if line.find("\\begingroup\\scriptsize") >= 0:
+                print(r'<div class="scriptsize">')
+                continue
+            if line.find("\\begingroup\\small") >= 0:
+                print(r'<div class="smallsize">')
+                continue
+            if line.find("\\begingroup\\footnotesize") >= 0:
+                print(r'<div class="footnotesize">')
+                continue
+            if line.find("\\endgroup") >= 0:
+                print(r"</div>")
+                continue
+            if line.find("\\opsup") >= 0:
+                line = line.replace("\\opsup", "\\mkern-0.0mu\\opsup")
+            if line.find("ABSOLUTEPATH") >= 0:
+                absolute_path = preprocess.absolute_path()
+                line = line.replace("ABSOLUTEPATH", absolute_path)
+            if line.find("\\ChapterTableOfContents") == 0:
+                continue
+        else:
+            if line.find("\\begin{appendices}") == 0:
+                line = line.replace("\\begin{appendices}", "\\begin{subappendices}")
+            if line.find("\\end{appendices}") == 0:
+                line = line.replace("\\end{appendices}", "\\end{subappendices}")
+            if line.find("\\ChapterTableOfContents") == 0:
+                line = line.replace("\\ChapterTableOfContents", "\\Minitoc")
         print(line,end="")
     tex_file.close()
 
@@ -102,6 +145,57 @@ def print_preamble(path,style,stacks=False):
             line = line.replace("ABSOLUTEPATH", absolute_path)
         if style == "tags-alegreya-sans-tcb":
             line = preprocess.trans_flag_tcb_fix(line)
+        if (style == "web" or style=="tikzcd"):
+            if line.find("\\IfFileExists{") == 0:
+                line = "\\documentclass{book}\n\\usepackage{amsmath}"
+            if line.find("%") == 0:
+                continue
+            if line.find("externaldocument") >= 0:
+                continue
+            if line.find("\\newenvironment{reference}") >= 0:
+                continue
+            if line.find("\\newenvironment{slogan}") >= 0:
+                continue
+            if line.find("\\newenvironment{history}") >= 0:
+                continue
+            if line.find("multicol")>= 0:
+                continue
+            if line.find("xr-hyper") >= 0:
+                continue
+            if line.find("\\usepackage{xurl}") >= 0:
+                continue
+            if line.find("biber") >= 0:
+                continue
+            if line.find("bibresource") >= 0:
+                continue
+            if line.find("\\usepackage{centernot}") >= 0:
+                continue
+            if line.find("\\usepackage{fontspec}") >= 0:
+                continue
+            if line.find("imakeidx") >= 0:
+                continue
+            if line.find("lettrine") >= 0:
+                continue
+            if line.find("makeindex") >= 0:
+                continue
+            if line.find("\\nin") >= 0:
+                print(r"\newcommand{\nin}{\not\in}")
+                continue
+            if line.find("webcompile") >= 0:
+                continue
+            if line.find("bigfoot") >= 0:
+                continue
+            if line.find("\\usepackage{amsthm}") >= 0:
+                continue
+            if line.find("DeclareNewFootnote") >= 0:
+                continue
+            if line.find("mathtools") >= 0:
+                continue
+            if (style == "web"):
+                if line.find("adjustbox") >= 0:
+                    line = ""
+                if line.find("newenvironment{scalemath") >= 0:
+                    line = ""
         print(line,end="")
     preamble.close()
     return
@@ -133,6 +227,8 @@ def main(style):
     # Choose preamble based on style
     if (style == "web"):
         path = absolute_path + "/preamble/compiled/preamble-web.tex"
+    if (style == "tikzcd"):
+        path = absolute_path + "/preamble/compiled/preamble-tikzcd.tex"
     elif (style == "cm" or style == "tags-cm"):
         path = absolute_path + "/preamble/compiled/preamble-cm.tex"
     elif (style == "alegreya" or style == "tags-alegreya"):
@@ -231,6 +327,9 @@ def main(style):
     #print("\\printindex[supersymmetry]")
     #print("\\printindex[topology]")
     #print("\\printindex[type-theory]")
+    if (style == "web"):
+        print("\\bibliography{bibliography}")
+        print("\\bibliographystyle{amsalpha}")
     print("\\end{document}")
 
 if __name__ == "__main__":

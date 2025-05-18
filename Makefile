@@ -211,7 +211,7 @@ install:
 	@echo "% Be sure to change INSTALLDIR value in the Makefile! %"
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 
-WEBDIR=../WEB
+WEBDIR=./WEB
 .PHONY: web
 web: tmp/index.tex
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
@@ -219,7 +219,7 @@ web: tmp/index.tex
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 	cp bibliography.bib $(WEBDIR)/bibliography.bib
 	cp tags/tags $(WEBDIR)/tags
-	python ./scripts/web_book.py "$(CURDIR)" > $(WEBDIR)/book.tex
+	python ./scripts/make_book.py web > $(WEBDIR)/book.tex
 
 # Define the name for the conda environment (NO trailing spaces!)
 CONDA_ENV_NAME = clowder_py36_env
@@ -1983,6 +1983,12 @@ all:
 .PHONY: clean
 clean:
 	rm -f tmp/*; \
+	rm -f tmp/tikz-cd/*; \
+	rm -f tmp/tikz-cd/dark-mode/*; \
+	rm -f tmp/webcompile/*; \
+	rm -f tmp/webcompile/dark-mode/*; \
+	rm -f tmp/scalemath/*; \
+	rm -f tmp/scalemath/dark-mode/*; \
 	rm -f tmp/cm/*; \
 	rm -f tmp/alegreya/*; \
 	rm -f tmp/alegreya-sans/*; \
@@ -2020,7 +2026,40 @@ pdfs: $(FOOS) $(BARS) $(PDFS)
 
 .PHONY: tikzcd
 tikzcd:
-	@printf "nothing for now\n"
+	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		python$(PYTHON_VERSION) ./scripts/make_book.py tikzcd > $(WEBDIR)/tikz.tex; \
+		cd $(WEBDIR); \
+		mv book.tex book.tex.bak; \
+		mv tikz.tex book.tex; \
+		python ../scripts/make_tikzcd.py book.tex; \
+		mv book.tex.bak book.tex; \
+		python ../scripts/make_tikzcd_regex_only.py book.tex; \
+		cd -; \
+		cp ./tmp/tikz-cd/*.svg              ./gerby-website/gerby/static/tikzcd-images/; \
+		cp ./tmp/tikz-cd/dark-mode/*.svg    ./gerby-website/gerby/static/tikzcd-images/dark-mode/; \
+		cp ./tmp/webcompile/*.svg           ./gerby-website/gerby/static/webcompile-images/; \
+		cp ./tmp/webcompile/dark-mode/*.svg ./gerby-website/gerby/static/webcompile-images/dark-mode/; \
+		cp ./tmp/scalemath/*.svg            ./gerby-website/gerby/static/scalemath-images/; \
+		cp ./tmp/scalemath/dark-mode/*.svg  ./gerby-website/gerby/static/scalemath-images/dark-mode/; \
+		cd -; \
+	fi
 
 # Define ANSI color codes
 GREEN   := \033[1;32m# Bold Green
@@ -2068,27 +2107,25 @@ web-and-serve:
 		cd tags; \
 		python$(PYTHON_VERSION) tagger.py >> tags; \
 		cd ../; \
-		rm -rf WEB; \
-		mkdir ../WEB; \
+		rm -rf $(WEBDIR); \
+		mkdir $(WEBDIR); \
 		echo yes | python$(PYTHON_VERSION) scripts/add_tags.py; \
+		make web; \
 		tags_end=$$(date +%s.%2N); \
 		tags_duration=$$(echo "$$tags_end - $$tags_start" | bc); \
 		printf "$(GREEN)Compiling TikZ-CD diagrams$(NC)\n"; \
 		tikzcd_start=$$(date +%s.%2N); \
-		make web; \
-		python$(PYTHON_VERSION) ./scripts/web_tikzcd.py ./ > ../WEB/tikz.tex; \
 		make tikzcd; \
-		cd ../WEB; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
+		cd $(WEBDIR); \
 		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
-		cd ../the-clowder-project; \
-		mv ../WEB ./; \
+		cd -; \
 		cd gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \

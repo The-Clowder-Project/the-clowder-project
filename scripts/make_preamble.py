@@ -96,6 +96,7 @@ def expand_latex_inputs(
              return match.group(0) # Keep original command on error
 
     processed_content = input_pattern.sub(replacer, content)
+    processed_content = re.sub("ABSOLUTEPATH",absolute_path,processed_content)
     return processed_content
 
 def main():
@@ -170,6 +171,10 @@ def main():
         webpreamble.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex']))
         webpreamble.write(content_web)
 
+    # PREAMBLE_TIKZCD
+    with open(absolute_path+'/preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
+        preamble_tikzcd.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
+
     # PREAMBLE_CM
     with open(absolute_path+'/preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:
         preamble_cm.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
@@ -212,10 +217,6 @@ def main():
         preamble_alegreya_sans_tcb.write(content_tcb_footnotes)
         preamble_alegreya_sans_tcb.write(content_alegreya_sans)
         preamble_alegreya_sans_tcb.write(content_toc)
-
-    # PREAMBLE_TIKZCD
-    with open(absolute_path+'/preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
-        preamble_tikzcd.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
 
 if __name__ == "__main__":
     main()

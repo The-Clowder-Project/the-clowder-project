@@ -51,29 +51,29 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \]%
             but uses a \say{$\mathord{\mapsto}$} symbol for better spacing and double brackets instead of either:
             \begin{enumerate}
-                \item Square brackets $[x\mapsto f(x)]$;
-                \item Parentheses $(x\mapsto f(x))$;
+                \item\label{additional-notation-for-functions-2-a}Square brackets $[x\mapsto f(x)]$;
+                \item\label{additional-notation-for-functions-2-b}Parentheses $(x\mapsto f(x))$;
             \end{enumerate}
             hoping to improve readability when dealing with e.g.:
             \begin{enumerate}
-                \item Equivalence classes, cf.:
+                \item\label{additional-notation-for-functions-2-c}Equivalence classes, cf.:
                     \begin{enumerate}
-                        \item $\llbracket[x]\mapsto f([x])\rrbracket$%
-                        \item $[[x]\mapsto f([x])]$%
-                        \item $(\lambda[x].\ f([x]))$%
+                        \item\label{additional-notation-for-functions-2-c-i}$\llbracket[x]\mapsto f([x])\rrbracket$%
+                        \item\label{additional-notation-for-functions-2-c-ii}$[[x]\mapsto f([x])]$%
+                        \item\label{additional-notation-for-functions-2-c-iii}$(\lambda[x].\ f([x]))$%
                     \end{enumerate}
-                \item Function evaluations, cf.:
+                \item\label{additional-notation-for-functions-2-d}Function evaluations, cf.:
                     \begin{enumerate}
-                        \item $\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
-                        \item $\Phi((x\mapsto f(x)))$%
-                        \item $\Phi((\lambda x.\ f(x)))$%
+                        \item\label{additional-notation-for-functions-2-d-i}$\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
+                        \item\label{additional-notation-for-functions-2-d-ii}$\Phi((x\mapsto f(x)))$%
+                        \item\label{additional-notation-for-functions-2-d-iii}$\Phi((\lambda x.\ f(x)))$%
                     \end{enumerate}
             \end{enumerate}
-        \item\label{additional-notation-for-functions-3}We will also sometimes write $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+        \item\label{additional-notation-for-functions-3}We will also sometimes write $-$, $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
             \begin{enumerate}
-                \item Writing $f(-_{1})$ for a function $f\colon A\to B$.
-                \item Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
-                \item Given a function $f\colon A\times B\to C$, writing
+                \item\label{additional-notation-for-functions-3-a}Writing $f(-_{1})$ for a function $f\colon A\to B$.
+                \item\label{additional-notation-for-functions-3-b}Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
+                \item\label{additional-notation-for-functions-3-c}Given a function $f\colon A\times B\to C$, writing
                     \[
                         f(a,-)%
                         \colon%
@@ -82,7 +82,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
                         C%
                     \]%
                     for the function $\llbracket b\mapsto f(a,b)\rrbracket$.
-                \item Denoting a composition of the form%
+                \item\label{additional-notation-for-functions-3-d}Denoting a composition of the form%
                     \[
                         A\times B%
                         \xlongrightarrow{\phi\times\id_{B}}%
@@ -92,7 +92,7 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
                     \]%
                     by $f(\phi(-_{1}),-_{2})$.
             \end{enumerate}
-        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we write
+        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we will sometimes write
             \[
                 \ev_{a}(f)%
                 \defeq%
