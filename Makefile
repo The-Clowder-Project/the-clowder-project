@@ -322,6 +322,7 @@ init:
 		mkdir Hundar; \
 		mv Hundar.otf Hundar/Hundar-Regular.otf; \
 		cd -; \
+		mkdir -p preamble/compiled; \
 		mkdir -p tmp/cm; \
 		mkdir -p tmp/alegreya; \
 		mkdir -p tmp/alegreya-sans; \
