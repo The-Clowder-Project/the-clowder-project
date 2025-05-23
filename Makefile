@@ -2036,6 +2036,69 @@ clean:
 .PHONY: pdfs
 pdfs: $(FOOS) $(BARS) $(PDFS)
 
+.PHONY: pictures
+pictures:
+	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		cd pictures/trans-flag/; \
+		lualatex trans-flag.tex; \
+		cd ../light-mode/; \
+		cd  ./monoidal-left-unity-of-id-otimes-sets/       && ./make.sh; \
+		cd ../monoidal-left-unity-of-id-otimes-sets-star/  && ./make.sh; \
+		cd ../monoidal-right-unity-of-id-otimes-sets/      && ./make.sh; \
+		cd ../monoidal-right-unity-of-id-otimes-sets-star/ && ./make.sh; \
+		cd ../symmetric-difference/associativity/; \
+		lualatex A_sdiff_B_sdiff_C.tex; \
+		lualatex A_sdiff_B.tex; \
+		lualatex A.tex; \
+		lualatex B_sdiff_C.tex; \
+		lualatex C.tex; \
+		cd ../definition/; \
+		lualatex AsdiffB.tex; \
+		lualatex AsetminusB.tex; \
+		lualatex BsetminusA.tex; \
+		cd ../via-unions-and-intersections/; \
+		lualatex Venn0001.tex; \
+		lualatex Venn0110.tex; \
+		lualatex Venn0111.tex; \
+		cd ../../../dark-mode/; \
+		luaotfload-tool --cache=erase; \
+		cd  ./monoidal-left-unity-of-id-otimes-sets/       && ./make.sh; \
+		cd ../monoidal-left-unity-of-id-otimes-sets-star/  && ./make.sh; \
+		cd ../monoidal-right-unity-of-id-otimes-sets/      && ./make.sh; \
+		cd ../monoidal-right-unity-of-id-otimes-sets-star/ && ./make.sh; \
+		cd ../symmetric-difference/associativity/; \
+		lualatex A_sdiff_B_sdiff_C.tex; \
+		lualatex A_sdiff_B.tex; \
+		lualatex A.tex; \
+		lualatex B_sdiff_C.tex; \
+		lualatex C.tex; \
+		cd ../definition/; \
+		lualatex AsdiffB.tex; \
+		lualatex AsetminusB.tex; \
+		lualatex BsetminusA.tex; \
+		cd ../via-unions-and-intersections/; \
+		lualatex Venn0001.tex; \
+		lualatex Venn0110.tex; \
+		lualatex Venn0111.tex; \
+	fi
+
 .PHONY: tikzcd
 tikzcd:
 	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
