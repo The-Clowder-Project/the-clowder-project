@@ -1,4 +1,7 @@
 *.aux
+*.png
+*.svg
+*.gif
 *.bak
 *.bar
 *.bbl
