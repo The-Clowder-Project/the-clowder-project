@@ -325,6 +325,10 @@ init:
 		git clone https://github.com/itamarkast/UoEmorphology; \
 		cp UoEmorphology/Brill-Roman.ttf brill/; \
 		rm -rf UoEmorphology; \
+		git clone https://github.com/huertatipografica/Alegreya-Sans; \
+		mkdir alegreya-sans; \
+		mv Alegreya-Sans/fonts/otf/*.otf alegreya-sans/; \
+		rm -rf Alegreya-Sans; \
 		cd ../; \
 		mkdir -p preamble/compiled; \
 		mkdir -p tmp/cm; \
