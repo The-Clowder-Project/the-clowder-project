@@ -315,6 +315,13 @@ init:
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansSC-VF.otf" -o fonts/NotoSansSC-VF.otf; \
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansTC-VF.otf" -o fonts/NotoSansTC-VF.otf; \
 		echo "-- Creatings directories."; \
+		cd fonts; \
+		git clone https://github.com/The-EPL-Type-Foundry/Hundar; \
+		cp -r Hundar/fonts/otf/Hundar.otf ./; \
+		rm -rf Hundar; \
+		mkdir Hundar; \
+		mv Hundar.otf Hundar/Hundar-Regular.otf; \
+		cd -; \
 		mkdir -p tmp/cm; \
 		mkdir -p tmp/alegreya; \
 		mkdir -p tmp/alegreya-sans; \
