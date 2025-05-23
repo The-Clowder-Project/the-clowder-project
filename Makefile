@@ -321,7 +321,11 @@ init:
 		rm -rf Hundar; \
 		mkdir Hundar; \
 		mv Hundar.otf Hundar/Hundar-Regular.otf; \
-		cd -; \
+		mkdir brill; \
+		git clone https://github.com/itamarkast/UoEmorphology; \
+		cp UoEmorphology/Brill-Roman.ttf brill/; \
+		rm -rf UoEmorphology; \
+		cd ../; \
 		mkdir -p preamble/compiled; \
 		mkdir -p tmp/cm; \
 		mkdir -p tmp/alegreya; \
