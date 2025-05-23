@@ -314,7 +314,6 @@ init:
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansJP-VF.otf" -o fonts/NotoSansJP-VF.otf; \
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansSC-VF.otf" -o fonts/NotoSansSC-VF.otf; \
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansTC-VF.otf" -o fonts/NotoSansTC-VF.otf; \
-		echo "-- Creatings directories."; \
 		cd fonts; \
 		git clone https://github.com/The-EPL-Type-Foundry/Hundar; \
 		cp -r Hundar/fonts/otf/Hundar.otf ./; \
@@ -330,6 +329,9 @@ init:
 		mv Alegreya-Sans/fonts/otf/*.otf alegreya-sans/; \
 		rm -rf Alegreya-Sans; \
 		cd ../; \
+		echo "-- Compiling preambles."; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		echo "-- Creatings directories."; \
 		mkdir -p preamble/compiled; \
 		mkdir -p tmp/cm; \
 		mkdir -p tmp/alegreya; \
