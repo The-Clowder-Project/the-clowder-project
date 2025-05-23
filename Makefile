@@ -1966,6 +1966,7 @@ all:
 		echo >&2 ""; \
 		exit 1; \
 	else \
+		make pictures; \
 		make cm; \
 		make alegreya; \
 		make alegreya-sans; \
