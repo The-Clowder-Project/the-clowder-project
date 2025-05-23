@@ -12,7 +12,10 @@ def get_preamble(IS_DARK_MODE):
     else:
         preamble += f"\\input{{../../preamble/compiled/preamble-tikzcd.tex}}\n"
     preamble += "\\usepackage[libertine]{newtxmath}"
-    preamble += "\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}"
+    if IS_DARK_MODE:
+        preamble += "\\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}"
+    else:
+        preamble += "\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}"
     preamble += "\\let\\mathrm\\relax"
     preamble += "\\newcommand{\\mathrm}[1]{\\text{#1}}"
     preamble += "\\begingroup"

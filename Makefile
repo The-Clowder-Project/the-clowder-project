@@ -2046,12 +2046,19 @@ tikzcd:
 	else \
 		python$(PYTHON_VERSION) ./scripts/make_book.py tikzcd > $(WEBDIR)/tikz.tex; \
 		cd $(WEBDIR); \
+		python$(PYTHON_VERSION) ../scripts/process_raw_html.py tikz.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_parentheses.py tikz.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_separation.py tikz.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py tikz.tex; \
 		mv book.tex book.tex.bak; \
 		mv tikz.tex book.tex; \
 		python ../scripts/make_tikzcd.py book.tex; \
 		mv book.tex.bak book.tex; \
 		python ../scripts/make_tikzcd_regex_only.py book.tex; \
 		cd -; \
+		mkdir -p ./gerby-website/gerby/static/scalemath-images/dark-mode/; \
+		mkdir -p ./gerby-website/gerby/static/webcompile-images/dark-mode/; \
+		mkdir -p ./gerby-website/gerby/static/tikzcd-images/dark-mode/; \
 		cp ./tmp/tikz-cd/*.svg              ./gerby-website/gerby/static/tikzcd-images/; \
 		cp ./tmp/tikz-cd/dark-mode/*.svg    ./gerby-website/gerby/static/tikzcd-images/dark-mode/; \
 		cp ./tmp/webcompile/*.svg           ./gerby-website/gerby/static/webcompile-images/; \
@@ -2120,13 +2127,25 @@ web-and-serve:
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
+		python$(PYTHON_VERSION) ../scripts/process_raw_html.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_cite.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
 		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
+		printf "$(GREEN)Running Regexes$(NC)\n"; \
+		regex_start=$$(date +%s.%2N); \
+		cd book/; \
+  		find . -name "*.tag" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
+  		find . -name "*.proof" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
+  		find . -name "*.footnote" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
+		regex_end=$$(date +%s.%2N); \
+		regex_duration=$$(echo "$$regex_end - $$regex_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
-		cd -; \
-		cd gerby-website/gerby/tools/; \
+		cd ../../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) update.py; \
@@ -2143,6 +2162,7 @@ web-and-serve:
         printf "$(GREEN)   -->     Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
         printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
         printf "$(GREEN)   -->  TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+        printf "$(GREEN)   -->    Regex: %6.2f seconds.$(NC)\n" "$$regex_duration"; \
         printf "$(GREEN)   -->    Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 		FLASK_APP=application.py flask run; \
 	fi

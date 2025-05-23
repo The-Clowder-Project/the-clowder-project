@@ -1,4 +1,3 @@
-# Author: GPT4 \o/
 import re, sys
 
 def main(input_file):

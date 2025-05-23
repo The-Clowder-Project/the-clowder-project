@@ -112,11 +112,6 @@ def main():
     with open(absolute_path+'/prepreamble.tex', 'r') as prepreamble:
         content_prepreamble = prepreamble.read()
 
-    # TIKZCD_PREPREAMBLE
-    content_tikzcd_prepreamble = ""
-    with open(absolute_path+'/tikzcd-prepreamble.tex', 'r') as tikzcd_prepreamble:
-        content_tikzcd_prepreamble = tikzcd_prepreamble.read()
-
     # PREAMBLE/WEB.TEX
     content_web = ""
     with open(absolute_path+'/preamble/web.tex', 'r') as web_tex:
@@ -173,7 +168,9 @@ def main():
 
     # PREAMBLE_TIKZCD
     with open(absolute_path+'/preamble/compiled/preamble-tikzcd.tex', 'w') as preamble_tikzcd:
-        preamble_tikzcd.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex']))
+        modified_content_prepreamble = re.sub('\\\documentclass{amsart}','',content_prepreamble)
+        modified_content_prepreamble = re.sub('\\\setcounter{minitocdepth}{2\}','',modified_content_prepreamble)
+        preamble_tikzcd.write(expand_latex_inputs(modified_content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex','preamble/fancyheader.tex','preamble/widebar.tex']))
 
     # PREAMBLE_CM
     with open(absolute_path+'/preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:

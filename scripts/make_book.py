@@ -283,6 +283,7 @@ def main(style):
     for name in lijstje:
         if name in parts:
             print("\\part{" + parts[name][0] + "}")
+            print("\\label{" + parts[name][1] + "}")
         if name == "index":
             filename = absolute_path + "/tmp/index.tex"
         else:
@@ -291,7 +292,8 @@ def main(style):
         verbatim = 0
         print_tex_file(tex_file,name,style)
         tex_file.close()
-        print_chapters(absolute_path+"/")
+        if (style != "web"):
+            print_chapters(absolute_path+"/")
 
     print("\\printbibliography")
     # START INDICES
