@@ -1,4 +1,5 @@
 *.aux
+*.run.xml
 *.bak
 *.bar
 *.bbl
