@@ -18,7 +18,7 @@ jobs:
       run: make conda-create
       
     - name: Initialize Conda environment
-      run: conda init
+      run: source $CONDA/bin/activate
       
     - name: Activate Conda environment
       run: conda activate clowder_py36_env
