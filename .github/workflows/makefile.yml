@@ -13,15 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Create Conda environment
-      run: make conda-create
-      
-    - name: Initialize Conda environment
-      run: source $CONDA/bin/activate
-      
-    - name: Activate Conda environment
-      run: conda activate clowder_py36_env
+    
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        auto-update-conda: true
+        python-version: 3.6 # Or your desired version
+        # mamba-version: "*" # Optional: for faster solving
+        # channels: conda-forge,defaults # Optional
+        activate-environment: clowder_py36_env # Activate here
+        # Or create an environment from a file:
+        # environment-file: environment.yml
       
     - name: Initialize repository, installing depencies and such
       run: make init
