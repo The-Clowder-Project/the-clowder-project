@@ -1,0 +1,30 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create Conda environment
+      run: make conda-create; conda activate clowder_py36_env
+      
+    - name: Activate Conda environment
+      run: conda activate clowder_py36_env
+      
+    - name: Initialize repository, installing depencies and such
+      run: make init
+      
+    - name: Compile pictures
+      run: make pictures
+
+    - name: Compile Crimson Pro (as a test)
+      run: make crimson-pro
