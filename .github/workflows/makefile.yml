@@ -15,10 +15,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Create Conda environment
-      run: make conda-create; conda activate clowder_py36_env
-      
-    - name: Activate Conda environment
-      run: conda activate clowder_py36_env
+      run: make conda-create; conda init; conda activate clowder_py36_env
       
     - name: Initialize repository, installing depencies and such
       run: make init
