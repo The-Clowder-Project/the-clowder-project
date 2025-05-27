@@ -1,21 +1,29 @@
-# For Python 3.6 Environment
-
-# Direct Dependencies (example subset)
+# For Python 3.6 Environment - VERY STRICT PINS
 MarkupSafe==1.1.1
-flask<=2.0.3
-peewee<=3.17.0         # CRITICAL for Py3.6
-validators<=0.18.2     # CRITICAL for Py3.6
-networkx<=2.5.1
-PyPDF2==3.0.1          # Pin exactly
-mdx_bleach             # This pulls in bleach and markdown
+flask==2.0.3
+peewee==3.17.0
+validators==0.18.2
+networkx==2.5.1       # Exact pin
+PyPDF2==3.0.1         # Exact pin
+mdx_bleach==0.1.4     # Exact pin
+Jinja2==3.0.3         # Exact pin (for Flask)
+Werkzeug==2.0.3       # Exact pin (for Flask)
+itsdangerous==2.0.1   # Exact pin (for Flask)
+click==8.0.4          # Exact pin (for Flask)
+importlib-metadata==4.8.3 # Exact pin for a known Py3.6 compatible version (or e.g., 4.11.4)
+decorator==4.4.2      # Exact pin (for networkx)
+bleach==4.1.0         # Exact pin (for mdx_bleach)
+html5lib==1.1         # Exact pin (for bleach)
+markdown==3.3.7       # Exact pin
 
-# Key Transitive/Shared Dependencies (pinning these helps a lot)
-Jinja2<=3.0.3          # For Flask
-Werkzeug<=2.0.3        # For Flask (likely already downloaded but good to ensure)
-itsdangerous<=2.0.1    # For Flask
-click<=8.0.4           # For Flask
-importlib-metadata>=4.4,<5.0 # e.g., ==4.8.3 or ==4.11.4
-decorator<=4.4.2       # For networkx
-bleach<=4.1.0          # For mdx_bleach (ensures Py3.6 compatibility)
-html5lib==1.1          # Via bleach
-# sgmllib3k, dataclasses, typing_extensions, zipp usually resolve okay once major items are pinned.
+# Dependencies from your original list that were less constrained:
+# You'll need to find their appropriate Py3.6 versions or let pip-tools figure it out.
+# For now, let's assume they are also pinned or compatible:
+pybtex==0.24.0          # Example pin, check latest compatible with Py3.6
+feedparser==6.0.11      # Example pin, seems compatible
+python-markdown-math==0.8 # Example pin, seems compatible
+
+# Other common transitive dependencies (often good to pin for Py3.6):
+six==1.16.0             # Or 1.17.0 - very common, usually stable
+# dataclasses==0.8      # If not already pulled in by others for Py3.6
+# typing_extensions~=3.7.4 # Older versions are safer for Py3.6 if issues with 4.x
