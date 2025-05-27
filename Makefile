@@ -298,6 +298,7 @@ init:
 		git clone $(PLASTEX_REPO); \
 		cd plastex; \
 		git checkout gerby; \
+		python$(PYTHON_VERSION) -m pip install -r requirements.txt; \
 		python$(PYTHON_VERSION) -m pip install --user .; \
 		cd ../; \
 		echo "-- Installing pybtex..."; \

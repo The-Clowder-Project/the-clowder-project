@@ -16,6 +16,7 @@ decorator==4.4.2      # Exact pin (for networkx)
 bleach==4.1.0         # Exact pin (for mdx_bleach)
 html5lib==1.1         # Exact pin (for bleach)
 markdown==3.3.7
+flask==2.2.5
 
 # Dependencies from your original list that were less constrained:
 # You'll need to find their appropriate Py3.6 versions or let pip-tools figure it out.
