@@ -36,7 +36,7 @@ jobs:
         # Or create an environment from a file:
         # environment-file: environment.yml
 
-    - name: latex
+    - name: Setup the LaTeX environment
       uses: teatimeguest/setup-texlive-action@v3
       with:
         packages: |
@@ -53,4 +53,4 @@ jobs:
       run: make pictures
 
     - name: Compile Crimson Pro (as a test)
-      run: make crimson-pro
+      run: make all
