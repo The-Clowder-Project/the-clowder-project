@@ -28,7 +28,17 @@ jobs:
         activate-environment: clowder_py36_env # Activate here
         # Or create an environment from a file:
         # environment-file: environment.yml
-      
+
+    - name: latex
+      uses: teatimeguest/setup-texlive-action@v3
+      with:
+        packages: |
+          scheme-basic
+          hyperref
+          microtype
+
+  # `pdflatex` is now available
+  # along with hyperlink and microtypography support.
     - name: Initialize repository, installing depencies and such
       run: make init
       
