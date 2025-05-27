@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install system dependencies FIRST
+    - name: Install system dependencies
       run: |
         sudo apt-get update -y
         sudo apt-get install -y \
@@ -52,5 +52,5 @@ jobs:
     - name: Compile pictures
       run: make pictures
 
-    - name: Compile Crimson Pro (as a test)
+    - name: Compile all PDFs
       run: make all
