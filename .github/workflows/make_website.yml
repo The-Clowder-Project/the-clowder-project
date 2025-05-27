@@ -59,7 +59,7 @@ jobs:
 
         echo "Waiting for Flask server to start..."
         # Wait and then poll for server readiness
-        sleep 600 # Initial sleep for server to attempt startup
+        sleep 5400 # Initial sleep for server to attempt startup
           
         max_retries=12 # 1 hour
         retry_interval=300
