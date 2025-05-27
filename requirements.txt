@@ -6,7 +6,9 @@ validators==0.18.2
 networkx==2.5.1
 PyPDF2==3.0.1
 mdx_bleach==0.1.4
-Jinja2==2.11.3         # Exact pin (for Flask)
+Jinja2>=2.10.1        # Exact pin (for Flask)
+Unidecode>=0.4.21     # Exact pin (for Flask)
+Pillow>=7             # Exact pin (for Flask)
 Werkzeug==2.0.3       # Exact pin (for Flask)
 itsdangerous==2.0.1   # Exact pin (for Flask)
 click==8.0.4          # Exact pin (for Flask)
