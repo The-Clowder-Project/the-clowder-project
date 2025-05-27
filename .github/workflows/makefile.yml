@@ -52,5 +52,5 @@ jobs:
     - name: Compile pictures
       run: make pictures
 
-    - name: Compile Crimson Pro (as a test)
+    - name: Compile all PDFs
       run: make all
