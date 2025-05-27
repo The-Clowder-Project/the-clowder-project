@@ -1,13 +1,21 @@
 # For Python 3.6 Environment
+
+# Direct Dependencies (example subset)
 MarkupSafe==1.1.1
-pybtex<=0.24.0
 flask<=2.0.3
-feedparser<=6.0.11
-peewee<=3.17.0
-markdown<=3.3.7
-bleach==1.5.0
-mdx_bleach
-python-markdown-math<=0.8 # Current seems fine
-validators<=0.18.2
+peewee<=3.17.0         # CRITICAL for Py3.6
+validators<=0.18.2     # CRITICAL for Py3.6
 networkx<=2.5.1
-PyPDF2<=3.0.1
+PyPDF2==3.0.1          # Pin exactly
+mdx_bleach             # This pulls in bleach and markdown
+
+# Key Transitive/Shared Dependencies (pinning these helps a lot)
+Jinja2<=3.0.3          # For Flask
+Werkzeug<=2.0.3        # For Flask (likely already downloaded but good to ensure)
+itsdangerous<=2.0.1    # For Flask
+click<=8.0.4           # For Flask
+importlib-metadata>=4.4,<5.0 # e.g., ==4.8.3 or ==4.11.4
+decorator<=4.4.2       # For networkx
+bleach<=4.1.0          # For mdx_bleach (ensures Py3.6 compatibility)
+html5lib==1.1          # Via bleach
+# sgmllib3k, dataclasses, typing_extensions, zipp usually resolve okay once major items are pinned.
