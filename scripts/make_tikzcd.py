@@ -13,9 +13,9 @@ def get_preamble(IS_DARK_MODE):
         preamble += f"\\input{{../../preamble/compiled/preamble-tikzcd.tex}}\n"
     preamble += "\\usepackage[libertine]{newtxmath}"
     if IS_DARK_MODE:
-        preamble += "\\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}"
+        preamble += "\\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.otf},BoldFont={AlegreyaSans-Bold.otf},ItalicFont={AlegreyaSans-Italic.otf},BoldItalicFont={AlegreyaSans-BoldItalic.otf}]{AlegreyaSans}"
     else:
-        preamble += "\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.ttf},BoldFont={AlegreyaSans-Bold.ttf},ItalicFont={AlegreyaSans-Italic.ttf},BoldItalicFont={AlegreyaSans-BoldItalic.ttf}]{AlegreyaSans}"
+        preamble += "\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.otf},BoldFont={AlegreyaSans-Bold.otf},ItalicFont={AlegreyaSans-Italic.otf},BoldItalicFont={AlegreyaSans-BoldItalic.otf}]{AlegreyaSans}"
     preamble += "\\let\\mathrm\\relax"
     preamble += "\\newcommand{\\mathrm}[1]{\\text{#1}}"
     preamble += "\\begingroup"
