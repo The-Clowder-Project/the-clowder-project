@@ -5,6 +5,7 @@ flask<=2.0.3
 feedparser<=6.0.11
 peewee<=3.17.0
 markdown<=3.3.7
+bleach==1.5.0
 mdx_bleach
 python-markdown-math<=0.8 # Current seems fine
 validators<=0.18.2
