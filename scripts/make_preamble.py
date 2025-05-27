@@ -107,6 +107,10 @@ def main():
     ##############
 
     absolute_path = functions.absolute_path()
+
+    # Create the "preamble/compiled" directory if it doesn't exist
+    os.makedirs(absolute_path + "/preamble/compiled", exist_ok=True)
+
     # PREPREAMBLE
     content_prepreamble = ""
     with open(absolute_path+'/prepreamble.tex', 'r') as prepreamble:
