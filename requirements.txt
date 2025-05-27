@@ -3,10 +3,10 @@ MarkupSafe==1.1.1
 flask==2.0.3
 peewee==3.17.0
 validators==0.18.2
-networkx==2.5.1       # Exact pin
-PyPDF2==3.0.1         # Exact pin
-mdx_bleach==0.1.4     # Exact pin
-Jinja2==3.0.3         # Exact pin (for Flask)
+networkx==2.5.1
+PyPDF2==3.0.1
+mdx_bleach==0.1.4
+Jinja2==2.11.3         # Exact pin (for Flask)
 Werkzeug==2.0.3       # Exact pin (for Flask)
 itsdangerous==2.0.1   # Exact pin (for Flask)
 click==8.0.4          # Exact pin (for Flask)
@@ -14,7 +14,7 @@ importlib-metadata==4.8.3 # Exact pin for a known Py3.6 compatible version (or e
 decorator==4.4.2      # Exact pin (for networkx)
 bleach==4.1.0         # Exact pin (for mdx_bleach)
 html5lib==1.1         # Exact pin (for bleach)
-markdown==3.3.7       # Exact pin
+markdown==3.3.7
 
 # Dependencies from your original list that were less constrained:
 # You'll need to find their appropriate Py3.6 versions or let pip-tools figure it out.
