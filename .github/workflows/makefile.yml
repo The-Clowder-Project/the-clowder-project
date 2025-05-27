@@ -1,4 +1,8 @@
 name: Makefile CI
+     
+defaults:
+  run:
+    shell: bash -l {0}
 
 on:
   push:
