@@ -17,7 +17,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    
+    - name: Install system dependencies FIRST
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y \
+          pdf2svg \
+          inkscape \
+          imagemagick
+
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:
@@ -33,7 +40,7 @@ jobs:
       uses: teatimeguest/setup-texlive-action@v3
       with:
         packages: |
-          scheme-basic
+          scheme-full
           hyperref
           microtype
 
