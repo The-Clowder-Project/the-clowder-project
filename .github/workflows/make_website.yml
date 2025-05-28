@@ -49,7 +49,7 @@ jobs:
           microtype
   # `pdflatex` is now available
   # along with hyperlink and microtypography support.
-    - name: Initialize repository, installing depencies and such
+    - name: Initialize repository, installing dependencies and such
       run: make init
      
     - name: Run server, mirror with wget, and package
