@@ -84,38 +84,6 @@ jobs:
 
         echo "Cloning site with wget to $output_dir..."
         make wget-clone
-        
-        echo "Site cloned to $output_dir."
-
-        echo "Stopping server (PID: $server_pid) and its process group..."
-        # Send SIGTERM to the entire process group of server_pid
-        # This is generally more effective for 'make' commands that spawn children.
-        kill -- -$server_pid 2>/dev/null || kill $server_pid 2>/dev/null || echo "Kill signal sent (process $server_pid might have already exited)."
-          
-        # Wait for the process to terminate
-        timeout_seconds=15
-        echo "Waiting up to $timeout_seconds seconds for server to stop..."
-        end_time=$(($(date +%s) + timeout_seconds))
-        while ps -p $server_pid > /dev/null && [ $(date +%s) -lt $end_time ]; do
-          sleep 1
-        done
-
-        if ps -p $server_pid > /dev/null; then
-          echo "Server (PID: $server_pid) did not stop gracefully with SIGTERM. Sending SIGKILL to process group."
-          kill -9 -- -$server_pid 2>/dev/null || kill -9 $server_pid 2>/dev/null || echo "Failed to SIGKILL server process $server_pid (might be already gone)."
-          sleep 2 # Give SIGKILL time
-        else
-          echo "Server (PID: $server_pid) stopped."
-        fi
-
-        # Verify wget success by checking for a key file
-        if [ ! -f "${output_dir}/index.html" ]; then
-          echo "Error: wget failed to download index.html into ${output_dir}/"
-          echo "Contents of ${output_dir} for debugging:"
-          ls -R "$output_dir"
-          exit 1
-        fi
-        echo "Successfully mirrored website."
 
     - name: Upload website artifact
       uses: actions/upload-artifact@v4
