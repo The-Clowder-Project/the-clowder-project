@@ -2161,9 +2161,10 @@ NC      := \033[0m    # No Color / Reset
 # Target which clones a static version of the flask server running on 127.0.0.1:5000
 .PHONY: wget-clone
 wget-clone:
-	mkdir web-clone; \
+	mkdir -p web-clone; \
 	cd web-clone; \
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/; \
+	ls;
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
