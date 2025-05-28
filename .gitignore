@@ -1,7 +1,4 @@
 *.aux
-*.png
-*.svg
-*.gif
 *.bak
 *.bar
 *.bbl
@@ -10,6 +7,7 @@
 *.bz2
 *.dvi
 *.foo
+*.gif
 *.gz
 *.idx
 *.log
@@ -19,9 +17,11 @@
 *.out
 *.patch
 *.pdf
+*.png
 *.ps
 *.pyc
 *.run.xml
+*.svg
 *.toc
 *~
 .*
@@ -55,3 +55,4 @@ titlepage/text/version.tex
 titlepage/titlepage-two.tex
 tmp
 venv
+web-clone
