@@ -58,16 +58,16 @@ jobs:
         set -e # Exit immediately if a command exits with a non-zero status.
 
         echo "Running 'make web-and-serve' in the background..."
-        make web-and-serve &
+        make web-and-serve-with-pdf-statistics &
         server_pid=$! # PID of the background 'make' process
         echo "Server process (make) PID: $server_pid"
 
         echo "Waiting for Flask server to start..."
         # Wait and then poll for server readiness
-        sleep 300 # 5400 # Initial sleep for server to attempt startup
+        sleep 5400 # Initial sleep for server to attempt startup
           
-        max_retries=24#24 # 1 hour
-        retry_interval=30#300
+        max_retries=12 # 1 hour
+        retry_interval=300
         retry_count=0
         until curl -s -f -o /dev/null http://127.0.0.1:5000/; do
           retry_count=$((retry_count+1))
