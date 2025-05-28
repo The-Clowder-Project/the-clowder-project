@@ -10,6 +10,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
 
@@ -85,10 +90,35 @@ jobs:
         echo "Cloning site with wget to $output_dir..."
         make wget-clone
         ls
+        
+    - name: Configure GitHub Pages
+      # Only run these steps for pushes to the main branch to avoid deploying on PRs
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: actions/configure-pages@v5
 
-    - name: Upload website artifact
-      uses: actions/upload-artifact@v4
+    # Upload artifact for GitHub Pages deployment
+    - name: Upload GitHub Pages artifact
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: static-website # Name of the artifact
-        path: web-clone/     # Path to the directory to upload
-        if-no-files-found: error # Fail if the directory is empty or not found
+        # Path to the directory containing your static website files
+        path: ./web-clone
+        
+  # New job to deploy to GitHub Pages
+  deploy:
+    needs: build # Depends on the build job completing successfully
+    permissions:
+      pages: write      # Required to deploy to GitHub Pages
+      id-token: write   # Required for OIDC token authentication
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Sets the deployment URL in the GitHub environment
+
+    runs-on: ubuntu-latest
+    # Only run this job for pushes to the main branch
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
