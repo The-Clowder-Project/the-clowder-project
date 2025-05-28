@@ -2162,7 +2162,8 @@ NC      := \033[0m    # No Color / Reset
 .PHONY: wget-clone
 wget-clone:
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
-	ls; \
+	rm -rf web-clone; \
+	mv "127.0.0.1:5000" web-clone; \
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
