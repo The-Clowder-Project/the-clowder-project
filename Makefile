@@ -2164,6 +2164,14 @@ wget-clone:
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
 	rm -rf web-clone; \
 	mv "127.0.0.1:5000" web-clone; \
+	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
+	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
+	mkdir -p web-clone/static/scalemath-images/; \
+	mkdir -p web-clone/static/scalemath-images/dark-mode/; \
+	cp tmp/tikz-cd/dark-mode/*.svg    web-clone/static/tikzcd-images/dark-mode; \
+	cp tmp/webcompile/dark-mode/*.svg web-clone/static/webcompile-images/dark-mode; \
+	cp tmp/scalemath/*.svg 			  web-clone/static/scalemath-images; \
+	cp tmp/scalemath/dark-mode/*.svg  web-clone/static/scalemath-images/dark-mode;
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
@@ -2215,6 +2223,7 @@ web-and-serve:
 		tags_duration=$$(echo "$$tags_end - $$tags_start" | bc); \
 		printf "$(GREEN)Compiling TikZ-CD diagrams$(NC)\n"; \
 		tikzcd_start=$$(date +%s.%2N); \
+		make tikzcd; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
