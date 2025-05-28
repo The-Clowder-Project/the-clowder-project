@@ -84,6 +84,7 @@ jobs:
 
         echo "Cloning site with wget to $output_dir..."
         make wget-clone
+        ls
 
     - name: Upload website artifact
       uses: actions/upload-artifact@v4
