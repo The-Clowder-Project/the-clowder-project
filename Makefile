@@ -2164,7 +2164,6 @@ wget-clone:
 	mkdir web-clone; \
 	cd web-clone; \
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/; \
-	ls;
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
@@ -2216,7 +2215,6 @@ web-and-serve:
 		tags_duration=$$(echo "$$tags_end - $$tags_start" | bc); \
 		printf "$(GREEN)Compiling TikZ-CD diagrams$(NC)\n"; \
 		tikzcd_start=$$(date +%s.%2N); \
-		make tikzcd; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
