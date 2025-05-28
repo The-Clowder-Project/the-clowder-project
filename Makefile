@@ -308,8 +308,11 @@ init:
 		git apply ./no-protected-in-math-mode.patch; \
 		python$(PYTHON_VERSION) -m pip install --user .; \
 		cd ../; \
-		echo "-- Cloning Gerby website..."; \
+		echo "-- Cloning Gerby website and installing Gerby..."; \
 		git clone $(GERBY_WEBSITE_REPO); \
+		cd gerby-website; \
+		python$(PYTHON_VERSION) -m pip install --user .; \
+		cd ../; \
 		echo "-- Downloading fonts..."; \
 		mkdir -p fonts; \
 		curl "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/OTF/Subset/NotoSansJP-VF.otf" -o fonts/NotoSansJP-VF.otf; \
