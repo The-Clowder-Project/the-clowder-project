@@ -2163,7 +2163,7 @@ NC      := \033[0m    # No Color / Reset
 wget-clone:
 	mkdir -p web-clone; \
 	cd web-clone; \
-	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/;
+	-wget -k -p -E -m -e robots=off http://127.0.0.1:5000/;
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
