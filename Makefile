@@ -2161,9 +2161,9 @@ NC      := \033[0m    # No Color / Reset
 # Target which clones a static version of the flask server running on 127.0.0.1:5000
 .PHONY: wget-clone
 wget-clone:
-	mkdir -p web-clone; \
-	cd web-clone; \
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
+	rm -rf web-clone; \
+	mv "http://127.0.0.1:5000/" web-clone; \
 
 # Target which compiles website with Gerby and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
@@ -2250,7 +2250,7 @@ web-and-serve:
 		duration=$$(echo "$$end - $$start" | bc); \
         printf "$(GREEN) Run target finished successfully.$(NC)\n"; \
         printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
-        printf "$(GREEN)   -->     .TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+        printf "$(GREEN)   -->      TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
         printf "$(GREEN)   -->     Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
         printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
         printf "$(GREEN)   -->  TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
