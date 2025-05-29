@@ -79,8 +79,6 @@ def print_tex_file(tex_file,name,style):
         if (style == "web"):
             if line.find("\\SloganFont") == 0:
                 line = line.replace("\\SloganFont", "\\textit")
-            if line.find("\\footnote{%") >= 0:
-                line = line.replace("\\footnote{", "\\footnote{\\textit{}%")
             if line.find("\\begin{appendices}") >= 0:
                 continue
             if line.find("chapters2.tex}") >= 0:
