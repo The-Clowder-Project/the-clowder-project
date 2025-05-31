@@ -25,3 +25,12 @@
   \re@DeclareMathSymbol{\sharp}{\mathord}{ntxletters}{"5D}
   \re@DeclareMathAccent{\vec}{\mathord}{ntxletters}{"7E}
 \makeatother
+\newfontfamily\EBGaramondBBFont{EBGaramondBB.ttf}
+\newcommand{\EBGaramondBB}[1]{{\text{\EBGaramondBBFont{#1}}}}
+\let\mathbb\relax
+\newcommand{\mathbb}[1]{\text{\EBGaramondBB{#1}}}
+\defaultfontfeatures{RawFeature={+axis={wght=450}}}
+\newfontfamily\YsabeauFont[Path = ABSOLUTEPATH/fonts/ysabeau/]{Ysabeau.ttf}
+\newcommand{\Ysabeau}[1]{{\text{\YsabeauFont{#1}}}}
+\let\mathsf\relax
+\newcommand{\mathsf}[1]{\text{\YsabeauFont{#1}}}

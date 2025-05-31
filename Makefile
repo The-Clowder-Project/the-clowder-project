@@ -332,6 +332,10 @@ init:
 		mkdir alegreya-sans; \
 		mv Alegreya-Sans/fonts/otf/*.otf alegreya-sans/; \
 		rm -rf Alegreya-Sans; \
+		git clone https://github.com/CatharsisFonts/Ysabeau; \
+		mkdir ysabeau; \
+		mv Ysabeau/fonts/googlefonts/variable/Ysabeau[wght].ttf ysabeau/Ysabeau.ttf; \
+		rm -rf Ysabeau; \
 		cd ../; \
 		echo "-- Compiling preambles."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
@@ -2255,7 +2259,6 @@ web-and-serve:
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
 		python$(PYTHON_VERSION) ../scripts/process_raw_html.py book.tex; \
-		python$(PYTHON_VERSION) ../scripts/process_cite.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \

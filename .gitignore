@@ -28,7 +28,13 @@
 WEB
 auto
 book.tex
-fonts
+fonts/alegreya-sans
+fonts/brill
+fonts/Hundar
+fonts/ysabeau
+fonts/NotoSansJP-VF.otf
+fonts/NotoSansSC-VF.otf
+fonts/NotoSansTC-VF.otf
 gerby-website
 output
 output.tmf
