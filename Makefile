@@ -219,7 +219,7 @@ web: tmp/index.tex
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 	cp bibliography.bib $(WEBDIR)/bibliography.bib
 	cp tags/tags $(WEBDIR)/tags
-	python ./scripts/make_book.py web > $(WEBDIR)/book.tex
+	python$(PYTHON_VERSION) ./scripts/make_book.py web > $(WEBDIR)/book.tex
 
 # Define the name for the conda environment (NO trailing spaces!)
 CONDA_ENV_NAME = clowder_py36_env

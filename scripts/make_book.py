@@ -136,6 +136,8 @@ def print_preamble(path,style,stacks=False):
             if line.find("\\documentclass") >= 0:
                 if style == "xcharter":
                     line = "\\documentclass[oneside,11pt,a4paper]{book}\n"
+                elif style == "web":
+                    line = "\\documentclass[oneside,12pt,a4paper]{book}\n\\usepackage{amsmath}"
                 else:
                     line = "\\documentclass[oneside,12pt,a4paper]{book}\n"
         if line.find("ABSOLUTEPATH") >= 0:
