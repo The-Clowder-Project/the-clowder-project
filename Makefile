@@ -2278,9 +2278,12 @@ web-and-serve:
 		cd ../../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
+		rm stacks.pdf stacks.paux stacks.tags; \
+		ln -s ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
+		ln -s ../../../WEB/book.paux stacks.paux ; \
+		ln -s ../../../WEB/tags stacks.tags ; \
 		python$(PYTHON_VERSION) update.py; \
 		cd ../; \
-		ln -s tools/stacks.sqlite stacks.sqlite; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
 		printf "$(GREEN)Serving at localhost$(NC)\n"; \
