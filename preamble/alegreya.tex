@@ -7,3 +7,9 @@
 \let\rmdefaultB\text
 \newcommand{\Russian}[1]{#1}
 \usepackage[margin=4.25cm]{geometry}
+% Sans Math
+\defaultfontfeatures{RawFeature={+axis={wght=450}}}
+\newfontfamily\AlegreyaSansFont[Path = ABSOLUTEPATH/fonts/alegreya-sans/]{AlegreyaSans-Regular.otf}
+\newcommand{\AlegreyaSans}[1]{{\text{\AlegreyaSansFont{#1}}}}
+\let\mathsf\relax
+\newcommand{\mathsf}[1]{\text{\AlegreyaSansFont{#1}}}

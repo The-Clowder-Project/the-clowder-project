@@ -25,18 +25,20 @@
   \re@DeclareMathSymbol{\sharp}{\mathord}{ntxletters}{"5D}
   \re@DeclareMathAccent{\vec}{\mathord}{ntxletters}{"7E}
 \makeatother
+% Blackboard Bold
 \newfontfamily\EBGaramondBBFont[Path = ABSOLUTEPATH/fonts/]{Garamond-Math.otf}
 \newcommand{\EBGaramondBB}[1]{{\text{\EBGaramondBBFont{#1}}}}
 \let\mathbb\relax
 \newcommand{\mathbb}[1]{\text{\EBGaramondBB{#1}}}
-\defaultfontfeatures{RawFeature={+axis={wght=450}}}
-\newfontfamily\YsabeauFont[Path = ABSOLUTEPATH/fonts/ysabeau/]{Ysabeau.ttf}
-\newcommand{\Ysabeau}[1]{{\text{\YsabeauFont{#1}}}}
-\let\mathsf\relax
-\newcommand{\mathsf}[1]{\text{\YsabeauFont{#1}}}
 %
 \renewcommand{\Unit}{\mathbb{1}}
 \renewcommand{\Zero}{\mathbb{0}}
 \renewcommand{\OrdinalCategory}{\mathbb{n}}
 \renewcommand{\OrdinalCategoryNPlus}[2]{\mathbb{#1}+\mathbb{#2}}
 \renewcommand{\OrdinalCategoryN}[1]{\mathbb{#1}}
+% Sans Math
+\defaultfontfeatures{RawFeature={+axis={wght=450}}}
+\newfontfamily\YsabeauFont[Path = ABSOLUTEPATH/fonts/ysabeau/]{Ysabeau.ttf}
+\newcommand{\Ysabeau}[1]{{\text{\YsabeauFont{#1}}}}
+\let\mathsf\relax
+\newcommand{\mathsf}[1]{\text{\YsabeauFont{#1}}}

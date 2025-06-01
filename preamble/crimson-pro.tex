@@ -5,11 +5,17 @@
 \newcommand{\Russian}[1]{#1}
 \usepackage[margin=4.5cm]{geometry}
 \usepackage[libertine]{newtxmath}
+\let\rmdefaultA\text
+\let\rmdefaultB\text
+\let\mathrm\text
 \usepackage{CrimsonPro}
 %% The font package uses mweights.sty which has som issues with the
 %% \normalfont command. The following two lines fixes this issue.
 \let\oldnormalfont\normalfont
 \def\normalfont{\oldnormalfont\mdseries}
-\let\rmdefaultA\text
-\let\rmdefaultB\text
-\let\mathrm\text
+% Sans Math
+\defaultfontfeatures{RawFeature={+axis={wght=450}}}
+\newfontfamily\YsabeauFont[Path = ABSOLUTEPATH/fonts/ysabeau/]{Ysabeau.ttf}
+\newcommand{\Ysabeau}[1]{{\text{\YsabeauFont{#1}}}}
+\let\mathsf\relax
+\newcommand{\mathsf}[1]{\text{\YsabeauFont{#1}}}
