@@ -7,15 +7,27 @@ def clear_lua_cache():
 def get_preamble(IS_DARK_MODE):
     preamble = ""
     preamble += "\\documentclass[varwidth]{standalone}\n"
+    # Get TikZ preamble
     if IS_DARK_MODE:
         preamble += f"\\input{{../../../preamble/compiled/preamble-tikzcd.tex}}\n"
     else:
         preamble += f"\\input{{../../preamble/compiled/preamble-tikzcd.tex}}\n"
     preamble += "\\usepackage[libertine]{newtxmath}"
+    # Set font
     if IS_DARK_MODE:
         preamble += "\\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.otf},BoldFont={AlegreyaSans-Bold.otf},ItalicFont={AlegreyaSans-Italic.otf},BoldItalicFont={AlegreyaSans-BoldItalic.otf}]{AlegreyaSans}"
     else:
         preamble += "\\setmainfont[Path = ../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.otf},BoldFont={AlegreyaSans-Bold.otf},ItalicFont={AlegreyaSans-Italic.otf},BoldItalicFont={AlegreyaSans-BoldItalic.otf}]{AlegreyaSans}"
+    # Set background color
+    if IS_DARK_MODE:
+        preamble += "\\definecolor{tikzBackgroundColor}{RGB}{52,53,65}"
+        preamble += "\\colorlet{backgroundColor}{tikzBackgroundColor}"
+        preamble += "\\usepackage{pagecolor}"
+        preamble += "\\pagecolor{backgroundColor}"
+        preamble += "\\color{white}"
+    else:
+        preamble += "\\definecolor{tikzBackgroundColor}{RGB}{242,242,242}"
+        preamble += "\\colorlet{backgroundColor}{tikzBackgroundColor}"
     preamble += "\\let\\mathrm\\relax"
     preamble += "\\newcommand{\\mathrm}[1]{\\text{#1}}"
     preamble += "\\begingroup"
