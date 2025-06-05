@@ -1,0 +1,6 @@
+\newenvironment{webcompile}{\[}{\]}
+\ifplastex
+\else
+    \usepackage{adjustbox}
+    \newenvironment{scalemath}[1][\linewidth]{\[\begin{adjustbox}{width=#1,center}$}{$\end{adjustbox}\]}
+\fi

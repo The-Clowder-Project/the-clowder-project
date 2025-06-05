@@ -571,7 +571,7 @@ if __name__ == "__main__":
     #content = process_data_content(content)
     #content = process_itemize(content)
     #content = process_list_items_web(content)
-    content = process_tikzcd_tags(content)
+    #content = process_tikzcd_tags(content)
     #content = process_webcompile_tikzcd_zoom(content)
     #content = process_leftright_to_webleftright(content)
     #content = process_size_tags(content)

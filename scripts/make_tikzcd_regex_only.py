@@ -1,14 +1,6 @@
 import os, re, sys, subprocess
 import concurrent.futures
 
-def regex(filename):
-    with open(filename, 'r') as file:
-        content = file.read()
-    content = re.sub(r'<div class="scriptsize">',r'\\begingroup\\scriptsize',content)
-    content = re.sub(r'</div',r'\\endgroup',content)
-    with open(filename, 'w') as file:
-        file.write(content)
-
 def main(input_file):
     output_dir_webcompile           = '../the-clowder-project/tmp/webcompile'
     output_dir_webcompile_dark_mode = '../the-clowder-project/tmp/webcompile/dark-mode'
@@ -35,22 +27,23 @@ def main(input_file):
     scalemath_pattern = re.compile(r'\\begin\{scalemath\}(.*?)\\end\{scalemath\}', re.DOTALL)
     scalemath_environments = scalemath_pattern.findall(content)
     for i, environment in enumerate(scalemath_environments):
-        img_tag = f'<div class="scalemath"><img src="/static/scalemath-images/scalemath-{i:06d}.svg"></div>'
+        img_tag = f'\\scalemath{{{i:06d}}}'
         content = scalemath_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
     # Process webcompile environments
     webcompile_pattern = re.compile(r'\\begin\{webcompile\}(.*?)\\end\{webcompile\}', re.DOTALL)
     webcompile_environments = webcompile_pattern.findall(content)
     for i, environment in enumerate(webcompile_environments):
-        img_tag = f'<div class="webcompile"><img src="/static/webcompile-images/webcompile-{i:06d}.svg"></div>'
+        img_tag = f'\\webcompile{{{i:06d}}}'
         content = webcompile_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
     # Process tikzcd environments
     tikzcd_pattern = re.compile(r'\\begin\{tikzcd\}(.*?)\\end\{tikzcd\}', re.DOTALL)
     tikzcd_environments = tikzcd_pattern.findall(content)
     for i, environment in enumerate(tikzcd_environments):
-        img_tag = f'<div class="tikz-cd"><img src="/static/tikzcd-images/tikzcd-{i:06d}.svg"></div>'
+        img_tag = r'\\'+f'tikzcdid{{{i:06d}}}'
         content = tikzcd_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
+    #content = re.sub(r"\\\[\s*\\tikzcdid\{(\d+)\}\s*\\\]%", r"\\tikzcdid{\1}", content)
 
     # Restore RAW HTML blocks
     for i, block in enumerate(raw_html_blocks):

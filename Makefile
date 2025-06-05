@@ -2266,16 +2266,8 @@ web-and-serve:
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
-		printf "$(GREEN)Running Regexes$(NC)\n"; \
-		regex_start=$$(date +%s.%2N); \
-		cd book/; \
-  		find . -name "*.tag" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
-  		find . -name "*.proof" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
-  		find . -name "*.footnote" | xargs -I {} -P 12 python$(PYTHON_VERSION) ../../scripts/process.py {}; \
-		regex_end=$$(date +%s.%2N); \
-		regex_duration=$$(echo "$$regex_end - $$regex_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
-		cd ../../gerby-website/gerby/tools/; \
+		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
 		rm stacks.pdf stacks.paux stacks.tags; \
@@ -2293,9 +2285,8 @@ web-and-serve:
         printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
         printf "$(GREEN)   -->      TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
         printf "$(GREEN)   -->     Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
-        printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
         printf "$(GREEN)   -->  TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
-        printf "$(GREEN)   -->    Regex: %6.2f seconds.$(NC)\n" "$$regex_duration"; \
+        printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
         printf "$(GREEN)   -->    Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 		FLASK_APP=application.py flask run; \
 	fi

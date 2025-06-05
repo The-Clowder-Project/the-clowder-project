@@ -252,7 +252,7 @@ def main(input_file):
 
     # Replace scalemath environments in the content
     for i, environment in enumerate(scalemath_environments):
-        img_tag = f'<div class="scalemath"><img src="/static/scalemath-images/scalemath-{i:06d}.svg"></div>'
+        img_tag = f'\\scalemath{{{i:06d}}}'
         content = pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
     # Check if the output directory exists, if not create it
@@ -264,13 +264,13 @@ def main(input_file):
         filename = os.path.join(output_dir_scalemath, f'scalemath-{i:06d}.tex')
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=False))
-            file.write("\\begin{document}\n")
-            file.write("\\begin{scalemath}%")
+            file.write("\\usepackage{adjustbox}\\begin{document}\n")
+            file.write(r"\[\begin{adjustbox}{width=\linewidth,center}$")
             environment = re.sub("\n\n","\n",environment)
             file.write(environment)
-            file.write("\\end{scalemath}\n")
+            file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
     # Write each dark-mode scalemath environment to a separate file
     for i, environment in enumerate(scalemath_environments):
         filename = os.path.join(output_dir_scalemath_dark_mode, f'scalemath-{i:06d}.tex')
@@ -284,7 +284,7 @@ def main(input_file):
             file.write(environment)
             file.write("\\]\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
     # Write the modified content back to the input file
     with open(input_file, 'w') as file:
         file.write(content)
@@ -305,7 +305,7 @@ def main(input_file):
 
     # Replace webcompile environments in the content
     for i, environment in enumerate(webcompile_environments):
-        img_tag = f'<div class="webcompile"><img src="/static/webcompile-images/webcompile-{i:06d}.svg"></div>'
+        img_tag = f'\\webcompile{{{i:06d}}}'
         content = pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
     # Check if the output directory exists, if not create it
@@ -323,7 +323,7 @@ def main(input_file):
             file.write(environment)
             file.write("\\]\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
     # Write each dark-mode webcompile environment to a separate file
     for i, environment in enumerate(webcompile_environments):
         filename = os.path.join(output_dir_webcompile_dark_mode, f'webcompile-{i:06d}.tex')
@@ -337,7 +337,7 @@ def main(input_file):
             file.write(environment)
             file.write("\\]\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
     # Write the modified content back to the input file
     with open(input_file, 'w') as file:
         file.write(content)
@@ -365,7 +365,7 @@ def main(input_file):
 
     # Replace tikzcd environments in the content
     for i, environment in enumerate(tikzcd_environments):
-        img_tag = f'<div class="tikz-cd"><img src="/static/tikzcd-images/tikzcd-{i:06d}.svg"></div>'
+        img_tag = r'\\'+f'tikzcdid{{{i:06d}}}'
         content = pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
     # Check if the output directory exists, if not create it
@@ -388,7 +388,7 @@ def main(input_file):
             file.write(environment)
             file.write("\\end{tikzcd}\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
     # Write each tikzcd dark-mode environment to a separate file
     for i, environment in enumerate(tikzcd_environments):
         filename = os.path.join(output_dir_dark_mode, f'tikzcd-{i:06d}.tex')
@@ -401,7 +401,7 @@ def main(input_file):
             file.write(environment)
             file.write("\\end{tikzcd}\n")
             file.write("\\end{document}\n")
-        regex(filename)
+        #regex(filename)
 
     # Write the modified content back to the input file
     with open(input_file, 'w') as file:

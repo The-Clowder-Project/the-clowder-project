@@ -1072,7 +1072,7 @@ Let $A$ and $B$ be sets.
                     % 2-arrows
                     \arrow[from=1,to=2,"\id_{R}"description,shorten=0.75*\the\DL,Rightarrow]%
                 \end{tikzcd}
-            \]
+            \]%
             of $R$ is the identity inclusion
             \begin{webcompile}
                 R%
@@ -1143,7 +1143,7 @@ Let $A$ and $B$ be sets.
                     % 2-arrows
                     \arrow[from=1,to=2,"\Unit_{f}"description,shorten=0.75*\the\DL,Rightarrow]%
                 \end{tikzcd}
-            \]
+            \]%
             of $f$ is the inclusion
             \begin{webcompile}
                 \chi_{B}\circ(f\times f)%
@@ -1274,7 +1274,7 @@ Let $A$ and $B$ be sets.
                     % 2-arrows
                     \arrow[from=1,to=2,"\beta\doublecirc\alpha"description,shorten=0.75*\the\DL,Rightarrow]%
                 \end{tikzcd}
-            \]
+            \]%
             of $\alpha$ and $\beta$ is the inclusion of relations%
             %--- Begin Footnote ---%
             \footnote{%
@@ -1412,7 +1412,7 @@ Let $A$ and $B$ be sets.
             % 2-arrows
             \arrow[from=1,to=2,"\beta\circ\alpha"description,shorten=0.75*\the\DL,Rightarrow]%
         \end{tikzcd}
-    \]
+    \]%
     of $\alpha$ and $\beta$ as the inclusion of relations
     \begin{webcompile}
         T\circ[(h\circ f)\times(k\circ g)]%
@@ -2128,7 +2128,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     B\mrp{.}
                 \end{tikzcd}
-            \]
+            \]%
             By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}, we have
             \begin{align*}
                 R_{*}(U) &= R\procirc U,\\
@@ -2147,7 +2147,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             and suppose that $R\procirc S=R\procirc T$. Note that, since $R_{*}$ is injective, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2160,7 +2160,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             if $R_{*}(U)=R\procirc U=R\procirc V=R_{*}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2176,7 +2176,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             for which we have $R\procirc S\procirc[x]=R\procirc T\procirc[x]$, implying that we have
             \[
                 S(x)%
@@ -2218,7 +2218,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \&
             B\mrp{.}
         \end{tikzcd}
-    \]
+    \]%
     Since $\star\sim_{[a]}a$ and $a\sim_{R}b$, we have $\star\sim_{R\procirc[a]}b$. Similarly, $\star\sim_{R\procirc[a']}b$. Thus $R\procirc[a]=R\procirc[a']$, and since $R$ is a monomorphism, we have $[a]=[a']$, i.e.\ $a=a'$.
 
     Conversely, assume the condition
@@ -2242,7 +2242,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \&
             B\mrp{,}
         \end{tikzcd}
-    \]
+    \]%
     and let $(x,a)\in S$. Since $R$ is total and $a\in A$, there exists some $b\in B$ such that $a\sim_{R}b$. In this case, we have $x\sim_{R\procirc S}b$, and since $R\procirc S=R\procirc T$, we have also $x\sim_{R\procirc T}b$. Thus there must exist some $a'\in A$ such that $x\sim_{T}a'$ and $a'\sim_{R}b$. However, since $a,a'\sim_{R}b$, we must have $a=a'$, and thus $(x,a)\in T$ as well.
 
     A similar argument shows that if $(x,a)\in T$, then $(x,a)\in S$, and thus $S=T$ and it follows that $R$ is a monomorphism.
@@ -2394,7 +2394,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             and suppose that $R\procirc S\subset R\procirc T$. Note that, by assumption, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2407,7 +2407,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             if $R_{*}(U)=R\procirc U\subset R\procirc V=R_{*}(V)$, then $U\subset V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2423,7 +2423,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     \&
                     B\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             for which we have $R\procirc S\procirc[x]\subset R\procirc T\procirc[x]$, implying that we have
             \[
                 S(x)%
@@ -2447,7 +2447,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     \&
                     B\mrp{.}
                 \end{tikzcd}
-            \]
+            \]%
             By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
             \begin{align*}
                 R_{*}(U) &= R\procirc U,\\
@@ -2516,7 +2516,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     \pt\mrp{.}
                 \end{tikzcd}
-            \]
+            \]%
             By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}, we have
             \begin{align*}
                 R^{-1}(U) &= U\procirc R,\\
@@ -2535,7 +2535,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     X\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             and suppose that $S\procirc R=T\procirc R$. Note that, since $R^{-1}$ is injective, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2548,7 +2548,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     \pt\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             if $R^{-1}(U)=U\procirc R=V\procirc R=R^{-1}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2564,7 +2564,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     \&
                     \pt\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             for which we have $[x]\procirc S\procirc R=[x]\procirc T\procirc R$, implying that we have
             \[
                 S^{-1}(x)%
@@ -2617,7 +2617,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \&
             {\{0,1\}\mrp{,}}
         \end{tikzcd}
-    \]
+    \]%
     where $b\sim_{S}0$ for each $b\in B$ and where we have
     \[
         b%
@@ -2776,7 +2776,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                     \&
                     X\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             and suppose that $S\procirc R\subset T\procirc R$. Note that, by assumption, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2789,7 +2789,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                     \&
                     \pt\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             if $R^{-1}(U)=R\procirc U\subset R\procirc V=R^{-1}(V)$, then $U\subset V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2805,7 +2805,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                     \&
                     \pt\mrp{,}
                 \end{tikzcd}
-            \]
+            \]%
             for which we have $[x]\procirc S\procirc R\subset[x]\procirc T\procirc R$, implying that we have
             \[
                 S^{-1}(x)%
@@ -2829,7 +2829,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                     \&
                     \pt\mrp{.}
                 \end{tikzcd}
-            \]
+            \]%
             By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
             \begin{align*}
                 R^{-1}(U) &= U\procirc R,\\

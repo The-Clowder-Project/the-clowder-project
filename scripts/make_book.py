@@ -18,7 +18,6 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.remove_index(line)
             line = preprocess.parbox(line)
             line = preprocess.textdbend_2(line)
-            line = preprocess.scalemath_to_webcompile(line)
         elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)

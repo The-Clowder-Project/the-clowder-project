@@ -53,12 +53,7 @@
 \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 \renewcommand{\right}{\aftergroup\egroup\originalright}
 %%%%%%
-\newenvironment{webcompile}{\[}{\]}
-\ifplastex
-\else
-    \usepackage{adjustbox}
-    \newenvironment{scalemath}[1][\linewidth]{\[\begin{adjustbox}{width=#1,center}$}{$\end{adjustbox}\]}
-\fi
+\input{preamble/nontikzcd.tex}
 \usepackage{mathtools}
 \newcommand{\mcp}[1]{\mathclap{#1}}
 \newcommand{\mrp}[1]{\mathrlap{#1}}
