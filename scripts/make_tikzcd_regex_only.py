@@ -43,7 +43,7 @@ def main(input_file):
     for i, environment in enumerate(tikzcd_environments):
         img_tag = r'\\'+f'tikzcdid{{{i:06d}}}'
         content = tikzcd_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
-    #content = re.sub(r"\\\[\s*\\tikzcdid\{(\d+)\}\s*\\\]%", r"\\tikzcdid{\1}", content)
+    content = re.sub(r"\\\[\s*\\tikzcdid\{(\d+)\}\s*\\\]%", r"\\tikzcdid{\1}", content)
 
     # Restore RAW HTML blocks
     for i, block in enumerate(raw_html_blocks):
