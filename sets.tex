@@ -455,142 +455,43 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
 Here we record some analogies between notions in set theory and category theory. The analogies relating to presheaves relate equally well to copresheaves, as the opposite $X^{\mathrm{op}}$ of a set $X$ is just $X$ again.
 \begin{remark}{Basic Analogies Between Set Theory and Category Theory}{basic-analogies-between-set-theory-and-category-theory}%
     The basic analogies between set theory and category theory are summarised in the following table:
-    % BEGIN RAW HTML %
-    <div class="site-table-container" style="margin-top:1rem;">
-      <div class="site-table">
-        <table>
-          <tr>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
-          </tr>
-          <tr>
-            <td>Enrichment in $\TV$</td>
-            <td>Enrichment in $\Sets$</td>
-          </tr>
-          <tr>
-            <td>Set $X$</td>
-            <td>Category $\mathcal{C}$</td>
-          </tr>
-          <tr>
-            <td>Element $x\in X$</td>
-            <td>Object $X\in\Obj(\mathcal{C})$</td>
-          </tr>
-          <tr>
-            <td>Function</td>
-            <td>Functor</td>
-          </tr>
-          <tr>
-            <td>Function $X\to\TV$</td>
-            <td>Copresheaf $\mathcal{C}\to\mathsf{Sets}$</td>
-          </tr>
-          <tr>
-            <td>Function $X\to\TV$</td>
-            <td>Presheaf $\mathcal{C}^{\op}\to\mathsf{Sets}$</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    % BEGIN LATEX HTML %
     \begingroup%
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
         \begin{tabular}{|c|c|}\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Set Theory}}} & \textcolor{white}{\textsc{Category Theory}} \\\hline\rowcolor{backgroundColor}
+            \textcolor{white}{\textbf{Set Theory}} & \textcolor{white}{\textbf{Category Theory}} \\\hline\rowcolor{backgroundColor}
             Enrichment in $\TV$                    & Enrichment in $\Sets$                       \\\rowcolor{black!05!backgroundColor}
             Set $X$                                & Category $\CatFont{C}$                      \\\rowcolor{backgroundColor}
             Element $x\in X$                       & Object $X\in\Obj(\CatFont{C})$              \\\rowcolor{black!05!backgroundColor}
-            Function                               & Functor                                     \\\rowcolor{backgroundColor}
-            Function $X\to\TV$                     & Copresheaf $\CatFont{C}\to\Sets$              \\\rowcolor{black!05!backgroundColor}
+            Function $f\colon X\to Y$              & Functor $F\colon\CatFont{C}\to\CatFont{D}$  \\\rowcolor{backgroundColor}
+            Function $X\to\TV$                     & Copresheaf $\CatFont{C}\to\Sets$            \\\rowcolor{black!05!backgroundColor}
             Function $X\to\TV$                     & Presheaf $\CatFont{C}^{\op}\to\Sets$        \\\hline
         \end{tabular}
     \end{center}
     \endgroup
-    % END RAW HTML %
 \end{remark}
 \begin{remark}{Analogies Between Set Theory and Category Theory: Powersets and Categories of Presheaves}{analogies-between-set-theory-and-category-theory-powersets-and-categories-of-presheaves}%
     The category of presheaves $\PSh(\CatFont{C})$ and the category of copresheaves $\CoPSh(\CatFont{C})$ on a category $\CatFont{C}$ are the 1-categorical counterparts to the powerset $\mathcal{P}(X)$ of subsets of a set $X$. The further analogies built upon this are summarised in the following table:
-    % BEGIN RAW HTML %
-    <div class="site-table-container" style="margin-top:1rem;">
-      <div class="site-table">
-        <table>
-          <tr>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
-          </tr>
-          <tr>
-            <td>Powerset $\mathcal{P}(X)$<br>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:powersets}}{\cref{powersets}})</td>
-            <td>Presheaf category $\mathsf{PSh}(\mathcal{C})$<br>(\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-category-of-presheaves-on-a-category}}{\cref{the-category-of-presheaves-on-a-category}})</td>
-          </tr>
-          <tr>
-            <td>Characteristic function<br>$\chi_{x}\colon X\to\TTV$<br>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions}})</td>
-            <td>Representable Presheaf<br>$h_{X}\colon\mathcal{C}^{\op}\to\Sets$<br>(\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:representable-presheaves-representable-presheaves-associated-to-an-object} of \cref{presheaves-and-the-yoneda-lemma:representable-presheaves}}{\cref{representable-presheaves-representable-presheaves-associated-to-an-object} of \cref{representable-presheaves}})</td>
-          </tr>
-          <tr>
-            <td>Characteristic embedding<p style="margin-top:0.5em;margin-bottom:0.5em">$\chi_{(-)}\colon X\hookrightarrow\mathcal{P}(X)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions-characteristic-embedding} of \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions-characteristic-relation} of \cref{characteristic-functions}})</td>
-            <td>Yoneda embedding<p style="margin-top:0.5em;margin-bottom:0.5em">$\yo\colon\mathcal{C}\hookrightarrow\mathsf{PSh}(\mathcal{C})$</p>(\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-embedding}}{\cref{the-yoneda-embedding}})</td>
-          </tr>
-          <tr>
-          <td>Characteristic relation $\chi_{X}(-_{1},-_{2})\colon X\times X\to\TTV$<br>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions-characteristic-relation} of \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions-characteristic-relation} of \cref{characteristic-functions}})</td>
-          <td>$\Hom$ profunctor $\Hom_{\mathcal{C}}(-_{1},-_{2})\colon\CatFont{C}^{\op}\times\CatFont{C}\to\Sets$<br>(\cref{TODO})</td>
-          </tr>
-          <tr>
-          <td>The Yoneda lemma for sets<p style="margin-top:0.5em;margin-bottom:0.5em">$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{U})\cong\chi_{U}(x)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-yoneda-lemma-for-sets}}{\cref{presheaves-and-the-yoneda-lemma-for-sets:the-yoneda-lemma}})</td>
-            <td>The Yoneda lemma for categories<p style="margin-top:0.5em;margin-bottom:0.5em">$\Nat(h_{X},\SheafFont{F})\cong\SheafFont{F}(X)$</p>(\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}})</td>
-          </tr>
-          <tr>
-            <td>The characteristic<br>embedding is fully faithful,<p style="margin-top:0.5em;margin-bottom:0.5em">$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})\cong\chi_{X}(x,y)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-embedding-is-fully-faithful}}{\cref{presheaves-and-the-characteristic-embedding-is-fully-faithful:the-yoneda-lemma}})</td>
-            <td>The Yoneda<br>embedding is fully faithful,<p style="margin-top:0.5em;margin-bottom:0.5em">$\Nat(h_{X},h_{Y})\cong\Hom_{\mathcal{C}}(X,Y)$</p>(\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding-fully-faithfulness} of \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding}}{\cref{properties-of-the-yoneda-embedding-fully-faithfulness} of \cref{properties-of-the-yoneda-embedding}})</td>
-          </tr>
-          <tr>
-            <td>Subsets are unions<br>of their elements,<p style="margin-top:0.5em;margin-bottom:0.5em">$\displaystyle U=\bigcup_{x\in U}\{x\}$<br>or<br>$\displaystyle\chi_{U}=\mkern-18mu\colim_{\chi_{x}\in\Sets(U,\TTV)}(\chi_{x})$</p></td>
-            <td>Presheaves are colimits<br>of representables,<p style="margin-top:0.5em;margin-bottom:0.5em">$\displaystyle\SheafFont{F}\cong\colim_{h_{X}\in\int_{\mathcal{C}}\SheafFont{F}}(h_{X})$</p>(\cref{TODO})</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    % BEGIN LATEX HTML %
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
         \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                                                                                    & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                   \\\hline\rowcolor{backgroundColor}
+            \textcolor{white}{\textbf{Set Theory}}                                                                                                                                    & \textcolor{white}{\textbf{Category Theory}}                                                                                                   \\\hline\rowcolor{backgroundColor}
             Powerset $\mathcal{P}(X)$                                                                                                                                                          & Presheaf category $\PSh(\CatFont{C})$                                                                                                         \\\rowcolor{black!05!backgroundColor}
             \Gape[0pt][2pt]{\makecell{Characteristic function\\$\chi_{\{x\}}\colon X\to\TTV$}}                                                                                                                                             & \Gape[0pt][2pt]{\makecell{Representable presheaf\\$h_{X}\colon\CatFont{C}^{\op}\hookrightarrow\Sets$}}                                                                                                                \\\rowcolor{backgroundColor}
             \Gape[0pt][2pt]{\makecell{Characteristic embedding\\$\chi_{(-)}\colon X\hookrightarrow\mathcal{P}(X)$}}                                                                            & \Gape[0pt][2pt]{\makecell{Yoneda embedding\\$\yo\colon\CatFont{C}^{\op}\hookrightarrow\PSh(\CatFont{C})$}}                                                    \\\rowcolor{black!05!backgroundColor}
             \Gape[0pt][2pt]{\makecell{Characteristic relation\\$\chi_{X}(-_{1},-_{2})\colon X\times X\to\TTV$}}                                                                            & \Gape[0pt][2pt]{\makecell{Hom profunctor\\$\Hom_{\CatFont{C}}(-_{1},-_{2})\colon\CatFont{C}^{\op}\times\CatFont{C}\to\Sets$}}                                                    \\
             \Gape[0pt][2pt]{\makecell{The Yoneda lemma for sets\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{U})=\chi_{U}(x)$}}                                                               & \Gape[0pt][2pt]{\makecell{The Yoneda lemma for categories\\$\Nat(h_{X},\SheafFont{F})\cong\SheafFont{F}(X)$}}                                                  \\\rowcolor{black!05!backgroundColor}
-            \Gape[0pt][2pt]{\makecell{The characteristic\\ embedding is fully faithful,\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})=\chi_{X}(x,y)$}}                                     & \Gape[0pt][2pt]{\makecell{The Yoneda embedding\\is fully faithful,\\$\Nat(h_{X},h_{Y})\cong\Hom_{\CatFont{C}}(X,Y)$}}                                        \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{The characteristic\\embedding is fully faithful,\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})=\chi_{X}(x,y)$}}                                     & \Gape[0pt][2pt]{\makecell{The Yoneda\\embedding is fully faithful,\\$\Nat(h_{X},h_{Y})\cong\Hom_{\CatFont{C}}(X,Y)$}}                                        \\\rowcolor{backgroundColor}
             \Gape[0pt][2pt]{\makecell{Subsets are unions\\of their elements\\ $\displaystyle U=\bigcup_{x\in U}\{x\}$\\or\\$\displaystyle\chi_{U}=\colim_{\chi_{x}\in\mathcal{P}(U)}(\chi_{x})$}} & \Gape[0pt][2pt]{\makecell{Presheaves are colimits\\of representables,\\$\displaystyle\SheafFont{F}\cong\colim_{h_{X}\in\int_{\mathcal{C}}\SheafFont{F}}(h_{X})$}} \\\hline
         \end{tabular}
     \end{center}
     \endgroup
-    % END RAW HTML %
 \end{remark}
 \begin{remark}{Analogies Between Set Theory and Category Theory: Categories of Elements}{analogies-between-set-theory-and-category-theory-categories-of-elements}%
     We summarise the analogies between un/straightening in set theory and category theory in the following table:
-    % BEGIN RAW HTML %
-    <div class="site-table-container" style="margin-top:1rem;">
-      <div class="site-table" style="transform: translateX(4.875rem);">
-        <table style="width: 76\%;">
-          <tr>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
-          </tr>
-          <tr>
-            <td>Assignment $U\mapsto\chi_{U}$</td>
-            <td>Assignment $\SheafFont{F}\mapsto\int_{\mathcal{C}}\SheafFont{F}$<br>(the category<br>of elements)</td>
-          </tr>
-          <tr>
-            <td>Un/straightening isomorphism<br>$\mathcal{P}(X)\cong\Sets(X,\TTV)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1} of \cref{properties-of-powersets-as-sets-of-functions-relations}})</td>
-            <td>Un/straightening equivalence<br>$\PSh(\mathcal{C})\eqcong\DFib(\mathcal{C})$</p>(\cref{TODO})</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    % BEGIN LATEX HTML %
-    Categories of elements:
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
@@ -603,34 +504,9 @@ Here we record some analogies between notions in set theory and category theory.
         \end{tabular}
     \end{center}
     \endgroup
-    % END RAW HTML %
 \end{remark}
 \begin{remark}{Analogies Between Set Theory and Category Theory: Functions Between Powersets and Functors Between Presheaf Categories}{analogies-between-set-theory-and-category-theory-functions-between-powersets-and-functors-between-presheaf-categories}%
     We summarise the analogies between functions $\mathcal{P}(A)\to\mathcal{P}(B)$ and functors $\PSh(\CatFont{C})\to\PSh(\CatFont{D})$ in the following table:
-    % BEGIN RAW HTML %
-    <div class="site-table-container" style="margin-top:1rem;">
-      <div class="site-table" style="transform: translateX(6rem);">
-        <table style="width: 71\%;">
-          <tr>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
-          </tr>
-          <tr>
-            <td>Direct image function<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}})</td>
-            <td>Direct image functor<p style="margin-top:0.5em;margin-bottom:0.5em">$F_{*}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p>(\cref{TODO})</td>
-          </tr>
-          <tr>
-            <td>Inverse image function<p style="margin-top:0.5em;margin-bottom:0.5em">$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-inverse-image-function-associated-to-a-function}}{\cref{the-inverse-image-function-associated-to-a-function}})</td>
-            <td>Inverse image functor<p style="margin-top:0.5em;margin-bottom:0.5em">$F^{*}\colon\mathsf{PSh}(\mathcal{D})\to\mathsf{PSh}(\mathcal{C})$</p>(\cref{TODO})</td>
-          </tr>
-          <tr>
-            <td>Direct image with<br>compact support function<p style="margin-top:0.5em;margin-bottom:0.5em">$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$</p>(\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-with-compact-support-function-associated-to-a-function}}{\cref{the-direct-image-with-compact-support-function-associated-to-a-function}})</td>
-            <td>Direct image with<br>compact support functor<p style="margin-top:0.5em;margin-bottom:0.5em">$F_{!}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p>(\cref{TODO})</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    % BEGIN LATEX HTML %
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
@@ -644,34 +520,9 @@ Here we record some analogies between notions in set theory and category theory.
         \end{tabular}
     \end{center}
     \endgroup
-    % END RAW HTML %
 \end{remark}
 \begin{remark}{Analogies Between Set Theory and Category Theory: Relations and Profunctors}{analogies-between-set-theory-and-category-theory-relations-and-profunctors}%
     We summarise the analogies between functions relations and profunctors in the following table:
-    % BEGIN RAW HTML %
-    <div class="site-table-container" style="margin-top:1rem;">
-      <div class="site-table">
-        <table>
-          <tr>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Set Theory</b></th>
-            <th style="text-align: center; background-color: #A60D0D; color: white;"><b>Category Theory</b></th>
-          </tr>
-          <tr>
-            <td>Relation<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon X\times Y\to\TTV$</p></td>
-            <td>Profunctor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathcal{D}^{\op}\times\mathcal{C}\to\Sets$</p></td>
-          </tr>
-          <tr>
-            <td>Relation<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon X\to\mathcal{P}(Y)$</p></td>
-            <td>Profunctor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathcal{C}\to\PSh(\mathcal{D})$</p></td>
-          </tr>
-          <tr>
-            <td>Relation as a cocontinuous<br>morphism of posets<p style="margin-top:0.5em;margin-bottom:0.5em">$R\colon(\mathcal{P}(X),\subset)\to(\mathcal{P}(Y),\subset)$</p></td>
-            <td>Profunctor as a<br>colimit-preserving functor<p style="margin-top:0.5em;margin-bottom:0.5em">$\mathfrak{p}\colon\mathsf{PSh}(\mathcal{C})\to\mathsf{PSh}(\mathcal{D})$</p></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    % BEGIN LATEX HTML %
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
@@ -685,7 +536,6 @@ Here we record some analogies between notions in set theory and category theory.
         \end{tabular}
     \end{center}
     \endgroup
-    % END RAW HTML %
 \end{remark}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

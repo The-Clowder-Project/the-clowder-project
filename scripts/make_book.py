@@ -81,21 +81,6 @@ def print_tex_file(tex_file,name,style):
                 continue
             if line.find("\\end{appendices}") >= 0:
                 continue
-            if line.find("\\begingroup\\tiny") >= 0:
-                print(r'<div class="tinysize">')
-                continue
-            if line.find("\\begingroup\\scriptsize") >= 0:
-                print(r'<div class="scriptsize">')
-                continue
-            if line.find("\\begingroup\\small") >= 0:
-                print(r'<div class="smallsize">')
-                continue
-            if line.find("\\begingroup\\footnotesize") >= 0:
-                print(r'<div class="footnotesize">')
-                continue
-            if line.find("\\endgroup") >= 0:
-                print(r"</div>")
-                continue
             if line.find("\\opsup") >= 0:
                 line = line.replace("\\opsup", "\\mkern-0.0mu\\opsup")
             if line.find("ABSOLUTEPATH") >= 0:
