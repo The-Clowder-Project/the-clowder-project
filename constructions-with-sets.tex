@@ -1988,27 +1988,27 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
 
     \ProofBox{\cref{properties-of-pullbacks-of-sets-associativity}: Associativity}%
     We have
-    \begingroup\small
-    \begin{align*}
-        (A\times_{X}B)\times_{Y}C &\cong \{((a,b),c)\in(A\times_{X}B)\times C\ \middle|\ h(b)=k(c)\}\\
-                                  &\cong \{((a,b),c)\in(A\times B)\times C\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
-                                  &\cong \{(a,(b,c))\in A\times(B\times C)\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
-                                  &\cong \{(a,(b,c))\in A\times(B\times_{Y}C)\ \middle|\ \text{$f(a)=g(b)$}\}\\
-                                  &\cong A\times_{X}(B\times_{Y}C)
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            (A\times_{X}B)\times_{Y}C &\cong \{((a,b),c)\in(A\times_{X}B)\times C\ \middle|\ h(b)=k(c)\}\\
+                                      &\cong \{((a,b),c)\in(A\times B)\times C\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
+                                      &\cong \{(a,(b,c))\in A\times(B\times C)\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
+                                      &\cong \{(a,(b,c))\in A\times(B\times_{Y}C)\ \middle|\ \text{$f(a)=g(b)$}\}\\
+                                      &\cong A\times_{X}(B\times_{Y}C)
+        \end{align*}
+    \end{envsmallsize}
     and
-    \begingroup\scriptsize
-    \begin{align*}
-        (A\times_{X}B)\times_{B}(B\times_{Y}C) &\cong \{((a,b),(b',c))\in(A\times_{X}B)\times(B\times_{Y}C)\ \middle|\ b=b'\}\\
-                                               &\cong \{((a,b),(b',c))\in(A\times B)\times(B\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
-                                               &\cong \{(a,(b,(b',c)))\in A\times(B\times(B\times C))\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
-                                               &\cong \{(a,((b,b'),c))\in A\times((B\times B)\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
-                                               &\cong \{(a,((b,b'),c))\in A\times((B\times_{B}B)\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$ and}\\&\text{$h(b')=k(c)$}\end{aligned}\}\\
-                                               &\cong \{(a,(b,c))\in A\times(B\times C)\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
-                                               &\cong A\times_{X}(B\times_{Y}C),
-    \end{align*}
-    \endgroup
+    \begin{envscriptsize}
+        \begin{align*}
+            (A\times_{X}B)\times_{B}(B\times_{Y}C) &\cong \{((a,b),(b',c))\in(A\times_{X}B)\times(B\times_{Y}C)\ \middle|\ b=b'\}\\
+                                                   &\cong \{((a,b),(b',c))\in(A\times B)\times(B\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
+                                                   &\cong \{(a,(b,(b',c)))\in A\times(B\times(B\times C))\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
+                                                   &\cong \{(a,((b,b'),c))\in A\times((B\times B)\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$, $b=b'$,}\\&\text{and $h(b')=k(c)$}\end{aligned}\}\\
+                                                   &\cong \{(a,((b,b'),c))\in A\times((B\times_{B}B)\times C)\ \middle|\ \begin{aligned}&\text{$f(a)=g(b)$ and}\\&\text{$h(b')=k(c)$}\end{aligned}\}\\
+                                                   &\cong \{(a,(b,c))\in A\times(B\times C)\ \middle|\ \text{$f(a)=g(b)$ and $h(b)=k(c)$}\}\\
+                                                   &\cong A\times_{X}(B\times_{Y}C),
+        \end{align*}
+    \end{envscriptsize}
     where we have used \cref{properties-of-pullbacks-of-sets-unitality} for the isomorphism $B\times_{B}B\cong B$.
 
     \ProofBox{\cref{properties-of-pullbacks-of-sets-interaction-with-composition}: Interaction With Composition}%
@@ -2019,33 +2019,33 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
         (X\times^{\phi,q_{1}}_{A}(A\times^{f,g}_{K}B))\times^{p_{2},p_{1}}_{A\times^{f,g}_{K}B}((A\times^{f,g}_{K}B)\times^{q_{2},\psi}_{B}Y).%
     \]%
     We have
-    \begingroup\footnotesize
-    \begin{align*}
-        (X\times^{\phi,q_{1}}_{A}(A\times^{f,g}_{K}B)) &\defeq \{(x,(a,b))\in X\times(A\times^{f,g}_{K}B)\ \middle|\ \phi(x)=q_{1}(a,b)\}\\
-                                                       &\defeq \{(x,(a,b))\in X\times(A\times^{f,g}_{K}B)\ \middle|\ \phi(x)=a\}\\
-                                                       &\cong  \{(x,(a,b))\in X\times(A\times B)\ \middle|\ \text{$\phi(x)=a$ and $f(a)=g(b)$}\},\\
-                                                       %&\cong  \{(x,b)\in X\times B\ \middle|\ f(\phi(x))=g(b)\},\\
-        ((A\times^{f,g}_{K}B)\times^{q_{2},\psi}_{B}Y) &\defeq \{((a,b),y)\in(A\times^{f,g}_{K}B)\times Y\ \middle|\ q_{2}(a,b)=\psi(y)\}\\
-                                                       &\defeq \{((a,b),y)\in(A\times^{f,g}_{K}B)\times Y\ \middle|\ b=\psi(y)\}\\
-                                                       &\cong  \{((a,b),y)\in(A\times B)\times Y\ \middle|\ \text{$b=\psi(y)$ and $f(a)=g(b)$}\},%\\
-                                                       %&\cong  \{(a,y)\in A\times Y\ \middle|\ f(a)=g(\psi(y))\},
-    \end{align*}
-    \endgroup
+    \begin{envfootnotesize}
+        \begin{align*}
+            (X\times^{\phi,q_{1}}_{A}(A\times^{f,g}_{K}B)) &\defeq \{(x,(a,b))\in X\times(A\times^{f,g}_{K}B)\ \middle|\ \phi(x)=q_{1}(a,b)\}\\
+                                                           &\defeq \{(x,(a,b))\in X\times(A\times^{f,g}_{K}B)\ \middle|\ \phi(x)=a\}\\
+                                                           &\cong  \{(x,(a,b))\in X\times(A\times B)\ \middle|\ \text{$\phi(x)=a$ and $f(a)=g(b)$}\},\\
+                                                           %&\cong  \{(x,b)\in X\times B\ \middle|\ f(\phi(x))=g(b)\},\\
+            ((A\times^{f,g}_{K}B)\times^{q_{2},\psi}_{B}Y) &\defeq \{((a,b),y)\in(A\times^{f,g}_{K}B)\times Y\ \middle|\ q_{2}(a,b)=\psi(y)\}\\
+                                                           &\defeq \{((a,b),y)\in(A\times^{f,g}_{K}B)\times Y\ \middle|\ b=\psi(y)\}\\
+                                                           &\cong  \{((a,b),y)\in(A\times B)\times Y\ \middle|\ \text{$b=\psi(y)$ and $f(a)=g(b)$}\},%\\
+                                                           %&\cong  \{(a,y)\in A\times Y\ \middle|\ f(a)=g(\psi(y))\},
+        \end{align*}
+    \end{envfootnotesize}
     so writing
     \begin{align*}
         S  &= (X\times^{\phi,q_{1}}_{A}(A\times^{f,g}_{K}B))\\
         S' &= ((A\times^{f,g}_{K}B)\times^{q_{2},\psi}_{B}Y),
     \end{align*}
     we have
-    \begingroup\footnotesize
-    \begin{align*}
-        S\times^{p_{2},p_{1}}_{A\times^{f,g}_{K}B}S' &\defeq \{((x,(a,b)),((a',b'),y))\in S\times S'\ \middle|\ p_{1}(x,(a,b))=p_{2}((a',b'),y)\}\\
-                                                     &\defeq \{((x,(a,b)),((a',b'),y))\in S\times S'\ \middle|\ (a,b)=(a',b')\}\\
-                                                     &\cong  \{((x,a,b,y))\in X\times A\times B\times Y\ \middle|\ \text{$\phi(x)=a$, $\psi(y)=b$, and $f(a)=g(b)$}\}\\
-                                                     &\cong  \{((x,a,b,y))\in X\times A\times B\times Y\ \middle|\ f(\phi(x))=g(\psi(y))\}\\
-                                                     &\defeq X\times_{K}Y.
-    \end{align*}
-    \endgroup
+    \begin{envfootnotesize}
+        \begin{align*}
+            S\times^{p_{2},p_{1}}_{A\times^{f,g}_{K}B}S' &\defeq \{((x,(a,b)),((a',b'),y))\in S\times S'\ \middle|\ p_{1}(x,(a,b))=p_{2}((a',b'),y)\}\\
+                                                         &\defeq \{((x,(a,b)),((a',b'),y))\in S\times S'\ \middle|\ (a,b)=(a',b')\}\\
+                                                         &\cong  \{((x,a,b,y))\in X\times A\times B\times Y\ \middle|\ \text{$\phi(x)=a$, $\psi(y)=b$, and $f(a)=g(b)$}\}\\
+                                                         &\cong  \{((x,a,b,y))\in X\times A\times B\times Y\ \middle|\ f(\phi(x))=g(\psi(y))\}\\
+                                                         &\defeq X\times_{K}Y.
+        \end{align*}
+    \end{envfootnotesize}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-pullbacks-of-sets-unitality}: Unitality}%
@@ -2068,19 +2068,19 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
 
     \ProofBox{\cref{properties-of-pullbacks-of-sets-distributivity-over-coproducts}: Distributivity Over Coproducts}%
     We have
-    \begingroup\small
-    \begin{align*}
-        A\times_{X}(B\icoprod C) &\defeq        \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \phi_{A}(a)=\phi_{B\icoprod C}(z)\}\\
-                                 &=             \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(0,b)$ and $\phi_{A}(a)=\phi_{B\icoprod C}(z)$}\}\\
-                                 &\phantom{={}} \mkern4mu\cup\{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(1,c)$ and $\phi_{A}(a)=\phi_{B\icoprod C}(z)$}\}\\
-                                 &=             \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(0,b)$ and $\phi_{A}(a)=\phi_{B}(b)$}\}\\
-                                 &\phantom{={}} \mkern4mu\cup\{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(1,c)$ and $\phi_{A}(a)=\phi_{C}(c)$}\}\\
-                                 &\cong         \{(a,b)\in A\times B\ \middle|\ \phi_{A}(a)=\phi_{B}(b)\}\\
-                                 &\phantom{={}} \mkern4mu\cup\{(a,c)\in A\times C\ \middle|\ \phi_{A}(a)=\phi_{C}(c)\}\\
-                                 &\defeq        (A\times_{X}B)\cup(A\times_{X}C)\\
-                                 &\cong         (A\times_{X}B)\icoprod(A\times_{X}C),
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            A\times_{X}(B\icoprod C) &\defeq        \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \phi_{A}(a)=\phi_{B\icoprod C}(z)\}\\
+                                     &=             \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(0,b)$ and $\phi_{A}(a)=\phi_{B\icoprod C}(z)$}\}\\
+                                     &\phantom{={}} \mkern4mu\cup\{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(1,c)$ and $\phi_{A}(a)=\phi_{B\icoprod C}(z)$}\}\\
+                                     &=             \{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(0,b)$ and $\phi_{A}(a)=\phi_{B}(b)$}\}\\
+                                     &\phantom{={}} \mkern4mu\cup\{(a,z)\in A\times(B\icoprod C)\ \middle|\ \text{$z=(1,c)$ and $\phi_{A}(a)=\phi_{C}(c)$}\}\\
+                                     &\cong         \{(a,b)\in A\times B\ \middle|\ \phi_{A}(a)=\phi_{B}(b)\}\\
+                                     &\phantom{={}} \mkern4mu\cup\{(a,c)\in A\times C\ \middle|\ \phi_{A}(a)=\phi_{C}(c)\}\\
+                                     &\defeq        (A\times_{X}B)\cup(A\times_{X}C)\\
+                                     &\cong         (A\times_{X}B)\icoprod(A\times_{X}C),
+        \end{align*}
+    \end{envsmallsize}
     with the construction of the isomorphism
     \[
         \delta^{\Sets_{/X}}_{r}
@@ -2278,15 +2278,15 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-            \begingroup\small
-            \[
-                \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
-                \cong
-                \Eq(f,g,h)
-                \cong
-                \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
-            \]%
-            \endgroup
+            \begin{envsmallsize}
+                \[
+                    \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
+                    \cong
+                    \Eq(f,g,h)
+                    \cong
+                    \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
+                \]%
+            \end{envsmallsize}
             where $\Eq(f,g,h)$ is the limit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2410,25 +2410,25 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
         \Eq(f\circ\eq(f,g),h\circ\eq(f,g)).%
     \]%
     Indeed, we have
-    \begingroup\footnotesize
-    \begin{align*}
-        \Eq(f\circ\eq(g,h),g\circ\eq(g,h)) &\cong \{x\in\Eq(g,h)\ \middle|\ [f\circ\eq(g,h)](a)=[g\circ\eq(g,h)](a)\}\\%
-                                           &\cong \{x\in\Eq(g,h)\ \middle|\ f(a)=g(a)\}\\%
-                                           &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)$ and $g(a)=h(a)$}\}\\%
-                                           &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)=h(a)$}\}\\%
-                                           &\cong \Eq(f,g,h).%
-    \end{align*}
-    \endgroup
+    \begin{envfootnotesize}
+        \begin{align*}
+            \Eq(f\circ\eq(g,h),g\circ\eq(g,h)) &\cong \{x\in\Eq(g,h)\ \middle|\ [f\circ\eq(g,h)](a)=[g\circ\eq(g,h)](a)\}\\%
+                                               &\cong \{x\in\Eq(g,h)\ \middle|\ f(a)=g(a)\}\\%
+                                               &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)$ and $g(a)=h(a)$}\}\\%
+                                               &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)=h(a)$}\}\\%
+                                               &\cong \Eq(f,g,h).%
+        \end{align*}
+    \end{envfootnotesize}
     Similarly, we have
-    \begingroup\footnotesize
-    \begin{align*}
-        \Eq(f\circ\eq(f,g),h\circ\eq(f,g)) &\cong \{x\in\Eq(f,g)\ \middle|\ [f\circ\eq(f,g)](a)=[h\circ\eq(f,g)](a)\}\\%
-                                           &\cong \{x\in\Eq(f,g)\ \middle|\ f(a)=h(a)\}\\%
-                                           &\cong \{x\in A\ \middle|\ \text{$f(a)=h(a)$ and $f(a)=g(a)$}\}\\%
-                                           &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)=h(a)$}\}\\%
-                                           &\cong \Eq(f,g,h).%
-    \end{align*}
-    \endgroup
+    \begin{envfootnotesize}
+        \begin{align*}
+            \Eq(f\circ\eq(f,g),h\circ\eq(f,g)) &\cong \{x\in\Eq(f,g)\ \middle|\ [f\circ\eq(f,g)](a)=[h\circ\eq(f,g)](a)\}\\%
+                                               &\cong \{x\in\Eq(f,g)\ \middle|\ f(a)=h(a)\}\\%
+                                               &\cong \{x\in A\ \middle|\ \text{$f(a)=h(a)$ and $f(a)=g(a)$}\}\\%
+                                               &\cong \{x\in A\ \middle|\ \text{$f(a)=g(a)=h(a)$}\}\\%
+                                               &\cong \Eq(f,g,h).%
+        \end{align*}
+    \end{envfootnotesize}
 
     \ProofBox{\cref{properties-of-equalisers-of-sets-unitality}: Unitality}%
     Indeed, we have
@@ -2447,12 +2447,12 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
 
     \ProofBox{\cref{properties-of-equalisers-of-sets-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
-    \begingroup\footnotesize
-    \begin{align*}
-        \Eq(h\circ f\circ\eq(f,g),k\circ g\circ\eq(f,g)) &\cong \{a\in\Eq(f,g)\ \middle|\ h(f(a))=k(g(a))\}\\%
-                                                         &\cong \{a\in A\ \middle|\ \text{$f(a)=g(a)$ and $h(f(a))=k(g(a))$}\}.%
-    \end{align*}
-    \endgroup
+    \begin{envfootnotesize}
+        \begin{align*}
+            \Eq(h\circ f\circ\eq(f,g),k\circ g\circ\eq(f,g)) &\cong \{a\in\Eq(f,g)\ \middle|\ h(f(a))=k(g(a))\}\\%
+                                                             &\cong \{a\in A\ \middle|\ \text{$f(a)=g(a)$ and $h(f(a))=k(g(a))$}\}.%
+        \end{align*}
+    \end{envfootnotesize}
     and
     \[
         \Eq(h\circ f,k\circ g)%
@@ -2852,8 +2852,8 @@ Let $A$ and $B$ be sets.%
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             C
-            \arrow[from=ld,"\iota_{A}",  bend left  = 20]
-            \arrow[from=rd,"\iota_{B}"', bend right = 20]
+            \arrow[from=ld,"\iota_{A}",  bend left  = 30]
+            \arrow[from=rd,"\iota_{B}"', bend right = 30]
             \&
             \\
             A
@@ -2870,8 +2870,8 @@ Let $A$ and $B$ be sets.%
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             C
-            \arrow[from=ld,"\iota_{A}",  bend left  = 20]
-            \arrow[from=rd,"\iota_{B}"', bend right = 20]
+            \arrow[from=ld,"\iota_{A}",  bend left  = 30]
+            \arrow[from=rd,"\iota_{B}"', bend right = 30]
             \arrow[from=d,"\phi","\exists!"', dashed]
             \&
             \\
@@ -3168,13 +3168,13 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
                 \setcounter{enumii}{2}
                 \item\label{unwinding-pushouts-of-sets-3-c}There exists $c_{0}\in C$ satisfying one of the following conditions:
                     \begin{enumerate}
-                        \item We have $a=f(c_{0})$ and $x_{1}=g(c_{0})$.
-                        \item We have $a=g(c_{0})$ and $x_{1}=f(c_{0})$.
+                        \item\label{unwinding-pushouts-of-sets-3-c-i}We have $a=f(c_{0})$ and $x_{1}=g(c_{0})$.
+                        \item\label{unwinding-pushouts-of-sets-3-c-ii}We have $a=g(c_{0})$ and $x_{1}=f(c_{0})$.
                     \end{enumerate}
                 \item\label{unwinding-pushouts-of-sets-3-d}For each $1\leq i\leq n-1$, there exists $c_{i}\in C$ satisfying one of the following conditions:
                     \begin{enumerate}
-                        \item We have $x_{i}=f(c_{i})$ and $x_{i+1}=g(c_{i})$.
-                        \item We have $x_{i}=g(c_{i})$ and $x_{i+1}=f(c_{i})$.
+                        \item\label{unwinding-pushouts-of-sets-3-d-i}We have $x_{i}=f(c_{i})$ and $x_{i+1}=g(c_{i})$.
+                        \item\label{unwinding-pushouts-of-sets-3-d-ii}We have $x_{i}=g(c_{i})$ and $x_{i+1}=f(c_{i})$.
                     \end{enumerate}
                 \item\label{unwinding-pushouts-of-sets-3-e}There exists $c_{n}\in C$ satisfying one of the following conditions:
                     \begin{enumerate}
@@ -3186,13 +3186,8 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
 \end{remark}
 \begin{remark}{Pushouts of Sets Depend on the Maps}{pullbacks-of-sets-depend-on-the-maps}%
     It is common practice to write $A\icoprod_{C}B$ for the pushout of $A$ and $B$ over $C$ along $f$ and $g$, omitting the maps $f$ and $g$ from the notation and instead leaving them implicit, to be understood from the context.
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
 
-    \vspace{0.5\baselineskip}
-    % END RAW HTML %
-    However, the set $A\icoprod_{C}B$ depends very much on the maps $f$ and $g$, and sometimes it is necessary or useful to note this dependence explicitly. In such situations, we will write \index[notation]{AicoprodfCgB@$A\icoprod_{f,C,g}B$}$A\icoprod_{f,C,g}B$ or \index[notation]{AicoprodfgCB@$A\icoprod^{f,g}_{C}B$}$A\icoprod^{f,g}_{C}B$ for $A\icoprod_{C}B$.
+    \indent However, the set $A\icoprod_{C}B$ depends very much on the maps $f$ and $g$, and sometimes it is necessary or useful to note this dependence explicitly. In such situations, we will write \index[notation]{AicoprodfCgB@$A\icoprod_{f,C,g}B$}$A\icoprod_{f,C,g}B$ or \index[notation]{AicoprodfgCB@$A\icoprod^{f,g}_{C}B$}$A\icoprod^{f,g}_{C}B$ for $A\icoprod_{C}B$.
 \end{remark}
 \begin{example}{Examples of Pushouts of Sets}{examples-of-pushouts-of-sets}%
     Here are some examples of pushouts of sets.
@@ -3984,35 +3979,32 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
 \end{Proof}
 \begin{remark}{Unwinding \cref{coequalisers-of-sets}}{unwinding-coequalisers-of-sets}%
     In detail, by \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-equivalence-closure-of-a-relation}}{\cref{construction-of-the-equivalence-closure-of-a-relation}}, the relation $\unsim$ of \cref{coequalisers-of-sets} is given by declaring $a\sim b$ \textiff one of the following conditions is satisfied:%
-    \begin{itemize}
-        \item We have $a=b$;
-        \item There exist $x_{1},\ldots,x_{n}\in B$ such that $a\sim'x_{1}\sim'\cdots\sim'x_{n}\sim'b$, where we declare $x\sim'y$ if one of the following conditions is satisfied:
+    \begin{enumerate}
+        \item\label{unwinding-coequalisers-of-sets-1}We have $a=b$;
+        \item\label{unwinding-coequalisers-of-sets-2}There exist $x_{1},\ldots,x_{n}\in B$ such that $a\sim'x_{1}\sim'\cdots\sim'x_{n}\sim'b$, where we declare $x\sim'y$ if one of the following conditions is satisfied:
             \begin{enumerate}
-                \item There exists $z\in A$ such that $x=f(z)$ and $y=g(z)$.
-                \item There exists $z\in A$ such that $x=g(z)$ and $y=f(z)$.
+                \item\label{unwinding-coequalisers-of-sets-2-a}There exists $z\in A$ such that $x=f(z)$ and $y=g(z)$.
+                \item\label{unwinding-coequalisers-of-sets-2-b}There exists $z\in A$ such that $x=g(z)$ and $y=f(z)$.
             \end{enumerate}
-            That is: we require the following condition to be satisfied:
-            \begin{itemize}
-                \item[$(\star)$]There exist $x_{1},\ldots,x_{n}\in B$ satisfying the following conditions:
+            In other words, there exist $x_{1},\ldots,x_{n}\in B$ satisfying the following conditions:
+            \begin{enumerate}
+                \item\label{unwinding-coequalisers-of-sets-2-c}There exists $z_{0}\in A$ satisfying one of the following conditions:
                     \begin{enumerate}
-                        \item There exists $z_{0}\in A$ satisfying one of the following conditions:
-                            \begin{enumerate}
-                                \item We have $a=f(z_{0})$ and $x_{1}=g(z_{0})$.
-                                \item We have $a=g(z_{0})$ and $x_{1}=f(z_{0})$.
-                            \end{enumerate}
-                        \item For each $1\leq i\leq n-1$, there exists $z_{i}\in A$ satisfying one of the following conditions:
-                            \begin{enumerate}
-                                \item We have $x_{i}=f(z_{i})$ and $x_{i+1}=g(z_{i})$.
-                                \item We have $x_{i}=g(z_{i})$ and $x_{i+1}=f(z_{i})$.
-                            \end{enumerate}
-                        \item There exists $z_{n}\in A$ satisfying one of the following conditions:
-                            \begin{enumerate}
-                                \item We have $x_{n}=f(z_{n})$ and $b=g(z_{n})$.
-                                \item We have $x_{n}=g(z_{n})$ and $b=f(z_{n})$.
-                            \end{enumerate}
+                        \item\label{unwinding-coequalisers-of-sets-2-c-i} We have $a=f(z_{0})$ and $x_{1}=g(z_{0})$.
+                        \item\label{unwinding-coequalisers-of-sets-2-c-ii} We have $a=g(z_{0})$ and $x_{1}=f(z_{0})$.
                     \end{enumerate}
-            \end{itemize}
-    \end{itemize}
+                \item\label{unwinding-coequalisers-of-sets-2-d} For each $1\leq i\leq n-1$, there exists $z_{i}\in A$ satisfying one of the following conditions:
+                    \begin{enumerate}
+                        \item\label{unwinding-coequalisers-of-sets-2-d-i} We have $x_{i}=f(z_{i})$ and $x_{i+1}=g(z_{i})$.
+                        \item\label{unwinding-coequalisers-of-sets-2-d-ii} We have $x_{i}=g(z_{i})$ and $x_{i+1}=f(z_{i})$.
+                    \end{enumerate}
+                \item\label{unwinding-coequalisers-of-sets-2-e} There exists $z_{n}\in A$ satisfying one of the following conditions:
+                    \begin{enumerate}
+                        \item\label{unwinding-coequalisers-of-sets-2-e-i} We have $x_{n}=f(z_{n})$ and $b=g(z_{n})$.
+                        \item\label{unwinding-coequalisers-of-sets-2-e-ii} We have $x_{n}=g(z_{n})$ and $b=f(z_{n})$.
+                    \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
 \end{remark}
 \begin{example}{Examples of Coequalisers of Sets}{examples-of-coequalisers-of-sets}%
     Here are some examples of coequalisers of sets.
@@ -4066,13 +4058,13 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \CoEq(f,g),%
                         \]%
                         obtaining a quotient
-                        \begingroup\footnotesize
-                        \[%
-                            \CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)%
-                            =%
-                            \CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)%
-                        \]%
-                        \endgroup
+                        \begin{envfootnotesize}
+                            \[%
+                                \CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)%
+                                =%
+                                \CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)%
+                            \]%
+                        \end{envfootnotesize}
                         of $\CoEq(f,g)$%.
                     \item First take the coequaliser of $g$ and $h$, forming a diagram
                         \[
@@ -4091,27 +4083,27 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \CoEq(g,h),%
                         \]%
                         obtaining a quotient
-                        \begingroup\footnotesize
-                        \[%
-                            \CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)%
-                            =%
-                            \CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)%
-                        \]%
-                        \endgroup
+                        \begin{envfootnotesize}
+                            \[%
+                                \CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)%
+                                =%
+                                \CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)%
+                            \]%
+                        \end{envfootnotesize}
                         of $\CoEq(g,h)$.
                 \end{enumerate}
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-            \begingroup\scriptsize
-            \[
-                \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
-                \cong
-                \CoEq(f,g,h)
-                \cong
-                \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
-            \]%
-            \endgroup
+            \begin{envscriptsize}
+                \[
+                    \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
+                    \cong
+                    \CoEq(f,g,h)
+                    \cong
+                    \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
+                \]%
+            \end{envscriptsize}
             where $\CoEq(f,g,h)$ is the colimit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4672,7 +4664,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \]%
              In particular, for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$, the following condition is satisfied:
              \begin{itemize}
-                 \item[$(\star)$]If $\mathcal{U}\subset\mathcal{V}$, then $\displaystyle\bigcup_{U\in\mathcal{U}}U\subset\bigcup_{V\in\mathcal{V}}V$.
+                 \itemstar If $\mathcal{U}\subset\mathcal{V}$, then $\displaystyle\bigcup_{U\in\mathcal{U}}U\subset\bigcup_{V\in\mathcal{V}}V$.
              \end{itemize}
         \item\label{properties-of-unions-of-families-of-subsets-associativity}\SloganFont{Associativity. }The diagram
             \[
@@ -8937,13 +8929,8 @@ Let $X$ be a set.%
     \end{align*}
     % END RAW HTML %
     with all bijections natural in $A$, (where we are using \cref{properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}). Explicitly, this isomorphism is given by sending a relation $R\colon\Gr(A)\rightproarrow B$ to the map $R^{\dagger}\colon A\to\mathcal{P}(B)$ sending $a$ to the subset $R(a)$ of $B$, as in \ChapterRef{\ChapterRelations, \cref{relations:relations}}{\cref{relations}}.
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
 
-    \vspace{0.5\baselineskip}
-    % END RAW HTML %
-    Naturality in $B$ is then the statement that given a relation $R\colon B\rightproarrow B'$, the diagram
+    \indent Naturality in $B$ is then the statement that given a relation $R\colon B\rightproarrow B'$, the diagram
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \Rel(\Gr(A),B)
@@ -10589,13 +10576,8 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
 \end{remark}
 \begin{notation}{Further Notation for Characteristic Functions}{further-notation-for-characteristic-functions}%
     We will often employ the bijection $\TTV\cong\{0,1\}$ to make use of the arithmetical operations defined on $\{0,1\}$ when disucssing characteristic functions.
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
 
-    \vspace{0.5\baselineskip}
-    % END RAW HTML %
-    Examples of this include \cref{properties-of-characteristic-functions-of-subsets-interaction-with-unions-1,properties-of-characteristic-functions-of-subsets-interaction-with-unions-2,properties-of-characteristic-functions-of-subsets-interaction-with-intersections-1,properties-of-characteristic-functions-of-subsets-interaction-with-intersections-2,properties-of-characteristic-functions-of-subsets-interaction-with-differences,properties-of-characteristic-functions-of-subsets-interaction-with-complements,properties-of-characteristic-functions-of-subsets-interaction-with-symmetric-differences,properties-of-characteristic-functions-of-subsets-interaction-with-internal-homs} of \cref{properties-of-characteristic-functions-of-subsets} below.
+    \indent Examples of this include \cref{properties-of-characteristic-functions-of-subsets-interaction-with-unions-1,properties-of-characteristic-functions-of-subsets-interaction-with-unions-2,properties-of-characteristic-functions-of-subsets-interaction-with-intersections-1,properties-of-characteristic-functions-of-subsets-interaction-with-intersections-2,properties-of-characteristic-functions-of-subsets-interaction-with-differences,properties-of-characteristic-functions-of-subsets-interaction-with-complements,properties-of-characteristic-functions-of-subsets-interaction-with-symmetric-differences,properties-of-characteristic-functions-of-subsets-interaction-with-internal-homs} of \cref{properties-of-characteristic-functions-of-subsets} below.
 \end{notation}
 \begin{proposition}{Properties of Characteristic Functions of Subsets}{properties-of-characteristic-functions-of-subsets}%
     Let $X$ be a set.
@@ -13000,13 +12982,8 @@ Let $f\colon X\to Y$ be a function.
         [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
     \end{align*}
     of \cref{properties-of-binary-intersections-functoriality} of \cref{properties-of-binary-intersections} and \cref{properties-of-internal-homs-of-powersets-functoriality} of \cref{properties-of-internal-homs-of-powersets} satisfy several properties reminiscent of a six functor formalism in the sense of \cref{TODO}.
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
 
-    \vspace{0.5\baselineskip}
-    % END RAW HTML %
-    We collect these properties in \cref{a-six-functor-formalism-for-sets} below.
+    \indent We collect these properties in \cref{a-six-functor-formalism-for-sets} below.
 \end{remark}
 \begin{proposition}{A Six Functor Formalism for Sets}{a-six-functor-formalism-for-sets}%
     Let $X$ be a set.
