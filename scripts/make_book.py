@@ -17,13 +17,11 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.expand_cref(line)
             line = preprocess.remove_index(line)
             line = preprocess.parbox(line)
-            line = preprocess.textdbend_2(line)
         elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
         else:
             line = preprocess.amsthm(line)
-            line = preprocess.textdbend(line)# changes 'END TEXTDBEND' into ''
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
             line = preprocess.remove_START_END_proofbox(line)
