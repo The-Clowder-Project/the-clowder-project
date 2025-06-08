@@ -2224,5 +2224,7 @@
 01XF,constructions-with-monoidal-categories:properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidal-unity-constraints-3
 01XG,constructions-with-monoidal-categories:properties-of-the-moduli-category-of-monoidal-structures-on-a-category-extra-monoidal-unity-constraints-4
 01XH,notes:section-tensor-products-of-pointed-sets
-01XJ,notes:subsection-tikz-code-for-commutative-diagrams-double-square-diagram
-01XK,notes:subsection-tikz-code-for-commutative-diagrams-double-hexagon-diagram
+01XJ,notes:subsection-tikz-code-for-commutative-diagrams-product-diagram-with-circular-arrows
+01XK,notes:subsection-tikz-code-for-commutative-diagrams-coproduct-diagram-with-circular-arrows
+01XL,notes:subsection-tikz-code-for-commutative-diagrams-double-square-diagram
+01XM,notes:subsection-tikz-code-for-commutative-diagrams-double-hexagon-diagram

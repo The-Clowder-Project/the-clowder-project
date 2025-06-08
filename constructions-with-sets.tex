@@ -310,12 +310,12 @@ Let $A$ and $B$ be sets.%
 \begin{Proof}{Proof of \cref{construction-of-binary-products-of-sets}}%
     We claim that $A\times B$ is the categorical product of $A$ and $B$ in the category of sets. Indeed, suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p_{1}}{p_{2}}]
+            {}%
             \&
             P
-            \arrow[ld,"p_{1}"',bend right = 30]
-            \arrow[rd,"p_{2}", bend left  = 30]
             \&
+            {}%
             \\
             A
             \&
@@ -328,13 +328,13 @@ Let $A$ and $B$ be sets.%
     \]%
     in $\Sets$. Then there exists a unique map $\phi\colon P\to A\times B$ making the diagram
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p_{1}}{p_{2}}]
+            {}%
             \&
             P
-            \arrow[ld,"p_{1}"',bend right = 30]
-            \arrow[rd,"p_{2}", bend left  = 30]
             \arrow[d,"\phi"'{pos=0.475},"\exists!"{pos=0.475}, dashed]
             \&
+            {}%
             \\
             A
             \&
@@ -2849,37 +2849,37 @@ Let $A$ and $B$ be sets.%
 \begin{Proof}{Proof of \cref{construction-of-coproducts-of-sets}}%
     We claim that $A\icoprod B$ is the categorical coproduct of $A$ and $B$ in $\Sets$. Indeed, suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,coproductArrows={4.5*\the\DL}{\iota_{1}}{\iota_{2}}]
+            {}%
             \&
             C
-            \arrow[from=ld,"\iota_{A}",  bend left  = 30]
-            \arrow[from=rd,"\iota_{B}"', bend right = 30]
             \&
+            {}%
             \\
             A
             \&
             A\icoprod B
-            \arrow[from=l,"\inj_{A}"']
-            \arrow[from=r,"\inj_{B}"]
+            \arrow[from=l,"\inj_{1}"']
+            \arrow[from=r,"\inj_{2}"]
             \&
             B
         \end{tikzcd}
     \]%
     in $\Sets$. Then there exists a unique map $\phi\colon A\icoprod B\to C$ making the diagram
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,coproductArrows={4.5*\the\DL}{\iota_{1}}{\iota_{2}}]
+            {}%
             \&
             C
-            \arrow[from=ld,"\iota_{A}",  bend left  = 30]
-            \arrow[from=rd,"\iota_{B}"', bend right = 30]
             \arrow[from=d,"\phi","\exists!"', dashed]
             \&
+            {}%
             \\
             A
             \&
             A\icoprod B
-            \arrow[from=l,"\inj_{A}"']
-            \arrow[from=r,"\inj_{B}"]
+            \arrow[from=l,"\inj_{1}"']
+            \arrow[from=r,"\inj_{2}"]
             \&
             B
         \end{tikzcd}
@@ -5624,7 +5624,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \]%
             In particular, for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$, the following condition is satisfied:
             \begin{itemize}
-                \item[$(\star)$]If $\mathcal{U}\subset\mathcal{V}$, then $\displaystyle\bigcap_{V\in\mathcal{V}}V\subset\bigcap_{U\in\mathcal{U}}U$.
+                \itemstar If $\mathcal{U}\subset\mathcal{V}$, then $\displaystyle\bigcap_{V\in\mathcal{V}}V\subset\bigcap_{U\in\mathcal{U}}U$.
             \end{itemize}
         \item\label{properties-of-intersections-of-families-of-subsets-oplax-associativity}\SloganFont{Oplax Associativity. }We have a natural transformation
             \[
@@ -7825,7 +7825,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
             \]%
             In particular, the following statements hold for each $U,V\in\mathcal{P}(X)$:
             \begin{itemize}
-                \item[$(\star)$]If $U\subset V$, then $V^{\sfc}\subset U^{\sfc}$.
+                \itemstar If $U\subset V$, then $V^{\sfc}\subset U^{\sfc}$.
             \end{itemize}
         \item\label{properties-of-complements-de-morgan-s-laws}\SloganFont{De Morgan's Laws. }The diagrams
             \begin{scalemath}
@@ -8959,7 +8959,7 @@ Let $X$ be a set.
     satisfies the following universal property:
 
     \begin{itemize}
-        \item[$(\star)$]Given another pair $(Y,f)$ consisting of
+        \itemstar Given another pair $(Y,f)$ consisting of
             \begin{itemize}
                 \item A suplattice $(Y,\preceq)$;
                 \item A function $f\colon X\to Y$;
@@ -9287,7 +9287,7 @@ Let $X$ be a set.
     satisfies the following universal property:
 
     \begin{itemize}
-        \item[$(\star)$]Given another pair $(Y,f)$ consisting of
+        \itemstar Given another pair $(Y,f)$ consisting of
             \begin{itemize}
                 \item An inflattice $(Y,\preceq)$;
                 \item A function $f\colon X\to Y$;
@@ -11221,7 +11221,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \item[$(\star)$]If $U\subset V$, then $f_{*}(U)\subset f_{*}(V)$.
+                \itemstar If $U\subset V$, then $f_{*}(U)\subset f_{*}(V)$.
             \end{itemize}
         \item\label{properties-of-direct-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
@@ -11789,7 +11789,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(Y)$, the following condition is satisfied:
             \begin{itemize}
-                \item[$(\star)$]If $U\subset V$, then $f^{-1}(U)\subset f^{-1}(V)$.
+                \itemstar If $U\subset V$, then $f^{-1}(U)\subset f^{-1}(V)$.
             \end{itemize}
         \item\label{properties-of-inverse-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
@@ -12477,7 +12477,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \item[$(\star)$]If $U\subset V$, then $f_{!}(U)\subset f_{!}(V)$.
+                \itemstar If $U\subset V$, then $f_{!}(U)\subset f_{!}(V)$.
             \end{itemize}
         \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}

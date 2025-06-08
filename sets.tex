@@ -218,12 +218,10 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
     \ProofBox{Existence of Products}%
     We claim that the products $\ttrue\times\ttrue$, $\ttrue\times\tfalse$, $\tfalse\times\ttrue$, and $\tfalse\times\tfalse$ satisfy the universal property of the product in $\TTV$. Indeed, suppose we have diagrams of the form
     \begin{scalemath}
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{1}_{1}}{p^{1}_{2}}]
             {}%
             \&
             P_{1}
-            \arrow[ld,bend right=30,"p^{1}_{1}"']
-            \arrow[rd,bend left=30,"p^{1}_{2}"]
             \&
             {}%
             \\
@@ -236,12 +234,10 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \ttrue
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{2}_{1}}{p^{2}_{2}}]
             {}%
             \&
             P_{2}
-            \arrow[ld,bend right=30,"p^{2}_{1}"']
-            \arrow[rd,bend left=30,"p^{2}_{2}"]
             \&
             {}%
             \\
@@ -254,12 +250,10 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \tfalse
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{3}_{1}}{p^{3}_{2}}]
             {}%
             \&
             P_{3}
-            \arrow[ld,bend right=30,"p^{3}_{1}"']
-            \arrow[rd,bend left=30,"p^{3}_{2}"]
             \&
             {}%
             \\
@@ -272,12 +266,10 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \ttrue
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{4}_{1}}{p^{4}_{2}}]
             {}%
             \&
             P_{4}
-            \arrow[ld,bend right=30,"p^{4}_{1}"']
-            \arrow[rd,bend left=30,"p^{4}_{2}"]
             \&
             {}%
             \\
@@ -292,13 +284,11 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
     \end{scalemath}
     where the $\pr_{1}$ and $\pr_{2}$ morphisms are the only possible ones (since $\TTV$ is posetal). We claim that there are unique morphisms making the diagrams
     \begin{scalemath}
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{1}_{1}}{p^{1}_{2}}]
             {}%
             \&
             P_{1}
             \arrow[d,densely dashed,"\exists!"description]
-            \arrow[ld,bend right=30,"p^{1}_{1}"']
-            \arrow[rd,bend left=30,"p^{1}_{2}"]
             \&
             {}%
             \\
@@ -311,13 +301,11 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \ttrue
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{2}_{1}}{p^{2}_{2}}]
             {}%
             \&
             P_{2}
             \arrow[d,densely dashed,"\exists!"description]
-            \arrow[ld,bend right=30,"p^{2}_{1}"']
-            \arrow[rd,bend left=30,"p^{2}_{2}"]
             \&
             {}%
             \\
@@ -330,13 +318,11 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \tfalse
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{3}_{1}}{p^{3}_{2}}]
             {}%
             \&
             P_{3}
             \arrow[d,densely dashed,"\exists!"description]
-            \arrow[ld,bend right=30,"p^{3}_{1}"']
-            \arrow[rd,bend left=30,"p^{3}_{2}"]
             \&
             {}%
             \\
@@ -349,13 +335,11 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
             \ttrue
         \end{tikzcd}
         \quad
-        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{4}_{1}}{p^{4}_{2}}]
             {}%
             \&
             P_{4}
             \arrow[d,densely dashed,"\exists!"description]
-            \arrow[ld,bend right=30,"p^{4}_{1}"']
-            \arrow[rd,bend left=30,"p^{4}_{2}"]
             \&
             {}%
             \\
