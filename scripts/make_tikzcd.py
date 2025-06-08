@@ -276,13 +276,13 @@ def main(input_file):
         filename = os.path.join(output_dir_scalemath_dark_mode, f'scalemath-{i:06d}.tex')
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=True))
-            file.write("\\begin{document}\n")
-            file.write("\\[%")
+            file.write("\\usepackage{adjustbox}\\begin{document}\n")
+            file.write(r"\[\begin{adjustbox}{width=\linewidth,center}$")
             environment = re.sub("\n\n","\n",environment)
             environment = re.sub("/pictures/light-mode","/pictures/dark-mode",environment)
             environment = re.sub("gray!40","gray!80!black",environment)
             file.write(environment)
-            file.write("\\]\n")
+            file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
         #regex(filename)
     # Write the modified content back to the input file

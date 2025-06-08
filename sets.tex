@@ -219,135 +219,151 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
     We claim that the products $\ttrue\times\ttrue$, $\ttrue\times\tfalse$, $\tfalse\times\ttrue$, and $\tfalse\times\tfalse$ satisfy the universal property of the product in $\TTV$. Indeed, suppose we have diagrams of the form
     \begin{scalemath}
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{1}
-            \arrow[rd, "p^{1}_{2}", bend left=15]
-            \arrow[ld, "p^{1}_{1}"', bend right=15]
+            \arrow[ld,bend right=30,"p^{1}_{1}"']
+            \arrow[rd,bend left=30,"p^{1}_{2}"]
             \&
+            {}%
             \\
             \ttrue
             \&
-            \underbrace{\ttrue\times\ttrue}_{=\,\ttrue}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \ttrue\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \ttrue
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{2}
-            \arrow[rd, "p^{2}_{2}", bend left=15]
-            \arrow[ld, "p^{2}_{1}"', bend right=15]
+            \arrow[ld,bend right=30,"p^{2}_{1}"']
+            \arrow[rd,bend left=30,"p^{2}_{2}"]
             \&
+            {}%
             \\
             \ttrue
             \&
-            \underbrace{\ttrue\times\tfalse}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \ttrue\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \tfalse
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{3}
-            \arrow[rd, "p^{3}_{2}", bend left=15]
-            \arrow[ld, "p^{3}_{1}"', bend right=15]
+            \arrow[ld,bend right=30,"p^{3}_{1}"']
+            \arrow[rd,bend left=30,"p^{3}_{2}"]
             \&
+            {}%
             \\
             \tfalse
             \&
-            \underbrace{\tfalse\times\ttrue}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \tfalse\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \ttrue
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{4}
-            \arrow[rd, "p^{4}_{2}", bend left=15]
-            \arrow[ld, "p^{4}_{1}"', bend right=15]
+            \arrow[ld,bend right=30,"p^{4}_{1}"']
+            \arrow[rd,bend left=30,"p^{4}_{2}"]
             \&
+            {}%
             \\
             \tfalse
             \&
-            \underbrace{\tfalse\times\tfalse}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \tfalse\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
-            \tfalse\mrp{,}
+            \tfalse
         \end{tikzcd}
     \end{scalemath}
     where the $\pr_{1}$ and $\pr_{2}$ morphisms are the only possible ones (since $\TTV$ is posetal). We claim that there are unique morphisms making the diagrams
     \begin{scalemath}
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{1}
-            \arrow[rd, "p^{1}_{2}", bend left=15]
-            \arrow[d, "\exists!" description,densely dashed]
-            \arrow[ld, "p^{1}_{1}"', bend right=15]
+            \arrow[d,densely dashed,"\exists!"description]
+            \arrow[ld,bend right=30,"p^{1}_{1}"']
+            \arrow[rd,bend left=30,"p^{1}_{2}"]
             \&
+            {}%
             \\
             \ttrue
             \&
-            \underbrace{\ttrue\times\ttrue}_{=\,\ttrue}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \ttrue\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \ttrue
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{2}
-            \arrow[rd, "p^{2}_{2}", bend left=15]
-            \arrow[d, "\exists!" description,densely dashed]
-            \arrow[ld, "p^{2}_{1}"', bend right=15]
+            \arrow[d,densely dashed,"\exists!"description]
+            \arrow[ld,bend right=30,"p^{2}_{1}"']
+            \arrow[rd,bend left=30,"p^{2}_{2}"]
             \&
+            {}%
             \\
             \ttrue
             \&
-            \underbrace{\ttrue\times\tfalse}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \ttrue\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \tfalse
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{3}
-            \arrow[rd, "p^{3}_{2}", bend left=15]
-            \arrow[d, "\exists!" description,densely dashed]
-            \arrow[ld, "p^{3}_{1}"', bend right=15]
+            \arrow[d,densely dashed,"\exists!"description]
+            \arrow[ld,bend right=30,"p^{3}_{1}"']
+            \arrow[rd,bend left=30,"p^{3}_{2}"]
             \&
+            {}%
             \\
             \tfalse
             \&
-            \underbrace{\tfalse\times\ttrue}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \tfalse\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \ttrue
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {}%
             \&
             P_{4}
-            \arrow[rd, "p^{4}_{2}", bend left=15]
-            \arrow[d, "\exists!" description,densely dashed]
-            \arrow[ld, "p^{4}_{1}"', bend right=15]
+            \arrow[d,densely dashed,"\exists!"description]
+            \arrow[ld,bend right=30,"p^{4}_{1}"']
+            \arrow[rd,bend left=30,"p^{4}_{2}"]
             \&
+            {}%
             \\
             \tfalse
             \&
-            \underbrace{\tfalse\times\tfalse}_{=\,\tfalse}%
-            \arrow[l, "\pr_{1}", two heads,pos=0.4]
-            \arrow[r, "\pr_{2}"', two heads,pos=0.425]
+            \tfalse\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             \tfalse
         \end{tikzcd}

@@ -308,13 +308,13 @@ Let $A$ and $B$ be sets.%
     \end{enumerate}
 \end{construction}
 \begin{Proof}{Proof of \cref{construction-of-binary-products-of-sets}}%
-    We claim that $A\times B$ is the categorical product of $A$ and $B$ in $\Sets$. Indeed, suppose we have a diagram of the form
+    We claim that $A\times B$ is the categorical product of $A$ and $B$ in the category of sets. Indeed, suppose we have a diagram of the form
     \[
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             P
-            \arrow[ld,"p_{1}"',bend right = 20]
-            \arrow[rd,"p_{2}", bend left  = 20]
+            \arrow[ld,"p_{1}"',bend right = 30]
+            \arrow[rd,"p_{2}", bend left  = 30]
             \&
             \\
             A
@@ -331,9 +331,9 @@ Let $A$ and $B$ be sets.%
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             P
-            \arrow[ld,"p_{1}"',bend right = 20]
-            \arrow[rd,"p_{2}", bend left  = 20]
-            \arrow[d,"\phi"'{pos=0.425},"\exists!"{pos=0.425}, dashed]
+            \arrow[ld,"p_{1}"',bend right = 30]
+            \arrow[rd,"p_{2}", bend left  = 30]
+            \arrow[d,"\phi"'{pos=0.475},"\exists!"{pos=0.475}, dashed]
             \&
             \\
             A
@@ -375,7 +375,7 @@ Let $A$ and $B$ be sets.%
                     \]%
                 \item\SloganFont{Action on Morphisms. }For each $(A,B),(X,Y)\in\Obj(\Sets)$, the action on $\Hom$-sets
                     \[
-                        \times_{(A,B),(X,Y)}
+                        \mathord{\times}_{(A,B),(X,Y)}
                         \colon
                         \Sets(A,X)\times\Sets(B,Y)%
                         \to%
@@ -1176,13 +1176,8 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
 \end{Proof}
 \begin{remark}{Pullbacks of Sets Depend on the Maps}{pullbacks-of-sets-depend-on-the-maps}%
     It is common practice to write $A\times_{C}B$ for the pullback of $A$ and $B$ over $C$ along $f$ and $g$, omitting the maps $f$ and $g$ from the notation and instead leaving them implicit, to be understood from the context.
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
 
-    \vspace{0.5\baselineskip}
-    % END RAW HTML %
-    However, the set $A\times_{C}B$ depends very much on the maps $f$ and $g$, and sometimes it is necessary or useful to note this dependence explicitly. In such situations, we will write \index[notation]{AtimesfCgB@$A\times_{f,C,g}B$}$A\times_{f,C,g}B$ or \index[notation]{AtimesfgCB@$A\times^{f,g}_{C}B$}$A\times^{f,g}_{C}B$ for $A\times_{C}B$.
+    \indent However, the set $A\times_{C}B$ depends very much on the maps $f$ and $g$, and sometimes it is necessary or useful to note this dependence explicitly. In such situations, we will write \index[notation]{AtimesfCgB@$A\times_{f,C,g}B$}$A\times_{f,C,g}B$ or \index[notation]{AtimesfgCB@$A\times^{f,g}_{C}B$}$A\times^{f,g}_{C}B$ for $A\times_{C}B$.
 \end{remark}
 \begin{example}{Examples of Pullbacks of Sets}{examples-of-pullbacks-of-sets}%
     Here are some examples of pullbacks of sets.
