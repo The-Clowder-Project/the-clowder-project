@@ -8436,42 +8436,12 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
 
     \ProofBox{\cref{properties-of-symmetric-differences-transitivity}: ``Transitivity''}%
     We have
-    % BEGIN RAW HTML %
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$(U\sdiff V)\sdiff(V\sdiff W) = \rlap{U\sdiff(V\sdiff(V\sdiff W))}\mkern{250mu}$</p>
-            <p class="ptag">(by \cref{properties-of-symmetric-differences-associativity})</p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-        <p>$\phantom{(U\sdiff V)\sdiff(V\sdiff W)} =\rlap{U\sdiff((V\sdiff V)\sdiff W)}\mkern{250mu}$</p>
-            <p class="ptag">(by \cref{properties-of-symmetric-differences-associativity})</p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{(U\sdiff V)\sdiff(V\sdiff W)} = \rlap{U\sdiff(\emptyset\sdiff W)}\mkern{250mu}$</p>
-            <p class="ptag">(by \cref{properties-of-symmetric-differences-invertibility})</p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{(U\sdiff V)\sdiff(V\sdiff W)} = \rlap{U\sdiff W}\mkern{250mu}$</p>
-            <p class="ptag">(by \cref{properties-of-symmetric-differences-unitality})</p>
-        </div>
-    </div>
-    % BEGIN LATEX HTML %
-    \begin{align*}
+    \begin{palign}
         (U\sdiff V)\sdiff(V\sdiff W) &= U\sdiff(V\sdiff(V\sdiff W))  \ptag{by \cref{properties-of-symmetric-differences-associativity}}\\
                                      &= U\sdiff((V\sdiff V)\sdiff W) \ptag{by \cref{properties-of-symmetric-differences-associativity}}\\
                                      &= U\sdiff(\emptyset\sdiff W)   \ptag{by \cref{properties-of-symmetric-differences-invertibility}}\\
                                      &= U\sdiff W.                   \ptag{by \cref{properties-of-symmetric-differences-unitality}}
-    \end{align*}
-    % END RAW HTML %
+    \end{palign}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-symmetric-differences-the-triangle-inequality-for-symmetric-differences}: The Triangle Inequality for Symmetric Differences}%
