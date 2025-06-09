@@ -14,17 +14,17 @@
 
 This chapter develops some material relating to constructions with sets with an eye towards its categorical and higher-categorical counterparts to be introduced later in this work. Of particular interest are perhaps the following:
 \begin{enumerate}
-    \item Explicit descriptions of the major types of co/limits in $\Sets$, including in particular explicit descriptions of pushouts and coequalisers (see \cref{pushouts-of-sets,unwinding-pushouts-of-sets,coequalisers-of-sets,unwinding-coequalisers-of-sets}).
-    \item A discussion of powersets as decategorifications of categories of presheaves, including in particular results such as:
+    \item\label{constructions-with-sets-introduction-item-1}Explicit descriptions of the major types of co/limits in $\Sets$, including in particular explicit descriptions of pushouts and coequalisers (see \cref{pushouts-of-sets,unwinding-pushouts-of-sets,coequalisers-of-sets,unwinding-coequalisers-of-sets}).
+    \item\label{constructions-with-sets-introduction-item-2}A discussion of powersets as decategorifications of categories of presheaves, including in particular results such as:
         \begin{enumerate}
-            \item A discussion of the internal Hom of a powerset (\cref{subsection-the-internal-hom-of-a-powerset}).
-            \item A 0-categorical version of the Yoneda lemma (\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}}), which we term the \textit{Yoneda lemma for sets} (\cref{the-yoneda-lemma-for-sets}).
-            \item A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO}).
-            \item A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO}).
-            \item A $(-1)$-categorical version of un/straightening (\cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets} and \cref{powersets-as-sets-of-functions-and-un-straightening}).
-            \item A 0-categorical form of Isbell duality internal to powersets (\cref{subsection-isbell-duality-for-sets}).
+            \item\label{constructions-with-sets-introduction-item-2-a}A discussion of the internal Hom of a powerset (\cref{subsection-the-internal-hom-of-a-powerset}).
+            \item\label{constructions-with-sets-introduction-item-2-b}A 0-categorical version of the Yoneda lemma (\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}}), which we term the \textit{Yoneda lemma for sets} (\cref{the-yoneda-lemma-for-sets}).
+            \item\label{constructions-with-sets-introduction-item-2-c}A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO}).
+            \item\label{constructions-with-sets-introduction-item-2-d}A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO}).
+            \item\label{constructions-with-sets-introduction-item-2-e}A $(-1)$-categorical version of un/straightening (\cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets} and \cref{powersets-as-sets-of-functions-and-un-straightening}).
+            \item\label{constructions-with-sets-introduction-item-2-f}A 0-categorical form of Isbell duality internal to powersets (\cref{subsection-isbell-duality-for-sets}).
         \end{enumerate}
-    \item A lengthy discussion of the adjoint triple%
+    \item\label{constructions-with-sets-introduction-item-3}A lengthy discussion of the adjoint triple%
         \[
             f_{*}\dashv f^{-1}\dashv f_{!}%
             \colon%
@@ -34,9 +34,9 @@ This chapter develops some material relating to constructions with sets with an 
         \]%
         of functors (i.e.\ morphisms of posets) between $\mathcal{P}(A)$ and $\mathcal{P}(B)$ induced by a map of sets $f\colon A\to B$, including in particular:
         \begin{enumerate}
-            \item How $f^{-1}$ can be described as a precomposition while $f_{*}$ and $f_{!}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
-            \item An extensive list of the properties of $f_{*}$, $f^{-1}$, and $f_{!}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
-            \item How the functors $f_{*}$, $f^{-1}$, $f_{!}$, along with the functors
+            \item\label{constructions-with-sets-introduction-item-3-a}How $f^{-1}$ can be described as a precomposition while $f_{*}$ and $f_{!}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
+            \item\label{constructions-with-sets-introduction-item-3-b}An extensive list of the properties of $f_{*}$, $f^{-1}$, and $f_{!}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
+            \item\label{constructions-with-sets-introduction-item-3-c}How the functors $f_{*}$, $f^{-1}$, $f_{!}$, along with the functors
                 \begin{align*}
                     -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
                     [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
@@ -2216,7 +2216,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             \footnote{%
                 That is, the following three ways of forming \say{the} equaliser of $(f,g,h)$ agree:
                 \begin{enumerate}
-                    \item Take the equaliser of $(f,g,h)$, i.e.\ the limit of the diagram
+                    \item\label{footnote-properties-of-equalisers-of-sets-associativity-1}Take the equaliser of $(f,g,h)$, i.e.\ the limit of the diagram
                         \[
                             \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                                 A%
@@ -2228,7 +2228,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \end{tikzcd}
                         \]%
                         in $\Sets$.
-                    \item First take the equaliser of $f$ and $g$, forming a diagram
+                    \item\label{footnote-properties-of-equalisers-of-sets-associativity-2}First take the equaliser of $f$ and $g$, forming a diagram
                         \[
                             \Eq(f,g)%
                             \xlonghookrightarrow{\eq(f,g)}%
@@ -2251,7 +2251,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \Eq(g\circ\eq(f,g),h\circ\eq(f,g))%
                         \]%
                         of $\Eq(f,g)$.
-                    \item First take the equaliser of $g$ and $h$, forming a diagram
+                    \item\label{footnote-properties-of-equalisers-of-sets-associativity-3}First take the equaliser of $g$ and $h$, forming a diagram
                         \[
                             \Eq(g,h)%
                             \xlonghookrightarrow{\eq(g,h)}%
@@ -4029,7 +4029,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             \footnote{%
                 That is, the following three ways of forming \say{the} coequaliser of $(f,g,h)$ agree:
                 \begin{enumerate}
-                    \item Take the coequaliser of $(f,g,h)$, i.e.\ the colimit of the diagram
+                    \item\label{footnote-properties-of-coequalisers-of-sets-associativity-1}Take the coequaliser of $(f,g,h)$, i.e.\ the colimit of the diagram
                         \[
                             \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                                 A%
@@ -4041,7 +4041,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \end{tikzcd}
                         \]%
                         in $\Sets$.
-                    \item First take the coequaliser of $f$ and $g$, forming a diagram
+                    \item\label{footnote-properties-of-coequalisers-of-sets-associativity-2}First take the coequaliser of $f$ and $g$, forming a diagram
                         \[
                             A%
                             \xlongrightrightarrows{f}{g}%
@@ -4066,7 +4066,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                             \]%
                         \end{envfootnotesize}
                         of $\CoEq(f,g)$%.
-                    \item First take the coequaliser of $g$ and $h$, forming a diagram
+                    \item\label{footnote-properties-of-coequalisers-of-sets-associativity-3}First take the coequaliser of $g$ and $h$, forming a diagram
                         \[
                             A%
                             \xlongrightrightarrows{g}{h}%
@@ -4321,9 +4321,9 @@ We can now prove \cref{construction-of-direct-colimits-of-sets}:
     \]%
     \textit{Proof. }Indeed, if $(\alpha,x)\sim(\beta,y)$, then there exists some $\gamma\in I$ satisfying the following conditions:
     \begin{enumerate}
-        \item We have $\alpha\preceq\gamma$.
-        \item We have $\beta\preceq\gamma$.
-        \item We have $f_{\alpha\gamma}(x)=f_{\beta\gamma}(y)$.
+        \item\label{proof-of-construction-of-direct-colimits-of-sets-1}We have $\alpha\preceq\gamma$.
+        \item\label{proof-of-construction-of-direct-colimits-of-sets-2}We have $\beta\preceq\gamma$.
+        \item\label{proof-of-construction-of-direct-colimits-of-sets-3}We have $f_{\alpha\gamma}(x)=f_{\beta\gamma}(y)$.
     \end{enumerate}
     We then have
     \begin{align*}
@@ -6312,12 +6312,12 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \end{align*}
     so $\bigcap_{\{u\}\in\chi_{X}(U)}\{u\}=X\neq \emptyset=U$. When $U$ is nonempty, we have two cases:
     \begin{enumerate}
-        \item If $U$ is a singleton, say $U=\{u\}$, we have
+        \item\label{proof-of-properties-of-intersections-of-families-of-subsets-oplax-right-unitality-1}If $U$ is a singleton, say $U=\{u\}$, we have
             \begin{align*}
                 \bigcap_{\{u\}\in\chi_{X}(U)}\{u\} &=      \{u\}\\%
                                                    &\defeq U.%
             \end{align*}
-        \item If $U$ contains at least two elements, we have
+        \item\label{proof-of-properties-of-intersections-of-families-of-subsets-oplax-right-unitality-2}If $U$ contains at least two elements, we have
             \begin{align*}
                 \bigcap_{\{u\}\in\chi_{X}(U)}\{u\} &=      \emptyset\\%
                                                    &\subset U.%
@@ -8267,19 +8267,19 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                     \footnote{%
                         Here are some examples:
                         \begin{enumerate}
-                            \item When $X=\emptyset$, we have an isomorphism of groups between $\mathcal{P}(\emptyset)$ and the trivial group:
+                            \item\label{proof-of-properties-of-symmetric-differences-interaction-with-powersets-and-groups-a-1}When $X=\emptyset$, we have an isomorphism of groups between $\mathcal{P}(\emptyset)$ and the trivial group:
                                 \[
                                     (\mathcal{P}(\emptyset),\sdiff,\emptyset,\id_{\mathcal{P}(\emptyset)})
                                     \cong
                                     \pt.
                                 \]%
-                            \item When $X=\pt$, we have an isomorphism of groups between $\mathcal{P}(\pt)$ and $\Zn{2}$:
+                            \item\label{proof-of-properties-of-symmetric-differences-interaction-with-powersets-and-groups-a-2}When $X=\pt$, we have an isomorphism of groups between $\mathcal{P}(\pt)$ and $\Zn{2}$:
                                 \[
                                     (\mathcal{P}(\pt),\sdiff,\emptyset,\id_{\mathcal{P}(\pt)})
                                     \cong
                                     \Zn{2}.
                                 \]%
-                            \item When $X=\{0,1\}$, we have an isomorphism of groups between $\mathcal{P}(\{0,1\})$ and $\Zn{2}\times\Zn{2}$:
+                            \item\label{proof-of-properties-of-symmetric-differences-interaction-with-powersets-and-groups-a-3}When $X=\{0,1\}$, we have an isomorphism of groups between $\mathcal{P}(\{0,1\})$ and $\Zn{2}\times\Zn{2}$:
                                 \[
                                     (\mathcal{P}(\{0,1\}),\sdiff,\emptyset,\id_{\mathcal{P}(\{0,1\})})
                                     \cong
@@ -8302,15 +8302,15 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \end{itemize}
             is an $\F_{2}$-vector space.
         \item\label{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2}\SloganFont{Interaction With Powersets and Vector Spaces \rmII. }If $X$ is finite, then:
-            \begin{enumerate}% PROCESS %
-                \item The set of singletons sets on the elements of $X$ forms a basis for the $\F_{2}$-vector space $(\mathcal{P}(X),\alpha_{\mathcal{P}(X)})$ of \cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1}.
-                \item We have
+            \begin{enumerate}
+                \item\label{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2-a}The set of singletons sets on the elements of $X$ forms a basis for the $\F_{2}$-vector space $(\mathcal{P}(X),\alpha_{\mathcal{P}(X)})$ of \cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1}.
+                \item\label{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2-b}We have
                     \[
                         \dim(\mathcal{P}(X))%
                         =%
                         \Card{X}.%
                     \]%
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
         \item\label{properties-of-symmetric-differences-interaction-with-powersets-and-rings}\SloganFont{Interaction With Powersets and Rings. }The quintuple $(\mathcal{P}(X),\sdiff,\cap,\emptyset,X)$ is a commutative ring.%
             %--- Begin Footnote ---%
             \footnote{%
@@ -9602,9 +9602,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the second equality.
-        \item \cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the third equality.
-        \item \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} for the last equality.
+        \item\label{proof-of-the-internal-hom-of-a-powerset-1}\cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the second equality.
+        \item\label{proof-of-the-internal-hom-of-a-powerset-2}\cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the third equality.
+        \item\label{proof-of-the-internal-hom-of-a-powerset-3}\cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} for the last equality.
     \end{enumerate}
     This finishes the proof.
 \end{Proof}
@@ -10091,7 +10091,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \FirstProofBox{\cref{properties-of-internal-homs-of-powersets-functoriality}: Functoriality}%
     Since $\mathcal{P}(X)$ is posetal, it suffices to prove \cref{properties-of-internal-homs-of-powersets-functoriality-1,properties-of-internal-homs-of-powersets-functoriality-2,properties-of-internal-homs-of-powersets-functoriality-3}.
     \begin{enumerate}
-        \item\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-1}: }We have
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-1}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-1}: }We have
             \begin{align*}
                 [A,V]_{X} &\defeq  A^{\sfc}\cup V\\
                           &\subset U^{\sfc}\cup V\\
@@ -10099,17 +10099,17 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \end{align*}
             where we have used:
             \begin{enumerate}
-                \item \cref{properties-of-complements-functoriality} of \cref{properties-of-complements}, which states that if $U\subset A$, then $A^{\sfc}\subset U^{\sfc}$.
-                \item \cref{properties-of-binary-unions-functoriality-1} of \cref{properties-of-binary-unions-functoriality} of \cref{properties-of-complements}, which states that if $A^{\sfc}\subset U^{\sfc}$, then $A^{\sfc}\cup K\subset U^{\sfc}\cup K$ for any $K\in\mathcal{P}(X)$.
+                \item\label{proof-of-properties-of-internal-homs-of-powersets-1-a}\cref{properties-of-complements-functoriality} of \cref{properties-of-complements}, which states that if $U\subset A$, then $A^{\sfc}\subset U^{\sfc}$.
+                \item\label{proof-of-properties-of-internal-homs-of-powersets-1-b}\cref{properties-of-binary-unions-functoriality-1} of \cref{properties-of-binary-unions-functoriality} of \cref{properties-of-complements}, which states that if $A^{\sfc}\subset U^{\sfc}$, then $A^{\sfc}\cup K\subset U^{\sfc}\cup K$ for any $K\in\mathcal{P}(X)$.
             \end{enumerate}
-        \item\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-2}: }We have
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-2}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-2}: }We have
             \begin{align*}
                 [U,V]_{X} &\defeq  U^{\sfc}\cup V\\
                           &\subset U^{\sfc}\cup B\\
                           &\defeq [U,B]_{X},
             \end{align*}
             where we have used \cref{properties-of-binary-unions-functoriality-2} of \cref{properties-of-binary-unions-functoriality} of \cref{properties-of-complements}, which states that if $V\subset B$, then $K\cup V\subset K\cup B$ for any $K\in\mathcal{P}(X)$.
-        \item\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-3}: }We have
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-3}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-3}: }We have
             \begin{align*}
                 [A,V]_{X} &\subset [U,V]_{X}\\
                           &\subset [U,B]_{X},
@@ -10136,8 +10136,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-differences-right-unitality} of \cref{properties-of-differences} for the first equality.
-        \item \cref{properties-of-binary-unions-annihilation-with-x} of \cref{properties-of-binary-unions} for the last equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1-a}\cref{properties-of-differences-right-unitality} of \cref{properties-of-differences} for the first equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1-b}\cref{properties-of-binary-unions-annihilation-with-x} of \cref{properties-of-binary-unions} for the last equality.
     \end{enumerate}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\cref{TODO}).
 
@@ -10166,8 +10166,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1} for the second and third equalities.
-        \item \cref{properties-of-complements-involutority} of \cref{properties-of-complements} for the fourth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2-a}\cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1} for the second and third equalities.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2-b}\cref{properties-of-complements-involutority} of \cref{properties-of-complements} for the fourth equality.
     \end{enumerate}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\cref{TODO}), and thus we have
     \[
@@ -10198,8 +10198,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} of \cref{properties-of-unions-of-families-of-subsets} for the second equality.
-        \item \cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-2} of \cref{properties-of-intersections-of-families-of-subsets} for the third equality.
+        \item\label{properties-of-internal-homs-of-powersets-interaction-with-unions-of-families-of-subsets-2-1}\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} of \cref{properties-of-unions-of-families-of-subsets} for the second equality.
+        \item\label{properties-of-internal-homs-of-powersets-interaction-with-unions-of-families-of-subsets-2-2}\cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-2} of \cref{properties-of-intersections-of-families-of-subsets} for the third equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -10245,8 +10245,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3} of \cref{properties-of-unions-of-families-of-subsets} for the second equality.
-        \item \cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-2} of \cref{properties-of-intersections-of-families-of-subsets} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-intersections-of-families-of-subsets-2-1}\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3} of \cref{properties-of-unions-of-families-of-subsets} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-intersections-of-families-of-subsets-2-2}\cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-2} of \cref{properties-of-intersections-of-families-of-subsets} for the third equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -10270,9 +10270,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
-        \item \cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the third equality.
-        \item Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the fourth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-unions-1}\cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-unions-2}\cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-unions-3}Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the fourth equality.
     \end{enumerate}
     For the second equality in the statement, we have
     \begin{align*}
@@ -10292,8 +10292,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
-        \item \cref{properties-of-binary-unions-distributivity-of-unions-over-intersections} of \cref{properties-of-binary-unions} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-intersections-1}\cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-intersections-2}\cref{properties-of-binary-unions-distributivity-of-unions-over-intersections} of \cref{properties-of-binary-unions} for the third equality.
     \end{enumerate}
     Now, for the second equality in the statement, we have
     \begin{align*}
@@ -10304,8 +10304,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the second equality.
-        \item Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-intersections-3}\cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-binary-intersections-4}Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the third equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -10323,10 +10323,10 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the third equality.
-        \item \cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the fourth equality.
-        \item \cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the sixth equality.
-        \item Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the seventh equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-1}\cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-2}\cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the fourth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-3}\cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the sixth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-4}Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the seventh equality.
     \end{enumerate}
     We also have
     \begin{align*}
@@ -10342,11 +10342,11 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the third equality.
-        \item \cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the fourth equality.
-        \item \cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the sixth equality.
-        \item Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the seventh equality.
-        \item \cref{properties-of-complements-involutority} of \cref{properties-of-complements} for the eighth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-5}\cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-6}\cref{properties-of-binary-intersections-unitality} of \cref{properties-of-binary-intersections} for the fourth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-7}\cref{properties-of-binary-unions-idempotency} of \cref{properties-of-binary-unions} for the sixth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-8}Several applications of \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} and for the seventh equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-9}\cref{properties-of-complements-involutority} of \cref{properties-of-complements} for the eighth equality.
     \end{enumerate}
     Now, for the second equality in the statement, we have
     \begin{align*}
@@ -10362,12 +10362,12 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} for the second equality.
-        \item \cref{properties-of-differences-interaction-with-unions-2} of \cref{properties-of-differences} for the third equality.
-        \item \cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the fifth equality.
-        \item \cref{properties-of-differences-right-annihilation} of \cref{properties-of-differences} for the sixth equality.
-        \item \cref{properties-of-binary-unions-unitality} of \cref{properties-of-binary-unions} for the seventh equality.
-        \item \cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} for the eighth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-10}\cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-11}\cref{properties-of-differences-interaction-with-unions-2} of \cref{properties-of-differences} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-12}\cref{properties-of-differences-triple-differences} of \cref{properties-of-differences} for the fifth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-13}\cref{properties-of-differences-right-annihilation} of \cref{properties-of-differences} for the sixth equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-14}\cref{properties-of-binary-unions-unitality} of \cref{properties-of-binary-unions} for the seventh equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-differences-15}\cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} for the eighth equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -10398,8 +10398,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-binary-unions-interaction-with-characteristic-functions-1} of \cref{properties-of-binary-unions} for the second equality.
-        \item \cref{properties-of-complements-interaction-with-characteristic-functions} of \cref{properties-of-complements} for the third equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-characteristic-functions-1}\cref{properties-of-binary-unions-interaction-with-characteristic-functions-1} of \cref{properties-of-binary-unions} for the second equality.
+        \item\label{proof-of-properties-of-internal-homs-of-powersets-interaction-with-characteristic-functions-2}\cref{properties-of-complements-interaction-with-characteristic-functions} of \cref{properties-of-complements} for the third equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -11566,11 +11566,11 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the first equality.
-        \item \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of this proposition together with \cref{properties-of-differences-functoriality} of \cref{properties-of-differences} for the first inclusion.
-        \item \cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
-        \item \cref{properties-of-direct-images-i-interaction-with-differences} for the second inclusion.
-        \item \cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the tchird equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-1}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the first equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-2}\cref{properties-of-direct-images-i-interaction-with-binary-intersections} of this proposition together with \cref{properties-of-differences-functoriality} of \cref{properties-of-differences} for the first inclusion.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-3}\cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-4}\cref{properties-of-direct-images-i-interaction-with-differences} for the second inclusion.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-5}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the tchird equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\cref{TODO}). This finishes the proof.
 
@@ -11584,8 +11584,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
-        \item \cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support} for the third equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support} for the third equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\cref{TODO}). This finishes the proof.
 
@@ -12116,11 +12116,11 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the first equality.
-        \item \cref{properties-of-inverse-images-i-interaction-with-differences} for the second equality.
-        \item \cref{properties-of-inverse-images-i-interaction-with-binary-unions} for the third equality.
-        \item \cref{properties-of-inverse-images-i-interaction-with-binary-intersections} for the fourth equality.
-        \item \cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the fifth equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-symmetric-differences-1}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the first equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-symmetric-differences-2}\cref{properties-of-inverse-images-i-interaction-with-differences} for the second equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-symmetric-differences-3}\cref{properties-of-inverse-images-i-interaction-with-binary-unions} for the third equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-symmetric-differences-4}\cref{properties-of-inverse-images-i-interaction-with-binary-intersections} for the fourth equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-symmetric-differences-5}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the fifth equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -12134,8 +12134,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-inverse-images-i-interaction-with-complements} for the second equality.
-        \item \cref{properties-of-inverse-images-i-interaction-with-binary-unions} for the third equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-inverse-images-i-interaction-with-complements} for the second equality.
+        \item\label{proof-of-properties-of-inverse-images-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-inverse-images-i-interaction-with-binary-unions} for the third equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\cref{TODO}). This finishes the proof.
 
@@ -12799,11 +12799,11 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where:
     \begin{enumerate}
-        \item We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the first equality.
-        \item We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
-        \item We have used \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the third equality.
-        \item We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the fourth equality.
-        \item We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the last equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-1}We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the first equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-2}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-3}We have used \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the third equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-4}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the fourth equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-5}We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the last equality.
     \end{enumerate}
     This finishes the proof.
 
@@ -12823,8 +12823,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-direct-images-with-compact-support-i-interaction-with-complements} of \cref{properties-of-direct-images-with-compact-support-i} for the second equality.
-        \item \cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-complements} of \cref{properties-of-direct-images-with-compact-support-i} for the second equality.
+        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
     \end{enumerate}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\cref{TODO}). This finishes the proof.
 
@@ -13408,8 +13408,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-direct-images-i-triple-adjointness} of \cref{properties-of-direct-images-i} for the inclusion.
-        \item \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the equality.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-1}\cref{properties-of-direct-images-i-triple-adjointness} of \cref{properties-of-direct-images-i} for the inclusion.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-2}\cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the equality.
     \end{enumerate}
     Conversely, we claim that
     \[
@@ -13419,13 +13419,13 @@ Let $f\colon X\to Y$ be a function.
     \]%
     Indeed:
     \begin{enumerate}
-        \item Let $y\in f_{*}(U\cap f^{-1}(V))$.
-        \item Since $y\in f_{*}(U\cap f^{-1}(V))$, there exists some $x\in U\cap f^{-1}(V)$ such that $f(x)=y$.
-        \item Since $x\in U\cap f^{-1}(V)$, we have $x\in U$, and thus $f(x)\in f_{*}(U)$.
-        \item Since $x\in U\cap f^{-1}(V)$, we have $x\in f^{-1}(V)$, and thus $f(x)\in V$.
-        \item Since $f(x)\in f_{*}(U)$ and $f(x)\in V$, we have $f(x)\in f_{*}(U)\cap V$.
-        \item But $y=f(x)$, so $y\in f_{*}(U)\cap V$.
-        \item Thus $f_{*}(U\cap f^{-1}(V))\subset f_{*}(U)\cap V$.%
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-3}Let $y\in f_{*}(U\cap f^{-1}(V))$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-4}Since $y\in f_{*}(U\cap f^{-1}(V))$, there exists some $x\in U\cap f^{-1}(V)$ such that $f(x)=y$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-5}Since $x\in U\cap f^{-1}(V)$, we have $x\in U$, and thus $f(x)\in f_{*}(U)$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-6}Since $x\in U\cap f^{-1}(V)$, we have $x\in f^{-1}(V)$, and thus $f(x)\in V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-7}Since $f(x)\in f_{*}(U)$ and $f(x)\in V$, we have $f(x)\in f_{*}(U)\cap V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-8}But $y=f(x)$, so $y\in f_{*}(U)\cap V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-9}Thus $f_{*}(U\cap f^{-1}(V))\subset f_{*}(U)\cap V$.%
     \end{enumerate}
     This finishes the proof.
 
@@ -13437,8 +13437,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item \cref{properties-of-direct-images-with-compact-support-i-triple-adjointness} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
-        \item \cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-with-compact-support-i} for the equality.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-1}\cref{properties-of-direct-images-with-compact-support-i-triple-adjointness} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-2}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-with-compact-support-i} for the equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\cref{TODO}).
 
