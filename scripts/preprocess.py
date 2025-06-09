@@ -57,6 +57,9 @@ def missing_chapters(line):
             line = re.sub(chapter,"cref{TODO}",line)
     return line
 
+def palign(line):
+    return re.sub('palign','align*',line)
+
 def pdf_only(line):
     if line.find("% PDF ONLY %") >= 0:
         return ""
