@@ -8792,49 +8792,14 @@ Let $X$ be a set.%
 \end{proposition}
 \begin{Proof}{Proof of \cref{adjointness-of-powersets-1}}%
     We have
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\Sets^{\op}(\mathcal{P}(A),B) \defeq \rlap{\Sets(B,\mathcal{P}(A))}\phantom{\mkern400mu}$</p>
-            <p class="ptag"></p>
-        </div>
-    </div>
-    <div class="math-content">
-        <div class="math-wrapper">
-        <p>$\phantom{\Sets^{\op}(\mathcal{P}(X),Y)}\cong\rlap{\Sets(B,\Sets(A,\TTV))}\phantom{\mkern400mu}$</p>
-            <p class="ptag">(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})</p>
-        </div>
-    </div>
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{\Sets^{\op}(\mathcal{P}(X),Y)} \cong \rlap{\Sets(A\times B,\TTV)}\phantom{\mkern400mu}$</p>
-            <p class="ptag">(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})</p>
-        </div>
-    </div>
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{\Sets^{\op}(\mathcal{P}(X),Y)} \cong \rlap{\Sets(A,\Sets(B,\TTV))}\phantom{\mkern400mu}$</p>
-            <p class="ptag">(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})</p>
-        </div>
-    </div>
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{\Sets^{\op}(\mathcal{P}(X),Y)} \cong \rlap{\Sets(A,\mathcal{P}(B))}\phantom{\mkern400mu}$</p>
-            <p class="ptag">(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})</p>
-        </div>
-    </div>
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
-    \begin{align*}
-        \Sets^{\op}(\mathcal{P}(A),B) &\defeq \Sets(B,\mathcal{P}(A))\\
-                                      &\cong  \Sets(B,\Sets(A,\TTV))  \ptag{by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}}\\
-                                      &\cong  \Sets(A\times B,\TTV)   \ptag{by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets}}\\
-                                      &\cong  \Sets(A,\Sets(B,\TTV))  \ptag{by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets}}\\
-                                      &\cong  \Sets(A,\mathcal{P}(B)) \ptag{by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}}
-    \end{align*}
-    % END RAW HTML %
-    with all bijections natural in $A$ and $B$.%
+    \begin{palign}
+        $\Sets^{\op}(\mathcal{P}(A),B)$ & $\mathord{\defeq}$ & $\Sets(B,\mathcal{P}(A))$  & \\
+                                        & $\mathord{\cong}$  & $\Sets(B,\Sets(A,\TTV))$   & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}\\
+                                        & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
+                                        & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
+                                        & $\mathord{\cong}$  & $\Sets(A,\mathcal{P}(B))$, & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}
+    \end{palign}
+    where all bijections are natural in $A$ and $B$.%
     %--- Begin Footnote ---%
     \footnote{%
         Here we are using \cref{properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}.
@@ -8858,45 +8823,13 @@ Let $X$ be a set.%
 \end{proposition}
 \begin{Proof}{Proof of \cref{adjointness-of-powersets-2}}%
     We have
-    % BEGIN RAW HTML %
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\Rel(\Gr(A),B) \defeq \rlap{\mathcal{P}(A\times B)}\phantom{\mkern375mu}$</p>
-            <p class="ptag"></p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-        <p>$\phantom{\Rel(\Gr(A),B)} \cong\rlap{\Sets(A\times B,\TTV)}\phantom{\mkern375mu}$</p>
-            <p class="ptag">(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})</p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{\Rel(\Gr(A),B)} \cong \rlap{\Sets(A,\Sets(B,\TTV))}\phantom{\mkern375mu}$</p>
-            <p class="ptag">(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})</p>
-        </div>
-    </div>
-
-    <div class="math-content">
-        <div class="math-wrapper">
-            <p>$\phantom{\Rel(\Gr(A),B)} \cong \rlap{\Sets(A,\mathcal{P}(B))}\phantom{\mkern375mu}$</p>
-            <p class="ptag">(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})</p>
-        </div>
-    </div>
-    <hr style="margin-top: 0.0em; visibility: hidden;">
-    % BEGIN LATEX HTML %
-    \begin{align*}
-        \Rel(\Gr(A),B) &\cong \mathcal{P}(A\times B)\\
-                       &\cong \Sets(A\times B,\TTV)   \ptag{by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}}\\
-                       &\cong \Sets(A,\Sets(B,\TTV))  \ptag{by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets}}\\
-                       &\cong \Sets(A,\mathcal{P}(B)) \ptag{by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}}
-    \end{align*}
-    % END RAW HTML %
-    with all bijections natural in $A$, (where we are using \cref{properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}). Explicitly, this isomorphism is given by sending a relation $R\colon\Gr(A)\rightproarrow B$ to the map $R^{\dagger}\colon A\to\mathcal{P}(B)$ sending $a$ to the subset $R(a)$ of $B$, as in \ChapterRef{\ChapterRelations, \cref{relations:relations}}{\cref{relations}}.
+    \begin{palign}
+        $\Rel(\Gr(A),B)$ & $\mathord{\cong}$  & $\mathcal{P}(A\times B)$   & {}\\
+                         & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}\\
+                         & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
+                         & $\mathord{\cong}$  & $\Sets(A,\mathcal{P}(B))$, & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}
+    \end{palign}
+    where all bijections are natural in $A$, (where we are using \cref{properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}). Explicitly, this isomorphism is given by sending a relation $R\colon\Gr(A)\rightproarrow B$ to the map $R^{\dagger}\colon A\to\mathcal{P}(B)$ sending $a$ to the subset $R(a)$ of $B$, as in \ChapterRef{\ChapterRelations, \cref{relations:relations}}{\cref{relations}}.
 
     \indent Naturality in $B$ is then the statement that given a relation $R\colon B\rightproarrow B'$, the diagram
     \[
