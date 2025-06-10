@@ -8531,9 +8531,9 @@ Let $X$ be a set.%
     \begin{enumerate}
         \item\label{elementary-properties-of-powersets-co-completeness}\SloganFont{Co/Completeness. }The (posetal) category (associated to) $(\mathcal{P}(X),\subset)$ is complete and cocomplete:
             \begin{enumerate}
-                \item\SloganFont{Products. }The products in $\mathcal{P}(X)$ are given by intersection of subsets.
-                \item\SloganFont{Coproducts. }The coproducts in $\mathcal{P}(X)$ are given by union of subsets.
-                \item\SloganFont{Co/Equalisers. }Being a posetal category, $\mathcal{P}(X)$ only has at most one morphisms between any two objects, so co/equalisers are trivial.
+                \item\label{elementary-properties-of-powersets-co-completeness-a}\SloganFont{Products. }The products in $\mathcal{P}(X)$ are given by intersection of subsets.
+                \item\label{elementary-properties-of-powersets-co-completeness-b}\SloganFont{Coproducts. }The coproducts in $\mathcal{P}(X)$ are given by union of subsets.
+                \item\label{elementary-properties-of-powersets-co-completeness-c}\SloganFont{Co/Equalisers. }Being a posetal category, $\mathcal{P}(X)$ only has at most one morphisms between any two objects, so co/equalisers are trivial.
             \end{enumerate}
         \item\label{elementary-properties-of-powersets-cartesian-closedness}\SloganFont{Cartesian Closedness. }The category $\mathcal{P}(X)$ is Cartesian closed.
         \item\label{elementary-properties-of-powersets-powersets-as-sets-of-relations}\SloganFont{Powersets as Sets of Relations. }We have bijections
@@ -10670,7 +10670,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-characteristic-functions-of-subsets-bijectivity}: Bijectivity}%
     We proceed in three steps:
     \begin{enumerate}
-        \item\SloganFont{The Inverse of $\chi_{(-)}$. }The inverse of $\chi_{(-)}$ is the map
+        \item\label{proof-of-properties-of-characteristic-functions-of-subsets-bijectivity-1}\SloganFont{The Inverse of $\chi_{(-)}$. }The inverse of $\chi_{(-)}$ is the map
             \[
                 \Phi%
                 \colon
@@ -10689,7 +10689,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
                                 \}%
             \end{align*}
             for each $f\in\Sets(X,\TTV)$.
-        \item\SloganFont{Invertibility \rmI. }We have
+        \item\label{proof-of-properties-of-characteristic-functions-of-subsets-bijectivity-2}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
                 [\Phi\circ\chi_{(-)}](U) &\defeq \Phi(\chi_{U})\\
                                          &\defeq \chi^{-1}_{U}(\true)\\
@@ -10704,7 +10704,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\SloganFont{Invertibility \rmII. }We have
+        \item\label{proof-of-properties-of-characteristic-functions-of-subsets-bijectivity-3}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
                 [\chi_{(-)}\circ\Phi](U) &\defeq \chi_{\Phi(f)}\\
                                          &\defeq \chi_{f^{-1}(\true)}\\
@@ -10725,7 +10725,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-characteristic-functions-of-subsets-naturality}: Naturality}%
     We proceed in two steps:
     \begin{enumerate}
-        \item\SloganFont{Naturality of $\chi_{(-)}$. }We have
+        \item\label{proof-of-properties-of-characteristic-functions-of-subsets-naturality-1}\SloganFont{Naturality of $\chi_{(-)}$. }We have
             \begin{align*}
                 [\chi_{V}\circ f](v) &\defeq \chi_{V}(f(v))\\%
                                      &=      \begin{cases}
@@ -10739,7 +10739,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
                                      &\defeq \chi_{f^{-1}(V)}(v)%
             \end{align*}
             for each $v\in V$.
-        \item\SloganFont{Naturality of $\Phi$. }Since $\chi_{(-)}$ is natural and a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural in each argument.
+        \item\label{proof-of-properties-of-characteristic-functions-of-subsets-naturality-2}\SloganFont{Naturality of $\Phi$. }Since $\chi_{(-)}$ is natural and a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural in each argument.
     \end{enumerate}
     This finishes the proof.
 
@@ -12372,7 +12372,7 @@ Let $f\colon X\to Y$ be a function.
 \begin{example}{Examples of Direct Images With Compact Support}{examples-of-direct-images-with-compact-support}%
     Here are some examples of direct images with compact support.
     \begin{enumerate}
-        \item\SloganFont{The Multiplication by Two Map on the Natural Numbers. }Consider the function $f\colon\N\to\N$ given by
+        \item\label{examples-of-direct-images-with-compact-support-multiplication-by-two}\SloganFont{The Multiplication by Two Map on the Natural Numbers. }Consider the function $f\colon\N\to\N$ given by
             \[
                 f(n)
                 \defeq
@@ -12384,7 +12384,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{!,\rmcp}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
             for any $U\subset\N$.
-        \item\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
+        \item\label{examples-of-direct-images-with-compact-support-parabolas}\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
             \[
                 f(x)%
                 \defeq%
@@ -12403,7 +12403,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{!,\rmim}([1,2])            = \emptyset,\\
                 f_{!,\rmim}([-2,-1]\cup[1,2]) = [1,4].
             \end{gather*}
-        \item\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
+        \item\label{examples-of-direct-images-with-compact-support-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
             \[
                 f(x,y)%
                 \defeq%
@@ -13458,10 +13458,10 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     Next, we claim that \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} are indeed true:
     \begin{enumerate}
-        \item\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images}: }This is a repetition of \cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i} and is proved there.
-        \item\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}: }This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i} and is proved there.
-        \item\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support}: }This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
-        \item\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}: }We have
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-1}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images}: }This is a repetition of \cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i} and is proved there.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-2}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}: }This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i} and is proved there.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-3}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support}: }This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-4}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}: }We have
             \begin{align*}
                 \Delta^{-1}_{X}(U\boxtimes_{X\times X}V) &\defeq \{x\in X\ \middle|\ (x,x)\in U\boxtimes_{X\times X}V\}\\%
                                                          &=      \{x\in X\ \middle|\ (x,x)\in\{(u,v)\in X\times X\ \middle|\ \text{$u\in U$ and $v\in V$}\}\}\\%
