@@ -1,7 +1,13 @@
-\documentclass{standalone}
+\documentclass[varwidth]{standalone}
 \input{../../../preamble/compiled/preamble-tikzcd.tex}
 \usepackage[libertine]{newtxmath}\setmainfont[Path = ../../../fonts/alegreya-sans/,Ligatures=TeX,UprightFont={AlegreyaSans-Regular.otf},BoldFont={AlegreyaSans-Bold.otf},ItalicFont={AlegreyaSans-Italic.otf},BoldItalicFont={AlegreyaSans-BoldItalic.otf}]{AlegreyaSans}\let\mathrm\relax\newcommand{\mathrm}[1]{\text{#1}}\begingroup\catcode`(\active \xdef({\left\string(}\catcode`)\active \xdef){\right\string)}\catcode`[\active \xdef[{\left\string[}\catcode`]\active \xdef]{\right\string]}\endgroup\mathcode`(="8000\mathcode`)="8000\mathcode`[="8000\mathcode`]="8000
+\definecolor{paperColor}{RGB}{242,242,242}
+\colorlet{backgroundColor}{paperColor}
 \begin{document}
+\begin{flushleft}
+    \boxed{\mrp{\text{Step 3}}\phantom{Step 5}}
+\end{flushleft}
+\vspace{-2.0\baselineskip}
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&[0.85\ThreeCm]
             \textcolor{OIblue}{S^{0}\wedge S^{0}}
