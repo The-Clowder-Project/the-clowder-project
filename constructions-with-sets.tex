@@ -117,9 +117,10 @@ Let $\{A_{i}\}_{i\in I}$ be a family of sets.%
                 \{%
                     f\in\Sets\left(I,\bigcup_{i\in I}A_{i}\right)%
                     \ \middle|\ %
-                    \parbox{0.235\textwidth}{%
-                        for each $i\in I$, we have $f(i)\in A_{i}$%
-                    }%
+                    \begin{aligned}
+                        &\text{for each $i\in I$, we}\\
+                        &\text{have $f(i)\in A_{i}$}%
+                    \end{aligned}
                 \}.%
             \]%
         \item\label{construction-of-the-product-of-a-family-of-sets-the-cone}\SloganFont{The Cone. }The collection
@@ -11087,7 +11088,7 @@ Let $f\colon X\to Y$ be a function.
         f_{*}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
                         &=      \colim((f\comma\underline{(-_{1})})\xlongtwoheadsrightarrow{\pr}A\xlongrightarrow{\chi_{U}}\TTV)\\%
                         &=      \colim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
-                        &=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
+                        %&=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
     \end{align*}
     where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
     \begin{align*}
@@ -12291,13 +12292,27 @@ Let $f\colon X\to Y$ be a function.
         \item\label{image-and-complement-parts-of-direct-images-with-compact-support-image-part}The \index[set-theory]{function!associated direct image with compact support function, image      part}\textbf{image      part of the direct image with compact support $f_{!}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
             \begin{align*}
                 f_{!,\rmim}(U) &\defeq f_{!}(U)\cap\Im(f)\\
-                               &=      \{y\in Y\ \middle|\ \parbox{0.255\textwidth}{we have $f^{-1}(y)\subset U$ and $f^{-1}(y)\neq\emptyset$}\}.%
+                               &=      \{%
+                                           y\in Y%
+                                           \ \middle|\ %
+                                           \begin{aligned}%
+                                               &\text{we have $f^{-1}(y)\subset U$}\\
+                                               &\text{and $f^{-1}(y)\neq\emptyset$.}
+                                           \end{aligned}%
+                                       \}.%
             \end{align*}
         \item\label{image-and-complement-parts-of-direct-images-with-compact-support-complement-part}The \index[set-theory]{function!associated direct image with compact support function, complement part}\textbf{complement part of the direct image with compact support $f_{!}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
             \begin{align*}
                 f_{!,\rmcp}(U) &\defeq f_{!}(U)\cap(Y\setminus\Im(f))\\
                                &=      Y\setminus\Im(f)\\
-                               &=      \{y\in Y\ \middle|\ \parbox{0.255\textwidth}{we have $f^{-1}(y)\subset U$ and $f^{-1}(y)=\emptyset$}\}\\%
+                               &=      \{%
+                                           y\in Y%
+                                           \ \middle|\ %
+                                           \begin{aligned}%
+                                               &\text{we have $f^{-1}(y)\subset U$}\\
+                                               &\text{and $f^{-1}(y)=\emptyset$.}
+                                           \end{aligned}%
+                                       \}\\%
                                &=      \{y\in Y\ \middle|\ f^{-1}(y)=\emptyset\}.%
             \end{align*}
     \end{enumerate}
@@ -13395,11 +13410,13 @@ Let $f\colon X\to Y$ be a function.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-2}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}: }This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i} and is proved there.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-3}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support}: }This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-4}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}: }We have
-            \begin{align*}
-                \Delta^{-1}_{X}(U\boxtimes_{X\times X}V) &\defeq \{x\in X\ \middle|\ (x,x)\in U\boxtimes_{X\times X}V\}\\%
-                                                         &=      \{x\in X\ \middle|\ (x,x)\in\{(u,v)\in X\times X\ \middle|\ \text{$u\in U$ and $v\in V$}\}\}\\%
-                                                         &=      U\cap V.%
-            \end{align*}
+            \begin{envsmallsize}
+                \begin{align*}
+                    \Delta^{-1}_{X}(U\boxtimes_{X\times X}V) &\defeq \{x\in X\ \middle|\ (x,x)\in U\boxtimes_{X\times X}V\}\\%
+                                                             &=      \{x\in X\ \middle|\ (x,x)\in\{(u,v)\in X\times X\ \middle|\ \text{$u\in U$ and $v\in V$}\}\}\\%
+                                                             &=      U\cap V.%
+                \end{align*}
+            \end{envsmallsize}
     \end{enumerate}
     This finishes the proof.
 

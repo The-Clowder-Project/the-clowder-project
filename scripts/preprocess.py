@@ -57,12 +57,6 @@ def missing_chapters(line):
             line = re.sub(chapter,"cref{TODO}",line)
     return line
 
-def pdf_only(line):
-    if line.find("% PDF ONLY %") >= 0:
-        return ""
-    else:
-        return line
-
 def trans_flag_tcb_fix(line):
     return re.sub(r"../../pictures/trans-flag",r"../../../pictures/trans-flag",line)
 
@@ -201,10 +195,6 @@ def expand_adjunctions(line):
     line = re.sub('\\\\RelAdjunctionShort#(.*)#(.*)#(.*)#(.*)#', r'\\left({\1}\\dashv{\2}\\right)\!\\colon\\enspace\\begin{tikzcd}[row sep={{5.0*\\the\\DL},between origins}, column sep={{5.0*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\3\\arrow[r,mid vert,"{\1}"{name=F}, bend left=25]\\&\4\\arrow[l,mid vert,"{\2}"{name=G}, bend left=25]\\arrow[phantom, from=F, to=G, "\\dashv" rotate=-90]\\end{tikzcd}',line)#
     line = re.sub('\\\\RelAdjunctionShortSize#(.*)#(.*)#(.*)#(.*)#(.*)#', r'\\left({\2}\\dashv{\3}\\right)\!\\colon\\enspace\\begin{tikzcd}[row sep={{\1*\\the\\DL},between origins}, column sep={{\1*\\the\\DL},between origins}, background color=backgroundColor,ampersand replacement=\\&,cramped]\4\\arrow[r,mid vert,"{\2}"{name=F}, bend left=30]\\&\5\\arrow[l,mid vert,"{\3}"{name=G}, bend left=30]\\arrow[phantom, from=F, to=G, "\\dashv" rotate=-90]\\end{tikzcd}',line)#
     return line
-
-def parbox(line):
-    #return re.sub(r'\\parbox\{[0-9\.]*\\textwidth\}\s*\{(.*?)\}%', r'\\text{\1}', line, flags=re.DOTALL)
-    return re.sub(r'\\parbox\{[0-9\.]*\\textwidth\}\s*\{', r'\\text{', line)
 
 def process_math_expr(match):
     expr = match.group()

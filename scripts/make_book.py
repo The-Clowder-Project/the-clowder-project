@@ -13,10 +13,8 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.proofbox_to_proof(line)
         if (style == "web"):
             line = preprocess.amsthm_web(line)
-            line = preprocess.pdf_only(line)
             line = preprocess.expand_cref(line)
             line = preprocess.remove_index(line)
-            line = preprocess.parbox(line)
         elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
             line = preprocess.remove_START_END_proofbox(line)
