@@ -168,17 +168,17 @@ This chapter contains some foundational material on pointed sets.
                 \id_{X}.
             \]%
         \item\SloganFont{Composition. }For each $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$, the composition map
-            \begingroup\tiny
-            \[
-                \circ^{\Sets_{*}}_{(X,x_{0}),(Y,y_{0}),(Z,z_{0})}
-                \colon
-                \Sets_{*}((Y,y_{0}),(Z,z_{0}))
-                \times
-                \Sets_{*}((X,x_{0}),(Y,y_{0}))
-                \to
-                \Sets_{*}((X,x_{0}),(Z,z_{0}))
-            \]%
-            \endgroup
+            \begin{envscriptsize}
+                \[
+                    \circ^{\Sets_{*}}_{(X,x_{0}),(Y,y_{0}),(Z,z_{0})}
+                    \colon
+                    \Sets_{*}((Y,y_{0}),(Z,z_{0}))
+                    \times
+                    \Sets_{*}((X,x_{0}),(Y,y_{0}))
+                    \to
+                    \Sets_{*}((X,x_{0}),(Z,z_{0}))
+                \]%
+            \end{envscriptsize}
             of $\Sets_{*}$ at $((X,x_{0}),(Y,y_{0}),(Z,z_{0}))$ is defined by%
             %--- Begin Footnote ---%
             \footnote{%
@@ -269,8 +269,6 @@ This chapter contains some foundational material on pointed sets.
             %--- Begin Footnote ---%
             \footnote{%
                 \textdbend\SloganFont{Warning: }This is not an isomorphism of categories, only an equivalence.
-
-                END TEXTDBEND
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
@@ -652,7 +650,10 @@ This chapter contains some foundational material on pointed sets.
 \section{Limits of Pointed Sets}\label{section-limits-of-pointed-sets}
 \subsection{The Terminal Pointed Set}\label{subsection-the-terminal-pointed-set}
 \begin{definition}{The Terminal Pointed Set}{the-terminal-pointed-set}%
-    The \index[set-theory]{terminal pointed set}\textbf{terminal pointed set} is the pair \index[notation]{pt@$\pt$}$((\pt,\point),\{!_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})$ consisting of:
+    The \index[set-theory]{terminal pointed set}\textbf{terminal pointed set} is the terminal object of $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:terminal-objects}}{\cref{terminal-objects}}.
+\end{definition}
+\begin{construction}{Construction of the Terminal Pointed Set}{construction-of-the-terminal-pointed-set}%
+    Concretely, the \index[set-theory]{terminal pointed set}\textbf{terminal pointed set} is the pair \index[notation]{pt@$\pt$}$\smash{((\pt,\point),\{!_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})}$ consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(\pt,\point)$.
         \item\SloganFont{The Cone. }The collection of morphisms of pointed sets
@@ -673,8 +674,8 @@ This chapter contains some foundational material on pointed sets.
             \]%
             for each $x\in X$ and each $(X,x_{0})\in\Obj(\Sets)$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{the-terminal-pointed-set}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-terminal-pointed-set}}%
     We claim that $(\pt,\point)$ is the terminal object of $\Sets_{*}$. Indeed, suppose we have a diagram of the form
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -705,7 +706,10 @@ This chapter contains some foundational material on pointed sets.
 \subsection{Products of Families of Pointed Sets}\label{subsection-products-of-families-of-pointed-sets}
 Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
 \begin{definition}{The Product of a Family of Pointed Sets}{the-product-of-a-family-of-pointed-sets}%
-    The \index[set-theory]{product of a family of pointed sets}\textbf{product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$} is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$\smash{((\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I}),\{\pr_{i}\}_{i\in I})}$ consisting of:
+    The \index[set-theory]{product of a family of pointed sets}\textbf{product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$} is the product of $\{(X_{i},x^{i}_{0})\}_{i\in I}$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:the-product-of-a-family-of-objects}}{\cref{the-product-of-a-family-of-objects}}.
+\end{definition}
+\begin{construction}{Construction of the Product of a Family of Pointed Sets}{construction-of-the-product-of-a-family-of-pointed-sets}%
+    Concretely, the \index[set-theory]{product of a family of pointed sets}\textbf{product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$} is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$\smash{((\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I}),\{\pr_{i}\}_{i\in I})}$ consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})$.%
         \item\SloganFont{The Cone. }The collection
@@ -726,8 +730,8 @@ Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
             \]%
             for each $(x_{j})_{j\in I}\in\prod_{i\in I}X_{i}$ and each $i\in I$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{the-product-of-a-family-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-product-of-a-family-of-pointed-sets}}%
     We claim that $\smash{(\prod_{i\in I}X_{i},(x^{i}_{0})_{i\in I})}$ is the categorical product of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$ in $\Sets_{*}$. Indeed, suppose we have, for each $i\in I$, a diagram of the form
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -797,7 +801,10 @@ Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
 \subsection{Products}\label{subsection-products-of-pointed-sets}
 Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{definition}{Products of Pointed Sets}{products-of-pointed-sets}%
-    The \index[set-theory]{pointed set!product of}\textbf{product of $(X,x_{0})$ and $(Y,y_{0})$} is the pair consisting of:
+    The \index[set-theory]{pointed set!product of}\textbf{product of $(X,x_{0})$ and $(Y,y_{0})$} is the product of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:binary-products}}{\cref{binary-products}}.
+\end{definition}
+\begin{construction}{Construction of Products of Pointed Sets}{construction-of-products-of-pointed-sets}%
+    Concretely, the \index[set-theory]{pointed set!product of}\textbf{product of $(X,x_{0})$ and $(Y,y_{0})$} is the pair consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(X\times Y,(x_{0},y_{0}))$.%
         \item\SloganFont{The Cone. }The morphisms of pointed sets
@@ -812,22 +819,22 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{align*}
             for each $(x,y)\in X\times Y$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{products-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-products-of-pointed-sets}}%
     We claim that $(X\times Y,(x_{0},y_{0}))$ is the categorical product of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$. Indeed, suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={8.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={8.0*\the\DL}{p_{1}}{p_{2}}]
+            {}%
             \&
             {(P,*)}
-            \arrow[ld,"p_{1}"',bend right = 20]
-            \arrow[rd,"p_{2}", bend left  = 20]
             \&
+            {}%
             \\
             {(X,x_{0})}
             \&
             {(X\times Y,(x_{0},y_{0}))}
-            \arrow[l,"\pr_{1}"]
-            \arrow[r,"\pr_{2}"']
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             {(Y,y_{0})}
         \end{tikzcd}
@@ -842,19 +849,19 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     making the diagram
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={8.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={8.0*\the\DL}{p_{1}}{p_{2}}]
+            {}%
             \&
             {(P,*)}
-            \arrow[ld,"p_{1}"',bend right = 20]
-            \arrow[rd,"p_{2}", bend left  = 20]
             \arrow[d,"\phi"'{pos=0.5},"\exists!"{pos=0.5}, densely dashed]
             \&
+            {}%
             \\
             {(X,x_{0})}
             \&
             {(X\times Y,(x_{0},y_{0}))}
-            \arrow[l,"\pr_{1}"{pos=0.45}]
-            \arrow[r,"\pr_{2}"'{pos=0.45}]
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
             \&
             {(Y,y_{0})}
         \end{tikzcd}
@@ -936,7 +943,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \subsection{Pullbacks}\label{subsection-pullbacks-of-pointed-sets}
 Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(X,x_{0})\to(Z,z_{0})$ and $g\colon(Y,y_{0})\to(Z,z_{0})$ be morphisms of pointed sets.
 \begin{definition}{Pullbacks of Pointed Sets}{pullbacks-of-pointed-sets}%
-    The \index[set-theory]{pointed set!pullback of}\textbf{pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
+    The \index[set-theory]{pointed set!pullback of}\textbf{pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:pullbacks}}{\cref{pullbacks}}.
+\end{definition}
+\begin{construction}{Construction of Pullbacks of Pointed Sets}{construction-of-pullbacks-of-pointed-sets}%
+    Concretely, the \index[set-theory]{pointed set!pullback of}\textbf{pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(X\times_{Z}Y,(x_{0},y_{0}))$.
         \item\SloganFont{The Cone. }The morphisms of pointed sets
@@ -951,8 +961,8 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(X
             \end{align*}
             for each $(x,y)\in X\times_{Z}Y$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{pullbacks-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-pullbacks-of-pointed-sets}}%
     We claim that $X\times_{Z}Y$ is the categorical pullback of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ with respect to $(f,g)$ in $\Sets_{*}$. First we need to check that the relevant pullback diagram commutes, i.e.\ that we have
     \begin{webcompile}
         f\circ\pr_{1}%
@@ -1481,7 +1491,10 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(X
 \subsection{Equalisers}\label{subsection-equalisers-of-pointed-sets}
 Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
 \begin{definition}{Equalisers of Pointed Sets}{equalisers-of-pointed-sets}%
-    The \index[set-theory]{pointed set!equaliser of}\textbf{equaliser of $(f,g)$} is the pair consisting of:
+    The \index[set-theory]{pointed set!equaliser of}\textbf{equaliser of $(f,g)$} is the equaliser of $f$ and $g$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:equalisers}}{\cref{equalisers}}.
+\end{definition}
+\begin{construction}{Construction of Equalisers of Pointed Sets}{construction-of-equalisers-of-pointed-sets}%
+    Concretely, the \index[set-theory]{pointed set!equaliser of}\textbf{equaliser of $(f,g)$} is the pair consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(\Eq(f,g),x_{0})$.
         \item\SloganFont{The Cone. }The morphism of pointed sets
@@ -1494,8 +1507,8 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             \]%
             given by the canonical inclusion $\eq(f,g)\hookrightarrow\Eq(f,g)\hookrightarrow X$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{equalisers-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-equalisers-of-pointed-sets}}%
     We claim that $(\Eq(f,g),x_{0})$ is the categorical equaliser of $f$ and $g$ in $\Sets_{*}$. First we need to check that the relevant equaliser diagram commutes, i.e.\ that we have
     \[
         f\circ\eq(f,g)%
@@ -1504,10 +1517,10 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     \]%
     which indeed holds by the definition of the set $\Eq(f,g)$. Next, we prove that $\Eq(f,g)$ satisfies the universal property of the equaliser. Suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(\Eq(f,g),x_{0})}
             \arrow[r,"{\eq(f,g)}",hook]
-            \&[2.0*\the\DL]
+            \&[2.5*\the\DL]
             {(X,x_{0})}
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -1516,7 +1529,7 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             \\
             {(E,*)}
             \arrow[ru,"e"']
-            \&[2.0*\the\DL]
+            \&[2.5*\the\DL]
             \&
             \&
         \end{tikzcd}
@@ -1531,10 +1544,10 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     \]%
     making the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(\Eq(f,g),x_{0})}
             \arrow[r,"{\eq(f,g)}",hook]
-            \&[2.0*\the\DL]
+            \&[2.5*\the\DL]
             {(X,x_{0})}
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -1544,7 +1557,7 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             {(E,*)}
             \arrow[ru,"e"']
             \arrow[u,"\phi","\exists!"',dashed]
-            \&[2.0*\the\DL]
+            \&[2.5*\the\DL]
             \&
             \&
         \end{tikzcd}
@@ -1584,15 +1597,15 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets and let $f,g,h\colon(X,x_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
     \begin{enumerate}
         \item\label{properties-of-equalisers-of-pointed-sets-associativity}\SloganFont{Associativity. }We have isomorphisms of pointed sets%
-            \begingroup\small
-            \[
-                \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
-                \cong
-                \Eq(f,g,h)
-                \cong
-                \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
-            \]%
-            \endgroup
+            \begin{envsmallsize}
+                \[
+                    \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
+                    \cong
+                    \Eq(f,g,h)
+                    \cong
+                    \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
+                \]%
+            \end{envsmallsize}
             where $\Eq(f,g,h)$ is the limit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -1638,7 +1651,10 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
 \section{Colimits of Pointed Sets}\label{section-colimits-of-pointed-sets}
 \subsection{The Initial Pointed Set}\label{subsection-the-initial-pointed-set}
 \begin{definition}{The Initial Pointed Set}{the-initial-pointed-set}%
-    The \index[set-theory]{initial pointed set}\textbf{initial pointed set} is the pair \index[notation]{pt@$\pt$}$((\pt,\point),\{\iota_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})$ consisting of:
+    The \index[set-theory]{initial pointed set}\textbf{initial pointed set} is the initial object of $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:initial-objects}}{\cref{initial-objects}}.
+\end{definition}
+\begin{construction}{Construction of the Initial Pointed Set}{construction-of-the-initial-pointed-set}%
+    Concretely, the \index[set-theory]{initial pointed set}\textbf{initial pointed set} is the pair \index[notation]{pt@$\pt$}$\smash{((\pt,\point),\{\iota_{X}\}_{(X,x_{0})\in\Obj(\Sets_{*})})}$ consisting of:
     \begin{itemize}
         \item\SloganFont{The Limit. }The pointed set $(\pt,\point)$.
         \item\SloganFont{The Cone. }The collection of morphisms of pointed sets
@@ -1658,8 +1674,8 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
                 x_{0}.%
             \]%
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{the-initial-pointed-set}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-the-initial-pointed-set}}%
     We claim that $(\pt,\point)$ is the initial object of $\Sets_{*}$. Indeed, suppose we have a diagram of the form
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -1690,7 +1706,17 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
 \subsection{Coproducts of Families of Pointed Sets}\label{subsection-coproducts-of-families-of-pointed-sets}
 Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
 \begin{definition}{Coproducts of Families of Pointed Sets}{coproducts-of-families-of-pointed-sets}%
-    The \index[set-theory]{coproduct!of a family of pointed sets}\textbf{coproduct of the family $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$}, also called their \index[set-theory]{pointed set!wedge sum of a family of pointed sets}\textbf{wedge sum}, is the pair consisting of:
+    The \index[set-theory]{coproduct!of a family of pointed sets}\textbf{coproduct of the family $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[set-theory]{pointed set!wedge sum of a family of pointed sets}\textbf{wedge sum of the family $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    is the coproduct of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:the-coproduct-of-a-family-of-objects}}{\cref{the-coproduct-of-a-family-of-objects}}.
+\end{definition}
+\begin{construction}{Construction of Coproducts of Families of Pointed Sets}{construction-of-coproducts-of-families-of-pointed-sets}%
+    Concretely, the \index[set-theory]{coproduct!of a family of pointed sets}\textbf{coproduct of the family $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$} is the pair \index[notation]{veeiiniXi@$\bigvee_{i\in I}X_{i}$}$\smash{((\bigvee_{i\in I}X_{i},p_{0}),\{\inj_{i}\}_{i\in I})}$ consisting of:
     \begin{itemize}
         \item\SloganFont{The Colimit. }The pointed set $(\bigvee_{i\in I}X_{i},p_{0})$ consisting of:
             \begin{itemize}
@@ -1732,8 +1758,8 @@ Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
             \]%
             for each $x\in X_{i}$ and each $i\in I$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{coproducts-of-families-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-coproducts-of-families-of-pointed-sets}}%
     We claim that $\smash{(\bigvee_{i\in I}X_{i},p_{0})}$ is the categorical coproduct of $\smash{\{(X_{i},x^{i}_{0})\}_{i\in I}}$ in $\Sets_{*}$. Indeed, suppose we have, for each $i\in I$, a diagram of the form
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -1803,7 +1829,17 @@ Let $\{(X_{i},x^{i}_{0})\}_{i\in I}$ be a family of pointed sets.%
 \subsection{Coproducts}\label{subsection-coproducts-of-pointed-sets}
 Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{definition}{Coproducts of Pointed Sets}{coproducts-of-pointed-sets}%
-    The \index[set-theory]{pointed set!coproduct of}\textbf{coproduct of $(X,x_{0})$ and $(Y,y_{0})$}, also called their \index[set-theory]{pointed set!wedge sum}\textbf{wedge sum}, is the pair consisting of:
+    The \index[set-theory]{pointed set!coproduct of}\textbf{coproduct of $(X,x_{0})$ and $(Y,y_{0})$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[set-theory]{pointed set!wedge sum}\textbf{wedge sum of $(X,x_{0})$ and $(Y,y_{0})$}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    is the coproduct of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:binary-products}}{\cref{binary-products}}.
+\end{definition}
+\begin{construction}{Construction of Coproducts of Pointed Sets}{construction-of-coproducts-of-pointed-sets}%
+    Concretely, the \index[set-theory]{pointed set!coproduct of}\textbf{coproduct of $(X,x_{0})$ and $(Y,y_{0})$}, also called their \index[set-theory]{pointed set!wedge sum}\textbf{wedge sum}, is the pair consisting of:
     \begin{itemize}
         \item\SloganFont{The Colimit. }The pointed set $(X\vee Y,p_{0})$ consisting of:
             \begin{itemize}
@@ -1849,22 +1885,22 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{align*}
             for each $x\in X$ and each $y\in Y$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{coproducts-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-coproducts-of-pointed-sets}}%
     We claim that $(X\vee Y,p_{0})$ is the categorical coproduct of $(X,x_{0})$ and $(Y,y_{0})$ in $\Sets_{*}$. Indeed, suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,coproductArrows={7.0*\the\DL}{\iota_{1}}{\iota_{2}}]
+            {}%
             \&
             {(C,*)}
-            \arrow[from=ld,"\iota_{X}",  bend left  = 20]
-            \arrow[from=rd,"\iota_{Y}"', bend right = 20]
             \&
+            {}%
             \\
             {(X,x_{0})}
             \&
             {(X\vee Y,p_{0})}
-            \arrow[from=l,"\inj_{X}"']
-            \arrow[from=r,"\inj_{Y}"]
+            \arrow[from=l,"\inj_{1}"',hook]
+            \arrow[from=r,"\inj_{2}",hook']
             \&
             {(Y,y_{0})}
         \end{tikzcd}
@@ -1879,19 +1915,19 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     making the diagram
     \[
-        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,coproductArrows={7.0*\the\DL}{\iota_{1}}{\iota_{2}}]
+            {}%
             \&
             {(C,*)}
-            \arrow[from=ld,"\iota_{X}",  bend left  = 20]
-            \arrow[from=rd,"\iota_{Y}"', bend right = 20]
             \arrow[from=d,"\phi","\exists!"', dashed]
             \&
+            {}%
             \\
             {(X,x_{0})}
             \&
             {(X\vee Y,p_{0})}
-            \arrow[from=l,"\inj_{X}"']
-            \arrow[from=r,"\inj_{Y}"]
+            \arrow[from=l,"\inj_{1}"',hook]
+            \arrow[from=r,"\inj_{2}",hook']
             \&
             {(Y,y_{0})}
         \end{tikzcd}
@@ -2046,7 +2082,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \subsection{Pushouts}\label{subsection-pushouts-of-pointed-sets}
 Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(Z,z_{0})\to(X,x_{0})$ and $g\colon(Z,z_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
 \begin{definition}{Pushouts of Pointed Sets}{pushouts-of-pointed-sets}%
-    The \index[set-theory]{pointed set!pushout of}\textbf{pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
+    The \index[set-theory]{pointed set!pushout of}\textbf{pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$ in $\Sets_{*}$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:pushouts}}{\cref{pushouts}}.
+\end{definition}
+\begin{construction}{Construction of Pushouts of Pointed Sets}{construction-of-pushouts-of-pointed-sets}%
+    Concretely, the \textbf{pushout of $(X,x_{0})$ and $(Y,y_{0})$ over $(Z,z_{0})$ along $(f,g)$} is the pair consisting of:
     \begin{itemize}
         \item\SloganFont{The Colimit. }The pointed set $(X\coprod_{f,Z,g}Y,p_{0})$, where:
             \begin{itemize}
@@ -2065,8 +2104,8 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(Z
             \end{align*}
             for each $x\in X$ and each $y\in Y$.
     \end{itemize}
-\end{definition}
-\begin{Proof}{Proof of \cref{pushouts-of-pointed-sets}}%
+\end{construction}
+\begin{Proof}{Proof of \cref{constructions-of-pushouts-of-pointed-sets}}%
     Firstly, we note that indeed $[x_{0}]=[y_{0}]$, as we have
     \begin{align*}
         x_{0} &= f(z_{0}),\\
@@ -2605,7 +2644,22 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
 \begin{definition}{Coequalisers of Pointed Sets}{coequalisers-of-pointed-sets}%
     The \index[set-theory]{pointed set!coequaliser of}\textbf{coequaliser of $(f,g)$} is the pointed set $(\CoEq(f,g),[y_{0}])$.
 \end{definition}
-\begin{Proof}{Proof of \cref{coequalisers-of-pointed-sets}}%
+\begin{construction}{Construction of Coequalisers of Pointed Sets}{construction-of-coequalisers-of-pointed-sets}%
+    The \index[set-theory]{pointed set!coequaliser of}\textbf{coequaliser of $(f,g)$} is the pair $\smash{((\CoEq(f,g),[y_{0}]),\coeq(f,g))}$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Colimit. }The pointed set $(\CoEq(f,g),[y_{0}])$, where $\CoEq(f,g)$ is the coequaliser of $f$ and $g$ as in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:coequalisers-of-sets}}{\cref{coequalisers-of-sets}}.
+        \item\SloganFont{The Cocone. }The map
+            \[
+                \coeq(f,g)%
+                \colon%
+                Y%
+                \twoheadsrightarrow%
+                (\CoEq(f,g),[y_{0}])%
+            \]%
+            given by the quotient map, as in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:construction-of-coequalisers-of-sets-the-cocone} of \cref{constructions-with-sets:construction-of-coequalisers-of-sets}}{\cref{construction-of-coequalisers-of-sets-the-cocone} of \cref{construction-of-coequalisers-of-sets}}.
+    \end{itemize}
+\end{construction}
+\begin{Proof}{Proof of \cref{construction-of-coequalisers-of-pointed-sets}}%
     We claim that $(\CoEq(f,g),[y_{0}])$ is the categorical coequaliser of $f$ and $g$ in $\Sets_{*}$. First we need to check that the relevant coequaliser diagram commutes, i.e.\ that we have
     \[
         \coeq(f,g)\circ f%
@@ -2622,7 +2676,7 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     \end{align*}
     for each $x\in X$. Next, we prove that $\CoEq(f,g)$ satisfies the universal property of the coequaliser. Suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(X,x_{0})}
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -2630,17 +2684,17 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             {(Y,y_{0})}
             \arrow[r,"{\coeq(f,g)}",hook]
             \arrow[rd,"c"']
-            \&[4.5*\the\DL]
+            \&[4.0*\the\DL]
             {(\CoEq(f,g),[y_{0}])}
             \\
             \&
-            \&[4.5*\the\DL]
+            \&[4.0*\the\DL]
             {(C,*)}
         \end{tikzcd}
     \]%
     in $\Sets$. Then, since $c(f(a))=c(g(a))$ for each $a\in A$, it follows from \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1,conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{properties-of-quotient-sets}} that there exists a unique map $\phi\colon\CoEq(f,g)\uearrow C$ making the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(X,x_{0})}
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -2648,12 +2702,12 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
             {(Y,y_{0})}
             \arrow[r,"{\coeq(f,g)}",hook]
             \arrow[rd,"c"']
-            \&[4.5*\the\DL]
+            \&[4.0*\the\DL]
             {(\CoEq(f,g),[y_{0}])}
             \arrow[d,"\phi"'{pos=0.475},"\exists!"{pos=0.475},dashed]
             \\
             \&
-            \&[4.5*\the\DL]
+            \&[4.0*\the\DL]
             {(C,*)}
         \end{tikzcd}
     \]%
@@ -2669,15 +2723,15 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets and let $f,g,h\colon(X,x_{0})\to(Y,y_{0})$ be morphisms of pointed sets.
     \begin{enumerate}
         \item\label{properties-of-coequalisers-of-pointed-sets-associativity}\SloganFont{Associativity. }We have isomorphisms of pointed sets%
-            \begingroup\scriptsize
-            \[
-                \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
-                \cong
-                \CoEq(f,g,h)
-                \cong
-                \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
-            \]%
-            \endgroup
+            \begin{envscriptsize}
+                \[
+                    \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
+                    \cong
+                    \CoEq(f,g,h)
+                    \cong
+                    \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
+                \]%
+            \end{envscriptsize}
             where $\CoEq(f,g,h)$ is the colimit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]

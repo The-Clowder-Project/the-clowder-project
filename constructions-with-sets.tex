@@ -53,7 +53,7 @@ This chapter develops some material relating to constructions with sets with an 
     The \index[set-theory]{terminal set}\textbf{terminal set} is the terminal object of $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:terminal-objects}}{\cref{terminal-objects}}.
 \end{definition}
 \begin{construction}{Construction of the Terminal Set}{construction-of-the-terminal-set}%
-    The terminal set is the pair \index[notation]{pt@$\pt$}$\smash{(\pt,\{!_{A}\}_{A\in\Obj(\Sets)})}$ consisting of:
+    Concretely, the terminal set is the pair \index[notation]{pt@$\pt$}$\smash{(\pt,\{!_{A}\}_{A\in\Obj(\Sets)})}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-the-terminal-set-the-limit}\SloganFont{The Limit. }The punctual set $\pt\defeq\{\point\}$.
         \item\label{construction-of-the-terminal-set-the-cone}\SloganFont{The Cone. }The collection of maps
@@ -108,7 +108,7 @@ Let $\{A_{i}\}_{i\in I}$ be a family of sets.%
     \textbf{of $\{A_{i}\}_{i\in I}$} is the product of $\{A_{i}\}_{i\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:the-product-of-a-family-of-objects}}{\cref{the-product-of-a-family-of-objects}}.
 \end{definition}
 \begin{construction}{Construction of the Product of a Family of Sets}{construction-of-the-product-of-a-family-of-sets}%
-    The product of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$(\prod_{i\in I}A_{i},\{\pr_{i}\}_{i\in I})$ consisting of:
+    Concretely, the product of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$(\prod_{i\in I}A_{i},\{\pr_{i}\}_{i\in I})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-the-product-of-a-family-of-sets-the-limit}\SloganFont{The Limit. }The set $\prod_{i\in I}A_{i}$ defined by%
             \[
@@ -275,7 +275,7 @@ Let $A$ and $B$ be sets.%
     is the product of $A$ and $B$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:binary-products}}{\cref{binary-products}}.
 \end{definition}
 \begin{construction}{Construction of Binary Products of Sets}{construction-of-binary-products-of-sets}%
-    The product of $A$ and $B$ is the pair \index[notation]{AtimesB@$A\times B$}$(A\times B,\{\pr_{1},\pr_{2}\})$ consisting of:
+    Concretely, the product of $A$ and $B$ is the pair \index[notation]{AtimesB@$A\times B$}$(A\times B,\{\pr_{1},\pr_{2}\})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-binary-products-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times B$ defined by%
             \begin{align*}
@@ -321,8 +321,8 @@ Let $A$ and $B$ be sets.%
             A
             \&
             A\times B
-            \arrow[l,"\pr_{1}"]
-            \arrow[r,"\pr_{2}"']
+            \arrow[l,"\pr_{1}"{pos=0.425},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.425},two heads]
             \&
             B
         \end{tikzcd}
@@ -340,8 +340,8 @@ Let $A$ and $B$ be sets.%
             A
             \&
             A\times B
-            \arrow[l,"\pr_{1}"]
-            \arrow[r,"\pr_{2}"']
+            \arrow[l,"\pr_{1}"{pos=0.425},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.425},two heads]
             \&
             B
         \end{tikzcd}
@@ -1043,7 +1043,7 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
     is the pullback of $A$ and $B$ over $C$ along $f$ and $g$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:pullbacks}}{\cref{pullbacks}}.
 \end{definition}
 \begin{construction}{Construction of Pullbacks of Sets}{construction-of-pullbacks-of-sets}%
-    The pullback of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AtimesCB@$A\times_{C}B$}$(A\times_{C}B,\{\pr_{1},\pr_{2}\})$ consisting of:
+    Concretely, the pullback of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AtimesCB@$A\times_{C}B$}$(A\times_{C}B,\{\pr_{1},\pr_{2}\})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-pullbacks-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times_{C}B$ defined by%
             \[
@@ -2119,7 +2119,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
     The \index[set-theory]{equaliser of sets}\textbf{equaliser of $f$ and $g$} is the equaliser of $f$ and $g$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:equalisers}}{\cref{equalisers}}.
 \end{definition}
 \begin{construction}{Construction of Equalisers of Sets}{construction-of-equalisers-of-sets}%
-    The equaliser of $f$ and $g$ is the pair \index[notation]{Eqfg@$\Eq(f,g)$}\index[notation]{eqfg@$\eq(f,g)$}$(\Eq(f,g),\eq(f,g))$ consisting of:
+    Concretely, the equaliser of $f$ and $g$ is the pair \index[notation]{Eqfg@$\Eq(f,g)$}\index[notation]{eqfg@$\eq(f,g)$}$(\Eq(f,g),\eq(f,g))$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-equalisers-of-sets-the-limit}\SloganFont{The Limit. }The set $\Eq(f,g)$ defined by
             \[
@@ -2146,10 +2146,10 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
     \]%
     which indeed holds by the definition of the set $\Eq(f,g)$. Next, we prove that $\Eq(f,g)$ satisfies the universal property of the equaliser. Suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {\Eq(f,g)}
             \arrow[r,"{\eq(f,g)}",hook]
-            \&[2.0*\the\DL]
+            \&[3.0*\the\DL]
             A
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -2158,17 +2158,17 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             \\
             E
             \arrow[ru,"e"']
-            \&[2.0*\the\DL]
+            \&[3.0*\the\DL]
             \&
             \&
         \end{tikzcd}
     \]%
     in $\Sets$. Then there exists a unique map $\phi\colon E\to\Eq(f,g)$ making the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {\Eq(f,g)}
             \arrow[r,"{\eq(f,g)}",hook]
-            \&[2.0*\the\DL]
+            \&[3.0*\the\DL]
             A
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -2178,7 +2178,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             E
             \arrow[ru,"e"']
             \arrow[u,"\phi","\exists!"',dashed]
-            \&[2.0*\the\DL]
+            \&[3.0*\the\DL]
             \&
             \&
         \end{tikzcd}
@@ -2354,10 +2354,10 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
     \]%
     Indeed, suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {\Eq(f,g,h)}
             \arrow[r,"{\eq(f,g,h)}",hook]
-            \&[2.5*\the\DL]
+            \&[3.5*\the\DL]
             A
             \arrow[r,"f", shift left =2.0]
             \arrow[r,"g"description]
@@ -2367,7 +2367,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             \\
             E
             \arrow[ru,"e"']
-            \&[2.5*\the\DL]
+            \&[3.5*\the\DL]
             \&
             \&
         \end{tikzcd}
@@ -2468,7 +2468,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
     The \index[set-theory]{inverse limit of sets}\textbf{inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$} is the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:inverse-limits}}{\cref{inverse-limits}}.
 \end{definition}
 \begin{construction}{Construction of Inverse Limits of Sets}{construction-of-inverse-limits-of-sets}%
-    The inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{limalphainIXalpha@$\invlim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\invlim_{\alpha\in I}(X_{\alpha}),\{\pr_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
+    Concretely, the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{limalphainIXalpha@$\invlim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\invlim_{\alpha\in I}(X_{\alpha}),\{\pr_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-inverse-limits-of-sets-the-limit}\SloganFont{The Limit. }The set $\displaystyle\invlim_{\alpha\in I}(X_{\alpha})$ defined by
             \[
@@ -2634,7 +2634,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
     The \index[set-theory]{initial set}\textbf{initial set} is the initial object of $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:initial-objects}}{\cref{initial-objects}}.
 \end{definition}
 \begin{construction}{Construction of the Initial Set}{construction-of-the-initial-set}%
-    The initial set is the pair \index[notation]{emptyset@$\emptyset$}$(\emptyset,\{\iota_{A}\}_{A\in\Obj(\Sets)})$ consisting of:
+    Concretely, the initial set is the pair \index[notation]{emptyset@$\emptyset$}$(\emptyset,\{\iota_{A}\}_{A\in\Obj(\Sets)})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-the-initial-set-the-colimit}\SloganFont{The Colimit. }The empty set $\emptyset$ of \cref{the-empty-set}.
         \item\label{construction-of-the-initial-set-the-cocone}\SloganFont{The Cocone. }The collection of maps
@@ -2683,7 +2683,7 @@ Let $\{A_{i}\}_{i\in I}$ be a family of sets.%
     is the coproduct of $\{A_{i}\}_{i\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:the-coproduct-of-a-family-of-objects}}{\cref{the-coproduct-of-a-family-of-objects}}.
 \end{definition}
 \begin{construction}{Construction of the Coproduct of a Family of Sets}{construction-of-the-coproduct-of-a-family-of-sets}%
-    The disjoint union of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{coprodiiniAi@$\coprod_{i\in I}A_{i}$}$(\coprod_{i\in I}A_{i},\{\inj_{i}\}_{i\in I})$ consisting of:
+    Concretely, the disjoint union of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{coprodiiniAi@$\coprod_{i\in I}A_{i}$}$(\coprod_{i\in I}A_{i},\{\inj_{i}\}_{i\in I})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-the-coproduct-of-a-family-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\coprod_{i\in I}A_{i}$ defined by%
             \[
@@ -2826,7 +2826,7 @@ Let $A$ and $B$ be sets.%
     is the coproduct of $A$ and $B$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:binary-coproducts}}{\cref{binary-coproducts}}.
 \end{definition}
 \begin{construction}{Construction of Coproducts of Sets}{construction-of-coproducts-of-sets}%
-    The coproduct of $A$ and $B$ is the pair \index[notation]{AicoprodB@$A\icoprod B$}$(A\coprod B,\{\inj_{1},\inj_{2}\})$ consisting of:
+    Concretely, the coproduct of $A$ and $B$ is the pair \index[notation]{AicoprodB@$A\icoprod B$}$(A\coprod B,\{\inj_{1},\inj_{2}\})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-coproducts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\icoprod B$ defined by%
             \begin{align*}
@@ -2860,8 +2860,8 @@ Let $A$ and $B$ be sets.%
             A
             \&
             A\icoprod B
-            \arrow[from=l,"\inj_{1}"']
-            \arrow[from=r,"\inj_{2}"]
+            \arrow[from=l,"\inj_{1}"',hook]
+            \arrow[from=r,"\inj_{2}",hook']
             \&
             B
         \end{tikzcd}
@@ -2879,8 +2879,8 @@ Let $A$ and $B$ be sets.%
             A
             \&
             A\icoprod B
-            \arrow[from=l,"\inj_{1}"']
-            \arrow[from=r,"\inj_{2}"]
+            \arrow[from=l,"\inj_{1}"',hook]
+            \arrow[from=r,"\inj_{2}",hook']
             \&
             B
         \end{tikzcd}
@@ -3001,7 +3001,7 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
     is the pushout of $A$ and $B$ over $C$ along $f$ and $g$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:pushouts}}{\cref{pushouts}}.
 \end{definition}
 \begin{construction}{Construction of Pushouts of Sets}{construction-of-pushouts-of-sets}%
-    The pushout of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AicoprodCB@$A\ipushout{C}B$}$(A\ipushout{C}B,\{\inj_{1},\inj_{2}\})$ consisting of:
+    Concretely, the pushout of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AicoprodCB@$A\ipushout{C}B$}$(A\ipushout{C}B,\{\inj_{1},\inj_{2}\})$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-pushouts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\ipushout{C}B$ defined by
             \[
@@ -3904,7 +3904,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
     The \index[set-theory]{coequaliser of sets}\textbf{coequaliser of $f$ and $g$} is the coequaliser of $f$ and $g$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:coequalisers}}{\cref{coequalisers}}.
 \end{definition}
 \begin{construction}{Construction of Coequalisers of Sets}{construction-of-coequalisers-of-sets}%
-    The coequaliser of $f$ and $g$ is the pair \index[notation]{CoEqfg@$\CoEq(f,g)$}$(\CoEq(f,g),\coeq(f,g))$ consisting of:
+    Concretely, the coequaliser of $f$ and $g$ is the pair \index[notation]{CoEqfg@$\CoEq(f,g)$}$(\CoEq(f,g),\coeq(f,g))$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-coequalisers-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\CoEq(f,g)$ defined by%
             \[
@@ -3918,7 +3918,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                 \coeq(f,g)%
                 \colon%
                 B%
-                \to%
+                \twoheadsrightarrow%
                 \CoEq(f,g)%
             \]%
             given by the quotient map $\pi\colon B\twoheadsrightarrow B/\unsim$ with respect to the equivalence relation generated by $f(a)\sim g(a)$.
@@ -3941,7 +3941,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
     \end{align*}
     for each $a\in A$. Next, we prove that $\CoEq(f,g)$ satisfies the universal property of the coequaliser. Suppose we have a diagram of the form
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -3949,17 +3949,17 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             B
             \arrow[r,"{\coeq(f,g)}",hook]
             \arrow[rd,"c"']
-            \&[3.0*\the\DL]
+            \&[4.0*\the\DL]
             {\CoEq(f,g)}
             \\
             \&
-            \&[3.0*\the\DL]
+            \&[4.0*\the\DL]
             C
         \end{tikzcd}
     \]%
     in $\Sets$. Then, since $c(f(a))=c(g(a))$ for each $a\in A$, it follows from \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-1,conditions-on-relations:properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1,properties-of-quotient-sets-descending-functions-to-quotient-sets-2} of \cref{properties-of-quotient-sets}} that there exists a unique map $\CoEq(f,g)\uearrow C$ making the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A
             \arrow[r,"f", shift left =0.8]
             \arrow[r,"g"',shift right=0.8]
@@ -3967,12 +3967,12 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
             B
             \arrow[r,"{\coeq(f,g)}",hook]
             \arrow[rd,"c"']
-            \&[3.0*\the\DL]
+            \&[4.0*\the\DL]
             {\CoEq(f,g)}
             \arrow[d,"\exists!"{pos=0.475},dashed]
             \\
             \&
-            \&[3.0*\the\DL]
+            \&[4.0*\the\DL]
             C
         \end{tikzcd}
     \]%
@@ -4166,7 +4166,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Top$ b
     The \index[set-theory]{direct colimit of sets}\textbf{direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$} is the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:direct-colimits}}{\cref{direct-colimits}}.
 \end{definition}
 \begin{construction}{Construction of Direct Colimits of Sets}{construction-of-direct-colimits-of-sets}%
-    The direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{colimalphainIXalpha@$\dircolim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\dircolim_{\alpha\in I}(X_{\alpha}),\{\inj_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
+    Concretely, the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{colimalphainIXalpha@$\dircolim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\dircolim_{\alpha\in I}(X_{\alpha}),\{\inj_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-direct-colimits-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})$ defined by
             \[

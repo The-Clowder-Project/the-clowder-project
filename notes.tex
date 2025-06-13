@@ -1795,8 +1795,8 @@ The code
     A
     \&
     A\times B
-    \arrow[l,"\pr_{1}"]
-    \arrow[r,"\pr_{2}"']
+    \arrow[l,"\pr_{1}"{pos=0.425},two heads]
+    \arrow[r,"\pr_{2}"'{pos=0.425},two heads]
     \&
     B
 \end{tikzcd}
@@ -1814,8 +1814,8 @@ will then produce the following diagram:
         A
         \&
         A\times B
-        \arrow[l,"\pr_{1}"]
-        \arrow[r,"\pr_{2}"']
+        \arrow[l,"\pr_{1}"{pos=0.425},two heads]
+        \arrow[r,"\pr_{2}"'{pos=0.425},two heads]
         \&
         B
     \end{tikzcd}
@@ -1889,8 +1889,8 @@ The code
     A
     \&
     A\icoprod B
-    \arrow[from=l,"\inj_{1}"']
-    \arrow[from=r,"\inj_{2}"]
+    \arrow[from=l,"\inj_{1}"',hook]
+    \arrow[from=r,"\inj_{2}",hook']
     \&
     B
 \end{tikzcd}
@@ -1908,8 +1908,8 @@ will then produce the following diagram:
         A
         \&
         A\icoprod B
-        \arrow[from=l,"\inj_{1}"']
-        \arrow[from=r,"\inj_{2}"]
+        \arrow[from=l,"\inj_{1}"',hook]
+        \arrow[from=r,"\inj_{2}",hook']
         \&
         B
     \end{tikzcd}

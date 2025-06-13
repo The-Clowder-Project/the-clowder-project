@@ -2223,32 +2223,32 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \end{tikzcd}
     \]%
     also commutes. We then have
-    \begingroup\scriptsize
-    \begin{align*}
-        \left[(\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\right.\\
-        \left.{}\circ\alpha^{\Sets,-1}_{A,B,C}\right](a,(b,c)) &= \left[(\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\right.\\
-                                                                                                 &\phantom{={}} \mkern4mu\left.{}{}\circ\alpha^{\Sets,-1}_{A,B,C}\circ([a]\times([b]\times[c]))\right](\point,(\point,\point))\\
-                                                                                                 &= \left[\alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\right.\\
-                                                                                                 &\phantom{={}} \mkern4mu\left.{}\circ\id^{\otimes,-1}_{\Sets|A,B\times C}\circ([a]\times([b]\times[c]))\right](\point,(\point,\point))\\
-                                                                                                 &= [\alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\circ\id^{\otimes,-1}_{\Sets|A,B\times C}](a,(b,c))
-    \end{align*}
-    \endgroup
+    \begin{envscriptsize}
+        \begin{align*}
+            \left[(\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\right.\\
+            \left.{}\circ\alpha^{\Sets,-1}_{A,B,C}\right](a,(b,c)) &= \left[(\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\right.\\
+                                                                                                     &\phantom{={}} \mkern4mu\left.{}{}\circ\alpha^{\Sets,-1}_{A,B,C}\circ([a]\times([b]\times[c]))\right](\point,(\point,\point))\\
+                                                                                                     &= \left[\alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\right.\\
+                                                                                                     &\phantom{={}} \mkern4mu\left.{}\circ\id^{\otimes,-1}_{\Sets|A,B\times C}\circ([a]\times([b]\times[c]))\right](\point,(\point,\point))\\
+                                                                                                     &= [\alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\circ\id^{\otimes,-1}_{\Sets|A,B\times C}](a,(b,c))
+        \end{align*}
+    \end{envscriptsize}
     for each $(a,(b,c))\in A\times(B\times C)$, and thus we have
-    \begingroup\footnotesize
-    \[
-        (\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\circ\alpha^{\Sets,-1}_{A,B,C}%
-        =%
-        \alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\circ\id^{\otimes,-1}_{\Sets|A,B\times C}.%
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            (\id^{\otimes,-1}_{\Sets|A,B}\otimes_{\Sets}\id_{C})\circ\id^{\otimes,-1}_{\Sets|A\times B,C}\circ\alpha^{\Sets,-1}_{A,B,C}%
+            =%
+            \alpha^{\prime,-1}_{A,B,C}\circ(\id_{A}\times\id^{\otimes,-1}_{\Sets|B,C})\circ\id^{\otimes,-1}_{\Sets|A,B\times C}.%
+        \]%
+    \end{envfootnotesize}
     Taking inverses then gives
-    \begingroup\footnotesize
-    \[
-        \alpha^{\Sets}_{A,B,C}\circ\id^{\otimes}_{\Sets|A\times B,C}\circ(\id^{\otimes}_{\Sets|A,B}\otimes_{\Sets}\id_{C})%
-        =%
-        \id^{\otimes}_{\Sets|A,B\times C}\circ(\id_{A}\times\id^{\otimes}_{\Sets|B,C})\circ\alpha^{\prime}_{A,B,C},%
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            \alpha^{\Sets}_{A,B,C}\circ\id^{\otimes}_{\Sets|A\times B,C}\circ(\id^{\otimes}_{\Sets|A,B}\otimes_{\Sets}\id_{C})%
+            =%
+            \id^{\otimes}_{\Sets|A,B\times C}\circ(\id_{A}\times\id^{\otimes}_{\Sets|B,C})\circ\alpha^{\prime}_{A,B,C},%
+        \]%
+    \end{envfootnotesize}
     showing that the diagram
     \[
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4012,15 +4012,15 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
 \subsection{The Left Distributor}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts-left-distributor}
 \begin{definition}{The Left Distributor of $\times$ over $\icoprod$}{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}%
     The \index[set-theory]{product of sets!left distributor}\textbf{left distributor of the product of sets over the coproduct of sets} is the natural isomorphism
-    \begingroup\footnotesize
-    \[
-        \delta^{\Sets}_{\ell}
-        \colon
-        \mathord{\times}\circ(\id_{\Sets}\times\mathord{\icoprod})
-        \Longrightisoarrow
-        \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ(\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets}))
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            \delta^{\Sets}_{\ell}
+            \colon
+            \mathord{\times}\circ(\id_{\Sets}\times\mathord{\icoprod})
+            \Longrightisoarrow
+            \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ(\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets}))
+        \]%
+    \end{envfootnotesize}
     as in the diagram
     \begin{scalemath}
         \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4079,15 +4079,15 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
 \subsection{The Right Distributor}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts-right-distributor}
 \begin{definition}{The Right Distributor of $\times$ over $\icoprod$}{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}%
     The \index[set-theory]{product of sets!right distributor}\textbf{right distributor of the product of sets over the coproduct of sets} is the natural isomorphism
-    \begingroup\footnotesize
-    \[
-        \delta^{\Sets}_{r}
-        \colon
-        \mathord{\times}\circ(\mathord{\icoprod}\times\id_{\Sets})
-        \Longrightisoarrow
-        \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ((\id_{\Sets}\times\id_{\Sets})\times\Delta_{\Sets})
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            \delta^{\Sets}_{r}
+            \colon
+            \mathord{\times}\circ(\mathord{\icoprod}\times\id_{\Sets})
+            \Longrightisoarrow
+            \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ((\id_{\Sets}\times\id_{\Sets})\times\Delta_{\Sets})
+        \]%
+    \end{envfootnotesize}
     as in the diagram
     \begin{scalemath}
         \begin{tikzcd}[row sep={0.0cm,between origins}, column sep={0.0cm,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4380,18 +4380,18 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]
             of \cref{the-symmetry-of-the-product-of-sets}.
         \item\SloganFont{The Left Distributor. }The natural isomorphism
-            \begingroup\footnotesize
-            \[
-                \delta^{\Sets}_{\ell}
-                \colon
-                \mathord{\times}\circ(\id_{\Sets}\times\mathord{\icoprod})
-                \Longrightisoarrow
-                \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ(\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets}))
-            \]%
-            \endgroup
+            \begin{envfootnotesize}
+                \[
+                    \delta^{\Sets}_{\ell}
+                    \colon
+                    \mathord{\times}\circ(\id_{\Sets}\times\mathord{\icoprod})
+                    \Longrightisoarrow
+                    \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ(\Delta_{\Sets}\times(\id_{\Sets}\times\id_{\Sets}))
+                \]%
+            \end{envfootnotesize}
             of \cref{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}.
         \item\SloganFont{The Right Distributor. }The natural isomorphism
-            \begingroup\footnotesize
+            \begin{envfootnotesize}
             \[
                 \delta^{\Sets}_{r}
                 \colon
@@ -4399,7 +4399,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
                 \Longrightisoarrow
                 \mathord{\icoprod}\circ(\mathord{\times}\times\mathord{\times})\circ\bfmu^{\TwoCategoryOfCategories}_{4|\Sets,\Sets,\Sets,\Sets}\circ((\id_{\Sets}\times\id_{\Sets})\times\Delta_{\Sets})
             \]%
-            \endgroup
+            \end{envfootnotesize}
             of \cref{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}.
         \item\SloganFont{The Left Annihilator. }The natural isomorphism
             \[
