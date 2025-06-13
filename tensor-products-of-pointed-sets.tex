@@ -98,7 +98,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]\SloganFont{Left Unital Bilinearity. }The diagram
+        \itemstar\SloganFont{Left Unital Bilinearity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -180,7 +180,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]\SloganFont{Right Unital Bilinearity. }The diagram
+        \itemstar\SloganFont{Right Unital Bilinearity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -372,17 +372,19 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \SloganFont{Further Terminology: }Also called the \index[set-theory]{pointed set!copower by a set|see {pointed set, tensor by a set}}\textbf{copower of $(X,x_{0})$ by $A$}.%
     } %
     %---  End Footnote  ---%
-    is the pointed set%
+    is the tensor \index[notation]{AodotXxzero@$A\odot(X,x_{0})$}$A\odot(X,x_{0})$%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Often written \index[notation]{AodotX@$A\odot X$}$A\odot X$ for simplicity.
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    \index[notation]{AodotXxzero@$A\odot(X,x_{0})$}$A\odot(X,x_{0})$ satisfying the following universal property:
-
+    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterWeightedLimitsAndColimits, \cref{weighted-limits-and-colimits:tensors}}{\cref{tensors}}.
+\end{definition}
+\begin{remark}{Unwinding \cref{tensors-of-pointed-sets-by-sets}}{unwinding-tensors-of-pointed-sets-by-sets}%
+    In detail, the \textbf{tensor of $(X,x_{0})$ by $A$} is the pointed set \index[notation]{AodotXxzero@$A\odot(X,x_{0})$}$A\odot(X,x_{0})$ satisfying the following universal property:
     \begin{itemize}
-        \item[\UP]We have a bijection
+        \itemstar We have a bijection
         \[%
              \Sets_{*}(A\odot X,K)%
              \cong%
@@ -390,12 +392,9 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \]%
         natural in $(K,k_{0})\in\Obj(\Sets_{*})$.
     \end{itemize}
-\end{definition}
-\begin{remark}{Unwinding \cref{tensors-of-pointed-sets-by-sets}}{unwinding-tensors-of-pointed-sets-by-sets}%
-    The universal property in \cref{tensors-of-pointed-sets-by-sets} is equivalent to the following one:
-
+    This universal property is in turn equivalent to the following one:
     \begin{itemize}
-        \item[\UP]We have a bijection
+        \itemstar We have a bijection
             \[
                 \Sets_{*}(A\odot X,K)
                 \cong
@@ -416,8 +415,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
     \end{itemize}
 \end{remark}
-\begin{Proof}{Proof of \cref{unwinding-tensors-of-pointed-sets-by-sets}}%
-    We claim we have a bijection
+\begin{Proof}{Proof of the Equivalence in \cref{unwinding-tensors-of-pointed-sets-by-sets}}%
+    We claim that we have a bijection
     \[
         \Sets(A,\Sets_{*}(X,K))%
         \cong%
@@ -877,17 +876,19 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \SloganFont{Further Terminology: }Also called the \index[set-theory]{pointed set!power by a set|see {pointed set, cotensor by a set}}\textbf{power of $(X,x_{0})$ by $A$}.%
     } %
     %---  End Footnote  ---%
-    is the pointed set%
+    is the cotensor \index[notation]{ApitchforkXxzero@$A\pitchfork(X,x_{0})$}$A\pitchfork(X,x_{0})$%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Often written \index[notation]{ApitchforkX@$A\pitchfork X$}$A\pitchfork X$ for simplicity.
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    \index[notation]{ApitchforkXxzero@$A\pitchfork(X,x_{0})$}$A\pitchfork(X,x_{0})$ satisfying the following universal property:
-
+    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterWeightedLimitsAndColimits, \cref{weighted-limits-and-colimits:cotensors}}{\cref{cotensors}}.
+\end{definition}
+\begin{remark}{Unwinding \cref{cotensors-of-pointed-sets-by-sets}}{unwinding-cotensors-of-pointed-sets-by-sets}%
+    In detail, the \textbf{cotensor of $(X,x_{0})$ by $A$} is the pointed set $A\pitchfork(X,x_{0})$ satisfying the following universal property:
     \begin{itemize}
-        \item[\UP]We have a bijection
+        \itemstar We have a bijection
         \[%
              \Sets_{*}(K,A\pitchfork X)%
              \cong%
@@ -895,12 +896,9 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \]%
         natural in $(K,k_{0})\in\Obj(\Sets_{*})$.
     \end{itemize}%
-\end{definition}
-\begin{remark}{Unwinding \cref{cotensors-of-pointed-sets-by-sets}}{unwinding-cotensors-of-pointed-sets-by-sets}%
-    The universal property of \cref{cotensors-of-pointed-sets-by-sets} is equivalent to the following one:
-
+    This universal property is in turn equivalent to the following one:
     \begin{itemize}
-        \item[\UP]We have a bijection
+        \itemstar We have a bijection
         \[
             \Sets_{*}(K,A\pitchfork X)
             \cong
@@ -921,7 +919,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \]%
     \end{itemize}%
 \end{remark}
-\begin{Proof}{Proof of \cref{unwinding-cotensors-of-pointed-sets-by-sets}}%
+\begin{Proof}{Proof of the Equivalence in \cref{unwinding-cotensors-of-pointed-sets-by-sets}}%
     This follows from the bijection
     \[
         \Sets(A,\Sets_{*}(K,X))%
@@ -1141,16 +1139,14 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \begin{enumerate}
                 \item If $\xi(k)=[(x_{0})_{a\in A}]$, we have
                     \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \cdots\\%
-                                                     &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
                                                      &= \llbracket k\mapsto[(x_{0})_{a\in A}]\rrbracket\\%
                                                      &= \llbracket k\mapsto\xi(k)\rrbracket\\%
                                                      &= \xi.%
                     \end{align*}
                 \item If $\xi(k)\neq [(x_{0})_{a\in A}]$ and $\xi(k)=[(x^{k}_{a})_{a\in A}]$ instead, we have
                     \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \cdots\\%
-                                                     &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
                                                      &= \llbracket k\mapsto[(x^{k}_{a})_{a\in A}]\rrbracket\\%
                                                      &= \llbracket k\mapsto\xi(k)\rrbracket\\%
                                                      &= \xi.%
@@ -1372,7 +1368,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{itemize}
             satisfying the following universal property:
             \begin{itemize}
-                \item[\UP]Given another such pair $((Z,z_{0}),f)$ consisting of
+                \itemstar Given another such pair $((Z,z_{0}),f)$ consisting of
                     \begin{itemize}
                         \item A pointed set $(Z,z_{0})$;
                         \item A left bilinear morphism of pointed sets $f\colon(X\times Y,(x_{0},y_{0}))\to X\lhd Y$;
@@ -1415,19 +1411,21 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \Hom^{R}_{\Sets}(\coprod_{y\in Y}X,Z),%
     \]%
     where $\Hom^{R}_{\Sets}(X\times Y,Z)$ is the set
-    \[
-        \Hom^{R}_{\Sets}(\coprod_{y\in Y}X,Z)%
-        \defeq%
-        \{%
-            f\in\Hom_{\Sets}(\coprod_{y\in Y}X,Z)%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $x,y\in X$, if}\\
-                &\text{$(y,x)\sim_{R}(y',x')$, then}\\
-                &\text{$f(y,x)=f(y',x')$}%
-            \end{aligned}
-        \}.%
-    \]%
+    \begin{envsmallsize}
+        \[
+            \Hom^{R}_{\Sets}(\coprod_{y\in Y}X,Z)%
+            \defeq%
+            \{%
+                f\in\Hom_{\Sets}(\coprod_{y\in Y}X,Z)%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $x,y\in X$, if}\\
+                    &\text{$(y,x)\sim_{R}(y',x')$, then}\\
+                    &\text{$f(y,x)=f(y',x')$}%
+                \end{aligned}
+            \}.%
+        \]%
+    \end{envsmallsize}
     However, the condition $(y,x)\sim_{R}(y',x')$ only holds when:
     \begin{enumerate}
         \item We have $x=x'$ and $y=y'$.
@@ -3038,7 +3036,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{itemize}
             satisfying the following universal property:
             \begin{itemize}
-                \item[\UP]Given another such pair $((Z,z_{0}),f)$ consisting of
+                \itemstar Given another such pair $((Z,z_{0}),f)$ consisting of
                     \begin{itemize}
                         \item A pointed set $(Z,z_{0})$;
                         \item A right bilinear morphism of pointed sets $f\colon(X\times Y,(x_{0},y_{0}))\to X\rhd Y$;
@@ -4705,7 +4703,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             satisfying the following universal property:
 
             \begin{itemize}
-                \item[\UP]Given another such pair $((Z,z_{0}),f)$ consisting of
+                \itemstar Given another such pair $((Z,z_{0}),f)$ consisting of
                 \begin{itemize}
                     \item A pointed set $(Z,z_{0})$;
                     \item A bilinear morphism of pointed sets $f\colon(X\times Y,(x_{0},y_{0}))\to X\wedge Y$;
@@ -8503,32 +8501,32 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \end{tikzcd}
     \]%
     also commutes. We then have
-    \begingroup\small
-    \begin{align*}
-        \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
-        \left.{}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}\right](x,(y,z)) &= \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
-                                                                                                 &\phantom{={}} \mkern4mu\left.{}{}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}\circ([x]\wedge([y]\wedge[z]))\right](1,(1,1))\\
-                                                                                                 &= \left[\alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\right.\\
-                                                                                                 &\phantom{={}} \mkern4mu\left.{}\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}\circ([x]\wedge([y]\wedge[z]))\right](1,(1,1))\\
-                                                                                                 &= [\alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}](x,(y,z))
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
+            \left.{}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}\right](x,(y,z)) &= \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
+                                                                                                     &\phantom{={}} \mkern4mu\left.{}{}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}\circ([x]\wedge([y]\wedge[z]))\right](1,(1,1))\\
+                                                                                                     &= \left[\alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\right.\\
+                                                                                                     &\phantom{={}} \mkern4mu\left.{}\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}\circ([x]\wedge([y]\wedge[z]))\right](1,(1,1))\\
+                                                                                                     &= [\alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}](x,(y,z))
+        \end{align*}
+    \end{envsmallsize}
     for each $(x,(y,z))\in X\wedge(Y\wedge Z)$, and thus we have
-    \begingroup\footnotesize
-    \[
-        (\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}%
-        =%
-        \alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}.%
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            (\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}%
+            =%
+            \alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}.%
+        \]%
+    \end{envfootnotesize}
     Taking inverses then gives
-    \begingroup\footnotesize
-    \[
-        \alpha^{\Sets_{*}}_{X,Y,Z}\circ\id^{\otimes}_{\Sets_{*}|X\wedge Y,Z}\circ(\id^{\otimes}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})%
-        =%
-        \id^{\otimes}_{\Sets_{*}|X,Y\wedge Z}\circ(\id_{X}\wedge\id^{\otimes}_{\Sets_{*}|Y,Z})\circ\alpha^{\prime}_{X,Y,Z},%
-    \]%
-    \endgroup
+    \begin{envfootnotesize}
+        \[
+            \alpha^{\Sets_{*}}_{X,Y,Z}\circ\id^{\otimes}_{\Sets_{*}|X\wedge Y,Z}\circ(\id^{\otimes}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})%
+            =%
+            \id^{\otimes}_{\Sets_{*}|X,Y\wedge Z}\circ(\id_{X}\wedge\id^{\otimes}_{\Sets_{*}|Y,Z})\circ\alpha^{\prime}_{X,Y,Z},%
+        \]%
+    \end{envfootnotesize}
     showing that the diagram
     \[
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
