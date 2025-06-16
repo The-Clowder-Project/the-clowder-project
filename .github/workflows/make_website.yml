@@ -91,6 +91,20 @@ jobs:
         make wget-clone
         ls
         
+    - name: Display Build Statistics in Job Summary
+      # This step will run even if later steps fail, but only if the compilation was successful.
+      if: always() && env.BUILD_SUCCESS == 'true'
+      run: |
+        echo "### Build & Compilation Statistics" >> $GITHUB_STEP_SUMMARY
+        echo "| Metric          | Duration (seconds) |" >> $GITHUB_STEP_SUMMARY
+        echo "|:----------------|-------------------:|" >> $GITHUB_STEP_SUMMARY
+        echo "| TeX Compilation | **${{ env.TEX_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+        echo "| Tag Generation  | **${{ env.TAGS_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+        echo "| TikZ-CD         | **${{ env.TIKZCD_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+        echo "| plasTeX         | **${{ env.PLASTEX_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+        echo "| Gerby           | **${{ env.GERBY_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+        echo "| **Total Time** | **${{ env.TOTAL_DURATION }}** |" >> $GITHUB_STEP_SUMMARY
+
     - name: Configure GitHub Pages
       # Only run these steps for pushes to the main branch to avoid deploying on PRs
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
