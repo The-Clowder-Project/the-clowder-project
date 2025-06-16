@@ -279,7 +279,7 @@ This chapter contains some foundational material on pointed sets.
             \]%
             between the category of pointed sets and pointed functions between them and the category of sets and partial functions between them, where:
             \begin{enumerate}
-                \item\SloganFont{From Pointed Sets to Sets With Partial Functions. }The equivalence
+                \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-a}\SloganFont{From Pointed Sets to Sets With Partial Functions. }The equivalence
                     \[
                         \xi%
                         \colon%
@@ -289,8 +289,8 @@ This chapter contains some foundational material on pointed sets.
                     \]%
                     sends:
                     \begin{enumerate}
-                        \item A pointed set $(X,x_{0})$ to $X$.
-                        \item A pointed function
+                        \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-a-i}A pointed set $(X,x_{0})$ to $X$.
+                        \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-a-ii}A pointed function
                             \[
                                 f%
                                 \colon%
@@ -314,7 +314,7 @@ This chapter contains some foundational material on pointed sets.
                             \]%
                             for each $x\in f^{-1}(Y\setminus y_{0})$.
                     \end{enumerate}
-                \item\SloganFont{From Sets With Partial Functions to Pointed Sets. }The equivalence
+                \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-b}\SloganFont{From Sets With Partial Functions to Pointed Sets. }The equivalence
                     \[
                         \xi^{-1}%
                         \colon%
@@ -324,8 +324,8 @@ This chapter contains some foundational material on pointed sets.
                     \]%
                     sends:
                     \begin{enumerate}
-                        \item A set $X$ is to the pointed set $(X,\star)$ with $\star$ an element that is not in $X$.
-                        \item A partial function
+                        \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-b-i}A set $X$ is to the pointed set $(X,\star)$ with $\star$ an element that is not in $X$.
+                        \item\label{elementary-properties-of-pointed-sets-relation-to-partial-functions-b-ii}A partial function
                             \[
                                 f%
                                 \colon%
@@ -2913,7 +2913,7 @@ Let $X$ be a set.
     \ProofBox{\cref{properties-of-free-pointed-sets-adjointness}: Adjointness}%
     We proceed in a few steps:
     \begin{itemize}
-        \item\SloganFont{Map \rmI. }We define a map
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{X,Y}%
                 \colon%
@@ -2944,7 +2944,7 @@ Let $X$ be a set.
                 \xi(x)%
             \]%
             for each $x\in X$.
-        \item\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{X,Y}%
                 \colon%
@@ -2970,7 +2970,7 @@ Let $X$ be a set.
                 \end{cases}
             \]%
             for each $x\in X^{+}$.
-        \item\SloganFont{Invertibility \rmI. }Given a morphism of pointed sets
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-3}\SloganFont{Invertibility \rmI. }Given a morphism of pointed sets
             \[
                 \xi%
                 \colon%
@@ -2993,7 +2993,7 @@ Let $X$ be a set.
                 =%
                 \id_{\Sets_{*}(X^{+},Y)}.%
             \]%
-        \item\SloganFont{Invertibility \rmII. }Given a map of sets $\xi\colon X\to Y$, we have
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-4}\SloganFont{Invertibility \rmII. }Given a map of sets $\xi\colon X\to Y$, we have
             \begin{align*}
                 [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\defeq \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
                                                  &=      \Phi_{X,Y}(\xi^{\dagger})\\%
@@ -3008,7 +3008,7 @@ Let $X$ be a set.
                 =%
                 \id_{\Sets(X,Y)}.%
             \]%
-        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-5}\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
             \[
                 f%
                 \colon%
@@ -3049,7 +3049,7 @@ Let $X$ be a set.
                 f^{*}\circ\Phi_{X',Y}%
             \]%
             and the naturality diagram for $\Phi$ above indeed commutes.
-        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
             \[
                 g%
                 \colon%
@@ -3097,7 +3097,7 @@ Let $X$ be a set.
                 g_{*}\circ\Phi_{X,Y'}%
             \]%
             and the naturality diagram for $\Phi$ above indeed commutes.
-        \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+        \item\label{proof-of-properties-of-free-pointed-sets-adjointness-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
     This finishes the proof.
 
@@ -3330,8 +3330,8 @@ Let $(X,x_{0})$ be a pointed set.
 
     \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-adjoint-equivalence}: Adjoint Equivalence}%
     We proceed in a few steps:
-    \begin{itemize}
-        \item\SloganFont{Map \rmI. }We define a map
+    \begin{enumerate}
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{X,Y}%
                 \colon%
@@ -3357,7 +3357,7 @@ Let $(X,x_{0})$ be a pointed set.
                 \end{cases}
             \]%
             for each $x\in X$, where this morphism is indeed active since $\xi(x)\in Y=Y^{+}\setminus\{\star_{Y}\}$ for all $x\in X^{-}$.
-        \item\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{X,Y}%
                 \colon%
@@ -3380,7 +3380,7 @@ Let $(X,x_{0})$ be a pointed set.
                 \xi(x)
             \]%
             for each $x\in X^{-}$, which is indeed well-defined (in that $\xi(x)\in Y$ for all $x\in X^{-}$) since $\xi$ is active.
-        \item\SloganFont{Invertibility \rmI. }Given a map of sets $\xi\colon X^{-}\to Y$, we have
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-3}\SloganFont{Invertibility \rmI. }Given a map of sets $\xi\colon X^{-}\to Y$, we have
             \begin{align*}
                 [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
                                                  &\defeq \Psi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket)\\%
@@ -3394,7 +3394,7 @@ Let $(X,x_{0})$ be a pointed set.
                 =%
                 \id_{\Sets(X^{-},Y)}.%
             \]%
-        \item\SloganFont{Invertibility \rmII. }Given a morphism of pointed sets
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-4}\SloganFont{Invertibility \rmII. }Given a morphism of pointed sets
             \[
                 \xi%
                 \colon%
@@ -3416,7 +3416,7 @@ Let $(X,x_{0})$ be a pointed set.
                 =%
                 \id_{\Sets^{\actv}_{*}(X,Y^{+})}.%
             \]%
-        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-5}\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a morphism of pointed sets
             \[
                 f%
                 \colon%
@@ -3456,7 +3456,7 @@ Let $(X,x_{0})$ be a pointed set.
                 f^{*}\circ\Phi_{X',Y},%
             \]%
             and the naturality diagram for $\Phi$ above indeed commutes.
-        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a morphism of pointed sets
             \[
                 g%
                 \colon%
@@ -3496,8 +3496,8 @@ Let $(X,x_{0})$ be a pointed set.
                 g_{*}\circ\Phi_{X,Y'},%
             \]%
             and the naturality diagram for $\Phi$ above indeed commutes.
-        \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
-        \item\SloganFont{Fully Faithfulness of $(-)^{-}$. }We aim to show that the assignment $f\mapsto f^{-}$ sets up a bijection
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-8}\SloganFont{Fully Faithfulness of $(-)^{-}$. }We aim to show that the assignment $f\mapsto f^{-}$ sets up a bijection
             \[
                 (-)^{-}_{X,Y}%
                 \colon%
@@ -3523,15 +3523,15 @@ Let $(X,x_{0})$ be a pointed set.
                 \end{cases}
             \]%
             for each $x\in X$.
-        \item\SloganFont{Essential Surjectivity of $(-)^{-}$. }We need to show that, given an object $X\in\Obj(\Sets)$, there exists some $X'\in\Obj(\Sets^{\actv}_{*})$ such that $(X')^{-}\cong X$. Indeed, taking $X'=X^{+}$, we have
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-9}\SloganFont{Essential Surjectivity of $(-)^{-}$. }We need to show that, given an object $X\in\Obj(\Sets)$, there exists some $X'\in\Obj(\Sets^{\actv}_{*})$ such that $(X')^{-}\cong X$. Indeed, taking $X'=X^{+}$, we have
             \begin{align*}
                 (X^{+})^{-} &\defeq (X\cup\{\star_{X}\})^{-}\\
                             &\defeq (X\cup\{\star_{X}\})\setminus\{\star_{X}\}\\
                             &=      X,
             \end{align*}
             and thus we have in fact an \emph{equality} $(X^{+})^{-}=X$, showing $(-)^{-}$ to be essentially surjective.
-        \item\SloganFont{The Functor $(-)^{-}$ Is an Equivalence. }Since $(-)^{-}$ is fully faithful and essentially surjective, it is an equivalence by \ChapterRef{\ChapterCategories, \cref{categories:properties-of-equivalences-of-categories-characterisations} of \cref{categories:properties-of-equivalences-of-categories}}{\cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories}}.
-    \end{itemize}
+        \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-10}\SloganFont{The Functor $(-)^{-}$ Is an Equivalence. }Since $(-)^{-}$ is fully faithful and essentially surjective, it is an equivalence by \ChapterRef{\ChapterCategories, \cref{categories:properties-of-equivalences-of-categories-characterisations} of \cref{categories:properties-of-equivalences-of-categories}}{\cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories}}.
+    \end{enumerate}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-sets-with-deleted-basepoints-symmetric-strong-monoidality-with-respect-to-wedge-sums}: Symmetric Strong Monoidality With Respect to Wedge Sums}%

@@ -14,33 +14,33 @@
 
 This chapter contains some material about relations. Notably, we discuss and explore:
 \begin{enumerate}
-    \item The definition of relations (\cref{subsection-relations-foundations}).
-    \item How relations may be viewed as decategorification of profunctors (\cref{subsection-relations-as-decategorifications-of-profunctors}).
-    \item The various kind of categories that relations form, namely:
+    \item\label{relations-introduction-item-1}The definition of relations (\cref{subsection-relations-foundations}).
+    \item\label{relations-introduction-item-2}How relations may be viewed as decategorification of profunctors (\cref{subsection-relations-as-decategorifications-of-profunctors}).
+    \item\label{relations-introduction-item-3}The various kind of categories that relations form, namely:
         \begin{enumerate}
-            \item A category (\cref{subsection-the-category-of-relations}).
-            \item A monoidal category (\cref{subsection-the-closed-symmetric-monoidal-category-of-relations}).
-            \item A $2$-category (\cref{subsection-the-2-category-of-relations}).
-            \item A double category (\cref{subsection-the-double-category-of-relations}).
+            \item\label{relations-introduction-item-3a}A category (\cref{subsection-the-category-of-relations}).
+            \item\label{relations-introduction-item-3b}A monoidal category (\cref{subsection-the-closed-symmetric-monoidal-category-of-relations}).
+            \item\label{relations-introduction-item-3c}A $2$-category (\cref{subsection-the-2-category-of-relations}).
+            \item\label{relations-introduction-item-3d}A double category (\cref{subsection-the-double-category-of-relations}).
         \end{enumerate}
-    \item The various categorical properties of the $2$-category of relations, including:
+    \item\label{relations-introduction-item-4}The various categorical properties of the $2$-category of relations, including:
         \begin{enumerate}
-            \item The self-duality of $\sfRel$ and $\sfbfRel$ (\cref{self-duality-for-the-2-category-of-relations}).
-            \item Identifications of equivalences and isomorphisms in $\sfbfRel$ with bijections (\cref{isomorphisms-and-equivalences-in-rel}).
-            \item Identifications of adjunctions in $\sfbfRel$ with functions (\cref{adjunctions-in-rel}).
-            \item Identifications of monads in $\sfbfRel$ with preorders (\cref{monads-in-rel}).
-            \item Identifications of comonads in $\sfbfRel$ with subsets (\cref{comonads-in-rel}).
-            \item A description of the monoids and comonoids in $\sfbfRel$ with respect to the Cartesian product (\cref{co-monoids-in-rel}).
-            \item Characterisations of monomorphisms in $\sfRel$ (\cref{characterisations-of-monomorphisms-in-rel}).
-            \item Characterisations of $2$-categorical notions of monomorphisms in $\sfbfRel$ (\cref{2-categorical-monomorphisms-in-rel}).
-            \item Characterisations of epimorphisms in $\sfRel$ (\cref{characterisations-of-epimorphisms-in-rel}).
-            \item Characterisations of $2$-categorical notions of epimorphisms in $\sfbfRel$ (\cref{2-categorical-epimorphisms-in-rel}).
-            \item The partial co/completeness of $\sfRel$ (\cref{co-limits-in-rel}).
-            \item The existence or non-existence of Kan extensions and Kan lifts in $\sfRel$ (\cref{kan-extensions-and-kan-lifts-in-rel}).
-            \item The closedness of $\sfbfRel$ (\cref{closedness-of-rel}).
-            \item The identification of $\sfbfRel$ with the category of free algebras of the powerset monad on $\Sets$ (\cref{rel-as-a-category-of-free-algebras}).
+            \item\label{relations-introduction-item-4a}The self-duality of $\sfRel$ and $\sfbfRel$ (\cref{self-duality-for-the-2-category-of-relations}).
+            \item\label{relations-introduction-item-4b}Identifications of equivalences and isomorphisms in $\sfbfRel$ with bijections (\cref{isomorphisms-and-equivalences-in-rel}).
+            \item\label{relations-introduction-item-4c}Identifications of adjunctions in $\sfbfRel$ with functions (\cref{adjunctions-in-rel}).
+            \item\label{relations-introduction-item-4d}Identifications of monads in $\sfbfRel$ with preorders (\cref{monads-in-rel}).
+            \item\label{relations-introduction-item-4e}Identifications of comonads in $\sfbfRel$ with subsets (\cref{comonads-in-rel}).
+            \item\label{relations-introduction-item-4f}A description of the monoids and comonoids in $\sfbfRel$ with respect to the Cartesian product (\cref{co-monoids-in-rel}).
+            \item\label{relations-introduction-item-4g}Characterisations of monomorphisms in $\sfRel$ (\cref{characterisations-of-monomorphisms-in-rel}).
+            \item\label{relations-introduction-item-4h}Characterisations of $2$-categorical notions of monomorphisms in $\sfbfRel$ (\cref{2-categorical-monomorphisms-in-rel}).
+            \item\label{relations-introduction-item-4i}Characterisations of epimorphisms in $\sfRel$ (\cref{characterisations-of-epimorphisms-in-rel}).
+            \item\label{relations-introduction-item-4j}Characterisations of $2$-categorical notions of epimorphisms in $\sfbfRel$ (\cref{2-categorical-epimorphisms-in-rel}).
+            \item\label{relations-introduction-item-4k}The partial co/completeness of $\sfRel$ (\cref{co-limits-in-rel}).
+            \item\label{relations-introduction-item-4l}The existence or non-existence of Kan extensions and Kan lifts in $\sfRel$ (\cref{kan-extensions-and-kan-lifts-in-rel}).
+            \item\label{relations-introduction-item-4m}The closedness of $\sfbfRel$ (\cref{closedness-of-rel}).
+            \item\label{relations-introduction-item-4n}The identification of $\sfbfRel$ with the category of free algebras of the powerset monad on $\Sets$ (\cref{rel-as-a-category-of-free-algebras}).
         \end{enumerate}
-    \item A description of two notions of \say{skew composition} on $\eRel(A,B)$, giving rise to left and right skew monoidal structures analogous to the left skew monoidal structure on $\Fun(\CatFont{C},\CatFont{D})$ appearing in the definition of a relative monad (\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}).
+    \item\label{relations-introduction-item-5}A description of two notions of \say{skew composition} on $\eRel(A,B)$, giving rise to left and right skew monoidal structures analogous to the left skew monoidal structure on $\Fun(\CatFont{C},\CatFont{D})$ appearing in the definition of a relative monad (\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}).
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -70,41 +70,41 @@ Let $A$ and $B$ be sets.
         \item\label{relations-5}A cocontinuous morphism of posets from $(\mathcal{P}(A),\subset)$ to $(\mathcal{P}(B),\subset)$.
     \end{enumerate}
 \end{definition}
-\begin{Proof}{Proof of \cref{relations}}%
-    We will prove that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent in just a moment.
+\begin{Proof}{Proof of the Equivalences in \cref{relations}}%
+    (We will prove that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent in a bit.)
 \end{Proof}
 \begin{remark}{Unwinding \cref{relations-1}, \rmI}{unwinding-relations-1}%
     We may think of a relation $R\colon A\rightproarrow B$ as a function from $A$ to $B$ that is \emph{multivalued}, assigning to each element $a$ in $A$ a set $R(a)$ of elements of $B$, thought of as the \emph{set of values of $R$ at $a$}.
 
-    Note that this includes also the possibility of $R$ having no value at all on a given $a\in A$ when $R(a)=\emptyset$.
+    \indent Note that this includes also the possibility of $R$ having no value at all on a given $a\in A$ when $R(a)=\emptyset$.
 \end{remark}
 \begin{remark}{Unwinding \cref{relations-2}, \rmII}{unwinding-relations-2}%
     Another way of stating the equivalence between \cref{relations-1,relations-2,relations-3,relations-4,relations-5} of \cref{relations} is by saying that we have bijections of sets
     \begin{align*}
-        \{\text{relations from $A$ to $B$}\} &\defeq \mathcal{P}(A\times B)\\
-                                             &\cong  \Sets(A\times B,\TV)\\
-                                             &\cong  \Sets(A,\mathcal{P}(B))\\
-                                             &\cong  \Sets(B,\mathcal{P}(A))\\
-                                             &\cong  \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
+        \{\text{relations from $A$ to $B$}\} &\cong \mathcal{P}(A\times B)\\
+                                             &\cong \Sets(A\times B,\TV)\\
+                                             &\cong \Sets(A,\mathcal{P}(B))\\
+                                             &\cong \Sets(B,\mathcal{P}(A))\\
+                                             &\cong \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
     \end{align*}
     natural in $A,B\in\Obj(\Sets)$, where $\mathcal{P}(A)$ and $\mathcal{P}(B)$ are endowed with the poset structure given by inclusion.
 \end{remark}
-\begin{Proof}{Proof of \cref{relations}}%
+\begin{Proof}{Proof of the Equivalences in \cref{relations}}%
     We claim that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{relations-1}$\iff$\cref{relations-2}: }This is a special case of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
+        \item\SloganFont{\cref{relations-1}$\iff$\cref{relations-2}: }This is a special case of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets-bijectivity,constructions-with-sets:properties-of-characteristic-functions-of-subsets-naturality} of \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets}}{\cref{properties-of-characteristic-functions-of-subsets-bijectivity,properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}}.
         \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-3}: }This follows from the bijections
             \begin{align*}
                 \Sets(A\times B,\TV) &\cong \Sets(A,\Sets(B,\TV))\\
                                      &\cong \Sets(A,\mathcal{P}(B)),
             \end{align*}
-            where the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
+            where the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets-bijectivity,constructions-with-sets:properties-of-characteristic-functions-of-subsets-naturality} of \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets}}{\cref{properties-of-characteristic-functions-of-subsets-bijectivity,properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}}.
         \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-4}: }This follows from the bijections
             \begin{align*}
                 \Sets(A\times B,\TV) &\cong \Sets(B,\Sets(B,\TV))\\
                                      &\cong \Sets(B,\mathcal{P}(A)),
             \end{align*}
-            where again the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-1,properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-functions-2} of \cref{properties-of-powersets-as-sets-of-functions-relations}}.
+            where again the last bijection is from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets-bijectivity,constructions-with-sets:properties-of-characteristic-functions-of-subsets-naturality} of \cref{constructions-with-sets:properties-of-characteristic-functions-of-subsets}}{\cref{properties-of-characteristic-functions-of-subsets-bijectivity,properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}}.
         \item\SloganFont{\cref{relations-2}$\iff$\cref{relations-5}: }This follows from the universal property of the powerset $\mathcal{P}(X)$ of a set $X$ as the free cocompletion of $X$ via the characteristic embedding
             \[
                 \chi_{X}
@@ -113,31 +113,13 @@ Let $A$ and $B$ be sets.
                 \hookrightarrow
                 \mathcal{P}(X)
             \]%
-            of $X$ into $\mathcal{P}(X)$, \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-free-cocompletions-adjointness} of \cref{constructions-with-sets:properties-of-powersets-as-free-cocompletions}}{\cref{properties-of-powersets-as-free-cocompletions-adjointness} of \cref{properties-of-powersets-as-free-cocompletions}}.
-            % BEGIN RAW HTML %
-            <br>
-            % BEGIN LATEX HTML %
-
-            % END RAW HTML %
-            In particular, the bijection
+            of $X$ into $\mathcal{P}(X)$, as in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:powersets-as-free-cocompletions-universal-property}}{\cref{powersets-as-free-cocompletions-universal-property}}. In particular, the bijection
             \[
                 \Sets(A,\mathcal{P}(B))%
                 \cong
-                \Hom^{\cocont}_{\Pos}(\mathcal{P}(A),\mathcal{P}(B))
+                \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
             \]%
-            is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$.%
-            %--- Begin Footnote ---%
-            \footnote{%
-                Note that by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:unwinding-the-direct-image-function-associated-to-a-function}}{\cref{unwinding-the-direct-image-function-associated-to-a-function}}, we have $\Lan_{\chi}(f)=f_{*}$, the direct image of $f$.
-                \par\vspace*{\TCBBoxCorrection}
-            }%
-            %---  End Footnote  ---%
-            % BEGIN RAW HTML %
-            <br>
-            % BEGIN LATEX HTML %
-
-            % END RAW HTML %
-            This coincides with the direct image function $f_{*}\colon\mathcal{P}(A)\to\mathcal{P}(B)$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}}.
+            is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ from $A$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$, recovering the direct image function $f_{*}\colon\mathcal{P}(A)\to\mathcal{P}(B)$ of $f$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}}.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -153,9 +135,9 @@ Let $A$ and $B$ be sets.
                 \colon%
                 A\times B%
                 \to%
-                \TTV%
+                \TTV,%
             \]%
-            via \cref{equivalent-definitions-of-relations}, we write $R^{b}_{a}$ for the value of $R$ at $(a,b)$.%
+            we write $R^{b}_{a}$ for the value of $R$ at $(a,b)$.%
             %--- Begin Footnote ---%
             \footnote{%
                 The choice to write $R^{b}_{a}$ in place of $R^{a}_{b}$ is to keep the notation consistent with the notation we will later employ for profunctors in \ChapterProfunctors.
@@ -213,7 +195,7 @@ Let $A$ and $B$ be sets.
 \begin{remark}{Relations as Decategorifications of Profunctors \rmI}{relations-as-decategorifications-of-profunctors-1}%
     The notion of a relation is a decategorification of that of a profunctor:
     \begin{enumerate}
-        \item A profunctor from a category $\CatFont{C}$ to a category $\CatFont{D}$ is a functor
+        \item\label{relations-as-decategorifications-of-profunctors-1-item-1}A profunctor from a category $\CatFont{C}$ to a category $\CatFont{D}$ is a functor
             \[%
                 \mathfrak{p}%
                 \colon%
@@ -221,7 +203,7 @@ Let $A$ and $B$ be sets.
                 \to%
                 \Sets.%
             \]%
-        \item A relation on sets $A$ and $B$ is a function%
+        \item\label{relations-as-decategorifications-of-profunctors-1-item-2}A relation on sets $A$ and $B$ is a function%
             \[%
                 R%
                 \colon%
@@ -253,7 +235,7 @@ Let $A$ and $B$ be sets.
     \end{itemize}
 \end{remark}
 \begin{remark}{Relations as Decategorifications of Profunctors \rmII}{relations-as-decategorifications-of-profunctors-2}%
-    Extending \cref{relations-as-decategorifications-of-profunctors-1}, the equivalent definitions of relations in \cref{equivalent-definitions-of-relations} are also related to the corresponding ones for profunctors (\cref{TODO}), which state that a profunctor $\mathfrak{p}\colon\CatFont{C}\rightproarrow\CatFont{D}$ is equivalently:
+    Extending \cref{relations-as-decategorifications-of-profunctors-1}, the equivalent definitions of relations in \cref{relations} are also related to the corresponding ones for profunctors (\cref{TODO}), which state that a profunctor $\mathfrak{p}\colon\CatFont{C}\rightproarrow\CatFont{D}$ is equivalently:
     \begin{enumerate}
         \item\label{profunctors-equivalent-characterisations-item-1}A                    functor $\mathfrak{p}\colon\CatFont{D}^{\op}\times\CatFont{C}\to\Sets$.
         \item\label{profunctors-equivalent-characterisations-item-2}A                    functor $\mathfrak{p}\colon\CatFont{C}\to\PSh(\CatFont{D})$.
@@ -264,10 +246,13 @@ Let $A$ and $B$ be sets.
     \begin{itemize}
         \item The equivalence between \cref{profunctors-equivalent-characterisations-item-1,profunctors-equivalent-characterisations-item-2} (and also that between \cref{profunctors-equivalent-characterisations-item-1,profunctors-equivalent-characterisations-item-3}, which is proved analogously) is an instance of currying, both for profunctors as well as for relations, using the isomorphisms
             \begin{align*}
-                \Sets(A\times B,\TV)       &\cong \Sets(A,\Sets(B,\TV))\\
-                                                                          &\cong \Sets(A,\mathcal{P}(B)),\\
+                \Sets(A\times B,\TV) &\cong \Sets(A,\Sets(B,\TV))\\
+                                     &\cong \Sets(A,\mathcal{P}(B)),
+            \end{align*}
+            and
+            \begin{align*}
                 \Fun(\CatFont{D}^{\op}\times\CatFont{D},\Sets) &\cong \Fun(\CatFont{C},\Fun(\CatFont{D}^{\op},\Sets))\\
-                                                                          &\cong \Fun(\CatFont{C},\PSh(\CatFont{D})).
+                                                               &\cong \Fun(\CatFont{C},\PSh(\CatFont{D})).
             \end{align*}
         \item The equivalence between \cref{profunctors-equivalent-characterisations-item-1,profunctors-equivalent-characterisations-item-3} follows from the universal properties of:
             \begin{itemize}
@@ -279,7 +264,7 @@ Let $A$ and $B$ be sets.
                         \hookrightarrow
                         \mathcal{P}(X)
                     \]%
-                    of $X$ into $\mathcal{P}(X)$, as stated and proved in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-free-cocompletions-adjointness} of \cref{constructions-with-sets:properties-of-powersets-as-free-cocompletions}}{\cref{properties-of-powersets-as-free-cocompletions-adjointness} of \cref{properties-of-powersets-as-free-cocompletions}}.
+                    of $X$ into $\mathcal{P}(X)$, as stated and proved in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:powersets-as-free-cocompletions-universal-property}}{\cref{powersets-as-free-cocompletions-universal-property}}.
                 \item The category $\PSh(\CatFont{C})$ of presheaves on a category $\CatFont{C}$ as the free cocompletion of $\CatFont{C}$ via the Yoneda embedding
                     \[
                         \yo
@@ -296,13 +281,13 @@ Let $A$ and $B$ be sets.
 \begin{example}{The Trivial Relation}{the-trivial-relation}%
     The \index[set-theory]{relation!trivial}\textbf{trivial relation on $A$ and $B$} is the relation \index[notation]{simtriv@$\unsim_{\triv}$}$\unsim_{\triv}$ defined equivalently as follows:
     \begin{enumerate}
-        \item As a subset of $A\times B$, we have
+        \item\label{the-trivial-relation-1}As a subset of $A\times B$, we have
             \[
                 \unsim_{\triv}%
                 \defeq%
                 A\times B.%
             \]%
-        \item As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
+        \item\label{the-trivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
             \[%
                 \Delta_{\true}%
                 \colon%
@@ -311,7 +296,7 @@ Let $A$ and $B$ be sets.
                 \TV%
             \]%
             from $A\times B$ to $\TV$ taking the value $\true$.
-        \item As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
+        \item\label{the-trivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
             \[%
                 \Delta_{\true}%
                 \colon%
@@ -326,19 +311,19 @@ Let $A$ and $B$ be sets.
                 B%
             \]%
             for each $a\in A$.
-        \item Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
+        \item\label{the-trivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
     \end{enumerate}
 \end{example}
 \begin{example}{The Cotrivial Relation}{the-cotrivial-relation}%
     The \index[set-theory]{relation!cotrivial}\textbf{cotrivial relation on $A$ and $B$} is the relation \index[notation]{simcotriv@$\unsim_{\cotriv}$}$\unsim_{\cotriv}$ defined equivalently as follows:%
     \begin{enumerate}
-        \item As a subset of $A\times B$, we have
+        \item\label{the-cotrivial-relation-1}As a subset of $A\times B$, we have
             \[
                 \unsim_{\cotriv}%
                 \defeq%
                 \emptyset.%
             \]%
-        \item As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
+        \item\label{the-cotrivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
             \[%
                 \Delta_{\false}%
                 \colon%
@@ -347,7 +332,7 @@ Let $A$ and $B$ be sets.
                 \TV%
             \]%
             from $A\times B$ to $\TV$ taking the value $\false$.
-        \item As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
+        \item\label{the-cotrivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
             \[%
                 \Delta_{\false}%
                 \colon%
@@ -362,7 +347,7 @@ Let $A$ and $B$ be sets.
                 \emptyset%
             \]%
             for each $a\in A$.
-        \item Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
+        \item\label{the-cotrivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
     \end{enumerate}
 \end{example}
 \begin{example}{The Characteristic Relation of a Set}{the-characteristic-relation}%
@@ -374,7 +359,7 @@ Let $A$ and $B$ be sets.
         \to%
         \TTV%
     \]%
-    on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions-characteristic-relation} of \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions-characteristic-relation} of \cref{characteristic-functions}}, defined by%
+    on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-relation-of-a-set}}{\cref{the-characteristic-relation-of-a-set}}, defined by%
     \[
         \chi_{X}(x,y)
         \defeq
@@ -388,7 +373,7 @@ Let $A$ and $B$ be sets.
 \begin{example}{Square Roots}{square-roots}%
     Square roots are examples of relations:
     \begin{enumerate}
-        \item\SloganFont{Square Roots in $\R$. }The assignment $x\mapsto\sqrt{x}$ defines a relation
+        \item\label{square-roots-1}\SloganFont{Square Roots in $\R$. }The assignment $x\mapsto\sqrt{x}$ defines a relation
             \[
                 \sqrt{-}%
                 \colon%
@@ -405,7 +390,7 @@ Let $A$ and $B$ be sets.
                     \{-\sqrt{\abs{x}},\sqrt{\abs{x}}\} &\text{if $x\neq0$.}
                 \end{cases}
             \]%
-        \item\SloganFont{Square Roots in $\Q$. }Square roots in $\Q$ are similar to square roots in $\R$, though now additionally it may also occur that $\sqrt{-}\colon\Q\to\mathcal{P}(\Q)$ sends a rational number $x$ (e.g.\ $2$) to the empty set (since $\sqrt{2}\nin\Q$).
+        \item\label{square-roots-2}\SloganFont{Square Roots in $\Q$. }Square roots in $\Q$ are similar to square roots in $\R$, though now additionally it may also occur that $\sqrt{-}\colon\Q\to\mathcal{P}(\Q)$ sends a rational number $x$ (e.g.\ $2$) to the empty set (since $\sqrt{2}\nin\Q$).
     \end{enumerate}
 \end{example}
 \begin{example}{Complex Logarithms}{complex-logarithms}%
@@ -460,7 +445,7 @@ Let $A$ and $B$ be sets.
             \]%
             i.e.\ that if there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, then $b=b'$. But since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, we have both $a\sim_{R}b$ and $a\sim_{R}b'$ at the same time, which implies $b=b'$ since $R$ is functional.
         \item\SloganFont{\cref{properties-of-functional-relations-characterisations-2}$\implies$\cref{properties-of-functional-relations-characterisations-1}: }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
-            \begin{enumerate}% PROCESS %
+            \begin{enumerate}
                 \item Since $a\sim_{R}b$, we have $b\sim_{R^{\dagger}}a$.
                 \item Since $R\procirc R^{\dagger}\subset\chi_{B}$, we have
                     \[
@@ -469,7 +454,7 @@ Let $A$ and $B$ be sets.
                         \chi_{B}(b,b'),%
                     \]%
                     and since $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, it follows that $[R\procirc R^{\dagger}](b,b')=\true$, and thus $\chi_{B}(b,b')=\true$ as well, i.e.\ $b=b'$.
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -591,7 +576,7 @@ Let $A$ and $B$ be sets.
                 \defeq%
                 A\times B,%
             \]%
-            where $A\times B$ is the Cartesian product of sets of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:products-of-sets}}{\cref{products-of-sets}}.
+            where $A\times B$ is the Cartesian product of sets of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:binary-products-of-sets}}{\cref{binary-products-of-sets}}.
         \item\SloganFont{Action on Morphisms. }For each $(A,C),(B,D)\in\Obj(\sfRel\times\sfRel)$, the action on morphisms
             \[
                 \times_{(A,C),(B,D)}%
@@ -870,8 +855,6 @@ Let $A$ and $B$ be sets.
     %--- Begin Footnote ---%
     \footnote{%
         \textdbend\SloganFont{Warning: }This is not a Cartesian monoidal structure, as the product on $\sfRel$ is in fact given by the disjoint union of sets; see \ChapterRef{\ChapterConstructionsWithRelations, \cref{TODO}}{\cref{TODO}}.
-
-        END TEXTDBEND
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -1166,8 +1149,7 @@ Let $A$ and $B$ be sets.
                     \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
                 \end{tikzcd}
             \end{webcompile}%
-            of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-functions-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{constructions-with-sets:properties-of-characteristic-functions}}{\cref{properties-of-characteristic-functions-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{properties-of-characteristic-functions}}.
-
+            of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-relations-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{constructions-with-sets:properties-of-characteristic-relations}}{\cref{properties-of-characteristic-relations-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{properties-of-characteristic-relations}}.
     \end{itemize}
 \end{definition}
 \subsubsection{Horizontal Composition}\label{subsubsection-the-double-category-of-relations-the-horizontal-composition}
@@ -1281,18 +1263,18 @@ Let $A$ and $B$ be sets.
                 This is justified by noting that, given $(a,c)\in A\times C$, the statement
                 \begin{itemize}
                     \item We have $a\sim_{(U\procirc T)\circ(f\times h)}c$, i.e.\ $f(a)\sim_{U\procirc T}h(c)$, i.e.\ there exists some $y\in Y$ such that:
-                        \begin{enumerate}
-                            \item We have $f(a)\sim_{T}y$;
-                            \item We have $y\sim_{U}h(c)$;
-                        \end{enumerate}
+                        \begin{itemize}
+                            \item We have $f(a)\sim_{T}y$.
+                            \item We have $y\sim_{U}h(c)$.
+                        \end{itemize}
                 \end{itemize}
                 is implied by the statement
                 \begin{itemize}
                     \item We have $a\sim_{S\procirc R}c$, i.e.\ there exists some $b\in B$ such that:
-                        \begin{enumerate}
-                            \item We have $a\sim_{R}b$;
-                            \item We have $b\sim_{S}c$;
-                        \end{enumerate}
+                        \begin{itemize}
+                            \item We have $a\sim_{R}b$.
+                            \item We have $b\sim_{S}c$.
+                        \end{itemize}
                 \end{itemize}
                 since:
                 \begin{itemize}
@@ -1707,7 +1689,7 @@ Let $A$ and $B$ be sets.
     \]%
     given by the identity on objects and by $R\mapsto R^{\dagger}$ on morphisms is an isomorphism of categories.
 
-    By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $F$ is bijective on objects (which is clear) and fully faithful. Indeed, the map
+    \indent By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $F$ is bijective on objects (which is clear) and fully faithful. Indeed, the map
     \[
         (-)^{\dagger}%
         \colon%
@@ -1728,7 +1710,7 @@ Let $A$ and $B$ be sets.
     \]%
     given by the identity on objects, by $R\mapsto R^{\dagger}$ on morphisms, and by preserving inclusions on $2$-morphisms via \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations-functoriality} of \cref{properties-of-inverses-of-relations}}, is an isomorphism of categories.
 
-    By \ChapterRef{\ChapterBicategories, \cref{bicategories:properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{bicategories:properties-of-2-isomorphisms-of-2-categories}}{\cref{properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{properties-of-2-isomorphisms-of-2-categories}}, it suffices to show that $F$ is:
+    \indent By \ChapterRef{\ChapterBicategories, \cref{bicategories:properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{bicategories:properties-of-2-isomorphisms-of-2-categories}}{\cref{properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{properties-of-2-isomorphisms-of-2-categories}}, it suffices to show that $F$ is:
     \begin{itemize}
         \item Bijective on objects, which is clear.
         \item Bijective on $1$-morphisms, which was shown in \cref{self-duality-for-the-2-category-of-relations-1}.
@@ -1742,27 +1724,27 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     The following conditions are equivalent:
     \begin{enumerate}
         \item\label{isomorphisms-and-equivalences-in-rel-1}The relation $R\colon A\rightproarrow B$ is an equivalence in $\sfbfRel$, i.e.:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
                     \begin{align*}
                         R^{-1}\procirc R &\cong \chi_{A},\\
                         R\procirc R^{-1} &\cong \chi_{B}.
                     \end{align*}
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\label{isomorphisms-and-equivalences-in-rel-2}The relation $R\colon A\rightproarrow B$ is an isomorphism in $\Rel$, i.e.:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ such that we have
                     \begin{align*}
                         R^{-1}\procirc R &= \chi_{A},\\
                         R\procirc R^{-1} &= \chi_{B}.
                     \end{align*}
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\label{isomorphisms-and-equivalences-in-rel-3}There exists a bijection $f\colon A\isorightarrow B$ with $R=\Gr(f)$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{isomorphisms-and-equivalences-in-rel}}%
     We claim that \cref{isomorphisms-and-equivalences-in-rel-1,isomorphisms-and-equivalences-in-rel-2,isomorphisms-and-equivalences-in-rel-3} are indeed equivalent:
-    \begin{itemize}% PROCESS %
+    \begin{itemize}
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-2}: }This follows from the fact that $\sfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-3}: }The equalities in \cref{isomorphisms-and-equivalences-in-rel-2} imply $R\dashv R^{-1}$, and thus by \cref{adjunctions-in-rel}, there exists a function $f_{R}\colon A\to B$ associated to $R$, where, for each $a\in A$, the image $f_{R}(a)$ of $a$ by $f_{R}$ is the unique element of $R(a)$, which implies $R=\Gr(f_{R})$ in particular. Furthermore, we have $R^{-1}=f^{-1}_{R}$ (as in \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:the-inverse-of-a-function}}{\cref{the-inverse-of-a-function}}). The conditions from \cref{isomorphisms-and-equivalences-in-rel-2} then become the following:
             \begin{align*}
@@ -1770,21 +1752,21 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
                 f_{R}\procirc f^{-1}_{R} = \chi_{B}.
             \end{align*}
             All that is left is to show then is that $f_{R}$ is a bijection:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item\SloganFont{The Function $f_{R}$ Is Injective. }Let $a,b\in A$ and suppose that $f_{R}(a)=f_{R}(b)$. Since $a\sim_{R}f_{R}(a)$ and $f_{R}(a)=f_{R}(b)\sim_{R^{-1}}b$, the condition $f^{-1}_{R}\procirc f_{R}=\chi_{A}$ implies that $a=b$, showing $f_{R}$ to be injective.
                 \item\SloganFont{The Function $f_{R}$ Is Surjective. }Let $b\in B$. Applying the condition $f_{R}\procirc f^{-1}_{R}=\chi_{B}$ to $(b,b)$, it follows that there exists some $a\in A$ such that $f^{-1}_{R}(b)=a$ and $f_{R}(a)=b$. This shows $f_{R}$ to be surjective.
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-2}: }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, we have an adjunction $\Gr(f)\dashv f^{-1}$, giving inclusions
             \begin{gather*}
                 \chi_{A}              \subset f^{-1}\procirc\Gr(f),\\
                 \Gr(f)\procirc f^{-1} \subset \chi_{B}.
             \end{gather*}
             We claim the reverse inclusions are also true:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item\SloganFont{$f^{-1}\procirc\Gr(f)\subset\chi_{A}$: }This is equivalent to the statement that if $f(a)=b$ and $f^{-1}(b)=a'$, then $a=a'$, which follows from the injectivity of $f$.
                 \item\SloganFont{$\chi_{B}\subset\Gr(f)\procirc f^{-1}$: }This is equivalent to the statement that given $b\in B$ there exists some $a\in A$ such that $f^{-1}(b)=a$ and $f(a)=b$, which follows from the surjectivity of $f$.
-            \end{itemize}% PROCESS %
-    \end{itemize}% PROCESS %
+            \end{itemize}
+    \end{itemize}
     This finishes the proof.
 \end{Proof}
 \subsection{Adjunctions in $\sfbfRel$}\label{subsection-adjunctions-in-rel}
@@ -1810,8 +1792,8 @@ Let $A$ and $B$ be sets.
 \end{proposition}
 \begin{Proof}{Proof of \cref{adjunctions-in-rel}}%
     We proceed step by step:
-    \begin{enumerate}% PROCESS %
-        \item\SloganFont{From Adjunctions in $\sfbfRel$ to Functions. }An adjunction in $\sfbfRel$ from $A$ to $B$ consists of a pair of relations
+    \begin{enumerate}
+        \item\label{proof-of-adjunctions-in-rel-1}\SloganFont{From Adjunctions in $\sfbfRel$ to Functions. }An adjunction in $\sfbfRel$ from $A$ to $B$ consists of a pair of relations
             \begin{align*}
                 R &\colon A\rightproarrow B,\\
                 S &\colon B\rightproarrow A,
@@ -1822,17 +1804,17 @@ Let $A$ and $B$ be sets.
                 R\procirc S &\subset \chi_{B}.
             \end{align*}
             We claim that these conditions imply that $R$ is total and functional, i.e.\ that $R(a)$ is a singleton for each $a\in A$:
-            \begin{enumerate}% PROCESS %
-                \item\SloganFont{$R(a)$ Has an Element. }Given $a\in A$, since $\chi_{A}\subset S\procirc R$, we must have $\{a\}\subset S(R(a))$, implying that there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{S}a$, and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
-                \item\SloganFont{$R(a)$ Has No More Than One Element. }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
-                    \begin{enumerate}% PROCESS %
-                        \item Since $\chi_{A}\subset S\procirc R$, there exists some $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
-                        \item Since $R\procirc S\subset\chi_{B}$, if $b''\sim_{S}a'$ and $a'\sim_{R}b'''$, then $b''=b'''$.
-                        \item Applying the above to $b''=k$, $b'''=b$, and $a'=a$, since $k\sim_{S}a$ and $a\sim_{R}b'$, we have $k=b$.
-                        \item Similarly $k=b'$.
-                        \item Thus $b=b'$.
-                    \end{enumerate}% PROCESS %
-            \end{enumerate}% PROCESS %
+            \begin{enumerate}
+                \item\label{proof-of-adjunctions-in-rel-1a}\SloganFont{$R(a)$ Has an Element. }Given $a\in A$, since $\chi_{A}\subset S\procirc R$, we must have $\{a\}\subset S(R(a))$, implying that there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{S}a$, and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
+                \item\label{proof-of-adjunctions-in-rel-1b}\SloganFont{$R(a)$ Has No More Than One Element. }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
+                    \begin{enumerate}
+                        \item\label{proof-of-adjunctions-in-rel-1bi}Since $\chi_{A}\subset S\procirc R$, there exists some $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
+                        \item\label{proof-of-adjunctions-in-rel-1bii}Since $R\procirc S\subset\chi_{B}$, if $b''\sim_{S}a'$ and $a'\sim_{R}b'''$, then $b''=b'''$.
+                        \item\label{proof-of-adjunctions-in-rel-1biii}Applying the above to $b''=k$, $b'''=b$, and $a'=a$, since $k\sim_{S}a$ and $a\sim_{R}b'$, we have $k=b$.
+                        \item\label{proof-of-adjunctions-in-rel-1biv}Similarly $k=b'$.
+                        \item\label{proof-of-adjunctions-in-rel-1bv}Thus $b=b'$.
+                    \end{enumerate}
+            \end{enumerate}
             Together, the above two items show $R(a)$ to be a singleton, being thus given by $\Gr(f)$ for some function $f\colon A\to B$, which gives a map
             \[
                 \{
@@ -1850,7 +1832,7 @@ Let $A$ and $B$ be sets.
                 \}.
             \]%
             Moreover, by uniqueness of adjoints (\ChapterRef{\ChapterInternalAdjunctions, \cref{internal-adjunctions:properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{internal-adjunctions:properties-of-internal-adjunctions}}{\cref{properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{properties-of-internal-adjunctions}}), this implies also that $S=f^{-1}$.
-        \item\SloganFont{From Functions to Adjunctions in $\sfbfRel$. }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, every function $f\colon A\to B$ gives rise to an adjunction $\Gr(f)\dashv f^{-1}$ in $\Rel$, giving a map
+        \item\label{proof-of-adjunctions-in-rel-2}\SloganFont{From Functions to Adjunctions in $\sfbfRel$. }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, every function $f\colon A\to B$ gives rise to an adjunction $\Gr(f)\dashv f^{-1}$ in $\Rel$, giving a map
             \[
                 \{
                     \begin{gathered}
@@ -1866,14 +1848,14 @@ Let $A$ and $B$ be sets.
                     \end{gathered}
                 \}.%
             \]%
-        \item\SloganFont{Invertibility: From Functions to Adjunctions Back to Functions. }We need to show that starting with a function $f\colon A\to B$, passing to $\Gr(f)\dashv f^{-1}$, and then passing again to a function gives $f$ again. This is clear however, since we have $a\sim_{\Gr(f)}b$ iff $f(a)=b$.
-        \item\SloganFont{Invertibility: From Adjunctions to Functions Back to Adjunctions. }We need to show that, given an adjunction $R\dashv S$ in $\sfbfRel$ giving rise to a function $f_{R,S}\colon A\to B$, we have
+        \item\label{proof-of-adjunctions-in-rel-3}\SloganFont{Invertibility: From Functions to Adjunctions Back to Functions. }We need to show that starting with a function $f\colon A\to B$, passing to $\Gr(f)\dashv f^{-1}$, and then passing again to a function gives $f$ again. This is clear however, since we have $a\sim_{\Gr(f)}b$ iff $f(a)=b$.
+        \item\label{proof-of-adjunctions-in-rel-4}\SloganFont{Invertibility: From Adjunctions to Functions Back to Adjunctions. }We need to show that, given an adjunction $R\dashv S$ in $\sfbfRel$ giving rise to a function $f_{R,S}\colon A\to B$, we have
             \begin{align*}
                 \Gr(f_{R,S}) &= R,\\
                 f^{-1}_{R,S} &= S.
             \end{align*}
             We check these explicitly:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item\SloganFont{$\Gr(f_{R,S})=R$. }We have
                     \begin{align*}
                         \Gr(f_{R,S}) &\defeq \{(a,f_{R,S}(a))\in A\times B\ \middle|\ a\in A\}\\
@@ -1881,15 +1863,15 @@ Let $A$ and $B$ be sets.
                                      &=      R.
                     \end{align*}
                 \item\SloganFont{$f^{-1}_{R,S}=S$. }We first claim that, given $a\in A$ and $b\in B$, the following conditions are equivalent:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item We have $a\sim_{R}b$.
                         \item We have $b\sim_{S}a$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                     Indeed:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item\SloganFont{If $a\sim_{R}b$, then $b\sim_{S}a$: }Since $\chi_{A}\subset S\procirc R$, there exists $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$, but since $a\sim_{R}b$ and $R$ is functional, we have $k=b$ and thus $b\sim_{S}a$.
                         \item\SloganFont{If $b\sim_{S}a$, then $a\sim_{R}b$: }First note that since $R$ is total we have $a\sim_{R}b'$ for some $b'\in B$. Now, since $R\procirc S\subset\chi_{B}$, $b\sim_{S}a$, and $a\sim_{R}b'$, we have $b=b'$, and thus $a\sim_{R}b$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                     Having show this, we now have
                     \begin{align*}
                         f^{-1}_{R,S}(b) &\defeq \{a\in A\ \middle|\ f_{R,S}(a)=b\}\\
@@ -1898,8 +1880,8 @@ Let $A$ and $B$ be sets.
                                         &\defeq S(b).
                     \end{align*}
                     for each $b\in B$, showing $f^{-1}_{R,S}=S$.
-            \end{itemize}% PROCESS %
-    \end{enumerate}% PROCESS %
+            \end{itemize}
+    \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \subsection{Monads in $\sfbfRel$}\label{subsection-monads-in-rel}
@@ -1984,10 +1966,10 @@ Let $A$ be a set.
         \end{tikzcd}%
     \end{webcompile}%%
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic, and hence all that is left is the data of the two maps $\mu_{R}$ and $\eta_{R}$, which correspond respectively to the following conditions:
-    \begin{enumerate}% PROCESS %
+    \begin{enumerate}
         \item For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
         \item For each $a\in A$, we have $a\sim_{R}a$.
-    \end{enumerate}% PROCESS %
+    \end{enumerate}
     These are exactly the requirements for $R$ to be a preorder (\ChapterRef{\ChapterPreordersAndPartialOrders, \cref{preorders-and-partial-orders:preorders}}{\cref{preorders}}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
 \end{Proof}
 \subsection{Comonads in $\sfbfRel$}\label{subsection-comonads-in-rel}
@@ -2012,7 +1994,7 @@ Let $A$ be a set.
         \epsilon_{R} &\colon R \subset \chi_{A}
     \end{align*}
     making the diagrams
-    \begingroup\footnotesize% PDF ONLY %
+    \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
     \begin{webcompile}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
             R
@@ -2068,10 +2050,10 @@ Let $A$ be a set.
     \end{webcompile}%
     \endgroup% PDF ONLY %
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic, and hence all that is left is the data of the two maps $\Delta_{R}$ and $\epsilon_{R}$, which correspond respectively to the following conditions:
-    \begin{enumerate}% PROCESS %
+    \begin{enumerate}
         \item For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
         \item For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
-    \end{enumerate}% PROCESS %
+    \end{enumerate}
     Taking $k=b$ in the first condition above shows it to be trivially satisfied, while the second condition implies $R\subset\Delta_{A}$, i.e.\ $R$ must be a subset of $A$. Conversely, any subset $U$ of $A$ satisfies $U\subset\Delta_{A}$, defining a comonad as above.
 \end{Proof}
 \subsection{Co/Monoids in $\sfbfRel$}\label{subsection-co-monoids-in-rel}
@@ -2104,14 +2086,14 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             associated to $R$ is injective.
     \end{enumerate}
     Moreover, if $R$ is a monomorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
-    \begin{itemize}% PROCESS %
+    \begin{itemize}
         \item[$(\star)$]For each $a,a'\in A$, if there exists some $b\in B$ such that
             \begin{align*}%
                 a\sim_{R}b,\\%
                 a'\sim_{R}b,%
             \end{align*}%
             then $a=a'$.
-    \end{itemize}% PROCESS %
+    \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel}}%
     Firstly note that \cref{characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2} are also equivalent:
@@ -2222,14 +2204,14 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     Since $\star\sim_{[a]}a$ and $a\sim_{R}b$, we have $\star\sim_{R\procirc[a]}b$. Similarly, $\star\sim_{R\procirc[a']}b$. Thus $R\procirc[a]=R\procirc[a']$, and since $R$ is a monomorphism, we have $[a]=[a']$, i.e.\ $a=a'$.
 
     Conversely, assume the condition
-    \begin{itemize}% PROCESS %
+    \begin{itemize}
         \item[$(\star)$]For each $a,a'\in A$, if there exists some $b\in B$ such that
             \begin{align*}%
                 a\sim_{R}b,\\%
                 a'\sim_{R}b,%
             \end{align*}%
             then $a=a'$.
-    \end{itemize}% PROCESS %
+    \end{itemize}
     consider the diagram
     \[
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2257,9 +2239,9 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             \begin{enumerate}
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1}The morphism $R\colon A\rightproarrow B$ is a representably full morphism.
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}For each pair of relations $S,T\colon X\rightproarrows A$, the following condition is satisfied:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item[$(\star)$]If $R\procirc S\subset R\procirc T$, then $S\subset T$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}The functor
                     \[
                         R_{*}%
@@ -2281,7 +2263,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     is full.
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
             \end{enumerate}
-        \item\label{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}\SloganFont{Representably Fully Faithful Morphisms in $\sfbfRel$. }Every representaly full morphism in $\sfbfRel$ is a representably fully faithful morphism.
+        \item\label{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}\SloganFont{Representably Fully Faithful Morphisms in $\sfbfRel$. }Every representably full morphism in $\sfbfRel$ is a representably fully faithful morphism.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{2-categorical-monomorphisms-in-rel}}%
@@ -2343,15 +2325,15 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             is surjective, i.e.\ \textiff whenever $R_{*}(U)\subset R_{*}(V)$, we also necessarily have $U\subset V$.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4} given above.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             We need to show that the condition
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}% PROCESS %
+            \begin{enumerate}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{!}(U)\subset R_{!}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2361,17 +2343,17 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{*}(A\setminus V)\subset R_{*}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             We need to show that the condition
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}% PROCESS %
+            \begin{enumerate}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{*}(U)\subset R_{*}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2381,7 +2363,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{!}(A\setminus V)\subset R_{!}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2456,7 +2438,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             Now, if $R_{*}(U)\subset R_{*}(V)$, i.e.\ $R\procirc U\subset R\procirc V$, then $U\subset V$ by assumption.
     \end{itemize}
 
-    \ProofBox{\cref{2-categorical-monomorphisms-in-rel-fully-representably-faithful-morphisms-in-rel}: Fully Faithful Monomorphisms in $\sfbfRel$}%
+    \ProofBox{\cref{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}: Representably Fully Faithful Morphisms in $\sfbfRel$}%
     This follows from \cref{2-categorical-monomorphisms-in-rel-representably-faithful-morphisms-in-rel,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel}.
 \end{Proof}
 \begin{question}{Better Characterisations of Representably Full Morphisms in $\sfbfRel$}{better-characterisations-of-representably-full-morphisms-in-rel}%
@@ -2496,10 +2478,10 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \end{itemize}
     \end{enumerate}
     Moreover, if $R$ is total and an epimorphism, then it satisfies the following equivalent conditions:
-    \begin{enumerate}% PROCESS %
+    \begin{enumerate}
         \item For each $b\in B$, there exists some $a\in A$ such that $a\sim_{R}b$.
         \item We have $\Im(R)=B$.
-    \end{enumerate}% PROCESS %
+    \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel}}%
     Firstly note that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2} are also equivalent:
@@ -2725,15 +2707,15 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
             is surjective, i.e.\ \textiff whenever $R^{-1}(U)\subset R^{-1}(V)$, we also necessarily have $U\subset V$.
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-3,2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4} given above.
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             We need to show that the condition
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}% PROCESS %
+            \begin{enumerate}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R_{-1}(U)\subset R_{-1}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2743,17 +2725,17 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R^{-1}(A\setminus V)\subset R^{-1}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             We need to show that the condition
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}% PROCESS %
+            \begin{enumerate}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R^{-1}(U)\subset R^{-1}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2763,7 +2745,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{-1}(A\setminus V)\subset R_{-1}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}% PROCESS %
+            \end{enumerate}
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2852,13 +2834,13 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \begin{proposition}{Co/Limits in $\sfRel$}{co-limits-in-rel}%
     This will be properly written later on.
     %The category $\sfRel$ admits some co/limits, but not all, as does its $2$-categorical counterpart:
-    %\begin{enumerate}% PROCESS %
+    %\begin{enumerate}
     %    \item\SloganFont{Zero Objects. }The category $\Rel$ has a zero object, the empty set $\emptyset$.
     %    \item\SloganFont{Co/Products. }The category $\Rel$ has co/products, both given by disjoint union of sets.
     %    \item\SloganFont{Lack of Co/Equalisers. }The category $\Rel$ does not have co/equalisers.
     %    \item\SloganFont{Limits of Graphs of Functions. }The category $\Rel$ has limits whose arrows are all graphs of functions.
     %    \item\SloganFont{Colimits of Graphs of Functions. }The category $\Rel$ has colimits whose arrows are all graphs of functions, and these agree with the corresponding limits in $\Sets$.
-    %\end{enumerate}% PROCESS %
+    %\end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{co-limits-in-rel}}%
     Omitted.
@@ -2938,15 +2920,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
                 \end{tikzcd}
             \end{webcompile}%
         \item\SloganFont{Action on Morphisms. }For each $R,S,R',S'\in\Obj(\eRel(A,B))$, the action on $\Hom$-sets
-            \begingroup\scriptsize
-            \[
-                (\lhd_{J})_{(G,F),(G',F')}
-                \colon%
-                \Hom_{\eRel(A,B)}(S,S')\times\Hom_{\eRel(A,B)}(R,R')
-                \to
-                \Hom_{\eRel(A,B)}(S\lhd_{J}R,S'\lhd_{J}R')
-            \]%
-            \endgroup
+            \begin{envscriptsize}
+                \[
+                    (\lhd_{J})_{(G,F),(G',F')}
+                    \colon%
+                    \Hom_{\eRel(A,B)}(S,S')\times\Hom_{\eRel(A,B)}(R,R')
+                    \to
+                    \Hom_{\eRel(A,B)}(S\lhd_{J}R,S'\lhd_{J}R')
+                \]%
+            \end{envscriptsize}
             of $\lhd_{J}$ at $((R,S),(R',S'))$ is defined by%
             %--- Begin Footnote ---%
             \footnote{%
@@ -3008,15 +2990,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
 Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
 \begin{definition}{The Left $J$-Skew Associator of $\eRel(A,B)$}{the-left-j-skew-associator-of-erelab}%
     The \textbf{left $J$-skew associator of $\eRel(A,B)$} is the natural transformation
-    \begingroup\small
-    \[
-        \alpha^{\eRel(A,B),\lhd_{J}}%
-        \colon%
-        {\lhd_{J}}\circ{({\lhd_{J}}\times\sfid)}%
-        \Longrightarrow%
-        {\lhd_{J}}\circ{(\sfid\times{\lhd_{J}})}\circ{\bfalpha^{\Cats}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}},%
-    \]
-    \endgroup
+    \begin{envsmallsize}
+        \[
+            \alpha^{\eRel(A,B),\lhd_{J}}%
+            \colon%
+            {\lhd_{J}}\circ{({\lhd_{J}}\times\sfid)}%
+            \Longrightarrow%
+            {\lhd_{J}}\circ{(\sfid\times{\lhd_{J}})}\circ{\bfalpha^{\Cats}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}},%
+        \]
+    \end{envsmallsize}
     as in the diagram
     \[
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -3197,15 +3179,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
             \]
             of \cref{the-left-j-skew-monoidal-unit-of-erelab}.
         \item\SloganFont{The Left Skew Associators. }The natural transformation
-            \begingroup\small
-            \[
-                \alpha^{\eRel(A,B),\lhd_{J}}%
-                \colon%
-                {\lhd_{J}}\circ{({\lhd_{J}}\times\sfid)}%
-                \Longrightarrow%
-                {\lhd_{J}}\circ{(\sfid\times{\lhd_{J}})}\circ{\bfalpha^{\Cats}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}}%
-            \]
-            \endgroup
+            \begin{envsmallsize}
+                \[
+                    \alpha^{\eRel(A,B),\lhd_{J}}%
+                    \colon%
+                    {\lhd_{J}}\circ{({\lhd_{J}}\times\sfid)}%
+                    \Longrightarrow%
+                    {\lhd_{J}}\circ{(\sfid\times{\lhd_{J}})}\circ{\bfalpha^{\Cats}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}}%
+                \]
+            \end{envsmallsize}
             of \cref{the-left-j-skew-associator-of-erelab}.
         \item\SloganFont{The Left Skew Left Unitors. }The natural transformation
             \[
@@ -3269,15 +3251,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
                 \end{tikzcd}
             \end{webcompile}%
         \item\SloganFont{Action on Morphisms. }For each $R,S,R',S'\in\Obj(\eRel(A,B))$, the action on $\Hom$-sets
-            \begingroup\scriptsize
-            \[
-                (\rhd_{J})_{(S,R),(S',R')}
-                \colon%
-                \Hom_{\eRel(A,B)}(S,S')\times\Hom_{\eRel(A,B)}(R,R')
-                \to
-                \Hom_{\eRel(A,B)}(S\rhd_{J}R,S'\rhd_{J}R')
-            \]%
-            \endgroup
+            \begin{envscriptsize}
+                \[
+                    (\rhd_{J})_{(S,R),(S',R')}
+                    \colon%
+                    \Hom_{\eRel(A,B)}(S,S')\times\Hom_{\eRel(A,B)}(R,R')
+                    \to
+                    \Hom_{\eRel(A,B)}(S\rhd_{J}R,S'\rhd_{J}R')
+                \]%
+            \end{envscriptsize}
             of $\rhd_{J}$ at $((S,R),(S',R'))$ is defined by%
             %--- Begin Footnote ---%
             \footnote{%
@@ -3337,15 +3319,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
 \subsection{The Right Skew Associators}\label{subsection-the-right-skew-monoidal-structure-on-rel-a-b-the-right-skew-associators}
 \begin{definition}{The Right $J$-Skew Associator of $\eRel(A,B)$}{the-right-j-skew-associator-of-erelab}%
     The \textbf{right $J$-skew associator of $\eRel(A,B)$} is the natural transformation
-    \begingroup\small
-    \[
-        \alpha^{\eRel(A,B),\rhd_{J}}%
-        \colon%
-        {\rhd_{J}}\circ{(\sfid\times{\rhd_{J}})}%
-        \Longrightarrow%
-        {\rhd_{J}}\circ{({\rhd_{J}}\times\sfid)}\circ{\bfalpha^{\Cats,-1}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}},%
-    \]
-    \endgroup
+    \begin{envsmallsize}
+        \[
+            \alpha^{\eRel(A,B),\rhd_{J}}%
+            \colon%
+            {\rhd_{J}}\circ{(\sfid\times{\rhd_{J}})}%
+            \Longrightarrow%
+            {\rhd_{J}}\circ{({\rhd_{J}}\times\sfid)}\circ{\bfalpha^{\Cats,-1}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}},%
+        \]
+    \end{envsmallsize}
     as in the diagram
     \[
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -3524,15 +3506,15 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
             \]
             of \cref{the-right-j-skew-monoidal-unit-of-erelab}.
         \item\SloganFont{The Right Skew Associators. }The natural transformation
-            \begingroup\small
-            \[
-                \alpha^{\eRel(A,B),\rhd_{J}}%
-                \colon%
-                {\rhd_{J}}\circ{(\sfid\times{\rhd_{J}})}%
-                \Longrightarrow%
-                {\rhd_{J}}\circ{({\rhd_{J}}\times\sfid)}\circ{\bfalpha^{\Cats,-1}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}}%
-            \]
-            \endgroup
+            \begin{envsmallsize}
+                \[
+                    \alpha^{\eRel(A,B),\rhd_{J}}%
+                    \colon%
+                    {\rhd_{J}}\circ{(\sfid\times{\rhd_{J}})}%
+                    \Longrightarrow%
+                    {\rhd_{J}}\circ{({\rhd_{J}}\times\sfid)}\circ{\bfalpha^{\Cats,-1}_{\eRel(A,B),\eRel(A,B),\eRel(A,B)}}%
+                \]
+            \end{envsmallsize}
             of \cref{the-right-j-skew-associator-of-erelab}.
         \item\SloganFont{The Right Skew Left Unitors. }The natural transformation
             \[

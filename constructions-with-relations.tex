@@ -14,9 +14,9 @@
 
 This chapter contains some material about constructions with relations. Notably, we discuss and explore:
 \begin{enumerate}
-    \item The existence or non-existence of Kan extensions and Kan lifts in the $2$-category $\sfbfRel$ (\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}).
-    \item The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, inverse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
-    \item The adjoint pairs
+    \item\label{constructions-with-relations-introduction-item-1}The existence or non-existence of Kan extensions and Kan lifts in the $2$-category $\sfbfRel$ (\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}).
+    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, inverse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
+    \item\label{constructions-with-relations-introduction-item-3}The adjoint pairs
         \begin{align*}
             R_{*}  \dashv R_{-1} &\colon \mathcal{P}(A) \rightleftarrows \mathcal{P}(B),\\
             R^{-1} \dashv R_{!}  &\colon \mathcal{P}(B) \rightleftarrows \mathcal{P}(A)
@@ -25,9 +25,9 @@ This chapter contains some material about constructions with relations. Notably,
 
         Of particular note are the following points:
         \begin{enumerate}
-            \item These two pairs of adjoint functors are the counterpart for relations of the adjoint triple $f_{*}\dashv f^{-1}\dashv f_{!}$ induced by a function $f\colon A\to B$ studied in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}}.
-            \item We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}).
-            \item As a consequence of the previous item, when $R$ comes from a function $f$, the pair of adjunctions
+            \item\label{constructions-with-relations-introduction-item-3a}These two pairs of adjoint functors are the counterpart for relations of the adjoint triple $f_{*}\dashv f^{-1}\dashv f_{!}$ induced by a function $f\colon A\to B$ studied in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}}.
+            \item\label{constructions-with-relations-introduction-item-3b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}).
+            \item\label{constructions-with-relations-introduction-item-3c}As a consequence of the previous item, when $R$ comes from a function $f$, the pair of adjunctions
                 \[
                     R_{*}\dashv R_{-1}=R^{-1}\dashv R_{!}%
                 \]%
@@ -36,7 +36,7 @@ This chapter contains some material about constructions with relations. Notably,
                     f_{*}\dashv f^{-1}\dashv f_{!}%
                 \]%
                 from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}}.
-            \item The pairs $R_{*}\dashv R_{-1}$ and $R^{-1}\dashv R_{!}$ turn out to be rather important later on, as they appear in the definition and study of continuous, open, and closed relations between topological spaces (\ChapterRef{\ChapterTopologicalSpaces, \cref{topological-spaces:section-relations-between-topological-spaces}}{\cref{section-relations-between-topological-spaces}}).
+            \item\label{constructions-with-relations-introduction-item-3d}The pairs $R_{*}\dashv R_{-1}$ and $R^{-1}\dashv R_{!}$ turn out to be rather important later on, as they appear in the definition and study of continuous, open, and closed relations between topological spaces (\ChapterRef{\ChapterTopologicalSpaces, \cref{topological-spaces:section-relations-between-topological-spaces}}{\cref{section-relations-between-topological-spaces}}).
         \end{enumerate}
 \end{enumerate}
 
@@ -173,38 +173,38 @@ Let $R\colon A\rightproarrow B$ be a relation.
         \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a})
     \]%
     for each $S\in\Rel(A,X)$, so that the following conditions are equivalent:
-    \begin{enumerate}% PROCESS %
-        \item We have $b\sim_{\Ran_{R}(S)}x$.
-        \item For each $a\in A$, if $a\sim_{R}b$, then $a\sim_{S}x$.
-    \end{enumerate}% PROCESS %
+    \begin{enumerate}
+        \item\label{existence-of-right-kan-extensions-in-rel-1}We have $b\sim_{\Ran_{R}(S)}x$.
+        \item\label{existence-of-right-kan-extensions-in-rel-2}For each $a\in A$, if $a\sim_{R}b$, then $a\sim_{S}x$.
+    \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{existence-of-right-kan-extensions-in-rel}}%
     We have
-    \begingroup\small
-    \begin{align*}
-        \Hom_{\eRel(A,X)}(S\procirc R,T) &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((S\procirc R)^{x}_{a},T^{x}_{a})\\
-                                         &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((\int^{b\in B}S^{x}_{b}\times R^{b}_{a}),T^{x}_{a})\\
-                                         &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b}\times R^{b}_{a},T^{x}_{a})\\
-                                         &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                         &\cong  \int_{b\in B}\int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                         &\cong  \int_{b\in B}\int_{x\in X}\eHom_{\TTV}(S^{x}_{b},\int_{a\in A}\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                         &\cong  \Hom_{\eRel(B,X)}(S,\int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a}))%
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            \Hom_{\eRel(A,X)}(S\procirc R,T) &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((S\procirc R)^{x}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((\int^{b\in B}S^{x}_{b}\times R^{b}_{a}),T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b}\times R^{b}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\eHom_{\TTV}(S^{x}_{b},\int_{a\in A}\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \Hom_{\eRel(B,X)}(S,\int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a}))%
+        \end{align*}
+    \end{envsmallsize}
     naturally in each $S\in\eRel(B,X)$ and each $T\in\eRel(A,X)$, showing that
     \[
         \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a})%
     \]%
     is right adjoint to the precomposition functor $-\procirc R$, being thus the right Kan extension along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
-    \begin{enumerate}% PROCESS %
-        \item \ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-        \item \cref{composition-of-relations}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-    \end{enumerate}% PROCESS %
+    \begin{enumerate}
+        \item\label{existence-of-right-kan-extensions-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{existence-of-right-kan-extensions-in-rel-2}\cref{composition-of-relations}.
+        \item\label{existence-of-right-kan-extensions-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{existence-of-right-kan-extensions-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{existence-of-right-kan-extensions-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{existence-of-right-kan-extensions-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{existence-of-right-kan-extensions-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+    \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \subsection{Right Kan Lifts in $\sfbfRel$}\label{subsection-right-kan-lifts-in-rel}
@@ -225,38 +225,38 @@ Let $R\colon A\rightproarrow B$ be a relation.
         \int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},S^{b}_{-_{2}})
     \]%
     for each $S\in\Rel(X,B)$, so that the following conditions are equivalent:
-    \begin{enumerate}% PROCESS %
-        \item We have $x\sim_{\Rift_{R}(S)}a$.
-        \item For each $b\in B$, if $a\sim_{R}b$, then $x\sim_{S}b$.
-    \end{enumerate}% PROCESS %
+    \begin{enumerate}
+        \item\label{existence-of-right-kan-lifts-in-rel-1}We have $x\sim_{\Rift_{R}(S)}a$.
+        \item\label{existence-of-right-kan-lifts-in-rel-2}For each $b\in B$, if $a\sim_{R}b$, then $x\sim_{S}b$.
+    \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{existence-of-right-kan-lifts-in-rel}}%
     We have
-    \begingroup\small
-    \begin{align*}
-        \Hom_{\eRel(X,B)}(R\procirc S,T) &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((R\procirc S)^{b}_{x},T^{b}_{x})\\
-                                         &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((\int^{a\in A}R^{b}_{a}\times S^{a}_{x}),T^{b}_{x})\\
-                                         &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(R^{b}_{a}\times S^{a}_{x},T^{b}_{x})\\
-                                         &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(S^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
-                                         &\cong  \int_{x\in X}\int_{a\in A}\int_{b\in B}\eHom_{\TTV}(S^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
-                                         &\cong  \int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{a}_{x},\int_{b\in B}\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
-                                         &\cong  \Hom_{\eRel(X,A)}(S,\int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},T^{b}_{-_{2}}))%
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            \Hom_{\eRel(X,B)}(R\procirc S,T) &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((R\procirc S)^{b}_{x},T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((\int^{a\in A}R^{b}_{a}\times S^{a}_{x}),T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(R^{b}_{a}\times S^{a}_{x},T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(S^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \int_{x\in X}\int_{a\in A}\int_{b\in B}\eHom_{\TTV}(S^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{a}_{x},\int_{b\in B}\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \Hom_{\eRel(X,A)}(S,\int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},T^{b}_{-_{2}}))%
+        \end{align*}
+    \end{envsmallsize}
     naturally in each $S\in\eRel(X,A)$ and each $T\in\eRel(X,B)$, showing that
     \[
         \int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},S^{b}_{-_{2}})%
     \]%
     is right adjoint to the postcomposition functor $R\procirc-$, being thus the right Kan lift along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
-    \begin{enumerate}% PROCESS %
-        \item \ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-        \item \cref{composition-of-relations}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item \ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-    \end{enumerate}% PROCESS %
+    \begin{enumerate}
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-2}\cref{composition-of-relations}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+    \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \section{More Constructions With Relations}\label{section-more-constructions-with-relations}
@@ -398,10 +398,10 @@ Let $f\colon A\to B$ be a function.
         \Gr(f)\procirc f^{-1} &\subset \chi_{B}.
     \end{align*}
     These correspond respectively to the following conditions:
-    \begin{enumerate}% PROCESS %
+    \begin{enumerate}
         \item For each $a\in A$, there exists some $b\in B$ such that $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$.
         \item For each $a,b\in A$, if $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$, then $a=b$.
-    \end{enumerate}% PROCESS %
+    \end{enumerate}
     In other words, the first condition states that the image of any $a\in A$ by $f$ is nonempty, whereas the second condition states that $f$ is not multivalued. As $f$ is a function, both of these statements are true, and we are done.
 
     \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
@@ -1149,9 +1149,9 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 \eRel(B,A).%
             \]%
             In particular, given relations $R,S\colon A\rightproarrows B$, we have:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\label{properties-of-inverses-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
                 \dom(R^{\dagger})   &= \range(R),\\
@@ -1533,7 +1533,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $
                 \Pos_{/\Delta^{1}}(A,B),%
             \]%
             where
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $R\in\Obj(\eRel(A,B))$, we have
                     \[
                         [\eColl](R)
@@ -1541,7 +1541,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $
                         (\eColl(R),\phi_{R})%
                     \]%
                     for each $R\in\eRel(A,B)$, where
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item The poset $\eColl(R)$ is the collage of $R$ of \cref{the-collage-of-a-relation}.
                         \item The morphism $\phi_{R}\colon\eColl(R)\to\Delta^{1}$ is given by
                             \[
@@ -1553,7 +1553,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $
                                 \end{cases}
                             \]%
                             for each $x\in\eColl(R)$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                 \item\SloganFont{Action on Morphisms. }For each $R,S\in\Obj(\eRel(A,B))$, the action on $\Hom$-sets
                     \[
                         \eColl_{R,S}%
@@ -1591,7 +1591,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $
                         \par\vspace*{-1.75\baselineskip}
                     }%
                     %---  End Footnote  ---%
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\label{properties-of-collages-of-relations-equivalence}\SloganFont{Equivalence. }The functor of \cref{properties-of-collages-of-relations-functoriality} is an equivalence of categories.
         %\item\label{properties-of-collages-of-relations-}\SloganFont{. }
     \end{enumerate}
@@ -1706,13 +1706,13 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]The following conditions are equivalent:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item We have $R_{*}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
-                    \end{itemize}% PROCESS %
-            \end{itemize}% PROCESS %
+                    \end{itemize}
+            \end{itemize}
         \item\label{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
                 R_{*}(\bigcup_{i\in I}U_{i})%
@@ -2063,7 +2063,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 (\mathcal{P}(A),\subset)%
             \]%
             where
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $V\in\mathcal{P}(B)$, we have
                     \[
                         [R_{-1}](V)%
@@ -2074,7 +2074,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     \begin{itemize}
                         \item If $U\subset V$, then $R_{-1}(U)\subset R_{-1}(V)$.
                     \end{itemize}
-            \end{itemize}% PROCESS %
+            \end{itemize}
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#R_{*}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
@@ -2086,13 +2086,13 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
-            \begin{itemize}% PROCESS %
+            \begin{itemize}
                 \item[$(\star)$]The following conditions are equivalent:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item We have $R_{*}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
-                    \end{itemize}% PROCESS %
-            \end{itemize}% PROCESS %
+                    \end{itemize}
+            \end{itemize}
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
                 \bigcup_{i\in I}R_{-1}(U_{i})%
@@ -2442,10 +2442,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
                 \item[$(\star)$]The following conditions are equivalent:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
                         \item We have $U\subset R_{!}(V)$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
             \end{itemize}
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
@@ -2845,10 +2845,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
                 \item[$(\star)$]The following conditions are equivalent:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
                         \item We have $U\subset R_{!}(V)$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[

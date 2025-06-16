@@ -17,12 +17,12 @@ This chapter develops some material relating to constructions with sets with an 
     \item\label{constructions-with-sets-introduction-item-1}Explicit descriptions of the major types of co/limits in $\Sets$, including in particular explicit descriptions of pushouts and coequalisers (see \cref{pushouts-of-sets,unwinding-pushouts-of-sets,coequalisers-of-sets,unwinding-coequalisers-of-sets}).
     \item\label{constructions-with-sets-introduction-item-2}A discussion of powersets as decategorifications of categories of presheaves, including in particular results such as:
         \begin{enumerate}
-            \item\label{constructions-with-sets-introduction-item-2-a}A discussion of the internal Hom of a powerset (\cref{subsection-the-internal-hom-of-a-powerset}).
-            \item\label{constructions-with-sets-introduction-item-2-b}A 0-categorical version of the Yoneda lemma (\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}}), which we term the \textit{Yoneda lemma for sets} (\cref{the-yoneda-lemma-for-sets}).
-            \item\label{constructions-with-sets-introduction-item-2-c}A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO}).
-            \item\label{constructions-with-sets-introduction-item-2-d}A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO}).
-            \item\label{constructions-with-sets-introduction-item-2-e}A $(-1)$-categorical version of un/straightening (\cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets} and \cref{powersets-as-sets-of-functions-and-un-straightening}).
-            \item\label{constructions-with-sets-introduction-item-2-f}A 0-categorical form of Isbell duality internal to powersets (\cref{subsection-isbell-duality-for-sets}).
+            \item\label{constructions-with-sets-introduction-item-2a}A discussion of the internal Hom of a powerset (\cref{subsection-the-internal-hom-of-a-powerset}).
+            \item\label{constructions-with-sets-introduction-item-2b}A 0-categorical version of the Yoneda lemma (\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}}), which we term the \textit{Yoneda lemma for sets} (\cref{the-yoneda-lemma-for-sets}).
+            \item\label{constructions-with-sets-introduction-item-2c}A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO}).
+            \item\label{constructions-with-sets-introduction-item-2d}A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO}).
+            \item\label{constructions-with-sets-introduction-item-2e}A $(-1)$-categorical version of un/straightening (\cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets} and \cref{powersets-as-sets-of-functions-and-un-straightening}).
+            \item\label{constructions-with-sets-introduction-item-2f}A 0-categorical form of Isbell duality internal to powersets (\cref{subsection-isbell-duality-for-sets}).
         \end{enumerate}
     \item\label{constructions-with-sets-introduction-item-3}A lengthy discussion of the adjoint triple%
         \[
@@ -34,9 +34,9 @@ This chapter develops some material relating to constructions with sets with an 
         \]%
         of functors (i.e.\ morphisms of posets) between $\mathcal{P}(A)$ and $\mathcal{P}(B)$ induced by a map of sets $f\colon A\to B$, including in particular:
         \begin{enumerate}
-            \item\label{constructions-with-sets-introduction-item-3-a}How $f^{-1}$ can be described as a precomposition while $f_{*}$ and $f_{!}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
-            \item\label{constructions-with-sets-introduction-item-3-b}An extensive list of the properties of $f_{*}$, $f^{-1}$, and $f_{!}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
-            \item\label{constructions-with-sets-introduction-item-3-c}How the functors $f_{*}$, $f^{-1}$, $f_{!}$, along with the functors
+            \item\label{constructions-with-sets-introduction-item-3a}How $f^{-1}$ can be described as a precomposition while $f_{*}$ and $f_{!}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
+            \item\label{constructions-with-sets-introduction-item-3b}An extensive list of the properties of $f_{*}$, $f^{-1}$, and $f_{!}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
+            \item\label{constructions-with-sets-introduction-item-3c}How the functors $f_{*}$, $f^{-1}$, $f_{!}$, along with the functors
                 \begin{align*}
                     -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
                     [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
@@ -520,7 +520,7 @@ Let $A$ and $B$ be sets.%
     \]%
     natural in $B,C\in\Obj(\Sets)$, as the proof of the existence of the adjunction $A\times-\dashv\Sets(A,-)$ follows almost exactly in the same way.%
     \begin{itemize}
-        \item\SloganFont{Map \rmI. }We define a map
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{B,C}%
                 \colon%
@@ -563,7 +563,7 @@ Let $A$ and $B$ be sets.%
                 \defeq%
                 \llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket.%
             \]%
-        \item\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{B,C}%
                 \colon%
@@ -601,7 +601,7 @@ Let $A$ and $B$ be sets.%
                                    &\defeq \xi_{a}(b)%
             \end{align*}
             for each $(a,b)\in A\times B$.
-        \item\SloganFont{Invertibility \rmI. }We claim that
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-3}\SloganFont{Invertibility \rmI. }We claim that
             \[
                 \Psi_{A,B}\circ\Phi_{A,B}%
                 =%
@@ -618,7 +618,7 @@ Let $A$ and $B$ be sets.%
                                                  &= \llbracket(a,b)\mapsto\xi(a,b)\rrbracket\\%
                                                  &= \xi.
             \end{align*}
-        \item\SloganFont{Invertibility \rmII. }We claim that
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-4}\SloganFont{Invertibility \rmII. }We claim that
             \[
                 \Phi_{A,B}\circ\Psi_{A,B}%
                 =%
@@ -649,7 +649,7 @@ Let $A$ and $B$ be sets.%
                                                  &\defeq \llbracket a\mapsto\xi_{a}\rrbracket\\%
                                                  &\defeq \xi.%
             \end{align*}
-        \item\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a function $g\colon B\to B'$, the diagram
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-5}\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a function $g\colon B\to B'$, the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \Sets(A\times B',C)%
@@ -695,7 +695,7 @@ Let $A$ and $B$ be sets.%
                                                             &= (g^{*})_{*}(\Phi_{B',C}(\xi))\\
                                                             &= [(g^{*})_{*}\circ\Phi_{B',C}](\xi).
             \end{align*}
-        \item\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a function $h\colon C\to C'$, the diagram
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a function $h\colon C\to C'$, the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \Sets(A\times B,C)%
@@ -731,7 +731,7 @@ Let $A$ and $B$ be sets.%
                                              &= (h_{*})_{*}(\Phi_{B,C}(\xi))\\
                                              &= [(h_{*})_{*}\circ\Phi_{B,C}](\xi).
             \end{align*}
-        \item\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
 
     \ProofBox{\cref{properties-of-products-of-sets-associativity}: Associativity}%

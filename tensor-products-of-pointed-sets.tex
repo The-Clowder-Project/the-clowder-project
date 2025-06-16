@@ -272,7 +272,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\SloganFont{Left Unital Bilinearity. }The diagram
+        \item\label{unwinding-bilinear-morphisms-of-pointed-sets-left-unital-bilinearity}\SloganFont{Left Unital Bilinearity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -310,7 +310,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets.
                 =
                 z_{0}.
             \]%
-        \item\SloganFont{Right Unital Bilinearity. }The diagram
+        \item\label{unwinding-bilinear-morphisms-of-pointed-sets-right-unital-bilinearity}\SloganFont{Right Unital Bilinearity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -556,8 +556,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \Sets(A,\Sets_{*}(X,K))%
     \]%
     natural in $(K,k_{0})\in\Obj(\Sets_{*})$.%
-    \begin{itemize}
-        \item\SloganFont{Map \rmI. }We define a map
+    \begin{enumerate}
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{K}%
                 \colon%
@@ -608,7 +608,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                &=      k_{0},%
             \end{align*}
             so that $\xi_{a}$ is indeed a morphism of pointed sets, where we have used that $\xi$ is a morphism of pointed sets.
-        \item\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{K}%
                 \colon%
@@ -651,7 +651,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                            &=      k_{0},
             \end{align*}
             where we have used that $\xi(a)\in\Sets_{*}(X,K)$ is a morphism of pointed sets.
-        \item\SloganFont{Invertibility \rmI. }We claim that
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-3}\SloganFont{Invertibility \rmI. }We claim that
             \[
                 \Psi_{K}\circ\Phi_{K}%
                 =%
@@ -675,7 +675,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                              &= \llbracket a\odot x\mapsto\xi(a\odot x)\rrbracket\\%
                                              &= \xi.%
             \end{align*}
-        \item\SloganFont{Invertibility \rmII. }We claim that
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-4}\SloganFont{Invertibility \rmII. }We claim that
             \[
                 \Phi_{K}\circ\Psi_{K}%
                 =%
@@ -689,7 +689,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                              &= \llbracket a\mapsto\xi(a)\rrbracket\\
                                              &= \xi.%
             \end{align*}
-        \item\SloganFont{Naturality of $\Phi$. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-5}\SloganFont{Naturality of $\Phi$. }We need to show that, given a morphism of pointed sets
             \[
                 \phi%
                 \colon%
@@ -732,8 +732,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                               &= (\phi_{*})_{*}(\Phi_{K}(\xi))\\
                                               &= [(\phi_{*})_{*}\circ\Phi_{K}](\xi).
             \end{align*}
-        \item\SloganFont{Naturality of $\Psi$. }Since $\Phi$ is natural and $\Phi$ is a componentwise inverse to $\Psi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural.
-    \end{itemize}
+        \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-6}\SloganFont{Naturality of $\Psi$. }Since $\Phi$ is natural and $\Phi$ is a componentwise inverse to $\Psi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural.
+    \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Tensors of Pointed Sets by Sets}{properties-of-tensors-of-pointed-sets-by-sets}%
@@ -949,8 +949,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
          \Sets(A,\Sets_{*}(K,X)),%
     \]%
     natural in $(K,k_{0})\in\Obj(\Sets_{*})$.%
-    \begin{itemize}
-        \item\SloganFont{Map \rmI. }We define a map
+    \begin{enumerate}
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{K}%
                 \colon%
@@ -1000,7 +1000,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $k\in K$, where $x^{k}_{a}$ is the $a$th component of $\xi(k)=[(x^{k}_{a})_{a\in A}]$. Note that:
             \begin{enumerate}
-                \item The definition of $\xi_{a}(k)$ is independent of the choice of equivalence class. Indeed, suppose we have
+                \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-1a}The definition of $\xi_{a}(k)$ is independent of the choice of equivalence class. Indeed, suppose we have
                     \begin{align*}
                         \xi(k) &= [(x^{k}_{a})_{a\in A}]\\
                                &= [(y^{k}_{a})_{a\in A}]
@@ -1011,7 +1011,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                         [(y^{k}_{a})_{a\in A}] &= [(x_{0})_{a\in A}],
                     \end{align*}
                     however, and $\xi_{a}(k)$ is defined to be $x_{0}$ in this case.
-                \item The map $\xi_{a}$ is indeed a morphism of pointed sets, as we have
+                \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-1b}The map $\xi_{a}$ is indeed a morphism of pointed sets, as we have
                     \[
                         \xi_{a}(k_{0})%
                         =%
@@ -1019,7 +1019,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                     \]%
                     since $\xi(k_{0})=[(x_{0})_{a\in A}]$ as $\xi$ is a morphism of pointed sets and $\xi_{a}(k_{0})$, defined to be the $a$th component of $[(x_{0})_{a\in A}]$, is equal to $x_{0}$.
             \end{enumerate}
-        \item\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{K}%
                 \colon%
@@ -1062,7 +1062,60 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                      &=      x_{0},
             \end{align*}
             where we have used that $\xi_{a}\in\Sets_{*}(K,X)$ is a morphism of pointed sets for each $a\in A$.
-        \item\SloganFont{Naturality of $\Psi$. }We need to show that, given a morphism of pointed sets
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-3}\SloganFont{Invertibility \rmI. }We claim that
+            \[
+                \Psi_{K}\circ\Phi_{K}%
+                =%
+                \id_{\Sets_{*}(K,A\pitchfork X)}.%
+            \]%
+            Indeed, given a morphism of pointed sets
+            \[
+                \xi%
+                \colon%
+                (K,k_{0})%
+                \to%
+                (A\pitchfork X,[(x_{0})_{a\in A}])%
+            \]%
+            we have
+            \begin{align*}
+                [\Psi_{K}\circ\Phi_{K}](\xi) &= \Psi_{K}(\Phi_{K}(\xi))\\%
+                                             &= \Psi_{K}(\llbracket a\mapsto\xi_{a}\rrbracket)\\%
+                                             &= \Psi_{K}(\llbracket a'\mapsto\xi_{a'}\rrbracket)\\%
+                                             &= \llbracket k\mapsto[(\ev_{a}(\llbracket a'\mapsto\xi_{a'}(k)\rrbracket))_{a\in A}]\rrbracket\\%
+                                             &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket.%
+            \end{align*}
+            Now, we have two cases:
+            \begin{enumerate}
+                \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-3a}If $\xi(k)=[(x_{0})_{a\in A}]$, we have
+                    \begin{align*}
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                                                     &= \llbracket k\mapsto[(x_{0})_{a\in A}]\rrbracket\\%
+                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
+                                                     &= \xi.%
+                    \end{align*}
+                \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-3b}If $\xi(k)\neq [(x_{0})_{a\in A}]$ and $\xi(k)=[(x^{k}_{a})_{a\in A}]$ instead, we have
+                    \begin{align*}
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                                                     &= \llbracket k\mapsto[(x^{k}_{a})_{a\in A}]\rrbracket\\%
+                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
+                                                     &= \xi.%
+                    \end{align*}
+            \end{enumerate}
+            In both cases, we have $[\Psi_{K}\circ\Phi_{K}](\xi)=\xi$, and thus we are done.
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-4}\SloganFont{Invertibility \rmII. }We claim that
+            \[
+                \Phi_{K}\circ\Psi_{K}%
+                =%
+                \id_{\Sets(A,\Sets_{*}(K,X))}.%
+            \]%
+            Indeed, given a morphism $\xi\colon A\to\Sets_{*}(K,X)$, we have
+            \begin{align*}
+                [\Phi_{K}\circ\Psi_{K}](\xi) &= \Phi_{K}(\Psi_{K}(\xi))\\%
+                                             &= \Phi_{K}(\llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket)\\%
+                                             &= \llbracket a\mapsto\llbracket k\mapsto\xi_{a}(k)\rrbracket\rrbracket\\%
+                                             &= \xi%
+            \end{align*}
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-5}\SloganFont{Naturality of $\Psi$. }We need to show that, given a morphism of pointed sets
             \[
                 \phi%
                 \colon%
@@ -1112,61 +1165,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
                                                    &= \phi^{*}(\Psi_{K'}(\xi))\\
                                                    &= [\phi^{*}\circ\Psi_{K'}](\xi).
             \end{align*}
-        \item\SloganFont{Naturality of $\Phi$. }Since $\Psi$ is natural and $\Psi$ is a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural.
-        \item\SloganFont{Invertibility \rmI. }We claim that
-            \[
-                \Psi_{K}\circ\Phi_{K}%
-                =%
-                \id_{\Sets_{*}(K,A\pitchfork X)}.%
-            \]%
-            Indeed, given a morphism of pointed sets
-            \[
-                \xi%
-                \colon%
-                (K,k_{0})%
-                \to%
-                (A\pitchfork X,[(x_{0})_{a\in A}])%
-            \]%
-            we have
-            \begin{align*}
-                [\Psi_{K}\circ\Phi_{K}](\xi) &= \Psi_{K}(\Phi_{K}(\xi))\\%
-                                             &= \Psi_{K}(\llbracket a\mapsto\xi_{a}\rrbracket)\\%
-                                             &= \Psi_{K}(\llbracket a'\mapsto\xi_{a'}\rrbracket)\\%
-                                             &= \llbracket k\mapsto[(\ev_{a}(\llbracket a'\mapsto\xi_{a'}(k)\rrbracket))_{a\in A}]\rrbracket\\%
-                                             &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket.%
-            \end{align*}
-            Now, we have two cases:
-            \begin{enumerate}
-                \item If $\xi(k)=[(x_{0})_{a\in A}]$, we have
-                    \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto[(x_{0})_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
-                                                     &= \xi.%
-                    \end{align*}
-                \item If $\xi(k)\neq [(x_{0})_{a\in A}]$ and $\xi(k)=[(x^{k}_{a})_{a\in A}]$ instead, we have
-                    \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto[(x^{k}_{a})_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
-                                                     &= \xi.%
-                    \end{align*}
-            \end{enumerate}
-            In both cases, we have $[\Psi_{K}\circ\Phi_{K}](\xi)=\xi$, and thus we are done.
-        \item\SloganFont{Invertibility \rmII. }We claim that
-            \[
-                \Phi_{K}\circ\Psi_{K}%
-                =%
-                \id_{\Sets(A,\Sets_{*}(K,X))}.%
-            \]%
-            Indeed, given a morphism $\xi\colon A\to\Sets_{*}(K,X)$, we have
-            \begin{align*}
-                [\Phi_{K}\circ\Psi_{K}](\xi) &= \Phi_{K}(\Psi_{K}(\xi))\\%
-                                             &= \Phi_{K}(\llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket)\\%
-                                             &= \llbracket a\mapsto\llbracket k\mapsto\xi_{a}(k)\rrbracket\rrbracket\\%
-                                             &= \xi%
-            \end{align*}
-    \end{itemize}
+        \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-6}\SloganFont{Naturality of $\Phi$. }Since $\Psi$ is natural and $\Psi$ is a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural.
+    \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Cotensors of Pointed Sets by Sets}{properties-of-cotensors-of-pointed-sets-by-sets}%
@@ -1609,7 +1609,14 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \subsection{The Left Internal Hom of Pointed Sets}\label{subsection-the-left-internal-hom-of-pointed-sets}
 Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{definition}{The Left Internal Hom of Pointed Sets}{the-left-internal-hom-of-pointed-sets}%
-    The \index[set-theory]{pointed set!left internal Hom of}\textbf{left internal Hom of pointed sets} is the functor\index[notation]{lhdSetsstar@$[-,-]^{\lhd}_{\Sets_{*}}$}%
+    The \index[set-theory]{pointed set!left internal Hom of}\textbf{left internal Hom}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For a proof that $[-,-]^{\lhd}_{\Sets_{*}}$ is indeed the left internal Hom of $\Sets_{*}$ with respect to the left tensor product of pointed sets, see \cref{properties-of-left-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-left-tensor-products-of-pointed-sets}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    \textbf{of pointed sets} is the functor\index[notation]{lhdSetsstar@$[-,-]^{\lhd}_{\Sets_{*}}$}%
     \[
         [-,-]^{\lhd}_{\Sets_{*}}%
         \colon%
@@ -1631,9 +1638,6 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item $\pitchfork\colon\Sets^{\op}\times\Sets_{*}\to\Sets_{*}$ is the cotensor functor of \cref{properties-of-cotensors-of-pointed-sets-by-sets-functoriality} of \cref{properties-of-cotensors-of-pointed-sets-by-sets}.%
     \end{itemize}
 \end{definition}
-\begin{Proof}{Proof of \cref{the-left-internal-hom-of-pointed-sets}}%
-    For a proof that $[-,-]^{\lhd}_{\Sets_{*}}$ is indeed the left internal Hom of $\Sets_{*}$ with respect to the left tensor product of pointed sets, see \cref{properties-of-left-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-left-tensor-products-of-pointed-sets}.
-\end{Proof}
 \begin{remark}{Unwinding \cref{the-left-internal-hom-of-pointed-sets}, \rmI: Universal Property}{unwinding-the-left-internal-hom-of-pointed-sets-1-universal-property}%
     The left internal Hom of pointed sets satisfies the following universal property:%
     \[%
@@ -2636,7 +2640,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{itemize}
     satisfying the following conditions:
     \begin{enumerate}
-        \item\SloganFont{Associativity. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-associativity}\SloganFont{Associativity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -2668,7 +2672,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                     \arrow[from=3-2,to=3-4,"\mu_{A}"']%
                 \end{tikzcd}
             \]%
-        \item\SloganFont{Left Unitality. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality}\SloganFont{Left Unitality. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     S^{0}\lhd A
@@ -2683,7 +2687,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \end{tikzcd}
             \]%
             commutes.
-        \item\SloganFont{Right Unitality. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-right-unitality}\SloganFont{Right Unitality. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -2709,7 +2713,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $a\in A$. Now, the associativity, left unitality, and right unitality conditions act on elements as follows:
     \begin{enumerate}
-        \item\SloganFont{Associativity. }The associativity condition acts as
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-associativity-2}\SloganFont{Associativity. }The associativity condition acts as
             \begin{webcompile}
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,cramped]
                     \&[0.30901699437\TwoCm]
@@ -2768,7 +2772,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 a(bc)%
             \]%
             for each $a,b,c\in A$.
-        \item\SloganFont{Left Unitality. }The left unitality condition acts:
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2}\SloganFont{Left Unitality. }The left unitality condition acts:
             \begin{enumerate}
                 \item On $0\lhd a$ as
                     \begin{webcompile}
@@ -2823,7 +2827,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 0_{A}a &= 0_{A}
             \end{align*}
             for each $a\in A$.
-        \item\SloganFont{Right Unitality. }The right unitality condition acts as
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-right-unitality-2}\SloganFont{Right Unitality. }The right unitality condition acts as
             \begin{webcompile}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     a
@@ -2867,7 +2871,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     satisfying the following conditions:
     \begin{enumerate}
-        \item\SloganFont{Compatibility With the Multiplication Morphisms. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-compatibility-with-the-multiplication-morphisms}\SloganFont{Compatibility With the Multiplication Morphisms. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A\lhd A
@@ -2884,7 +2888,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \end{tikzcd}
             \]%
             commutes.
-        \item\SloganFont{Compatibility With the Unit Morphisms. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-compatibility-with-the-unit-morphisms}\SloganFont{Compatibility With the Unit Morphisms. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     S^{0}
@@ -3079,19 +3083,21 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \Hom^{R}_{\Sets}(\coprod_{X\in X}Y,Z),%
     \]%
     where $\Hom^{R}_{\Sets}(X\times Y,Z)$ is the set
-    \[
-        \Hom^{R}_{\Sets}(\coprod_{x\in X}Y,Z)%
-        \defeq%
-        \{%
-            f\in\Hom_{\Sets}(\coprod_{x\in X}Y,Z)%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $x,y\in X$, if}\\
-                &\text{$(x,y)\sim_{R}(x',y')$, then}\\
-                &\text{$f(x,y)=f(x',y')$}%
-            \end{aligned}
-        \}.%
-    \]%
+    \begin{envsmallsize}
+        \[
+            \Hom^{R}_{\Sets}(\coprod_{x\in X}Y,Z)%
+            \defeq%
+            \{%
+                f\in\Hom_{\Sets}(\coprod_{x\in X}Y,Z)%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $x,y\in X$, if}\\
+                    &\text{$(x,y)\sim_{R}(x',y')$, then}\\
+                    &\text{$f(x,y)=f(x',y')$}%
+                \end{aligned}
+            \}.%
+        \]%
+    \end{envsmallsize}
     However, the condition $(x,y)\sim_{R}(x',y')$ only holds when:
     \begin{enumerate}
         \item We have $x=x'$ and $y=y'$.
@@ -3275,7 +3281,14 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \subsection{The Right Internal Hom of Pointed Sets}\label{subsection-the-right-internal-hom-of-pointed-sets}
 Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{definition}{The Right Internal Hom of Pointed Sets}{the-right-internal-hom-of-pointed-sets}%
-    The \index[set-theory]{pointed set!right internal Hom of}\textbf{right internal Hom of pointed sets} is the functor\index[notation]{rhdSetsstar@$[-,-]^{\rhd}_{\Sets_{*}}$}%
+    The \index[set-theory]{pointed set!right internal Hom of}\textbf{right internal Hom}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For a proof that $[-,-]^{\rhd}_{\Sets_{*}}$ is indeed the right internal Hom of $\Sets_{*}$ with respect to the right tensor product of pointed sets, see \cref{properties-of-right-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-right-tensor-products-of-pointed-sets}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    \textbf{of pointed sets} is the functor\index[notation]{rhdSetsstar@$[-,-]^{\rhd}_{\Sets_{*}}$}%
     \[
         [-,-]^{\rhd}_{\Sets_{*}}%
         \colon%
@@ -3297,9 +3310,6 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item $\pitchfork\colon\Sets^{\op}\times\Sets_{*}\to\Sets_{*}$ is the cotensor functor of \cref{properties-of-cotensors-of-pointed-sets-by-sets-functoriality} of \cref{properties-of-cotensors-of-pointed-sets-by-sets}.%
     \end{itemize}
 \end{definition}
-\begin{Proof}{Proof of \cref{the-right-internal-hom-of-pointed-sets}}%
-    For a proof that $[-,-]^{\rhd}_{\Sets_{*}}$ is indeed the right internal Hom of $\Sets_{*}$ with respect to the right tensor product of pointed sets, see \cref{properties-of-right-tensor-products-of-pointed-sets-adjointness-1} of \cref{properties-of-right-tensor-products-of-pointed-sets}.
-\end{Proof}
 \begin{remark}{Unwinding \cref{the-right-internal-hom-of-pointed-sets}, \rmI: Comparison With $\smash{[-,-]^{\lhd}_{\Sets_{*}}}$}{unwinding-the-right-internal-hom-of-pointed-sets-1-comparison-with-the-left-internal-hom-of-pointed-sets}%
     We have
     \[
@@ -4310,7 +4320,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{itemize}
     satisfying the following conditions:
     \begin{enumerate}
-        \item\SloganFont{Associativity. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-associativity}\SloganFont{Associativity. }The diagram
             \[
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&[0.30901699437\TwoCm]
@@ -4342,7 +4352,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                     \arrow[from=3-2,to=3-4,"\mu_{A}"']%
                 \end{tikzcd}
             \]%
-        \item\SloganFont{Left Unitality. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-left-unitality}\SloganFont{Left Unitality. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -4359,7 +4369,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \end{tikzcd}
             \]%
             commutes.
-        \item\SloganFont{Right Unitality. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-right-unitality}\SloganFont{Right Unitality. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A\rhd S^{0}
@@ -4383,7 +4393,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $a\in A$. Now, the associativity, left unitality, and right unitality conditions act on elements as follows:
     \begin{enumerate}
-        \item\SloganFont{Associativity. }The associativity condition acts as
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-associativity-1}\SloganFont{Associativity. }The associativity condition acts as
             \begin{webcompile}
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,cramped]
                     \&[0.30901699437\TwoCm]
@@ -4442,7 +4452,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 a(bc)%
             \]%
             for each $a,b,c\in A$.
-        \item\SloganFont{Left Unitality. }The left unitality condition acts as
+        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2}\SloganFont{Left Unitality. }The left unitality condition acts as
             \begin{webcompile}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     a
@@ -4472,7 +4482,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 a%
             \]%
             for each $a\in A$.
-        \item\SloganFont{Right Unitality. }The right unitality condition acts:
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-right-unitality-2}\SloganFont{Right Unitality. }The right unitality condition acts:
             \begin{enumerate}
                 \item On $1\rhd 0$ as
                     \begin{webcompile}
@@ -4541,7 +4551,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     satisfying the following conditions:
     \begin{enumerate}
-        \item\SloganFont{Compatibility With the Multiplication Morphisms. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-compatibility-with-the-multiplication-morphisms}\SloganFont{Compatibility With the Multiplication Morphisms. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A\rhd A
@@ -4558,7 +4568,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \end{tikzcd}
             \]%
             commutes.
-        \item\SloganFont{Compatibility With the Unit Morphisms. }The diagram
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-compatibility-with-the-unit-morphisms}\SloganFont{Compatibility With the Unit Morphisms. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     S^{0}
@@ -4752,19 +4762,21 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \Hom^{R}_{\Sets}(X\times Y,Z),%
     \]%
     where $\Hom^{R}_{\Sets}(X\times Y,Z)$ is the set
-    \[
-        \Hom^{R}_{\Sets}(X\times Y,Z)%
-        \defeq%
-        \{%
-            f\in\Hom_{\Sets}(X\times Y,Z)%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $x,y\in X$, if}\\
-                &\text{$(x,y)\sim_{R}(x',y')$, then}\\
-                &\text{$f(x,y)=f(x',y')$}%
-            \end{aligned}
-        \}.%
-    \]%
+    \begin{envsmallsize}
+        \[
+            \Hom^{R}_{\Sets}(X\times Y,Z)%
+            \defeq%
+            \{%
+                f\in\Hom_{\Sets}(X\times Y,Z)%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $x,y\in X$, if}\\
+                    &\text{$(x,y)\sim_{R}(x',y')$, then}\\
+                    &\text{$f(x,y)=f(x',y')$}%
+                \end{aligned}
+            \}.%
+        \]%
+    \end{envsmallsize}
     However, the condition $(x,y)\sim_{R}(x',y')$ only holds when:
     \begin{enumerate}
         \item We have $x=x'$ and $y=y'$.
@@ -5038,7 +5050,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 f &\colon (X,x_{0})   \to (X',x'_{0}),\\
                 h &\colon (X',x'_{0}) \to (X'',x''_{0}),\\
                 g &\colon (Y,y_{0}) \to (Y',y'_{0}),\\
-                k &\colon (Y',y'_{0}) \to (Y'',y''_{0}),
+                k &\colon (Y',y'_{0}) \to (Y^{\prime\prime},y^{\prime\prime}_{0}),
             \end{align*}
             we have
             \begin{align*}
@@ -5201,7 +5213,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     The \index[set-theory]{pointed set!of morphisms of Fonemodules@of morphisms of pointed sets}\index[set-theory]{pointed set!internal Hom of}\textbf{internal Hom}%
     %--- Begin Footnote ---%
     \footnote{%
-        The pointed set $\eSets_{*}(X,Y)$ is the internal $\eHom$ of $\Sets_{*}$ with respect to the smash product of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:smash-products-of-pointed-sets}}{\cref{smash-products-of-pointed-sets}}; see \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:properties-of-smash-products-of-pointed-sets-adjointness} of \cref{tensor-products-of-pointed-sets:properties-of-smash-products-of-pointed-sets}}{\cref{properties-of-smash-products-of-pointed-sets-adjointness} of \cref{properties-of-smash-products-of-pointed-sets}}.
+        For a proof that $\eSets_{*}$ is indeed the internal Hom of $\Sets_{*}$ with respect to the smash product of pointed sets, see \cref{properties-of-smash-products-of-pointed-sets-adjointness} of \cref{properties-of-smash-products-of-pointed-sets}.
     } %
     %---  End Footnote  ---%
     \textbf{of pointed sets from $(X,x_{0})$ to $(Y,y_{0})$} is the pointed set \index[notation]{SetsstarXxzeroYyzero@$\eSets_{*}((X,x_{0}),(Y,y_{0}))$}$\eSets_{*}((X,x_{0}),(Y,y_{0}))$%
@@ -5231,9 +5243,6 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             for each $x\in X$.
     \end{itemize}
 \end{definition}
-\begin{Proof}{Proof of \cref{the-internal-hom-of-pointed-sets}}%
-    For a proof that $\eSets_{*}$ is indeed the internal Hom of $\Sets_{*}$ with respect to the smash product of pointed sets, see \cref{properties-of-smash-products-of-pointed-sets-adjointness} of \cref{properties-of-smash-products-of-pointed-sets}.
-\end{Proof}
 \begin{proposition}{Properties of the Internal Hom of Pointed Sets}{properties-of-the-internal-hom-of-pointed-sets}%
     Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \begin{enumerate}
@@ -5542,8 +5551,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         1\wedge x
     \]%
     for each $x\in X$. Indeed:
-    \begin{itemize}
-        \item\SloganFont{Invertibility \rmI. }We have
+    \begin{enumerate}
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-1}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
                 [\LUnitor^{\Sets_{*},-1}_{X}\circ\LUnitor^{\Sets_{*}}_{X}](0\wedge x) &= \LUnitor^{\Sets_{*},-1}_{X}(\LUnitor^{\Sets_{*}}_{X}(0\wedge x))\\
                                                                                       &= \LUnitor^{\Sets_{*},-1}_{X}(x_{0})\\
@@ -5564,7 +5573,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{S^{0}\wedge X}.%
             \]%
-        \item\SloganFont{Invertibility \rmII. }We have
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-2}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
                 [\LUnitor^{\Sets_{*}}_{X}\circ\LUnitor^{\Sets_{*},-1}_{X}](x) &= \LUnitor^{\Sets_{*}}_{X}(\LUnitor^{\Sets_{*},-1}_{X}(x))\\
                                                                               &= \LUnitor^{\Sets_{*},-1}_{X}(1\wedge x)\\
@@ -5578,7 +5587,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{X}.%
             \]%
-    \end{itemize}
+    \end{enumerate}
     This shows $\LUnitor^{\Sets_{*}}_{X}$ to be invertible.
 
     \ProofBox{Naturality}%
@@ -5728,8 +5737,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         x\wedge 1
     \]%
     for each $x\in X$. Indeed:
-    \begin{itemize}
-        \item\SloganFont{Invertibility \rmI. }We have
+    \begin{enumerate}
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-1}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
                 [\RUnitor^{\Sets_{*},-1}_{X}\circ\RUnitor^{\Sets_{*}}_{X}](x\wedge 0) &= \RUnitor^{\Sets_{*},-1}_{X}(\RUnitor^{\Sets_{*}}_{X}(x\wedge 0))\\
                                                                                       &= \RUnitor^{\Sets_{*},-1}_{X}(x_{0})\\
@@ -5750,7 +5759,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{X\wedge S^{0}}.%
             \]%
-        \item\SloganFont{Invertibility \rmII. }We have
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
                 [\RUnitor^{\Sets_{*}}_{X}\circ\RUnitor^{\Sets_{*},-1}_{X}](x) &= \RUnitor^{\Sets_{*}}_{X}(\RUnitor^{\Sets_{*},-1}_{X}(x))\\
                                                                               &= \RUnitor^{\Sets_{*},-1}_{X}(x\wedge 1)\\
@@ -5764,7 +5773,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{X}.%
             \]%
-    \end{itemize}
+    \end{enumerate}
     This shows $\RUnitor^{\Sets_{*}}_{X}$ to be invertible.
 
     \ProofBox{Naturality}%
@@ -6159,7 +6168,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality}: Monoidality}%
     We claim that $\Delta^{\wedge}$ is indeed monoidal:
     \begin{enumerate}
-        \item\SloganFont{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-compatibility-with-strong-monoidality-constraints}: Compatibility With Strong Monoidality Constraints: }We need to show that the diagram
+        \item\label{proof-of-properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-1}\SloganFont{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-compatibility-with-strong-monoidality-constraints}: Compatibility With Strong Monoidality Constraints: }We need to show that the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     X\wedge Y
@@ -6188,7 +6197,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \end{tikzcd}
             \]%
             and hence indeed commutes.
-        \item\SloganFont{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-compatibility-with-strong-unitality-constraints}: Compatibility With Strong Unitality Constraints: }As shown in the proof of \cref{the-left-unitor-of-the-smash-product-of-pointed-sets}, the inverse of the left unitor of $\Sets_{*}$ with respect to to the smash product of pointed sets at $(X,x_{0})\in\Obj(\Sets_{*})$ is given by
+        \item\label{proof-of-properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-2}\SloganFont{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-compatibility-with-strong-unitality-constraints}: Compatibility With Strong Unitality Constraints: }As shown in the proof of \cref{the-left-unitor-of-the-smash-product-of-pointed-sets}, the inverse of the left unitor of $\Sets_{*}$ with respect to to the smash product of pointed sets at $(X,x_{0})\in\Obj(\Sets_{*})$ is given by
             \[
                 \LUnitor^{\Sets_{*},-1}_{X}(x)%
                 \defeq%
@@ -6906,18 +6915,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \arrow[from=2-2,to=2-6,"\LUnitor^{\prime,-1}_{X}"',pos=0.5675]%
         \end{tikzcd}
     \]%
-    % BEGIN RAW HTML %
-    <p style="margin-bottom:1em">also commutes. Here's an interactive step-by-step showcase of this argument:</p>
-    <div id="slideshow-3" class="slideshow-container">
-        <img id="monoidal-left-unity-of-id-otimes-sets-star-slideshow-image" class="slideshow-image" src="/static/slides/monoidal-left-unity-of-id-otimes-sets-star/01.svg">
-        <div class="slideshow-button-container">
-            <button class="slideshow-button" id="prev-slideshow-button">Previous</button>
-            <button class="slideshow-button" id="next-slideshow-button">Next</button>
-        </div>
-    </div>
-    % BEGIN LATEX HTML %
-    also commutes. See the \href{https://clowderproject.com/tag/01P5}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
-    % END RAW HTML %
+    \begin{envwebgif}
+        Here's a step-by-step showcase of this argument: \webgif{monoidal-left-unity-of-id-otimes-sets-star.gif}
+    \end{envwebgif}
     We then have
     \begin{align*}
         \LUnitor^{\prime,-1}_{X}(x) &= [\LUnitor^{\prime,-1}_{X}\circ[x]](1)\\
@@ -7755,18 +7755,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \arrow[from=2-2,to=2-6,"\RUnitor^{\prime,-1}_{X}"',pos=0.5675]%
         \end{tikzcd}
     \]%
-    % BEGIN RAW HTML %
-    <p style="margin-bottom:1em">also commutes. Here's an interactive step-by-step showcase of this argument:</p>
-    <div id="slideshow-4" class="slideshow-container">
-        <img id="monoidal-right-unity-of-id-otimes-sets-star-slideshow-image" class="slideshow-image" src="/static/slides/monoidal-right-unity-of-id-otimes-sets-star/01.svg">
-        <div class="slideshow-button-container">
-            <button class="slideshow-button" id="prev-slideshow-button">Previous</button>
-            <button class="slideshow-button" id="next-slideshow-button">Next</button>
-        </div>
-    </div>
-    % BEGIN LATEX HTML %
-    also commutes. See the \href{https://clowderproject.com/tag/01P5}{WEB version of this proof} for an interactive step-by-step showcase of this argument.
-    % END RAW HTML %
+    \begin{envwebgif}
+        Here's a step-by-step showcase of this argument: \webgif{monoidal-right-unity-of-id-otimes-sets-star.gif}
+    \end{envwebgif}
     We then have
     \begin{align*}
         \RUnitor^{\prime,-1}_{X}(a) &= [\RUnitor^{\prime,-1}_{X}\circ[x]](1)\\
@@ -8501,7 +8492,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \end{tikzcd}
     \]%
     also commutes. We then have
-    \begin{envsmallsize}
+    \begin{envscriptsize}
         \begin{align*}
             \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
             \left.{}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}\right](x,(y,z)) &= \left[(\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\right.\\
@@ -8510,23 +8501,23 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                                                                                                      &\phantom{={}} \mkern4mu\left.{}\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}\circ([x]\wedge([y]\wedge[z]))\right](1,(1,1))\\
                                                                                                      &= [\alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}](x,(y,z))
         \end{align*}
-    \end{envsmallsize}
+    \end{envscriptsize}
     for each $(x,(y,z))\in X\wedge(Y\wedge Z)$, and thus we have
-    \begin{envfootnotesize}
+    \begin{envscriptsize}
         \[
             (\id^{\otimes,-1}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X\wedge Y,Z}\circ\alpha^{\Sets_{*},-1}_{X,Y,Z}%
             =%
             \alpha^{\prime,-1}_{X,Y,Z}\circ(\id_{X}\wedge\id^{\otimes,-1}_{\Sets_{*}|Y,Z})\circ\id^{\otimes,-1}_{\Sets_{*}|X,Y\wedge Z}.%
         \]%
-    \end{envfootnotesize}
+    \end{envscriptsize}
     Taking inverses then gives
-    \begin{envfootnotesize}
+    \begin{envscriptsize}
         \[
             \alpha^{\Sets_{*}}_{X,Y,Z}\circ\id^{\otimes}_{\Sets_{*}|X\wedge Y,Z}\circ(\id^{\otimes}_{\Sets_{*}|X,Y}\otimes_{\Sets_{*}}\id_{Z})%
             =%
             \id^{\otimes}_{\Sets_{*}|X,Y\wedge Z}\circ(\id_{X}\wedge\id^{\otimes}_{\Sets_{*}|Y,Z})\circ\alpha^{\prime}_{X,Y,Z},%
         \]%
-    \end{envfootnotesize}
+    \end{envscriptsize}
     showing that the diagram
     \[
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]

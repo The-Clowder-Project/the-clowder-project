@@ -2281,12 +2281,25 @@ web-and-serve:
 		printf "$(GREEN)Serving at localhost$(NC)\n"; \
 		end=$$(date +%s.%2N); \
 		duration=$$(echo "$$end - $$start" | bc); \
-        printf "$(GREEN) Run target finished successfully.$(NC)\n"; \
-        printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
-        printf "$(GREEN)   -->      TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
-        printf "$(GREEN)   -->     Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
-        printf "$(GREEN)   -->  TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
-        printf "$(GREEN)   -->  plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
-        printf "$(GREEN)   -->    Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    if [ -n "$$GITHUB_ENV" ]; then \
+	    	printf "$(GREEN)Saving build statistics for GitHub Actions...$(NC)\n"; \
+	    	{ \
+	    		echo "TOTAL_DURATION=$$(printf '%.2f' $$duration)"; \
+	    		echo "TEX_DURATION=$$(printf '%.2f' $$tex_duration)"; \
+	    		echo "TAGS_DURATION=$$(printf '%.2f' $$tags_duration)"; \
+	    		echo "TIKZCD_DURATION=$$(printf '%.2f' $$tikzcd_duration)"; \
+	    		echo "PLASTEX_DURATION=$$(printf '%.2f' $$plastex_duration)"; \
+	    		echo "GERBY_DURATION=$$(printf '%.2f' $$gerby_duration)"; \
+	    		echo "BUILD_SUCCESS=true"; \
+	    	} >> $$GITHUB_ENV; \
+	    else \
+	    	printf "$(GREEN)Run target finished successfully.$(NC)\n"; \
+	    	printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+	    	printf "$(GREEN)   -->       TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+	    	printf "$(GREEN)   -->      Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+	    	printf "$(GREEN)   -->   TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+	    	printf "$(GREEN)   -->   plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    fi; \
 		FLASK_APP=application.py flask run; \
 	fi
