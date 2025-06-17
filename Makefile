@@ -322,18 +322,18 @@ init:
 		git clone https://github.com/The-EPL-Type-Foundry/Hundar; \
 		cp -r Hundar/fonts/otf/Hundar.otf ./; \
 		rm -rf Hundar; \
-		mkdir Hundar; \
+		mkdir -p Hundar; \
 		mv Hundar.otf Hundar/Hundar-Regular.otf; \
-		mkdir brill; \
+		mkdir -p brill; \
 		git clone https://github.com/itamarkast/UoEmorphology; \
 		cp UoEmorphology/Brill-Roman.ttf brill/; \
 		rm -rf UoEmorphology; \
 		git clone https://github.com/huertatipografica/Alegreya-Sans; \
-		mkdir alegreya-sans; \
+		mkdir -p alegreya-sans; \
 		mv Alegreya-Sans/fonts/otf/*.otf alegreya-sans/; \
 		rm -rf Alegreya-Sans; \
 		git clone https://github.com/CatharsisFonts/Ysabeau; \
-		mkdir ysabeau; \
+		mkdir -p ysabeau; \
 		mv Ysabeau/fonts/googlefonts/variable/Ysabeau[wght].ttf ysabeau/Ysabeau.ttf; \
 		rm -rf Ysabeau; \
 		cd ../; \
