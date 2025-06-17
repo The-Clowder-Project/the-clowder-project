@@ -10,7 +10,7 @@ First, clone the repository via
 ```
 git clone https://github.com/The-Clowder-Project/the-clowder-project
 ```
-Then, run
+Once inside the project's directory, run
 ```
 make conda-create
 ```
