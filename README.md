@@ -14,15 +14,15 @@ Then, run
 ```
 make conda-create
 ```
-activate the new conda environment via
+Next, activate the new conda environment via
 ```
 conda activate clowder_py36_env
 ```
-and then run
+Then run
 ```
 make init
 ```
-which will install all required dependencies.
+This will install all required dependencies.
 
 ## Building the PDFs
 The PDFs can be built by running `make all`. There are also `make` commands for particular styles, which are formatted as follows:
