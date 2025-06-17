@@ -2177,7 +2177,7 @@ wget-clone:
 	cp tmp/scalemath/*.svg 			  web-clone/static/scalemath-images; \
 	cp tmp/scalemath/dark-mode/*.svg  web-clone/static/scalemath-images/dark-mode;
 
-# Target which compiles website with Gerby and serves it on 127.0.0.1:5000
+# Target which compiles website and serves it on 127.0.0.1:5000; ensures book PDF statistics work
 .PHONY: web-and-serve-with-pdf-statistics
 web-and-serve-with-pdf-statistics:
 	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
@@ -2203,7 +2203,7 @@ web-and-serve-with-pdf-statistics:
 		make web-and-serve; \
 	fi
 
-# Target which compiles website with Gerby and serves it on 127.0.0.1:5000
+# Target which compiles website and serves it on 127.0.0.1:5000
 .PHONY: web-and-serve
 web-and-serve:
 	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
@@ -2302,4 +2302,108 @@ web-and-serve:
 	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 	    fi; \
 		FLASK_APP=application.py flask run; \
+	fi
+
+# Target which compiles website and records given variable to log.log
+.PHONY: web-and-record
+web-and-record:
+	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		export LC_NUMERIC=C; \
+		start=$$(date +%s.%2N); \
+		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active ($$CONDA_PREFIX).$(NC)\n"; \
+		printf "$(GREEN)Compiling preambles...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		printf "$(GREEN)Compiling and processing .TeX book...$(NC)\n"; \
+		tex_start=$$(date +%s.%2N); \
+		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
+		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
+		python$(PYTHON_VERSION) scripts/process_raw_html_latex.py book.tex; \
+		cp book.tex tmp/; \
+		tex_end=$$(date +%s.%2N); \
+		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
+		printf "$(GREEN)Compiling tags...$(NC)\n"; \
+		tags_start=$$(date +%s.%2N); \
+		rm tags/tags; \
+		cp tags/tags.old tags/tags; \
+		cd tags; \
+		python$(PYTHON_VERSION) tagger.py >> tags; \
+		cd ../; \
+		rm -rf $(WEBDIR); \
+		mkdir $(WEBDIR); \
+		echo yes | python$(PYTHON_VERSION) scripts/add_tags.py; \
+		make web; \
+		tags_end=$$(date +%s.%2N); \
+		tags_duration=$$(echo "$$tags_end - $$tags_start" | bc); \
+		printf "$(GREEN)Compiling TikZ-CD diagrams$(NC)\n"; \
+		tikzcd_start=$$(date +%s.%2N); \
+		make tikzcd; \
+		tikzcd_end=$$(date +%s.%2N); \
+		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
+		printf "$(GREEN)Running plasTeX$(NC)\n"; \
+		cd $(WEBDIR); \
+		python$(PYTHON_VERSION) ../scripts/process_raw_html.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
+		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
+		plastex_start=$$(date +%s.%2N); \
+		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
+		plastex_end=$$(date +%s.%2N); \
+		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
+		printf "$(GREEN)Running Gerby$(NC)\n"; \
+		cd ../gerby-website/gerby/tools/; \
+		rm stacks.sqlite; \
+		gerby_start=$$(date +%s.%2N); \
+		rm stacks.pdf stacks.paux stacks.tags; \
+		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
+		cp ../../../WEB/book.paux stacks.paux ; \
+		cp ../../../WEB/tags stacks.tags ; \
+		python$(PYTHON_VERSION) update.py; \
+		cd ../; \
+		gerby_end=$$(date +%s.%2N); \
+		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
+		printf "$(GREEN)Serving at localhost$(NC)\n"; \
+		end=$$(date +%s.%2N); \
+		duration=$$(echo "$$end - $$start" | bc); \
+	    if [ -n "$$GITHUB_ENV" ]; then \
+	    	printf "$(GREEN)Saving build statistics for GitHub Actions...$(NC)\n"; \
+	    	{ \
+	    		echo "TOTAL_DURATION=$$(printf '%.2f' $$duration)"; \
+	    		echo "TEX_DURATION=$$(printf '%.2f' $$tex_duration)"; \
+	    		echo "TAGS_DURATION=$$(printf '%.2f' $$tags_duration)"; \
+	    		echo "TIKZCD_DURATION=$$(printf '%.2f' $$tikzcd_duration)"; \
+	    		echo "PLASTEX_DURATION=$$(printf '%.2f' $$plastex_duration)"; \
+	    		echo "GERBY_DURATION=$$(printf '%.2f' $$gerby_duration)"; \
+	    		echo "BUILD_SUCCESS=true"; \
+	    	} >> $$GITHUB_ENV; \
+	    else \
+	    	printf "$(GREEN)Run target finished successfully.$(NC)\n"; \
+	    	printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+	    	printf "$(GREEN)   -->       TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+	    	printf "$(GREEN)   -->      Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+	    	printf "$(GREEN)   -->   TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+	    	printf "$(GREEN)   -->   plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    fi; \
+		{ \
+	    	echo -n "$$(printf '%.2f' $$plastex_duration)"; \
+	    	echo -n ","; \
+		} >> ../../log.log; \
 	fi
