@@ -10,7 +10,19 @@ First, clone the repository via
 ```
 git clone https://github.com/The-Clowder-Project/the-clowder-project
 ```
-Then, run `make conda-create`, activate the new conda environment via `conda activate clowder_py36_env`, and then run `make init`, which will install all required dependencies.
+Then, run
+```
+make conda-create
+```
+activate the new conda environment via
+```
+conda activate clowder_py36_env
+```
+and then run
+```
+make init
+```
+which will install all required dependencies.
 
 ## Building the PDFs
 The PDFs can be built by running `make all`. There are also `make` commands for particular styles, which are formatted as follows:
