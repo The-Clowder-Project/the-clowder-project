@@ -21,7 +21,6 @@
 *.ps
 *.pyc
 *.run.xml
-*.svg
 *.toc
 *~
 .*
