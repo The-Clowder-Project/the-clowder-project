@@ -61,3 +61,5 @@ titlepage/titlepage-two.tex
 tmp
 venv
 web-clone
+pictures/light-mode/*
+pictures/dark-mode/*
