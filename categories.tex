@@ -14,19 +14,19 @@
 
 This chapter contains some elementary material about categories, functors, and natural transformations. Notably, we discuss and explore:
 \begin{enumerate}
-    \item Categories (\cref{section-categories}).
-    \item Examples of categories (\cref{section-examples-of-categories}).
-    \item The quadruple adjunction $\pi_{0}\dashv{(-)_{\disc}}\dashv\Obj\dashv{(-)_{\indisc}}$ between the category of categories and the category of sets (\cref{section-the-quadruple-adjunction-with-sets}).
-    \item Groupoids, categories in which all morphisms admit inverses (\cref{section-groupoids}).
-    \item Functors (\cref{section-functors}).
-    \item The conditions one may impose on functors in decreasing order of importance:
+    \item\label{categories-introduction-item-1}Categories (\cref{section-categories}).
+    \item\label{categories-introduction-item-2}Examples of categories (\cref{section-examples-of-categories}).
+    \item\label{categories-introduction-item-3}The quadruple adjunction $\pi_{0}\dashv{(-)_{\disc}}\dashv\Obj\dashv{(-)_{\indisc}}$ between the category of categories and the category of sets (\cref{section-the-quadruple-adjunction-with-sets}).
+    \item\label{categories-introduction-item-4}Groupoids, categories in which all morphisms admit inverses (\cref{section-groupoids}).
+    \item\label{categories-introduction-item-5}Functors (\cref{section-functors}).
+    \item\label{categories-introduction-item-6}The conditions one may impose on functors in decreasing order of importance:
         \begin{enumerate}
-            \item \cref{section-conditions-on-functors} introduces the foundationally important conditions one may impose on functors, such as faithfulness, conservativity, essential surjectivity, etc.
-            \item \cref{section-more-conditions-on-functors} introduces more conditions one may impose on functors that are still important but less omni-present than those of \cref{section-conditions-on-functors}, such as being dominant, being a monomorphism, being pseudomonic, etc.
-            \item \cref{section-even-more-conditions-on-functors} introduces some rather rare or uncommon conditions one may impose on functors that are nevertheless still useful to explicit record in this chapter.
+            \item\label{categories-introduction-item-6-a}\cref{section-conditions-on-functors} introduces the foundationally important conditions one may impose on functors, such as faithfulness, conservativity, essential surjectivity, etc.
+            \item\label{categories-introduction-item-6-b}\cref{section-more-conditions-on-functors} introduces more conditions one may impose on functors that are still important but less omni-present than those of \cref{section-conditions-on-functors}, such as being dominant, being a monomorphism, being pseudomonic, etc.
+            \item\label{categories-introduction-item-6-c}\cref{section-even-more-conditions-on-functors} introduces some rather rare or uncommon conditions one may impose on functors that are nevertheless still useful to explicit record in this chapter.
         \end{enumerate}
-    \item Natural transformations (\cref{section-natural-transformations}).
-    \item The various categorical and 2-categorical structures formed by categories, functors, and natural transformations (\cref{section-categories-of-categories}).
+    \item\label{categories-introduction-item-7}Natural transformations (\cref{section-natural-transformations}).
+    \item\label{categories-introduction-item-8}The various categorical and 2-categorical structures formed by categories, functors, and natural transformations (\cref{section-categories-of-categories}).
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -230,7 +230,7 @@ Let $\CatFont{C}$ be a category.
     A%
     %--- Begin Footnote ---%
     \footnote{%
-        Due to \cref{properties-of-skeletons-of-categories-uniqueness-up-to-equivalence} of \cref{properties-of-skeletons-of-categories}, we often refer to any such full subcategory $\Sk(\CatFont{C})$ of $\CatFont{C}$ as \emph{the} skeleton of $\CatFont{C}$.
+        Due to \cref{properties-of-skeletons-of-categories-uniqueness-up-to-equivalence} of \cref{properties-of-skeletons-of-categories}, which states that any two skeletons of a category are equivalent, we often refer to any such full subcategory $\Sk(\CatFont{C})$ of $\CatFont{C}$ as \emph{the} skeleton of $\CatFont{C}$.
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
@@ -407,47 +407,47 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                 \end{tikzcd}
             \end{webcompile}%
         \item\label{properties-of-pre-postcomposition-interaction-with-composition-3}\SloganFont{Interaction With Composition \rmIII. }We have
-            \begingroup\footnotesize
-            \begin{webcompile}
-                \begin{aligned}
-                    f^{*}\circ\circ^{\CatFont{C}}_{A,B,C}
-                    &=
-                    \circ^{\CatFont{C}}_{X,B,C}\circ(f^{*}\times\sfid),%
-                    %
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
-                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
-                        \arrow[d,"\sfid\times f^{*}"']
-                        \&
-                        \Hom_{\CatFont{C}}(A,C)
-                        \arrow[d,"f^{*}"]
+            \begin{envfootnotesize}
+                \begin{webcompile}
+                    \begin{aligned}
+                        f^{*}\circ\circ^{\CatFont{C}}_{A,B,C}
+                        &=
+                        \circ^{\CatFont{C}}_{X,B,C}\circ(f^{*}\times\sfid),%
+                        %
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
+                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
+                            \arrow[d,"\sfid\times f^{*}"']
+                            \&
+                            \Hom_{\CatFont{C}}(A,C)
+                            \arrow[d,"f^{*}"]
+                            \\
+                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(X,B)
+                            \arrow[r,"\circ^{\CatFont{C}}_{X,B,C}"']
+                            \&
+                            \Hom_{\CatFont{C}}(X,C)\mrp{,}
+                        \end{tikzcd}
                         \\
-                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(X,B)
-                        \arrow[r,"\circ^{\CatFont{C}}_{X,B,C}"']
-                        \&
-                        \Hom_{\CatFont{C}}(X,C)\mrp{,}
-                    \end{tikzcd}
-                    \\
-                    g_{*}\circ\circ^{\CatFont{C}}_{A,B,C}
-                    &=
-                    \circ^{\CatFont{C}}_{A,B,D}\circ(\sfid\times g_{*}),%
-                    %
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
-                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
-                        \arrow[d,"g_{*}\times\sfid"']
-                        \&
-                        \Hom_{\CatFont{C}}(A,C)
-                        \arrow[d,"g^{*}"]
-                        \\
-                        \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
-                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,D}"']
-                        \&
-                        \Hom_{\CatFont{C}}(A,D)\mrp{.}
-                    \end{tikzcd}
-                \end{aligned}
-            \end{webcompile}%
-            \endgroup
+                        g_{*}\circ\circ^{\CatFont{C}}_{A,B,C}
+                        &=
+                        \circ^{\CatFont{C}}_{A,B,D}\circ(\sfid\times g_{*}),%
+                        %
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
+                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
+                            \arrow[d,"g_{*}\times\sfid"']
+                            \&
+                            \Hom_{\CatFont{C}}(A,C)
+                            \arrow[d,"g^{*}"]
+                            \\
+                            \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
+                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,D}"']
+                            \&
+                            \Hom_{\CatFont{C}}(A,D)\mrp{.}
+                        \end{tikzcd}
+                    \end{aligned}
+                \end{webcompile}%
+            \end{envfootnotesize}
         \item\label{properties-of-pre-postcomposition-interaction-with-identities}\SloganFont{Interaction With Identities. }We have
             \begin{align*}
                 (\id_{A})^{*} &= \id_{\Hom_{\CatFont{C}}(A,B)},\\
@@ -1999,42 +1999,26 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
     \begin{enumerate}
         \item\label{pronunciation-of-the-words-in-notation-for-forgetful-functors-that-forget-structure-wasureru}Pronunciation of \Japanese{忘れる}:
             \begin{itemize}
-                    % BEGIN RAW HTML %
-                    <li>Audio: <audio id="audioPlayerWasureru1" src="/static/sounds/wasureru-01.mp3" type="audio/mp3"></audio><span class="dark-svg"><button id="playButtonWasureru1"></button></span>
-                    % BEGIN LATEX HTML %
-                \item Audio: see \url{https://topological-modular-forms.github.io/the-clowder-project/static/sounds/wasureru-01.mp3}
-                    % END RAW HTML %
+                \item \audio{wasureru-01.mp3}
                 \item IPA broad transcription: [\IPA{wäsɯɾe̞ɾɯ}].
                 \item IPA narrow transcription: [\IPA{ɰᵝäsɨᵝɾe̞ɾɯ̟ᵝ}].
             \end{itemize}
         \item\label{pronunciation-of-the-words-in-notation-for-forgetful-functors-that-forget-structure-boukyaku-kanshu}Pronunciation of \Japanese{忘却関手}:
             Pronunciation:
             \begin{itemize}
-                    % BEGIN RAW HTML %
-                    <li>Audio: <audio id="audioPlayerWasureru2" src="/static/sounds/wasureru-02.mp3" type="audio/mp3"></audio><span class="dark-svg"><button id="playButtonWasureru2"></button></span>
-                    % BEGIN LATEX HTML %
-                \item Audio: see \url{https://topological-modular-forms.github.io/the-clowder-project/static/sounds/wasureru-02.mp3}
-                    % END RAW HTML %
+                \item \audio{wasureru-02.mp3}
                 \item IPA broad transcription: [\IPA{bo̞ːkʲäkɯ kä̃ɰ̃ɕɯ}].
                 \item IPA narrow transcription: [\IPA{bo̞ːkʲäkɯ̟ᵝ kä̃ɰ̃ɕɯᵝ}].
             \end{itemize}
         \item\label{pronunciation-of-the-words-in-notation-for-forgetful-functors-that-forget-structure-wang-ji}Pronunciation of \SimplifiedChinese{忘记}:
             \begin{itemize}
-                    % BEGIN RAW HTML %
-                    <li>Audio: <audio id="audioPlayerWasureru3" src="/static/sounds/wasureru-03.ogg" type="audio/ogg"></audio><span class="dark-svg"><button id="playButtonWasureru3"></button></span>
-                    % BEGIN LATEX HTML %
-                \item Audio: see \url{https://topological-modular-forms.github.io/the-clowder-project/static/sounds/wasureru-03.ogg}
-                    % END RAW HTML %
+                \item \audio{wasureru-03.mp3}
                 \item Broad IPA transcription: [\IPA{wɑŋtɕi}].
                 \item Sinological IPA transcription: [\IPA{wɑŋ⁵¹⁻⁵³t͡ɕi⁵¹}].
             \end{itemize}
         \item\label{pronunciation-of-the-words-in-notation-for-forgetful-functors-that-forget-structure-yiwang-hanzi}Pronunciation of \SimplifiedChinese{遗忘函子}:
             \begin{itemize}
-                    % BEGIN RAW HTML %
-                    <li>Audio: <audio id="audioPlayerWasureru4" src="/static/sounds/wasureru-04.mp3" type="audio/mp3"></audio><span class="dark-svg"><button id="playButtonWasureru4"></button></span>
-                    % BEGIN LATEX HTML %
-                \item Audio: see \url{https://topological-modular-forms.github.io/the-clowder-project/static/sounds/wasureru-04.mp3}
-                    % END RAW HTML %
+                \item \audio{wasureru-04.mp3}
                 \item Broad IPA transcription: [\IPA{iwɑŋ xänt͡sz̩ɨ}].
                 \item Sinological IPA transcription: [\IPA{i³⁵wɑŋ⁵¹ xän³⁵t͡sz̩²¹⁴⁻²¹⁽⁴⁾}].
             \end{itemize}
@@ -2334,15 +2318,15 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \]%
                     of the adjunction $\Lan_{F}\dashv F^{*}$ are all epimorphisms.
                 \item\label{properties-of-faithful-functors-interaction-with-precomposition-3-g}The functor $F$ is dominant (\cref{dominant-functors}), i.e.\ every object of $\CatFont{D}$ is a retract of some object in $\Im(F)$:
-                    \begin{itemize}% PROCESS %
-                        \item[$(\star)$]For each $B\in\Obj(\CatFont{D})$, there exist:
-                            \begin{itemize}% PROCESS %
+                    \begin{itemize}
+                        \itemstar For each $B\in\Obj(\CatFont{D})$, there exist:
+                            \begin{itemize}
                                 \item An object $A$ of $\CatFont{C}$;
                                 \item A morphism $s\colon B\to F(A)$ of $\CatFont{D}$;
                                 \item A morphism $r\colon F(A)\to B$ of $\CatFont{D}$;
-                            \end{itemize}% PROCESS %
+                            \end{itemize}
                             such that $r\circ s=\id_{B}$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
             \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -2493,14 +2477,14 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \]%
                     of the adjunction $\Lan_{F}\dashv F^{*}$ are all sections/split monomorphisms.
                 \item\label{properties-of-full-functors-interaction-with-precomposition-4-e}For each $B\in\Obj(\CatFont{D})$, there exist:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item An object $A_{B}$ of $\CatFont{C}$;
                         \item A morphism $s_{B}\colon B\to F(A_{B})$ of $\CatFont{D}$;
                         \item A morphism $r_{B}\colon F(A_{B})\to B$ of $\CatFont{D}$;
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                     satisfying the following condition:
-                    \begin{itemize}% PROCESS %
-                        \item[$(\star)$]For each $A\in\Obj(\CatFont{C})$ and each pair of morphisms
+                    \begin{itemize}
+                        \itemstar For each $A\in\Obj(\CatFont{C})$ and each pair of morphisms
                             \begin{align*}
                                 r &\colon F(A) \to B,\\
                                 s &\colon B    \to F(A)
@@ -2512,7 +2496,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                                 [(A,s,r\circ s_{B}\circ r_{B})]%
                             \]%
                             in $\int^{A\in\CatFont{C}}h^{B'}_{F_{A}}\times h^{F_{A}}_{B}$.
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
             \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -2648,7 +2632,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             \]%
             commute for each $e\in\Hom_{\B\Zn{2}}(\bullet,\bullet)\cong\Zn{2}$. We have two cases:
             \begin{enumerate}
-                \item If $\alpha=f$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
+                \item\label{proof-of-properties-of-full-functors-interaction-with-postcomposition-1-item-1}If $\alpha=f$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             A
@@ -2665,7 +2649,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                         \end{tikzcd}
                     \]%
                     However, $e_{B}\circ f=f$ and $f\circ e_{A}=g$, so this diagram does not commute.
-                \item If $\alpha=g$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
+                \item\label{proof-of-properties-of-full-functors-interaction-with-postcomposition-1-item-2}If $\alpha=g$, the naturality diagram for the unique nonidentity element of $\Zn{2}$ is given by
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             A
@@ -2967,11 +2951,11 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \]%
                     is a natural isomorphism.
                 \item\label{properties-of-fully-faithful-functors-interaction-with-precomposition-4-i}For each $B\in\Obj(\CatFont{D})$, there exist:
-                    \begin{itemize}% PROCESS %
+                    \begin{itemize}
                         \item An object $A_{B}$ of $\CatFont{C}$;
                         \item A morphism $s_{B}\colon B\to F(A_{B})$ of $\CatFont{D}$;
                         \item A morphism $r_{B}\colon F(A_{B})\to B$ of $\CatFont{D}$;
-                    \end{itemize}% PROCESS %
+                    \end{itemize}
                     satisfying the following conditions:
                     \begin{enumerate}
                         \item\label{properties-of-fully-faithful-functors-interaction-with-precomposition-4-i-a}The triple $(F(A_{B}),r_{B},s_{B})$ is a retract of $B$, i.e.\ we have $r_{B}\circ s_{B}=\id_{B}$.
@@ -3051,7 +3035,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]For each $f\in\Mor(\CatFont{C})$, if $F(f)$ is an isomorphism in $\CatFont{D}$, then $f$ is an isomorphism in $\CatFont{C}$.%
+        \itemstar For each $f\in\Mor(\CatFont{C})$, if $F(f)$ is an isomorphism in $\CatFont{D}$, then $f$ is an isomorphism in $\CatFont{C}$.%
     \end{itemize}
 \end{definition}
 \begin{proposition}{Properties of Conservative Functors}{properties-of-conservative-functors}%
@@ -3100,7 +3084,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 \begin{question}{Characterisations of Functors With Conservative Pre/Postcomposition}{characterisations-of-functors-with-conservative-pre-postcomposition}%
     Is there a characterisation of functors $F\colon\CatFont{C}\to\CatFont{D}$ satisfying the following condition:
     \begin{itemize}
-        \item[$(\star)$]For each $\CatFont{X}\in\Obj(\Cats)$, the postcomposition functor
+        \itemstar For each $\CatFont{X}\in\Obj(\Cats)$, the postcomposition functor
             \[
                 F_{*}%
                 \colon%
@@ -3116,9 +3100,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 \begin{definition}{Essentially Injective Functors}{essentially-injective-functors}%
     A functor $F\colon\CatFont{C}\to\CatFont{D}$ is \index[categories]{functor!essentially injective}\textbf{essentially injective} if it satisfies the following condition:
-    \begin{itemize}% PROCESS %
-        \item[$(\star)$]For each $A,B\in\Obj(\CatFont{C})$, if $F(A)\cong F(B)$, then $A\cong B$.
-    \end{itemize}% PROCESS %
+    \begin{itemize}
+        \itemstar For each $A,B\in\Obj(\CatFont{C})$, if $F(A)\cong F(B)$, then $A\cong B$.
+    \end{itemize}
 \end{definition}
 \begin{question}{Characterisations of Functors With Essentially Injective Pre/Postcomposition}{characterisations-of-functors-with-essentially-injective-pre-postcomposition}%
     Is there a characterisation of functors $F\colon\CatFont{C}\to\CatFont{D}$ such that:
@@ -3155,9 +3139,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     } %
     %---  End Footnote  ---%
     if it satisfies the following condition:
-    \begin{itemize}% PROCESS %
-        \item[$(\star)$]For each $D\in\Obj(\CatFont{D})$, there exists some object $A$ of $\CatFont{C}$ such that $F(A)\cong D$.
-    \end{itemize}% PROCESS %
+    \begin{itemize}
+        \itemstar For each $D\in\Obj(\CatFont{D})$, there exists some object $A$ of $\CatFont{C}$ such that $F(A)\cong D$.
+    \end{itemize}
 \end{definition}
 \begin{question}{Characterisations of Functors With Essentially Surjective Pre/Postcomposition}{characterisations-of-functors-with-essentially-surjective-pre-postcomposition}%
     Is there a characterisation of functors $F\colon\CatFont{C}\to\CatFont{D}$ such that:
@@ -3399,13 +3383,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 \begin{definition}{Dominant Functors}{dominant-functors}%
     A functor $F\colon\CatFont{C}\to\CatFont{D}$ is \index[categories]{functor!dominant}\textbf{dominant} if every object of $\CatFont{D}$ is a retract of some object in $\Im(F)$, i.e.:
-    \begin{itemize}% PROCESS %
-        \item[$(\star)$]For each $B\in\Obj(\CatFont{D})$, there exist:
-            \begin{itemize}% PROCESS %
+    \begin{itemize}
+        \itemstar For each $B\in\Obj(\CatFont{D})$, there exist:
+            \begin{itemize}
                 \item An object $A$ of $\CatFont{C}$;
                 \item A morphism $r\colon F(A)\to B$ of $\CatFont{D}$;
                 \item A morphism $s\colon B\to F(A)$ of $\CatFont{D}$;
-            \end{itemize}% PROCESS %
+            \end{itemize}
             such that we have
             \begin{webcompile}
                 r\circ s%
@@ -3424,7 +3408,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     B\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
-    \end{itemize}% PROCESS %
+    \end{itemize}
 \end{definition}
 \begin{proposition}{Properties of Dominant Functors}{properties-of-dominant-functors}%
     Let $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors and let $I\colon\CatFont{X}\to\CatFont{C}$ be a functor.
@@ -4885,10 +4869,10 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
         \end{tikzcd}
     \]%
     commutes. Since
-    \begin{enumerate}
+    \begin{itemize}
         \item Subdiagram (1) commutes by the naturality of $\alpha$.
         \item Subdiagram (2) commutes by the naturality of $\beta$.
-    \end{enumerate}
+    \end{itemize}
     so does the boundary diagram. Hence $\beta\circ\alpha$ is a natural transformation.
 \end{Proof}
 \begin{proposition}{Properties of Vertical Composition of Natural Transformations}{properties-of-vertical-composition-of-natural-transformations}%
@@ -5206,10 +5190,10 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
         \end{tikzcd}
     \]%
     commutes. Since
-    \begin{enumerate}
+    \begin{itemize}
         \item Subdiagram (1) commutes by the naturality of $\alpha$.
         \item Subdiagram (2) commutes by the naturality of $\beta$.
-    \end{enumerate}
+    \end{itemize}
     so does the boundary diagram. Hence $\beta\circ\alpha$ is a natural transformation.%
     %--- Begin Footnote ---%
     \footnote{%

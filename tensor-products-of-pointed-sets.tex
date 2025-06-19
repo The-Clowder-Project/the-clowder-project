@@ -379,7 +379,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterWeightedLimitsAndColimits, \cref{weighted-limits-and-colimits:tensors}}{\cref{tensors}}.
+    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{weighted-limits-and-colimits:tensors}}{\cref{tensors}}.
 \end{definition}
 \begin{remark}{Unwinding \cref{tensors-of-pointed-sets-by-sets}}{unwinding-tensors-of-pointed-sets-by-sets}%
     In detail, the \textbf{tensor of $(X,x_{0})$ by $A$} is the pointed set \index[notation]{AodotXxzero@$A\odot(X,x_{0})$}$A\odot(X,x_{0})$ satisfying the following universal property:
@@ -883,7 +883,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterWeightedLimitsAndColimits, \cref{weighted-limits-and-colimits:cotensors}}{\cref{cotensors}}.
+    of $(X,x_{0})$ by $A$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{weighted-limits-and-colimits:cotensors}}{\cref{cotensors}}.
 \end{definition}
 \begin{remark}{Unwinding \cref{cotensors-of-pointed-sets-by-sets}}{unwinding-cotensors-of-pointed-sets-by-sets}%
     In detail, the \textbf{cotensor of $(X,x_{0})$ by $A$} is the pointed set $A\pitchfork(X,x_{0})$ satisfying the following universal property:
@@ -1354,8 +1354,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     That is to say, the following data are in natural bijection:
     \begin{enumerate}
-        \item Pointed maps $f\colon X\lhd Y\to Z$.
-        \item Maps of sets $f\colon X\times Y\to Z$ satisfying $f(x_{0},y)=z_{0}$ for each $y\in Y$.
+        \item\label{unwinding-the-left-tensor-product-of-pointed-sets-1-universal-property-1-item-1}Pointed maps $f\colon X\lhd Y\to Z$.
+        \item\label{unwinding-the-left-tensor-product-of-pointed-sets-1-universal-property-1-item-2}Maps of sets $f\colon X\times Y\to Z$ satisfying $f(x_{0},y)=z_{0}$ for each $y\in Y$.
     \end{enumerate}
 \end{remark}
 \begin{remark}{Unwinding \cref{the-left-tensor-product-of-pointed-sets}: Universal Property \rmII}{unwinding-the-left-tensor-product-of-pointed-sets-2-universal-property-2}%
@@ -1428,8 +1428,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{envsmallsize}
     However, the condition $(y,x)\sim_{R}(y',x')$ only holds when:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item We have $x=x'=x_{0}$.
+        \item\label{proof-of-constructions-of-the-left-tensor-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-constructions-of-the-left-tensor-product-of-pointed-sets-2}We have $x=x'=x_{0}$.
     \end{enumerate}
     So, given $f\in\Hom_{\Sets}(\coprod_{y\in Y}X,Z)$ with a corresponding $\widebar{f}\colon X\lhd Y\to Z$, the latter case above implies
     \begin{align*}
@@ -1647,8 +1647,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     That is to say, the following data are in bijection:
     \begin{enumerate}
-        \item Pointed maps $f\colon X\lhd Y\to Z$.
-        \item Pointed maps $f\colon X\to[Y,Z]^{\lhd}_{\Sets_{*}}$.
+        \item\label{unwinding-the-left-internal-hom-of-pointed-sets-1-universal-property-item-1}Pointed maps $f\colon X\lhd Y\to Z$.
+        \item\label{unwinding-the-left-internal-hom-of-pointed-sets-1-universal-property-item-2}Pointed maps $f\colon X\to[Y,Z]^{\lhd}_{\Sets_{*}}$.
     \end{enumerate}
 \end{remark}
 \begin{remark}{Unwinding \cref{the-left-internal-hom-of-pointed-sets}, \rmII: Explicit Description}{unwinding-the-left-internal-hom-of-pointed-sets-1-explicit-description}%
@@ -2774,7 +2774,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             for each $a,b,c\in A$.
         \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2}\SloganFont{Left Unitality. }The left unitality condition acts:
             \begin{enumerate}
-                \item On $0\lhd a$ as
+                \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2-a}On $0\lhd a$ as
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             0\lhd a
@@ -2797,7 +2797,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                             0_{A}a\mrp{.}
                         \end{tikzcd}
                     \end{webcompile}
-                \item On $1\lhd a$ as
+                \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2-b}On $1\lhd a$ as
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             1\lhd a
@@ -3026,8 +3026,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     That is to say, the following data are in natural bijection:
     \begin{enumerate}
-        \item Pointed maps $f\colon X\rhd Y\to Z$.
-        \item Maps of sets $f\colon X\times Y\to Z$ satisfying $f(x,y_{0})=z_{0}$ for each $x\in X$.
+        \item\label{unwinding-the-right-tensor-product-of-pointed-sets-universal-property-1-item-1}Pointed maps $f\colon X\rhd Y\to Z$.
+        \item\label{unwinding-the-right-tensor-product-of-pointed-sets-universal-property-1-item-2}Maps of sets $f\colon X\times Y\to Z$ satisfying $f(x,y_{0})=z_{0}$ for each $x\in X$.
     \end{enumerate}
 \end{remark}
 \begin{remark}{Unwinding \cref{the-right-tensor-product-of-pointed-sets}: Universal Property \rmII}{unwinding-the-right-tensor-product-of-pointed-sets-2-universal-property-2}%
@@ -3100,8 +3100,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{envsmallsize}
     However, the condition $(x,y)\sim_{R}(x',y')$ only holds when:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item We have $y=y'=y_{0}$.
+        \item\label{proof-of-constructions-of-the-right-tensor-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-constructions-of-the-right-tensor-product-of-pointed-sets-2}We have $y=y'=y_{0}$.
     \end{enumerate}
     So, given $f\in\Hom_{\Sets}(\coprod_{x\in X}Y,Z)$ with a corresponding $\widebar{f}\colon X\rhd Y\to Z$, the latter case above implies
     \begin{align*}
@@ -3327,8 +3327,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     That is to say, the following data are in bijection:
     \begin{enumerate}
-        \item Pointed maps $f\colon X\rhd Y\to Z$.
-        \item Pointed maps $f\colon Y\to[X,Z]^{\rhd}_{\Sets_{*}}$.
+        \item\label{unwinding-the-right-internal-hom-of-pointed-sets-2-universal-property-item-1}Pointed maps $f\colon X\rhd Y\to Z$.
+        \item\label{unwinding-the-right-internal-hom-of-pointed-sets-2-universal-property-item-2}Pointed maps $f\colon Y\to[X,Z]^{\rhd}_{\Sets_{*}}$.
     \end{enumerate}
 \end{remark}
 \begin{remark}{Unwinding \cref{the-right-internal-hom-of-pointed-sets}, \rmIII: Explicit Description}{unwinding-the-right-internal-hom-of-pointed-sets-3-explicit-description}%
@@ -4484,7 +4484,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             for each $a\in A$.
         \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-right-unitality-2}\SloganFont{Right Unitality. }The right unitality condition acts:
             \begin{enumerate}
-                \item On $1\rhd 0$ as
+                \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-right-unitality-2-a}On $1\rhd 0$ as
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             1\rhd 0
@@ -4507,7 +4507,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                             a0_{A}\mrp{.}
                         \end{tikzcd}
                     \end{webcompile}
-                \item On $a\rhd 1$ as
+                \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-right-unitality-2-b}On $a\rhd 1$ as
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             a\rhd 1
@@ -4779,11 +4779,11 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{envsmallsize}
     However, the condition $(x,y)\sim_{R}(x',y')$ only holds when:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item The following conditions are satisfied:
+        \item\label{proof-of-construction-of-smash-products-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-construction-of-smash-products-of-pointed-sets-2}The following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=x_{0}$ or $y=y_{0}$.
-                \item We have $x'=x_{0}$ or $y'=y_{0}$.
+                \item\label{proof-of-construction-of-smash-products-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=y_{0}$.
+                \item\label{proof-of-construction-of-smash-products-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=y_{0}$.
             \end{enumerate}
     \end{enumerate}
     So, given $f\in\Hom_{\Sets}(X\times Y,Z)$ with a corresponding $\widebar{f}\colon X\wedge Y\to Z$, the latter case above implies
@@ -4980,23 +4980,23 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     in \cref{construction-of-smash-products-of-pointed-sets}. The condition defining $\unsim$ is that at least one of the following conditions is satisfied:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$;
-        \item Both of the following conditions are satisfied:
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-1}We have $x=x'$ and $y=y'$;
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=x_{0}$ or $y=y_{0}$.
-                \item We have $x'=x_{0}$ or $y'=y_{0}$.
+                \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-2-a}We have $x=x_{0}$ or $y=y_{0}$.
+                \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-2-b}We have $x'=x_{0}$ or $y'=y_{0}$.
             \end{enumerate}
     \end{enumerate}
     We have five cases:
     \begin{enumerate}
-        \item In the first case, we clearly have
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-3}In the first case, we clearly have
             \[
                 [f\wedge g](x,y)%
                 =%
                 [f\wedge g](x',y')%
             \]%
             since $x=x'$ and $y=y'$.
-        \item If $x=x_{0}$ and $x'=x_{0}$, we have 
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-4}If $x=x_{0}$ and $x'=x_{0}$, we have 
             \begin{align*}
                 [f\wedge g](x_{0},y) &\defeq f(x_{0})\wedge g(y)\\%
                                      &=      a_{0}\wedge g(y)\\%
@@ -5004,7 +5004,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                                      &=      f(x_{0})\wedge g(y')\\%
                                      &\defeq [f\wedge g](x_{0},y').%
             \end{align*}
-        \item If $x=x_{0}$ and $y'=y_{0}$, we have 
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-5}If $x=x_{0}$ and $y'=y_{0}$, we have 
             \begin{align*}
                 [f\wedge g](x_{0},y) &\defeq f(x_{0})\wedge g(y)\\%
                                      &=      a_{0}\wedge g(y)\\%
@@ -5013,7 +5013,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                                      &=      f(x')\wedge g(y_{0})\\%
                                      &\defeq [f\wedge g](x',y_{0}).%
             \end{align*}
-        \item If $y=y_{0}$ and $x'=x_{0}$, we have 
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-6}If $y=y_{0}$ and $x'=x_{0}$, we have 
             \begin{align*}
                 [f\wedge g](x,y_{0}) &\defeq f(x)\wedge g(y_{0})\\%
                                      &=      f(x)\wedge b_{0}\\%
@@ -5022,7 +5022,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                                      &=      f(x_{0})\wedge g(y')\\%
                                      &\defeq [f\wedge g](x_{0},y').%
             \end{align*}
-        \item If $y=y_{0}$ and $y'=y_{0}$, we have 
+        \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-7}If $y=y_{0}$ and $y'=y_{0}$, we have 
             \begin{align*}
                 [f\wedge g](x,y_{0}) &\defeq f(x)\wedge g(y_{0})\\%
                                      &=      f(x)\wedge b_{0}\\%
@@ -5395,11 +5395,11 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{Well-Definedness}%
     Let $[((x,y),z)]=[((x',y'),z')]$ be an element in $(X\wedge Y)\wedge Z$. Then either:
     \begin{enumerate}
-        \item We have $x=x'$, $y=y'$, and $z=z'$.
-        \item Both of the following conditions are satisfied:
+        \item\label{proof-of-the-associator-of-the-smash-product-of-pointed-sets-1}We have $x=x'$, $y=y'$, and $z=z'$.
+        \item\label{proof-of-the-associator-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=x_{0}$ or $y=y_{0}$ or $z=z_{0}$.
-                \item We have $x'=x_{0}$ or $y'=y_{0}$ or $z'=z_{0}$.
+                \item\label{proof-of-the-associator-of-the-smash-product-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=y_{0}$ or $z=z_{0}$.
+                \item\label{proof-of-the-associator-of-the-smash-product-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=y_{0}$ or $z'=z_{0}$.
             \end{enumerate}
     \end{enumerate}
     In the first case, $\alpha^{\Sets_{*}}_{X,Y,Z}$ clearly sends both elements to the same element in $X\wedge(Y\wedge Z)$. Meanwhile, in the latter case both elements are equal to the basepoint $(x_{0}\wedge y_{0})\wedge z_{0}$ of $(X\wedge Y)\wedge Z$, which gets sent to the basepoint $x_{0}\wedge(y_{0}\wedge z_{0})$ of $X\wedge(Y\wedge Z)$.
@@ -5517,11 +5517,11 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{Well-Definedness}%
     Let $[(x,y)]=[(x',y')]$ be an element in $S^{0}\wedge X$. Then either:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item Both of the following conditions are satisfied:
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=0$ or $y=x_{0}$.
-                \item We have $x'=0$ or $y'=x_{0}$.
+                \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-2-a}We have $x=0$ or $y=x_{0}$.
+                \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-2-b}We have $x'=0$ or $y'=x_{0}$.
             \end{enumerate}
     \end{enumerate}
     In the first case, $\LUnitor^{\Sets_{*}}_{X}$ clearly sends both elements to the same element in $X$. Meanwhile, in the latter case both elements are equal to the basepoint $0\wedge x_{0}$ of $S^{0}\wedge X$, which gets sent to the basepoint $x_{0}$ of $X$.
@@ -5703,11 +5703,11 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{Well-Definedness}%
     Let $[(x,y)]=[(x',y')]$ be an element in $X\wedge S^{0}$. Then either:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item Both of the following conditions are satisfied:
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=x_{0}$ or $y=0$.
-                \item We have $x'=x_{0}$ or $y'=0$.
+                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=0$.
+                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=0$.
             \end{enumerate}
     \end{enumerate}
     In the first case, $\RUnitor^{\Sets_{*}}_{X}$ clearly sends both elements to the same element in $X$. Meanwhile, in the latter case both elements are equal to the basepoint $x_{0}\wedge 0$ of $X\wedge S^{0}$, which gets sent to the basepoint $x_{0}$ of $X$.
@@ -5893,11 +5893,11 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{Well-Definedness}%
     Let $[(x,y)]=[(x',y')]$ be an element in $X\wedge Y$. Then either:
     \begin{enumerate}
-        \item We have $x=x'$ and $y=y'$.
-        \item Both of the following conditions are satisfied:
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item We have $x=x_{0}$ or $y=y_{0}$.
-                \item We have $x'=x_{0}$ or $y'=y_{0}$.
+                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=y_{0}$.
+                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=y_{0}$.
             \end{enumerate}
     \end{enumerate}
     In the first case, $\sigma^{\Sets_{*}}_{X}$ clearly sends both elements to the same element in $X$. Meanwhile, in the latter case both elements are equal to the basepoint $x_{0}\wedge y_{0}$ of $X\wedge Y$, which gets sent to the basepoint $y_{0}\wedge x_{0}$ of $Y\wedge X$.
@@ -6783,13 +6783,13 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \end{tikzcd}
     \end{scalemath}
     whose boundary diagram corresponds to the diagram $(\dagger)$ above. In this diagram:
-    \begin{enumerate}
+    \begin{itemize}
         \item Subdiagrams $(1)$, $(2)$, and $(3)$ commute by the naturality of $\id^{\otimes}_{\Sets_{*}}$.
         \item Subdiagram $(4)$ commutes by \cref{TODO}.
         \item Subdiagram $(5)$ commutes by the naturality of $\RUnitor^{\Sets_{*},-1}$.
         \item Subdiagram $(6)$ commutes trivially.
         \item Subdiagram $(7)$ commutes by the naturality of $\RUnitor^{\Sets_{*}}$, where the equality $\RUnitor^{\Sets_{*}}_{S^{0}}=\LUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO}.
-    \end{enumerate}
+    \end{itemize}
     Since all subdiagrams commute, so does the boundary diagram, i.e.\ the diagram $(\dagger)$ above. As a result, the diagram
     \[
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -7626,10 +7626,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \end{tikzcd}
     \end{scalemath}
     whose boundary diagram corresponds to the diagram $(\dagger)$ above, since the composition in \textcolor{OIvermillion}{red} is equal to $\sigma'_{S^{0},\Unit_{\Sets_{*}}}$ as proved above, and then the composition in \textcolor{OIvermillion}{red} composed with $\LUnitor'_{S^{0}}$ is equal to $\RUnitor'_{S^{0}}$ by \cref{TODO}. In this diagram:
-    \begin{enumerate}
+    \begin{itemize}
         \item Subdiagrams $(1)$, $(2)$, and $(3)$ commute by the naturality of $\id^{\otimes}_{\Sets_{*}}$.
         \item Subdiagrams $(4)$, $(5)$, and $(6)$ commute by the naturality of $\LUnitor^{\Sets_{*}}$, where the equality $\LUnitor^{\Sets_{*}}_{S^{0}}=\RUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO}.
-    \end{enumerate}
+    \end{itemize}
     Since all subdiagrams commute, so does the boundary diagram, i.e.\ the diagram $(\dagger)$ above. As a result, the diagram
     \[
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]

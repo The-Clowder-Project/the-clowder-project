@@ -445,7 +445,7 @@ Let $A$ and $B$ be sets.
             \]%
             i.e.\ that if there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, then $b=b'$. But since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, we have both $a\sim_{R}b$ and $a\sim_{R}b'$ at the same time, which implies $b=b'$ since $R$ is functional.
         \item\SloganFont{\cref{properties-of-functional-relations-characterisations-2}$\implies$\cref{properties-of-functional-relations-characterisations-1}: }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Since $a\sim_{R}b$, we have $b\sim_{R^{\dagger}}a$.
                 \item Since $R\procirc R^{\dagger}\subset\chi_{B}$, we have
                     \[
@@ -454,7 +454,7 @@ Let $A$ and $B$ be sets.
                         \chi_{B}(b,b'),%
                     \]%
                     and since $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, it follows that $[R\procirc R^{\dagger}](b,b')=\true$, and thus $\chi_{B}(b,b')=\true$ as well, i.e.\ $b=b'$.
-            \end{enumerate}
+            \end{itemize}
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -1725,7 +1725,7 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \begin{enumerate}
         \item\label{isomorphisms-and-equivalences-in-rel-1}The relation $R\colon A\rightproarrow B$ is an equivalence in $\sfbfRel$, i.e.:
             \begin{itemize}
-                \item[$(\star)$]There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
+                \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
                     \begin{align*}
                         R^{-1}\procirc R &\cong \chi_{A},\\
                         R\procirc R^{-1} &\cong \chi_{B}.
@@ -1733,7 +1733,7 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
             \end{itemize}
         \item\label{isomorphisms-and-equivalences-in-rel-2}The relation $R\colon A\rightproarrow B$ is an isomorphism in $\Rel$, i.e.:
             \begin{itemize}
-                \item[$(\star)$]There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ such that we have
+                \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ such that we have
                     \begin{align*}
                         R^{-1}\procirc R &= \chi_{A},\\
                         R\procirc R^{-1} &= \chi_{B}.
@@ -1967,8 +1967,8 @@ Let $A$ be a set.
     \end{webcompile}%%
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic, and hence all that is left is the data of the two maps $\mu_{R}$ and $\eta_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
-        \item For each $a\in A$, we have $a\sim_{R}a$.
+        \item\label{proof-of-monads-in-rel-1}For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
+        \item\label{proof-of-monads-in-rel-2}For each $a\in A$, we have $a\sim_{R}a$.
     \end{enumerate}
     These are exactly the requirements for $R$ to be a preorder (\ChapterRef{\ChapterPreordersAndPartialOrders, \cref{preorders-and-partial-orders:preorders}}{\cref{preorders}}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
 \end{Proof}
@@ -2048,11 +2048,11 @@ Let $A$ be a set.
             R\procirc\chi_{A}
         \end{tikzcd}%
     \end{webcompile}%
-    \endgroup% PDF ONLY %
+    \endgroup
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic, and hence all that is left is the data of the two maps $\Delta_{R}$ and $\epsilon_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
-        \item For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
+        \item\label{proof-of-comonads-in-rel-2}For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
+        \item\label{proof-of-comonads-in-rel-2}For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
     \end{enumerate}
     Taking $k=b$ in the first condition above shows it to be trivially satisfied, while the second condition implies $R\subset\Delta_{A}$, i.e.\ $R$ must be a subset of $A$. Conversely, any subset $U$ of $A$ satisfies $U\subset\Delta_{A}$, defining a comonad as above.
 \end{Proof}
@@ -2087,7 +2087,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \end{enumerate}
     Moreover, if $R$ is a monomorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
     \begin{itemize}
-        \item[$(\star)$]For each $a,a'\in A$, if there exists some $b\in B$ such that
+        \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that
             \begin{align*}%
                 a\sim_{R}b,\\%
                 a'\sim_{R}b,%
@@ -2205,7 +2205,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
 
     Conversely, assume the condition
     \begin{itemize}
-        \item[$(\star)$]For each $a,a'\in A$, if there exists some $b\in B$ such that
+        \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that
             \begin{align*}%
                 a\sim_{R}b,\\%
                 a'\sim_{R}b,%
@@ -2240,7 +2240,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1}The morphism $R\colon A\rightproarrow B$ is a representably full morphism.
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}For each pair of relations $S,T\colon X\rightproarrows A$, the following condition is satisfied:
                     \begin{itemize}
-                        \item[$(\star)$]If $R\procirc S\subset R\procirc T$, then $S\subset T$.
+                        \itemstar If $R\procirc S\subset R\procirc T$, then $S\subset T$.
                     \end{itemize}
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}The functor
                     \[
@@ -2326,14 +2326,14 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4} given above.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
             \end{itemize}
             We need to show that the condition
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
             \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{!}(U)\subset R_{!}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2343,17 +2343,17 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{*}(A\setminus V)\subset R_{*}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}
+            \end{itemize}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
             \end{itemize}
             We need to show that the condition
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
             \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{*}(U)\subset R_{*}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2363,7 +2363,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{!}(A\setminus V)\subset R_{!}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}
+            \end{itemize}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2474,13 +2474,13 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             associated to $R$ is injective.
         \item\label{characterisations-of-epimorphisms-in-rel-4}The function $R\colon A\to\mathcal{P}(B)$ is \say{surjective on singletons}:
             \begin{itemize}
-                \item[$(\star)$]For each $b\in B$, there exists some $a\in A$ such that $R(a)=\{b\}$.
+                \itemstar For each $b\in B$, there exists some $a\in A$ such that $R(a)=\{b\}$.
             \end{itemize}
     \end{enumerate}
     Moreover, if $R$ is total and an epimorphism, then it satisfies the following equivalent conditions:
     \begin{enumerate}
-        \item For each $b\in B$, there exists some $a\in A$ such that $a\sim_{R}b$.
-        \item We have $\Im(R)=B$.
+        \item\label{characterisations-of-epimorphisms-in-rel-5}For each $b\in B$, there exists some $a\in A$ such that $a\sim_{R}b$.
+        \item\label{characterisations-of-epimorphisms-in-rel-6}We have $\Im(R)=B$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel}}%
@@ -2622,7 +2622,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                 \item\label{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-1}The morphism $R\colon A\rightproarrow B$ is a corepresentably full morphism.
                 \item\label{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-2}For each pair of relations $S,T\colon X\rightproarrows A$, the following condition is satisfied:
                     \begin{itemize}
-                        \item[$(\star)$]If $S\procirc R\subset T\procirc R$, then $S\subset T$.
+                        \itemstar If $S\procirc R\subset T\procirc R$, then $S\subset T$.
                     \end{itemize}
                 \item\label{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-3}The functor
                     \[
@@ -2708,14 +2708,14 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-3,2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4} given above.
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
             \end{itemize}
             We need to show that the condition
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
             \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R_{-1}(U)\subset R_{-1}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2725,17 +2725,17 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R^{-1}(A\setminus V)\subset R^{-1}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}
+            \end{itemize}
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(B)$, if $R_{-1}(U)\subset R_{-1}(V)$, then $U\subset V$.
             \end{itemize}
             We need to show that the condition
             \begin{itemize}
-                \item[$(\star)$]For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
+                \itemstar For each $U,V\in\mathcal{P}(B)$, if $R^{-1}(U)\subset R^{-1}(V)$, then $U\subset V$.
             \end{itemize}
             is also true. We proceed step by step:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R^{-1}(U)\subset R^{-1}(V)$.
                 \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
@@ -2745,7 +2745,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{-1}(A\setminus V)\subset R_{-1}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{enumerate}
+            \end{itemize}
         \item\SloganFont{\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-epimorphisms-in-rel-corepresentably-full-morphisms-in-rel-4}: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]

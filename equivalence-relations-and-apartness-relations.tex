@@ -86,7 +86,7 @@ Let $R$ be a relation on $A$.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]Given another reflexive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmrefl}_{R}}\subset\unsim_{S}$.
+        \itemstar Given another reflexive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmrefl}_{R}}\subset\unsim_{S}$.
     \end{itemize}
 \end{definition}
 \begin{construction}{The Reflexive Closure of a Relation}{construction-of-the-reflexive-closure-of-a-relation}%
@@ -196,7 +196,7 @@ Let $A$ be a set.
 \begin{remark}{Unwinding \cref{symmetric-relations}}{unwinding-symmetric-relations}%
     In detail, a relation $R$ is symmetric if it satisfies the following condition:
     \begin{itemize}
-        \item[$(\star)$]For each $a,b\in A$, if $a\sim_{R}b$, then $b\sim_{R}a$.
+        \itemstar For each $a,b\in A$, if $a\sim_{R}b$, then $b\sim_{R}a$.
     \end{itemize}
 \end{remark}
 \begin{definition}{The Po/Set of Symmetric Relations on a Set}{the-po-set-of-symmetric-relations-on-a-set}%
@@ -239,7 +239,7 @@ Let $R$ be a relation on $A$.
     %---  End Footnote  ---%
 
     \begin{itemize}
-        \item[$(\star)$]Given another symmetric relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmsymm}_{R}}\subset\unsim_{S}$.
+        \itemstar Given another symmetric relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmsymm}_{R}}\subset\unsim_{S}$.
     \end{itemize}
 \end{definition}
 \begin{construction}{The Symmetric Closure of a Relation}{construction-of-the-symmetric-closure-of-a-relation}%
@@ -359,7 +359,7 @@ Let $A$ be a set.
     \]%
     of relations in $\eRel(A,A)$, i.e.\ if, for each $a,c\in A$, the following condition is satisfied:
     \begin{itemize}
-        \item[$(\star)$]If there exists some $b\in A$ such that $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
+        \itemstar If there exists some $b\in A$ such that $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
     \end{itemize}
 \end{remark}
 \begin{definition}{The Po/Set of Transitive Relations on a Set}{the-po-set-of-transitive-relations-on-a-set}%
@@ -386,21 +386,21 @@ Let $A$ be a set.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Intuition: }Transitivity for $R$ and $S$ fails to imply that of $S\procirc R$ because the composition operation for relations intertwines $R$ and $S$ in an incompatible way:
-        \begin{enumerate}
+        \begin{itemize}
             \item If $a\sim_{S\procirc R}c$ and $c\sim_{S\procirc r}e$, then:
-                \begin{enumerate}
+                \begin{itemize}
                     \item There is some $b\in A$ such that:
-                        \begin{enumerate}
+                        \begin{itemize}
                             \item $a\sim_{R}b$;
                             \item $b\sim_{S}c$;
-                        \end{enumerate}
+                        \end{itemize}
                     \item There is some $d\in A$ such that:
-                        \begin{enumerate}
+                        \begin{itemize}
                             \item $c\sim_{R}d$;
                             \item $d\sim_{S}e$.
-                        \end{enumerate}
-                \end{enumerate}
-        \end{enumerate}
+                        \end{itemize}
+                \end{itemize}
+        \end{itemize}
         \par\vspace*{-2.25\baselineskip}
     }%
     %---  End Footnote  ---%
@@ -422,7 +422,7 @@ Let $R$ be a relation on $A$.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]Given another transitive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmtrans}_{R}}\subset\unsim_{S}$.
+        \itemstar Given another transitive relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmtrans}_{R}}\subset\unsim_{S}$.
     \end{itemize}
 \end{definition}
 \begin{construction}{The Transitive Closure of a Relation}{construction-of-the-transitive-closure-of-a-relation}%
@@ -535,12 +535,13 @@ Let $R$ be a relation on $A$.
                                  &= (R^{\rmtrans})^{\dagger},
     \end{align*}
     where we have used, respectively:
-    \begin{enumerate}
+    \begin{itemize}
         \item \cref{construction-of-the-transitive-closure-of-a-relation}.
         \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-interaction-with-inverses} of \cref{properties-of-composition-of-relations}}.
         \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-unions-of-families-of-relations}}{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-unions-of-families-of-relations}}.
         \item \cref{construction-of-the-transitive-closure-of-a-relation}.
-    \end{enumerate}
+    \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
     This follows from \cref{properties-of-transitive-relations-interaction-with-composition} of \cref{properties-of-transitive-relations}.
@@ -596,7 +597,7 @@ Let $R$ be a relation on $A$.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item[$(\star)$]Given another equivalence relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmeq}_{R}}\subset\unsim_{S}$.
+        \itemstar Given another equivalence relation $\unsim_{S}$ on $A$ such that $R\subset S$, there exists an inclusion $\smash{\unsim^{\rmeq}_{R}}\subset\unsim_{S}$.
     \end{itemize}
 \end{definition}
 \begin{construction}{The Equivalence Closure of a Relation}{construction-of-the-equivalence-closure-of-a-relation}%
@@ -797,7 +798,7 @@ Let $A$ be a set and let $R$ be a relation on $A$.
             \]%
         \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-1}\SloganFont{Descending Functions to Quotient Sets, \rmI. }Let $R$ be an equivalence relation on $X$. The following conditions are equivalent:
             \begin{enumerate}
-                \item There exists a map
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-1-a}There exists a map
                     \[
                         \widebar{f}%
                         \colon%
@@ -820,8 +821,8 @@ Let $A$ be a set and let $R$ be a relation on $A$.
                         \end{tikzcd}
                     \]%
                     commute.
-                \item We have $R\subset\Ker(f)$.
-                \item For each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-1-b}We have $R\subset\Ker(f)$.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-1-c}For each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$.
             \end{enumerate}
         \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-2}\SloganFont{Descending Functions to Quotient Sets, \rmII. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then $\widebar{f}$ is the \emph{unique} map making the diagram
             \[
@@ -860,14 +861,14 @@ Let $A$ be a set and let $R$ be a relation on $A$.
             \]%
         \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-4}\SloganFont{Descending Functions to Quotient Sets, \rmIV. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then the following conditions are equivalent:
             \begin{enumerate}
-                \item The map $\widebar{f}$ is an injection.
-                \item We have $R=\Ker(f)$.
-                \item For each $x,y\in X$, we have $x\sim_{R}y$ \textiff $f(x)=f(y)$.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-4-a}The map $\widebar{f}$ is an injection.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-4-b}We have $R=\Ker(f)$.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-4-c}For each $x,y\in X$, we have $x\sim_{R}y$ \textiff $f(x)=f(y)$.
             \end{enumerate}
         \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5}\SloganFont{Descending Functions to Quotient Sets, \rmV. }Let $R$ be an equivalence relation on $X$. If the conditions of \cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1} hold, then the following conditions are equivalent:
             \begin{enumerate}
-                \item The map $f\colon X\to Y$ is surjective.
-                \item The map $\widebar{f}\colon X/\unsim_{R}\to Y$ is surjective.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-a}The map $f\colon X\to Y$ is surjective.
+                \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-5-b}The map $\widebar{f}\colon X/\unsim_{R}\to Y$ is surjective.
             \end{enumerate}
         \item\label{properties-of-quotient-sets-descending-functions-to-quotient-sets-6}\SloganFont{Descending Functions to Quotient Sets, \rmVI. }Let $R$ be a relation on $X$ and let $\unsim^{\rmeq}_{R}$ be the equivalence relation associated to $R$. The following conditions are equivalent:
             \begin{enumerate}
@@ -932,16 +933,16 @@ Let $A$ be a set and let $R$ be a relation on $A$.
 
     Conversely, suppose that, for each $x,y\in X$, if $x\sim_{R}y$, then $f(x)=f(y)$. Spelling out the definition of the equivalence closure of $R$, we see that the condition $x\sim^{\rmeq}_{R}y$ unwinds to the following:
     \begin{itemize}
-        \item[$(\star)$]There exist $(x_{1},\ldots,x_{n})\in R^{\times n}$ satisfying at least one of the following conditions:%
-            \begin{enumerate}%
+        \itemstar There exist $(x_{1},\ldots,x_{n})\in R^{\times n}$ satisfying at least one of the following conditions:%
+            \begin{itemize}%
                 \item The following conditions are satisfied:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $x\sim_{R}x_{1}$       or $x_{1}\sim_{R}x$;
                         \item We have $x_{i}\sim_{R}x_{i+1}$ or $x_{i+1}\sim_{R}x_{i}$ for each $1\leq i\leq n-1$;
                         \item We have $y\sim_{R}x_{n}$       or $x_{n}\sim_{R}y$;
-                    \end{enumerate}
+                    \end{itemize}
                 \item We have $x=y$.%
-            \end{enumerate}%
+            \end{itemize}%
     \end{itemize}
     Now, if $x=y$, then $f(x)=f(y)$ trivially; otherwise, we have
     \begin{align*}

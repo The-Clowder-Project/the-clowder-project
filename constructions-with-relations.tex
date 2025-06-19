@@ -52,7 +52,7 @@ This section is currently just a stub, and will be properly developed later on.
         \item\label{left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel}\SloganFont{Non-Existence of All Left Kan Extensions in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan extensions.
         \item\label{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Extensions Along Them. }The following conditions are equivalent:
             \begin{enumerate}
-                \item The left Kan extension
+                \item\label{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-1}The left Kan extension
                     \[
                         \Lan_{R}%
                         \colon%
@@ -61,8 +61,8 @@ This section is currently just a stub, and will be properly developed later on.
                         \eRel(B,X)%
                     \]%
                     along $R$ exists.
-                \item The relation $R$ admits a left adjoint in $\sfbfRel$.
-                \item The relation $R$ is of the form $f^{-1}$ (as in \cref{the-inverse-of-a-function}) for some function $f$.
+                \item\label{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-2}The relation $R$ admits a left adjoint in $\sfbfRel$.
+                \item\label{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-3}The relation $R$ is of the form $f^{-1}$ (as in \cref{the-inverse-of-a-function}) for some function $f$.
             \end{enumerate}
         %\item\label{left-kan-extensions-in-rel-}\SloganFont{. }
     \end{enumerate}
@@ -107,7 +107,7 @@ This section is currently just a stub, and will be properly developed later on.
         \item\label{left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel}\SloganFont{Non-Existence of All Left Kan Lifts in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan lifts.
         \item\label{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Lifts Along Them. }The following conditions are equivalent:
             \begin{enumerate}
-                \item The left Kan lift
+                \item\label{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-1}The left Kan lift
                     \[
                         \Lift_{R}%
                         \colon%
@@ -116,8 +116,8 @@ This section is currently just a stub, and will be properly developed later on.
                         \eRel(X,A)%
                     \]%
                     along $R$ exists.
-                \item The relation $R$ admits a right adjoint in $\sfbfRel$.
-                \item The relation $R$ is of the form $\Gr(f)$ (as in \cref{the-graph-of-a-function}) for some function $f$.
+                \item\label{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-2}The relation $R$ admits a right adjoint in $\sfbfRel$.
+                \item\label{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-3}The relation $R$ is of the form $\Gr(f)$ (as in \cref{the-graph-of-a-function}) for some function $f$.
             \end{enumerate}
         %\item\label{left-kan-lifts-in-rel-}\SloganFont{. }
     \end{enumerate}
@@ -399,8 +399,8 @@ Let $f\colon A\to B$ be a function.
     \end{align*}
     These correspond respectively to the following conditions:
     \begin{enumerate}
-        \item For each $a\in A$, there exists some $b\in B$ such that $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$.
-        \item For each $a,b\in A$, if $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$, then $a=b$.
+        \item\label{proof-of-properties-of-graphs-of-functions-adjointness-inside-sfbfrel-1}For each $a\in A$, there exists some $b\in B$ such that $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$.
+        \item\label{proof-of-properties-of-graphs-of-functions-adjointness-inside-sfbfrel-2}For each $a,b\in A$, if $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$, then $a=b$.
     \end{enumerate}
     In other words, the first condition states that the image of any $a\in A$ by $f$ is nonempty, whereas the second condition states that $f$ is not multivalued. As $f$ is a function, both of these statements are true, and we are done.
 
@@ -581,7 +581,7 @@ Let $A$ and $B$ be sets.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item The \index[set-theory]{relation!representable}\textbf{representable relation associated to $f$} is the relation $\chi_{f}\colon A\rightproarrow B$ defined as the composition%
+        \item\label{representable-relations-representable-relations}The \index[set-theory]{relation!representable}\textbf{representable relation associated to $f$} is the relation $\chi_{f}\colon A\rightproarrow B$ defined as the composition%
             \[
                 A\times B%
                 \xlongrightarrow{f\times\id_{B}}%
@@ -590,7 +590,7 @@ Let $A$ and $B$ be sets.
                 \TV,%
             \]%
             i.e.\ given by declaring $a\sim_{\chi_{f}}b$ \textiff $f(a)=b$.
-        \item The \index[set-theory]{relation!corepresentable}\textbf{corepresentable relation associated to $g$} is the relation $\chi^{g}\colon B\rightproarrow A$ defined as the composition%
+        \item\label{representable-relations-corepresentable-relations}The \index[set-theory]{relation!corepresentable}\textbf{corepresentable relation associated to $g$} is the relation $\chi^{g}\colon B\rightproarrow A$ defined as the composition%
             \[
                 B\times A%
                 \xlongrightarrow{g\times\id_{A}}%
@@ -630,7 +630,7 @@ Let $A$ and $B$ be sets.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item The \index[set-theory]{relation!domain of}\textbf{domain of $R$} is the subset \index[notation]{domR@$\dom(R)$}$\dom(R)$ of $A$ defined by
+        \item\label{the-domain-of-a-relation}The \index[set-theory]{relation!domain of}\textbf{domain of $R$} is the subset \index[notation]{domR@$\dom(R)$}$\dom(R)$ of $A$ defined by
             \[
                 \dom(R)%
                 \defeq%
@@ -643,7 +643,7 @@ Let $A$ and $B$ be sets.
                     \end{aligned}
                 \}.%
             \]%
-        \item The \index[set-theory]{relation!range of}\textbf{range of $R$} is the subset \index[notation]{rangeR@$\range(R)$}$\range(R)$ of $B$ defined by
+        \item\label{the-range-of-a-relation}The \index[set-theory]{relation!range of}\textbf{range of $R$} is the subset \index[notation]{rangeR@$\range(R)$}$\range(R)$ of $B$ defined by
             \[
                 \range(R)%
                 \defeq%
@@ -724,30 +724,30 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
 
     \ProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-composition}: Interaction With Composition}%
     Unwinding the definitions, we see that:
-    \begin{enumerate}
+    \begin{itemize}
         \item The condition for $(S_{1}\procirc R_{1})\cup(S_{2}\procirc R_{2})$ is:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $b\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIblue}{b\sim_{S_{1}}c}$;
-                    \end{enumerate}
+                    \end{itemize}
                     or
-                    \begin{enumerate}\setcounter{enumi}{2}
+                    \begin{itemize}\setcounter{enumi}{2}
                         \item $\color{OIvermillion}{a\sim_{R_{2}}b}$ and $\color{OIblue}{b\sim_{S_{2}}c}$;
-                    \end{enumerate}
-            \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
         \item The condition for $(S_{1}\cup S_{2})\procirc(R_{1}\cup R_{2})$ is:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $b\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ or $\color{OIvermillion}{a\sim_{R_{2}}b}$;
-                    \end{enumerate}
+                    \end{itemize}
                     and
-                    \begin{enumerate}\setcounter{enumi}{2}
+                    \begin{itemize}\setcounter{enumi}{2}
                         \item $\color{OIblue}{b\sim_{S_{1}}c}$ or $\color{OIblue}{b\sim_{S_{2}}c}$.
-                    \end{enumerate}
-            \end{enumerate}
-    \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
     These two conditions may fail to agree (counterexample omitted), and thus the two resulting relations on $A\times C$ may differ.
 \end{Proof}
 \subsection{Unions of Families of Relations}\label{subsection-unions-of-families-of-relations}
@@ -875,30 +875,30 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
 
     \ProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-composition}: Interaction With Composition}%
     Unwinding the definitions, we see that:
-    \begin{enumerate}
+    \begin{itemize}
         \item The condition for $(S_{1}\procirc R_{1})\cap(S_{2}\procirc R_{2})$ is:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $b\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIblue}{b\sim_{S_{1}}c}$;
-                    \end{enumerate}
+                    \end{itemize}
                     and
-                    \begin{enumerate}\setcounter{enumi}{2}
+                    \begin{itemize}\setcounter{enumi}{2}
                         \item $\color{OIvermillion}{a\sim_{R_{2}}b}$ and $\color{OIblue}{b\sim_{S_{2}}c}$;
-                    \end{enumerate}
-            \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
         \item The condition for $(S_{1}\cap S_{2})\procirc(R_{1}\cap R_{2})$ is:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $b\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIvermillion}{a\sim_{R_{2}}b}$;
-                    \end{enumerate}
+                    \end{itemize}
                     and
-                    \begin{enumerate}\setcounter{enumi}{2}
+                    \begin{itemize}\setcounter{enumi}{2}
                         \item $\color{OIblue}{b\sim_{S_{1}}c}$ and $\color{OIblue}{b\sim_{S_{2}}c}$.
-                    \end{enumerate}
-            \end{enumerate}
-    \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
     These two conditions agree, and thus so do the two resulting relations on $A\times C$.
 \end{Proof}
 \subsection{Intersections of Families of Relations}\label{subsection-intersections-of-families-of-relations}
@@ -1019,7 +1019,7 @@ Let $A$, $B$, $X$, and $Y$ be sets, let $R\colon A\rightproarrow B$ be a relatio
 \begin{Proof}{Proof of \cref{properties-of-binary-products-of-relations}}%
     \FirstProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-inverses}: Interaction With Inverses}%
     Unwinding the definitions, we see that:
-    \begin{enumerate}
+    \begin{itemize}
         \item We have $(a,x)\sim_{(R\times S)^{\dagger}}(b,y)$ \textiff:
             \begin{itemize}
                 \item We have $(b,y)\sim_{R\times S}(a,x)$, i.e.\ \textiff:
@@ -1036,29 +1036,29 @@ Let $A$, $B$, $X$, and $Y$ be sets, let $R\colon A\rightproarrow B$ be a relatio
                         \item We have $y\sim_{S}x$.
                     \end{itemize}
             \end{itemize}
-    \end{enumerate}
+    \end{itemize}
     These two conditions agree, and thus the two resulting relations on $A\times X$ are equal.
 
     \ProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-composition}: Interaction With Composition}%
     Unwinding the definitions, we see that:
-    \begin{enumerate}
+    \begin{itemize}
         \item We have $(a,x)\sim_{(S_{1}\procirc R_{1})\times(S_{2}\procirc R_{2})}(c,z)$ \textiff:
-            \begin{enumerate}
+            \begin{itemize}
                 \item We have $a\sim_{S_{1}\procirc R_{1}}c$ and $x\sim_{S_{2}\procirc R_{2}}z$, i.e.\ \textiff:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item There exists some $b\in B$ such that $a\sim_{R_{1}}b$ and $b\sim_{S_{1}}c$;
                         \item There exists some $y\in Y$ such that $x\sim_{R_{2}}y$ and $y\sim_{S_{2}}z$;
-                    \end{enumerate}
-            \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
         \item We have $(a,x)\sim_{(S_{1}\times S_{2})\procirc(R_{1}\times R_{2})}(c,z)$ \textiff:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $(b,y)\in B\times Y$ such that $(a,x)\sim_{R_{1}\times R_{2}}(b,y)$ and $(b,y)\sim_{S_{1}\times S_{2}}(c,z)$, i.e.\ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $a\sim_{R_{1}}b$ and $x\sim_{R_{2}}y$;
                         \item We have $b\sim_{S_{1}}c$ and $y\sim_{S_{2}}z$.
-                    \end{enumerate}
-            \end{enumerate}
-    \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
     These two conditions agree, and thus the two resulting relations from $A\times X$ to $C\times Z$ are equal.
 \end{Proof}
 \subsection{Products of Families of Relations}\label{subsection-products-of-families-of-relations}
@@ -1150,7 +1150,7 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             \]%
             In particular, given relations $R,S\colon A\rightproarrows B$, we have:
             \begin{itemize}
-                \item[$(\star)$]If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
+                \itemstar If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
             \end{itemize}
         \item\label{properties-of-inverses-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
@@ -1274,12 +1274,12 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{example}{Examples of Composition of Relations}{examples-of-composition-of-relations}%
     Here are some examples of composition of relations.
     \begin{enumerate}
-        \item\SloganFont{Composing Less/Greater Than Equal With Greater/Less Than Equal Signs. }We have
+        \item\label{examples-of-composition-of-relations-1}\SloganFont{Composing Less/Greater Than Equal With Greater/Less Than Equal Signs. }We have
             \begin{align*}
                 \mathord{\leq}\procirc\mathord{\geq} &= \sim_{\triv},\\
                 \mathord{\geq}\procirc\mathord{\leq} &= \sim_{\triv}.
             \end{align*}
-        \item\SloganFont{Composing Less/Greater Than Equal Signs With Less/Greater Than Equal Signs. }We have
+        \item\label{examples-of-composition-of-relations-2}\SloganFont{Composing Less/Greater Than Equal Signs With Less/Greater Than Equal Signs. }We have
             \begin{align*}
                 \mathord{\leq}\procirc\mathord{\leq} &= \mathord{\leq},\\
                 \mathord{\geq}\procirc\mathord{\geq} &= \mathord{\geq}.
@@ -1336,26 +1336,26 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                                 &\defeq T\procirc(S\procirc R).
     \end{align*}
     In the language of relations, given $a\in A$ and $d\in D$, the stated equality witnesses the equivalence of the following two statements:
-    \begin{enumerate}
+    \begin{itemize}
         \item We have $a\sim_{(T\procirc S)\procirc R}d$, i.e.\ there exists some $b\in B$ such that:
-            \begin{enumerate}
+            \begin{itemize}
                 \item We have $a\sim_{R}b$;
                 \item We have $b\sim_{T\procirc S}d$, i.e.\ there exists some $c\in C$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $b\sim_{S}c$;
                         \item We have $c\sim_{T}d$;
-                    \end{enumerate}
-            \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
         \item We have $a\sim_{T\procirc(S\procirc R)}d$, i.e.\ there exists some $c\in C$ such that:
-            \begin{enumerate}
+            \begin{itemize}
                 \item We have $a\sim_{S\procirc R}c$, i.e.\ there exists some $b\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $a\sim_{R}b$;
                         \item We have $b\sim_{S}c$;
-                    \end{enumerate}
+                    \end{itemize}
                 \item We have $c\sim_{T}d$;
-            \end{enumerate}
-    \end{enumerate}
+            \end{itemize}
+    \end{itemize}
     both of which are equivalent to the statement
     \begin{itemize}
         \item There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
@@ -1385,14 +1385,14 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 R%
             \]%
             witnesses the equivalence of the following two statements:
-            \begin{enumerate}
+            \begin{itemize}
                 \item We have $a\sim_{b}B$.
                 \item There exists some $b'\in B$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $a\sim_{R}b'$
                         \item We have $b'\sim_{\chi_{B}}b$, i.e.\ $b'=b$.
-                    \end{enumerate}
-            \end{enumerate}
+                    \end{itemize}
+            \end{itemize}
         \item The equality
             \[
                 R\procirc\chi_{A}%
@@ -1400,14 +1400,14 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 R%
             \]%
             witnesses the equivalence of the following two statements:
-            \begin{enumerate}
+            \begin{itemize}
                 \item There exists some $a'\in A$ such that:
-                    \begin{enumerate}
+                    \begin{itemize}
                         \item We have $a\sim_{\chi_{B}}a'$, i.e.\ $a=a'$.
                         \item We have $a'\sim_{R}b$
-                    \end{enumerate}
+                    \end{itemize}
                 \item We have $a\sim_{b}B$.
-            \end{enumerate}
+            \end{itemize}
     \end{itemize}
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-inverses}: Interaction With Inverses}%
@@ -1453,78 +1453,102 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $
             \]%
     \end{itemize}
 \end{definition}
+\begin{notation}{Notation: $\Pos_{/\Delta^{1}}(A,B)$}{notation-pos-over-delta-1-a-b}%
+    We write $\Pos_{/\Delta^{1}}(A,B)$ for the category defined as the pullback
+    \[
+        \Pos_{/\Delta^{1}}(A,B)%
+        \defeq%
+        \PunctualCategory\ttimes_{[A],\Pos,\ev_{0}}\Pos_{/\Delta^{1}}\ttimes_{\ev_{1},\Pos,[B]}\PunctualCategory,%
+    \]%
+    as in the diagram
+    \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            \&
+            \ePos_{/\Delta^{1}}(A,B)
+            \&
+            \&
+            \\
+            \&
+            \displaystyle\ePos_{/\Delta^{1}}\ttimes_{\ePos}\PunctualCategory
+            \&
+            \&
+            \displaystyle\PunctualCategory\ttimes_{\ePos}\ePos_{/\Delta^{1}}
+            \&
+            \\
+            \PunctualCategory
+            \&
+            \&
+            \ePos_{/\Delta^{1}}
+            \&
+            \&
+            \PunctualCategory\mrp{.}
+            \\
+            \&
+            \ePos
+            \&
+            \&
+            \ePos
+            \&
+            % 1-Arrows
+            % Row 1 to Row 2
+            \arrow[from=1-3,to=2-2]%
+            \arrow[from=1-3,to=2-4]%
+            % Row 2 to Row 3
+            \arrow[from=2-2,to=3-1]%
+            \arrow[from=2-2,to=3-3]%
+            \arrow[from=2-4,to=3-3]%
+            \arrow[from=2-4,to=3-5]%
+            % Row 3 to Row 4
+            \arrow[from=3-1,to=4-2,"{[A]}"']%
+            \arrow[from=3-3,to=4-2,"\ev_{[0]}"]%
+            \arrow[from=3-3,to=4-4,"\ev_{[1]}"']%
+            \arrow[from=3-5,to=4-4,"{[B]}"]%
+            % Pullback Symbols
+            \arrow[from=2-2,to=4-2,very near start,phantom,"\lrcorner"{rotate=-45}]
+            \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
+            \arrow[from=2-4,to=4-4,very near start,phantom,"\lrcorner"{rotate=-45}]
+        \end{tikzcd}
+    \]%
+    \endgroup
+\end{notation}
+\begin{remark}{Unwinding \cref{notation-pos-over-delta-1-a-b}}{unwinding-notation-pos-over-delta-1-a-b}%
+    In detail, $\Pos_{/\Delta^{1}}(A,B)$ is the category where:
+    \begin{itemize}
+        \item\SloganFont{Objects. }An object of $\Pos_{/\Delta^{1}}(A,B)$ is a pair $(X,\phi_{X})$ consisting of
+            \begin{itemize}
+                \item A poset $X$;
+                \item A morphism $\phi_{X}\colon X\to\Delta^{1}$;
+            \end{itemize}
+            such that we have
+            \begin{align*}
+                \phi^{-1}_{X}(0) &= A,\\
+                \phi^{-1}_{X}(1) &= B.
+            \end{align*}
+        \item\SloganFont{Morphisms. }A morphism of $\Pos_{/\Delta^{1}}(A,B)$ from $(X,\phi_{X})$ to $(Y,\phi_{Y})$ is a morphism of posets $f\colon X\to Y$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[rr,"f"]
+                    \arrow[rd,"\phi_{X}"']
+                    \&
+                    \&
+                    Y
+                    \arrow[ld,"\phi_{Y}"]
+                    \\
+                    \&
+                    \Delta^{1}
+                    \&
+                \end{tikzcd}
+            \]%
+            commute.
+    \end{itemize}
+\end{remark}
 \begin{proposition}{Properties of Collages of Relations}{properties-of-collages-of-relations}%
     Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \begin{enumerate}
-        \item\label{properties-of-collages-of-relations-functoriality}\SloganFont{Functoriality \rmI. }The assignment $R\mapsto\eColl(R)$ defines a functor%
-            %--- Begin Footnote ---%
-            \footnote{%
-                Here $\Pos_{/\Delta^{1}}(A,B)$ is the category defined as the pullback
-                \[
-                    \Pos_{/\Delta^{1}}(A,B)%
-                    \defeq%
-                    \PunctualCategory\ttimes_{[A],\Pos,\fib_{0}}\Pos_{/\Delta^{1}}\ttimes_{\fib_{1},\Pos,[B]}\PunctualCategory,%
-                \]%
-                as in the diagram
-                \begingroup\footnotesize
-                \[%
-                    \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        \&
-                        \&
-                        \ePos_{/\Delta^{1}}(A,B)
-                        \&
-                        \&
-                        \\
-                        \&
-                        \displaystyle\ePos_{/\Delta^{1}}\ttimes_{\ePos}\PunctualCategory
-                        \&
-                        \&
-                        \displaystyle\PunctualCategory\ttimes_{\ePos}\ePos_{/\Delta^{1}}
-                        \&
-                        \\
-                        \PunctualCategory
-                        \&
-                        \&
-                        \ePos_{/\Delta^{1}}
-                        \&
-                        \&
-                        \PunctualCategory\mrp{.}
-                        \\
-                        \&
-                        \ePos
-                        \&
-                        \&
-                        \ePos
-                        \&
-                        % 1-Arrows
-                        % Row 1 to Row 2
-                        \arrow[from=1-3,to=2-2]%
-                        \arrow[from=1-3,to=2-4]%
-                        % Row 2 to Row 3
-                        \arrow[from=2-2,to=3-1]%
-                        \arrow[from=2-2,to=3-3]%
-                        \arrow[from=2-4,to=3-3]%
-                        \arrow[from=2-4,to=3-5]%
-                        % Row 3 to Row 4
-                        \arrow[from=3-1,to=4-2,"{[A]}"']%
-                        \arrow[from=3-3,to=4-2,"\fib_{[0]}"]%
-                        \arrow[from=3-3,to=4-4,"\fib_{[1]}"']%
-                        \arrow[from=3-5,to=4-4,"{[B]}"]%
-                        % Pullback Symbols
-                        \arrow[from=2-2,to=4-2,very near start,phantom,"\lrcorner"{rotate=-45}]
-                        \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
-                        \arrow[from=2-4,to=4-4,very near start,phantom,"\lrcorner"{rotate=-45}]
-                    \end{tikzcd}
-                \]%
-                \endgroup
-                Explicitly, an object of $\Pos_{/\Delta^{1}}(A,B)$ is a pair $(X,\phi_{X})$ consisting of
-                \begin{itemize}
-                    \item A poset $X$;
-                    \item A morphism $\phi_{X}\colon X\to\Delta^{1}$;
-                \end{itemize}
-                such that $\phi^{-1}_{X}(0)=A$ and $\phi^{-1}_{X}(0)=B$, with morphisms between such objects being morphisms of posets over $\Delta^{1}$.
-            }%
-            %---  End Footnote  ---%
+        \item\label{properties-of-collages-of-relations-functoriality}\SloganFont{Functoriality. }The assignment $R\mapsto\eColl(R)$ defines a functor%
             \[
                 \eColl%
                 \colon%
@@ -1707,7 +1731,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
-                \item[$(\star)$]The following conditions are equivalent:
+                \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R_{*}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
@@ -1995,60 +2019,60 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \end{remark}
 \begin{Proof}{Proof of \cref{unwinding-the-strong-inverse-image-function-associated-to-a-relation}}%
     We have
-    \begingroup\small
-    \begin{align*}
-        \Rift_{R}(V)%
-        &\cong%
-        \int_{b\in B}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}})\\%
-        &=%
-        \{%
-            a\in A%
-            \ \middle|\ %
-            \int_{b\in B}\Hom_{\TTV}(R^{b}_{a},V^{b}_{\point})=\true%
-        \}%
-        \\
-        &=
-        \{%
-            a\in A%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
-                &\text{following conditions hold:}\\[7.5pt]
-                &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
-                &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$}\\
-                &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $V^{b}_{\point}=\true$}\\[10pt]
-            \end{aligned}
-        \}\\%
-        &=
-        \{%
-            a\in A%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
-                &\text{following conditions hold:}\\[7.5pt]
-                &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(a)$}\\%
-                &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
-                &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $b\in V$}\\[10pt]
-            \end{aligned}
-        \}\\%
-        &=
-        \{%
-            a\in A%
-            \ \middle|\ %
-            \text{for each $b\in R(a)$, we have $b\in V$}%
-        \}\\%
-        &=
-        \{%
-            a\in A%
-            \ \middle|\ %
-            R(a)\subset V%
-        \}\\%
-        &\defeq%
-        R_{-1}(V).%
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            \Rift_{R}(V)%
+            &\cong%
+            \int_{b\in B}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}})\\%
+            &=%
+            \{%
+                a\in A%
+                \ \middle|\ %
+                \int_{b\in B}\Hom_{\TTV}(R^{b}_{a},V^{b}_{\point})=\true%
+            \}%
+            \\
+            &=
+            \{%
+                a\in A%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
+                    &\text{following conditions hold:}\\[7.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $V^{b}_{\point}=\true$}\\[10pt]
+                \end{aligned}
+            \}\\%
+            &=
+            \{%
+                a\in A%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
+                    &\text{following conditions hold:}\\[7.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(a)$}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $b\in V$}\\[10pt]
+                \end{aligned}
+            \}\\%
+            &=
+            \{%
+                a\in A%
+                \ \middle|\ %
+                \text{for each $b\in R(a)$, we have $b\in V$}%
+            \}\\%
+            &=
+            \{%
+                a\in A%
+                \ \middle|\ %
+                R(a)\subset V%
+            \}\\%
+            &\defeq%
+            R_{-1}(V).%
+        \end{align*}
+    \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Strong Inverse Images}{properties-of-strong-inverse-image-functions-associated-to-relations}%
@@ -2087,7 +2111,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
-                \item[$(\star)$]The following conditions are equivalent:
+                \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R_{*}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
@@ -2441,7 +2465,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
-                \item[$(\star)$]The following conditions are equivalent:
+                \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
                         \item We have $U\subset R_{!}(V)$.
@@ -2749,63 +2773,63 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \end{remark}
 \begin{Proof}{Proof of \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-relation}}%
     We have
-    \begingroup\small
-    \begin{align*}
-        \Ran_{R}(V)%
-        &\cong%
-        \int_{a\in A}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a})\\%
-        &=%
-        \{%
-            b\in B%
-            \ \middle|\ %
-            \int_{a\in A}\Hom_{\TTV}(R^{b}_{a},U^{\point}_{a})=\true%
-        \}%
-        \\
-        &=
-        \{%
-            b\in B%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
-                &\text{following conditions hold:}\\[7.5pt]
-                &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
-                &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$}\\
-                &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $U^{\point}_{a}=\true$}\\[10pt]
-            \end{aligned}
-        \}\\%
-        &=
-        \{%
-            b\in B%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
-                &\text{following conditions hold:}\\[7.5pt]
-                &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(A)$}\\%
-                &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
-                &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $a\in U$}\\[10pt]
-            \end{aligned}
-        \}\\%
-        &=
-        \{%
-            b\in B%
-            \ \middle|\ %
-             \begin{aligned}
-                 &\text{for each $a\in A$, if we have}\\%
-                 &\text{$b\in R(a)$, then $a\in U$}%
-             \end{aligned}
-        \}\\%
-        &=
-        \{%
-            b\in B%
-            \ \middle|\ %
-            R^{-1}(b)\subset U%
-        \}\\%
-        &\defeq%
-        R^{-1}(U).%
-    \end{align*}
-    \endgroup
+    \begin{envsmallsize}
+        \begin{align*}
+            \Ran_{R}(V)%
+            &\cong%
+            \int_{a\in A}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a})\\%
+            &=%
+            \{%
+                b\in B%
+                \ \middle|\ %
+                \int_{a\in A}\Hom_{\TTV}(R^{b}_{a},U^{\point}_{a})=\true%
+            \}%
+            \\
+            &=
+            \{%
+                b\in B%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
+                    &\text{following conditions hold:}\\[7.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $U^{\point}_{a}=\true$}\\[10pt]
+                \end{aligned}
+            \}\\%
+            &=
+            \{%
+                b\in B%
+                \ \middle|\ %
+                \begin{aligned}
+                    &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
+                    &\text{following conditions hold:}\\[7.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(A)$}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $a\in U$}\\[10pt]
+                \end{aligned}
+            \}\\%
+            &=
+            \{%
+                b\in B%
+                \ \middle|\ %
+                 \begin{aligned}
+                     &\text{for each $a\in A$, if we have}\\%
+                     &\text{$b\in R(a)$, then $a\in U$}%
+                 \end{aligned}
+            \}\\%
+            &=
+            \{%
+                b\in B%
+                \ \middle|\ %
+                R^{-1}(b)\subset U%
+            \}\\%
+            &\defeq%
+            R^{-1}(U).%
+        \end{align*}
+    \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Direct Images With Compact Support}{properties-of-direct-image-with-compact-support-functions-associated-to-relations}%
@@ -2844,7 +2868,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
-                \item[$(\star)$]The following conditions are equivalent:
+                \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
                         \item We have $U\subset R_{!}(V)$.
