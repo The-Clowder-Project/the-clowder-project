@@ -16,7 +16,7 @@
 *.mtc0
 *.out
 *.patch
-*.pdf
+*.svg
 *.png
 *.ps
 *.pyc
