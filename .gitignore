@@ -63,3 +63,4 @@ venv
 web-clone
 pictures/light-mode/*
 pictures/dark-mode/*
+titlepage/text/*.pdf
