@@ -447,7 +447,6 @@ cm:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -500,7 +499,6 @@ alegreya:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -553,7 +551,6 @@ alegreya-sans:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -606,7 +603,6 @@ crimson-pro:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -659,7 +655,6 @@ eb-garamond:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -712,7 +707,6 @@ xcharter:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -765,7 +759,6 @@ alegreya-sans-tcb:
 		cp ../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py book.tex; \
 		echo "Compiling with LuaLaTeX 1/3..."; \
 		$(LUALATEX_ARGS) lualatex book; \
 		echo "Compiling indices..."; \
@@ -825,7 +818,6 @@ tags-cm:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ book; \
 		cd tmp/tags/cm/; \
@@ -883,7 +875,6 @@ tags-alegreya:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ book; \
 		cd tmp/tags/alegreya/; \
@@ -941,7 +932,6 @@ tags-alegreya-sans:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ book; \
 		cd tmp/tags/alegreya-sans/; \
@@ -999,7 +989,6 @@ tags-alegreya-sans-tcb:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ book; \
 		cd tmp/tags/alegreya-sans-tcb/; \
@@ -1057,7 +1046,6 @@ tags-crimson-pro:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ book; \
 		cd tmp/tags/crimson-pro/; \
@@ -1115,7 +1103,6 @@ tags-eb-garamond:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ book; \
 		cd tmp/tags/eb-garamond/; \
@@ -1173,7 +1160,6 @@ tags-xcharter:
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
 		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) ../../../scripts/process_raw_html_latex.py book.tex; \
 		cd ../../../; \
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ book; \
 		cd tmp/tags/xcharter/; \
@@ -1236,7 +1222,6 @@ chapters-cm:
 			python$(PYTHON_VERSION) scripts/process_chapter.py cm $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
 			cd tmp/cm/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1287,7 +1272,6 @@ chapters-alegreya:
 			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/alegreya/$${item_basename}.tex"; \
 			cd tmp/alegreya/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1338,7 +1322,6 @@ chapters-alegreya-sans-tcb:
 			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans-tcb $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/alegreya-sans-tcb/$${item_basename}.tex"; \
 			cd tmp/alegreya-sans-tcb/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1389,7 +1372,6 @@ chapters-alegreya-sans:
 			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/alegreya-sans/$${item_basename}.tex"; \
 			cd tmp/alegreya-sans/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1440,7 +1422,6 @@ chapters-crimson-pro:
 			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/crimson-pro/$${item_basename}.tex"; \
 			cd tmp/crimson-pro/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1491,7 +1472,6 @@ chapters-eb-garamond:
 			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/eb-garamond/$${item_basename}.tex"; \
 			cd tmp/eb-garamond/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1542,7 +1522,6 @@ chapters-xcharter:
 			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter $$item_basename; \
 			mv "$${item_basename}P.tex" "tmp/xcharter/$${item_basename}.tex"; \
 			cd tmp/xcharter/; \
-			python$(PYTHON_VERSION) ../../scripts/process_raw_html_latex.py $${item_basename}.tex; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
 			echo "Compiling with LuaLaTeX (1/3)..."; \
 			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
@@ -1599,7 +1578,6 @@ tags-chapters-cm:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ $${item_basename}; \
@@ -1654,7 +1632,6 @@ tags-chapters-alegreya:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ $${item_basename}; \
@@ -1709,7 +1686,6 @@ tags-chapters-alegreya-sans:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ $${item_basename}; \
@@ -1764,7 +1740,6 @@ tags-chapters-alegreya-sans-tcb:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ $${item_basename}; \
@@ -1819,7 +1794,6 @@ tags-chapters-crimson-pro:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ $${item_basename}; \
@@ -1874,7 +1848,6 @@ tags-chapters-eb-garamond:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ $${item_basename}; \
@@ -1929,7 +1902,6 @@ tags-chapters-xcharter:
 			echo "Processing chapter: $$item_basename"; \
 			echo "Processing the .TeX..."; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_raw_html_latex.py "$${item_basename}P.tex"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ $${item_basename}; \
@@ -2136,10 +2108,8 @@ tikzcd:
 	else \
 		python$(PYTHON_VERSION) ./scripts/make_book.py tikzcd > $(WEBDIR)/tikz.tex; \
 		cd $(WEBDIR); \
-		python$(PYTHON_VERSION) ../scripts/process_raw_html.py tikz.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses.py tikz.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py tikz.tex; \
-		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py tikz.tex; \
 		mv book.tex book.tex.bak; \
 		mv tikz.tex book.tex; \
 		python ../scripts/make_tikzcd.py book.tex; \
@@ -2234,7 +2204,6 @@ web-and-serve:
 		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
 		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) scripts/process_raw_html_latex.py book.tex; \
 		cp book.tex tmp/; \
 		tex_end=$$(date +%s.%2N); \
 		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
@@ -2258,7 +2227,6 @@ web-and-serve:
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
-		python$(PYTHON_VERSION) ../scripts/process_raw_html.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
@@ -2335,7 +2303,6 @@ web-and-record:
 		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
 		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
-		python$(PYTHON_VERSION) scripts/process_raw_html_latex.py book.tex; \
 		cp book.tex tmp/; \
 		tex_end=$$(date +%s.%2N); \
 		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
@@ -2359,7 +2326,6 @@ web-and-record:
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
 		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
-		python$(PYTHON_VERSION) ../scripts/process_raw_html.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \

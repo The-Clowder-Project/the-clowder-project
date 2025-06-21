@@ -566,7 +566,7 @@ if __name__ == "__main__":
         content = file.read()
 
     #content = process_textdbend(content)                 DONE
-    #content = process_warning_sign(content)
+    #content = process_warning_sign(content)              DONE
     #content = process_references(content)                DONE
     #content = process_data_content(content)              DONE
     #content = process_itemize(content)                   DONE
@@ -584,13 +584,13 @@ if __name__ == "__main__":
     #content = process_sublists_web(content)              DONE
     #content = process_none(content)                      DONE
     #content = process_egroup(content)                    DONE
-    #content = process_chapter_names(content)
+    #content = process_chapter_names(content)             DONE
     #content = process_iff(content)                       DONE
-    #content = process_ipa(content)
+    #content = process_ipa(content)                       DONE
     #content = process_footnotes(content)                 DONE
     #content = process_qed_symbol_should_come_before_the_footnotes_section_in_proof_environments(content) DONE
     #content = process_less_than_and_greater_than_symbols(content) DONE
-    #content = process_code_environment(content)
+    #content = process_code_environment(content)          DONE
 
     with open(filepath, 'w', encoding='utf-8') as file:
         file.write(content)
