@@ -2271,7 +2271,7 @@ web-and-serve:
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
 		rm stacks.pdf stacks.paux stacks.tags; \
-		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
+		cp ../../../tmp/stacks.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
 		python$(PYTHON_VERSION) update.py; \
