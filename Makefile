@@ -2168,6 +2168,7 @@ web-and-serve-with-pdf-statistics:
 		echo >&2 ""; \
 		exit 1; \
 	else \
+		make pictures; \
 		make tags-alegreya-sans-tcb; \
 		cp output/tags-book/alegreya-sans-tcb.pdf tmp/stacks.pdf; \
 		make web-and-serve; \

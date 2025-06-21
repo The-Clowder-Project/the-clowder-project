@@ -173,6 +173,9 @@ def print_preamble(path,style,stacks=False):
                     line = ""
                 if line.find("newenvironment{scalemath") >= 0:
                     line = ""
+        if (style == "tags-alegreya-sans-tcb" or style == "alegreya-sans-tcb"):
+            if line.find("\setlength{\TCBBoxCorrection}{-0.0\\baselineskip}") >= 0:
+                line = "\setlength{\TCBBoxCorrection}{-1.0\\baselineskip}"
         print(line,end="")
     preamble.close()
     return
