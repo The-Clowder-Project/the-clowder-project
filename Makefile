@@ -2170,7 +2170,6 @@ web-and-serve-with-pdf-statistics:
 	else \
 		make pictures; \
 		make tags-alegreya-sans-tcb; \
-		cp output/tags-book/alegreya-sans-tcb.pdf tmp/stacks.pdf; \
 		make web-and-serve; \
 	fi
 
@@ -2239,8 +2238,7 @@ web-and-serve:
 		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
-		rm stacks.pdf stacks.paux stacks.tags; \
-		cp ../../../tmp/stacks.pdf stacks.pdf; \
+		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
 		python$(PYTHON_VERSION) update.py; \
@@ -2338,7 +2336,6 @@ web-and-record:
 		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
 		gerby_start=$$(date +%s.%2N); \
-		rm stacks.pdf stacks.paux stacks.tags; \
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
