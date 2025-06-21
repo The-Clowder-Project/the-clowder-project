@@ -51,6 +51,14 @@ jobs:
   # along with hyperlink and microtypography support.
     - name: Initialize repository, installing dependencies and such
       run: make init
+      
+    - name: Compile pictures
+      run: make pictures
+
+    - name: Compile PDF
+      run: |
+        make tags-alegreya-sans-tcb
+        cp "output/tags-book/alegreya-sans-tcb.pdf" gerby-website/gerby/tools/stacks.pdf
      
     - name: Run server, mirror with wget, and package
       id: mirror_site
@@ -58,7 +66,7 @@ jobs:
         set -e # Exit immediately if a command exits with a non-zero status.
 
         echo "Running 'make web-and-serve' in the background..."
-        make web-and-serve-with-pdf-statistics &
+        make web-and-serve &
         server_pid=$! # PID of the background 'make' process
         echo "Server process (make) PID: $server_pid"
 
