@@ -399,7 +399,7 @@ Let $A$ and $B$ be sets.%
                     for each $(a,b)\in A\times B$.
             \end{itemize}
             and where $A\times-$ and $-\times B$ are the partial functors of $-_{1}\times-_{2}$ at $A,B\in\Obj(\Sets)$.
-        \item\label{properties-of-products-of-sets-adjointness}\SloganFont{Adjointness. }We have adjunctions
+        \item\label{properties-of-products-of-sets-adjointness-1}\SloganFont{Adjointness \rmI. }We have adjunctions
             \begin{webcompile}
                 \begin{gathered}
                     \AdjunctionShort#A\times -#{\Sets(A,-)}#\Sets#\Sets,#\\
@@ -412,6 +412,17 @@ Let $A$ and $B$ be sets.%
                 \Sets(A\times B,C) &\cong \Sets(B,\Sets(A,C)),
             \end{align*}
             natural in $A,B,C\in\Obj(\Sets)$.
+        \item\label{properties-of-products-of-sets-adjointness-2}\SloganFont{Adjointness \rmII. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{\Delta_{\Sets}}#-_{1}\times-_{2}#\Sets#\Sets\times\Sets,#\\
+            \end{webcompile}%
+            witnessed by a bijection
+            \[
+                \Hom_{\Sets\times\Sets}((A,A),(B,C))%
+                \cong%
+                \Sets(A,B\times C),%
+            \]%
+            natural in $A\in\Obj(\Sets)$ and in $(B,C)\in\Obj(\Sets\times\Sets)$.
         \item\label{properties-of-products-of-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of sets
             \[
                 \alpha^{\Sets}_{A,B,C}%
@@ -511,7 +522,7 @@ Let $A$ and $B$ be sets.%
     \FirstProofBox{\cref{properties-of-products-of-sets-functoriality}: Functoriality}%
     This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
 
-    \ProofBox{\cref{properties-of-products-of-sets-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-products-of-sets-adjointness-1}: Adjointness}%
     We prove only that there's an adjunction $-\times B\dashv\Sets(B,-)$, witnessed by a bijection
     \[
         \Sets(A\times B,C)%
@@ -520,7 +531,7 @@ Let $A$ and $B$ be sets.%
     \]%
     natural in $B,C\in\Obj(\Sets)$, as the proof of the existence of the adjunction $A\times-\dashv\Sets(A,-)$ follows almost exactly in the same way.%
     \begin{itemize}
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-1}\SloganFont{Map \rmI. }We define a map
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-1}\SloganFont{Map \rmI. }We define a map
             \[
                 \Phi_{B,C}%
                 \colon%
@@ -563,7 +574,7 @@ Let $A$ and $B$ be sets.%
                 \defeq%
                 \llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket.%
             \]%
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-2}\SloganFont{Map \rmII. }We define a map
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-2}\SloganFont{Map \rmII. }We define a map
             \[
                 \Psi_{B,C}%
                 \colon%
@@ -601,7 +612,7 @@ Let $A$ and $B$ be sets.%
                                    &\defeq \xi_{a}(b)%
             \end{align*}
             for each $(a,b)\in A\times B$.
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-3}\SloganFont{Invertibility \rmI. }We claim that
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-3}\SloganFont{Invertibility \rmI. }We claim that
             \[
                 \Psi_{A,B}\circ\Phi_{A,B}%
                 =%
@@ -618,7 +629,7 @@ Let $A$ and $B$ be sets.%
                                                  &= \llbracket(a,b)\mapsto\xi(a,b)\rrbracket\\%
                                                  &= \xi.
             \end{align*}
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-4}\SloganFont{Invertibility \rmII. }We claim that
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-4}\SloganFont{Invertibility \rmII. }We claim that
             \[
                 \Phi_{A,B}\circ\Psi_{A,B}%
                 =%
@@ -649,7 +660,7 @@ Let $A$ and $B$ be sets.%
                                                  &\defeq \llbracket a\mapsto\xi_{a}\rrbracket\\%
                                                  &\defeq \xi.%
             \end{align*}
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-5}\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a function $g\colon B\to B'$, the diagram
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-5}\SloganFont{Naturality for $\Phi$, Part \rmI. }We need to show that, given a function $g\colon B\to B'$, the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \Sets(A\times B',C)%
@@ -695,7 +706,7 @@ Let $A$ and $B$ be sets.%
                                                             &= (g^{*})_{*}(\Phi_{B',C}(\xi))\\
                                                             &= [(g^{*})_{*}\circ\Phi_{B',C}](\xi).
             \end{align*}
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a function $h\colon C\to C'$, the diagram
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a function $h\colon C\to C'$, the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \Sets(A\times B,C)%
@@ -731,8 +742,12 @@ Let $A$ and $B$ be sets.%
                                              &= (h_{*})_{*}(\Phi_{B,C}(\xi))\\
                                              &= [(h_{*})_{*}\circ\Phi_{B,C}](\xi).
             \end{align*}
-        \item\label{proof-of-properties-of-products-of-sets-adjointness-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
+        \item\label{proof-of-properties-of-products-of-sets-adjointness-1-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-products-of-sets-adjointness-2}: Adjointness \rmII}%
+    This follows from the universal property of the product.
 
     \ProofBox{\cref{properties-of-products-of-sets-associativity}: Associativity}%
     This is proved in the proof of \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-associator-of-the-product-of-sets}}{\cref{the-associator-of-the-product-of-sets}}.
@@ -770,7 +785,7 @@ Let $A$ and $B$ be sets.%
     \ProofBox{\cref{properties-of-products-of-sets-symmetric-bimonoidality}: Symmetric Bimonoidality}%
     This is a repetition of \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}{\cref{the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}, and is proved there.
 \end{Proof}
-\begin{remark}{The Cartesian Product of Sets as an $(\E_{k},\E_{\ell})$ Tensor Product}{the-cartesian-product-of-sets-as-an-e-k-e-ell-tensor-product}%
+\begin{remark}{The Cartesian Product of Sets as an $(\E_{k},\E_{\ell})$-Tensor Product}{the-cartesian-product-of-sets-as-an-e-k-e-ell-tensor-product}%
     As shown in \cref{properties-of-products-of-sets-functoriality} of \cref{properties-of-products-of-sets}, the Cartesian product of sets defines a functor
     \[
         -_{1}\times-_{2}%
@@ -2944,6 +2959,17 @@ Let $A$ and $B$ be sets.%
                     for each $x\in A\icoprod B$.
             \end{itemize}
             and where $A\icoprod-$ and $-\icoprod B$ are the partial functors of $-_{1}\icoprod-_{2}$ at $A,B\in\Obj(\Sets)$.
+        \item\label{properties-of-coproducts-of-sets-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{-_{1}\icoprod-_{2}}#\Delta_{\Sets}#\Sets\times\Sets#\Sets,#\\
+            \end{webcompile}%
+            witnessed by a bijection
+            \[
+                \Sets(A\icoprod B,C),%
+                \cong%
+                \Hom_{\Sets\times\Sets}((A,B),(C,C))%
+            \]%
+            natural in $(A,B)\in\Obj(\Sets\times\Sets)$ and in $C\in\Obj(\Sets)$.
         \item\label{properties-of-coproducts-of-sets-associativity}\SloganFont{Associativity. }We have an isomorphism of sets
             \[
                 \alpha^{\Sets,\icoprod}_{X,Y,Z}
@@ -2975,6 +3001,9 @@ Let $A$ and $B$ be sets.%
 \begin{Proof}{Proof of \cref{properties-of-coproducts-of-sets}}%
     \FirstProofBox{\cref{properties-of-coproducts-of-sets-functoriality}: Functoriality}%
     This follows from \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}.
+
+    \ProofBox{\cref{properties-of-coproducts-of-sets-adjointness}: Adjointness}%
+    This follows from the universal property of the coproduct.
 
     \ProofBox{\cref{properties-of-coproducts-of-sets-associativity}: Associativity}%
     This is proved in the proof of \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-associator-of-the-coproduct-of-sets}}{\cref{the-associator-of-the-coproduct-of-sets}}.
@@ -4551,7 +4580,7 @@ Let $A$ and $B$ be sets.
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1,categories:properties-of-pre-postcomposition-interaction-with-identities} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1,properties-of-pre-postcomposition-interaction-with-identities} of \cref{properties-of-pre-postcomposition}}.
 
     \ProofBox{\cref{properties-of-sets-of-maps-adjointness}: Adjointness}%
-    This is a repetition of \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets} and is proved there.
+    This is a repetition of \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets} and is proved there.
 
     \ProofBox{\cref{properties-of-sets-of-maps-maps-from-the-punctual-set}: Maps From the Punctual Set}%
     The bijection
@@ -8769,8 +8798,8 @@ Let $X$ be a set.%
     \begin{palign}
         $\Sets^{\op}(\mathcal{P}(A),B)$ & $\mathord{\defeq}$ & $\Sets(B,\mathcal{P}(A))$  & \\
                                         & $\mathord{\cong}$  & $\Sets(B,\Sets(A,\TTV))$   & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}\\
-                                        & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
-                                        & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
+                                        & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets})}\\
+                                        & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets})}\\
                                         & $\mathord{\cong}$  & $\Sets(A,\mathcal{P}(B))$, & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}
     \end{palign}
     where all bijections are natural in $A$ and $B$.%
@@ -8800,7 +8829,7 @@ Let $X$ be a set.%
     \begin{palign}
         $\Rel(\Gr(A),B)$ & $\mathord{\cong}$  & $\mathcal{P}(A\times B)$   & {}\\
                          & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}\\
-                         & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness} of \cref{properties-of-products-of-sets})}\\
+                         & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets})}\\
                          & $\mathord{\cong}$  & $\Sets(A,\mathcal{P}(B))$, & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}
     \end{palign}
     where all bijections are natural in $A$, (where we are using \cref{properties-of-characteristic-functions-of-subsets-naturality} of \cref{properties-of-characteristic-functions-of-subsets}). Explicitly, this isomorphism is given by sending a relation $R\colon\Gr(A)\rightproarrow B$ to the map $R^{\dagger}\colon A\to\mathcal{P}(B)$ sending $a$ to the subset $R(a)$ of $B$, as in \ChapterRef{\ChapterRelations, \cref{relations:relations}}{\cref{relations}}.
