@@ -36,40 +36,11 @@ def expand_cref(line):
     # Substitute each \cref{...} match with the new format
     return re.sub(pattern, replacer, line)
 
-def missing_chapters(line):
-    future_chapters = [
-        "ChapterAdjunctionsAndTheYonedaLemma",
-        "ChapterBicategories",
-        "ChapterConstructionsWithCategories",
-        "ChapterDiagonalCategoryTheory",
-        "ChapterHypergroups",
-        "ChapterHypermonoids",
-        "ChapterMonads",
-        "ChapterMonoidsInMonoidalInftyCategories",
-        "ChapterMonoidsWithZero",
-        "ChapterPreordersAndPartialOrders",
-        "ChapterProfunctors",
-        "ChapterSpans",
-        "ChapterTensorProductsOfMonoids",
-        "ChapterTypesOfMorphismsInCategories"]
-    for chapter in future_chapters:
-        if line.find(chapter) >= 0:
-            line = re.sub(chapter,"cref{TODO}",line)
-    return line
-
 def trans_flag_tcb_fix(line):
     return re.sub(r"../../pictures/trans-flag",r"../../../pictures/trans-flag",line)
 
 def tcbthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
-
-def textdbend(line):
-    line = re.sub('END TEXTDBEND', '', line)
-    return line
-
-def textdbend_2(line):
-    line = re.sub(r'\\textdbend', 'BEGIN TEXTDBEND', line)
-    return line
 
 def amsthm(line):
     return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
@@ -86,28 +57,11 @@ def Proof_to_proof(line):
     line = re.sub(r"\\end\{Proof\}",r"\\end{proof}",line)
     return line
 
-def rmIendproofbox(line):
-    line = re.sub(r"\\rmIENDPROOFBOX",r"\\rmI ENDPROOFBOX",line)
-    line = re.sub(r"\\rmIIENDPROOFBOX",r"\\rmII ENDPROOFBOX",line)
-    line = re.sub(r"\\rmIIIENDPROOFBOX",r"\\rmIII ENDPROOFBOX",line)
-    line = re.sub(r"\\rmIVENDPROOFBOX",r"\\rmIV ENDPROOFBOX",line)
-    line = re.sub(r"\\rmVENDPROOFBOX",r"\\rmV ENDPROOFBOX",line)
-    return line
-
 def proofbox_to_proof(line):
     line = re.sub(r"\\FirstProofBox",r"\\ProofBox",line)
     line = re.sub(r"\\ProofBox",r"\\noindent\\ProofBox",line)
     line = re.sub(r"\\ProofBox{\\cref{([a-zA-Z0-9-]+)}: ([\\`,'a-zA-Z0-9 :\-$_{}\*\(\)\/]+)}%",r"\\textit{\\cref{\1}, \2}:",line)
     line = re.sub(r"\\ProofBox{(.*)}%\n",r"\\textit{STARTPROOFBOX\1ENDPROOFBOX}:",line)
-    return line
-
-def scalemath_to_webcompile(line):
-    line = re.sub(r"scalemath",r"webcompile",line)
-    return line
-
-def remove_START_END_proofbox(line):
-    line = re.sub(r"STARTPROOFBOX",r"",line)
-    line = re.sub(r"ENDPROOFBOX",r"",line)
     return line
 
 def remove_index(line):

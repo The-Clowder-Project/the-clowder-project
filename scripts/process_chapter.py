@@ -3,15 +3,12 @@ import re, os, io, sys, time, preprocess
 def replacement(line,style):
     if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
         line = preprocess.tcbthm(line)
-        line = preprocess.remove_START_END_proofbox(line)
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
     else:
         line = preprocess.amsthm(line)
-        line = preprocess.textdbend(line)# changes 'END TEXTDBEND' into ''
         line = preprocess.Proof_to_proof(line)
         line = preprocess.proofbox_to_proof(line)
-        line = preprocess.remove_START_END_proofbox(line)
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
 
@@ -22,8 +19,9 @@ def replacement(line,style):
     if line.find(r"ABSOLUTEPATH") >= 0:
         absolute_path = preprocess.absolute_path()
         line = line.replace("ABSOLUTEPATH",absolute_path)
-    if line.find(r"\par\vspace") >= 0:
-        line = ""
+    if not (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+        if line.find(r"\par\vspace") >= 0:
+            line = ""
     return line
 
 
@@ -76,6 +74,9 @@ with open(tex_file) as fp:
                        line2 = line2.replace("ABSOLUTEPATH",absolute_path)
                    if (style == "tags-alegreya-sans-tcb"):
                        line2 = preprocess.trans_flag_tcb_fix(line2)
+                   if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+                       if line2.find("\\setlength{\\TCBBoxCorrection") >= 0:
+                           line2 = "\\setlength{\\TCBBoxCorrection}{-0.5\\baselineskip}\n"
                    f.write(line2)
            line = fp.readline()
            cnt += 1

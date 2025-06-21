@@ -17,12 +17,10 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.remove_index(line)
         elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
             line = preprocess.tcbthm(line)
-            line = preprocess.remove_START_END_proofbox(line)
         else:
             line = preprocess.amsthm(line)
             line = preprocess.Proof_to_proof(line)
             line = preprocess.proofbox_to_proof(line)
-            line = preprocess.remove_START_END_proofbox(line)
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
 
@@ -175,7 +173,7 @@ def print_preamble(path,style,stacks=False):
                     line = ""
         if (style == "tags-alegreya-sans-tcb" or style == "alegreya-sans-tcb"):
             if line.find("\setlength{\TCBBoxCorrection}{-0.0\\baselineskip}") >= 0:
-                line = "\setlength{\TCBBoxCorrection}{-1.0\\baselineskip}"
+                line = "\setlength{\TCBBoxCorrection}{-0.5\\baselineskip}\n"
         print(line,end="")
     preamble.close()
     return
