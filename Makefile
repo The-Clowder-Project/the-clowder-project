@@ -2146,6 +2146,7 @@ wget-clone:
 	cp tmp/webcompile/dark-mode/*.svg web-clone/static/webcompile-images/dark-mode; \
 	cp tmp/scalemath/*.svg 			  web-clone/static/scalemath-images; \
 	cp tmp/scalemath/dark-mode/*.svg  web-clone/static/scalemath-images/dark-mode;
+	cp -r ./gerby-website/gerby/static/gifs/dark-mode  web-clone/static/gifs/;
 
 # Target which compiles website and serves it on 127.0.0.1:5000; ensures book PDF statistics work
 .PHONY: web-and-serve-with-pdf-statistics
