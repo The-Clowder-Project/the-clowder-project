@@ -8675,7 +8675,115 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{align*}
 \end{proposition}
 \begin{Proof}{Proof of \cref{comonoids-with-respect-to-the-smash-product-of-pointed-sets}}%
-    See \cite[Lemma 2.4]{coalgebras-in-symmetric-monoidal-categories-of-spectra}.
+    We follow \cite[Lemma 2.4]{coalgebras-in-symmetric-monoidal-categories-of-spectra}.
+
+    \ProofBox{Faithfulness}%
+    Given morphisms $f,g\colon X\to Y$, if $f^{+}=g^{+}$, then we have 
+    \begin{align*}
+        f(x) &\defeq f^{+}(x)\\
+             &=      g^{+}(x)\\
+             &\defeq g(x)
+    \end{align*}
+    for each $x\in X^{+}$, and thus $f=g$, showing $(-)^{+}$ to be faithful.
+
+    \ProofBox{Fullness}%
+    Let $f\colon X^{+}\to Y^{+}$ be a morphism of comonoids in $\Sets_{*}$. By counitality, the diagram
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X^{+}
+            \arrow[rr,"f"]
+            \arrow[rd,"\epsilon^{+}_{X}"'{pos=0.45}]
+            \&
+            \&
+            Y^{+}
+            \arrow[ld,"\epsilon^{+}_{Y}"{pos=0.45}]
+            \\
+            \&
+            S^{0}
+            \&
+        \end{tikzcd}
+    \]%
+    commutes. If $f(x)=\point_{Y}$ for $x\neq\point_{X}$, the commutativity of this diagram then gives
+    \begin{align*}
+        1 &= \epsilon^{+}_{X}(x)\\
+          &= \epsilon^{+}_{Y}(f(x))\\
+          &= \epsilon^{+}_{Y}(\point_{Y})\\
+          &= 0,
+    \end{align*}
+    which is a contradiction. Thus $f$ is an active morphism of pointed sets, so there exists a map $f^{-}$ such that $(f^{-})^{+}=f$ (\ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-sets-with-deleted-basepoints-functoriality} of \cref{pointed-sets:properties-of-sets-with-deleted-basepoints}}{\cref{properties-of-sets-with-deleted-basepoints-functoriality} of \cref{properties-of-sets-with-deleted-basepoints}}).
+
+    \ProofBox{Essential Surjectivity}%
+    Let $(X,\Delta_{X},\epsilon_{X})$ be a comonoid in $\Sets_{*}$. We claim that
+    \[
+        \Delta_{X}(x)%
+        =%
+        x\wedge x%
+    \]%
+    for each $x\in X$ with $x\neq\point_{X}$. Indeed:
+    \begin{itemize}
+        \item Suppose that $x\neq\point_{X}$ and write $\Delta_{X}(x)=x_{1}\wedge x_{2}$.
+        \item Since $\id_{X}\wedge\epsilon_{X}$ is pointed, we have
+            \[
+                [\id_{X}\wedge\epsilon_{X}](x_{1}\wedge x_{2})%
+                =%
+                \point_{X\wedge S^{0}}.%
+            \]%
+        \item The counitality condition for $\Delta_{X}$, corresponding to the commutativity of the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\Delta_{X}"]
+                    \arrow[rd,"\RUnitor^{\Sets_{*},-1}_{X}"'{pos=0.525}]
+                    \&
+                    X\wedge X
+                    \arrow[d,"\id_{X}\wedge\epsilon_{X}"]
+                    \\
+                    \&
+                    X\wedge S^{0}
+                \end{tikzcd}
+            \]%
+            gives
+            \begin{align*}
+                x\wedge 1 &= \RUnitor^{\Sets_{*},-1}_{X}(x)\\
+                          &= [\id_{X}\wedge\epsilon_{X}\circ\Delta_{X}](x)\\
+                          &= [\id_{X}\wedge\epsilon_{X}](\Delta_{X}(x))\\
+                          &= [\id_{X}\wedge\epsilon_{X}](x_{1}\wedge x_{2})\\
+                          &= \point_{X\wedge S^{0}},%
+            \end{align*}
+            which is a contradiction. Thus $x_{1}\neq\point_{X}$.
+        \item Similarly, if $x\neq\point_{X}$, then $x_{2}\neq\point_{X}$.
+        \item Next, we claim that $\epsilon_{X}(x_{2})=1$, as otherwise we would have
+            \begin{align*}
+                \point_{X\wedge S^{0}} &= x_{1}\wedge 0\\
+                                       &= [\id_{X}\wedge\epsilon_{X}](x_{1}\wedge x_{2})\\
+                                       &= [\id_{X}\wedge\epsilon_{X}](\Delta_{X}(x))\\
+                                       &= [\id_{X}\wedge\epsilon_{X}\circ\Delta_{X}](x)\\
+                                       &= \RUnitor^{\Sets_{*},-1}_{X}(x)\\
+                                       &= x\wedge 1,
+            \end{align*}
+            a contradiction. Thus $\epsilon_{X}(x_{2})=1$.
+        \item Similarly, if $x\neq\point_{X}$, then $\epsilon_{X}(x_{1})=1$.
+        \item Now, since $\Delta_{X}$ is counital, we have
+            \begin{align*}
+                x\wedge 1 &= \RUnitor^{\Sets_{*},-1}_{X}(x)\\
+                          &= [\id_{X}\wedge\epsilon_{X}\circ\Delta_{X}](x)\\
+                          &= [\id_{X}\wedge\epsilon_{X}](\Delta_{X}(x))\\
+                          &= [\id_{X}\wedge\epsilon_{X}](x_{1}\wedge x_{2})\\
+                          &= x_{1}\wedge 1,
+            \end{align*}
+            so $x=x_{1}$.
+        \item Similarly, $x=x_{2}$, and we are done.
+    \end{itemize}
+    Next, notice that $X\cong\epsilon^{-1}_{X}(0)\icoprod\epsilon^{-1}_{X}(1)$, and let $x\in\epsilon^{-1}_{X}(0)$. We then have
+    \begin{align*}
+        [(\id_{X}\wedge\epsilon_{X})\circ\Delta_{X}](x) &= [\id_{X}\wedge\epsilon_{X}](x\wedge x)\\
+                                                        &= x\wedge 0\\
+                                                        &= \point_{X\wedge S^{0}}.
+    \end{align*}
+    The counitality condition for $\Delta_{X}$ then gives $x=\point_{X}$, so $\epsilon^{-1}_{X}(0)=\{\point_{X}\}$. Thus we have $(\epsilon^{-1}_{X}(1))^{+}\cong X$, and this isomorphism is compatible with the comonoid structures when equipping $\epsilon^{-1}_{X}(1)$ with its unique comonoid structure. This shows that $(-)^{+}$ is essentially surjective.
+
+    \ProofBox{Equivalence}%
+    Since $(-)^{+}$ is fully faithful and essentially surjective, it is an equivalence by \ChapterRef{\ChapterCategories, \cref{categories:properties-of-equivalences-of-categories-characterisations-b} of \cref{categories:properties-of-equivalences-of-categories-characterisations} of \cref{categories:properties-of-equivalences-of-categories}}{\cref{properties-of-equivalences-of-categories-characterisations-b} of \cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories}}.
 \end{Proof}
 \section{Miscellany}\label{section-tensor-products-of-pointed-sets-miscellany}
 \subsection{The Smash Product of a Family of Pointed Sets}\label{subsection-smash-products-of-pointed-sets-the-smash-product-of-a-family-of-pointed-sets}
