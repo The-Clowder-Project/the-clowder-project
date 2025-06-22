@@ -15,7 +15,13 @@
 \newenvironment{reference}{\comment}{\endcomment}
 \newenvironment{slogan}{\comment}{\endcomment}
 \newenvironment{history}{\comment}{\endcomment}
+%%%
 \usepackage{multicol}
+\usepackage{needspace}
+% Before starting a list, check if there are at least 3 lines of space.
+% If not, break the column first.
+\AtBeginEnvironment{enumerate}{\needspace{3\baselineskip}}
+%%%
 
 \input{preamble/xcolor.tex}
 % This is generally recommended for better output
