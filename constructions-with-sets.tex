@@ -1344,7 +1344,7 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
                 \end{tikzcd}
             \]%
             commute.
-        \item\label{properties-of-pullbacks-of-sets-adjointness}\SloganFont{Adjointness. }We have adjunctions
+        \item\label{properties-of-pullbacks-of-sets-adjointness-1}\SloganFont{Adjointness \rmI. }We have adjunctions
             \begin{webcompile}
                 \begin{gathered}
                     \Adjunction#A\times_{X}-#{\eSets_{/X}(A,-)}#\Sets_{/X}#\Sets_{/X},#\\
@@ -1380,6 +1380,17 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
                     \]%
                     for each $(x,f)\in\eSets_{/X}(A,B)$.
             \end{itemize}
+        \item\label{properties-of-pullbacks-of-sets-adjointness-2}\SloganFont{Adjointness \rmII. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{\Delta_{\Sets_{/X}}}#-_{1}\times-_{2}#\Sets_{/X}#\Sets_{/X}\times\Sets_{/X},#\\
+            \end{webcompile}%
+            witnessed by a bijection
+            \[
+                \Hom_{\Sets_{/X}\times\Sets_{/X}}((A,A),(B,C))%
+                \cong%
+                \Sets_{/X}(A,B\times_{X}C),%
+            \]%
+            natural in $A\in\Obj(\Sets_{/X})$ and in $(B,C)\in\Obj(\Sets_{/X}\times\Sets_{/X})$.
         \item\label{properties-of-pullbacks-of-sets-associativity}\SloganFont{Associativity. }Given a diagram
             \[
                 \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -1999,8 +2010,11 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
     \FirstProofBox{\cref{properties-of-pullbacks-of-sets-functoriality}: Functoriality}%
     This is a special case of functoriality of co/limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}, with the explicit expression for $\xi$ following from the commutativity of the cube pullback diagram.
 
-    \ProofBox{\cref{properties-of-pullbacks-of-sets-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-pullbacks-of-sets-adjointness-1}: Adjointness \rmI}%
     This is a repetition of \ChapterRef{\ChapterFibredSets, \cref{fibred-sets:properties-of-the-internal-hom-of-fibred-sets-adjointness} of \cref{fibred-sets:properties-of-the-internal-hom-of-fibred-sets}}{\cref{properties-of-the-internal-hom-of-fibred-sets-adjointness} of \cref{properties-of-the-internal-hom-of-fibred-sets}}, and is proved there.
+
+    \ProofBox{\cref{properties-of-pullbacks-of-sets-adjointness-2}: Adjointness \rmII}%
+    This follows from the universal property of the product (pullbacks are products in $\Sets_{/X}$).
 
     \ProofBox{\cref{properties-of-pullbacks-of-sets-associativity}: Associativity}%
     We have
@@ -2483,7 +2497,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
     The \index[set-theory]{inverse limit of sets}\textbf{inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$} is the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:inverse-limits}}{\cref{inverse-limits}}.
 \end{definition}
 \begin{construction}{Construction of Inverse Limits of Sets}{construction-of-inverse-limits-of-sets}%
-    Concretely, the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{limalphainIXalpha@$\invlim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\invlim_{\alpha\in I}(X_{\alpha}),\{\pr_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
+    Concretely, the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{limalphainIXalpha@$\invlim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\invlim_{\alpha\in I}(X_{\alpha})}$, $\smash{\{\pr_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-inverse-limits-of-sets-the-limit}\SloganFont{The Limit. }The set $\displaystyle\invlim_{\alpha\in I}(X_{\alpha})$ defined by
             \[
@@ -2649,7 +2663,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
     The \index[set-theory]{initial set}\textbf{initial set} is the initial object of $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:initial-objects}}{\cref{initial-objects}}.
 \end{definition}
 \begin{construction}{Construction of the Initial Set}{construction-of-the-initial-set}%
-    Concretely, the initial set is the pair \index[notation]{emptyset@$\emptyset$}$(\emptyset,\{\iota_{A}\}_{A\in\Obj(\Sets)})$ consisting of:
+    Concretely, the initial set is the pair \index[notation]{emptyset@$\emptyset$}$\smash{(\emptyset,\{\iota_{A}\}_{A\in\Obj(\Sets)})}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-the-initial-set-the-colimit}\SloganFont{The Colimit. }The empty set $\emptyset$ of \cref{the-empty-set}.
         \item\label{construction-of-the-initial-set-the-cocone}\SloganFont{The Cocone. }The collection of maps
@@ -3223,7 +3237,7 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
     Here are some examples of pushouts of sets.
     \begin{enumerate}
         \item\label{examples-of-pushouts-of-sets-wedge-sums-of-pointed-sets}\SloganFont{Wedge Sums of Pointed Sets. }The wedge sum of two pointed sets of \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:coproducts-of-pointed-sets}}{\cref{coproducts-of-pointed-sets}} is an example of a pushout of sets.
-        \item\label{examples-of-pushouts-of-sets-intersections-via-unions}\SloganFont{Intersections via Unions. }Let $A,B\subset X$. We have a bijection of sets
+        \item\label{examples-of-pushouts-of-sets-intersections-via-unions}\SloganFont{Intersections via Unions. }Let $X$ be a set. We have
             \begin{webcompile}
                 A\cup B%
                 \cong%
@@ -3241,9 +3255,10 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
                     A
                     \arrow[from=r,hook']
                     \&
-                    A\cap B\mrp{.}
+                    A\cap B
                 \end{tikzcd}
             \end{webcompile}
+            for each $A,B\in\mathcal{P}(X)$.
     \end{enumerate}
 \end{example}
 \begin{Proof}{Proof of \cref{examples-of-pushouts-of-sets}}%
@@ -3369,6 +3384,17 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
                 \end{tikzcd}
             \]%
             commute.
+        \item\label{properties-of-pushouts-of-sets-adjointness}\SloganFont{Adjointness. }We have an adjunction
+            \begin{webcompile}
+                \Adjunction#{-_{1}\icoprod_{X}-_{2}}#\Delta_{\Sets_{X/}}#\Sets_{X/}\times\Sets_{X/}#\Sets_{X/},#\\
+            \end{webcompile}%
+            witnessed by a bijection
+            \[
+                \Sets_{X/}(A\icoprod_{X}B,C),%
+                \cong%
+                \Hom_{\Sets_{X/}\times\Sets_{X/}}((A,B),(C,C))%
+            \]%
+            natural in $(A,B)\in\Obj(\Sets_{X/}\times\Sets_{X/})$ and in $C\in\Obj(\Sets_{X/})$.
         \item\label{properties-of-pushouts-of-sets-associativity}\SloganFont{Associativity. }Given a diagram
             \[
                 \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -3909,6 +3935,9 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
     \FirstProofBox{\cref{properties-of-pushouts-of-sets-functoriality}: Functoriality}%
     This is a special case of functoriality of co/limits, \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-functoriality} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-functoriality} of \cref{properties-of-co-limits}}, with the explicit expression for $\xi$ following from the commutativity of the cube pushout diagram.
 
+    \ProofBox{\cref{properties-of-pushouts-of-sets-adjointness}: : Adjointness}%
+    This follows from the universal property of the coproduct (pushouts are coproducts in $\Sets_{X/}$).
+
     \ProofBox{\cref{properties-of-pushouts-of-sets-associativity}: Associativity}%
     Omitted.
 
@@ -4195,7 +4224,7 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Top$ b
     The \index[set-theory]{direct colimit of sets}\textbf{direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$} is the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:direct-colimits}}{\cref{direct-colimits}}.
 \end{definition}
 \begin{construction}{Construction of Direct Colimits of Sets}{construction-of-direct-colimits-of-sets}%
-    Concretely, the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{colimalphainIXalpha@$\dircolim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\dircolim_{\alpha\in I}(X_{\alpha}),\{\inj_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
+    Concretely, the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{colimalphainIXalpha@$\dircolim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})}$, $\smash{\{\inj_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-direct-colimits-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})$ defined by
             \[
