@@ -1,5 +1,7 @@
 \usepackage{nameref,zref-xr}
 \zxrsetup{toltxlabel}
+% Preliminaries
+\zexternaldocument*[introduction:]{introduction}
 % Sets
 \zexternaldocument*[sets:]{sets}
 \zexternaldocument*[constructions-with-sets:]{constructions-with-sets}
@@ -92,6 +94,8 @@
 %% │  ├─┤├─┤├─┘ │ ├┤ ├┬┘  │││├─┤│  ├┬┘│ │└─┐ %%
 %% └─┘┴ ┴┴ ┴┴   ┴ └─┘┴└─  ┴ ┴┴ ┴└─┘┴└─└─┘└─┘ %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preliminaries
+\newcommand{\ChapterIntroduction}{\hyperref[introduction:section-phantom]{Introduction}\xspace}
 % Sets
 \newcommand{\ChapterSets}{\hyperref[sets:section-phantom]{Sets}\xspace}
 \newcommand{\ChapterConstructionsWithSets}{\hyperref[constructions-with-sets:section-phantom]{Constructions With Sets}\xspace}

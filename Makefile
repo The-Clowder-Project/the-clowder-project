@@ -4,7 +4,8 @@
 
 # Master list of stems of tex files in the project.
 # This should be in order.
-LIJST = sets \
+LIJST = introduction \
+        sets \
 		constructions-with-sets \
 		monoidal-structures-on-the-category-of-sets \
 		pointed-sets \

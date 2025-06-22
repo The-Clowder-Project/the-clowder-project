@@ -1,0 +1,58 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Introduction}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some general information about the Clowder Project.
+
+\ChapterTableOfContents
+
+\section{Introduction}\label{section-introduction}
+\subsection{Content and Scope}\label{subsection-scope}
+In this section, we outline what content is expected to be covered in the Clowder Project.
+\subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
+First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
+\subsection{Goals}\label{subsection-goals}
+\subsubsection{Filling Gaps in the Literature}\label{subsubsection-filling-gaps-in-the-literature}
+There are a number of very significant gaps in the literature, which the Clowder Project hopes to fill.
+\begin{gap}{The Tensor Product of Presentable Categories}{subsection-gap-the-tensor-product-of-presentable-categories}%
+    Its analogue in the $\infty$-category setting has for years been a widely used tool, but a complete 1-categorical treatment is currently lacking.
+\end{gap}
+\begin{gap}{Explicit Descriptions of Co/Limits of Categories}{subsection-gap-explicit-descriptions-of-co-limits-of-categories}%
+    An exhaustive concrete description of the various limits and colimits of categories, including 2-dimensional ones such as coequifiers, isoinserters, etc.
+\end{gap}
+\begin{gap}{Dinatural Transformation Co/Classifiers}{subsection-gap-dinatural-transformation-co-classifiers}%
+    Dinatural transformation co/classifiers, characterised by isomorphisms of the form $\Nat(F,G)\cong\DiNat(\Gamma(F),G)$.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Although these appear already in Dubuc--Street's paper introducing dinatural transformations, \cite{dubuc-street-dinatural-transformations}, it seems that all foundational treatments that followed after ended up not covering this concept.
+    }%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{The Tensor Product of Symmetric Monoidal Categories}{subsection-gap-the-tensor-product-of-symmetric-monoidal-categories}%
+    A treatment of the tensor product of symmetric monoidal categories, replicating \cite{the-symmetric-monoidal-2-category-of-permutative-categories} for the non-strict case.
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of the Theory of Promonoidal Categories}{subsubsection-gap-a-comprehensive-treatment-of-the-theory-of-promonoidal-categories}%
+    A comprehensive and exhaustive treatment of the theory of promonoidal categories, including notions such as dualisability internal
+
+    and how these may be viewed as categorifications of \say{hypermonoids}.
+\end{gap}
+This is an ever-growing list; see also \cite{MO494959}.
+\subsubsection{Homogenizing Conventions, Notation, and Terminology}\label{subsubsection-homogenizing-conventions-notation-and-terminology}
+\subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
+\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
+\section{Miscellany}\label{section-miscellany}
+\subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}
