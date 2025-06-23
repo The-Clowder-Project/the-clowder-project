@@ -26,11 +26,6 @@ First and foremost, the Clowder Project aims to cover the foundations of categor
 \section{Goals}\label{section-goals}
 \subsection{Filling Gaps in the Literature}\label{subsection-filling-gaps-in-the-literature}
 The Clowder Project aims to address several significant gaps in the existing literature on category theory, as detailed below.
-%--- Begin Footnote ---%
-\footnote{%
-    See also \cite{MO494959}.
-}%
-%---  End Footnote  ---%
 \begin{gap}{The Tensor Product of Presentable Categories}{gap-the-tensor-product-of-presentable-categories}%
     Even though its analogue for $\infty$-categories has for years been a widely used tool%
     %--- Begin Footnote ---%
@@ -74,6 +69,63 @@ The Clowder Project aims to address several significant gaps in the existing lit
     \end{itemize}
     See \cite{MO484647}.
 \end{gap}
+\begin{gap}{A Compendium of Examples of 2-Categorical Notions}{gap-a-compendium-of-examples-of-2-categorical-notions}%
+    It would be nice to have an extensive collection of examples of what a given 2-categorical notion looks like in a 2-category. For instance, it would be nice to explicitly list what internal adjunctions look like in $\sfbfRel$, $\Span$, $\Prof$, etc.
+
+    \indent See \ChapterRef{\ChapterRelations, \cref{relations:section-properties-of-the-2-category-of-relations}}{\cref{section-properties-of-the-2-category-of-relations}} for a concrete example of what is meant by this gap.
+\end{gap}
+\begin{gap}{Centres and Traces of Categories}{gap-centres-and-traces-of-categories}%
+    The literature on centres and traces of categories is really small. There are lots of results missing%
+    %--- Begin Footnote ---%
+    \footnote{%
+        E.g.\ There's a certain interaction between traces of categories and Leinster's eventual image.
+    } %
+    %---  End Footnote  ---%
+    and very few worked examples%
+    %--- Begin Footnote ---%
+    \footnote{%
+        E.g.\ what is the trace of Connes's cycle category? Such a computation doesn't seem to be available.
+        \par\vspace*{\TCBBoxCorrection}
+    }.%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{Natural Cotransformations}{gap-natural-cotransformations}%
+    Natural transformations satisfy an isomorphism of the form
+    \[
+        \Nat(F,G)%
+        \cong%
+        \int_{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A}).%
+    \]%
+    It is then exceedingly natural to define \textit{natural cotransformations} via an isomorphism of the form
+    \[
+        \CoNat(F,G)%
+        \cong%
+        \int^{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A})%
+    \]%
+    and study their properties. This generalises traces of categories, since we have
+    \[
+        \Tr(\CatFont{C})%
+        =%
+        \CoNat(\id_{\CatFont{C}},\id_{\CatFont{C}}),
+    \]%
+    much like $\rmZ(\CatFont{C})=\Nat(\id_{\CatFont{C}},\id_{\CatFont{C}})$.
+\end{gap}
+\begin{gap}{Isbell Duality}{gap-isbell-duality}%
+    There are several results and examples in the theory of Isbell duality missing from the literature, with a comprehensive treatment still lacking.
+\end{gap}
+\begin{gap}{A Comprehensive Theory of 2-Dimensional Co/Ends}{gap-a-comprehensive-theory-of-2-dimensional-co-ends}%
+    The currently available treatments of 2-dimensional co/ends are unsatisfactory.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For instance, none of them define 2-dimensional co/ends via 2-dimensional dinatural transformations and then go on to develop a general theory from there.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{A Comprehensive treatment of Factorisation Systems}{gap-a-comprehensive-treatment-of-factorisation-systems}%
+    A comprehensive treatment of factorisation systems is currently missing; see \cite{MO495003}.
+\end{gap}
+See also \cite{MO494959}.
 \subsection{Homogenizing Conventions, Notation, and Terminology}\label{subsubsection-homogenizing-conventions-notation-and-terminology}
 \section{Miscellany}\label{section-miscellany}
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
