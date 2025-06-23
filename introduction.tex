@@ -21,15 +21,17 @@ This chapter contains some general information about the Clowder Project.
 In this section, we outline what content is expected to be covered in the Clowder Project.
 \subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
 First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
-\subsection{Goals}\label{subsection-goals}
-\subsubsection{Filling Gaps in the Literature}\label{subsubsection-filling-gaps-in-the-literature}
-There are a number of very significant gaps in the category theory literature, some of which the Clowder Project hopes to fill. Here we list them.%
+\subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
+\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
+\section{Goals}\label{section-goals}
+\subsection{Filling Gaps in the Literature}\label{subsection-filling-gaps-in-the-literature}
+The Clowder Project aims to address several significant gaps in the existing literature on category theory, as detailed below.
 %--- Begin Footnote ---%
 \footnote{%
     See also \cite{MO494959}.
 }%
 %---  End Footnote  ---%
-\begin{gap}{The Tensor Product of Presentable Categories}{subsection-gap-the-tensor-product-of-presentable-categories}%
+\begin{gap}{The Tensor Product of Presentable Categories}{gap-the-tensor-product-of-presentable-categories}%
     Even though its analogue for $\infty$-categories has for years been a widely used tool%
     %--- Begin Footnote ---%
     \footnote{%
@@ -39,28 +41,40 @@ There are a number of very significant gaps in the category theory literature, s
     %---  End Footnote  ---%
     a comprehensive treatment of the tensor product of presentable categories seems to be currently missing.
 \end{gap}
-\begin{gap}{Explicit Descriptions of Co/Limits of Categories}{subsection-gap-explicit-descriptions-of-co-limits-of-categories}%
-    An exhaustive concrete description of the various limits and colimits of categories, including 2-dimensional ones such as coequifiers, isoinserters, etc.
+\begin{gap}{Explicit Descriptions of Co/Limits of Categories}{gap-explicit-descriptions-of-co-limits-of-categories}%
+    An exhaustive concrete description of the various limits and colimits of categories, including 2-dimensional ones, is missing.
 \end{gap}
-\begin{gap}{Dinatural Transformation Co/Classifiers}{subsection-gap-dinatural-transformation-co-classifiers}%
-    Dinatural transformation co/classifiers, characterised by isomorphisms of the form $\Nat(F,G)\cong\DiNat(\Gamma(F),G)$.%
-    %--- Begin Footnote ---%
-    \footnote{%
-        Although these appear already in Dubuc--Street's paper introducing dinatural transformations, \cite{dubuc-street-dinatural-transformations}, it seems that all foundational treatments that followed after ended up not covering this concept.
-    }%
-    %---  End Footnote  ---%
-\end{gap}
-\begin{gap}{The Tensor Product of Symmetric Monoidal Categories}{subsection-gap-the-tensor-product-of-symmetric-monoidal-categories}%
-    A treatment of the tensor product of symmetric monoidal categories, replicating \cite{the-symmetric-monoidal-2-category-of-permutative-categories} for the non-strict case.
-\end{gap}
-\begin{gap}{A Comprehensive Treatment of the Theory of Promonoidal Categories}{subsubsection-gap-a-comprehensive-treatment-of-the-theory-of-promonoidal-categories}%
-    A comprehensive and exhaustive treatment of the theory of promonoidal categories, including notions such as dualisability internal
+\begin{gap}{Dinatural Transformation Co/Classifiers}{gap-dinatural-transformation-co-classifiers}%
+    There seems to be no unified presentation of dinatural transformation co/classifiers in the literature. These are characterised by isomorphisms of the form
+    \[
+        \Nat(F,G)%
+        \cong%
+        \DiNat(\Gamma(F),G),%
+    \]%
+    and were originally studied in Dubuc--Street's paper introducing dinatural transformations, \cite{dubuc-street-dinatural-transformations}.
 
-    and how these may be viewed as categorifications of \say{hypermonoids}.
+    \indent Even though these arguably form a fundamental piece of the framework of co/end calculus, it seems that all foundational treatments that followed after ended up not covering this concept.
 \end{gap}
-\subsubsection{Homogenizing Conventions, Notation, and Terminology}\label{subsubsection-homogenizing-conventions-notation-and-terminology}
-\subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
-\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
+\begin{gap}{The Tensor Product of Symmetric Monoidal Categories}{gap-the-tensor-product-of-symmetric-monoidal-categories}%
+    The tensor product of symmetric monoidal categories had been a missing concept from the literature for years. Recently, \cite{the-symmetric-monoidal-2-category-of-permutative-categories} covered the case of permutative categories. It would be nice, however, to also have a treatment of the non-strict case available.
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of the Theory of Promonoidal Categories}{gap-a-comprehensive-treatment-of-the-theory-of-promonoidal-categories}%
+    A comprehensive and exhaustive treatment of the theory of promonoidal categories is currently missing. There are several important notions undefined, like:
+    \begin{itemize}
+        \item Promonoidal profunctors.
+        \item Dualisability internal to a promonoidal category.
+        \item Invertibility internal to a promonoidal category.
+    \end{itemize}
+    Moreover, it would be nice to record how promonoidal categories may be viewed as categorifications of \say{hypermonoids} (i.e.\ monoids in $\Rel$).
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of the Theory of Multicategories}{gap-a-comprehensive-treatment-of-the-theory-of-multicategories}%
+    A comprehensive and exhaustive treatment of the theory of multicategories is currently missing. There are several important notions undefined, like:
+    \begin{itemize}
+        \item Co/limits internal to multicategories.
+    \end{itemize}
+    See \cite{MO484647}.
+\end{gap}
+\subsection{Homogenizing Conventions, Notation, and Terminology}\label{subsubsection-homogenizing-conventions-notation-and-terminology}
 \section{Miscellany}\label{section-miscellany}
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
 \begin{appendices}
