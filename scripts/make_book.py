@@ -270,8 +270,8 @@ def main(style):
         verbatim = 0
         print_tex_file(tex_file,name,style)
         tex_file.close()
-        if (style != "web"):
-            print_chapters(absolute_path+"/")
+        #if (style != "web"):
+        #    print_chapters(absolute_path+"/")
 
     print("\\printbibliography")
     # START INDICES
