@@ -44,4 +44,6 @@ The default style in the [Clowder website](https://www.clowderproject.com) is `a
 ## Building the web version
 To build and serve the website on localhost (`127.0.0.1:5000`), run `make web-and-serve`.
 
-Alternatively, you may run `make web-and-serve-with-pdf-statistics` instead, which will render a few additional statistics on Clowder's main output PDF. These will then be displayed in the website.
+Alternatively:
+- To serve on IPv6, run `make web-and-serve-on-ipv6`.
+- To render extra PDF statistics, run `make web-and-serve-with-pdf-statistics`.
