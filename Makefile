@@ -2275,7 +2275,7 @@ web-and-serve:
 
 # Target which compiles the website and serves it on the computer's current IPv6 address
 .PHONY: web-and-serve-on-ipv6
-web-and-serve:
+web-and-serve-on-ipv6:
 	@printf "$(GREEN)Checking if conda environment '$(CONDA_ENV_NAME)' is active\n$(NC)"
 	@# Check if the CONDA_PREFIX environment variable is set and if its
 	@# basename (the last part of the path) matches the desired environment name.
