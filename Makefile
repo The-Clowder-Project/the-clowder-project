@@ -2227,15 +2227,26 @@ web-and-serve:
 		make tikzcd; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
-		printf "$(GREEN)Running plasTeX$(NC)\n"; \
+		printf "$(GREEN)Preprocessing plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
+		plastex_preprocess_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
+		plastex_preprocess_end=$$(date +%s.%2N); \
+		plastex_duration=$$(echo "$$plastex_preprocess_end - $$plastex_preprocess_start" | bc); \
+		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
+		printf "$(GREEN)Postprocessing plasTeX$(NC)\n"; \
+		plastex_postprocess_start=$$(date +%s.%2N); \
+		cp -r book book.bak; \
+		python$(PYTHON_VERSION) ../scripts/postprocess_tags.py; \
+		rm -rf book.bak; \
+		plastex_postprocess_end=$$(date +%s.%2N); \
+		plastex_postprocess_duration=$$(echo "$$plastex_postprocess_end - $$plastex_postprocess_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
 		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
@@ -2243,7 +2254,7 @@ web-and-serve:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py; \
+		python$(PYTHON_VERSION) update.py --noProofs; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
@@ -2257,18 +2268,22 @@ web-and-serve:
 	    		echo "TEX_DURATION=$$(printf '%.2f' $$tex_duration)"; \
 	    		echo "TAGS_DURATION=$$(printf '%.2f' $$tags_duration)"; \
 	    		echo "TIKZCD_DURATION=$$(printf '%.2f' $$tikzcd_duration)"; \
+				echo "PLASTEX_PREPROCESS=$$(printf '%.2f' $$plastex_preprocess_duration)"; \
 	    		echo "PLASTEX_DURATION=$$(printf '%.2f' $$plastex_duration)"; \
+	    		echo "PLASTEX_POSTPROCESS=$$(printf '%.2f' $$plastex_postprocess_duration)"; \
 	    		echo "GERBY_DURATION=$$(printf '%.2f' $$gerby_duration)"; \
 	    		echo "BUILD_SUCCESS=true"; \
 	    	} >> $$GITHUB_ENV; \
 	    else \
 	    	printf "$(GREEN)Run target finished successfully.$(NC)\n"; \
-	    	printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
-	    	printf "$(GREEN)   -->       TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
-	    	printf "$(GREEN)   -->      Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
-	    	printf "$(GREEN)   -->   TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
-	    	printf "$(GREEN)   -->   plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
-	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    	printf "$(GREEN)Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+	    	printf "$(GREEN)-->          TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+	    	printf "$(GREEN)-->         Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+	    	printf "$(GREEN)-->      TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+	    	printf "$(GREEN)-->  plasTeX-pre: %6.2f seconds.$(NC)\n" "$$plastex_preprocess_duration"; \
+	    	printf "$(GREEN)-->      plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+	    	printf "$(GREEN)--> plasTeX-post: %6.2f seconds.$(NC)\n" "$$plastex_postprocess_duration"; \
+	    	printf "$(GREEN)-->        Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 	    fi; \
 		FLASK_APP=application.py flask run; \
 	fi
@@ -2325,15 +2340,24 @@ web-and-serve-on-ipv6:
 		make tikzcd; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
-		printf "$(GREEN)Running plasTeX$(NC)\n"; \
+		printf "$(GREEN)Preprocessing plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
+		plastex_preprocess_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
+		plastex_preprocess_end=$$(date +%s.%2N); \
+		plastex_duration=$$(echo "$$plastex_preprocess_end - $$plastex_preprocess_start" | bc); \
+		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
+		printf "$(GREEN)Postprocessing plasTeX$(NC)\n"; \
+		plastex_postprocess_start=$$(date +%s.%2N); \
+		python$(PYTHON_VERSION) ../scripts/postprocess_tags.py; \
+		plastex_postprocess_end=$$(date +%s.%2N); \
+		plastex_postprocess_duration=$$(echo "$$plastex_postprocess_end - $$plastex_postprocess_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
 		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
@@ -2355,18 +2379,22 @@ web-and-serve-on-ipv6:
 	    		echo "TEX_DURATION=$$(printf '%.2f' $$tex_duration)"; \
 	    		echo "TAGS_DURATION=$$(printf '%.2f' $$tags_duration)"; \
 	    		echo "TIKZCD_DURATION=$$(printf '%.2f' $$tikzcd_duration)"; \
+	    		echo "PLASTEX_PREPROCESS_DURATION=$$(printf '%.2f' $$plastex_preprocess_duration)"; \
 	    		echo "PLASTEX_DURATION=$$(printf '%.2f' $$plastex_duration)"; \
+	    		echo "PLASTEX_POSTPROCESS_DURATION=$$(printf '%.2f' $$plastex_postprocess_duration)"; \
 	    		echo "GERBY_DURATION=$$(printf '%.2f' $$gerby_duration)"; \
 	    		echo "BUILD_SUCCESS=true"; \
 	    	} >> $$GITHUB_ENV; \
 	    else \
 	    	printf "$(GREEN)Run target finished successfully.$(NC)\n"; \
-	    	printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
-	    	printf "$(GREEN)   -->       TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
-	    	printf "$(GREEN)   -->      Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
-	    	printf "$(GREEN)   -->   TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
-	    	printf "$(GREEN)   -->   plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
-	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    	printf "$(GREEN)Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+	    	printf "$(GREEN)-->          TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+	    	printf "$(GREEN)-->         Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+	    	printf "$(GREEN)-->      TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+	    	printf "$(GREEN)-->  plasTeX-pre: %6.2f seconds.$(NC)\n" "$$plastex_preprocess_duration"; \
+	    	printf "$(GREEN)-->      plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+	    	printf "$(GREEN)--> plasTeX-post: %6.2f seconds.$(NC)\n" "$$plastex_postprocess_duration"; \
+	    	printf "$(GREEN)-->        Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 	    fi; \
 		FLASK_APP=application.py flask run --host=::; \
 	fi
@@ -2423,15 +2451,24 @@ web-and-record:
 		make tikzcd; \
 		tikzcd_end=$$(date +%s.%2N); \
 		tikzcd_duration=$$(echo "$$tikzcd_end - $$tikzcd_start" | bc); \
-		printf "$(GREEN)Running plasTeX$(NC)\n"; \
+		printf "$(GREEN)Preprocessing plasTeX$(NC)\n"; \
 		cd $(WEBDIR); \
+		plastex_preprocess_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses_web.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py book.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_multichapter_cref.py book.tex; \
+		plastex_preprocess_end=$$(date +%s.%2N); \
+		plastex_duration=$$(echo "$$plastex_preprocess_end - $$plastex_preprocess_start" | bc); \
+		printf "$(GREEN)Running plasTeX$(NC)\n"; \
 		plastex_start=$$(date +%s.%2N); \
 		plastex --renderer=Gerby --sec-num-depth 3 book.tex; \
 		plastex_end=$$(date +%s.%2N); \
 		plastex_duration=$$(echo "$$plastex_end - $$plastex_start" | bc); \
+		printf "$(GREEN)Postprocessing plasTeX$(NC)\n"; \
+		plastex_postprocess_start=$$(date +%s.%2N); \
+		python$(PYTHON_VERSION) ../scripts/postprocess_tags.py; \
+		plastex_postprocess_end=$$(date +%s.%2N); \
+		plastex_postprocess_duration=$$(echo "$$plastex_postprocess_end - $$plastex_postprocess_start" | bc); \
 		printf "$(GREEN)Running Gerby$(NC)\n"; \
 		cd ../gerby-website/gerby/tools/; \
 		rm stacks.sqlite; \
@@ -2453,18 +2490,22 @@ web-and-record:
 	    		echo "TEX_DURATION=$$(printf '%.2f' $$tex_duration)"; \
 	    		echo "TAGS_DURATION=$$(printf '%.2f' $$tags_duration)"; \
 	    		echo "TIKZCD_DURATION=$$(printf '%.2f' $$tikzcd_duration)"; \
+				echo "PLASTEX_PREPROCESS_DURATION=$$(printf '%.2f' $$plastex_preprocess_duration)"; \
 	    		echo "PLASTEX_DURATION=$$(printf '%.2f' $$plastex_duration)"; \
+	    		echo "PLASTEX_POSTPROCESS_DURATION=$$(printf '%.2f' $$plastex_postprocess_duration)"; \
 	    		echo "GERBY_DURATION=$$(printf '%.2f' $$gerby_duration)"; \
 	    		echo "BUILD_SUCCESS=true"; \
 	    	} >> $$GITHUB_ENV; \
 	    else \
 	    	printf "$(GREEN)Run target finished successfully.$(NC)\n"; \
-	    	printf "$(GREEN) Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
-	    	printf "$(GREEN)   -->       TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
-	    	printf "$(GREEN)   -->      Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
-	    	printf "$(GREEN)   -->   TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
-	    	printf "$(GREEN)   -->   plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
-	    	printf "$(GREEN)   -->     Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
+	    	printf "$(GREEN)Total runtime: %6.2f seconds.$(NC)\n" "$$duration"; \
+	    	printf "$(GREEN)-->          TeX: %6.2f seconds.$(NC)\n" "$$tex_duration"; \
+	    	printf "$(GREEN)-->         Tags: %6.2f seconds.$(NC)\n" "$$tags_duration"; \
+	    	printf "$(GREEN)-->      TikZ-CD: %6.2f seconds.$(NC)\n" "$$tikzcd_duration"; \
+	    	printf "$(GREEN)-->  plasTeX-pre: %6.2f seconds.$(NC)\n" "$$plastex_preprocess_duration"; \
+	    	printf "$(GREEN)-->      plasTeX: %6.2f seconds.$(NC)\n" "$$plastex_duration"; \
+	    	printf "$(GREEN)--> plasTeX-post: %6.2f seconds.$(NC)\n" "$$plastex_postprocess_duration"; \
+	    	printf "$(GREEN)-->        Gerby: %6.2f seconds.$(NC)\n" "$$gerby_duration"; \
 	    fi; \
 		{ \
 	    	echo -n "$$(printf '%.2f' $$plastex_duration)"; \

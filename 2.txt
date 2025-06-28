@@ -1,0 +1,491 @@
+<h3 id="pointed-sets:subsection-free-pointed-sets" class="tex-subsection"><span data-tag="00BW">5.4.1</span> Free Pointed Sets</h3>
+<p>
+ Let $X$ be a set. <div class="env-definition-header"><a class="environment-identifier" href="/tag/00BX">Definition <span data-tag="00BX">5.4.1.1.1</span><span class="triangleright"> ▶ </span><span class="named">Free Pointed Sets</span></a></div>
+<article class="env-definition" id="00BX">
+  <p>
+    The <strong>free pointed set on $X$</strong> is the pointed set $\smash {X^{+}}$ consisting of: </p>   <p>
+    <ul>
+  <li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000066913"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Underlying Set. </em>The set $X^{+}$ defined by<span class="footnote" id="fnmark-a0000066918"><sup>1</sup></span>
+</p>
+<div class="equation">
+  \begin{align*}  X^{+} & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}\mathrm{pt}\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}\left\{ \star \right\} . \end{align*}
+</div>
+</span>
+</li><li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000067007"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Basepoint. </em>The element $\star $ of $X^{+}$. 
+</p>
+</span>
+</li>
+</ul></p> 
+   <div class="local-footnotes">
+    <hr />     <ol class="footnotes"><li id="fn-a0000066918">
+         <sup>1</sup><em>Further Notation: </em>We sometimes write $\star _{X}$ for the basepoint of $X^{+}$ for clarity, specially when there are multiple free pointed sets involved in the current discussion. </li>
+    </ol>
+  </div>
+</article> <div class="env-definition-footer"></div> 
+</p>
+<p>
+<div class="env-proposition-header"><a class="environment-identifier" href="/tag/00BY">Proposition <span data-tag="00BY">5.4.1.1.2</span><span class="triangleright"> ▶ </span><span class="named">Properties of Free Pointed Sets</span></a></div>
+<article class="env-proposition" id="00BY">
+  <p>
+    Let $X$ be a set. </p>   <p>
+    <ol class="main-list">
+  <li    class="enumerate-item"     id="00BZ"
+>
+<span class="counter">
+    <a class="counter-link" href="/tag/00BZ">
+      <span class="counter-inner"              ><span data-tag="00BZ">1.</span></span>
+    </a></span>
+<span class="item-content"><p>
+<em>Functoriality. </em>The assignment $X\mapsto X^{+}$ defines a functor 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+} \colon \mathsf{Sets}\to \mathsf{Sets}_{*},  \]
+</div>
+<p>
+where: 
+</p>
+<ul>
+  <li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000067039"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Action on Objects. </em>For each $X\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}\webright )$, we have 
+</p>
+<div class="equation">
+  \[  \webleft [\webleft (-\webright )^{+}\webright ]\webleft (X\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}X^{+},  \]
+</div>
+<p>
+where $X^{+}$ is the pointed set of <a href="/tag/00BX" data-tag="00BX">Definition 5.4.1.1.1</a>. 
+</p>
+</span>
+</li><li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000067074"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Action on Morphisms. </em>For each morphism $f\colon X\to Y$ of $\mathsf{Sets}$, the image 
+</p>
+<div class="equation">
+  \[  f^{+}\colon X^{+}\to Y^{+} \]
+</div>
+<p>
+of $f$ by $\webleft (-\webright )^{+}$ is the map of pointed sets defined by 
+</p>
+<div class="equation">
+  \[  f^{+}\webleft (x\webright ) \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\begin{cases}  f\webleft (x\webright ) & \text{if $x\in X$,}\\  \star _{Y} & \text{if $x=\star _{X}$.} \end{cases}  \]
+</div>
+</span>
+</li>
+</ul>
+</span>
+</li><li    class="enumerate-item"     id="00C0"
+>
+<span class="counter">
+    <a class="counter-link" href="/tag/00C0">
+      <span class="counter-inner"              ><span data-tag="00C0">2.</span></span>
+    </a></span>
+<span class="item-content"><p>
+<em>Adjointness. </em>We have an adjunction <div class="equation"><div class="webcompile"><img src="/static/webcompile-images/webcompile-000095.svg"></div></div>witnessed by a bijection of sets 
+</p>
+<div class="equation">
+  \begin{align*}  \mathsf{Sets}_{*}\webleft (\webleft (X^{+},\star _{X}\webright ),\webleft (Y,y_{0}\webright )\webright )\cong \mathsf{Sets}\webleft (X,Y\webright ),\end{align*}
+</div>
+<p>
+ natural in $X\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}\webright )$ and $\webleft (Y,y_{0}\webright )\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}_{*}\webright )$. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="00C1"
+>
+<span class="counter">
+    <a class="counter-link" href="/tag/00C1">
+      <span class="counter-inner"              ><span data-tag="00C1">3.</span></span>
+    </a></span>
+<span class="item-content"><p>
+<em>Symmetric Strong Monoidality With Respect to Wedge Sums. </em>The free pointed set functor of <a href="/tag/00BZ" data-tag="00BZ">Item 1</a> has a symmetric strong monoidal structure 
+</p>
+<div class="equation">
+  \[  \webleft (\webleft (-\webright )^{+},\webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}},\webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}}_{\mathbb {1}}\webright ) \colon \webleft (\mathsf{Sets},\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }},\text{Ø}\webright ) \to \webleft (\mathsf{Sets}_{*},\vee ,\mathrm{pt}\webright ),  \]
+</div>
+<p>
+being equipped with isomorphisms of pointed sets
+</p>
+<div class="equation">
+  \[  \begin{gathered} \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}}_{X,Y} \colon X^{+}\vee Y^{+} \overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\webleft (X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y\webright )^{+},\\ \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}}_{\mathbb {1}} \colon \mathrm{pt}\overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\text{Ø}^{+}, \end{gathered}  \]
+</div>
+<p>
+natural in $X,Y\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}\webright )$. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="00C2"
+>
+<span class="counter">
+    <a class="counter-link" href="/tag/00C2">
+      <span class="counter-inner"              ><span data-tag="00C2">4.</span></span>
+    </a></span>
+<span class="item-content"><p>
+<em>Symmetric Strong Monoidality With Respect to Smash Products. </em>The free pointed set functor of <a href="/tag/00BZ" data-tag="00BZ">Item 1</a> has a symmetric strong monoidal structure 
+</p>
+<div class="equation">
+  \[  \webleft (\webleft (-\webright )^{+},\webleft (-\webright )^{+},\webleft (-\webright )^{+}_{\mathbb {1}}\webright ) \colon \webleft (\mathsf{Sets},\times ,\mathrm{pt}\webright ) \to \webleft (\mathsf{Sets}_{*},\wedge ,S^{0}\webright ),  \]
+</div>
+<p>
+being equipped with isomorphisms of pointed sets
+</p>
+<div class="equation">
+  \[  \begin{gathered} \webleft (-\webright )^{+}_{X,Y} \colon X^{+}\wedge Y^{+} \overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\webleft (X\times Y\webright )^{+},\\ \webleft (-\webright )^{+}_{\mathbb {1}} \colon S^{0} \overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\mathrm{pt}^{+}, \end{gathered}  \]
+</div>
+<p>
+natural in $X,Y\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}\webright )$. 
+</p>
+</span>
+</li>
+</ol></p> 
+ </article> <div class="env-proposition-footer"></div> 
+</p>
+<div class="env-proof-header"><strong>Proof of <a href="/tag/00BY" data-tag="00BY">Proposition 5.4.1.1.2</a>.</strong></div>
+<article class="env-proof">
+    <p>
+       <div class="proofbox"><a href="/tag/00BZ" data-tag="00BZ">Item 1</a>: Functoriality</div>We claim that $\webleft (-\webright )^{+}$ is indeed a functor: 
+    </p>
+    <p>
+      <ul>
+  <li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000067495"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Preservation of Identities. </em>Let $X\in \operatorname {\mathrm{Obj}}\webleft (\mathsf{Sets}\webright )$. We have 
+</p>
+<div class="equation">
+  \[  \operatorname {\mathrm{id}}^{+}_{X}\webleft (x\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\begin{cases}  x & \text{if $x\in X$,}\\  \star _{X} & \text{if $x=\star _{X}$,} \end{cases}  \]
+</div>
+<p>
+for each $x\in X^{+}$, so $\operatorname {\mathrm{id}}^{+}_{X}=\operatorname {\mathrm{id}}_{X^{+}}$. 
+</p>
+</span>
+</li><li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000067560"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Preservation of Composition. </em>Given morphisms of sets 
+</p>
+<div class="equation">
+  \begin{align*}  f & \colon X \to Y,\\  g & \colon Y \to Z, \end{align*}
+</div>
+<p>
+ we have 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [g^{+}\circ f^{+}\webright ]\webleft (x\webright ) & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}g^{+}\webleft (f^{+}\webleft (x\webright )\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}g^{+}\webleft (f\webleft (x\webright )\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}g\webleft (f\webleft (x\webright )\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\webleft [g\circ f\webright ]^{+}\webleft (x\webright )\end{align*}
+</div>
+<p>
+ for each $x\in X$ and 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [g^{+}\circ f^{+}\webright ]\webleft (\star _{X}\webright ) & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}g^{+}\webleft (f^{+}\webleft (\star _{X}\webright )\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}g^{+}\webleft (\star _{Y}\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\star _{Z}\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\webleft [g\circ f\webright ]^{+}\webleft (\star _{X}\webright ), \end{align*}
+</div>
+<p>
+ so $\webleft (g\circ f\webright )^{+}=g^{+}\circ f^{+}$. 
+</p>
+</span>
+</li>
+</ul>
+    </p>
+    <p>
+       This finishes the proof. 
+    </p>
+    <p>
+      <div class="proofbox"><a href="/tag/00C0" data-tag="00C0">Item 2</a>: Adjointness</div>We proceed in a few steps: 
+    </p>
+    <p>
+      <ul>
+  <li    class="enumerate-item"     id="0227"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/0227"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Map I. </em>We define a map 
+</p>
+<div class="equation">
+  \[  \Phi _{X,Y}\colon \mathsf{Sets}_{*}\webleft (X^{+},Y\webright )\to \mathsf{Sets}\webleft (X,Y\webright ) \]
+</div>
+<p>
+by sending a morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  \xi \colon \webleft (X^{+},\star _{X}\webright )\to \webleft (Y,y_{0}\webright ) \]
+</div>
+<p>
+to the function
+</p>
+<div class="equation">
+  \[  \xi ^{\dagger }\colon X\to Y \]
+</div>
+<p>
+given by 
+</p>
+<div class="equation">
+  \[  \xi ^{\dagger }\webleft (x\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\xi \webleft (x\webright ) \]
+</div>
+<p>
+for each $x\in X$. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="0228"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/0228"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Map II. </em>We define a map 
+</p>
+<div class="equation">
+  \[  \Psi _{X,Y}\colon \mathsf{Sets}\webleft (X,Y\webright )\to \mathsf{Sets}_{*}\webleft (X^{+},Y\webright ) \]
+</div>
+<p>
+given by sending a function $\xi \colon X\to Y$ to the morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  \xi ^{\dagger }\colon \webleft (X^{+},\star _{X}\webright )\to \webleft (Y,y_{0}\webright ) \]
+</div>
+<p>
+defined by 
+</p>
+<div class="equation">
+  \[  \xi ^{\dagger }\webleft (x\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\begin{cases}  \xi \webleft (x\webright ) &  \text{if $x\in X$,}\\  y_{0} &  \text{if $x=\star _{X}$} \end{cases}  \]
+</div>
+<p>
+for each $x\in X^{+}$. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="0229"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/0229"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Invertibility I. </em>Given a morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  \xi \colon \webleft (X^{+},\star _{X}\webright )\to \webleft (Y,y_{0}\webright ), \]
+</div>
+<p>
+we have 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [\Psi _{X,Y}\circ \Phi _{X,Y}\webright ]\webleft (\xi \webright ) & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\Psi _{X,Y}\webleft (\Phi _{X,Y}\webleft (\xi \webright )\webright )\\ & = \Psi _{X,Y}\webleft (\xi ^{\dagger }\webright )\\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\left[\mspace {-6mu}\left[x\mapsto {\begin{cases} \xi ^{\dagger }\webleft (x\webright )& \text{if $x\in X$}\\ y_{0}& \text{if $x=\star _{X}$}\end{cases}}\right]\mspace {-6mu}\right]\\ & = \left[\mspace {-6mu}\left[x\mapsto {\begin{cases} \xi \webleft (x\webright )& \text{if $x\in X$}\\ y_{0}& \text{if $x=\star _{X}$}\end{cases}}\right]\mspace {-6mu}\right]\\ & = \xi \\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\webleft [\operatorname {\mathrm{id}}_{\mathsf{Sets}_{*}\webleft (X^{+},Y\webright )}\webright ]\webleft (\xi \webright ).\end{align*}
+</div>
+<p>
+ Therefore we have 
+</p>
+<div class="equation">
+  \[  \Psi _{X,Y}\circ \Phi _{X,Y}=\operatorname {\mathrm{id}}_{\mathsf{Sets}_{*}\webleft (X^{+},Y\webright )}. \]
+</div>
+</span>
+</li><li    class="enumerate-item"     id="022A"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/022A"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Invertibility II. </em>Given a map of sets $\xi \colon X\to Y$, we have 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [\Phi _{X,Y}\circ \Psi _{X,Y}\webright ]\webleft (\xi \webright ) & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\Phi _{X,Y}\webleft (\Psi _{X,Y}\webleft (\xi \webright )\webright )\\ & = \Phi _{X,Y}\webleft (\xi ^{\dagger }\webright )\\ & = \Phi _{X,Y}\webleft (\left[\mspace {-6mu}\left[x\mapsto {\begin{cases} \xi \webleft (x\webright )& \text{if $x\in X$}\\ y_{0}& \text{if $x=\star _{X}$}\end{cases}}\right]\mspace {-6mu}\right]\webright )\\ & = [\mspace {-3mu}[x\mapsto \xi \webleft (x\webright )]\mspace {-3mu}]\\ & = \xi \\ & \mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\webleft [\operatorname {\mathrm{id}}_{\mathsf{Sets}\webleft (X,Y\webright )}\webright ]\webleft (\xi \webright ).\end{align*}
+</div>
+<p>
+ Therefore we have 
+</p>
+<div class="equation">
+  \[  \Phi _{X,Y}\circ \Psi _{X,Y}=\operatorname {\mathrm{id}}_{\mathsf{Sets}\webleft (X,Y\webright )}. \]
+</div>
+</span>
+</li><li    class="enumerate-item"     id="022B"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/022B"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Naturality for $\Phi $, Part I. </em>We need to show that, given a morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  f\colon \webleft (X,x_{0}\webright )\to \webleft (X',x'_{0}\webright ), \]
+</div>
+<p>
+the diagram <div class="equation"><div class="tikz-cd"><img src="/static/tikzcd-images/tikzcd-000254.svg"></div></div> commutes. Indeed, given a morphism of pointed sets $\xi \colon X^{\prime ,+}\to Y$, we have 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [\Phi _{X,Y}\circ f^{*}\webright ]\webleft (\xi \webright ) & = \Phi _{X,Y}\webleft (f^{*}\webleft (\xi \webright )\webright )\\ & = \Phi _{X,Y}\webleft (\xi \circ f\webright )\\ & = \xi \circ f\\ & = \Phi _{X',Y}\webleft (\xi \webright )\circ f\\ & = f^{*}\webleft (\Phi _{X',Y}\webleft (\xi \webright )\webright )\\ & = f^{*}\webleft (\Phi _{X',Y}\webleft (\xi \webright )\webright )\\ & = \webleft [f^{*}\circ \Phi _{X',Y}\webright ]\webleft (\xi \webright ). \end{align*}
+</div>
+<p>
+ Therefore we have 
+</p>
+<div class="equation">
+  \[  \Phi _{X,Y}\circ f^{*}=f^{*}\circ \Phi _{X',Y} \]
+</div>
+<p>
+and the naturality diagram for $\Phi $ above indeed commutes. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="022C"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/022C"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Naturality for $\Phi $, Part II. </em>We need to show that, given a morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  g\colon \webleft (Y,y_{0}\webright )\to \webleft (Y',y'_{0}\webright ), \]
+</div>
+<p>
+the diagram <div class="equation"><div class="tikz-cd"><img src="/static/tikzcd-images/tikzcd-000255.svg"></div></div> commutes. Indeed, given a morphism of pointed sets 
+</p>
+<div class="equation">
+  \[  \xi ^{\dagger }\colon X^{+} \to Y, \]
+</div>
+<p>
+we have 
+</p>
+<div class="equation">
+  \begin{align*}  \webleft [\Phi _{X,Y'}\circ g_{*}\webright ]\webleft (\xi \webright ) & = \Phi _{X,Y'}\webleft (g_{*}\webleft (\xi \webright )\webright )\\ & = \Phi _{X,Y'}\webleft (g\circ \xi \webright )\\ & = g\circ \xi \\ & = g\circ \Phi _{X,Y'}\webleft (\xi \webright )\\ & = g_{*}\webleft (\Phi _{X,Y'}\webleft (\xi \webright )\webright )\\ & = \webleft [g_{*}\circ \Phi _{X,Y'}\webright ]\webleft (\xi \webright ). \end{align*}
+</div>
+<p>
+ Therefore we have 
+</p>
+<div class="equation">
+  \[  \Phi _{X,Y'}\circ g_{*}=g_{*}\circ \Phi _{X,Y'} \]
+</div>
+<p>
+and the naturality diagram for $\Phi $ above indeed commutes. 
+</p>
+</span>
+</li><li    class="enumerate-item"     id="022D"
+>
+<span class="counter">
+<span class="counter-link" href="/tag/022D"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>Naturality for $\Psi $. </em>Since $\Phi $ is natural in each argument and $\Phi $ is a componentwise inverse to $\Psi $ in each argument, it follows from <a href="/tag/00W8" data-tag="00W8">Chapter 10: Categories</a>, <a href="/tag/018P" data-tag="018P">Item 2</a> of <a href="/tag/018K" data-tag="018K">Proposition 10.9.7.1.2</a> that $\Psi $ is also natural in each argument. 
+</p>
+</span>
+</li>
+</ul>
+    </p>
+    <p>
+       This finishes the proof. 
+    </p>
+    <p>
+      <div class="proofbox"><a href="/tag/00C1" data-tag="00C1">Item 3</a>: Symmetric Strong Monoidality With Respect to Wedge Sums</div>We construct the strong monoidal structure on $\webleft (-\webright )^{+}$ with respect to $\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}$ and $\vee $ as follows: 
+    </p>
+    <p>
+      <ul>
+  <li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000068561"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Strong Monoidality Constraints. </em>The isomorphism 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}}_{X,Y}\colon X^{+}\vee Y^{+}\overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\webleft (X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y\webright )^{+}  \]
+</div>
+<p>
+is given by 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}}_{X,Y}\webleft (z\webright )=\begin{cases} x & \text{if $z=\webleft [\webleft (0,x\webright )\webright ]$ with $x\in X$,}\\ y & \text{if $z=\webleft [\webleft (1,y\webright )\webright ]$ with $y\in Y$,}\\ \star _{X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y} & \text{if $z=\webleft [\webleft (0,\star _{X}\webright )\webright ]$,}\\ \star _{X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y} & \text{if $z=\webleft [\webleft (1,\star _{Y}\webright )\webright ]$}\end{cases} \]
+</div>
+<p>
+for each $z\in X^{+}\vee Y^{+}$, with inverse 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }},-1}_{X,Y} \colon \webleft (X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y\webright )^{+} \overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }X^{+}\vee Y^{+} \]
+</div>
+<p>
+given by 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }},-1}_{X,Y}\webleft (z\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\begin{cases}  \webleft [\webleft (0,x\webright )\webright ] & \text{if $z=\webleft [\webleft (0,x\webright )\webright ]$,}\\  \webleft [\webleft (1,y\webright )\webright ] & \text{if $z=\webleft [\webleft (1,y\webright )\webright ]$,}\\  p_{0} & \text{if $z=\star _{X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y}$} \end{cases}  \]
+</div>
+<p>
+for each $z\in \webleft (X\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }}Y\webright )^{+}$. 
+</p>
+</span>
+</li><li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000068974"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Strong Monoidal Unity Constraint. </em>The isomorphism 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathchoice {\mathbin {\textstyle \coprod }}{\mathbin {\textstyle \coprod }}{\mathbin {\scriptstyle \textstyle \coprod }}{\mathbin {\scriptscriptstyle \textstyle \coprod }},\mathbb {1}}_{X,Y}\colon \mathrm{pt}\overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\text{Ø}^{+} \]
+</div>
+<p>
+is given by sending $\star _{X}$ to $\star _{\text{Ø}}$. 
+</p>
+</span>
+</li>
+</ul>
+    </p>
+    <p>
+       The verification that these isomorphisms satisfy the coherence conditions making the functor $\webleft (-\webright )^{+}$ into a symmetric strong monoidal functor is omitted. 
+    </p>
+    <p>
+      <div class="proofbox"><a href="/tag/00C2" data-tag="00C2">Item 4</a>: Symmetric Strong Monoidality With Respect to Smash Products</div>We construct the strong monoidal structure on $\webleft (-\webright )^{+}$ with respect to $\times $ and $\wedge $ as follows: 
+    </p>
+    <p>
+      <ul>
+  <li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000069046"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Strong Monoidality Constraints. </em>The isomorphism 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+}_{X,Y}\colon X^{+}\wedge Y^{+}\overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\webleft (X\times Y\webright )^{+}  \]
+</div>
+<p>
+is given by 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+}_{X,Y}\webleft (x\wedge y\webright )=\begin{cases} \webleft (x,y\webright ) & \text{if $x\neq \star _{X}$ and $y\neq \star _{Y}$}\\ \star _{X\times Y} & \text{otherwise}\end{cases} \]
+</div>
+<p>
+for each $x\wedge y\in X^{+}\wedge Y^{+}$, with inverse 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,-1}_{X,Y} \colon \webleft (X\times Y\webright )^{+} \overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }X^{+}\wedge Y^{+} \]
+</div>
+<p>
+given by 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,-1}_{X,Y}\webleft (z\webright )\mathrel {\smash {\overset {\mathclap {\scriptscriptstyle \text{def}}}=}}\begin{cases}  x\wedge y & \text{if $z=\webleft (x,y\webright )$ with $\webleft (x,y\webright )\in X\times Y$,}\\  \star _{X}\wedge \star _{Y} & \text{if $z=\star _{X\times Y}$,} \end{cases}  \]
+</div>
+<p>
+for each $z\in \webleft (X\times Y\webright )^{+}$. 
+</p>
+</span>
+</li><li    class="enumerate-item" >
+<span class="counter">
+<span class="counter-link" href="/tag/a0000069193"><span class="counter-inner-no-tag">•</span></span></span>
+<span class="item-content"><p>
+<em>The Strong Monoidal Unity Constraint. </em>The isomorphism 
+</p>
+<div class="equation">
+  \[  \webleft (-\webright )^{+,\mathbb {1}}_{X,Y}\colon S^{0}\overset {\scriptstyle \mathord {\sim }}{\dashrightarrow }\mathrm{pt}^{+} \]
+</div>
+<p>
+is given by sending $0$ to $\star _{\mathrm{pt}}$ and $1$ to $\star $, where $\mathrm{pt}^{+}=\left\{ \star ,\star _{\mathrm{pt}}\right\} $. 
+</p>
+</span>
+</li>
+</ul>
+    </p>
+    <p>
+       The verification that these isomorphisms satisfy the coherence conditions making the functor $\webleft (-\webright )^{+}$ into a symmetric strong monoidal functor is omitted. 
+      <span class="qed"><img src="/static/images/trans-flag.svg" width="15px"></span>
+    </p>
+
+ </article> <div class="env-proof-footer"></div>
+
