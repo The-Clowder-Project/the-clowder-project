@@ -2365,7 +2365,7 @@ web-and-serve-on-ipv6:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py; \
+		python$(PYTHON_VERSION) update.py --noProofs; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
@@ -2476,7 +2476,7 @@ web-and-record:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py; \
+		python$(PYTHON_VERSION) update.py --noProofs; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
