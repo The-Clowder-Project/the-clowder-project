@@ -57,7 +57,7 @@ def process_file(tag_file_path, ancestor_file_path, output_file_path):
     
     # Wrap the 'before' and 'after' parts with the unfocused class.
     # We add a check to ensure we don't create empty <div> tags.
-    wrapped_before = f'<div class="current-tag-unfocused">{content_before}</div>' if content_before else ""
+    wrapped_before = f'<div class="current-tag-unfocused">{content_before}</div><span class="current-tag"></span>' if content_before else ""
     wrapped_after = f'<div class="current-tag-unfocused">{content_after}</div>' if content_after else ""
     
     # Reconstruct the final HTML by concatenating the parts.
