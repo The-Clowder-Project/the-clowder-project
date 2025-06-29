@@ -17,21 +17,322 @@ This chapter contains some general information about the Clowder Project.
 \ChapterTableOfContents
 
 \section{Introduction}\label{section-introduction}
-\subsection{Goals}\label{subsection-goals}
-The Clowder Project has the following goals:
-\begin{enumerate}
-    \item\label{subsection-goals-item-1}\SloganFont{Homogenize Conventions, Notation, and Terminology. }
-    \item\label{subsection-goals-item-2}\SloganFont{Fill Gaps in the Category Theory Literature. }There are quite a few significant gaps in the category theory literature, and we hope to fill some of them with the Clowder Project. For a list of some of them, see \cref{subsection-list-of-gaps-in-the-category-theory-literature}.
-    \item\label{subsection-goals-item-3}\SloganFont{. }
-\end{enumerate}
+\subsection{Project Description and Goals}\label{subsection-project-description-and-goals}
+In short, the Clowder Project is an online reference work and wiki for category theory and mathematics that aims to essentially become a Stacks Project for category theory.
+
+The project arose from a desire to improve upon a number of issues with the existing category theory literature, as well as fill several gaps in it.
+
+In this section, we list and discuss the goals of the Clowder Project.
+\subsubsection{Provide a Unified and Complete Reference for Category Theory}\label{subsubsection-provide-a-unified-and-complete-reference-for-category-theory}
+The category theory literature is at times rather fragmented, and often it takes a long while for book-long treatments on a given subject to appear.
+
+For example, although the theory of bicategories dates back to the late 1960s, it was not until 2020 that the subject would receive its first textbook in the topic, namely \cite{2-categories-book}.
+
+The Clowder Project aims to bridge this gap, providing a complete overview of the foundational material on category theory (see also \cref{subsection-content-and-scope}).
+\subsubsection{Gather Hard to Find Results}\label{subsubsection-gather-hard-to-find-results}
+As an extension of the previous goal, the Clowder Project also aims to gather in a single place results that are hard to find in the literature. These tend to be recorded only on original sources, which often means papers, notes or theses from the 1970s.
+
+Since the Clowder Project is organized as a wiki, it becomes rather easy to search and find such results, as one merely needs to go to the page for a given concept and then look at the properties listed there.
+\subsubsection{Elaborate on Details That Are Often Left Out}\label{subsubsection-elaborate-on-details-that-are-often-left-out}
+Another goal of the Clowder Project is to include all kinds of details and intuitions that often don't make their way into textbooks, papers, monographs, etc.
+
+For instance, one sometimes finds claims that a given diagram commutes and that it is \say{easy} to fill in the details. This also tends to happen particularly when the details are rather unwieldy.
+
+One of the goals of the Clowder Project is to provide such proofs in great detail, including discussions of technical results, even when these are indeed \say{obvious}.
+\subsubsection{Homogenize Conventions, Notation, and Terminology}\label{subsubsection-homogenize-conventions-notation-and-terminology}
+Another issue with practice in the field is that there are often a number of conflicting conventions, notations, and terminology.
+
+Being organized as a comprehensive and encyclopedic wiki, the Clowder Project tries to homogenize these conventions, notations, and terminology.
+\subsubsection{Fill Gaps in the Category Theory Literature}\label{subsubsection-fill-gaps-in-the-category-theory-literature}
+There are quite a few significant gaps in the category theory literature, some of which we hope to fill with the Clowder Project. For a list of (some of) these gaps, see \cref{subsection-list-of-gaps-in-the-category-theory-literature}.
+\subsubsection{Provide a Citable Reference for All Kinds of Results}\label{subsubsection-provide-a-citable-reference-for-all-kinds-of-results}
+It is a common situation to require a well-known result for a paper. Although proving it might be straightforward, it is often more convenient to cite a reference instead. Finding such a reference, however, may be hard and/or time-consuming.
+
+With its encyclopedic nature, the Clowder Project hopes to serve as that convenient reference.
+\subsection{Navigating the Clowder Project}\label{subsection-navigating-the-clowder-project}
+Hopefully, it should be intuitive to navigate through the web version of project. Nevertheless, here we mention a couple things that might be useful to know.
+\subsubsection{Preferences}\label{subsubsection-preferences}
+You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button located at the top right corner of the page.
+\subsubsection{Large Diagrams and the Zoom in Feature}\label{subsubsection-large-diagrams-and-the-zoom-in-feature}
+This work features many diagrams that are unfortunately a bit too large to be comfortably legible in their native size.
+
+To compensate for this, it's possible to click on them to expand their size by 200\%.
+
+In addition, you may also right-click on diagrams and then select \say{Open image in new tab} to allow for even higher amounts of zoom.
+\subsubsection{PDF Styles}\label{subsubsection-pdf-styles}
+The PDFs for each chapter as well as for the whole book are generated using seven different styles, as summarised in the following table:
+\begingroup%
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{Style}} & \textcolor{white}{\textbf{Class}} & \textcolor{white}{\textbf{Typeface}} & \textcolor{white}{\textbf{Theorem Environments}}\\\hline\rowcolor{backgroundColor}
+        Style 1                           & \code{book}                       & Alegreya Sans                        & \code{tcbthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Style 2                           & \code{book}                       & Alegreya Sans                        & \code{amsthm}                                   \\\rowcolor{backgroundColor}
+        Style 3                           & \code{book}                       & Alegreya                             & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Style 4                           & \code{book}                       & EB Garamond                          & \code{amsthm}                                   \\\rowcolor{backgroundColor}
+        Style 5                           & \code{book}                       & Crimson Pro                          & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Style 6                           & \code{book}                       & XCharter                             & \code{amsthm}                                   \\\hline
+        Style 7                           & \code{book}                       & Computer Modern                      & \code{amsthm}                                   \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
 \subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
-\subsection{Content and Scope}\label{subsection-scope}
+\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
+\subsection{Goodies}\label{subsection-goodies}
+\section{Project Overview}\label{section-project-overview}
+\subsection{Goals}\label{subsection-goals}
+\subsection{Content and Scope}\label{subsection-content-and-scope}
 In this section, we outline what content is expected to be covered in the Clowder Project.
 \subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
 First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
-\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
-\section{Miscellany}\label{section-miscellany}
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
+\section{Lists}\label{section-lists}
+\subsection{List of Omitted Proofs}\label{subsection-list-of-omitted-proofs}
+\doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
+
+There's a very large number of omitted proofs throughout these notes. Here we list them in decreasing order of importance, noting also whether they rely on material that has yet to be developed, marked by a \warningsign\ sign. This list is under construction.
+\begin{remark}{Omitted Proofs To Add}{omitted-proofs-to-add}%
+    Proofs that \emph{need} to be added at some point:
+    \begin{enumerate}
+        \item Extra proof of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:the-universal-property-of-sets-star-smash-s-zero}}{\cref{the-universal-property-of-sets-star-smash-s-zero}} using presentable categories stuff, following Maxime Ranzi's answer to \href{https://mathoverflow.net/questions/466593}{MO 466593} \warningsign.
+        \item Horizontal composition of natural transformations is associative: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{categories:properties-of-horizontal-composition-of-natural-transformations}}{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{properties-of-horizontal-composition-of-natural-transformations}}.
+        \item Fully faithful functors are essentially injective: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-essential-injectivity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-essential-injectivity} of \cref{properties-of-fully-faithful-functors}}.
+    \end{enumerate}
+    Proofs that \emph{would be very nice} to be added at some point:
+    \begin{enumerate}
+        \item Properties of pseudomonic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudomonic-functors}}{\cref{properties-of-pseudomonic-functors}} \warningsign.
+        \item Characterisation of fully faithful functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-characterisations} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-characterisations} of \cref{properties-of-fully-faithful-functors}}.
+        \item The quadruple adjunction between categories and sets: \ChapterRef{\ChapterCategories, \cref{categories:the-quadruple-adjunction-between-sets-and-cats}}{\cref{the-quadruple-adjunction-between-sets-and-cats}}.
+        \item $F_{*}$ faithful iff $F$ faithful: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
+        \item Properties of groupoid completions: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-groupoid-completion}}{\cref{properties-of-groupoid-completion}}.
+        \item Properties of cores: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-the-core-of-a-category}}{\cref{properties-of-the-core-of-a-category}}.
+        \item $\Rel$ is isomorphic to the category of free algebras of the powerset monad: \ChapterRef{\ChapterRelations, \cref{relations:rel-as-a-category-of-free-algebras}}{\cref{rel-as-a-category-of-free-algebras}} \warningsign.
+        \item Non/existence of left Kan extensions in $\sfbfRel$:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{left-kan-extensions-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{left-kan-extensions-in-rel}}.
+            \end{enumerate}
+        \item Non/existence of left Kan lifts in $\sfbfRel$:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{left-kan-lifts-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{left-kan-lifts-in-rel}}.
+            \end{enumerate}
+    \end{enumerate}
+    Proofs that \emph{would be nice} to be added at some point:
+    \begin{enumerate}
+        \item Quotient by an equivalence relation is a coequaliser: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:examples-of-coequalisers-of-sets}}{\cref{examples-of-coequalisers-of-sets}}.
+        \item Quotient by an equivalence relation is a coequaliser, repetition: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-quotient-sets-2}}{\cref{construction-of-quotient-sets-2}}.
+        \item Properties of posetal categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories}}{\cref{properties-of-posetal-categories}}.
+        \item Injective on objects functors are precisely the isocofibrations in $\TwoCategoryOfCategories$: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-injective-on-objects-functors-characterisations} of \cref{categories:properties-of-injective-on-objects-functors}}{\cref{properties-of-injective-on-objects-functors-characterisations} of \cref{properties-of-injective-on-objects-functors}} \warningsign.
+        \item Characterisations of monomorphisms of categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-monomorphisms-of-categories-characterisations} of \cref{categories:properties-of-monomorphisms-of-categories}}{\cref{properties-of-monomorphisms-of-categories-characterisations} of \cref{properties-of-monomorphisms-of-categories}}.
+        \item Epimorphisms of categories are surjective on objects: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{categories:properties-of-epimorphisms-of-categories}}{\cref{properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{properties-of-epimorphisms-of-categories}}.
+        \item Properties of pseudoepic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudoepic-functors}}{\cref{properties-of-pseudoepic-functors}} \warningsign.
+    \end{enumerate}
+    Proofs that \emph{would be nice but not essential} to be added at some point:
+    \begin{enumerate}
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-bimonoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-bimonoidality} of \cref{properties-of-products-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}{\cref{the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}} \warningsign.
+        \item Proof that $(\Sets,\times_{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{properties-of-pullbacks-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\icoprod,\emptyset)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{properties-of-coproducts-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\ipushout{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-sets}} \warningsign.
+    \end{enumerate}
+    Proofs that have been (temporarily) omitted because they are \say{clear}, \say{straightforward}, or \say{tedious}:
+    \begin{enumerate}
+        \item Properties of products of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-associativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-associativity} of \cref{properties-of-products-of-sets}}.
+                \item Left Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-unitality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-unitality} of \cref{properties-of-products-of-sets}}.
+                \item Right Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-unitality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-unitality} of \cref{properties-of-products-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-commutativity} of \cref{properties-of-products-of-sets}}.
+                \item Left Distributivity Over Coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-distributivity-over-coproducts} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-distributivity-over-coproducts} of \cref{properties-of-products-of-sets}}.
+                \item Right Distributivity Over Coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-distributivity-over-coproducts} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-distributivity-over-coproducts} of \cref{properties-of-products-of-sets}}.
+                \item Left Annihilation With the Empty Set: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-left-annihilation-with-the-empty-set} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-left-annihilation-with-the-empty-set} of \cref{properties-of-products-of-sets}}.
+                \item Right Annihilation With the Empty Set: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-right-annihilation-with-the-empty-set} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-right-annihilation-with-the-empty-set} of \cref{properties-of-products-of-sets}}.
+                \item Symmetric Monoidality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-monoidality} of \cref{properties-of-products-of-sets}}.
+                \item Symmetric Bionoidality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-bimonoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-bimonoidality} of \cref{properties-of-products-of-sets}}.
+            \end{enumerate}
+        \item Properties of coproducts of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-associativity} of \cref{properties-of-coproducts-of-sets}}.
+                \item Left unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-left-unitality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-left-unitality} of \cref{properties-of-coproducts-of-sets}}.
+                \item Right unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-right-unitality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-right-unitality} of \cref{properties-of-coproducts-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-commutativity} of \cref{properties-of-coproducts-of-sets}}.
+            \end{enumerate}
+        \item Properties of pushouts of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-associativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-unitality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-unitality} of \cref{properties-of-pushouts-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-commutativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Pushout of sets over the empty set recovers the coproduct of sets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-sets}}.
+            \end{enumerate}
+        \item Properties of coequalisers of sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-associativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-unitality} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-unitality} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-commutativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Interaction with composition: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{properties-of-coequalisers-of-sets}}.
+            \end{enumerate}
+        \item Properties of set differences:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-unions-2} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-unions-2} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-left-annihilation} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-left-annihilation} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-containment} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-containment} of \cref{properties-of-differences}}.
+            \end{enumerate}
+        \item Complements and characteristic functions: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-interaction-with-characteristic-functions} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-interaction-with-characteristic-functions} of \cref{properties-of-complements}}.
+        \item Properties of symmetric differences:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-lack-of-functoriality} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-lack-of-functoriality} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-lack-of-functoriality} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-lack-of-functoriality} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-bijectivity} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-bijectivity} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-1} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-vector-spaces-2} of \cref{properties-of-symmetric-differences}}.
+            \end{enumerate}
+        \item The Yoneda lemma for sets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-yoneda-lemma-for-sets}}{\cref{the-yoneda-lemma-for-sets}}.
+        \item Co/completeness of powersets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-categories-co-completeness} of \cref{constructions-with-sets:properties-of-powersets-as-categories}}{\cref{properties-of-powersets-as-categories-co-completeness} of \cref{properties-of-powersets-as-categories}}.
+        \item Properties of direct images:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-functoriality} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-coproducts} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i}}.
+            \end{enumerate}
+        \item Properties of inverse images:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-functoriality} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-coproducts} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with products; \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i}}.
+            \end{enumerate}
+        \item Properties of direct images with compact support:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-functoriality} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Lax preservation of colimits: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-coproducts} of \cref{properties-of-direct-images-with-compact-support-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i}}.
+            \end{enumerate}
+        \item Left distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Right distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Left annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-annihilator-of-the-product-of-sets}}{\cref{the-left-annihilator-of-the-product-of-sets}}.
+        \item Right annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-annihilator-of-the-product-of-sets}}{\cref{the-right-annihilator-of-the-product-of-sets}}.
+        \item Properties of wedge products of pointed sets:
+            \begin{enumerate}
+                \item Associativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Unitality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+            \end{enumerate}
+        \item Properties of pushouts of pointed sets:
+            \begin{enumerate}
+                \item Interaction with coproducts: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-pointed-sets}}.
+            \end{enumerate}
+        \item Properties of free pointed sets:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-free-pointed-sets-functoriality} of \cref{pointed-sets:properties-of-free-pointed-sets}}{\cref{properties-of-free-pointed-sets-functoriality} of \cref{properties-of-free-pointed-sets}}.
+            \end{enumerate}
+        \item $\Rel$ with $\times$ is closed symmetric monoidal: \ChapterRef{\ChapterRelations, \cref{relations:the-closed-symmetric-monoidal-category-of-relations}}{\cref{the-closed-symmetric-monoidal-category-of-relations}}.
+        \item Properties of graphs:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-functoriality} of \cref{properties-of-graphs-of-functions}}.
+                \item Interaction With Inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-interaction-with-inverses} of \cref{properties-of-graphs-of-functions}}.
+            \end{enumerate}
+        \item Properties of inverses of functions (as relations):
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-functoriality} of \cref{properties-of-inverses-of-functions}}.
+                \item Interaction With Inverses of Relations: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{properties-of-inverses-of-functions}}.
+            \end{enumerate}
+        \item Binary unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-unions-of-relations}}{\cref{properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{properties-of-binary-unions-of-relations}}.
+        \item Unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-unions-of-families-of-relations}}{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-unions-of-families-of-relations}}.
+        \item Binary Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-intersections-of-relations}}{\cref{properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{properties-of-binary-intersections-of-relations}}.
+        \item Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations}}{\cref{properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-intersections-of-families-of-relations}}.
+        \item Properties of inverses of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations}}.
+        \item Properties of composition of relations: some items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations}}.
+        \item Properties of collages of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-collages-of-relations}}{\cref{properties-of-collages-of-relations}}.
+        \item Properties of direct images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+                \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of strong inverse images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+                \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of weak inverse images of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+                \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Properties of direct images with compact support of relations:
+            \begin{enumerate}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+                \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+            \end{enumerate}
+        \item Functoriality of Powersets \rmII: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-2}}{\cref{functoriality-of-powersets-2}}.
+        \item Proof that the reflexive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-reflexive-closure-of-a-relation}}{\cref{construction-of-the-reflexive-closure-of-a-relation}}.
+        \item Properties of Symmetric Relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-symmetric-relations}}{\cref{properties-of-symmetric-relations}}.
+        \item Proof that the symmetric closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-symmetric-closure-of-a-relation}}{\cref{construction-of-the-symmetric-closure-of-a-relation}}.
+        \item Properties of the symmetric closure of a relation:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+            \end{enumerate}
+        \item Properties of transitive relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-transitive-relations}}{\cref{properties-of-transitive-relations}}.
+        \item Proof that the transitive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-transitive-closure-of-a-relation}}{\cref{construction-of-the-transitive-closure-of-a-relation}}.
+        \item Properties of the transitive closure of a relation:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation}}{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{properties-of-the-transitive-closure-of-a-relation}}.
+            \end{enumerate}
+        \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation}}{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{properties-of-the-equivalence-closure-of-a-relation}}.
+        \item Properties of Quotient Sets, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets}}:
+            \begin{enumerate}
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-coequaliser} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-coequaliser} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-pushout} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-pushout} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{properties-of-quotient-sets}}.
+            \end{enumerate}
+    \end{enumerate}
+\end{remark}
+\subsection{List of Missing Examples}\label{subsection-list-of-missing-examples}
+Adding new examples is always welcome! In this section, we list some subjects and sections which could do with more examples:
+\begin{remark}{Missing Examples to Add}{missing-examples-to-add}%
+    Potentially interesting examples to add include, but are definitely not limited to:
+    \begin{enumerate}
+        \item Examples of 2-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-monomorphisms-in-rel}}{\cref{subsection-2-categorical-monomorphisms-in-rel}}.
+        \item Examples of 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-epimorphisms-in-rel}}{\cref{subsection-2-categorical-epimorphisms-in-rel}}.
+        \item Examples of left Kan extensions and left Kan lifts in $\sfbfRel$.
+        \item Examples of functors satisfying the conditions described in \ChapterCategories.
+    \end{enumerate}
+\end{remark}
+\subsection{List of Open Problems}\label{subsection-list-of-open-problems}
+There's a number of questions and open problems listed throughout this project. Here we collect them in a single place.
+\begin{remark}{Open Problems to Add}{open-problems-to-add}%
+    On relations:
+    \begin{enumerate}
+        \item \ChapterRef{\ChapterRelations, \cref{relations:better-characterisations-of-representably-full-morphisms-in-rel}}{\cref{better-characterisations-of-representably-full-morphisms-in-rel}}, on better characterisations of representably full morphisms in $\sfbfRel$. This question also appears as \cite{MO467527}.
+        \item \ChapterRef{\ChapterRelations, \cref{relations:better-characterisations-of-corepresentably-full-morphisms-in-rel}}{\cref{better-characterisations-of-corepresentably-full-morphisms-in-rel}}, on better characterisations of corepresentably full morphisms in $\sfbfRel$. This question also appears as \cite{MO467527}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-extensions-of-relations}}{\cref{existence-of-specific-left-kan-extensions-of-relations}}, seeking a characterisation of which left Kan extensions exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:explicit-description-of-left-kan-extensions-along-functions}}{\cref{explicit-description-of-left-kan-extensions-along-functions}}, seeking an explicit descriptions of left Kan extensions along relations of the form $f^{-1}$ (which always exist in $\sfbfRel$). This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-lifts-of-relations}}{\cref{existence-of-specific-left-kan-lifts-of-relations}}, seeking a characterisation of which left Kan lifts exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:explicit-description-of-left-kan-lifts-along-functions}}{\cref{explicit-description-of-left-kan-lifts-along-functions}}, seeking an explicit descriptions of left Kan lifts along relations of the form $\Gr(f)$ (which always exist in $\sfbfRel$). This question also appears as \cite{MO461592}.
+    \end{enumerate}
+    On categories:
+    \begin{enumerate}
+        \item \ChapterRef{\ChapterCategories, \cref{categories:better-characterisations-of-functors-with-full-precomposition}}{\cref{better-characterisations-of-functors-with-full-precomposition}}, seeking a better characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ to always be full. This question also appears as \cite{MO468121}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-conservative-pre-postcomposition}}{\cref{characterisations-of-functors-with-conservative-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be conservative. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-injective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-injective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially injective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially surjective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-dominant-pre-postcomposition}}{\cref{characterisations-of-functors-with-dominant-pre-postcomposition}}, , seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be dominant. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-monic-pre-postcomposition}}{\cref{characterisations-of-functors-with-monic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be monic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-epic-pre-postcomposition}}{\cref{characterisations-of-functors-with-epic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be epic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-pseudoepic-pre-postcomposition}}{\cref{characterisations-of-functors-with-pseudoepic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be pseudoepic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-pseudoepic-functors}}{\cref{characterisations-of-pseudoepic-functors}}, seeking a characterisation of pseudoepic functors. This question also appears as \cite{MO321971}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}{\cref{must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}, which asks whether a pseudomonic and pseudoepic functor must necessarily be an equivalence of categories. This question also appears as \cite{MO468334}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-faithful-on-cores}}{\cref{characterisation-of-functors-representably-faithful-on-cores}}, seeking a characterisation of functors representably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-full-on-cores}}{\cref{characterisation-of-functors-representably-full-on-cores}}, seeking a characterisation of functors representably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-representably-fully-faithful-on-cores}}, seeking a characterisation of functors representably fully faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-faithful-on-cores}}, seeking a characterisation of functors corepresentably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-full-on-cores}}{\cref{characterisation-of-functors-corepresentably-full-on-cores}}, seeking a characterisation of functors corepresentably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-fully-faithful-on-cores}}, seeking a characterisation of functors corepresentably fully faithful on cores.
+    \end{enumerate}
+\end{remark}
 \subsection{List of Gaps in the Category Theory Literature}\label{subsection-list-of-gaps-in-the-category-theory-literature}
 The Clowder Project aims to address several significant gaps in the existing literature on category theory, as detailed below. See also \cite{MO494959}.
 \begin{gap}{The Tensor Product of Presentable Categories}{gap-the-tensor-product-of-presentable-categories}%
@@ -118,8 +419,19 @@ The Clowder Project aims to address several significant gaps in the existing lit
     \]%
     much like $\rmZ(\CatFont{C})=\Nat(\id_{\CatFont{C}},\id_{\CatFont{C}})$.
 \end{gap}
-\begin{gap}{Isbell Duality}{gap-isbell-duality}%
-    There are several results and examples in the theory of Isbell duality missing from the literature, with a comprehensive treatment still lacking.
+\begin{gap}{A Comprehensive Treatment of Isbell Duality}{gap-a-comprehensive-treatment-of-isbell-duality}%
+    There are several results, notions, and examples in the theory of Isbell duality missing from the literature, and a truly comprehensive treatment is still lacking.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For instance, there appears to be no mention of the duality pairings
+        \begin{align*}
+            \mathsf{Spec}(F)\boxtimes F                     &\to \Tr(\CatFont{C}),\\
+            \SheafFont{F}\boxtimes\mathsf{O}(\SheafFont{F}) &\to \Tr(\CatFont{C})
+        \end{align*}
+        in the currently available literature.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
 \end{gap}
 \begin{gap}{A Comprehensive Theory of 2-Dimensional Co/Ends}{gap-a-comprehensive-theory-of-2-dimensional-co-ends}%
     The currently available treatments of 2-dimensional co/ends are unsatisfactory.%

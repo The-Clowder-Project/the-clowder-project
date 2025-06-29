@@ -2,6 +2,37 @@ from functions import *
 import sys
 import datetime
 import preprocess
+import re
+
+def common_changes(line,name):
+    if line.find("\\input{preamble}")          == 0 or \
+            line.find("\\begin{Introduction}") == 0 or \
+            line.find("\\end{Introduction}")   == 0 or \
+            line.find("\\begin{document}")     == 0 or \
+            line.find("\\maketitle")           == 0 or \
+            line.find("\\tableofcontents")     == 0 or \
+            line.find("chapter_modifications") >= 0 or \
+            line.find("%\\item")               >= 0 or \
+            line.find("\\input{chapters}")     == 0 or \
+            line.find("\\bibliography")        == 0 or \
+            line.find("\\end{document}")       == 0:
+        line = ""
+
+    if is_label(line):
+        text = "\\label{" + name + ":"
+        line = line.replace("\\label{", text)
+
+    if contains_cref(line):
+        line = replace_crefs(line, name)
+
+    if line.find("\\title{") == 0:
+        line = line.replace("\\title{", "\\chapter{")
+
+    if line.find("ABSOLUTEPATH") >= 0:
+        absolute_path = preprocess.absolute_path()
+        line = line.replace("ABSOLUTEPATH", absolute_path)
+
+    return line
 
 def print_tex_file(tex_file,name,style):
     for line in tex_file:
@@ -24,47 +55,18 @@ def print_tex_file(tex_file,name,style):
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
 
-        if line.find("\\input{preamble}") == 0:
+        # Apply common changes
+        line = common_changes(line,name)
+        if (line == ""):
             continue
-        if line.find("\\begin{Introduction}") == 0:
-            continue
-        if line.find("\\end{Introduction}") == 0:
-            continue
-        if line.find("\\begin{document}") == 0:
-            continue
-        if line.find("\\title{") == 0:
-            line = line.replace("\\title{", "\\chapter{")
-        if line.find("\\maketitle") == 0:
-            continue
-        if line.find("\\tableofcontents") == 0:
-            continue
-        if line.find("chapter_modifications") >= 0:
-            continue
-        if line.find("ABSOLUTEPATH") >= 0:
-            absolute_path = preprocess.absolute_path()
-            line = line.replace("ABSOLUTEPATH", absolute_path)
-        if line.find("%\\item") >= 0:
-            continue
-        if style == "alegreya-sans-tcb":
-            line = line # Do nothing
+
+        # Apply TCB specific changes
+        if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+            line = re.sub(r'^(\\begin\{[a-zA-Z\*]+\})\{(.*?)\}\{.*?\}%\\label\{(.*?)\}%$', r'\1{\2}{\3}%', line)
         else:
             if line.find("\\par\\vspace") >= 0:
                 continue
-        #if line.find("\\item\\label") >= 0:
-        #    line = re.sub(r'(\\SloganFont{[^}]+})',r'\1%\n',line)
-        #    #if line.find("\\item\\label{(.*?)}\\SloganFont{(.*?)}") >= 0:
-        #    #line = line.replace("\\item\\label{.*?}\\SloganFont{.*?}", "\\item\\label{\1}\\SloganFont{\2}%\n")
-        if line.find("\\input{chapters}") == 0:
-            continue
-        if line.find("\\bibliography") == 0:
-            continue
-        if is_label(line):
-            text = "\\label{" + name + ":"
-            line = line.replace("\\label{", text)
-        if contains_cref(line):
-            line = replace_crefs(line, name)
-        if line.find("\\end{document}") == 0:
-            continue
+
         # WEB specific fixes
         if (style == "web"):
             if line.find("\\SloganFont") == 0:
@@ -244,6 +246,8 @@ def main(style):
     print_list_contrib(absolute_path+"/")
     print("\\end{center}")
     print("\\dominitoc")
+    print("\\begingroup")
+    print("\\hypersetup{hidelinks}")
     if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "cm", "crimson-pro", "eb-garamond", "xcharter"]:
         print("{\\ShortTableOfContents}")
         print("\\clearpage")
@@ -251,6 +255,7 @@ def main(style):
         print("{\\TableOfContents}")
     else:
         print("\\tableofcontents")
+    print("\\endgroup")
     print("\\mainmatter")
 
     lijstje = list_text_files(absolute_path+"/")
