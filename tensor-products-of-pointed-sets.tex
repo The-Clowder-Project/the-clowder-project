@@ -4452,7 +4452,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 a(bc)%
             \]%
             for each $a,b,c\in A$.
-        \item\label{proof-of-monoids-with-respect-to-the-left-tensor-product-of-pointed-sets-left-unitality-2}\SloganFont{Left Unitality. }The left unitality condition acts as
+        \item\label{proof-of-monoids-with-respect-to-the-right-tensor-product-of-pointed-sets-left-unitality-2}\SloganFont{Left Unitality. }The left unitality condition acts as
             \begin{webcompile}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     a
@@ -5552,7 +5552,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $x\in X$. Indeed:
     \begin{enumerate}
-        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-1}\SloganFont{Invertibility \rmI. }We have
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-3}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
                 [\LUnitor^{\Sets_{*},-1}_{X}\circ\LUnitor^{\Sets_{*}}_{X}](0\wedge x) &= \LUnitor^{\Sets_{*},-1}_{X}(\LUnitor^{\Sets_{*}}_{X}(0\wedge x))\\
                                                                                       &= \LUnitor^{\Sets_{*},-1}_{X}(x_{0})\\
@@ -5573,7 +5573,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{S^{0}\wedge X}.%
             \]%
-        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-2}\SloganFont{Invertibility \rmII. }We have
+        \item\label{proof-of-the-left-unitor-of-the-smash-product-of-pointed-sets-4}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
                 [\LUnitor^{\Sets_{*}}_{X}\circ\LUnitor^{\Sets_{*},-1}_{X}](x) &= \LUnitor^{\Sets_{*}}_{X}(\LUnitor^{\Sets_{*},-1}_{X}(x))\\
                                                                               &= \LUnitor^{\Sets_{*},-1}_{X}(1\wedge x)\\
@@ -5738,7 +5738,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $x\in X$. Indeed:
     \begin{enumerate}
-        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-1}\SloganFont{Invertibility \rmI. }We have
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-3}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
                 [\RUnitor^{\Sets_{*},-1}_{X}\circ\RUnitor^{\Sets_{*}}_{X}](x\wedge 0) &= \RUnitor^{\Sets_{*},-1}_{X}(\RUnitor^{\Sets_{*}}_{X}(x\wedge 0))\\
                                                                                       &= \RUnitor^{\Sets_{*},-1}_{X}(x_{0})\\
@@ -5759,7 +5759,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 =%
                 \id_{X\wedge S^{0}}.%
             \]%
-        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2}\SloganFont{Invertibility \rmII. }We have
+        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-4}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
                 [\RUnitor^{\Sets_{*}}_{X}\circ\RUnitor^{\Sets_{*},-1}_{X}](x) &= \RUnitor^{\Sets_{*}}_{X}(\RUnitor^{\Sets_{*},-1}_{X}(x))\\
                                                                               &= \RUnitor^{\Sets_{*},-1}_{X}(x\wedge 1)\\
@@ -5889,15 +5889,15 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $x\wedge y\in X\wedge Y$.
 \end{definition}
-\begin{Proof}{Proof of \cref{the-right-unitor-of-the-smash-product-of-pointed-sets}}%
+\begin{Proof}{Proof of \cref{the-symmetry-of-the-smash-product-of-pointed-sets}}%
     \ProofBox{Well-Definedness}%
     Let $[(x,y)]=[(x',y')]$ be an element in $X\wedge Y$. Then either:
     \begin{enumerate}
-        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
-        \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
+        \item\label{proof-of-the-symmetry-of-the-smash-product-of-pointed-sets-1}We have $x=x'$ and $y=y'$.
+        \item\label{proof-of-the-symmetry-of-the-smash-product-of-pointed-sets-2}Both of the following conditions are satisfied:
             \begin{enumerate}
-                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=y_{0}$.
-                \item\label{proof-of-the-right-unitor-of-the-smash-product-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=y_{0}$.
+                \item\label{proof-of-the-symmetry-of-the-smash-product-of-pointed-sets-2-a}We have $x=x_{0}$ or $y=y_{0}$.
+                \item\label{proof-of-the-symmetry-of-the-smash-product-of-pointed-sets-2-b}We have $x'=x_{0}$ or $y'=y_{0}$.
             \end{enumerate}
     \end{enumerate}
     In the first case, $\sigma^{\Sets_{*}}_{X}$ clearly sends both elements to the same element in $X$. Meanwhile, in the latter case both elements are equal to the basepoint $x_{0}\wedge y_{0}$ of $X\wedge Y$, which gets sent to the basepoint $y_{0}\wedge x_{0}$ of $Y\wedge X$.

@@ -629,10 +629,10 @@ Let $R$ be a relation on $A$.
     \end{enumerate}
     which are both clear.
 \end{Proof}
-\begin{proposition}{Properties of Equivalence Relations}{properties-of-equivalence-relations}%
+\begin{proposition}{Properties of Equivalence Relations}{properties-of-the-equivalence-closure-of-a-relation}%
     Let $R$ be a relation on $A$.
     \begin{enumerate}
-        \item\label{properties-of-equivalence-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-the-equivalence-closure-of-a-relation-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#(-)^{\rmeq}#\Wasureru#\eRel(A,B)#\eRel^{\eq}(A,B),#
             \end{webcompile}
@@ -643,25 +643,25 @@ Let $R$ be a relation on $A$.
                 \eRel(R,S),
             \]%
             natural in $R\in\Obj(\eRel^{\eq}(A,B))$ and $S\in\Obj(\eRel(A,B))$.
-        \item\label{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}\SloganFont{The Equivalence Closure of an Equivalence Relation. }If $R$ is an equivalence relation, then $R^{\rmeq}=R$.
-        \item\label{properties-of-equivalence-relations-idempotency}\SloganFont{Idempotency. }We have
+        \item\label{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation}\SloganFont{The Equivalence Closure of an Equivalence Relation. }If $R$ is an equivalence relation, then $R^{\rmeq}=R$.
+        \item\label{properties-of-the-equivalence-closure-of-a-relation-idempotency}\SloganFont{Idempotency. }We have
             \[
                 (R^{\rmeq})^{\rmeq}
                 =
                 R^{\rmeq}.
             \]%
-        %\item\label{properties-of-equivalence-relations-}\SloganFont{. }
+        %\item\label{properties-of-the-equivalence-closure-of-a-relation-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-equivalence-relations}}%
-    \FirstProofBox{\cref{properties-of-equivalence-relations-adjointness}: Adjointness}%
+\begin{Proof}{Proof of \cref{properties-of-the-equivalence-closure-of-a-relation}}%
+    \FirstProofBox{\cref{properties-of-the-equivalence-closure-of-a-relation-adjointness}: Adjointness}%
     This is a rephrasing of the universal property of the equivalence closure of a relation, stated in \cref{the-equivalence-closure-of-a-relation}.
 
-    \ProofBox{\cref{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}: The Equivalence Closure of an Equivalence Relation}%
+    \ProofBox{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation}: The Equivalence Closure of an Equivalence Relation}%
     Clear.
 
-    \ProofBox{\cref{properties-of-equivalence-relations-idempotency}: Idempotency}%
-    This follows from \cref{properties-of-equivalence-relations-the-equivalence-closure-of-a-equivalence-relation}.
+    \ProofBox{\cref{properties-of-the-equivalence-closure-of-a-relation-idempotency}: Idempotency}%
+    This follows from \cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation}.
 \end{Proof}
 \section{Quotients by Equivalence Relations}\label{section-quotients-by-equivalence-relations}
 \subsection{Equivalence Classes}\label{subsection-quotients-by-equivalence-relations-equivalence-classes}
