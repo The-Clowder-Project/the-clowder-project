@@ -64,7 +64,7 @@ def regex_two(text):
     modified_lines = [modify_cref_line(line) for line in lines]  # Apply modification to each line
     return "\n".join(modified_lines)  # Join the modified lines back together
 
-def line_regex(text):
+def line_regex(line):
     """Replaces a complex ChapterRef pattern with a simplified version.
 
     Handles partial regex testing or full replacement based on test_partials.
@@ -72,14 +72,14 @@ def line_regex(text):
     and removes 'chapter-' prefix.
     """
 
-    def camel_case_to_hyphenated_lowercase(text):
+    def camel_case_to_hyphenated_lowercase(line):
         """Converts a CamelCase string to hyphenated lowercase."""
-        s1 = re.sub('(.)([A-Z][a-z]+)', r'\1-\2', text)
+        s1 = re.sub('(.)([A-Z][a-z]+)', r'\1-\2', line)
         return re.sub('([a-z0-9])([A-Z])', r'\1-\2', s1).lower()
 
-    def remove_chapter_prefix(text):
+    def remove_chapter_prefix(line):
         """Removes 'chapter-' prefix and any leading hyphens."""
-        return re.sub(r'\\-chapter-', '', text)
+        return re.sub(r'\\-chapter-', '', line)
 
     # Full regex pattern
     full_pattern = r"\\ChapterRef\{(?P<chapter_label>[^,]+),\s+\\cref\{(?P<label1>[^}]+)\}\s+of\s+\\cref\{(?P<label2>[^}]+)\}\s+of\s+\\cref\{(?P<label3>[^}]+)\}\s*\}\s*\{\s*\\cref\{(?P<label4>[^}]+)\}\s+of\s+\\cref\{(?P<label5>[^}]+)\}\s+of\s+\\cref\{(?P<label6>[^}]+)\}\}"
@@ -94,9 +94,12 @@ def line_regex(text):
         return rf"\cref{{{hyphenated_chapter_label}:section-phantom}}, \cref{{{label1}}} of \cref{{{label2}}} of \cref{{{label3}}}"
 
     # Handle non-breaking spaces
-    text = text.replace(" ", " ")
+    line = line.replace(" ", " ")
 
-    return re.sub(full_pattern, replacement, text, flags=re.DOTALL)
+    line = re.sub(full_pattern, replacement, line, flags=re.DOTALL)
+    line = re.sub('','', line, flags=re.DOTALL)
+
+    return line
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

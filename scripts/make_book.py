@@ -176,6 +176,8 @@ def print_preamble(path,style,stacks=False):
         if (style == "tags-alegreya-sans-tcb" or style == "alegreya-sans-tcb"):
             if line.find("\setlength{\TCBBoxCorrection}{-0.0\\baselineskip}") >= 0:
                 line = "\setlength{\TCBBoxCorrection}{-0.5\\baselineskip}\n"
+        if (style == "web"):
+            line = preprocess.chaptermacros(line)
         print(line,end="")
     preamble.close()
     return

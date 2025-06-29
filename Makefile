@@ -12,7 +12,7 @@ LIJST = introduction \
 		tensor-products-of-pointed-sets \
 		relations \
 		constructions-with-relations \
-		equivalence-relations-and-apartness-relations \
+		conditions-on-relations \
 		categories \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories
