@@ -105,17 +105,35 @@ A number of questions appear throughout the Clowder Project; tackling these woul
 
 The questions appearing throughout the Clowder Project are listed in \cref{subsection-list-of-questions}.
 \subsection{Goodies}\label{subsection-goodies}
-In this section we list a few sample nice results and things from the Clowder Project
+In this section we list a few sample nice results and things from the Clowder Project.
+\subsubsection{General Utility}\label{subsubsection-goodies-general-utility}
 \begin{itemize}
     \item \ChapterRef{\ChapterNotes, \cref{notes:section-tikz-code-for-commutative-diagrams}}{\cref{section-tikz-code-for-commutative-diagrams}} contains several \code{tikz-cd} snippets producing somewhat-hard-to-draw diagrams. Examples include cube, pentagon, and hexagon diagrams, as well as e.g.\ co/product diagrams with perfectly circular arrows.
-    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-the-internal-hom-of-a-powerset}}{\cref{subsection-the-internal-hom-of-a-powerset}} contains a discussion of internal Homs in powersets viewed as categories. In general, \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}} discusses several properties of powersets that are analogous to those of presheaf categories.
+\end{itemize}
+\subsubsection{Set Theory Through a Categorical Lens}\label{subsubsection-goodies-set-theory-through-a-categorical-lens}
+Sets:
+\begin{itemize}
+    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-the-internal-hom-of-a-powerset}}{\cref{subsection-the-internal-hom-of-a-powerset}} contains a discussion of internal Homs in powersets viewed as categories.
+    \item More generally, \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}} discusses several properties of powersets that are analogous to those of presheaf categories.
     \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}}{\cref{subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}} discusses the adjoint triple $f_{*}\dashv f^{-1}\dashv f_{!}$ between $\mathcal{P}(X)$ and $\mathcal{P}(Y)$ induced by a function $f\colon X\to Y$.
     \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-a-six-functor-formalism-for-sets}}{\cref{subsection-a-six-functor-formalism-for-sets}} constructs a kind of \say{six functor formalism for (power)sets}.
-    \item \ChapterMonoidalStructuresOnTheCategoryOfSets contains explicit proofs that product/coproduct of sets form a monoidal structure, including a completely 1-categorical proof of the universal property of $(\Sets,\times,\pt)$ (\ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:subsection-the-universal-property-of-sets-times-pt}}{\cref{subsection-the-universal-property-of-sets-times-pt}}).
-    \item \ChapterTensorProductsOfPointedSets constructs several tensor products of pointed sets, including a few unusual ones. It also contains a completely 1-categorical proof of the universal property of $(\Sets_{*},\wedge,S^{0})$ (\ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}{\cref{subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}), as well as a description of comonoids in $\Sets_{*}$ with respect to $\wedge$ (\ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:comonoids-with-respect-to-the-smash-product-of-pointed-sets}}{\cref{comonoids-with-respect-to-the-smash-product-of-pointed-sets}})
+    \item \ChapterMonoidalStructuresOnTheCategoryOfSets contains explicit proofs that product/coproduct of sets form a monoidal structure.
+    \item \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:subsection-the-universal-property-of-sets-times-pt}}{\cref{subsection-the-universal-property-of-sets-times-pt}} gives a completely 1-categorical proof of the universal property of $(\Sets,\times,\pt)$.
+\end{itemize}
+Pointed Sets:
+\begin{itemize}
+    \item \ChapterTensorProductsOfPointedSets constructs several tensor products of pointed sets, including a few unusual ones giving rise to skew monoidal structures on $\Sets_{*}$.
+    \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}{\cref{subsection-the-universal-property-of-the-smash-product-of-pointed-sets}} gives a completely 1-categorical proof of the universal property of $(\Sets_{*},\wedge,S^{0})$.
+    \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:comonoids-with-respect-to-the-smash-product-of-pointed-sets}}{\cref{comonoids-with-respect-to-the-smash-product-of-pointed-sets}} contains a description of comonoids in $\Sets_{*}$ with respect to $\wedge$.
+\end{itemize}
+Relations:
+\begin{itemize}
     \item \ChapterRef{\ChapterRelations, \cref{relations:section-properties-of-the-2-category-of-relations}}{\cref{section-properties-of-the-2-category-of-relations}} contains a discussion of several properties of the 2-category of relations like descriptions of internal adjunctions and internal monads.
     \item \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}} contains a discussion of two skew monoidal structures on the category $\eRel(A,B)$ of relations from a set $A$ to a set $B$.
     \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} contains a description of left/right Kan extensions and lifts internal to the 2-category of relations.
+\end{itemize}
+\subsubsection{Category Theory}\label{subsubsection-goodies-category-theory}
+\begin{itemize}
     \item \ChapterCategories contains a description of several properties of functors, including somewhat lesser known ones such as dominant functors or pseudoepic functors.
 \end{itemize}
 \section{Project Overview}\label{section-project-overview}
@@ -123,6 +141,7 @@ In this section we list a few sample nice results and things from the Clowder Pr
 In this section, we outline what content is expected to be covered in the Clowder Project.
 \subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
 First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
+\subsection{Style}\label{subsection-style}
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
 \section{Lists}\label{section-lists}
 \subsection{List of Omitted Proofs}\label{subsection-list-of-omitted-proofs}
