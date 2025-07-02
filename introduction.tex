@@ -71,7 +71,7 @@ The PDFs for each chapter as well as for the whole book are generated using seve
         Style 3                           & \code{book}                       & Alegreya                             & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
         Style 4                           & \code{book}                       & EB Garamond                          & \code{amsthm}                                   \\\rowcolor{backgroundColor}
         Style 5                           & \code{book}                       & Crimson Pro                          & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
-        Style 6                           & \code{book}                       & XCharter                             & \code{amsthm}                                   \\\hline
+        Style 6                           & \code{book}                       & XCharter                             & \code{amsthm}                                   \\\rowcolor{backgroundColor}
         Style 7                           & \code{book}                       & Computer Modern                      & \code{amsthm}                                   \\\hline
     \end{tabular}
 \end{center}
@@ -141,8 +141,62 @@ Relations:
 In this section, we outline what content is expected to be covered in the Clowder Project.
 \subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
 First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
+\subsubsection{Category Theory Variants}\label{subsubsection-category-theory-variants}
+Second, the Clowder Project aims to cover variants of category theory such as internal, fibred, or enriched category theory. The literature on these topics is often quite scattered and scarce, and so having a comprehensive discussion of them in Clowder aims to fill a large gap in the literature
+\subsubsection{Higher Category Theory}\label{subsubsection-higher-category-theory}
+Third, a detailed presentation of the theories of bicategories and double categories is planned, along with \emph{some} material on tricategories.
+
+Bicategories are another topic for which the literature is rather scattered, and, for some topics, scarce. As mentioned in the introduction, only recently has a proper textbook on bicategories appeared, \cite{2-categories-book}. Moreover, one finds several gaps in the literature, with a number of important results missing. As one particular example, one could look at the theory of 2-dimensional co/ends, in which case a comprehensive treatment based upon lax/oplax/pseudo dinatural transformations seems to be missing.
+
+All of the elementary and not-so-elementary topics in the theory of bicategories are planned to appear in Clowder, and the same holds true for the theory of double categories.
+\subsubsection{$\infty$-Categories}\label{susbsection-infty-categories}
+Lastly, some material on $\infty$-categories is planned, although the precise scope of this remains to be defined. Ideally, this would include both model categories as well as synthetic and concrete models for $\infty$-categories (e.g.\ quasicategories, complete Segal spaces, cubical quasicategories, etc.).
+
+In this way, we view Clowder as a good \emph{complement} to \cite{kerodon}.
+\subsubsection{Other Topics}\label{subsubsection-other-topics}
+Occasionally, material on topics not a-priori related to category theory will be included. This may be done for a variety of reasons, including:
+\begin{itemize}
+    \item Illustrating general theory.
+    \item Comparison with classical concepts, such as e.g.\ ionads \vs topological spaces.
+    \item Providing a more consistent and unified treatment of a particular topic, with hyperlinks to relevant concepts or examples.
+\end{itemize}
 \subsection{Style}\label{subsection-style}
+The Clowder Project makes several unusual stylistic choices, aligned with its goals.
+\subsubsection{Presentation of Topics}\label{subsubsection-presentation-of-topics}
+The presentation of topics is encyclopedic, non-linear, and sometimes idiosyncratic.
+
+In particular, there's some amount of repetition throughout the project. This is a result of simultaneously wanting to cover as much material as possible while still allowing Clowder to be used as an online reference work/wiki.
+\subsubsection{Provable Items Come With Proofs}\label{subsubsection-provable-items-come-with-proofs}
+Every proposition, theorem, lemma, etc.\ needs to come with a proof. In case a proof has not been written yet, it shall read as \say{Omitted}. This is to ensure results without proof are clearly labelled as such.
+\subsubsection{Proper Justification of Proofs}\label{subsubsection-proper-justification-of-proofs}
+Every proof must read either \say{Omitted} or be properly justified, no matter how trivial the details are.
+
+Expressions like \say{it is clear that}, \say{it is straightforward to show that}, \say{it is obvious}, etc.\ inside proofs should not be used.
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
+\subsubsection{Removed Features (in Comparison With the Stacks Project)}\label{subsubsection-removed-features-in-comparison-with-the-stacks-project}
+A few features present in the general infrastructure of the Stacks Project were removed in Clowder, including:
+\begin{itemize}
+    \item The python back-end in favour of static pages.
+    \item The comment system (as a result of the above).
+\end{itemize}
+\subsubsection{Gerby and the Tags System}\label{subsubsection-gerby-and-the-tags-system}
+Clowder is built using \href{https://gerby-project.github.io/}{Gerby}, similarly to the \href{https://stacks.math.columbia.edu/}{Stacks Project}. However, a number of additional features not implemented in plasTeX were required by Clowder, including:
+\begin{itemize}
+    \item Clowder uses \code{tcbtheorem}-like environments, which affects the placement of footnotes (which are often used).
+    \item There are a few aesthetic changes in Clowder’s HTML/CSS structure, including font selection as well as a dark mode.
+    \item \code{tikz-cd} diagrams are very frequently used, and they need to be separately compiled and converted to \code{svg} files.
+    \item Clowder is automatically built using \href{https://github.com/The-Clowder-Project/the-clowder-project/actions}{GitHub actions}.
+    \item Non-sectioning tags are rendered differently and shown in context (\href{https://clowderproject.com/tag/012A.html}{example}).
+\end{itemize}
+These have been implemented using a \href{https://github.com/The-Clowder-Project/plastex}{fork} of Gerby along with a few build scripts.
+\subsubsection{Placeholder Symbols and Future Style}\label{subsubsection-placeholder-symbols-and-future-style}
+Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result.
+
+They will eventually be replaced with proper symbols coming from the math fonts of \href{https://hundartypeface.com/}{Hundar}, a free and open-source typeface project currently being worked on.
+\begin{webcompile}
+    \includegraphics[width=\linewidth]{ABSOLUTEPATH/pictures/hundar.pdf}
+\end{webcompile}
+You can find more details about Hundar at its \href{https://github.com/The-EPL-Type-Foundry/Hundar}{GitHub repository} or \href{https://hundartypeface.com/}{website}.
 \section{Lists}\label{section-lists}
 \subsection{List of Omitted Proofs}\label{subsection-list-of-omitted-proofs}
 \doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
@@ -324,26 +378,26 @@ There's a very large number of omitted proofs throughout these notes. Here we li
                 \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
             \end{itemize}
         \item Functoriality of Powersets \rmII: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-2}}{\cref{functoriality-of-powersets-2}}.
-        \item Proof that the reflexive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-reflexive-closure-of-a-relation}}{\cref{construction-of-the-reflexive-closure-of-a-relation}}.
-        \item Properties of Symmetric Relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-symmetric-relations}}{\cref{properties-of-symmetric-relations}}.
-        \item Proof that the symmetric closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-symmetric-closure-of-a-relation}}{\cref{construction-of-the-symmetric-closure-of-a-relation}}.
+        \item Proof that the reflexive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-reflexive-closure-of-a-relation}}{\cref{construction-of-the-reflexive-closure-of-a-relation}}.
+        \item Properties of Symmetric Relations, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-symmetric-relations}}{\cref{properties-of-symmetric-relations}}.
+        \item Proof that the symmetric closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-symmetric-closure-of-a-relation}}{\cref{construction-of-the-symmetric-closure-of-a-relation}}.
         \item Properties of the symmetric closure of a relation:
             \begin{itemize}
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
             \end{itemize}
-        \item Properties of transitive relations, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-transitive-relations}}{\cref{properties-of-transitive-relations}}.
-        \item Proof that the transitive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-transitive-closure-of-a-relation}}{\cref{construction-of-the-transitive-closure-of-a-relation}}.
+        \item Properties of transitive relations, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-transitive-relations}}{\cref{properties-of-transitive-relations}}.
+        \item Proof that the transitive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-transitive-closure-of-a-relation}}{\cref{construction-of-the-transitive-closure-of-a-relation}}.
         \item Properties of the transitive closure of a relation:
             \begin{itemize}
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-transitive-closure-of-a-relation}}{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{properties-of-the-transitive-closure-of-a-relation}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{conditions-on-relations:properties-of-the-transitive-closure-of-a-relation}}{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{properties-of-the-transitive-closure-of-a-relation}}.
             \end{itemize}
-        \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{equivalence-relations-and-apartness-relations:properties-of-the-equivalence-closure-of-a-relation}}{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{properties-of-the-equivalence-closure-of-a-relation}}.
-        \item Properties of Quotient Sets, \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets}}:
+        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{conditions-on-relations:properties-of-the-equivalence-closure-of-a-relation}}{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{properties-of-the-equivalence-closure-of-a-relation}}.
+        \item Properties of Quotient Sets, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets}}:
             \begin{itemize}
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-coequaliser} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-coequaliser} of \cref{properties-of-quotient-sets}}.
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-as-a-pushout} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-pushout} of \cref{properties-of-quotient-sets}}.
-                \item \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{equivalence-relations-and-apartness-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-as-a-coequaliser} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-coequaliser} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-as-a-pushout} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-pushout} of \cref{properties-of-quotient-sets}}.
+                \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{properties-of-quotient-sets}}.
             \end{itemize}
     \end{itemize}
 \end{remark}
