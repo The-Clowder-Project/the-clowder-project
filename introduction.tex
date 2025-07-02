@@ -78,7 +78,7 @@ The PDFs for each chapter as well as for the whole book are generated using seve
 \endgroup
 \subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
 The Clowder Project assumes at least a background on basic category theory corresponding to e.g.\ \cite{category-theory-in-context}, as well as some comfort in working with category-theoretic notions.
-\subsection{Community Engagement and Collaboration}\label{subsection-community-engagement-and-collaboration}
+\subsection{Community Engagement, Contributions and Collaboration}\label{subsection-community-engagement-contributions-and-collaboration}
 All kinds of feedback and contributions to the Clowder Project are extremely welcome: pointing out typos, errors, historical remarks, references, layout of webpages, spelling errors, improvements to the overall structure, missing lemmas, etc.
 
 The Clowder Project has an \href{https://discord.gg/b98uG2MWgc}{official Discord server} in which people can ask questions, carry out discussions and give feedback. Alternatively, you may also reach out to the project maintainer at \href{mailto:emily.de.oliveira.santos.tmf@gmail.com}{\code{emily.de.oliveira.santos.tmf@gmail.com}}.
@@ -87,7 +87,7 @@ There is a large number of missing proofs in the project, ranging from trivial p
 
 Missing proofs are listed in \cref{subsection-list-of-omitted-proofs}.
 
-\textbf{Note: }The following chapters are undergoing revision, and should not be currently considered when contributing missing proofs:
+\textbf{Note: }The following chapters are undergoing revision. If you're interested in contributing, please disregard them for now:
 \begin{itemize}
     \item \ChapterRelations
     \item \ChapterConstructionsWithRelations
@@ -176,8 +176,8 @@ Expressions like \say{it is clear that}, \say{it is straightforward to show that
 \subsubsection{Removed Features (in Comparison With the Stacks Project)}\label{subsubsection-removed-features-in-comparison-with-the-stacks-project}
 A few features present in the general infrastructure of the Stacks Project were removed in Clowder, including:
 \begin{itemize}
-    \item The python back-end in favour of static pages.
-    \item The comment system (as a result of the above).
+    \item The python back-end, in favour of static pages.
+    \item The comment system, as a result of the static nature of the website.
 \end{itemize}
 \subsubsection{Gerby and the Tags System}\label{subsubsection-gerby-and-the-tags-system}
 Clowder is built using \href{https://gerby-project.github.io/}{Gerby}, similarly to the \href{https://stacks.math.columbia.edu/}{Stacks Project}. However, a number of additional features not implemented in plasTeX were required by Clowder, including:
@@ -201,11 +201,24 @@ You can find more details about Hundar at its \href{https://github.com/The-EPL-T
 \subsection{List of Omitted Proofs}\label{subsection-list-of-omitted-proofs}
 \doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
 
-There's a very large number of omitted proofs throughout these notes. Here we list them in decreasing order of importance, noting also whether they rely on material that has yet to be developed, marked by a \warningsign\ sign. This list is under construction.
+There's a very large number of omitted proofs throughout these notes. In this section we list them in order of decreasing importance.
+\begin{itemize}
+    \item If a proof relies on material that has yet to be developed on Clowder, we mark it by a \warningsign\ sign. If you're interested in contributing, please disregard those for now.
+    \item The following chapters are undergoing revision. If you're interested in contributing, please disregard them for now:
+        \begin{itemize}
+            \item \ChapterRelations
+            \item \ChapterConstructionsWithRelations
+            \item \ChapterConditionsOnRelations
+            \item \ChapterCategories
+            \item \ChapterConstructionsWithMonoidalCategories
+            \item \ChapterTypesOfMorphismsInBicategories
+        \end{itemize}
+    \item This list is under construction.
+\end{itemize}
 \begin{remark}{Omitted Proofs To Add}{omitted-proofs-to-add}%
     Proofs that \emph{need} to be added at some point:
     \begin{itemize}
-        \item Extra proof of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:the-universal-property-of-sets-star-smash-s-zero}}{\cref{the-universal-property-of-sets-star-smash-s-zero}} using presentable categories stuff, following Maxime Ranzi's answer to \href{https://mathoverflow.net/questions/466593}{MO 466593} \warningsign.
+        \item Extra proof of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:the-universal-property-of-sets-star-smash-s-zero}}{\cref{the-universal-property-of-sets-star-smash-s-zero}} using the machinery of presentable categories, following Maxime Ranzi's answer to \href{https://mathoverflow.net/questions/466593}{MO 466593} \warningsign.
         \item Horizontal composition of natural transformations is associative: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{categories:properties-of-horizontal-composition-of-natural-transformations}}{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{properties-of-horizontal-composition-of-natural-transformations}}.
         \item Fully faithful functors are essentially injective: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-essential-injectivity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-essential-injectivity} of \cref{properties-of-fully-faithful-functors}}.
     \end{itemize}

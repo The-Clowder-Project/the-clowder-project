@@ -1217,30 +1217,55 @@ chapters-cm:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py cm $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
-			cd tmp/cm/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/cm/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/cm/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-alegreya
@@ -1267,30 +1292,55 @@ chapters-alegreya:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/alegreya/$${item_basename}.tex"; \
-			cd tmp/alegreya/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/alegreya/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-alegreya-sans-tcb
@@ -1317,30 +1367,55 @@ chapters-alegreya-sans-tcb:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans-tcb $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/alegreya-sans-tcb/$${item_basename}.tex"; \
-			cd tmp/alegreya-sans-tcb/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/alegreya-sans-tcb/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans-tcb/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-alegreya-sans
@@ -1367,30 +1442,55 @@ chapters-alegreya-sans:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/alegreya-sans/$${item_basename}.tex"; \
-			cd tmp/alegreya-sans/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/alegreya-sans/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-crimson-pro
@@ -1417,30 +1517,55 @@ chapters-crimson-pro:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/crimson-pro/$${item_basename}.tex"; \
-			cd tmp/crimson-pro/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/crimson-pro/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-eb-garamond
@@ -1467,30 +1592,55 @@ chapters-eb-garamond:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/eb-garamond/$${item_basename}.tex"; \
-			cd tmp/eb-garamond/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/eb-garamond/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: chapters-xcharter
@@ -1517,30 +1667,55 @@ chapters-xcharter:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/4): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter $$item_basename; \
-			mv "$${item_basename}P.tex" "tmp/xcharter/$${item_basename}.tex"; \
-			cd tmp/xcharter/; \
-			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (1/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/3)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../output/chapters/xcharter/$$item_basename.pdf; \
-			cd ../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/4): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/4): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/4): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 #####################################################################
@@ -1574,34 +1749,66 @@ tags-chapters-cm:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ $${item_basename}; \
-			cd tmp/tags/cm/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/cm/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/cm/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/cm/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-alegreya
@@ -1628,34 +1835,66 @@ tags-chapters-alegreya:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ $${item_basename}; \
-			cd tmp/tags/alegreya/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-alegreya-sans
@@ -1682,34 +1921,66 @@ tags-chapters-alegreya-sans:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ $${item_basename}; \
-			cd tmp/tags/alegreya-sans/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-alegreya-sans-tcb
@@ -1736,34 +2007,66 @@ tags-chapters-alegreya-sans-tcb:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ $${item_basename}; \
-			cd tmp/tags/alegreya-sans-tcb/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans-tcb/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans-tcb/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-crimson-pro
@@ -1790,34 +2093,66 @@ tags-chapters-crimson-pro:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ $${item_basename}; \
-			cd tmp/tags/crimson-pro/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/crimson-pro/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-eb-garamond
@@ -1844,34 +2179,66 @@ tags-chapters-eb-garamond:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ $${item_basename}; \
-			cd tmp/tags/eb-garamond/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/eb-garamond/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: tags-chapters-xcharter
@@ -1898,34 +2265,66 @@ tags-chapters-xcharter:
 		echo "Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing..."; \
 		echo "Processing chapters from LIJST..."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		for item_basename in $(LIJST); do \
-			echo "--------------------------------------------------"; \
-			echo "Processing chapter: $$item_basename"; \
-			echo "Processing the .TeX..."; \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ $${item_basename}; \
-			cd tmp/tags/xcharter/; \
-			echo "Compiling with LuaLaTeX (1/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (2/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Running Biber..."; \
-			biber $${item_basename}; \
-			echo "Compiling with LuaLaTeX (3/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Compiling with LuaLaTeX (4/4)..."; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
-			echo "Saving PDF..."; \
-			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter/$$item_basename.pdf; \
-			cd ../../../; \
-			echo "Finished processing $$item_basename."; \
-			echo "--------------------------------------------------"; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
-		echo "All chapters processed."; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (2/5): First LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (1/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (3/5): Second LaTeX run + biber$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Running Biber...$(NC)\n"; \
+			biber $${item_basename}; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (2/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (4/5): Third LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
+		done; \
+		printf "--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)Compiling tags-chapters (5/5): Last LaTeX run$(NC)\n"; \
+		for item_basename in $(LIJST); do \
+			printf "--------------------------------------------------$(NC)\n"; \
+			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
+			cd tmp/tags/xcharter/; \
+			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			printf "$(GREEN)Saving PDF...$(NC)\n"; \
+			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter/$$item_basename.pdf; \
+			cd -; \
+			printf "$(GREEN)Finished compiling $$item_basename (4/4).$(NC)\n"; \
+		done; \
+		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
+		printf "$(GREEN)All chapters compiled.$(NC)"; \
 	fi
 
 .PHONY: all
