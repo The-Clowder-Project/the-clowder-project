@@ -18,12 +18,12 @@ def common_changes(line,name):
             line.find("\\end{document}")       == 0:
         line = ""
 
-    if is_label(line):
-        text = "\\label{" + name + ":"
-        line = line.replace("\\label{", text)
+    #if is_label(line):
+    #    text = "\\label{" + name + ":"
+    #    line = line.replace("\\label{", text)
 
-    if contains_cref(line):
-        line = replace_crefs(line, name)
+    #if contains_cref(line):
+    #    line = replace_crefs(line, name)
 
     if line.find("\\title{") == 0:
         line = line.replace("\\title{", "\\chapter{")

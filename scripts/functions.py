@@ -334,6 +334,44 @@ def get_tags(path):
     tag_file.close()
     return tags
 
+def get_tags_without_colons(path):
+    """
+    Reads a tags file, processes each line to extract a tag and its description.
+    It removes any prefix from the description part (e.g., "introduction:").
+    """
+    tags = []
+    # Use a 'with' statement for safer file handling
+    with open(path + "tags/tags", 'r') as tag_file:
+        for line in tag_file:
+            # More Pythonic way to check for comments and skip empty lines
+            clean_line = line.strip()
+            if not clean_line or clean_line.startswith("#"):
+                continue
+
+            # --- Start of Modification ---
+
+            # Split the line into the tag ID and the full description
+            # The '1' ensures we only split on the first comma
+            try:
+                tag_id, full_description = clean_line.split(',', 1)
+            except ValueError:
+                # Skip malformed lines that don't contain a comma
+                continue
+
+            # Split the description by the first colon and take the last part.
+            # If no colon exists, it gracefully returns the original description.
+            final_description = full_description.split(':', 1)[-1]
+
+            # Reconstruct the line to be processed by get_tag_line
+            processed_line = f"{tag_id},{final_description}"
+
+            # --- End of Modification ---
+
+            # Assuming get_tag_line is defined elsewhere and processes this format
+            tags.append(get_tag_line(processed_line))
+            
+    return tags
+
 # Check if environment should have a label
 # The input should be a line from latex file containing the
 # \begin{environment} statement

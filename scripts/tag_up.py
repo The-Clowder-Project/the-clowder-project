@@ -57,7 +57,10 @@ if name == "preamble":
 
 
 
-tags = get_tags(path)
+if name == "book":
+    tags = get_tags_without_colons(path)
+else:
+    tags = get_tags(path)
 
 label_tags = dict((tags[n][1], tags[n][0]) for n in range(0, len(tags)))
 
@@ -113,11 +116,11 @@ for line in tex_file:
                 if label in label_tags and not line.find("\\item\\label") >= 0:
                     content += "\\hypertarget{" + label_tags[label] + "}{}"
                     if (line.find("section-") >= 0 and not (short.find("section-phantom") >= 0)):
-                        if line.find(r'{section-') >= 0 and not (short.find("section-phantom") >= 0):
+                        if (line.find(r"{section-") >= 0 or line.find(r":section-") >= 0) and not (short.find("section-phantom") >= 0):
                             content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.925\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                        if line.find(r'{subsection-') >= 0 and not (short.find("section-phantom") >= 0):
+                        if (line.find(r"{subsection-") >= 0 or line.find(r":subsection-") >= 0) and not (short.find("section-phantom") >= 0):
                             content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                        if line.find(r"{subsubsection-") >= 0 and not (short.find("section-phantom") >= 0):
+                        if (line.find(r"{subsubsection-") >= 0 or line.find(r":subsubsection-") >= 0) and not (short.find("section-phantom") >= 0):
                             content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.55\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
                     else:
                         if line.find("section-") >= 0 and short.find("section-phantom") >= 0:
@@ -137,11 +140,11 @@ for line in tex_file:
             if label in label_tags and not line.find("\\item\\label") >= 0:
                 content += "\\hypertarget{" + label_tags[label] + "}{}"
                 if (line.find("section-") >= 0 and not (short.find("section-phantom") >= 0)):
-                    if line.find(r"{section-") >= 0 and not (short.find("section-phantom") >= 0):
+                    if (line.find(r"{section-") >= 0 or line.find(r":section-") >= 0) and not (short.find("section-phantom") >= 0):
                         content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.85\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                    if line.find(r'{subsection-') >= 0 and not (short.find("section-phantom") >= 0):
+                    if (line.find(r"{subsection-") >= 0 or line.find(r":subsection-") >= 0) and not (short.find("section-phantom") >= 0):
                         content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                    if line.find("{subsubsection-") >= 0 and not (short.find("section-phantom") >= 0):
+                    if (line.find(r"{subsubsection-") >= 0 or line.find(r":subsubsection-") >= 0) and not (short.find("section-phantom") >= 0):
                         content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
                 else:
                     content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
