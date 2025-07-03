@@ -134,19 +134,34 @@ for line in tex_file:
                 content += "\\hypertarget{" + label_tags[label] + "}{}"
                 content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
                 content += re.sub(r"\\item","",line)
-            else:
-                content += line
+            #else:
+            #    content += line
+            ## don't put in hypertarget if label does not have a tag
+            #if label in label_tags and not line.find("\\item\\label") >= 0:
+            #    content += "\\hypertarget{" + label_tags[label] + "}{}"
+            #    if (line.find("section-") >= 0 and not (short.find("section-phantom") >= 0)):
+            #        if (line.find(r"{section-") >= 0 or line.find(r":section-") >= 0) and not (short.find("section-phantom") >= 0):
+            #            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.85\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+            #        if (line.find(r"{subsection-") >= 0 or line.find(r":subsection-") >= 0) and not (short.find("section-phantom") >= 0):
+            #            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+            #        if (line.find(r"{subsubsection-") >= 0 or line.find(r":subsubsection-") >= 0) and not (short.find("section-phantom") >= 0):
+            #            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+            #    else:
+            #        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
             # don't put in hypertarget if label does not have a tag
             if label in label_tags and not line.find("\\item\\label") >= 0:
-                content += "\\hypertarget{" + label_tags[label] + "}{}"
-                if (line.find("section-") >= 0 and not (short.find("section-phantom") >= 0)):
-                    if (line.find(r"{section-") >= 0 or line.find(r":section-") >= 0) and not (short.find("section-phantom") >= 0):
-                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.85\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                    if (line.find(r"{subsection-") >= 0 or line.find(r":subsection-") >= 0) and not (short.find("section-phantom") >= 0):
-                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
-                    if (line.find(r"{subsubsection-") >= 0 or line.find(r":subsubsection-") >= 0) and not (short.find("section-phantom") >= 0):
-                        content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.555\\baselineskip]\\par\\vspace{-0.0\\baselineskip}"
+                if (line.find("section{") >= 0 and not (short.find("section-phantom") >= 0)):
+                    content += "\\hypertarget{" + label_tags[label] + "}{}"
+                    if ((line.find(r"\section{") >= 0) and not (short.find("section-phantom") >= 0)):
+                        content += re.sub(r"\\section{(.*?)}\\label",r"\\section[\1]{\\reversemarginpar\\marginnote{\\normalsize\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + r"}}}\1}\\label",line)
+                        continue
+                    if ((line.find(r"\subsection{") >= 0) and not (short.find("section-phantom") >= 0)):
+                        content += re.sub(r"\\subsection{(.*?)}\\label",r"\\subsection[\1]{\\reversemarginpar\\marginnote{\\normalsize\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + r"}}}\1}\\label",line)
+                    if ((line.find(r"\subsubsection{") >= 0) and not (short.find("section-phantom") >= 0)):
+                        content += re.sub(r"\\subsubsection{(.*?)}\\label",r"\\subsubsection[\1]{\\reversemarginpar\\marginnote{\\normalsize\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + r"}}}\1}\\label",line)
                 else:
+                    content += line
+                    content += "\\hypertarget{" + label_tags[label] + "}{}"
                     content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
             continue
 

@@ -15,7 +15,8 @@ LIJST = introduction \
 		conditions-on-relations \
 		categories \
 		constructions-with-monoidal-categories \
-		types-of-morphisms-in-bicategories
+		types-of-morphisms-in-bicategories \
+		notes
 
 # Add book to get all stems of tex files needed for tags
 LIJST_TAGS = $(LIJST_FDL) book
@@ -814,7 +815,7 @@ tags-cm:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/tags/cm/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-cm > tmp/tags/cm/book.tex; \
 		cd tmp/tags/cm/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -871,7 +872,7 @@ tags-alegreya:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py alegreya > tmp/tags/alegreya/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya > tmp/tags/alegreya/book.tex; \
 		cd tmp/tags/alegreya/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -928,7 +929,7 @@ tags-alegreya-sans:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans > tmp/tags/alegreya-sans/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya-sans > tmp/tags/alegreya-sans/book.tex; \
 		cd tmp/tags/alegreya-sans/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -1042,7 +1043,7 @@ tags-crimson-pro:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py crimson-pro > tmp/tags/crimson-pro/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-crimson-pro > tmp/tags/crimson-pro/book.tex; \
 		cd tmp/tags/crimson-pro/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -1099,7 +1100,7 @@ tags-eb-garamond:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py eb-garamond > tmp/tags/eb-garamond/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-eb-garamond > tmp/tags/eb-garamond/book.tex; \
 		cd tmp/tags/eb-garamond/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \
@@ -1156,7 +1157,7 @@ tags-xcharter:
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
-		python$(PYTHON_VERSION) scripts/make_book.py xcharter > tmp/tags/xcharter/book.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-xcharter > tmp/tags/xcharter/book.tex; \
 		cd tmp/tags/xcharter/; \
 		cp ../../../index_style.ist ./; \
 		echo "Processing the .TeX..."; \

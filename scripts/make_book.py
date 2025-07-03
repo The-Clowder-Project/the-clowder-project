@@ -4,7 +4,7 @@ import datetime
 import preprocess
 import re
 
-def common_changes(line,name):
+def common_changes(style,line,name):
     if line.find("\\input{preamble}")          == 0 or \
             line.find("\\begin{Introduction}") == 0 or \
             line.find("\\end{Introduction}")   == 0 or \
@@ -18,12 +18,12 @@ def common_changes(line,name):
             line.find("\\end{document}")       == 0:
         line = ""
 
-    #if is_label(line):
-    #    text = "\\label{" + name + ":"
-    #    line = line.replace("\\label{", text)
-
-    #if contains_cref(line):
-    #    line = replace_crefs(line, name)
+    if (style == "web"):
+        if is_label(line):
+            text = "\\label{" + name + ":"
+            line = line.replace("\\label{", text)
+        if contains_cref(line):
+            line = replace_crefs(line, name)
 
     if line.find("\\title{") == 0:
         line = line.replace("\\title{", "\\chapter{")
@@ -56,7 +56,7 @@ def print_tex_file(tex_file,name,style):
         line = preprocess.expand_adjunctions(line)
 
         # Apply common changes
-        line = common_changes(line,name)
+        line = common_changes(style,line,name)
         if (line == ""):
             continue
 
@@ -250,11 +250,27 @@ def main(style):
     print("\\dominitoc")
     print("\\begingroup")
     print("\\hypersetup{hidelinks}")
-    if style in ["alegreya", "alegreya-sans", "alegreya-sans-tcb", "cm", "crimson-pro", "eb-garamond", "xcharter"]:
+    if style in ["alegreya", \
+            "alegreya-sans", \
+            "alegreya-sans-tcb", \
+            "cm", \
+            "crimson-pro", \
+            "eb-garamond", \
+            "xcharter", \
+            "tags-alegreya", \
+            "tags-alegreya-sans", \
+            "tags-alegreya-sans-tcb", \
+            "tags-cm", \
+            "tags-crimson-pro", \
+            "tags-eb-garamond", \
+            "tags-xcharter"]:
         print("{\\ShortTableOfContents}")
         print("\\clearpage")
-        print("\\setcounter{tocdepth}{2}")
+        print("\\setcounter{tocdepth}{3}")
+        print("\\newgeometry{margin=2.5cm}")
         print("{\\TableOfContents}")
+        print("\\clearpage")
+        print("\\restoregeometry")
     else:
         print("\\tableofcontents")
     print("\\endgroup")
