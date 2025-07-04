@@ -46,7 +46,7 @@ def print_tex_file(tex_file,name,style):
             line = preprocess.amsthm_web(line)
             line = preprocess.expand_cref(line)
             line = preprocess.remove_index(line)
-        elif (style == "alegreya-sans-tcb" or style=="tags-alegreya-sans-tcb"):
+        elif ("tcb" in style):
             line = preprocess.tcbthm(line)
         else:
             line = preprocess.amsthm(line)
@@ -61,7 +61,7 @@ def print_tex_file(tex_file,name,style):
             continue
 
         # Apply TCB specific changes
-        if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+        if ("tcb" in style):
             line = re.sub(r'^(\\begin\{[a-zA-Z\*]+\})\{(.*?)\}\{.*?\}%\\label\{(.*?)\}%$', r'\1{\2}{\3}%', line)
         else:
             if line.find("\\par\\vspace") >= 0:
@@ -120,7 +120,7 @@ def print_preamble(path,style,stacks=False):
         if line.find("ABSOLUTEPATH") >= 0:
             absolute_path = preprocess.absolute_path()
             line = line.replace("ABSOLUTEPATH", absolute_path)
-        if style == "tags-alegreya-sans-tcb":
+        if ("tcb" in style and "tags" in style):
             line = preprocess.trans_flag_tcb_fix(line)
         if (style == "web" or style=="tikzcd"):
             if line.find("\\IfFileExists{") == 0:
@@ -173,7 +173,7 @@ def print_preamble(path,style,stacks=False):
                     line = ""
                 if line.find("newenvironment{scalemath") >= 0:
                     line = ""
-        if (style == "tags-alegreya-sans-tcb" or style == "alegreya-sans-tcb"):
+        if ("tcb" in style):
             if line.find("\setlength{\TCBBoxCorrection}{-0.0\\baselineskip}") >= 0:
                 line = "\setlength{\TCBBoxCorrection}{-0.5\\baselineskip}\n"
         if (style == "web"):
@@ -217,14 +217,24 @@ def main(style):
         path = absolute_path + "/preamble/compiled/preamble-alegreya.tex"
     elif (style == "alegreya-sans" or style == "tags-alegreya-sans"):
         path = absolute_path + "/preamble/compiled/preamble-alegreya-sans.tex"
-    elif (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
-        path = absolute_path + "/preamble/compiled/preamble-alegreya-sans-tcb.tex"
     elif (style == "crimson-pro" or style == "tags-crimson-pro"):
         path = absolute_path + "/preamble/compiled/preamble-crimson-pro.tex"
     elif (style == "eb-garamond" or style == "tags-eb-garamond"):
         path = absolute_path + "/preamble/compiled/preamble-eb-garamond.tex"
     elif (style == "xcharter" or style == "tags-xcharter"):
         path = absolute_path + "/preamble/compiled/preamble-xcharter.tex"
+    elif (style == "cm-tcb" or style == "tags-cm-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-cm-tcb.tex"
+    elif (style == "alegreya-tcb" or style == "tags-alegreya-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-alegreya-tcb.tex"
+    elif (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-alegreya-sans-tcb.tex"
+    elif (style == "crimson-pro-tcb" or style == "tags-crimson-pro-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-crimson-pro-tcb.tex"
+    elif (style == "eb-garamond-tcb" or style == "tags-eb-garamond-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-eb-garamond-tcb.tex"
+    elif (style == "xcharter-tcb" or style == "tags-xcharter-tcb"):
+        path = absolute_path + "/preamble/compiled/preamble-xcharter-tcb.tex"
 
     print_preamble(path,style)
     print("\\begin{document}")
@@ -252,18 +262,28 @@ def main(style):
     print("\\hypersetup{hidelinks}")
     if style in ["alegreya", \
             "alegreya-sans", \
-            "alegreya-sans-tcb", \
             "cm", \
             "crimson-pro", \
             "eb-garamond", \
             "xcharter", \
+            "alegreya-tcb", \
+            "alegreya-sans-tcb", \
+            "cm-tcb", \
+            "crimson-pro-tcb", \
+            "eb-garamond-tcb", \
+            "xcharter-tcb", \
             "tags-alegreya", \
             "tags-alegreya-sans", \
-            "tags-alegreya-sans-tcb", \
             "tags-cm", \
             "tags-crimson-pro", \
             "tags-eb-garamond", \
-            "tags-xcharter"]:
+            "tags-xcharter", \
+            "tags-alegreya-tcb", \
+            "tags-alegreya-sans-tcb", \
+            "tags-cm-tcb", \
+            "tags-crimson-pro-tcb", \
+            "tags-eb-garamond-tcb", \
+            "tags-xcharter-tcb"]:
         print("{\\ShortTableOfContents}")
         print("\\clearpage")
         print("\\setcounter{tocdepth}{3}")

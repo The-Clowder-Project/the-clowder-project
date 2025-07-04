@@ -211,6 +211,14 @@ def main():
         preamble_xcharter.write(content_xcharter)
         preamble_xcharter.write(content_toc)
 
+    # PREAMBLE_ALEGREYA_TCB
+    with open(absolute_path+'/preamble/compiled/preamble-alegreya-tcb.tex', 'w') as preamble_alegreya_tcb:
+        preamble_alegreya_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
+        preamble_alegreya_tcb.write(content_tcbthm)
+        preamble_alegreya_tcb.write(content_tcb_footnotes)
+        preamble_alegreya_tcb.write(content_alegreya)
+        preamble_alegreya_tcb.write(content_toc)
+
     # PREAMBLE_ALEGREYA_SANS_TCB
     with open(absolute_path+'/preamble/compiled/preamble-alegreya-sans-tcb.tex', 'w') as preamble_alegreya_sans_tcb:
         preamble_alegreya_sans_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
@@ -218,6 +226,37 @@ def main():
         preamble_alegreya_sans_tcb.write(content_tcb_footnotes)
         preamble_alegreya_sans_tcb.write(content_alegreya_sans)
         preamble_alegreya_sans_tcb.write(content_toc)
+
+    # PREAMBLE_CM_TCB
+    with open(absolute_path+'/preamble/compiled/preamble-cm-tcb.tex', 'w') as preamble_cm_tcb:
+        preamble_cm_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex']))
+        preamble_cm_tcb.write(content_tcbthm)
+        preamble_cm_tcb.write(content_tcb_footnotes)
+        preamble_cm_tcb.write(content_toc)
+
+    # PREAMBLE_CRIMSON_PRO_TCB
+    with open(absolute_path+'/preamble/compiled/preamble-crimson-pro-tcb.tex', 'w') as preamble_crimson_pro_tcb:
+        preamble_crimson_pro_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
+        preamble_crimson_pro_tcb.write(content_tcbthm)
+        preamble_crimson_pro_tcb.write(content_tcb_footnotes)
+        preamble_crimson_pro_tcb.write(content_crimson_pro)
+        preamble_crimson_pro_tcb.write(content_toc)
+
+    # PREAMBLE_EB_GARAMOND_TCB
+    with open(absolute_path+'/preamble/compiled/preamble-eb-garamond-tcb.tex', 'w') as preamble_eb_garamond_tcb:
+        preamble_eb_garamond_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
+        preamble_eb_garamond_tcb.write(content_tcbthm)
+        preamble_eb_garamond_tcb.write(content_tcb_footnotes)
+        preamble_eb_garamond_tcb.write(content_eb_garamond)
+        preamble_eb_garamond_tcb.write(content_toc)
+
+    # PREAMBLE_XCHARTER_TCB
+    with open(absolute_path+'/preamble/compiled/preamble-xcharter-tcb.tex', 'w') as preamble_xcharter_tcb:
+        preamble_xcharter_tcb.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/cm.tex','preamble/webpreamble-refs.tex','preamble/amsthm.tex','preamble/footnotes.tex','preamble/widebar.tex']))
+        preamble_xcharter_tcb.write(content_tcbthm)
+        preamble_xcharter_tcb.write(content_tcb_footnotes)
+        preamble_xcharter_tcb.write(content_xcharter)
+        preamble_xcharter_tcb.write(content_toc)
 
 if __name__ == "__main__":
     main()
