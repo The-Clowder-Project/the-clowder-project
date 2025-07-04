@@ -231,6 +231,10 @@ PLASTEX_REPO = https://github.com/The-Clowder-Project/plastex.git
 GERBY_WEBSITE_REPO = https://github.com/The-Clowder-Project/gerby-website.git
 PYBTEX_REPO = https://github.com/live-clones/pybtex.git
 PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/110/pybtex-devs/pybtex/1514284299.07/110/no-protected-in-math-mode.patch
+# Define LuaLaTeX arguments
+LUALATEX = lualatex -halt-on-error
+LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
+
 
 # Target to create conda environment
 .PHONY: conda-create
@@ -420,12 +424,12 @@ titlepage:
 		cd titlepage; \
 		python$(PYTHON_VERSION) make_version.py ../ > text/version.tex; \
 		cd text; \
-		lualatex title.tex; \
-		lualatex year.tex; \
-		lualatex author.tex; \
-		lualatex version.tex; \
+		$(LUALATEX) title.tex; \
+		$(LUALATEX) year.tex; \
+		$(LUALATEX) author.tex; \
+		$(LUALATEX) version.tex; \
 		cd ../; \
-		lualatex titlepage.tex; \
+		$(LUALATEX) titlepage.tex; \
 	fi
 
 ###############################
@@ -434,9 +438,6 @@ titlepage:
 ## ▐▛▀▚▖▐▌ ▐▌▐▌ ▐▌▐▛▚▖  ▝▀▚▖ ##
 ## ▐▙▄▞▘▝▚▄▞▘▝▚▄▞▘▐▌ ▐▌▗▄▄▞▘ ##
 ###############################
-
-# Define LuaLaTeX arguments for compiling the books
-LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
 
 .PHONY: cm
 cm:
@@ -470,7 +471,7 @@ cm:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -480,11 +481,11 @@ cm:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/cm.pdf; \
 	fi
@@ -522,7 +523,7 @@ alegreya:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -532,11 +533,11 @@ alegreya:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/alegreya.pdf; \
 	fi
@@ -574,7 +575,7 @@ alegreya-sans:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -584,11 +585,11 @@ alegreya-sans:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/alegreya-sans.pdf; \
 	fi
@@ -626,7 +627,7 @@ crimson-pro:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -636,11 +637,11 @@ crimson-pro:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/crimson-pro.pdf; \
 	fi
@@ -678,7 +679,7 @@ eb-garamond:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -688,11 +689,11 @@ eb-garamond:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/eb-garamond.pdf; \
 	fi
@@ -730,7 +731,7 @@ xcharter:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -740,11 +741,11 @@ xcharter:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/xcharter.pdf; \
 	fi
@@ -782,7 +783,7 @@ alegreya-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -792,11 +793,11 @@ alegreya-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/alegreya-tcb.pdf; \
 	fi
@@ -834,7 +835,7 @@ alegreya-sans-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -844,11 +845,11 @@ alegreya-sans-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/alegreya-sans-tcb.pdf; \
 	fi
@@ -886,7 +887,7 @@ eb-garamond-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -896,11 +897,11 @@ eb-garamond-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/eb-garamond-tcb.pdf; \
 	fi
@@ -938,7 +939,7 @@ crimson-pro-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -948,11 +949,11 @@ crimson-pro-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/crimson-pro-tcb.pdf; \
 	fi
@@ -990,7 +991,7 @@ xcharter-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1000,11 +1001,11 @@ xcharter-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/xcharter-tcb.pdf; \
 	fi
@@ -1042,7 +1043,7 @@ cm-tcb:
 		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1052,11 +1053,11 @@ cm-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../output/book/cm-tcb.pdf; \
 	fi
@@ -1104,7 +1105,7 @@ tags-cm:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ book; \
 		cd tmp/tags/cm/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1114,13 +1115,13 @@ tags-cm:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/cm.pdf; \
 	fi
@@ -1161,7 +1162,7 @@ tags-alegreya:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ book; \
 		cd tmp/tags/alegreya/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1171,13 +1172,13 @@ tags-alegreya:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/alegreya.pdf; \
 	fi
@@ -1218,7 +1219,7 @@ tags-alegreya-sans:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ book; \
 		cd tmp/tags/alegreya-sans/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1228,13 +1229,13 @@ tags-alegreya-sans:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/alegreya-sans.pdf; \
 	fi
@@ -1275,7 +1276,7 @@ tags-crimson-pro:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ book; \
 		cd tmp/tags/crimson-pro/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1285,13 +1286,13 @@ tags-crimson-pro:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/crimson-pro.pdf; \
 	fi
@@ -1332,7 +1333,7 @@ tags-eb-garamond:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ book; \
 		cd tmp/tags/eb-garamond/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1342,13 +1343,13 @@ tags-eb-garamond:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/eb-garamond.pdf; \
 	fi
@@ -1389,7 +1390,7 @@ tags-xcharter:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ book; \
 		cd tmp/tags/xcharter/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1399,13 +1400,13 @@ tags-xcharter:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/xcharter.pdf; \
 	fi
@@ -1446,7 +1447,7 @@ tags-alegreya-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-tcb/ book; \
 		cd tmp/tags/alegreya-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1456,13 +1457,13 @@ tags-alegreya-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/alegreya-tcb.pdf; \
 	fi
@@ -1503,7 +1504,7 @@ tags-alegreya-sans-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ book; \
 		cd tmp/tags/alegreya-sans-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1513,13 +1514,13 @@ tags-alegreya-sans-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/alegreya-sans-tcb.pdf; \
 	fi
@@ -1560,7 +1561,7 @@ tags-cm-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm-tcb/ book; \
 		cd tmp/tags/cm-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1570,13 +1571,13 @@ tags-cm-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/cm-tcb.pdf; \
 	fi
@@ -1617,7 +1618,7 @@ tags-crimson-pro-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro-tcb/ book; \
 		cd tmp/tags/crimson-pro-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1627,13 +1628,13 @@ tags-crimson-pro-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/crimson-pro-tcb.pdf; \
 	fi
@@ -1674,7 +1675,7 @@ tags-eb-garamond-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond-tcb/ book; \
 		cd tmp/tags/eb-garamond-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1684,13 +1685,13 @@ tags-eb-garamond-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/eb-garamond-tcb.pdf; \
 	fi
@@ -1731,7 +1732,7 @@ tags-xcharter-tcb:
 		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter-tcb/ book; \
 		cd tmp/tags/xcharter-tcb/; \
 		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling indices...$(NC)\n"; \
 		splitindex book; \
 		makeindex -s index_style.ist book-notation.idx; \
@@ -1741,13 +1742,13 @@ tags-xcharter-tcb:
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Running Biber...$(NC)\n"; \
 		biber book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
-		$(LUALATEX_ARGS) lualatex book; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
 		printf "$(GREEN)Saving PDF...$(NC)\n"; \
 		mv book.pdf ../../../output/tags-book/xcharter-tcb.pdf; \
 	fi
@@ -1801,7 +1802,7 @@ chapters-cm:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1813,7 +1814,7 @@ chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1825,7 +1826,7 @@ chapters-cm:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/cm/$$item_basename.pdf; \
 			cd -; \
@@ -1876,7 +1877,7 @@ chapters-alegreya:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1888,7 +1889,7 @@ chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1900,7 +1901,7 @@ chapters-alegreya:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya/$$item_basename.pdf; \
 			cd -; \
@@ -1951,7 +1952,7 @@ chapters-alegreya-sans:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1963,7 +1964,7 @@ chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -1975,7 +1976,7 @@ chapters-alegreya-sans:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans/$$item_basename.pdf; \
 			cd -; \
@@ -2026,7 +2027,7 @@ chapters-crimson-pro:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2038,7 +2039,7 @@ chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2050,7 +2051,7 @@ chapters-crimson-pro:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro/$$item_basename.pdf; \
 			cd -; \
@@ -2101,7 +2102,7 @@ chapters-eb-garamond:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2113,7 +2114,7 @@ chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2125,7 +2126,7 @@ chapters-eb-garamond:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond/$$item_basename.pdf; \
 			cd -; \
@@ -2176,7 +2177,7 @@ chapters-xcharter:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2188,7 +2189,7 @@ chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2200,7 +2201,7 @@ chapters-xcharter:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter/$$item_basename.pdf; \
 			cd -; \
@@ -2251,7 +2252,7 @@ chapters-alegreya-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2263,7 +2264,7 @@ chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2275,7 +2276,7 @@ chapters-alegreya-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2326,7 +2327,7 @@ chapters-alegreya-sans-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2338,7 +2339,7 @@ chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2350,7 +2351,7 @@ chapters-alegreya-sans-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2401,7 +2402,7 @@ chapters-cm-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2413,7 +2414,7 @@ chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2425,7 +2426,7 @@ chapters-cm-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/cm-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2476,7 +2477,7 @@ chapters-crimson-pro-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2488,7 +2489,7 @@ chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2500,7 +2501,7 @@ chapters-crimson-pro-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2551,7 +2552,7 @@ chapters-eb-garamond-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2563,7 +2564,7 @@ chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2575,7 +2576,7 @@ chapters-eb-garamond-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2626,7 +2627,7 @@ chapters-xcharter-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2638,7 +2639,7 @@ chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2650,7 +2651,7 @@ chapters-xcharter-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -2709,7 +2710,7 @@ tags-chapters-cm:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2721,7 +2722,7 @@ tags-chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2733,7 +2734,7 @@ tags-chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -2743,7 +2744,7 @@ tags-chapters-cm:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/cm/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/cm/$$item_basename.pdf; \
 			cd -; \
@@ -2795,7 +2796,7 @@ tags-chapters-alegreya:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2807,7 +2808,7 @@ tags-chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2819,7 +2820,7 @@ tags-chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -2829,7 +2830,7 @@ tags-chapters-alegreya:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya/$$item_basename.pdf; \
 			cd -; \
@@ -2881,7 +2882,7 @@ tags-chapters-alegreya-sans:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2893,7 +2894,7 @@ tags-chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2905,7 +2906,7 @@ tags-chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -2915,7 +2916,7 @@ tags-chapters-alegreya-sans:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans/$$item_basename.pdf; \
 			cd -; \
@@ -2967,7 +2968,7 @@ tags-chapters-crimson-pro:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2979,7 +2980,7 @@ tags-chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -2991,7 +2992,7 @@ tags-chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3001,7 +3002,7 @@ tags-chapters-crimson-pro:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro/$$item_basename.pdf; \
 			cd -; \
@@ -3053,7 +3054,7 @@ tags-chapters-eb-garamond:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3065,7 +3066,7 @@ tags-chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3077,7 +3078,7 @@ tags-chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3087,7 +3088,7 @@ tags-chapters-eb-garamond:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond/$$item_basename.pdf; \
 			cd -; \
@@ -3139,7 +3140,7 @@ tags-chapters-xcharter:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3151,7 +3152,7 @@ tags-chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3163,7 +3164,7 @@ tags-chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3173,7 +3174,7 @@ tags-chapters-xcharter:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter/$$item_basename.pdf; \
 			cd -; \
@@ -3225,7 +3226,7 @@ tags-chapters-alegreya-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3237,7 +3238,7 @@ tags-chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3249,7 +3250,7 @@ tags-chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3259,7 +3260,7 @@ tags-chapters-alegreya-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3311,7 +3312,7 @@ tags-chapters-alegreya-sans-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3323,7 +3324,7 @@ tags-chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3335,7 +3336,7 @@ tags-chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3345,7 +3346,7 @@ tags-chapters-alegreya-sans-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/alegreya-sans-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3397,7 +3398,7 @@ tags-chapters-cm-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3409,7 +3410,7 @@ tags-chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3421,7 +3422,7 @@ tags-chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3431,7 +3432,7 @@ tags-chapters-cm-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/cm-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/cm-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3483,7 +3484,7 @@ tags-chapters-crimson-pro-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3495,7 +3496,7 @@ tags-chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3507,7 +3508,7 @@ tags-chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3517,7 +3518,7 @@ tags-chapters-crimson-pro-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/crimson-pro-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/crimson-pro-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3569,7 +3570,7 @@ tags-chapters-eb-garamond-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3581,7 +3582,7 @@ tags-chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3593,7 +3594,7 @@ tags-chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3603,7 +3604,7 @@ tags-chapters-eb-garamond-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/eb-garamond-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/eb-garamond-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3655,7 +3656,7 @@ tags-chapters-xcharter-tcb:
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3667,7 +3668,7 @@ tags-chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
 			cd -; \
@@ -3679,7 +3680,7 @@ tags-chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (3/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			cd -; \
 			printf "$(GREEN)Finished compiling $$item_basename (3/4).$(NC)\n"; \
 		done; \
@@ -3689,7 +3690,7 @@ tags-chapters-xcharter-tcb:
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
 			cd tmp/tags/xcharter-tcb/; \
-			$(LUALATEX_ARGS) lualatex $${item_basename}.tex; \
+			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../../output/tags-chapters/xcharter-tcb/$$item_basename.pdf; \
 			cd -; \
@@ -3836,26 +3837,26 @@ pictures:
 		exit 1; \
 	else \
 		cd pictures/trans-flag/; \
-		lualatex trans-flag.tex; \
+		$(LUALATEX) trans-flag.tex; \
 		cd ../light-mode/; \
 		cd  ./monoidal-left-unity-of-id-otimes-sets/       && ./make.sh; \
 		cd ../monoidal-left-unity-of-id-otimes-sets-star/  && ./make.sh; \
 		cd ../monoidal-right-unity-of-id-otimes-sets/      && ./make.sh; \
 		cd ../monoidal-right-unity-of-id-otimes-sets-star/ && ./make.sh; \
 		cd ../symmetric-difference/associativity/; \
-		lualatex A_sdiff_B_sdiff_C.tex; \
-		lualatex A_sdiff_B.tex; \
-		lualatex A.tex; \
-		lualatex B_sdiff_C.tex; \
-		lualatex C.tex; \
+		$(LUALATEX) A_sdiff_B_sdiff_C.tex; \
+		$(LUALATEX) A_sdiff_B.tex; \
+		$(LUALATEX) A.tex; \
+		$(LUALATEX) B_sdiff_C.tex; \
+		$(LUALATEX) C.tex; \
 		cd ../definition/; \
-		lualatex AsdiffB.tex; \
-		lualatex AsetminusB.tex; \
-		lualatex BsetminusA.tex; \
+		$(LUALATEX) AsdiffB.tex; \
+		$(LUALATEX) AsetminusB.tex; \
+		$(LUALATEX) BsetminusA.tex; \
 		cd ../via-unions-and-intersections/; \
-		lualatex Venn0001.tex; \
-		lualatex Venn0110.tex; \
-		lualatex Venn0111.tex; \
+		$(LUALATEX) Venn0001.tex; \
+		$(LUALATEX) Venn0110.tex; \
+		$(LUALATEX) Venn0111.tex; \
 		cd ../../../dark-mode/; \
 		luaotfload-tool --cache=erase; \
 		cd  ./monoidal-left-unity-of-id-otimes-sets/       && ./make.sh; \
@@ -3863,19 +3864,19 @@ pictures:
 		cd ../monoidal-right-unity-of-id-otimes-sets/      && ./make.sh; \
 		cd ../monoidal-right-unity-of-id-otimes-sets-star/ && ./make.sh; \
 		cd ../symmetric-difference/associativity/; \
-		lualatex A_sdiff_B_sdiff_C.tex; \
-		lualatex A_sdiff_B.tex; \
-		lualatex A.tex; \
-		lualatex B_sdiff_C.tex; \
-		lualatex C.tex; \
+		$(LUALATEX) A_sdiff_B_sdiff_C.tex; \
+		$(LUALATEX) A_sdiff_B.tex; \
+		$(LUALATEX) A.tex; \
+		$(LUALATEX) B_sdiff_C.tex; \
+		$(LUALATEX) C.tex; \
 		cd ../definition/; \
-		lualatex AsdiffB.tex; \
-		lualatex AsetminusB.tex; \
-		lualatex BsetminusA.tex; \
+		$(LUALATEX) AsdiffB.tex; \
+		$(LUALATEX) AsetminusB.tex; \
+		$(LUALATEX) BsetminusA.tex; \
 		cd ../via-unions-and-intersections/; \
-		lualatex Venn0001.tex; \
-		lualatex Venn0110.tex; \
-		lualatex Venn0111.tex; \
+		$(LUALATEX) Venn0001.tex; \
+		$(LUALATEX) Venn0110.tex; \
+		$(LUALATEX) Venn0111.tex; \
 	fi
 
 .PHONY: tikzcd

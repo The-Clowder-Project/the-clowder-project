@@ -60,12 +60,15 @@ def print_tex_file(tex_file,name,style):
         if (line == ""):
             continue
 
-        # Apply TCB specific changes
-        if ("tcb" in style):
-            line = re.sub(r'^(\\begin\{[a-zA-Z\*]+\})\{(.*?)\}\{.*?\}%\\label\{(.*?)\}%$', r'\1{\2}{\3}%', line)
-        else:
+        # Apply non-TCB specific changes
+        if (not "tcb" in style):
             if line.find("\\par\\vspace") >= 0:
                 continue
+        #if ("tcb" in style):
+        #    line = re.sub(r'^(\\begin\{[a-zA-Z\*]+\})\{(.*?)\}\{.*?\}%\\label\{(.*?)\}%$', r'\1{\2}{\3}%', line)
+        #else:
+        #    if line.find("\\par\\vspace") >= 0:
+        #        continue
 
         # WEB specific fixes
         if (style == "web"):
@@ -260,30 +263,7 @@ def main(style):
     print("\\dominitoc")
     print("\\begingroup")
     print("\\hypersetup{hidelinks}")
-    if style in ["alegreya", \
-            "alegreya-sans", \
-            "cm", \
-            "crimson-pro", \
-            "eb-garamond", \
-            "xcharter", \
-            "alegreya-tcb", \
-            "alegreya-sans-tcb", \
-            "cm-tcb", \
-            "crimson-pro-tcb", \
-            "eb-garamond-tcb", \
-            "xcharter-tcb", \
-            "tags-alegreya", \
-            "tags-alegreya-sans", \
-            "tags-cm", \
-            "tags-crimson-pro", \
-            "tags-eb-garamond", \
-            "tags-xcharter", \
-            "tags-alegreya-tcb", \
-            "tags-alegreya-sans-tcb", \
-            "tags-cm-tcb", \
-            "tags-crimson-pro-tcb", \
-            "tags-eb-garamond-tcb", \
-            "tags-xcharter-tcb"]:
+    if not style in ["web","tikzcd"]:
         print("{\\ShortTableOfContents}")
         print("\\clearpage")
         print("\\setcounter{tocdepth}{3}")

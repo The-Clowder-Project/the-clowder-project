@@ -1,7 +1,7 @@
 import re, os, io, sys, time, preprocess
 
 def replacement(line,style):
-    if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+    if ("tcb" in style):
         line = preprocess.tcbthm(line)
         line = preprocess.leftright_square_brackets_and_curly_braces(line)
         line = preprocess.expand_adjunctions(line)
@@ -19,7 +19,7 @@ def replacement(line,style):
     if line.find(r"ABSOLUTEPATH") >= 0:
         absolute_path = preprocess.absolute_path()
         line = line.replace("ABSOLUTEPATH",absolute_path)
-    if not (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+    if not ("tcb" in style):
         if line.find(r"\par\vspace") >= 0:
             line = ""
     return line
@@ -52,14 +52,24 @@ with open(tex_file) as fp:
                preamble_path = "./preamble/compiled/preamble-alegreya.tex"
            elif style == "alegreya-sans" or style == "tags-alegreya-sans":
                preamble_path = "./preamble/compiled/preamble-alegreya-sans.tex"
-           elif style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
-               preamble_path = "./preamble/compiled/preamble-alegreya-sans-tcb.tex"
            elif style == "crimson-pro" or style == "tags-crimson-pro":
                preamble_path = "./preamble/compiled/preamble-crimson-pro.tex"
            elif style == "eb-garamond" or style == "tags-eb-garamond":
                preamble_path = "./preamble/compiled/preamble-eb-garamond.tex"
            elif style == "xcharter" or style == "tags-xcharter":
                preamble_path = "./preamble/compiled/preamble-xcharter.tex"
+           elif style == "cm-tcb" or style == "tags-cm-tcb":
+               preamble_path = "./preamble/compiled/preamble-cm-tcb.tex"
+           elif style == "alegreya-tcb" or style == "tags-alegreya-tcb":
+               preamble_path = "./preamble/compiled/preamble-alegreya-tcb.tex"
+           elif style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
+               preamble_path = "./preamble/compiled/preamble-alegreya-sans-tcb.tex"
+           elif style == "crimson-pro-tcb" or style == "tags-crimson-pro-tcb":
+               preamble_path = "./preamble/compiled/preamble-crimson-pro-tcb.tex"
+           elif style == "eb-garamond-tcb" or style == "tags-eb-garamond-tcb":
+               preamble_path = "./preamble/compiled/preamble-eb-garamond-tcb.tex"
+           elif style == "xcharter-tcb" or style == "tags-xcharter-tcb":
+               preamble_path = "./preamble/compiled/preamble-xcharter-tcb.tex"
            with open(preamble_path,'r') as preamble:
                for line2 in preamble:
                    if line2.find("\documentclass") >= 0:
@@ -72,9 +82,9 @@ with open(tex_file) as fp:
                    if line2.find(r"ABSOLUTEPATH") >= 0:
                        absolute_path = preprocess.absolute_path()
                        line2 = line2.replace("ABSOLUTEPATH",absolute_path)
-                   if (style == "tags-alegreya-sans-tcb"):
+                   if ("tcb" in style and "tags" in style):
                        line2 = preprocess.trans_flag_tcb_fix(line2)
-                   if (style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb"):
+                   if ("tcb" in style):
                        if line2.find("\\setlength{\\TCBBoxCorrection") >= 0:
                            line2 = "\\setlength{\\TCBBoxCorrection}{-0.5\\baselineskip}\n"
                    f.write(line2)

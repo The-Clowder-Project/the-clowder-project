@@ -26,7 +26,7 @@ This chapter develops some material relating to constructions with sets with an 
         \end{enumerate}
     \item\label{constructions-with-sets-introduction-item-3}A lengthy discussion of the adjoint triple%
         \[
-            f_{*}\dashv f^{-1}\dashv f_{!}%
+            f_{!}\dashv f^{-1}\dashv f_{*}%
             \colon%
             \mathcal{P}(A)%
             \rightleftrightarrows%
@@ -34,11 +34,11 @@ This chapter develops some material relating to constructions with sets with an 
         \]%
         of functors (i.e.\ morphisms of posets) between $\mathcal{P}(A)$ and $\mathcal{P}(B)$ induced by a map of sets $f\colon A\to B$, including in particular:
         \begin{enumerate}
-            \item\label{constructions-with-sets-introduction-item-3a}How $f^{-1}$ can be described as a precomposition while $f_{*}$ and $f_{!}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
-            \item\label{constructions-with-sets-introduction-item-3b}An extensive list of the properties of $f_{*}$, $f^{-1}$, and $f_{!}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
-            \item\label{constructions-with-sets-introduction-item-3c}How the functors $f_{*}$, $f^{-1}$, $f_{!}$, along with the functors
+            \item\label{constructions-with-sets-introduction-item-3a}How $f^{-1}$ can be described as a precomposition while $f_{!}$ and $f_{*}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
+            \item\label{constructions-with-sets-introduction-item-3b}An extensive list of the properties of $f_{!}$, $f^{-1}$, and $f_{*}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
+            \item\label{constructions-with-sets-introduction-item-3c}How the functors $f_{!}$, $f^{-1}$, $f_{*}$, along with the functors
                 \begin{align*}
-                    -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
+                    -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X)       \to \mathcal{P}(X),\\
                     [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
                 \end{align*}
                 may be viewed as a six-functor formalism with the empty set $\emptyset$ as the dualising object (\cref{subsection-a-six-functor-formalism-for-sets}).
@@ -275,7 +275,7 @@ Let $A$ and $B$ be sets.%
     is the product of $A$ and $B$ in $\Sets$ as in \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:binary-products}}{\cref{binary-products}}.
 \end{definition}
 \begin{construction}{Construction of Binary Products of Sets}{construction-of-binary-products-of-sets}%
-    Concretely, the product of $A$ and $B$ is the pair \index[notation]{AtimesB@$A\times B$}$(A\times B,\{\pr_{1},\pr_{2}\})$ consisting of:
+    Concretely, the product of $A$ and $B$ is the pair \index[notation]{AtimesB@$A\times B$}$\smash{(A\times B,\{\pr_{1},\pr_{2}\})}$ consisting of:
     \begin{enumerate}
         \item\label{construction-of-binary-products-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times B$ defined by%
             \begin{align*}
@@ -668,7 +668,7 @@ Let $A$ and $B$ be sets.%
                     \arrow[d,"{\id_{A}\times g^{*}}"']
                     \&
                     \Sets(A,\Sets(B',C)),%
-                    \arrow[d,"{(g^{*})_{*}}"]
+                    \arrow[d,"{(g^{*})_{!}}"]
                     \\
                     \Sets(A\times B,C)%
                     \arrow[r,"\Phi_{B,C}"']
@@ -690,9 +690,9 @@ Let $A$ and $B$ be sets.%
                                                             &= \Phi_{B,C}(\xi(-_{1},g(-_{2})))\\
                                                             &= [\xi(-_{1},g(-_{2}))]^{\dagger}\\
                                                             &= \xi^{\dagger}_{-_{1}}(g(-_{2}))\\
-                                                            &= (g^{*})_{*}(\xi^{\dagger})\\
-                                                            &= (g^{*})_{*}(\Phi_{B',C}(\xi))\\
-                                                            &= [(g^{*})_{*}\circ\Phi_{B',C}](\xi).
+                                                            &= (g^{*})_{!}(\xi^{\dagger})\\
+                                                            &= (g^{*})_{!}(\Phi_{B',C}(\xi))\\
+                                                            &= [(g^{*})_{!}\circ\Phi_{B',C}](\xi).
             \end{align*}
             Alternatively, using the $\llbracket a\mapsto f(a)\rrbracket$ notation of \ChapterRef{\ChapterSets, \cref{sets:additional-notation-for-functions}}{\cref{additional-notation-for-functions}}, we have
             \begin{align*}
@@ -701,20 +701,20 @@ Let $A$ and $B$ be sets.%
                                                             &= \Phi_{B,C}(\llbracket(a,b)\mapsto\xi(a,g(b))\rrbracket)\\
                                                             &= \llbracket a\mapsto\llbracket b\mapsto\xi(a,g(b))\rrbracket\rrbracket\\
                                                             &= \llbracket a\mapsto g^{*}(\llbracket b'\mapsto\xi(a,b')\rrbracket)\rrbracket\\
-                                                            &= (g^{*})_{*}(\llbracket a\mapsto\llbracket b'\mapsto\xi(a,b')\rrbracket\rrbracket)\\
-                                                            &= (g^{*})_{*}(\Phi_{B',C}(\llbracket(a,b')\mapsto\xi(a,b')\rrbracket))\\
-                                                            &= (g^{*})_{*}(\Phi_{B',C}(\xi))\\
-                                                            &= [(g^{*})_{*}\circ\Phi_{B',C}](\xi).
+                                                            &= (g^{*})_{!}(\llbracket a\mapsto\llbracket b'\mapsto\xi(a,b')\rrbracket\rrbracket)\\
+                                                            &= (g^{*})_{!}(\Phi_{B',C}(\llbracket(a,b')\mapsto\xi(a,b')\rrbracket))\\
+                                                            &= (g^{*})_{!}(\Phi_{B',C}(\xi))\\
+                                                            &= [(g^{*})_{!}\circ\Phi_{B',C}](\xi).
             \end{align*}
         \item\label{proof-of-properties-of-products-of-sets-adjointness-1-6}\SloganFont{Naturality for $\Phi$, Part \rmII. }We need to show that, given a function $h\colon C\to C'$, the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \Sets(A\times B,C)%
                     \arrow[r,"\Phi_{B,C}"]
-                    \arrow[d,"h_{*}"']
+                    \arrow[d,"h_{!}"']
                     \&
                     \Sets(A,\Sets(B,C)),%
-                    \arrow[d,"{(h_{*})_{*}}"]
+                    \arrow[d,"{(h_{!})_{kkkkkk}}"]
                     \\
                     \Sets(A\times B,C')%
                     \arrow[r,"\Phi_{B,C'}"']
@@ -732,15 +732,15 @@ Let $A$ and $B$ be sets.%
             \]%
             we have
             \begin{align*}
-                [\Phi_{B,C}\circ h_{*}](\xi) &= \Phi_{B,C}(h_{*}(\xi))\\
-                                             &= \Phi_{B,C}(h_{*}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
+                [\Phi_{B,C}\circ h_{!}](\xi) &= \Phi_{B,C}(h_{kkkkkk}(\xi))\\
+                                             &= \Phi_{B,C}(h_{!}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
                                              &= \Phi_{B,C}(\llbracket(a,b)\mapsto h(\xi(a,b))\rrbracket)\\
                                              &= \llbracket a\mapsto\llbracket b\mapsto h(\xi(a,b))\rrbracket\rrbracket\\
-                                             &= \llbracket a\mapsto h_{*}(\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
-                                             &= (h_{*})_{*}(\llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
-                                             &= (h_{*})_{*}(\Phi_{B,C}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
-                                             &= (h_{*})_{*}(\Phi_{B,C}(\xi))\\
-                                             &= [(h_{*})_{*}\circ\Phi_{B,C}](\xi).
+                                             &= \llbracket a\mapsto h_{!}(\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
+                                             &= (h_{!})_{kkkkkk}(\llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
+                                             &= (h_{!})_{kkkkkk}(\Phi_{B,C}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
+                                             &= (h_{!})_{kkkkkk}(\Phi_{B,C}(\xi))\\
+                                             &= [(h_{!})_{kkkkkk}\circ\Phi_{B,C}](\xi).
             \end{align*}
         \item\label{proof-of-properties-of-products-of-sets-adjointness-1-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
@@ -4665,7 +4665,7 @@ Let $A$ and $B$ be sets.
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \Sets(\pt,A)
-            \arrow[r,"f_{*}"]
+            \arrow[r,"f_{!}"]
             \arrow[d,"\Phi_{A}"',dash pattern=on 1.65pt off 1.65pt]
             \arrow[d,isoarrow]
             \&
@@ -4685,8 +4685,8 @@ Let $A$ and $B$ be sets.
                                &\defeq f(\phi(\point))\\
                                &\defeq [f\circ\phi](\point)\\
                                &\defeq \Phi_{B}(f\circ\phi)\\
-                               &\defeq \Phi_{B}(f_{*}(\phi))\\
-                               &\defeq [\Phi_{B}\circ f_{*}](\phi)
+                               &\defeq \Phi_{B}(f_{!}(\phi))\\
+                               &\defeq [\Phi_{B}\circ f_{!}](\phi)
     \end{align*}
     for each $\phi\in\Sets(\pt,A)$. This finishes the proof.
 
@@ -5162,25 +5162,25 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcup_{U\in\mathcal{U}}f_{*}(U)%
+                \bigcup_{U\in\mathcal{U}}f_{!}(U)%
                 =%
-                \bigcup_{V\in f_{*}(\mathcal{U})}V%
+                \bigcup_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -5208,25 +5208,25 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{!}}"]
+                    \arrow[r,"{(f_{*})_{*}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcup_{U\in\mathcal{U}}f_{!}(U)%
+                \bigcup_{U\in\mathcal{U}}f_{*}(U)%
                 =%
-                \bigcup_{V\in f_{!}(\mathcal{U})}V%
+                \bigcup_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-intersections-of-families-1}\SloganFont{Interaction With Intersections of Families \rmI. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -6107,25 +6107,25 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcap_{U\in\mathcal{U}}f_{*}(U)%
+                \bigcap_{U\in\mathcal{U}}f_{!}(U)%
                 =%
-                \bigcap_{V\in f_{*}(\mathcal{U})}V%
+                \bigcap_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
         \item\label{properties-of-intersections-of-families-of-subsets-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -6153,25 +6153,25 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{!}}"]
+                    \arrow[r,"{(f_{*})_{*}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcap_{U\in\mathcal{U}}f_{!}(U)%
+                \bigcap_{U\in\mathcal{U}}f_{*}(U)%
                 =%
-                \bigcap_{V\in f_{!}(\mathcal{U})}V%
+                \bigcap_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
         \item\label{properties-of-intersections-of-families-of-subsets-interaction-with-unions-of-families-1}\SloganFont{Interaction With Unions of Families \rmI. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -6929,23 +6929,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{*}\times f_{*}"]
+                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{*}(U\cup V)%
+                f_{!}(U\cup V)%
                 =%
-                f_{*}(U)\cup f_{*}(V)%
+                f_{!}(U)\cup f_{kkkkkk}(V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-unions-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -6975,14 +6975,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{!}"]
+                    \arrow[r,"f_{*}\times f_{*}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -6991,9 +6991,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             with components
             \[
-                f_{!}(U)\cup f_{!}(V)%
+                f_{*}(U)\cup f_{*}(V)%
                 \subset%
-                f_{!}(U\cup V)%
+                f_{*}(U\cup V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-unions-interaction-with-powersets-and-semirings}\SloganFont{Interaction With Powersets and Semirings. }The quintuple $(\mathcal{P}(X),\cup,\cap,\emptyset,X)$ is an idempotent commutative semiring.
@@ -7449,14 +7449,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{*}\times f_{*}"]
+                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -7465,9 +7465,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
             \]%
             with components
             \[
-                f_{*}(U\cap V)%
+                f_{!}(U\cap V)%
                 \subset%
-                f_{*}(U)\cap f_{*}(V)%
+                f_{!}(U)\cap f_{kkkkkk}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-intersections-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -7497,23 +7497,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{!}"]
+                    \arrow[r,"f_{*}\times f_{*}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{!}(U)\cap f_{!}(V)%
+                f_{*}(U)\cap f_{*}(V)%
                 =%
-                f_{!}(U\cap V)%
+                f_{*}(U\cap V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-intersections-interaction-with-powersets-and-monoids-with-zero}\SloganFont{Interaction With Powersets and Monoids With Zero. }The quadruple $((\mathcal{P}(X),\emptyset),\cap,X)$ is a commutative monoid with zero.
@@ -7704,14 +7704,14 @@ Let $X$ and $Y$ be sets.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\setminus"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -7720,9 +7720,9 @@ Let $X$ and $Y$ be sets.%
             \]%
             with components
             \[
-                f_{*}(U)\setminus f_{*}(V)%
+                f_{!}(U)\setminus f_{kkkkkk}(V)%
                 \subset%
-                f_{*}(U\setminus V)%
+                f_{!}(U\setminus V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-differences-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }The diagram
@@ -7752,14 +7752,14 @@ Let $X$ and $Y$ be sets.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\setminus"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -7768,9 +7768,9 @@ Let $X$ and $Y$ be sets.%
             \]%
             with components
             \[
-                f_{*}(U)\setminus f_{*}(V)%
+                f_{!}(U)\setminus f_{kkkkkk}(V)%
                 \subset%
-                f_{*}(U\setminus V)%
+                f_{!}(U\setminus V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         %\item\label{properties-of-differences-}\SloganFont{. }
@@ -7927,23 +7927,23 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
-                    \arrow[r,"f^{\op}_{!}"]
+                    \arrow[r,"f^{\op}_{*}"]
                     \arrow[d,"{(-)^{\sfc}}"']
                     \&
                     \mathcal{P}(Y)^{\op}
                     \arrow[d,"{(-)^{\sfc}}"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{*}(U^{\sfc})%
+                f_{!}(U^{\sfc})%
                 =%
-                f_{!}(U)^{\sfc}%
+                f_{*}(U)^{\sfc}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-complements-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -7973,23 +7973,23 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
-                    \arrow[r,"f^{\op}_{*}"]
+                    \arrow[r,"f^{\op}_{!}"]
                     \arrow[d,"{(-)^{\sfc}}"']
                     \&
                     \mathcal{P}(Y)^{\op}
                     \arrow[d,"{(-)^{\sfc}}"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{!}(U^{\sfc})%
+                f_{*}(U^{\sfc})%
                 =%
-                f_{*}(U)^{\sfc}%
+                f_{!}(U)^{\sfc}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-complements-}\SloganFont{. }
@@ -8355,14 +8355,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\sdiff"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -8371,9 +8371,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             with components
             \[
-                f_{*}(U)\sdiff f_{*}(V)%
+                f_{!}(U)\sdiff f_{kkkkkk}(V)%
                 \subset%
-                f_{*}(U\sdiff V)%
+                f_{!}(U\sdiff V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-symmetric-differences-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }The diagram
@@ -8403,14 +8403,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
+                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\sdiff"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -8419,9 +8419,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             with components
             \[
-                f_{!}(U\sdiff V)%
+                f_{*}(U\sdiff V)%
                 \subset%
-                f_{1}(U)\sdiff f_{!}(V)%
+                f_{1}(U)\sdiff f_{*}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
@@ -8588,7 +8588,7 @@ Let $X$ be a set.%
                     {U\cup V}
                 \end{tikzcd}
             \end{webcompile}%
-            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ into a symmetric monoidal functor.
+            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         \item\label{properties-of-powersets-as-categories-interaction-with-products-2}\SloganFont{Interaction With Products \rmII. }The map
             \begin{webcompile}
                 \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.5*\the\DL, background color=backgroundColor, ampersand replacement=\&]
@@ -8613,14 +8613,14 @@ Let $X$ be a set.%
                     \text{$u\in U$ and $v\in V$}%
                 \}%
             \]%
-            is an inclusion of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ into a symmetric monoidal functor.
+            is an inclusion of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         \item\label{properties-of-powersets-as-categories-interaction-with-products-3}\SloganFont{Interaction With Products \rmIII. }We have an isomorphism
             \[
                 \mathcal{P}(X)\otimes\mathcal{P}(Y)%
                 \cong
                 \mathcal{P}(X\times Y),%
             \]%
-            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO}. Moreover, this makes each of $\mathcal{P}_{*}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ into a symmetric monoidal functor.
+            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO}. Moreover, this makes each of $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         %\item\label{properties-of-powersets-as-categories-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -8676,9 +8676,9 @@ Let $X$ be a set.%
 \begin{proposition}{Functoriality of Powersets}{functoriality-of-powersets}%
     Let $X$ be a set.
     \begin{enumerate}
-        \item\label{functoriality-of-powersets-functoriality-1}\SloganFont{Functoriality \rmI. }The assignment $X\mapsto\mathcal{P}(X)$ defines a functor\index[notation]{Pstar@$\mathcal{P}_{*}$}
+        \item\label{functoriality-of-powersets-functoriality-1}\SloganFont{Functoriality \rmI. }The assignment $X\mapsto\mathcal{P}(X)$ defines a functor\index[notation]{Pstar@$\mathcal{P}_{"!}$}
             \[
-                \mathcal{P}_{*}%
+                \mathcal{P}_{!}%
                 \colon%
                 \Sets%
                 \to%
@@ -8688,7 +8688,7 @@ Let $X$ be a set.%
             \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $A\in\Obj(\Sets)$, we have
                     \[
-                        \mathcal{P}_{*}(A)%
+                        \mathcal{P}_{!}(A)%
                         \defeq%
                         \mathcal{P}(A).%
                     \]%
@@ -8700,9 +8700,9 @@ Let $X$ be a set.%
                         \to%
                         \Sets(\mathcal{P}(A),\mathcal{P}(B))%
                     \]%
-                    of $\mathcal{P}_{*}$ at $(A,B)$ is the map defined by by sending a map of sets $f\colon A\to B$ to the map
+                    of $\mathcal{P}_{!}$ at $(A,B)$ is the map defined by by sending a map of sets $f\colon A\to B$ to the map
                     \[
-                        \mathcal{P}_{*}(f)%
+                        \mathcal{P}_{!}(f)%
                         \colon%
                         \mathcal{P}(A)%
                         \to%
@@ -8710,9 +8710,9 @@ Let $X$ be a set.%
                     \]%
                     defined by
                     \[
-                        \mathcal{P}_{*}(f)%
+                        \mathcal{P}_{!}(f)%
                         \defeq%
-                        f_{*},%
+                        f_{!},%
                     \]%
                     as in \cref{the-direct-image-function-associated-to-a-function}.
             \end{itemize}
@@ -8758,7 +8758,7 @@ Let $X$ be a set.%
             \end{itemize}
         \item\label{functoriality-of-powersets-functoriality-3}\SloganFont{Functoriality \rmIII. }The assignment $X\mapsto\mathcal{P}(X)$ defines a functor\index[notation]{Pshriek@$\mathcal{P}_{"!}$}
             \[
-                \mathcal{P}_{!}%
+                \mathcal{P}_{*}%
                 \colon%
                 \Sets%
                 \to%
@@ -8768,7 +8768,7 @@ Let $X$ be a set.%
             \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $A\in\Obj(\Sets)$, we have
                     \[
-                        \mathcal{P}_{!}(A)%
+                        \mathcal{P}_{*}(A)%
                         \defeq%
                         \mathcal{P}(A).%
                     \]%
@@ -8780,9 +8780,9 @@ Let $X$ be a set.%
                         \to%
                         \Sets(\mathcal{P}(A),\mathcal{P}(B))%
                     \]%
-                    of $\mathcal{P}_{!}$ at $(A,B)$ is the map defined by by sending a map of sets $f\colon A\to B$ to the map
+                    of $\mathcal{P}_{*}$ at $(A,B)$ is the map defined by by sending a map of sets $f\colon A\to B$ to the map
                     \[
-                        \mathcal{P}_{!}(f)%
+                        \mathcal{P}_{*}(f)%
                         \colon%
                         \mathcal{P}(A)%
                         \to%
@@ -8790,9 +8790,9 @@ Let $X$ be a set.%
                     \]%
                     defined by
                     \[
-                        \mathcal{P}_{!}(f)%
+                        \mathcal{P}_{*}(f)%
                         \defeq%
-                        f_{!},%
+                        f_{*},%
                     \]%
                     as in \cref{the-direct-image-with-compact-support-function-associated-to-a-function}.
             \end{itemize}
@@ -8843,7 +8843,7 @@ Let $X$ be a set.%
 \begin{proposition}{Adjointness of Powersets \rmII}{adjointness-of-powersets-2}%
     We have an adjunction
     \begin{webcompile}
-        \Adjunction#\Gr#\mathcal{P}_{*}#\Sets#\Rel,#
+        \Adjunction#\Gr#\mathcal{P}_{!}#\Sets#\Rel,#
     \end{webcompile}%
     witnessed by a bijection of sets%
     \[
@@ -8851,7 +8851,7 @@ Let $X$ be a set.%
         \cong
         \Sets(X,\mathcal{P}(Y))
     \]%
-    natural in $X\in\Obj(\Sets)$ and $Y\in\Obj(\Rel)$, where $\Gr$ is the graph functor of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-functoriality} of \cref{properties-of-graphs-of-functions}} and $\mathcal{P}_{*}$ is the functor of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-1}}{\cref{functoriality-of-powersets-1}}.
+    natural in $X\in\Obj(\Sets)$ and $Y\in\Obj(\Rel)$, where $\Gr$ is the graph functor of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-functoriality} of \cref{properties-of-graphs-of-functions}} and $\mathcal{P}_{!}$ is the functor of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-1}}{\cref{functoriality-of-powersets-1}}.
 \end{proposition}
 \begin{Proof}{Proof of \cref{adjointness-of-powersets-2}}%
     We have
@@ -8874,7 +8874,7 @@ Let $X$ be a set.%
             \arrow[d,isoarrow]
             \\
             \Sets(A,\mathcal{P}(B))
-            \arrow[r,"R_{*}"']
+            \arrow[r,"R_{!}"']
             \&
             \Sets(A,\mathcal{P}(B'))
         \end{tikzcd}
@@ -9141,7 +9141,7 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \SupLat((\mathcal{P}(X'),\subset),(Y,\preceq))%
             \arrow[r,"\Phi_{X',Y}"]
-            \arrow[d,"{\mathcal{P}_{*}(f)}^{*}"']
+            \arrow[d,"{\mathcal{P}_{!}(f)}^{*}"']
             \&
             \Sets(X',Y)
             \arrow[d,"f^{*}"]
@@ -9154,10 +9154,10 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{*}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{*}(f)^{*}(\xi))\\
-                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{*})\\
-                                                     &\defeq  (\xi\circ f_{*})\circ\chi_{X}\\
-                                                     &=       \xi\circ(f_{*}\circ\chi_{X})\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{kkkkkk}(f)^{*}(\xi))\\
+                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
+                                                     &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
+                                                     &=       \xi\circ(f_{!}\circ\chi_{X})\\
                                                      &\eqstar \xi\circ(\chi_{X'}\circ f)\\
                                                      &=       (\xi\circ\chi_{X'})\circ f\\
                                                      &\defeq  \Phi_{X',Y}(\xi)\circ f\\
@@ -9180,10 +9180,10 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \SupLat((\mathcal{P}(X),\subset),(Y,\preceq))%
             \arrow[r,"\Phi_{X,Y}"]
-            \arrow[d,"g_{*}"']
+            \arrow[d,"g_{!}"']
             \&
             \Sets(X,Y)
-            \arrow[d,"g_{*}"]
+            \arrow[d,"g_{!}"]
             \\
             \SupLat((\mathcal{P}(X),\subset),(Y',\preceq))%
             \arrow[r,"\Phi_{X,Y'}"']
@@ -9193,13 +9193,13 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{*}](\xi) &\defeq \Phi_{X,Y'}(g_{*}(\xi))\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{kkkkkk}(\xi))\\
                                       &\defeq \Phi_{X,Y'}(g\circ\xi)\\
                                       &\defeq (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
                                       &\defeq g\circ(\Phi_{X,Y}(\xi))\\
-                                      &\defeq g_{*}(\Phi_{X,Y}(\xi))\\
-                                      &\defeq [g_{*}\circ\Phi_{X,Y}](\xi).
+                                      &\defeq g_{!}(\Phi_{X,Y}(\xi))\\
+                                      &\defeq [g_{!}\circ\Phi_{X,Y}](\xi).
     \end{align*}
     for each $\xi\in\SupLat((\mathcal{P}(X),\subset),(Y,\preceq))$.
 
@@ -9471,7 +9471,7 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \InfLat((\mathcal{P}(X'),\supset),(Y,\preceq))%
             \arrow[r,"\Phi_{X',Y}"]
-            \arrow[d,"{\mathcal{P}_{*}(f)}^{*}"']
+            \arrow[d,"{\mathcal{P}_{!}(f)}^{*}"']
             \&
             \Sets(X',Y)
             \arrow[d,"f^{*}"]
@@ -9484,10 +9484,10 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{*}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{*}(f)^{*}(\xi))\\
-                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{*})\\
-                                                     &\defeq  (\xi\circ f_{*})\circ\chi_{X}\\
-                                                     &=       \xi\circ(f_{*}\circ\chi_{X})\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{kkkkkk}(f)^{*}(\xi))\\
+                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
+                                                     &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
+                                                     &=       \xi\circ(f_{!}\circ\chi_{X})\\
                                                      &\eqstar \xi\circ(\chi_{X'}\circ f)\\
                                                      &=       (\xi\circ\chi_{X'})\circ f\\
                                                      &\defeq  \Phi_{X',Y}(\xi)\circ f\\
@@ -9510,10 +9510,10 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \InfLat((\mathcal{P}(X),\supset),(Y,\preceq))%
             \arrow[r,"\Phi_{X,Y}"]
-            \arrow[d,"g_{*}"']
+            \arrow[d,"g_{!}"']
             \&
             \Sets(X,Y)
-            \arrow[d,"g_{*}"]
+            \arrow[d,"g_{!}"]
             \\
             \InfLat((\mathcal{P}(X),\supset),(Y',\preceq))%
             \arrow[r,"\Phi_{X,Y'}"']
@@ -9523,13 +9523,13 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{*}](\xi) &\defeq \Phi_{X,Y'}(g_{*}(\xi))\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{kkkkkk}(\xi))\\
                                       &\defeq \Phi_{X,Y'}(g\circ\xi)\\
                                       &\defeq (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
                                       &\defeq g\circ(\Phi_{X,Y}(\xi))\\
-                                      &\defeq g_{*}(\Phi_{X,Y}(\xi))\\
-                                      &\defeq [g_{*}\circ\Phi_{X,Y}](\xi).
+                                      &\defeq g_{!}(\Phi_{X,Y}(\xi))\\
+                                      &\defeq [g_{!}\circ\Phi_{X,Y}](\xi).
     \end{align*}
     for each $\xi\in\InfLat((\mathcal{P}(X),\supset),(Y,\preceq))$.
 
@@ -9705,23 +9705,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
-                            \arrow[r,"f^{\op}_{!}"]
+                            \arrow[r,"f^{\op}_{*}"]
                             \arrow[d,"D_{X}"']
                             \&
                             \mathcal{P}(Y)^{\op}
                             \arrow[d,"D_{Y}"]
                             \\
                             \mathcal{P}(X)
-                            \arrow[r,"f_{*}"']
+                            \arrow[r,"f_{!}"']
                             \&
                             \mathcal{P}(Y)
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        f_{*}(D_{X}(U))%
+                        f_{!}(D_{X}(U))%
                         =%
-                        D_{Y}(f_{!}(U))%
+                        D_{Y}(f_{*}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
                 \item\label{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3-2}\SloganFont{Interaction With Inverse Images. }The diagram
@@ -9751,23 +9751,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
-                            \arrow[r,"f^{\op}_{*}"]
+                            \arrow[r,"f^{\op}_{!}"]
                             \arrow[d,"D_{X}"']
                             \&
                             \mathcal{P}(Y)^{\op}
                             \arrow[d,"D_{Y}"]
                             \\
                             \mathcal{P}(X)
-                            \arrow[r,"f_{!}"']
+                            \arrow[r,"f_{*}"']
                             \&
                             \mathcal{P}(Y)
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        f_{!}(D_{X}(U))%
+                        f_{*}(D_{X}(U))%
                         =%
-                        D_{Y}(f_{*}(U))%
+                        D_{Y}(f_{!}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
             \end{enumerate}
@@ -9982,23 +9982,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
-                    \arrow[r,"f^{\op}_{!}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{*}\times f_{!}"]
                     \arrow[d,"{[-_{1},-_{2}]_{X}}"']
                     \&
                     {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
                     \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
                     \\
                     {\mathcal{P}(X)}
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have an equality of sets
             \[
-                f_{*}([U,V]_{X})%
+                f_{!}([U,V]_{X})%
                 =%
-                [f_{!}(U),f_{*}(V)]_{Y},%
+                [f_{*}(U),f_{!}(V)]_{Y},%
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-internal-homs-of-powersets-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -10028,14 +10028,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
-                    \arrow[r,"f^{\op}_{*}\times f_{!}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{*}"]
                     \arrow[d,"{[-_{1},-_{2}]_{X}}"']
                     \&
                     {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
                     \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
                     \\
                     {\mathcal{P}(X)}
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -10044,9 +10044,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             with components
             \[
-                [f_{*}(U),f_{!}(V)]_{Y}%
+                [f_{!}(U),f_{*}(V)]_{Y}%
                 \subset%
-                f_{!}([U,V]_{X})%
+                f_{*}([U,V]_{X})%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         %\item\label{properties-of-internal-homs-of-powersets-}\SloganFont{. }
@@ -10430,7 +10430,7 @@ Let $X$ be a set.
         \to%
         \mathcal{P}(X).%
     \]%
-    This makes some of the properties involving $\IsbellI$ a bit more cumbersome to state, although we still have an analogue of Isbell duality in that $\IsbellI_{*}\circ\IsbellI$ evaluates to $\id_{\mathcal{P}(X)}$ in the sense of \cref{isbell-duality-for-sets}.
+    This makes some of the properties involving $\IsbellI$ a bit more cumbersome to state, although we still have an analogue of Isbell duality in that $\IsbellI_{!}\circ\IsbellI$ evaluates to $\id_{\mathcal{P}(X)}$ in the sense of \cref{isbell-duality-for-sets}.
 \end{remark}
 \begin{proposition}{Isbell Duality for Sets}{isbell-duality-for-sets}%
     The diagram
@@ -10441,7 +10441,7 @@ Let $X$ be a set.
             \arrow[rd,"\Delta_{\Delta_{\id_{\mathcal{P}(X)}}}"',pos=0.35]
             \&
             \Sets(X,\mathcal{P}(X))
-            \arrow[d,"\IsbellI_{*}"]
+            \arrow[d,"\IsbellI_{!}"]
             \\
             \&
             \Sets(X,\Sets(X,\mathcal{P}(X)))
@@ -10449,7 +10449,7 @@ Let $X$ be a set.
     \]%
     commutes, i.e.\ we have
     \[
-        \IsbellI_{*}(\IsbellI(U))%
+        \IsbellI_{!}(\IsbellI(U))%
         =%
         \llbracket x\mapsto\llbracket y\mapsto U\rrbracket\rrbracket
     \]%
@@ -10458,7 +10458,7 @@ Let $X$ be a set.
 \begin{Proof}{Proof of \cref{isbell-duality-for-sets}}%
     We have
     \begin{align*}
-        \IsbellI_{*}(\IsbellI(U)) &\defeq \IsbellI_{*}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
+        \IsbellI_{!}(\IsbellI(U)) &\defeq \IsbellI_{kkkkkk}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
                                   &\defeq \llbracket x\mapsto\IsbellI(U^{\sfc}\cup\{x\})\rrbracket\\
                                   &\defeq \llbracket x\mapsto\llbracket y\mapsto(U^{\sfc}\cup\{x\})^{\sfc}\cup\{x\}\rrbracket\rrbracket\\
                                   &=      \llbracket x\mapsto\llbracket y\mapsto(U\cap(X\setminus\{x\}))\cup\{x\}\rrbracket\rrbracket\\
@@ -10954,7 +10954,7 @@ Let $X$ be a set.
     \begin{enumerate}
         \item\label{properties-of-characteristic-embeddings-interaction-with-functions}\SloganFont{Interaction With Functions. }We have
             \begin{webcompile}
-                f_{*}\circ\chi_{X}%
+                f_{!}\circ\chi_{X}%
                 =%
                 \chi_{Y}\circ f,%
                 \qquad%
@@ -10967,7 +10967,7 @@ Let $X$ be a set.
                     \arrow[d,"\chi_{Y}"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)\mrp{.}
                 \end{tikzcd}
@@ -10979,8 +10979,8 @@ Let $X$ be a set.
     \FirstProofBox{\cref{properties-of-characteristic-embeddings-interaction-with-functions}: Interaction With Functions}%
     Indeed, we have
     \begin{align*}
-        [f_{*}\circ\chi_{X}](x) &\defeq f_{*}(\chi_{X}(x))\\%
-                                &\defeq f_{*}(\{x\})\\%
+        [f_{!}\circ\chi_{X}](x) &\defeq f_{kkkkkk}(\chi_{X}(x))\\%
+                                &\defeq f_{!}(\{x\})\\%
                                 &=      \{f(x)\}\\%
                                 &\defeq \chi_{X'}(f(x))\\%
                                 &\defeq [\chi_{X'}\circ f](x),%
@@ -11052,13 +11052,18 @@ Let $X$ be a set and let $U\subset X$ be a subset of $X$.%
     \end{align*}
     where we have used \cref{the-yoneda-lemma-for-sets} for the first equality.
 \end{Proof}
-\section{The Adjoint Triple $f_{*}\dashv f^{-1}\dashv f_{!}$}\label{subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}
+\section{The Adjoint Triple $f_{!}\dashv f^{-1}\dashv f_{*}$}\label{subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}
 \subsection{Direct Images}\label{subsection-direct-images}
 Let $f\colon X\to Y$ be a function.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-function}%
-    The \index[set-theory]{function!associated direct image function}\textbf{direct image function associated to $f$} is the function\index[notation]{fstar@$f^{*}$}%
+    The \index[set-theory]{function!associated direct image function}\textbf{direct image function associated to $f$} is the function\index[notation]{fshriek@$f^{"!}$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written simply $f\colon\mathcal{P}(X)\to\mathcal{P}(Y)$.
+    }%
+    %---  End Footnote  ---%
     \[%
-        f_{*}%
+        f_{!}%
         \colon%
         \mathcal{P}(X)%
         \to%
@@ -11072,7 +11077,7 @@ Let $f\colon X\to Y$ be a function.
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        f_{*}(U) &\defeq f(U)\\%
+        f_{!}(U) &\defeq f(U)\\%
                  &\defeq \{%
                              y\in Y%
                              \ \middle|\ %
@@ -11098,17 +11103,60 @@ Let $f\colon X\to Y$ be a function.
         \to%
         \mathcal{P}(Y)%
     \]%
-    for $f_{*}$. This notation comes from the fact that the following statements are equivalent, where $y\in Y$ and $U\in\mathcal{P}(X)$:
+    for $f_{!}$. This notation comes from the fact that the following statements are equivalent, where $y\in Y$ and $U\in\mathcal{P}(X)$:
     \begin{itemize}
         \item We have $y\in\exists_{f}(U)$.
         \item There exists some $x\in U$ such that $f(x)=y$.
     \end{itemize}
-    We will not make use of this notation in the present work.
+    We will not make use of this notation elsewhere in Clowder.
 \end{notation}
+\begin{warning}{Notation for Direct Images Is Confusing}{notation-for-direct-images-is-confusing}%
+    Notation for direct images between powersets is tricky:
+    \begin{enumerate}
+        \item\label{notation-for-direct-images-is-confusing-1}Direct images for powersets and presheaves are both adjoint to their corresponding inverse image functors. However, the direct image functor for powersets is a left adjoint, while the direct image functor for presheaves is a right adjoint:
+            \begin{enumerate}
+                \item\label{notation-for-direct-images-is-confusing-1a}\SloganFont{Powersets. }Given a function $f\colon X\to Y$, we have an inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        \mathcal{P}(Y)%
+                        \to%
+                        \mathcal{P}(X).%
+                    \]%
+                    The \emph{left} adjoint of this functor is the usual direct image, defined above in \cref{the-direct-image-function-associated-to-a-function}.
+                \item\label{notation-for-direct-images-is-confusing-1b}\SloganFont{Presheaves. }Given a morphism of topological spaces $f\colon X\to Y$, we have an inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        \PSh(Y)%
+                        \to%
+                        \PSh(X).%
+                    \]%
+                    The \emph{right} adjoint of this functor is the direct image functor of presheaves, defined in \cref{TODO}.
+            \end{enumerate}
+        \item\label{notation-for-direct-images-is-confusing-2}The presheaf direct image functor is denoted $f_{*}$, but the direct image functor for powersets is denoted $f_{!}$ (as it's a left adjoint).
+        \item\label{notation-for-direct-images-is-confusing-3}Adding to the confusion, it's somewhat common for $f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$ to be denoted $f_{*}$.
+    \end{enumerate}
+    We chose to write $f_{!}$ for the direct image to keep the notation aligned with the following similar adjoint situations:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Situation}}} & \textcolor{white}{\textbf{\textsc{Adjoint String}}}                                                                    \\\rowcolor{backgroundColor}
+            Functoriality of Powersets                     & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\mathcal{P}(X)\rightleftrightarrows\mathcal{P}(Y)$                              \\\rowcolor{black!05!backgroundColor}
+            Functoriality of Presheaf Categories           & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\PSh(X)\rightleftrightarrows\PSh(Y)$                                            \\\rowcolor{backgroundColor}
+            Base Change                                    & $(f_{!}\dashv f^{*}\dashv f_{*})\colon\CatFont{C}_{/X}\rightleftrightarrows\CatFont{C}_{/Y}$                           \\\rowcolor{black!05!backgroundColor}
+            Kan Extensions                                 & $(F_{!}\dashv F^{*}\dashv F_{*})\colon\Fun(\CatFont{C},\CatFont{E})\rightleftrightarrows\Fun(\CatFont{D},\CatFont{E})$ \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{warning}
 \begin{remark}{Unwinding \cref{the-direct-image-function-associated-to-a-function}}{unwinding-the-direct-image-function-associated-to-a-function}%
     Identifying $\mathcal{P}(X)$ with $\Sets(X,\TTV)$ via \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}, we see that the direct image function associated to $f$ is equivalently the function
     \[
-        f_{*}%
+        f_{!}%
         \colon%
         \mathcal{P}(X)%
         \to%
@@ -11116,14 +11164,14 @@ Let $f\colon X\to Y$ be a function.
     \]%
     defined by
     \begin{align*}
-        f_{*}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
+        f_{!}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
                         &=      \colim((f\comma\underline{(-_{1})})\xlongtwoheadsrightarrow{\pr}A\xlongrightarrow{\chi_{U}}\TTV)\\%
                         &=      \colim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
                         %&=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
     \end{align*}
     where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
     \begin{align*}
-        [f_{*}(\chi_{U})](y)%
+        [f_{!}(\chi_{U})](y)%
         &=%
         \bigvee_{\substack{x\in X\\f(x)=y}}(\chi_{U}(x))\\%
         &=%
@@ -11144,9 +11192,9 @@ Let $f\colon X\to Y$ be a function.
 \begin{proposition}{Properties of Direct Images \rmI}{properties-of-direct-images-i}%
     Let $f\colon X\to Y$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{*}(U)$ defines a functor
+        \item\label{properties-of-direct-images-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{!}(U)$ defines a functor
             \[
-                f_{*}%
+                f_{!}%
                 \colon%
                 (\mathcal{P}(X),\subset)%
                 \to%
@@ -11154,55 +11202,55 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \itemstar If $U\subset V$, then $f_{*}(U)\subset f_{*}(V)$.
+                \itemstar If $U\subset V$, then $f_{!}(U)\subset f_{kkkkkk}(V)$.
             \end{itemize}
         \item\label{properties-of-direct-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
-                \TripleAdjunction#f_{*}#f^{-1}#f_{!}#\mathcal{P}(X)#\mathcal{P}(Y),#
+                \TripleAdjunction#f_{!}#f^{-1}#f_{*}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}%
             witnessed by:
             \begin{enumerate}
                 \item\label{properties-of-direct-images-i-triple-adjointness-1}Units and counits of the form
                     \[
                         \begin{aligned}
-                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{*},\\
-                            f_{*}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
+                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{!},\\
+                            f_{!}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
                         \end{aligned}
                         \qquad
                         \begin{aligned}
-                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{!}\circ f^{-1},\\
-                            f^{-1}\circ f_{!}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
                         \end{aligned}
                     \]%
                     having components of the form
                     \[
                         \begin{gathered}
-                            U                \subset f^{-1}(f_{*}(U)),\\
-                            f_{*}(f^{-1}(V)) \subset V,
+                            U                \subset f^{-1}(f_{!}(U)),\\
+                            f_{!}(f^{-1}(V)) \subset V,
                         \end{gathered}
                         \qquad
                         \begin{gathered}
-                            V                \subset f_{!}(f^{-1}(V)),\\
-                            f^{-1}(f_{!}(U)) \subset U
+                            V                \subset f_{*}(f^{-1}(V)),\\
+                            f^{-1}(f_{*}(U)) \subset U
                         \end{gathered}
                     \]%
                     indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
                 \item\label{properties-of-direct-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
-                        \Hom_{\mathcal{P}(Y)}(f_{*}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
-                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{!}(V)),
+                        \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
+                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{*}(V)),
                     \end{align*}
                     natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$ and (respectively) $V\in\mathcal{P}(X)$ and $U\in\mathcal{P}(Y)$. In particular:
                     \begin{enumerate}
                         \item\label{properties-of-direct-images-i-triple-adjointness-2-a}The following conditions are equivalent:
                             \begin{enumerate}
-                                \item\label{properties-of-direct-images-i-triple-adjointness-2-a-i}We have $f_{*}(U)\subset V$.
+                                \item\label{properties-of-direct-images-i-triple-adjointness-2-a-i}We have $f_{!}(U)\subset V$.
                                 \item\label{properties-of-direct-images-i-triple-adjointness-2-a-ii}We have $U\subset f^{-1}(V)$.
                             \end{enumerate}
                         \item\label{properties-of-direct-images-i-triple-adjointness-2-b}The following conditions are equivalent:
                             \begin{enumerate}
                                 \item\label{properties-of-direct-images-i-triple-adjointness-2-b-i}We have $f^{-1}(U)\subset V$.
-                                \item\label{properties-of-direct-images-i-triple-adjointness-2-b-ii}We have $U\subset f_{!}(V)$.
+                                \item\label{properties-of-direct-images-i-triple-adjointness-2-b-ii}We have $U\subset f_{*}(V)$.
                             \end{enumerate}
                     \end{enumerate}
             \end{enumerate}
@@ -11210,83 +11258,83 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcup_{U\in\mathcal{U}}f_{*}(U)%
+                \bigcup_{U\in\mathcal{U}}f_{!}(U)%
                 =%
-                \bigcup_{V\in f_{*}(\mathcal{U})}V%
+                \bigcup_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
         \item\label{properties-of-direct-images-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcap_{U\in\mathcal{U}}f_{*}(U)%
+                \bigcap_{U\in\mathcal{U}}f_{!}(U)%
                 =%
-                \bigcap_{V\in f_{*}(\mathcal{U})}V%
+                \bigcap_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
         \item\label{properties-of-direct-images-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{*}\times f_{*}"]
+                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{*}(U\cup V)%
+                f_{!}(U\cup V)%
                 =%
-                f_{*}(U)\cup f_{*}(V)%
+                f_{!}(U)\cup f_{kkkkkk}(V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{*}\times f_{*}"]
+                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -11295,23 +11343,23 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{*}(U\cap V)%
+                f_{!}(U\cap V)%
                 \subset%
-                f_{*}(U)\cap f_{*}(V)%
+                f_{!}(U)\cap f_{kkkkkk}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-differences}\SloganFont{Interaction With Differences. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\setminus"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -11320,46 +11368,46 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{*}(U)\setminus f_{*}(V)%
+                f_{!}(U)\setminus f_{kkkkkk}(V)%
                 \subset%
-                f_{*}(U\setminus V)%
+                f_{!}(U\setminus V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
-                    \arrow[r,"f^{\op}_{!}"]
+                    \arrow[r,"f^{\op}_{*}"]
                     \arrow[d,"{(-)^{\sfc}}"']
                     \&
                     \mathcal{P}(Y)^{\op}
                     \arrow[d,"{(-)^{\sfc}}"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{*}(U^{\sfc})%
+                f_{!}(U^{\sfc})%
                 =%
-                f_{!}(U)^{\sfc}%
+                f_{*}(U)^{\sfc}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\sdiff"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -11368,65 +11416,65 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{*}(U)\sdiff f_{*}(V)%
+                f_{!}(U)\sdiff f_{kkkkkk}(V)%
                 \subset%
-                f_{*}(U\sdiff V)%
+                f_{!}(U\sdiff V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
-                    \arrow[r,"f^{\op}_{!}\times f_{*}"]
+                    \arrow[r,"f^{\op}_{*}\times f_{!}"]
                     \arrow[d,"{[-_{1},-_{2}]_{X}}"']
                     \&
                     {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
                     \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
                     \\
                     {\mathcal{P}(X)}
-                    \arrow[r,"f_{*}"']
+                    \arrow[r,"f_{!}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have an equality of sets
             \[
-                f_{*}([U,V]_{X})%
+                f_{!}([U,V]_{X})%
                 =%
-                [f_{!}(U),f_{*}(V)]_{Y},%
+                [f_{*}(U),f_{!}(V)]_{Y},%
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
-                f_{*}\left(\bigcup_{i\in I}U_{i}\right)%
+                f_{!}\left(\bigcup_{i\in I}U_{i}\right)%
                 =%
-                \bigcup_{i\in I}f_{*}(U_{i}),%
+                \bigcup_{i\in I}f_{!}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
-                    f_{*}(U)\cup f_{*}(V)                  = f_{*}(U\cup V),\\
-                    f_{*}(\emptyset)                       = \emptyset,
+                    f_{!}(U)\cup f_{kkkkkk}(V)                  = f_{kkkkkk}(U\cup V),\\
+                    f_{!}(\emptyset)                       = \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
             \[
-                f_{*}\left(\bigcap_{i\in I}U_{i}\right)%
+                f_{!}\left(\bigcap_{i\in I}U_{i}\right)%
                 \subset%
-                \bigcap_{i\in I}f_{*}(U_{i}),%
+                \bigcap_{i\in I}f_{!}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
-                    f_{*}(U\cap V) \subset f_{*}(U)\cap f_{*}(V),\\
-                    f_{*}(X)        \subset Y,
+                    f_{!}(U\cap V) \subset f_{kkkkkk}(U)\cap f_{kkkkkk}(V),\\
+                    f_{!}(X)        \subset Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric strict monoidal structure
             \[
-                (f_{*},f^{\otimes}_{*},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{kkkkkk},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cup,\emptyset)
                 \to
@@ -11435,14 +11483,14 @@ Let $f\colon X\to Y$ be a function.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{*}(U)\cup f_{*}(V) \rightequalsarrow f_{*}(U\cup V),\\
+                    f^{\otimes}_{*|U,V}   \colon f_{!}(U)\cup f_{kkkkkk}(V) \rightequalsarrow f_{kkkkkk}(U\cup V),\\
                     f^{\otimes}_{*|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric oplax monoidal structure
             \[
-                (f_{*},f^{\otimes}_{*},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{kkkkkk},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cap,X)
                 \to
@@ -11451,29 +11499,29 @@ Let $f\colon X\to Y$ be a function.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{*}(U\cap V) \hookrightarrow f_{*}(U)\cap f_{*}(V),\\
-                    f^{\otimes}_{*|\Unit} \colon f_{*}(X)       \hookrightarrow Y,
+                    f^{\otimes}_{*|U,V}   \colon f_{!}(U\cap V) \hookrightarrow f_{kkkkkk}(U)\cap f_{kkkkkk}(V),\\
+                    f^{\otimes}_{*|\Unit} \colon f_{!}(X)       \hookrightarrow Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
-                (f\icoprod g)_{*}(U\icoprod V)%
+                (f\icoprod g)_{!}(U\icoprod V)%
                 =%
-                f_{*}(U)\icoprod g_{*}(V)%
+                f_{!}(U)\icoprod g_{kkkkkk}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{properties-of-direct-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
-                (f\boxtimes_{X\times Y} g)_{*}(U\boxtimes_{X\times Y}V)%
+                (f\boxtimes_{X\times Y} g)_{!}(U\boxtimes_{X\times Y}V)%
                 =%
-                f_{*}(U)\boxtimes_{X'\times Y'}g_{*}(V)%
+                f_{!}(U)\boxtimes_{X'\times Y'}g_{kkkkkk}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{properties-of-direct-images-i-relation-to-direct-images-with-compact-support}\SloganFont{Relation to Direct Images With Compact Support. }We have
             \begin{align*}
-                f_{*}(U) &=      f_{!}(U^{\sfc})^{\sfc}\\%
-                         &\defeq Y\setminus f_{!}(X\setminus U)%
+                f_{!}(U) &=      f_{*}(U^{\sfc})^{\sfc}\\%
+                         &\defeq Y\setminus f_{*}(X\setminus U)%
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
     \end{enumerate}
@@ -11488,16 +11536,16 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcup_{V\in f_{*}(\mathcal{U})}V &= \bigcup_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
-                                           &= \bigcup_{U\in\mathcal{U}}f_{*}(U).%
+        \bigcup_{V\in f_{!}(\mathcal{U})}V &= \bigcup_{V\in\{f_{kkkkkk}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+                                           &= \bigcup_{U\in\mathcal{U}}f_{!}(U).%
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcap_{V\in f_{*}(\mathcal{U})}V &= \bigcap_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
-                                           &= \bigcap_{U\in\mathcal{U}}f_{*}(U).%
+        \bigcap_{V\in f_{!}(\mathcal{U})}V &= \bigcap_{V\in\{f_{kkkkkk}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+                                           &= \bigcap_{U\in\mathcal{U}}f_{!}(U).%
     \end{align*}
     This finishes the proof.
 
@@ -11513,21 +11561,21 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-complements}: Interaction With Complements}%
     Applying \cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support} to $X\setminus U$, we have
     \begin{align*}
-        f_{*}(U^{\sfc}) &= f_{*}(X\setminus U)\\
-                        &= Y\setminus f_{!}(X\setminus(X\setminus U))\\
-                        &= Y\setminus f_{!}(U)\\
-                        &= f_{!}(U)^{\sfc}.
+        f_{!}(U^{\sfc}) &= f_{kkkkkk}(X\setminus U)\\
+                        &= Y\setminus f_{*}(X\setminus(X\setminus U))\\
+                        &= Y\setminus f_{*}(U)\\
+                        &= f_{*}(U)^{\sfc}.
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     We have
     \begin{align*}
-        f_{*}(U)\sdiff f_{*}(V) &=       (f_{*}(U)\cup f_{*}(V))\setminus(f_{*}(U)\cap f_{*}(V))\\
-                                &\subset (f_{*}(U)\cup f_{*}(V))\setminus(f_{*}(U\cap V))\\
-                                &=       (f_{*}(U\cup V))\setminus(f_{*}(U\cap V))\\
-                                &\subset f_{*}((U\cup V)\setminus(U\cap V))\\
-                                &=       f_{*}(U\sdiff V),
+        f_{!}(U)\sdiff f_{kkkkkk}(V) &=       (f_{kkkkkk}(U)\cup f_{kkkkkk}(V))\setminus(f_{kkkkkk}(U)\cap f_{kkkkkk}(V))\\
+                                &\subset (f_{!}(U)\cup f_{kkkkkk}(V))\setminus(f_{kkkkkk}(U\cap V))\\
+                                &=       (f_{!}(U\cup V))\setminus(f_{kkkkkk}(U\cap V))\\
+                                &\subset f_{!}((U\cup V)\setminus(U\cap V))\\
+                                &=       f_{!}(U\sdiff V),
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -11542,10 +11590,10 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        f_{*}([U,V]_{X}) &\defeq f_{*}(U^{\sfc}\cup V)\\
-                         &=      f_{*}(U^{\sfc})\cup f_{*}(V)\\
-                         &=      f_{!}(U)^{\sfc}\cup f_{*}(V)\\
-                         &\defeq [f_{!}(U),f_{*}(V)]_{Y},%
+        f_{!}([U,V]_{X}) &\defeq f_{kkkkkk}(U^{\sfc}\cup V)\\
+                         &=      f_{!}(U^{\sfc})\cup f_{kkkkkk}(V)\\
+                         &=      f_{*}(U)^{\sfc}\cup f_{!}(V)\\
+                         &\defeq [f_{*}(U),f_{!}(V)]_{Y},%
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -11564,7 +11612,7 @@ Let $f\colon X\to Y$ be a function.
     %---  End Footnote  ---%
 
     \ProofBox{\cref{properties-of-direct-images-i-oplax-preservation-of-limits}: Oplax Preservation of Limits}%
-    The inclusion $f_{*}(X)\subset Y$ is automatic. See \cite{proof-wiki:image-of-intersection-under-mapping} for the other inclusions.
+    The inclusion $f_{!}(X)\subset Y$ is automatic. See \cite{proof-wiki:image-of-intersection-under-mapping} for the other inclusions.
 
     \ProofBox{\cref{properties-of-direct-images-i-symmetric-strict-monoidality-with-respect-to-unions}: Symmetric Strict Monoidality With Respect to Unions}%
     This follows from \cref{properties-of-direct-images-i-preservation-of-colimits}.
@@ -11581,20 +11629,20 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support}: Relation to Direct Images With Compact Support}%
     Applying \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i} to $X\setminus U$, we have
     \begin{align*}
-        f_{!}(X\setminus U) &= B\setminus f_{*}(X\setminus(X\setminus U))\\
-                            &= B\setminus f_{*}(U).
+        f_{*}(X\setminus U) &= B\setminus f_{!}(X\setminus(X\setminus U))\\
+                            &= B\setminus f_{!}(U).
     \end{align*}
     Taking complements, we then obtain
     \begin{align*}
-        f_{*}(U) &= B\setminus(B\setminus f_{*}(U)),\\
-                 &= B\setminus f_{!}(X\setminus U),
+        f_{!}(U) &= B\setminus(B\setminus f_{kkkkkk}(U)),\\
+                 &= B\setminus f_{*}(X\setminus U),
     \end{align*}
     which finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Direct Images \rmII}{properties-of-direct-images-ii}%
     Let $f\colon X\to Y$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{*}$ defines a function
+        \item\label{properties-of-direct-images-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{!}$ defines a function
             \[
                 (-)_{*|X,Y}%
                 \colon%
@@ -11602,7 +11650,7 @@ Let $f\colon X\to Y$ be a function.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-direct-images-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{*}$ defines a function
+        \item\label{properties-of-direct-images-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{!}$ defines a function
             \[
                 (-)_{*|X,Y}%
                 \colon%
@@ -11612,23 +11660,23 @@ Let $f\colon X\to Y$ be a function.
             \]%
         \item\label{properties-of-direct-images-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
-                (\id_{X})_{*}%
+                (\id_{X})_{!}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
         \item\label{properties-of-direct-images-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
             \begin{webcompile}
-                (g\circ f)_{*}%
+                (g\circ f)_{!}%
                 =%
-                g_{*}\circ f_{*},%
+                g_{!}\circ f_{kkkkkk},%
                 \qquad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)
-                    \arrow[r,"f_{*}"]
-                    \arrow[rd,"{(g\circ f)_{*}}"']
+                    \arrow[r,"f_{!}"]
+                    \arrow[rd,"{(g\circ f)_{!}}"']
                     \&
                     \mathcal{P}(Y)
-                    \arrow[d,"g_{*}"]
+                    \arrow[d,"g_{!}"]
                     \\
                     \&
                     \mathcal{P}(Z)\mrp{.}
@@ -11726,51 +11774,51 @@ Let $f\colon X\to Y$ be a function.
             \end{itemize}
         \item\label{properties-of-inverse-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
-                \TripleAdjunction#f_{*}#f^{-1}#f_{!}#\mathcal{P}(X)#\mathcal{P}(Y),#
+                \TripleAdjunction#f_{!}#f^{-1}#f_{*}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}%
             witnessed by:
             \begin{enumerate}
                 \item\label{properties-of-inverse-images-i-triple-adjointness-1}Units and counits of the form
                     \[
                         \begin{aligned}
-                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{*},\\
-                            f_{*}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
+                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{!},\\
+                            f_{!}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
                         \end{aligned}
                         \qquad
                         \begin{aligned}
-                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{!}\circ f^{-1},\\
-                            f^{-1}\circ f_{!}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
                         \end{aligned}
                     \]%
                     having components of the form
                     \[
                         \begin{gathered}
-                            U                \subset f^{-1}(f_{*}(U)),\\
-                            f_{*}(f^{-1}(V)) \subset V,
+                            U                \subset f^{-1}(f_{!}(U)),\\
+                            f_{!}(f^{-1}(V)) \subset V,
                         \end{gathered}
                         \qquad
                         \begin{gathered}
-                            V                \subset f_{!}(f^{-1}(V)),\\
-                            f^{-1}(f_{!}(U)) \subset U
+                            V                \subset f_{*}(f^{-1}(V)),\\
+                            f^{-1}(f_{*}(U)) \subset U
                         \end{gathered}
                     \]%
                     indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
                 \item\label{properties-of-inverse-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
-                        \Hom_{\mathcal{P}(Y)}(f_{*}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
-                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{!}(V)),
+                        \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
+                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{*}(V)),
                     \end{align*}
                     natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$ and (respectively) $V\in\mathcal{P}(X)$ and $U\in\mathcal{P}(Y)$. In particular:
                     \begin{enumerate}
                         \item\label{properties-of-inverse-images-i-triple-adjointness-2-a}The following conditions are equivalent:
                             \begin{enumerate}
-                                \item\label{properties-of-inverse-images-i-triple-adjointness-2-a-i}We have $f_{*}(U)\subset V$.
+                                \item\label{properties-of-inverse-images-i-triple-adjointness-2-a-i}We have $f_{!}(U)\subset V$.
                                 \item\label{properties-of-inverse-images-i-triple-adjointness-2-a-ii}We have $U\subset f^{-1}(V)$.
                             \end{enumerate}
                         \item\label{properties-of-inverse-images-i-triple-adjointness-2-b}The following conditions are equivalent:
                             \begin{enumerate}
                                 \item\label{properties-of-inverse-images-i-triple-adjointness-2-b-i}We have $f^{-1}(U)\subset V$.
-                                \item\label{properties-of-inverse-images-i-triple-adjointness-2-b-ii}We have $U\subset f_{!}(V)$.
+                                \item\label{properties-of-inverse-images-i-triple-adjointness-2-b-ii}We have $U\subset f_{*}(V)$.
                             \end{enumerate}
                     \end{enumerate}
             \end{enumerate}
@@ -12197,7 +12245,7 @@ Let $f\colon X\to Y$ be a function.
 \begin{definition}{Direct Images With Compact Support}{the-direct-image-with-compact-support-function-associated-to-a-function}%
     The \index[set-theory]{function!associated direct image with compact support function}\textbf{direct image with compact support function associated to $f$} is the function\index[notation]{fshriek@$f_{"!}$}%
     \[%
-        f_{!}%
+        f_{*}%
         \colon%
         \mathcal{P}(X)%
         \to%
@@ -12206,22 +12254,22 @@ Let $f\colon X\to Y$ be a function.
     defined by\index[notation]{fshrieku@$f_{"!}(U)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $f_{!}(U)$ is called the \textbf{direct image with compact support of $U$ by $f$}.
+        \SloganFont{Further Terminology: }The set $f_{*}(U)$ is called the \textbf{direct image with compact support of $U$ by $f$}.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
         We also have
         \begin{align*}
-            f_{!}(U) &=      f_{*}(U^{\sfc})^{\sfc}\\%
-                     &\defeq Y\setminus f_{*}(X\setminus U);%
+            f_{*}(U) &=      f_{!}(U^{\sfc})^{\sfc}\\%
+                     &\defeq Y\setminus f_{!}(X\setminus U);%
         \end{align*}
         see \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        f_{!}(U) &\defeq \{%
+        f_{*}(U) &\defeq \{%
                              y\in Y%
                              \ \middle|\ %
                              \begin{aligned}
@@ -12248,17 +12296,17 @@ Let $f\colon X\to Y$ be a function.
         \to%
         \mathcal{P}(Y)%
     \]%
-    for $f_{*}$. This notation comes from the fact that the following statements are equivalent, where $y\in Y$ and $U\in\mathcal{P}(X)$:
+    for $f_{!}$. This notation comes from the fact that the following statements are equivalent, where $y\in Y$ and $U\in\mathcal{P}(X)$:
     \begin{itemize}
         \item We have $y\in\forall_{f}(U)$.
         \item For each $x\in X$, if $y=f(x)$, then $x\in U$.
     \end{itemize}
-    We will not make use of this notation in the present work.
+    We will not make use of this notation elsewhere in Clowder.
 \end{notation}
 \begin{remark}{Unwinding \cref{the-direct-image-with-compact-support-function-associated-to-a-function}}{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}%
     Identifying $\mathcal{P}(X)$ with $\Sets(X,\TTV)$ via \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}, we see that the direct image with compact support function associated to $f$ is equivalently the function
     \[
-        f_{!}%
+        f_{*}%
         \colon%
         \mathcal{P}(X)%
         \to%
@@ -12266,14 +12314,14 @@ Let $f\colon X\to Y$ be a function.
     \]%
     defined by
     \begin{align*}
-        f_{!}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
+        f_{*}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
                         &=      \lim((\underline{(-_{1})}\comma f)\xlongtwoheadsrightarrow{\pr}X\xlongrightarrow{\chi_{U}}\TV)\\%
                         &=      \lim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
                         &=      \bigwedge_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)).%
     \end{align*}
     where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
     \begin{align*}
-        [f_{!}(\chi_{U})](y) &= \bigwedge_{\substack{x\in X\\f(x)=y}}(\chi_{U}(x))\\%
+        [f_{*}(\chi_{U})](y) &= \bigwedge_{\substack{x\in X\\f(x)=y}}(\chi_{U}(x))\\%
                              &= \begin{cases}
                                     \true  &\text{if, for each $x\in X$ such that}\\
                                            &\text{$f(x)=y$, we have $x\in U,$}\\
@@ -12286,13 +12334,13 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     for each $y\in Y$.
 \end{remark}
-\begin{definition}{The Image and Complement Parts of $f_{!}$}{image-and-complement-parts-of-direct-images-with-compact-support}%
+\begin{definition}{The Image and Complement Parts of $f_{*}$}{image-and-complement-parts-of-direct-images-with-compact-support}%
     Let $U$ be a subset of $X$.%
     %--- Begin Footnote ---%
     \footnote{%
         Note that we have
         \[%
-            f_{!}(U)%
+            f_{*}(U)%
             =%
             f_{!,\rmim}(U)%
             \cup%
@@ -12300,18 +12348,18 @@ Let $f\colon X\to Y$ be a function.
         \]%
         as
         \begin{align*}
-            f_{!}(U) &= f_{!}(U)\cap Y\\
-                     &=      f_{!}(U)\cap(\Im(f)\cup(Y\setminus\Im(f)))\\
-                     &=      (f_{!}(U)\cap\Im(f))\cup(f_{!}(U)\cap(Y\setminus\Im(f)))\\
+            f_{*}(U) &= f_{*}(U)\cap Y\\
+                     &=      f_{*}(U)\cap(\Im(f)\cup(Y\setminus\Im(f)))\\
+                     &=      (f_{*}(U)\cap\Im(f))\cup(f_{*}(U)\cap(Y\setminus\Im(f)))\\
                      &\defeq f_{!,\rmim}(U)\cup f_{!,\rmcp}(U).
         \end{align*}
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
-        In terms of the meet computation of $f_{!}(U)$ of \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, namely
+        In terms of the meet computation of $f_{*}(U)$ of \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, namely
         \[
-            f_{!}(\chi_{U})
+            f_{*}(\chi_{U})
             =%
             \bigwedge_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
         \]%
@@ -12320,9 +12368,9 @@ Let $f\colon X\to Y$ be a function.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-image-part}The \index[set-theory]{function!associated direct image with compact support function, image      part}\textbf{image      part of the direct image with compact support $f_{!}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
+        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-image-part}The \index[set-theory]{function!associated direct image with compact support function, image      part}\textbf{image      part of the direct image with compact support $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
             \begin{align*}
-                f_{!,\rmim}(U) &\defeq f_{!}(U)\cap\Im(f)\\
+                f_{!,\rmim}(U) &\defeq f_{*}(U)\cap\Im(f)\\
                                &=      \{%
                                            y\in Y%
                                            \ \middle|\ %
@@ -12332,9 +12380,9 @@ Let $f\colon X\to Y$ be a function.
                                            \end{aligned}%
                                        \}.%
             \end{align*}
-        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-complement-part}The \index[set-theory]{function!associated direct image with compact support function, complement part}\textbf{complement part of the direct image with compact support $f_{!}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
+        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-complement-part}The \index[set-theory]{function!associated direct image with compact support function, complement part}\textbf{complement part of the direct image with compact support $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
             \begin{align*}
-                f_{!,\rmcp}(U) &\defeq f_{!}(U)\cap(Y\setminus\Im(f))\\
+                f_{!,\rmcp}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
                                &=      Y\setminus\Im(f)\\
                                &=      \{%
                                            y\in Y%
@@ -12359,7 +12407,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $n\in\N$. Since $f$ is injective, we have
             \begin{align*}
-                f_{!,\rmim}(U) &= f_{*}(U)\\
+                f_{!,\rmim}(U) &= f_{!}(U)\\
                 f_{!,\rmcp}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
             for any $U\subset\N$.
@@ -12414,9 +12462,9 @@ Let $f\colon X\to Y$ be a function.
 \begin{proposition}{Properties of Direct Images With Compact Support \rmI}{properties-of-direct-images-with-compact-support-i}%
     Let $f\colon X\to Y$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-with-compact-support-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{!}(U)$ defines a functor
+        \item\label{properties-of-direct-images-with-compact-support-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{*}(U)$ defines a functor
             \[
-                f_{!}%
+                f_{*}%
                 \colon%
                 (\mathcal{P}(X),\subset)%
                 \to%
@@ -12424,55 +12472,55 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \itemstar If $U\subset V$, then $f_{!}(U)\subset f_{!}(V)$.
+                \itemstar If $U\subset V$, then $f_{*}(U)\subset f_{*}(V)$.
             \end{itemize}
         \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
-                \TripleAdjunction#f_{*}#f^{-1}#f_{!}#\mathcal{P}(X)#\mathcal{P}(Y),#
+                \TripleAdjunction#f_{!}#f^{-1}#f_{*}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}%
             witnessed by:
             \begin{enumerate}
                 \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-1}Units and counits of the form
                     \[
                         \begin{aligned}
-                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{*},\\
-                            f_{*}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
+                            \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{!},\\
+                            f_{!}\circ f^{-1}    &\hookrightarrow \id_{\mathcal{P}(Y)},\\
                         \end{aligned}
                         \qquad
                         \begin{aligned}
-                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{!}\circ f^{-1},\\
-                            f^{-1}\circ f_{!}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
                         \end{aligned}
                     \]%
                     having components of the form
                     \[
                         \begin{gathered}
-                            U                \subset f^{-1}(f_{*}(U)),\\
-                            f_{*}(f^{-1}(V)) \subset V,
+                            U                \subset f^{-1}(f_{!}(U)),\\
+                            f_{!}(f^{-1}(V)) \subset V,
                         \end{gathered}
                         \qquad
                         \begin{gathered}
-                            V                \subset f_{!}(f^{-1}(V)),\\
-                            f^{-1}(f_{!}(U)) \subset U
+                            V                \subset f_{*}(f^{-1}(V)),\\
+                            f^{-1}(f_{*}(U)) \subset U
                         \end{gathered}
                     \]%
                     indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
                 \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
-                        \Hom_{\mathcal{P}(Y)}(f_{*}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
-                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{!}(V)),
+                        \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
+                        \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{*}(V)),
                     \end{align*}
                     natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$ and (respectively) $V\in\mathcal{P}(X)$ and $U\in\mathcal{P}(Y)$. In particular:
                     \begin{enumerate}
                         \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a}The following conditions are equivalent:
                             \begin{enumerate}
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a-i}We have $f_{*}(U)\subset V$.
+                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a-i}We have $f_{!}(U)\subset V$.
                                 \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a-ii}We have $U\subset f^{-1}(V)$.
                             \end{enumerate}
                         \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b}The following conditions are equivalent:
                             \begin{enumerate}
                                 \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b-i}We have $f^{-1}(U)\subset V$.
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b-ii}We have $U\subset f_{!}(V)$.
+                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b-ii}We have $U\subset f_{*}(V)$.
                             \end{enumerate}
                     \end{enumerate}
             \end{enumerate}
@@ -12480,60 +12528,60 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{!}}"]
+                    \arrow[r,"{(f_{*})_{*}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcup_{U\in\mathcal{U}}f_{!}(U)%
+                \bigcup_{U\in\mathcal{U}}f_{*}(U)%
                 =%
-                \bigcup_{V\in f_{!}(\mathcal{U})}V%
+                \bigcup_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{!}}"]
+                    \arrow[r,"{(f_{*})_{*}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
                     \arrow[d,"\bigcap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                \bigcap_{U\in\mathcal{U}}f_{!}(U)%
+                \bigcap_{U\in\mathcal{U}}f_{*}(U)%
                 =%
-                \bigcap_{V\in f_{!}(\mathcal{U})}V%
+                \bigcap_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }Let $f\colon X\to Y$ be a function. We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{!}"]
+                    \arrow[r,"f_{*}\times f_{*}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cup"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -12542,55 +12590,55 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{!}(U)\cup f_{!}(V)%
+                f_{*}(U)\cup f_{*}(V)%
                 \subset%
-                f_{!}(U\cup V)%
+                f_{*}(U\cup V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{!}"]
+                    \arrow[r,"f_{*}\times f_{*}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
                     \arrow[d,"\cap"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{!}(U)\cap f_{!}(V)%
+                f_{*}(U)\cap f_{*}(V)%
                 =%
-                f_{!}(U\cap V)%
+                f_{*}(U\cap V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
-                    \arrow[r,"f^{\op}_{*}"]
+                    \arrow[r,"f^{\op}_{!}"]
                     \arrow[d,"{(-)^{\sfc}}"']
                     \&
                     \mathcal{P}(Y)^{\op}
                     \arrow[d,"{(-)^{\sfc}}"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{!}(U^{\sfc})%
+                f_{*}(U^{\sfc})%
                 =%
-                f_{*}(U)^{\sfc}%
+                f_{!}(U)^{\sfc}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-complements-}\SloganFont{. }
@@ -12598,14 +12646,14 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
+                    \arrow[r,"f^{\op}_{*}\times f_{*}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
                     \arrow[d,"\sdiff"]
                     \\
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -12614,23 +12662,23 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{!}(U\sdiff V)%
+                f_{*}(U\sdiff V)%
                 \subset%
-                f_{!}(U)\sdiff f_{!}(V)%
+                f_{*}(U)\sdiff f_{*}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
-                    \arrow[r,"f^{\op}_{*}\times f_{!}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{*}"]
                     \arrow[d,"{[-_{1},-_{2}]_{X}}"']
                     \&
                     {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
                     \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
                     \\
                     {\mathcal{P}(X)}
-                    \arrow[r,"f_{!}"']
+                    \arrow[r,"f_{*}"']
                     \&
                     \mathcal{P}(Y)
                     % 2-Arrows
@@ -12639,42 +12687,42 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                [f_{*}(U),f_{!}(V)]_{Y}%
+                [f_{!}(U),f_{*}(V)]_{Y}%
                 \subset%
-                f_{!}([U,V]_{X})%
+                f_{*}([U,V]_{X})%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
-                \bigcup_{i\in I}f_{!}(U_{i})%
+                \bigcup_{i\in I}f_{*}(U_{i})%
                 \subset%
-                f_{!}\left(\bigcup_{i\in I}U_{i}\right),%
+                f_{*}\left(\bigcup_{i\in I}U_{i}\right),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
-                    f_{!}(U)\cup f_{!}(V) \hookrightarrow f_{!}(U\cup V),\\
-                    \emptyset             \hookrightarrow f_{!}(\emptyset),
+                    f_{*}(U)\cup f_{*}(V) \hookrightarrow f_{*}(U\cup V),\\
+                    \emptyset             \hookrightarrow f_{*}(\emptyset),
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
-                f_{!}\left(\bigcap_{i\in I}U_{i}\right)%
+                f_{*}\left(\bigcap_{i\in I}U_{i}\right)%
                 =%
-                \bigcap_{i\in I}f_{!}(U_{i}),%
+                \bigcap_{i\in I}f_{*}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
-                    f^{-1}(U\cap V) = f_{!}(U)\cap f^{-1}(V),\\
-                    f_{!}(X)        = Y,
+                    f^{-1}(U\cap V) = f_{*}(U)\cap f^{-1}(V),\\
+                    f_{*}(X)        = Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The direct image with compact support function of \cref{properties-of-direct-images-with-compact-support-i-functoriality} has a symmetric lax monoidal structure
             \[
-                (f_{!},f^{\otimes}_{!},f^{\otimes}_{!|\Unit})
+                (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(X),\cup,\emptyset)
                 \to
@@ -12683,14 +12731,14 @@ Let $f\colon X\to Y$ be a function.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{!|U,V}   \colon f_{!}(U)\cup f_{!}(V) \hookrightarrow f_{!}(U\cup V),\\
-                    f^{\otimes}_{!|\Unit} \colon \emptyset             \hookrightarrow f_{!}(\emptyset),
+                    f^{\otimes}_{!|U,V}   \colon f_{*}(U)\cup f_{*}(V) \hookrightarrow f_{*}(U\cup V),\\
+                    f^{\otimes}_{!|\Unit} \colon \emptyset             \hookrightarrow f_{*}(\emptyset),
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-images-with-compact-support-i-functoriality} has a symmetric strict monoidal structure
             \[
-                (f_{!},f^{\otimes}_{!},f^{\otimes}_{!|\Unit})
+                (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(X),\cap,X)
                 \to
@@ -12699,46 +12747,46 @@ Let $f\colon X\to Y$ be a function.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{!|U,V}   \colon f_{!}(U\cap V) \rightequalsarrow f_{!}(U)\cap f_{!}(V),\\
-                    f^{\otimes}_{!|\Unit} \colon f_{!}(X)       \rightequalsarrow Y,
+                    f^{\otimes}_{!|U,V}   \colon f_{*}(U\cap V) \rightequalsarrow f_{*}(U)\cap f_{*}(V),\\
+                    f^{\otimes}_{!|\Unit} \colon f_{*}(X)       \rightequalsarrow Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
-                (f\icoprod g)_{!}(U\icoprod V)%
+                (f\icoprod g)_{*}(U\icoprod V)%
                 =%
-                f_{!}(U)\icoprod g_{!}(V)%
+                f_{*}(U)\icoprod g_{*}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
-                (f\boxtimes_{X\times Y} g)_{!}(U\boxtimes_{X\times Y}V)%
+                (f\boxtimes_{X\times Y} g)_{*}(U\boxtimes_{X\times Y}V)%
                 =%
-                f_{!}(U)\boxtimes_{X'\times Y'}g_{!}(V)%
+                f_{*}(U)\boxtimes_{X'\times Y'}g_{*}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \begin{align*}
-                f_{!}(U) &= f_{*}(U^{\sfc})^{\sfc}\\
-                         &= Y\setminus f_{*}(X\setminus U)
+                f_{*}(U) &= f_{!}(U^{\sfc})^{\sfc}\\
+                         &= Y\setminus f_{!}(X\setminus U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-injections}\SloganFont{Interaction With Injections. }If $f$ is injective, then we have
             \begin{gather*}
-                f_{!,\rmim}(U) = f_{*}(U),\\
+                f_{!,\rmim}(U) = f_{!}(U),\\
                 f_{!,\rmcp}(U) = Y\setminus\Im(f),\\
                 \begin{aligned}
-                    f_{!}(U)       &= f_{!,\rmim}(U)\cup f_{!,\rmcp}(U)\\
-                                   &= f_{*}(U)\cup(Y\setminus\Im(f))
+                    f_{*}(U)       &= f_{!,\rmim}(U)\cup f_{!,\rmcp}(U)\\
+                                   &= f_{!}(U)\cup(Y\setminus\Im(f))
                 \end{aligned}
             \end{gather*}
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
             \begin{align*}
-                f_{!,\rmim}(U) &\subset  f_{*}(U),\\
+                f_{!,\rmim}(U) &\subset  f_{!}(U),\\
                 f_{!,\rmcp}(U) &=       \emptyset,\\
-                f_{!}(U)       &\subset f_{*}(U)
+                f_{*}(U)       &\subset f_{!}(U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-direct-images-with-compact-support-i-}\SloganFont{. }
@@ -12754,27 +12802,27 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcup_{V\in f_{!}(\mathcal{U})}V &= \bigcup_{V\in\{f_{!}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
-                                           &= \bigcup_{U\in\mathcal{U}}f_{!}(U).%
+        \bigcup_{V\in f_{*}(\mathcal{U})}V &= \bigcup_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+                                           &= \bigcup_{U\in\mathcal{U}}f_{*}(U).%
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcap_{V\in f_{!}(\mathcal{U})}V &= \bigcap_{V\in\{f_{!}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
-                                           &= \bigcap_{U\in\mathcal{U}}f_{!}(U).%
+        \bigcap_{V\in f_{*}(\mathcal{U})}V &= \bigcap_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+                                           &= \bigcap_{U\in\mathcal{U}}f_{*}(U).%
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions}: Interaction With Binary Unions}%
     We have
     \begin{align*}
-        f_{!}(U)\cup f_{!}(V) &=       f_{*}(U^{\sfc})^{\sfc}\cup f_{*}(V^{\sfc})^{\sfc}\\
-                              &=       (f_{*}(U^{\sfc})\cap f_{*}(V^{\sfc}))^{\sfc}\\
-                              &\subset (f_{*}(U^{\sfc}\cap V^{\sfc}))^{\sfc}\\
-                              &=       f_{*}((U\cup V)^{\sfc})^{\sfc}\\
-                              &=       f_{!}(U\cup V),
+        f_{*}(U)\cup f_{*}(V) &=       f_{!}(U^{\sfc})^{\sfc}\cup f_{kkkkkk}(V^{\sfc})^{\sfc}\\
+                              &=       (f_{!}(U^{\sfc})\cap f_{kkkkkk}(V^{\sfc}))^{\sfc}\\
+                              &\subset (f_{!}(U^{\sfc}\cap V^{\sfc}))^{\sfc}\\
+                              &=       f_{!}((U\cup V)^{\sfc})^{\sfc}\\
+                              &=       f_{*}(U\cup V),
     \end{align*}
     where:
     \begin{enumerate}
@@ -12795,10 +12843,10 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        \big[f_{*}(U),f^{!}(V)\big]_{X} &\defeq  f_{*}(U)^{\sfc}\cup f_{!}(V)\\
-                                        &=       f_{!}(U^{\sfc})\cup f_{!}(V)\\
-                                        &\subset f_{!}(U^{\sfc}\cup V)\\
-                                        &\defeq  f_{!}([U,V]_{X}),
+        \big[f_{!}(U),f^{!}(V)\big]_{X} &\defeq  f_{kkkkkk}(U)^{\sfc}\cup f_{*}(V)\\
+                                        &=       f_{*}(U^{\sfc})\cup f_{*}(V)\\
+                                        &\subset f_{*}(U^{\sfc}\cup V)\\
+                                        &\defeq  f_{*}([U,V]_{X}),
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -12829,30 +12877,30 @@ Let $f\colon X\to Y$ be a function.
     Omitted.
 
     \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}: Relation to Direct Images}%
-    We claim that $f_{!}(U)=Y\setminus f_{*}(X\setminus U)$.
+    We claim that $f_{*}(U)=Y\setminus f_{!}(X\setminus U)$.
     \begin{itemize}
         \item\SloganFont{The First Implication. }We claim that
             \[
-                f_{!}(U)%
+                f_{*}(U)%
                 \subset%
-                Y\setminus f_{*}(X\setminus U).%
+                Y\setminus f_{!}(X\setminus U).%
             \]%
-            Let $y\in f_{!}(U)$. We need to show that $y\nin f_{*}(X\setminus U)$, i.e.\ that there is no $x\in X\setminus U$ such that $f(x)=y$.
+            Let $y\in f_{*}(U)$. We need to show that $y\nin f_{!}(X\setminus U)$, i.e.\ that there is no $x\in X\setminus U$ such that $f(x)=y$.
 
-            This is indeed the case, as otherwise we would have $x\in f^{-1}(y)$ and $x\nin U$, contradicting $f^{-1}(y)\subset U$ (which holds since $y\in f_{!}(U)$).
+            This is indeed the case, as otherwise we would have $x\in f^{-1}(y)$ and $x\nin U$, contradicting $f^{-1}(y)\subset U$ (which holds since $y\in f_{*}(U)$).
 
-            Thus $y\in Y\setminus f_{*}(X\setminus U)$.
+            Thus $y\in Y\setminus f_{!}(X\setminus U)$.
         \item\SloganFont{The Second Implication. }We claim that
             \[
-                Y\setminus f_{*}(X\setminus U)%
+                Y\setminus f_{!}(X\setminus U)%
                 \subset%
-                f_{!}(U).%
+                f_{*}(U).%
             \]%
-            Let $y\in Y\setminus f_{*}(X\setminus U)$. We need to show that $y\in f_{!}(U)$, i.e.\ that $f^{-1}(y)\subset U$.
+            Let $y\in Y\setminus f_{!}(X\setminus U)$. We need to show that $y\in f_{*}(U)$, i.e.\ that $f^{-1}(y)\subset U$.
 
-            Since $y\nin f_{*}(X\setminus U)$, there exists no $x\in X\setminus U$ such that $y=f(x)$, and hence $f^{-1}(y)\subset U$.
+            Since $y\nin f_{!}(X\setminus U)$, there exists no $x\in X\setminus U$ such that $y=f(x)$, and hence $f^{-1}(y)\subset U$.
 
-            Thus $y\in f_{!}(U)$.
+            Thus $y\in f_{*}(U)$.
     \end{itemize}
     This finishes the proof of \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}.
 
@@ -12865,7 +12913,7 @@ Let $f\colon X\to Y$ be a function.
 \begin{proposition}{Properties of Direct Images With Compact Support \rmII}{properties-of-direct-images-with-compact-support-ii}%
     Let $f\colon X\to B$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{!}$ defines a function
+        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{*}$ defines a function
             \[
                 (-)_{!|X,Y}%
                 \colon%
@@ -12873,7 +12921,7 @@ Let $f\colon X\to Y$ be a function.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{!}$ defines a function
+        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{*}$ defines a function
             \[
                 (-)_{!|X,Y}%
                 \colon%
@@ -12883,23 +12931,23 @@ Let $f\colon X\to Y$ be a function.
             \]%
         \item\label{properties-of-direct-images-with-compact-support-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
-                (\id_{X})_{!}%
+                (\id_{X})_{*}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
         \item\label{properties-of-direct-images-with-compact-support-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
             \begin{webcompile}
-                (g\circ f)_{!}%
+                (g\circ f)_{*}%
                 =%
-                g_{!}\circ f_{!},%
+                g_{*}\circ f_{*},%
                 \qquad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)
-                    \arrow[r,"f_{!}"]
-                    \arrow[rd,"{(g\circ f)_{!}}"']
+                    \arrow[r,"f_{*}"]
+                    \arrow[rd,"{(g\circ f)_{*}}"']
                     \&
                     \mathcal{P}(Y)
-                    \arrow[d,"g_{!}"]
+                    \arrow[d,"g_{*}"]
                     \\
                     \&
                     \mathcal{P}(Z)\mrp{.}
@@ -12923,7 +12971,7 @@ Let $f\colon X\to Y$ be a function.
 \end{Proof}
 \subsection{A Six-Functor Formalism for Sets}\label{subsection-a-six-functor-formalism-for-sets}
 \begin{remark}{A Six-Functor Formalism for Sets}{remark-a-six-functor-formalism-for-sets}%
-    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{!}$, $f^{-1}$, and $f_{*}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}, and the functors
+    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{*}$, $f^{-1}$, and $f_{!}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}, and the functors
     \begin{align*}
         -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
         [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
@@ -12957,10 +13005,10 @@ Let $f\colon X\to Y$ be a function.
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
                     \mathcal{P}(X)
                     \arrow[r,"\pr^{-1}_{1}"]
-                    \arrow[d,"f_{*}"']
+                    \arrow[d,"f_{!}"']
                     \&
                     \mathcal{P}(X\times_{Z}Y)
-                    \arrow[d,"{(\pr_{2})_{*}}"]
+                    \arrow[d,"{(\pr_{2})_{!}}"]
                     \\
                     \mathcal{P}(Z)
                     \arrow[r,"g^{-1}"']
@@ -12969,17 +13017,17 @@ Let $f\colon X\to Y$ be a function.
                 \end{tikzcd}
                 \quad
                 \begin{aligned}
-                    g^{-1}\circ f_{*} &= (\pr_{2})_{*}\circ\pr^{-1}_{1},\\%
-                    f^{-1}\circ g_{*} &= (\pr_{1})_{*}\circ\pr^{-1}_{2},%
+                    g^{-1}\circ f_{!} &= (\pr_{2})_{kkkkkk}\circ\pr^{-1}_{1},\\%
+                    f^{-1}\circ g_{!} &= (\pr_{1})_{kkkkkk}\circ\pr^{-1}_{2},%
                 \end{aligned}
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
                     \mathcal{P}(X)
                     \arrow[r,"\pr^{-1}_{2}"]
-                    \arrow[d,"g_{*}"']
+                    \arrow[d,"g_{!}"']
                     \&
                     \mathcal{P}(X\times_{Z}Y)
-                    \arrow[d,"{(\pr_{1})_{*}}"]
+                    \arrow[d,"{(\pr_{1})_{!}}"]
                     \\
                     \mathcal{P}(Z)
                     \arrow[r,"f^{-1}"']
@@ -13013,17 +13061,17 @@ Let $f\colon X\to Y$ be a function.
                     % Left Boundary
                     \arrow[from=2-1,to=1-3,"\id_{\mathcal{P}(X)}\times f^{-1}"{pos=0.45}]%
                     \arrow[from=1-3,to=2-5,"\cap"{pos=0.55},""{name=2}]%
-                    \arrow[from=2-5,to=3-4,"f_{*}"{pos=0.375}]%
+                    \arrow[from=2-5,to=3-4,"f_{!}"{pos=0.375}]%
                     % Right Boundary
-                    \arrow[from=2-1,to=3-2,"f_{*}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
+                    \arrow[from=2-1,to=3-2,"f_{!}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
                     \arrow[from=3-2,to=3-4,"\cap"']%
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                f_{*}(U\cap f^{-1}(V))%
+                f_{!}(U\cap f^{-1}(V))%
                 =%
-                f_{*}(U)\cap V%
+                f_{!}(U)\cap V%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{a-six-functor-formalism-for-sets-the-projection-formula-2}\SloganFont{The Projection Formula \rmII. }We have a natural transformation
@@ -13052,9 +13100,9 @@ Let $f\colon X\to Y$ be a function.
                     % Left Boundary
                     \arrow[from=2-1,to=1-3,"\id_{\mathcal{P}(X)}\times f^{-1}"{pos=0.45}]%
                     \arrow[from=1-3,to=2-5,"\cap"{pos=0.55},""{name=2}]%
-                    \arrow[from=2-5,to=3-4,"f_{!}"{pos=0.425}]%
+                    \arrow[from=2-5,to=3-4,"f_{*}"{pos=0.425}]%
                     % Right Boundary
-                    \arrow[from=2-1,to=3-2,"f_{!}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
+                    \arrow[from=2-1,to=3-2,"f_{*}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
                     \arrow[from=3-2,to=3-4,"\cap"']%
                     % 2-Arrows
                     \arrow[from=3-2,to=2,"\scalebox{2.0}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 1*\the\DL]%
@@ -13062,9 +13110,9 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{!}(U)\cap V%
+                f_{*}(U)\cap V%
                 \subset%
-                f_{!}(U\cap f^{-1}(V))%
+                f_{*}(U\cap f^{-1}(V))%
             \]%
             indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
         \item\label{a-six-functor-formalism-for-sets-strong-closed-monoidality}\SloganFont{Strong Closed Monoidality. }The diagram
@@ -13109,23 +13157,23 @@ Let $f\colon X\to Y$ be a function.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)\times\mathcal{P}(Y)
-                            \arrow[r,"f_{*}\times g_{*}"]
+                            \arrow[r,"f_{!}\times g_{kkkkkk}"]
                             \arrow[d,"\boxtimes_{X\times Y}"']
                             \&
                             \mathcal{P}(X')\times\mathcal{P}(Y')
                             \arrow[d,"\boxtimes_{X'\times Y'}"]
                             \\
                             \mathcal{P}(X\times Y)
-                            \arrow[r,"f_{*}\times g_{*}"']
+                            \arrow[r,"f_{!}\times g_{kkkkkk}"']
                             \&
                             \mathcal{P}(X'\times Y')
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        [f_{*}\times g_{*}](U\boxtimes_{X\times Y}V)%
+                        [f_{!}\times g_{kkkkkk}](U\boxtimes_{X\times Y}V)%
                         =%
-                        f_{*}(U)\boxtimes_{X'\times Y'}g_{*}(V)%
+                        f_{!}(U)\boxtimes_{X'\times Y'}g_{kkkkkk}(V)%
                     \]%
                     for each $(U,V)\in\mathcal{P}(X)\times\mathcal{P}(Y)$.
                 \item\label{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be functions. The diagram
@@ -13155,23 +13203,23 @@ Let $f\colon X\to Y$ be a function.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)\times\mathcal{P}(Y)
-                            \arrow[r,"f_{!}\times g_{!}"]
+                            \arrow[r,"f_{*}\times g_{*}"]
                             \arrow[d,"\boxtimes_{X\times Y}"']
                             \&
                             \mathcal{P}(X')\times\mathcal{P}(Y')
                             \arrow[d,"\boxtimes_{X'\times Y'}"]
                             \\
                             \mathcal{P}(X\times Y)
-                            \arrow[r,"f_{!}\times g_{!}"']
+                            \arrow[r,"f_{*}\times g_{*}"']
                             \&
                             \mathcal{P}(X'\times Y')
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        [f_{!}\times g_{!}](U\boxtimes_{X\times Y}V)%
+                        [f_{*}\times g_{*}](U\boxtimes_{X\times Y}V)%
                         =%
-                        f_{!}(U)\boxtimes_{X'\times Y'}g_{!}(V)%
+                        f_{*}(U)\boxtimes_{X'\times Y'}g_{*}(V)%
                     \]%
                     for each $(U,V)\in\mathcal{P}(X)\times\mathcal{P}(Y)$.
                 \item\label{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}\SloganFont{Interaction With Diagonals. }The diagram
@@ -13262,23 +13310,23 @@ Let $f\colon X\to Y$ be a function.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
-                            \arrow[r,"f^{\op}_{!}"]
+                            \arrow[r,"f^{\op}_{*}"]
                             \arrow[d,"D_{X}"']
                             \&
                             \mathcal{P}(Y)^{\op}
                             \arrow[d,"D_{Y}"]
                             \\
                             \mathcal{P}(X)
-                            \arrow[r,"f_{*}"']
+                            \arrow[r,"f_{!}"']
                             \&
                             \mathcal{P}(Y)
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        f_{*}(D_{X}(U))%
+                        f_{!}(D_{X}(U))%
                         =%
-                        D_{Y}(f_{!}(U))%
+                        D_{Y}(f_{*}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
                 \item\label{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }The diagram
@@ -13308,23 +13356,23 @@ Let $f\colon X\to Y$ be a function.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
-                            \arrow[r,"f^{\op}_{*}"]
+                            \arrow[r,"f^{\op}_{!}"]
                             \arrow[d,"D_{X}"']
                             \&
                             \mathcal{P}(Y)^{\op}
                             \arrow[d,"D_{Y}"]
                             \\
                             \mathcal{P}(X)
-                            \arrow[r,"f_{!}"']
+                            \arrow[r,"f_{*}"']
                             \&
                             \mathcal{P}(Y)
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        f_{!}(D_{X}(U))%
+                        f_{*}(D_{X}(U))%
                         =%
-                        D_{Y}(f_{*}(U))%
+                        D_{Y}(f_{!}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
             \end{enumerate}
@@ -13335,55 +13383,55 @@ Let $f\colon X\to Y$ be a function.
     \FirstProofBox{\cref{a-six-functor-formalism-for-sets-the-beck-chevalley-condition}: The Beck--Chevalley Condition}%
     We have
     \begin{align*}
-        [g^{-1}\circ f_{*}](U) &\defeq g^{-1}(f_{*}(U))\\
-                               &\defeq \{y\in Y\ \middle|\ g(y)\in f_{*}(U)\}\\
+        [g^{-1}\circ f_{!}](U) &\defeq g^{-1}(f_{kkkkkk}(U))\\
+                               &\defeq \{y\in Y\ \middle|\ g(y)\in f_{!}(U)\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some $x\in U$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\\&\text{such that $y=y$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\\&\text{such that $\pr_{2}(x,y)=y$}\end{aligned}\}\\
-                               &\defeq (\pr_{2})_{*}(\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\})\\
-                               &=      (\pr_{2})_{*}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{1}(x,y)\in U\})\\
-                               &\defeq (\pr_{2})_{*}(\pr^{-1}_{1}(U))\\
-                               &\defeq [(\pr_{2})_{*}\circ\pr^{-1}_{1}](U)
+                               &\defeq (\pr_{2})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\})\\
+                               &=      (\pr_{2})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{1}(x,y)\in U\})\\
+                               &\defeq (\pr_{2})_{!}(\pr^{-1}_{1}(U))\\
+                               &\defeq [(\pr_{2})_{!}\circ\pr^{-1}_{1}](U)
     \end{align*}
     for each $U\in\mathcal{P}(X)$. Therefore, we have
     \[
-        g^{-1}\circ f_{*}%
+        g^{-1}\circ f_{!}%
         =%
-        (\pr_{2})_{*}\circ\pr^{-1}_{1}.%
+        (\pr_{2})_{!}\circ\pr^{-1}_{1}.%
     \]%
     For the second equality, we have
     \begin{align*}
-        [f^{-1}\circ g_{*}](U) &\defeq f^{-1}(g_{*}(U))\\
-                               &\defeq \{x\in X\ \middle|\ f(x)\in g_{*}(V)\}\\
+        [f^{-1}\circ g_{!}](U) &\defeq f^{-1}(g_{kkkkkk}(U))\\
+                               &\defeq \{x\in X\ \middle|\ f(x)\in g_{!}(V)\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some $y\in V$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\\&\text{such that $x=x$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\\&\text{such that $\pr_{1}(x,y)=x$}\end{aligned}\}\\
-                               &\defeq (\pr_{1})_{*}(\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\})\\
-                               &=      (\pr_{1})_{*}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{2}(x,y)\in V\})\\
-                               &\defeq (\pr_{1})_{*}(\pr^{-1}_{2}(V))\\
-                               &\defeq [(\pr_{1})_{*}\circ\pr^{-1}_{2}](V)
+                               &\defeq (\pr_{1})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\})\\
+                               &=      (\pr_{1})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{2}(x,y)\in V\})\\
+                               &\defeq (\pr_{1})_{!}(\pr^{-1}_{2}(V))\\
+                               &\defeq [(\pr_{1})_{!}\circ\pr^{-1}_{2}](V)
     \end{align*}
     for each $V\in\mathcal{P}(Y)$. Therefore, we have
     \[
-        f^{-1}\circ g_{*}%
+        f^{-1}\circ g_{!}%
         =%
-        (\pr_{1})_{*}\circ\pr^{-1}_{2}.%
+        (\pr_{1})_{!}\circ\pr^{-1}_{2}.%
     \]%
     This finishes the proof.
 
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-projection-formula-1}: The Projection Formula \rmI}%
     We claim that
     \[
-        f_{*}(U)\cap V%
+        f_{!}(U)\cap V%
         \subset%
-        f_{*}(U\cap f^{-1}(V)).%
+        f_{!}(U\cap f^{-1}(V)).%
     \]%
     Indeed, we have
     \begin{align*}
-        f_{*}(U)\cap V &\subset f_{*}(U)\cap f_{*}(f^{-1}(V))\\
-                       &=       f_{*}(U\cap f^{-1}(V)),
+        f_{!}(U)\cap V &\subset f_{kkkkkk}(U)\cap f_{kkkkkk}(f^{-1}(V))\\
+                       &=       f_{!}(U\cap f^{-1}(V)),
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -13392,27 +13440,27 @@ Let $f\colon X\to Y$ be a function.
     \end{enumerate}
     Conversely, we claim that
     \[
-        f_{*}(U\cap f^{-1}(V))%
+        f_{!}(U\cap f^{-1}(V))%
         \subset%
-        f_{*}(U)\cap V.%
+        f_{!}(U)\cap V.%
     \]%
     Indeed:
     \begin{enumerate}
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-3}Let $y\in f_{*}(U\cap f^{-1}(V))$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-4}Since $y\in f_{*}(U\cap f^{-1}(V))$, there exists some $x\in U\cap f^{-1}(V)$ such that $f(x)=y$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-5}Since $x\in U\cap f^{-1}(V)$, we have $x\in U$, and thus $f(x)\in f_{*}(U)$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-3}Let $y\in f_{!}(U\cap f^{-1}(V))$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-4}Since $y\in f_{!}(U\cap f^{-1}(V))$, there exists some $x\in U\cap f^{-1}(V)$ such that $f(x)=y$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-5}Since $x\in U\cap f^{-1}(V)$, we have $x\in U$, and thus $f(x)\in f_{!}(U)$.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-6}Since $x\in U\cap f^{-1}(V)$, we have $x\in f^{-1}(V)$, and thus $f(x)\in V$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-7}Since $f(x)\in f_{*}(U)$ and $f(x)\in V$, we have $f(x)\in f_{*}(U)\cap V$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-8}But $y=f(x)$, so $y\in f_{*}(U)\cap V$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-9}Thus $f_{*}(U\cap f^{-1}(V))\subset f_{*}(U)\cap V$.%
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-7}Since $f(x)\in f_{!}(U)$ and $f(x)\in V$, we have $f(x)\in f_{kkkkkk}(U)\cap V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-8}But $y=f(x)$, so $y\in f_{!}(U)\cap V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-9}Thus $f_{!}(U\cap f^{-1}(V))\subset f_{kkkkkk}(U)\cap V$.%
     \end{enumerate}
     This finishes the proof.
 
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-projection-formula-2}: The Projection Formula \rmII}%
     We have
     \begin{align*}
-        f_{!}(U)\cap V &\subset f_{!}(U)\cap f_{!}(f^{-1}(V))\\
-                       &=       f_{!}(U\cap f^{-1}(V)),
+        f_{*}(U)\cap V &\subset f_{*}(U)\cap f_{*}(f^{-1}(V))\\
+                       &=       f_{*}(U\cap f^{-1}(V)),
     \end{align*}
     where we have used:
     \begin{enumerate}
