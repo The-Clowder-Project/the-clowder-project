@@ -203,12 +203,16 @@ separator sign={\ $\blacktriangleright$}%
 }
 \makeatother
 \newenvironment{dnote}[1]{%
+    %\smash{\shiftbox{-6.5cm}{\raisebox{-4.125\baselineskip}{\huge\textdbend}}}%
+    %\smash{\shiftbox{-10.25cm}{\raisebox{-2.15\baselineskip}{\large\textcolor{purpleGOGOGO}{\Japanese{ゴ}}}}}%
+    %\smash{\shiftbox{-10.25cm}{\raisebox{-1.3\baselineskip}{\large\textcolor{purpleGOGOGO}{\Japanese{ゴ}}}}}%
+    %\smash{\shiftbox{-10.25cm}{\raisebox{-0.55\baselineskip}{\large\textcolor{purpleGOGOGO}{\Japanese{ゴ}}}}}%
     \noindent% I guess this is intended...
     \begin{tabular}{@{}m{0.00\textwidth}@{}m{1.0\textwidth}@{}}%
     %\begin{tabular}{@{}m{0.12\textwidth}@{}m{0.88\textwidth}@{}}%
         \shiftbox{-3.75cm}{\raisebox{0.55cm}{\huge\textdbend}}%
         &#1%
-        \begin{tikzpicture}[opacity=0.15, overlay, anchor=base]
+        \begin{tikzpicture}[opacity=0.1, overlay, anchor=base]
             %\node[inner sep=0pt] (go) at (+2.50cm,-0.00cm) {\LARGE\Japanese{ゴ}};
             %\node[inner sep=0pt] (go) at (+1.75cm,-0.15cm) {\LARGE\Japanese{ゴ}};
             %\node[inner sep=0pt] (go) at (+1.00cm,-0.30cm) {\LARGE\Japanese{ゴ}};
@@ -226,7 +230,7 @@ separator sign={\ $\blacktriangleright$}%
 }
 {
         \\
-        \begin{tikzpicture}[opacity=0.15, overlay, anchor=base]
+        \begin{tikzpicture}[opacity=0.1, overlay, anchor=base]
             \node[inner sep=0pt] (go) at (\textwidth-4.00cm,+0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
             \node[inner sep=0pt] (go) at (\textwidth-3.25cm,+0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
             \node[inner sep=0pt] (go) at (\textwidth-2.50cm,+0.45cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
@@ -240,7 +244,7 @@ separator sign={\ $\blacktriangleright$}%
 }
 \newenvironment{warning}[2]{
     \begin{tcbwarning}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred
-    \begin{dnote}
+    \begin{dnote}{}%
 }
 {
     \end{dnote}

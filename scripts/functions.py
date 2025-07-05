@@ -213,7 +213,7 @@ def get_parts(path):
             label = 'book-part:' + "-".join(title.lower().split())
             parts[name] = [title, label]
     chapters.close()
-    parts['notes'] = ['Extra Part', 'book-part:extra']
+    #parts['notes'] = ['Extra Part', 'book-part:extra']
     return(parts)
 
 ########################################################################
@@ -250,7 +250,7 @@ def list_text_files(path):
     Makefile_file.close()
     lijst = lijst + " " + line
     lijst = lijst.replace("LIJST = ", "")
-    lijst = lijst + " notes"
+    #lijst = lijst + " notes"
     return lijst.split()
 
 # Check if the line contains the title of the document

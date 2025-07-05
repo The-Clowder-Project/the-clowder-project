@@ -235,7 +235,6 @@ PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/1
 LUALATEX = lualatex -halt-on-error
 LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
 
-
 # Target to create conda environment
 .PHONY: conda-create
 conda-create:

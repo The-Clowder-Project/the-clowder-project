@@ -34,8 +34,8 @@ This chapter develops some material relating to constructions with sets with an 
         \]%
         of functors (i.e.\ morphisms of posets) between $\mathcal{P}(A)$ and $\mathcal{P}(B)$ induced by a map of sets $f\colon A\to B$, including in particular:
         \begin{enumerate}
-            \item\label{constructions-with-sets-introduction-item-3a}How $f^{-1}$ can be described as a precomposition while $f_{!}$ and $f_{*}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}).
-            \item\label{constructions-with-sets-introduction-item-3b}An extensive list of the properties of $f_{!}$, $f^{-1}$, and $f_{*}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-direct-images-with-compact-support-i,properties-of-direct-images-with-compact-support-ii}).
+            \item\label{constructions-with-sets-introduction-item-3a}How $f^{-1}$ can be described as a precomposition while $f_{!}$ and $f_{*}$ can be described as Kan extensions (\cref{unwinding-the-direct-image-function-associated-to-a-function,unwinding-the-inverse-image-function-associated-to-a-function,unwinding-the-codirect-image-function-associated-to-a-function}).
+            \item\label{constructions-with-sets-introduction-item-3b}An extensive list of the properties of $f_{!}$, $f^{-1}$, and $f_{*}$ (\cref{properties-of-direct-images-i,properties-of-direct-images-ii,properties-of-inverse-images-i,properties-of-inverse-images-ii,properties-of-codirect-images-i,properties-of-codirect-images-ii}).
             \item\label{constructions-with-sets-introduction-item-3c}How the functors $f_{!}$, $f^{-1}$, $f_{*}$, along with the functors
                 \begin{align*}
                     -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X)       \to \mathcal{P}(X),\\
@@ -714,7 +714,7 @@ Let $A$ and $B$ be sets.%
                     \arrow[d,"h_{!}"']
                     \&
                     \Sets(A,\Sets(B,C)),%
-                    \arrow[d,"{(h_{!})_{kkkkkk}}"]
+                    \arrow[d,"{(h_{!})_{!}}"]
                     \\
                     \Sets(A\times B,C')%
                     \arrow[r,"\Phi_{B,C'}"']
@@ -732,15 +732,15 @@ Let $A$ and $B$ be sets.%
             \]%
             we have
             \begin{align*}
-                [\Phi_{B,C}\circ h_{!}](\xi) &= \Phi_{B,C}(h_{kkkkkk}(\xi))\\
+                [\Phi_{B,C}\circ h_{!}](\xi) &= \Phi_{B,C}(h_{!}(\xi))\\
                                              &= \Phi_{B,C}(h_{!}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
                                              &= \Phi_{B,C}(\llbracket(a,b)\mapsto h(\xi(a,b))\rrbracket)\\
                                              &= \llbracket a\mapsto\llbracket b\mapsto h(\xi(a,b))\rrbracket\rrbracket\\
                                              &= \llbracket a\mapsto h_{!}(\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
-                                             &= (h_{!})_{kkkkkk}(\llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
-                                             &= (h_{!})_{kkkkkk}(\Phi_{B,C}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
-                                             &= (h_{!})_{kkkkkk}(\Phi_{B,C}(\xi))\\
-                                             &= [(h_{!})_{kkkkkk}\circ\Phi_{B,C}](\xi).
+                                             &= (h_{!})_{!}(\llbracket a\mapsto\llbracket b\mapsto\xi(a,b)\rrbracket\rrbracket)\\
+                                             &= (h_{!})_{!}(\Phi_{B,C}(\llbracket(a,b)\mapsto\xi(a,b)\rrbracket))\\
+                                             &= (h_{!})_{!}(\Phi_{B,C}(\xi))\\
+                                             &= [(h_{!})_{!}\circ\Phi_{B,C}](\xi).
             \end{align*}
         \item\label{proof-of-properties-of-products-of-sets-adjointness-1-7}\SloganFont{Naturality for $\Psi$. }Since $\Phi$ is natural in each argument and $\Phi$ is a componentwise inverse to $\Psi$ in each argument, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural in each argument.
     \end{itemize}
@@ -5162,7 +5162,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
+                    \arrow[r,"{(f_{!})_{!}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -5180,7 +5180,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 =%
                 \bigcup_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -5204,7 +5204,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 \bigcup_{U\in f^{-1}(\mathcal{U})}U%
             \]%
             for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})^{-1}(\mathcal{V})$.
-        \item\label{properties-of-unions-of-families-of-subsets-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a map of sets. The diagram
+        \item\label{properties-of-unions-of-families-of-subsets-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
@@ -5597,8 +5597,8 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-inverse-images}: Interaction With Inverse Images}%
     This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-unions-of-families-of-subsets} of \cref{properties-of-inverse-images-i} and is proved there.
 
-    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-unions-of-families-of-subsets} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-unions-of-families-of-subsets} of \cref{properties-of-codirect-images-i} and is proved there.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-of-families-1}: Interaction With Intersections of Families \rmI}%
     We have
@@ -6107,7 +6107,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
+                    \arrow[r,"{(f_{!})_{!}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -6125,7 +6125,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 =%
                 \bigcap_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
         \item\label{properties-of-intersections-of-families-of-subsets-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -6149,7 +6149,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 \bigcap_{U\in f^{-1}(\mathcal{U})}U%
             \]%
             for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})^{-1}(\mathcal{V})$.
-        \item\label{properties-of-intersections-of-families-of-subsets-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a map of sets. The diagram
+        \item\label{properties-of-intersections-of-families-of-subsets-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a map of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
@@ -6534,8 +6534,8 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-inverse-images}: Interaction With Inverse Images}%
     This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-intersections-of-families-of-subsets} of \cref{properties-of-inverse-images-i} and is proved there.
 
-    \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-intersections-of-families-of-subsets} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-intersections-of-families-of-subsets} of \cref{properties-of-codirect-images-i} and is proved there.
 
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-of-families-1}: Interaction With Unions of Families \rmI}%
     This is a repetition of \cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-of-families-1} of \cref{properties-of-unions-of-families-of-subsets} and is proved there.
@@ -6929,7 +6929,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f_{!}\times f_{!}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
@@ -6945,7 +6945,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 f_{!}(U\cup V)%
                 =%
-                f_{!}(U)\cup f_{kkkkkk}(V)%
+                f_{!}(U)\cup f_{!}(V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-unions-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -6971,7 +6971,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 f^{-1}(U)\cup f^{-1}(V)%
             \]%
             for each $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-binary-unions-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a function. We have a natural transformation
+        \item\label{properties-of-binary-unions-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a function. We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
@@ -7052,8 +7052,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-binary-unions-interaction-with-inverse-images}: Interaction With Inverse Images}%
     See \cite{proof-wiki:preimage-of-union-under-mapping}.
 
-    \ProofBox{\cref{properties-of-binary-unions-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-binary-unions-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-binary-unions} of \cref{properties-of-codirect-images-i} and is proved there.
 
     \ProofBox{\cref{properties-of-binary-unions-interaction-with-powersets-and-semirings}: Interaction With Powersets and Semirings}%
     This follows from \cref{properties-of-binary-unions-associativity,properties-of-binary-unions-unitality,properties-of-binary-unions-commutativity,properties-of-binary-unions-idempotency} of this propostition and \cref{properties-of-binary-intersections-associativity,properties-of-binary-intersections-unitality,properties-of-binary-intersections-commutativity,properties-of-binary-intersections-distributivity-of-intersections-over-unions,properties-of-binary-intersections-annihilation-with-the-empty-set} of \cref{properties-of-binary-intersections}.
@@ -7449,7 +7449,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f_{!}\times f_{!}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
@@ -7467,7 +7467,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
             \[
                 f_{!}(U\cap V)%
                 \subset%
-                f_{!}(U)\cap f_{kkkkkk}(V)%
+                f_{!}(U)\cap f_{!}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-binary-intersections-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -7493,7 +7493,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
                 f^{-1}(U)\cap f^{-1}(V)%
             \]%
             for each $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-binary-intersections-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a function. The diagram
+        \item\label{properties-of-binary-intersections-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a function. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
@@ -7561,8 +7561,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
     \ProofBox{\cref{properties-of-binary-intersections-interaction-with-inverse-images}: Interaction With Inverse Images}%
     See \cite{proof-wiki:preimage-of-intersection-under-mapping}.
 
-    \ProofBox{\cref{properties-of-binary-intersections-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-binary-intersections-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-binary-intersections} of \cref{properties-of-codirect-images-i} and is proved there.
 
     \ProofBox{\cref{properties-of-binary-intersections-interaction-with-powersets-and-monoids-with-zero}: Interaction With Powersets and Monoids With Zero}%
     This follows from \cref{properties-of-binary-intersections-associativity,properties-of-binary-intersections-unitality,properties-of-binary-intersections-commutativity,properties-of-binary-intersections-annihilation-with-the-empty-set}.
@@ -7704,7 +7704,7 @@ Let $X$ and $Y$ be sets.%
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
@@ -7720,7 +7720,7 @@ Let $X$ and $Y$ be sets.%
             \]%
             with components
             \[
-                f_{!}(U)\setminus f_{kkkkkk}(V)%
+                f_{!}(U)\setminus f_{!}(V)%
                 \subset%
                 f_{!}(U\setminus V)%
             \]%
@@ -7748,11 +7748,11 @@ Let $X$ and $Y$ be sets.%
                 f^{-1}(U)\setminus f^{-1}(V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-differences-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }We have a natural transformation
+        \item\label{properties-of-differences-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
@@ -7768,7 +7768,7 @@ Let $X$ and $Y$ be sets.%
             \]%
             with components
             \[
-                f_{!}(U)\setminus f_{kkkkkk}(V)%
+                f_{!}(U)\setminus f_{!}(V)%
                 \subset%
                 f_{!}(U\setminus V)%
             \]%
@@ -7969,7 +7969,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
                 f^{-1}(U)^{\sfc}%
             \]%
             for each $U\in\mathcal{P}(X)$.
-        \item\label{properties-of-complements-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a function. The diagram
+        \item\label{properties-of-complements-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a function. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
@@ -8014,8 +8014,8 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
     \ProofBox{\cref{properties-of-complements-interaction-with-inverse-images}: Interaction With Inverse Images}%
     This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-complements} of \cref{properties-of-inverse-images-i} and is proved there.
 
-    \ProofBox{\cref{properties-of-complements-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-complements} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-complements-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-complements} of \cref{properties-of-codirect-images-i} and is proved there.
 \end{Proof}
 \subsection{Symmetric Differences}\label{subsection-symmetric-differences}
 Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
@@ -8355,7 +8355,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
@@ -8371,7 +8371,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             with components
             \[
-                f_{!}(U)\sdiff f_{kkkkkk}(V)%
+                f_{!}(U)\sdiff f_{!}(V)%
                 \subset%
                 f_{!}(U\sdiff V)%
             \]%
@@ -8399,7 +8399,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 f^{-1}(U\sdiff V)%
             \]%
             for each $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-symmetric-differences-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }We have a natural transformation
+        \item\label{properties-of-symmetric-differences-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
@@ -8517,8 +8517,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-inverse-images}: Interaction With Inverse Images}%
     This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-symmetric-differences} of \cref{properties-of-inverse-images-i} and is proved there.
 
-    \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-symmetric-differences} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-symmetric-differences} of \cref{properties-of-codirect-images-i} and is proved there.
 \end{Proof}
 \section{Powersets}\label{section-powersets}
 \subsection{Foundations}\label{subsection-powersets-foundations}
@@ -8588,7 +8588,7 @@ Let $X$ be a set.%
                     {U\cup V}
                 \end{tikzcd}
             \end{webcompile}%
-            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
+            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         \item\label{properties-of-powersets-as-categories-interaction-with-products-2}\SloganFont{Interaction With Products \rmII. }The map
             \begin{webcompile}
                 \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.5*\the\DL, background color=backgroundColor, ampersand replacement=\&]
@@ -8613,14 +8613,14 @@ Let $X$ be a set.%
                     \text{$u\in U$ and $v\in V$}%
                 \}%
             \]%
-            is an inclusion of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
+            is an inclusion of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         \item\label{properties-of-powersets-as-categories-interaction-with-products-3}\SloganFont{Interaction With Products \rmIII. }We have an isomorphism
             \[
                 \mathcal{P}(X)\otimes\mathcal{P}(Y)%
                 \cong
                 \mathcal{P}(X\times Y),%
             \]%
-            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO}. Moreover, this makes each of $\mathcal{P}_{kkkkkk}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
+            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         %\item\label{properties-of-powersets-as-categories-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -8794,7 +8794,7 @@ Let $X$ be a set.%
                         \defeq%
                         f_{*},%
                     \]%
-                    as in \cref{the-direct-image-with-compact-support-function-associated-to-a-function}.
+                    as in \cref{the-codirect-image-function-associated-to-a-function}.
             \end{itemize}
     \end{enumerate}
 \end{proposition}
@@ -8806,7 +8806,7 @@ Let $X$ be a set.%
     This follows from \cref{properties-of-inverse-images-ii-interaction-with-identities,properties-of-inverse-images-ii-interaction-with-composition} of \cref{properties-of-inverse-images-ii}.
 
     \ProofBox{\cref{functoriality-of-powersets-functoriality-3}: Functoriality \rmIII}%
-    This follows from \cref{properties-of-direct-images-with-compact-support-ii-interaction-with-identities,properties-of-direct-images-with-compact-support-ii-interaction-with-composition} of \cref{properties-of-direct-images-with-compact-support-ii}.
+    This follows from \cref{properties-of-codirect-images-ii-interaction-with-identities,properties-of-codirect-images-ii-interaction-with-composition} of \cref{properties-of-codirect-images-ii}.
 \end{Proof}
 \subsection{Adjointness of Powersets \rmI}\label{subsection-adjointness-of-powersets-1}
 \begin{proposition}{Adjointness of Powersets \rmI}{adjointness-of-powersets-1}%
@@ -9154,7 +9154,7 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{kkkkkk}(f)^{*}(\xi))\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
                                                      &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
                                                      &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
                                                      &=       \xi\circ(f_{!}\circ\chi_{X})\\
@@ -9193,7 +9193,7 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{kkkkkk}(\xi))\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{!}(\xi))\\
                                       &\defeq \Phi_{X,Y'}(g\circ\xi)\\
                                       &\defeq (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
@@ -9484,7 +9484,7 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{kkkkkk}(f)^{*}(\xi))\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
                                                      &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
                                                      &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
                                                      &=       \xi\circ(f_{!}\circ\chi_{X})\\
@@ -9523,7 +9523,7 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{kkkkkk}(\xi))\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{!}(\xi))\\
                                       &\defeq \Phi_{X,Y'}(g\circ\xi)\\
                                       &\defeq (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
@@ -9747,7 +9747,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                         D_{X}(f^{-1}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
-                \item\label{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3-3}\SloganFont{Interaction With Direct Images With Compact Support. }The diagram
+                \item\label{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3-3}\SloganFont{Interaction With Codirect Images. }The diagram
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
@@ -10024,7 +10024,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 [f^{-1}(U),f^{-1}(V)]_{X},%
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-internal-homs-of-powersets-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to Y$ be a function. We have a natural transformation
+        \item\label{properties-of-internal-homs-of-powersets-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to Y$ be a function. We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
@@ -10143,7 +10143,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3}: Interaction With the Empty Set \rmIII}%
-    Since $D_{X}=(-)^{\sfc}$, this is essentially a repetition of the corresponding results for $(-)^{\sfc}$, namely \cref{properties-of-complements-interaction-with-direct-images,properties-of-complements-interaction-with-inverse-images,properties-of-complements-interaction-with-direct-images-with-compact-support} of \cref{properties-of-complements}.
+    Since $D_{X}=(-)^{\sfc}$, this is essentially a repetition of the corresponding results for $(-)^{\sfc}$, namely \cref{properties-of-complements-interaction-with-direct-images,properties-of-complements-interaction-with-inverse-images,properties-of-complements-interaction-with-codirect-images} of \cref{properties-of-complements}.
 
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-unions-of-families-of-subsets-1}: Interaction With Unions of Families of Subsets \rmI}%
     By \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1} of \cref{properties-of-internal-homs-of-powersets}, we have
@@ -10374,8 +10374,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-inverse-images}: Interaction With Inverse Images}%
     This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-internal-homs-of-powersets} of \cref{properties-of-inverse-images-i} and is proved there.
 
-    \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-direct-images-with-compact-support}: Interaction With Direct Images With Compact Support}%
-    This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+    \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets} of \cref{properties-of-codirect-images-i} and is proved there.
 \end{Proof}
 \subsection{Isbell Duality for Sets}\label{subsection-isbell-duality-for-sets}
 Let $X$ be a set.
@@ -10458,7 +10458,7 @@ Let $X$ be a set.
 \begin{Proof}{Proof of \cref{isbell-duality-for-sets}}%
     We have
     \begin{align*}
-        \IsbellI_{!}(\IsbellI(U)) &\defeq \IsbellI_{kkkkkk}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
+        \IsbellI_{!}(\IsbellI(U)) &\defeq \IsbellI_{!}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
                                   &\defeq \llbracket x\mapsto\IsbellI(U^{\sfc}\cup\{x\})\rrbracket\\
                                   &\defeq \llbracket x\mapsto\llbracket y\mapsto(U^{\sfc}\cup\{x\})^{\sfc}\cup\{x\}\rrbracket\rrbracket\\
                                   &=      \llbracket x\mapsto\llbracket y\mapsto(U\cap(X\setminus\{x\}))\cup\{x\}\rrbracket\rrbracket\\
@@ -10979,7 +10979,7 @@ Let $X$ be a set.
     \FirstProofBox{\cref{properties-of-characteristic-embeddings-interaction-with-functions}: Interaction With Functions}%
     Indeed, we have
     \begin{align*}
-        [f_{!}\circ\chi_{X}](x) &\defeq f_{kkkkkk}(\chi_{X}(x))\\%
+        [f_{!}\circ\chi_{X}](x) &\defeq f_{!}(\chi_{X}(x))\\%
                                 &\defeq f_{!}(\{x\})\\%
                                 &=      \{f(x)\}\\%
                                 &\defeq \chi_{X'}(f(x))\\%
@@ -11113,7 +11113,7 @@ Let $f\colon X\to Y$ be a function.
 \begin{warning}{Notation for Direct Images Is Confusing}{notation-for-direct-images-is-confusing}%
     Notation for direct images between powersets is tricky:
     \begin{enumerate}
-        \item\label{notation-for-direct-images-is-confusing-1}Direct images for powersets and presheaves are both adjoint to their corresponding inverse image functors. However, the direct image functor for powersets is a left adjoint, while the direct image functor for presheaves is a right adjoint:
+        \item\label{notation-for-direct-images-is-confusing-1}Direct images for powersets and presheaves are both adjoint to their corresponding inverse image functors. However, the direct image functor for powersets is a \emph{left} adjoint, while the direct image functor for presheaves is a \emph{right} adjoint:
             \begin{enumerate}
                 \item\label{notation-for-direct-images-is-confusing-1a}\SloganFont{Powersets. }Given a function $f\colon X\to Y$, we have an inverse image functor
                     \[
@@ -11144,14 +11144,15 @@ Let $f\colon X\to Y$ be a function.
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
         \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Situation}}} & \textcolor{white}{\textbf{\textsc{Adjoint String}}}                                                                    \\\rowcolor{backgroundColor}
-            Functoriality of Powersets                     & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\mathcal{P}(X)\rightleftrightarrows\mathcal{P}(Y)$                              \\\rowcolor{black!05!backgroundColor}
-            Functoriality of Presheaf Categories           & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\PSh(X)\rightleftrightarrows\PSh(Y)$                                            \\\rowcolor{backgroundColor}
-            Base Change                                    & $(f_{!}\dashv f^{*}\dashv f_{*})\colon\CatFont{C}_{/X}\rightleftrightarrows\CatFont{C}_{/Y}$                           \\\rowcolor{black!05!backgroundColor}
-            Kan Extensions                                 & $(F_{!}\dashv F^{*}\dashv F_{*})\colon\Fun(\CatFont{C},\CatFont{E})\rightleftrightarrows\Fun(\CatFont{D},\CatFont{E})$ \\\hline
+            \textcolor{white}{\textbf{\textsc{Situation}}}                    & \textcolor{white}{\textbf{\textsc{Adjoint String}}}                                                                    \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Functoriality\\of Powersets}}           & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\mathcal{P}(X)\rightleftrightarrows\mathcal{P}(Y)$                              \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Functoriality of\\Presheaf Categories}} & $(f_{!}\dashv f^{-1}\dashv f_{*})\colon\PSh(X)\rightleftrightarrows\PSh(Y)$                                            \\\rowcolor{backgroundColor}
+            Base Change                                                       & $(f_{!}\dashv f^{*}\dashv f_{*})\colon\CatFont{C}_{/X}\rightleftrightarrows\CatFont{C}_{/Y}$                           \\\rowcolor{black!05!backgroundColor}
+            Kan Extensions                                                    & $(F_{!}\dashv F^{*}\dashv F_{*})\colon\Fun(\CatFont{C},\CatFont{E})\rightleftrightarrows\Fun(\CatFont{D},\CatFont{E})$ \\\hline
         \end{tabular}
     \end{center}
     \endgroup
+    {}
 \end{warning}
 \begin{remark}{Unwinding \cref{the-direct-image-function-associated-to-a-function}}{unwinding-the-direct-image-function-associated-to-a-function}%
     Identifying $\mathcal{P}(X)$ with $\Sets(X,\TTV)$ via \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}, we see that the direct image function associated to $f$ is equivalently the function
@@ -11164,10 +11165,10 @@ Let $f\colon X\to Y$ be a function.
     \]%
     defined by
     \begin{align*}
-        f_{!}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
+        f_{!}(\chi_{U}) &\defeq \Lan_{f}(\chi_{U})\\%
                         &=      \colim((f\comma\underline{(-_{1})})\xlongtwoheadsrightarrow{\pr}A\xlongrightarrow{\chi_{U}}\TTV)\\%
                         &=      \colim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
-                        %&=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
+                        &=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
     \end{align*}
     where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
     \begin{align*}
@@ -11202,7 +11203,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \itemstar If $U\subset V$, then $f_{!}(U)\subset f_{kkkkkk}(V)$.
+                \itemstar If $U\subset V$, then $f_{!}(U)\subset f_{!}(V)$.
             \end{itemize}
         \item\label{properties-of-direct-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
@@ -11258,7 +11259,7 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
+                    \arrow[r,"{(f_{!})_{!}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -11276,12 +11277,12 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcup_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
         \item\label{properties-of-direct-images-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{!})_{kkkkkk}}"]
+                    \arrow[r,"{(f_{!})_{!}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -11299,12 +11300,12 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcap_{V\in f_{!}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{kkkkkk})_{kkkkkk}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{!}(\mathcal{U})\defeq(f_{!})_{!}(\mathcal{U})$.
         \item\label{properties-of-direct-images-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f_{!}\times f_{!}"]
                     \arrow[d,"\cup"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
@@ -11320,14 +11321,14 @@ Let $f\colon X\to Y$ be a function.
             \[
                 f_{!}(U\cup V)%
                 =%
-                f_{!}(U)\cup f_{kkkkkk}(V)%
+                f_{!}(U)\cup f_{!}(V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
-                    \arrow[r,"f_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f_{!}\times f_{!}"]
                     \arrow[d,"\cap"']
                     \&
                     \mathcal{P}(Y)\times\mathcal{P}(Y)
@@ -11345,14 +11346,14 @@ Let $f\colon X\to Y$ be a function.
             \[
                 f_{!}(U\cap V)%
                 \subset%
-                f_{!}(U)\cap f_{kkkkkk}(V)%
+                f_{!}(U)\cap f_{!}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-interaction-with-differences}\SloganFont{Interaction With Differences. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
@@ -11368,7 +11369,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{!}(U)\setminus f_{kkkkkk}(V)%
+                f_{!}(U)\setminus f_{!}(V)%
                 \subset%
                 f_{!}(U\setminus V)%
             \]%
@@ -11400,7 +11401,7 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
-                    \arrow[r,"f^{\op}_{!}\times f_{kkkkkk}"]
+                    \arrow[r,"f^{\op}_{!}\times f_{!}"]
                     \arrow[d,"\sdiff"']
                     \&
                     \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
@@ -11416,7 +11417,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             with components
             \[
-                f_{!}(U)\sdiff f_{kkkkkk}(V)%
+                f_{!}(U)\sdiff f_{!}(V)%
                 \subset%
                 f_{!}(U\sdiff V)%
             \]%
@@ -11453,7 +11454,7 @@ Let $f\colon X\to Y$ be a function.
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
-                    f_{!}(U)\cup f_{kkkkkk}(V)                  = f_{kkkkkk}(U\cup V),\\
+                    f_{!}(U)\cup f_{!}(V)                  = f_{!}(U\cup V),\\
                     f_{!}(\emptyset)                       = \emptyset,
                 \end{gathered}
             \]%
@@ -11467,14 +11468,14 @@ Let $f\colon X\to Y$ be a function.
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
-                    f_{!}(U\cap V) \subset f_{kkkkkk}(U)\cap f_{kkkkkk}(V),\\
+                    f_{!}(U\cap V) \subset f_{!}(U)\cap f_{!}(V),\\
                     f_{!}(X)        \subset Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric strict monoidal structure
             \[
-                (f_{!},f^{\otimes}_{kkkkkk},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{!},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cup,\emptyset)
                 \to
@@ -11483,14 +11484,14 @@ Let $f\colon X\to Y$ be a function.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{!}(U)\cup f_{kkkkkk}(V) \rightequalsarrow f_{kkkkkk}(U\cup V),\\
+                    f^{\otimes}_{*|U,V}   \colon f_{!}(U)\cup f_{!}(V) \rightequalsarrow f_{!}(U\cup V),\\
                     f^{\otimes}_{*|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric oplax monoidal structure
             \[
-                (f_{!},f^{\otimes}_{kkkkkk},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{!},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cap,X)
                 \to
@@ -11499,7 +11500,7 @@ Let $f\colon X\to Y$ be a function.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{!}(U\cap V) \hookrightarrow f_{kkkkkk}(U)\cap f_{kkkkkk}(V),\\
+                    f^{\otimes}_{*|U,V}   \colon f_{!}(U\cap V) \hookrightarrow f_{!}(U)\cap f_{!}(V),\\
                     f^{\otimes}_{*|\Unit} \colon f_{!}(X)       \hookrightarrow Y,
                 \end{gathered}
             \]%
@@ -11508,17 +11509,17 @@ Let $f\colon X\to Y$ be a function.
             \[
                 (f\icoprod g)_{!}(U\icoprod V)%
                 =%
-                f_{!}(U)\icoprod g_{kkkkkk}(V)%
+                f_{!}(U)\icoprod g_{!}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
         \item\label{properties-of-direct-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
                 (f\boxtimes_{X\times Y} g)_{!}(U\boxtimes_{X\times Y}V)%
                 =%
-                f_{!}(U)\boxtimes_{X'\times Y'}g_{kkkkkk}(V)%
+                f_{!}(U)\boxtimes_{X'\times Y'}g_{!}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-direct-images-i-relation-to-direct-images-with-compact-support}\SloganFont{Relation to Direct Images With Compact Support. }We have
+        \item\label{properties-of-direct-images-i-relation-to-codirect-images}\SloganFont{Relation to Codirect Images. }We have
             \begin{align*}
                 f_{!}(U) &=      f_{*}(U^{\sfc})^{\sfc}\\%
                          &\defeq Y\setminus f_{*}(X\setminus U)%
@@ -11531,12 +11532,12 @@ Let $f\colon X\to Y$ be a function.
     Omitted.
 
     \ProofBox{\cref{properties-of-direct-images-i-triple-adjointness}: Triple Adjointness}%
-    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
+    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-codirect-image-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcup_{V\in f_{!}(\mathcal{U})}V &= \bigcup_{V\in\{f_{kkkkkk}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+        \bigcup_{V\in f_{!}(\mathcal{U})}V &= \bigcup_{V\in\{f_{!}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
                                            &= \bigcup_{U\in\mathcal{U}}f_{!}(U).%
     \end{align*}
     This finishes the proof.
@@ -11544,7 +11545,7 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
     We have
     \begin{align*}
-        \bigcap_{V\in f_{!}(\mathcal{U})}V &= \bigcap_{V\in\{f_{kkkkkk}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
+        \bigcap_{V\in f_{!}(\mathcal{U})}V &= \bigcap_{V\in\{f_{!}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
                                            &= \bigcap_{U\in\mathcal{U}}f_{!}(U).%
     \end{align*}
     This finishes the proof.
@@ -11559,9 +11560,9 @@ Let $f\colon X\to Y$ be a function.
     See \cite{proof-wiki:image-of-set-difference-under-mapping}.
 
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-complements}: Interaction With Complements}%
-    Applying \cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support} to $X\setminus U$, we have
+    Applying \cref{properties-of-direct-images-i-relation-to-codirect-images} to $X\setminus U$, we have
     \begin{align*}
-        f_{!}(U^{\sfc}) &= f_{kkkkkk}(X\setminus U)\\
+        f_{!}(U^{\sfc}) &= f_{!}(X\setminus U)\\
                         &= Y\setminus f_{*}(X\setminus(X\setminus U))\\
                         &= Y\setminus f_{*}(U)\\
                         &= f_{*}(U)^{\sfc}.
@@ -11571,9 +11572,9 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     We have
     \begin{align*}
-        f_{!}(U)\sdiff f_{kkkkkk}(V) &=       (f_{kkkkkk}(U)\cup f_{kkkkkk}(V))\setminus(f_{kkkkkk}(U)\cap f_{kkkkkk}(V))\\
-                                &\subset (f_{!}(U)\cup f_{kkkkkk}(V))\setminus(f_{kkkkkk}(U\cap V))\\
-                                &=       (f_{!}(U\cup V))\setminus(f_{kkkkkk}(U\cap V))\\
+        f_{!}(U)\sdiff f_{!}(V) &=       (f_{!}(U)\cup f_{!}(V))\setminus(f_{!}(U)\cap f_{!}(V))\\
+                                &\subset (f_{!}(U)\cup f_{!}(V))\setminus(f_{!}(U\cap V))\\
+                                &=       (f_{!}(U\cup V))\setminus(f_{!}(U\cap V))\\
                                 &\subset f_{!}((U\cup V)\setminus(U\cap V))\\
                                 &=       f_{!}(U\sdiff V),
     \end{align*}
@@ -11590,15 +11591,15 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        f_{!}([U,V]_{X}) &\defeq f_{kkkkkk}(U^{\sfc}\cup V)\\
-                         &=      f_{!}(U^{\sfc})\cup f_{kkkkkk}(V)\\
+        f_{!}([U,V]_{X}) &\defeq f_{!}(U^{\sfc}\cup V)\\
+                         &=      f_{!}(U^{\sfc})\cup f_{!}(V)\\
                          &=      f_{*}(U)^{\sfc}\cup f_{!}(V)\\
                          &\defeq [f_{*}(U),f_{!}(V)]_{Y},%
     \end{align*}
     where we have used:
     \begin{enumerate}
         \item\label{proof-of-properties-of-direct-images-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
-        \item\label{proof-of-properties-of-direct-images-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support} for the third equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-direct-images-i-relation-to-codirect-images} for the third equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
@@ -11626,15 +11627,15 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-products}: Interaction With Products}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-i-relation-to-direct-images-with-compact-support}: Relation to Direct Images With Compact Support}%
-    Applying \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i} to $X\setminus U$, we have
+    \ProofBox{\cref{properties-of-direct-images-i-relation-to-codirect-images}: Relation to Codirect Images}%
+    Applying \cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i} to $X\setminus U$, we have
     \begin{align*}
         f_{*}(X\setminus U) &= B\setminus f_{!}(X\setminus(X\setminus U))\\
                             &= B\setminus f_{!}(U).
     \end{align*}
     Taking complements, we then obtain
     \begin{align*}
-        f_{!}(U) &= B\setminus(B\setminus f_{kkkkkk}(U)),\\
+        f_{!}(U) &= B\setminus(B\setminus f_{!}(U)),\\
                  &= B\setminus f_{*}(X\setminus U),
     \end{align*}
     which finishes the proof.
@@ -11668,7 +11669,7 @@ Let $f\colon X\to Y$ be a function.
             \begin{webcompile}
                 (g\circ f)_{!}%
                 =%
-                g_{!}\circ f_{kkkkkk},%
+                g_{!}\circ f_{!},%
                 \qquad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)
@@ -12088,7 +12089,7 @@ Let $f\colon X\to Y$ be a function.
     Omitted.
 
     \ProofBox{\cref{properties-of-inverse-images-i-triple-adjointness}: Triple Adjointness}%
-    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
+    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-codirect-image-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
     \ProofBox{\cref{properties-of-inverse-images-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
     We have
@@ -12240,10 +12241,10 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-inverse-images-ii-interaction-with-composition}: Interaction With Composition}%
     This follows from \cref{unwinding-the-inverse-image-function-associated-to-a-function} and \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{properties-of-pre-postcomposition}}.
 \end{Proof}
-\subsection{Direct Images With Compact Support}\label{subsection-direct-images-with-compact-support}
+\subsection{Codirect Images}\label{subsection-codirect-images}
 Let $f\colon X\to Y$ be a function.
-\begin{definition}{Direct Images With Compact Support}{the-direct-image-with-compact-support-function-associated-to-a-function}%
-    The \index[set-theory]{function!associated direct image with compact support function}\textbf{direct image with compact support function associated to $f$} is the function\index[notation]{fshriek@$f_{"!}$}%
+\begin{definition}{Codirect Images}{the-codirect-image-function-associated-to-a-function}%
+    The \index[set-theory]{function!associated codirect image function}\textbf{codirect image function associated to $f$} is the function\index[notation]{fshriek@$f_{"!}$}%
     \[%
         f_{*}%
         \colon%
@@ -12254,7 +12255,7 @@ Let $f\colon X\to Y$ be a function.
     defined by\index[notation]{fshrieku@$f_{"!}(U)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $f_{*}(U)$ is called the \textbf{direct image with compact support of $U$ by $f$}.
+        \SloganFont{Further Terminology: }The set $f_{*}(U)$ is called the \textbf{codirect image of $U$ by $f$}.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
@@ -12264,7 +12265,7 @@ Let $f\colon X\to Y$ be a function.
             f_{*}(U) &=      f_{!}(U^{\sfc})^{\sfc}\\%
                      &\defeq Y\setminus f_{!}(X\setminus U);%
         \end{align*}
-        see \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i}.
+        see \cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -12287,7 +12288,7 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     for each $U\in\mathcal{P}(X)$.
 \end{definition}
-\begin{notation}{Further Notation for Direct Images With Compact Support}{further-notation-for-direct-images-with-compact-support}%
+\begin{notation}{Further Notation for Codirect Images}{further-notation-for-codirect-images}%
     Sometimes one finds the notation
     \[
         \forall_{f}%
@@ -12303,8 +12304,11 @@ Let $f\colon X\to Y$ be a function.
     \end{itemize}
     We will not make use of this notation elsewhere in Clowder.
 \end{notation}
-\begin{remark}{Unwinding \cref{the-direct-image-with-compact-support-function-associated-to-a-function}}{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}%
-    Identifying $\mathcal{P}(X)$ with $\Sets(X,\TTV)$ via \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}, we see that the direct image with compact support function associated to $f$ is equivalently the function
+\begin{warning}{Notation for Codirect Images Is Confusing}{notation-for-codirect-images-is-confusing}%
+    See \cref{notation-for-direct-images-is-confusing}.
+\end{warning}
+\begin{remark}{Unwinding \cref{the-codirect-image-function-associated-to-a-function}}{unwinding-the-codirect-image-function-associated-to-a-function}%
+    Identifying $\mathcal{P}(X)$ with $\Sets(X,\TTV)$ via \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets}, we see that the codirect image function associated to $f$ is equivalently the function
     \[
         f_{*}%
         \colon%
@@ -12334,7 +12338,7 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     for each $y\in Y$.
 \end{remark}
-\begin{definition}{The Image and Complement Parts of $f_{*}$}{image-and-complement-parts-of-direct-images-with-compact-support}%
+\begin{definition}{The Image and Complement Parts of $f_{*}$}{image-and-complement-parts-of-codirect-images}%
     Let $U$ be a subset of $X$.%
     %--- Begin Footnote ---%
     \footnote{%
@@ -12357,7 +12361,7 @@ Let $f\colon X\to Y$ be a function.
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
-        In terms of the meet computation of $f_{*}(U)$ of \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, namely
+        In terms of the meet computation of $f_{*}(U)$ of \cref{unwinding-the-codirect-image-function-associated-to-a-function}, namely
         \[
             f_{*}(\chi_{U})
             =%
@@ -12368,7 +12372,7 @@ Let $f\colon X\to Y$ be a function.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-image-part}The \index[set-theory]{function!associated direct image with compact support function, image      part}\textbf{image      part of the direct image with compact support $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
             \begin{align*}
                 f_{!,\rmim}(U) &\defeq f_{*}(U)\cap\Im(f)\\
                                &=      \{%
@@ -12380,7 +12384,7 @@ Let $f\colon X\to Y$ be a function.
                                            \end{aligned}%
                                        \}.%
             \end{align*}
-        \item\label{image-and-complement-parts-of-direct-images-with-compact-support-complement-part}The \index[set-theory]{function!associated direct image with compact support function, complement part}\textbf{complement part of the direct image with compact support $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
             \begin{align*}
                 f_{!,\rmcp}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
                                &=      Y\setminus\Im(f)\\
@@ -12396,10 +12400,10 @@ Let $f\colon X\to Y$ be a function.
             \end{align*}
     \end{enumerate}
 \end{definition}
-\begin{example}{Examples of Direct Images With Compact Support}{examples-of-direct-images-with-compact-support}%
-    Here are some examples of direct images with compact support.
+\begin{example}{Examples of Codirect Images}{examples-of-codirect-images}%
+    Here are some examples of codirect images.
     \begin{enumerate}
-        \item\label{examples-of-direct-images-with-compact-support-multiplication-by-two}\SloganFont{The Multiplication by Two Map on the Natural Numbers. }Consider the function $f\colon\N\to\N$ given by
+        \item\label{examples-of-codirect-images-multiplication-by-two}\SloganFont{The Multiplication by Two Map on the Natural Numbers. }Consider the function $f\colon\N\to\N$ given by
             \[
                 f(n)
                 \defeq
@@ -12411,7 +12415,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{!,\rmcp}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
             for any $U\subset\N$.
-        \item\label{examples-of-direct-images-with-compact-support-parabolas}\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
+        \item\label{examples-of-codirect-images-parabolas}\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
             \[
                 f(x)%
                 \defeq%
@@ -12430,7 +12434,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{!,\rmim}([1,2])            = \emptyset,\\
                 f_{!,\rmim}([-2,-1]\cup[1,2]) = [1,4].
             \end{gather*}
-        \item\label{examples-of-direct-images-with-compact-support-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
+        \item\label{examples-of-codirect-images-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
             \[
                 f(x,y)%
                 \defeq%
@@ -12459,10 +12463,10 @@ Let $f\colon X\to Y$ be a function.
             \end{gather*}
     \end{enumerate}
 \end{example}
-\begin{proposition}{Properties of Direct Images With Compact Support \rmI}{properties-of-direct-images-with-compact-support-i}%
+\begin{proposition}{Properties of Codirect Images \rmI}{properties-of-codirect-images-i}%
     Let $f\colon X\to Y$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-with-compact-support-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{*}(U)$ defines a functor
+        \item\label{properties-of-codirect-images-i-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto f_{*}(U)$ defines a functor
             \[
                 f_{*}%
                 \colon%
@@ -12474,13 +12478,13 @@ Let $f\colon X\to Y$ be a function.
             \begin{itemize}
                 \itemstar If $U\subset V$, then $f_{*}(U)\subset f_{*}(V)$.
             \end{itemize}
-        \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
+        \item\label{properties-of-codirect-images-i-triple-adjointness}\SloganFont{Triple Adjointness. }We have a triple adjunction
             \begin{webcompile}
                 \TripleAdjunction#f_{!}#f^{-1}#f_{*}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}%
             witnessed by:
             \begin{enumerate}
-                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-1}Units and counits of the form
+                \item\label{properties-of-codirect-images-i-triple-adjointness-1}Units and counits of the form
                     \[
                         \begin{aligned}
                             \id_{\mathcal{P}(X)} &\hookrightarrow f^{-1}\circ f_{!},\\
@@ -12505,26 +12509,26 @@ Let $f\colon X\to Y$ be a function.
                         \end{gathered}
                     \]%
                     indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2}Bijections of sets
+                \item\label{properties-of-codirect-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
                         \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
                         \Hom_{\mathcal{P}(X)}(f^{-1}(U),V) &\cong \Hom_{\mathcal{P}(X)}(U,f_{*}(V)),
                     \end{align*}
                     natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$ and (respectively) $V\in\mathcal{P}(X)$ and $U\in\mathcal{P}(Y)$. In particular:
                     \begin{enumerate}
-                        \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a}The following conditions are equivalent:
+                        \item\label{properties-of-codirect-images-i-triple-adjointness-2-a}The following conditions are equivalent:
                             \begin{enumerate}
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a-i}We have $f_{!}(U)\subset V$.
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-a-ii}We have $U\subset f^{-1}(V)$.
+                                \item\label{properties-of-codirect-images-i-triple-adjointness-2-a-i}We have $f_{!}(U)\subset V$.
+                                \item\label{properties-of-codirect-images-i-triple-adjointness-2-a-ii}We have $U\subset f^{-1}(V)$.
                             \end{enumerate}
-                        \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b}The following conditions are equivalent:
+                        \item\label{properties-of-codirect-images-i-triple-adjointness-2-b}The following conditions are equivalent:
                             \begin{enumerate}
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b-i}We have $f^{-1}(U)\subset V$.
-                                \item\label{properties-of-direct-images-with-compact-support-i-triple-adjointness-2-b-ii}We have $U\subset f_{*}(V)$.
+                                \item\label{properties-of-codirect-images-i-triple-adjointness-2-b-i}We have $f^{-1}(U)\subset V$.
+                                \item\label{properties-of-codirect-images-i-triple-adjointness-2-b-ii}We have $U\subset f_{*}(V)$.
                             \end{enumerate}
                     \end{enumerate}
             \end{enumerate}
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-unions-of-families-of-subsets}\SloganFont{Interaction With Unions of Families of Subsets. }The diagram
+        \item\label{properties-of-codirect-images-i-interaction-with-unions-of-families-of-subsets}\SloganFont{Interaction With Unions of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
@@ -12547,7 +12551,7 @@ Let $f\colon X\to Y$ be a function.
                 \bigcup_{V\in f_{*}(\mathcal{U})}V%
             \]%
             for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
+        \item\label{properties-of-codirect-images-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
@@ -12570,7 +12574,7 @@ Let $f\colon X\to Y$ be a function.
                 \bigcap_{V\in f_{*}(\mathcal{U})}V%
             \]%
             for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }Let $f\colon X\to Y$ be a function. We have a natural transformation
+        \item\label{properties-of-codirect-images-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }Let $f\colon X\to Y$ be a function. We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
@@ -12595,7 +12599,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{*}(U\cup V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }The diagram
+        \item\label{properties-of-codirect-images-i-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)\times\mathcal{P}(X)
@@ -12618,7 +12622,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{*}(U\cap V)%
             \]%
             for each $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
+        \item\label{properties-of-codirect-images-i-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}
@@ -12642,7 +12646,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-complements-}\SloganFont{. }
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }We have a natural transformation
+        \item\label{properties-of-codirect-images-i-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
@@ -12667,7 +12671,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{*}(U)\sdiff f_{*}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }We have a natural transformation
+        \item\label{properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
@@ -12692,7 +12696,7 @@ Let $f\colon X\to Y$ be a function.
                 f_{*}([U,V]_{X})%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
+        \item\label{properties-of-codirect-images-i-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
                 \bigcup_{i\in I}f_{*}(U_{i})%
                 \subset%
@@ -12706,7 +12710,7 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
+        \item\label{properties-of-codirect-images-i-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
                 f_{*}\left(\bigcap_{i\in I}U_{i}\right)%
                 =%
@@ -12720,7 +12724,7 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The direct image with compact support function of \cref{properties-of-direct-images-with-compact-support-i-functoriality} has a symmetric lax monoidal structure
+        \item\label{properties-of-codirect-images-i-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-images-i-functoriality} has a symmetric lax monoidal structure
             \[
                 (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
                 \colon
@@ -12736,7 +12740,7 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-images-with-compact-support-i-functoriality} has a symmetric strict monoidal structure
+        \item\label{properties-of-codirect-images-i-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-images-i-functoriality} has a symmetric strict monoidal structure
             \[
                 (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
                 \colon
@@ -12752,27 +12756,27 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-codirect-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
                 (f\icoprod g)_{*}(U\icoprod V)%
                 =%
                 f_{*}(U)\icoprod g_{*}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-codirect-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
             \[
                 (f\boxtimes_{X\times Y} g)_{*}(U\boxtimes_{X\times Y}V)%
                 =%
                 f_{*}(U)\boxtimes_{X'\times Y'}g_{*}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
+        \item\label{properties-of-codirect-images-i-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \begin{align*}
                 f_{*}(U) &= f_{!}(U^{\sfc})^{\sfc}\\
                          &= Y\setminus f_{!}(X\setminus U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-injections}\SloganFont{Interaction With Injections. }If $f$ is injective, then we have
+        \item\label{properties-of-codirect-images-i-interaction-with-injections}\SloganFont{Interaction With Injections. }If $f$ is injective, then we have
             \begin{gather*}
                 f_{!,\rmim}(U) = f_{!}(U),\\
                 f_{!,\rmcp}(U) = Y\setminus\Im(f),\\
@@ -12782,24 +12786,24 @@ Let $f\colon X\to Y$ be a function.
                 \end{aligned}
             \end{gather*}
             for each $U\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-with-compact-support-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
+        \item\label{properties-of-codirect-images-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
             \begin{align*}
                 f_{!,\rmim}(U) &\subset  f_{!}(U),\\
                 f_{!,\rmcp}(U) &=       \emptyset,\\
                 f_{*}(U)       &\subset f_{!}(U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
-        %\item\label{properties-of-direct-images-with-compact-support-i-}\SloganFont{. }
+        %\item\label{properties-of-codirect-images-i-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-direct-images-with-compact-support-i}}%
-    \FirstProofBox{\cref{properties-of-direct-images-with-compact-support-i-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-codirect-images-i}}%
+    \FirstProofBox{\cref{properties-of-codirect-images-i-functoriality}: Functoriality}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-triple-adjointness}: Triple Adjointness}%
-    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
+    \ProofBox{\cref{properties-of-codirect-images-i-triple-adjointness}: Triple Adjointness}%
+    This follows from \cref{unwinding-the-direct-image-function-associated-to-a-function}, \cref{unwinding-the-inverse-image-function-associated-to-a-function}, \cref{unwinding-the-codirect-image-function-associated-to-a-function}, and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
     We have
     \begin{align*}
         \bigcup_{V\in f_{*}(\mathcal{U})}V &= \bigcup_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
@@ -12807,7 +12811,7 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
     We have
     \begin{align*}
         \bigcap_{V\in f_{*}(\mathcal{U})}V &= \bigcap_{V\in\{f_{*}(U)\in\mathcal{P}(X)\ \middle|\ U\in\mathcal{U}\}}V\\
@@ -12815,68 +12819,68 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions}: Interaction With Binary Unions}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-binary-unions}: Interaction With Binary Unions}%
     We have
     \begin{align*}
-        f_{*}(U)\cup f_{*}(V) &=       f_{!}(U^{\sfc})^{\sfc}\cup f_{kkkkkk}(V^{\sfc})^{\sfc}\\
-                              &=       (f_{!}(U^{\sfc})\cap f_{kkkkkk}(V^{\sfc}))^{\sfc}\\
+        f_{*}(U)\cup f_{*}(V) &=       f_{!}(U^{\sfc})^{\sfc}\cup f_{!}(V^{\sfc})^{\sfc}\\
+                              &=       (f_{!}(U^{\sfc})\cap f_{!}(V^{\sfc}))^{\sfc}\\
                               &\subset (f_{!}(U^{\sfc}\cap V^{\sfc}))^{\sfc}\\
                               &=       f_{!}((U\cup V)^{\sfc})^{\sfc}\\
                               &=       f_{*}(U\cup V),
     \end{align*}
     where:
     \begin{enumerate}
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-1}We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the first equality.
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-2}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-3}We have used \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the third equality.
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-4}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the fourth equality.
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions-5}We have used \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} for the last equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-binary-unions-1}We have used \cref{properties-of-codirect-images-i-relation-to-direct-images} for the first equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-binary-unions-2}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the second equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-binary-unions-3}We have used \cref{properties-of-direct-images-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-i} for the third equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-binary-unions-4}We have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements} for the fourth equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-binary-unions-5}We have used \cref{properties-of-codirect-images-i-relation-to-direct-images} for the last equality.
     \end{enumerate}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-complements}: Interaction With Complements}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-binary-intersections}: Interaction With Binary Intersections}%
+    This follows from \cref{properties-of-codirect-images-i-preservation-of-limits}.
+
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-complements}: Interaction With Complements}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        \big[f_{!}(U),f^{!}(V)\big]_{X} &\defeq  f_{kkkkkk}(U)^{\sfc}\cup f_{*}(V)\\
+        \big[f_{!}(U),f^{!}(V)\big]_{X} &\defeq  f_{!}(U)^{\sfc}\cup f_{*}(V)\\
                                         &=       f_{*}(U^{\sfc})\cup f_{*}(V)\\
                                         &\subset f_{*}(U^{\sfc}\cup V)\\
                                         &\defeq  f_{*}([U,V]_{X}),
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-complements} of \cref{properties-of-direct-images-with-compact-support-i} for the second equality.
-        \item\label{proof-of-properties-of-direct-images-with-compact-support-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets-1}\cref{properties-of-codirect-images-i-interaction-with-complements} of \cref{properties-of-codirect-images-i} for the second equality.
+        \item\label{proof-of-properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets-2}\cref{properties-of-codirect-images-i-interaction-with-binary-unions} of \cref{properties-of-codirect-images-i} for the inclusion.
     \end{enumerate}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections}: Interaction With Binary Intersections}%
-    This follows from \cref{properties-of-direct-images-with-compact-support-i-preservation-of-limits}.
-
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
+    \ProofBox{\cref{properties-of-codirect-images-i-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-preservation-of-limits}: Preservation of Limits}%
+    \ProofBox{\cref{properties-of-codirect-images-i-preservation-of-limits}: Preservation of Limits}%
     This follows from \cref{properties-of-direct-images-i-triple-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-with-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-with-co-limits} of \cref{properties-of-adjunctions}}.%
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
-    This follows from \cref{properties-of-direct-images-with-compact-support-i-lax-preservation-of-colimits}.
+    \ProofBox{\cref{properties-of-codirect-images-i-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
+    This follows from \cref{properties-of-codirect-images-i-lax-preservation-of-colimits}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
-    This follows from \cref{properties-of-direct-images-with-compact-support-i-preservation-of-limits}.
+    \ProofBox{\cref{properties-of-codirect-images-i-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
+    This follows from \cref{properties-of-codirect-images-i-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-coproducts}: Interaction With Coproducts}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-coproducts}: Interaction With Coproducts}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-products}: Interaction With Products}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-products}: Interaction With Products}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}: Relation to Direct Images}%
+    \ProofBox{\cref{properties-of-codirect-images-i-relation-to-direct-images}: Relation to Direct Images}%
     We claim that $f_{*}(U)=Y\setminus f_{!}(X\setminus U)$.
     \begin{itemize}
         \item\SloganFont{The First Implication. }We claim that
@@ -12902,18 +12906,18 @@ Let $f\colon X\to Y$ be a function.
 
             Thus $y\in f_{*}(U)$.
     \end{itemize}
-    This finishes the proof of \cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images}.
+    This finishes the proof of \cref{properties-of-codirect-images-i-relation-to-direct-images}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-injections}: Interaction With Injections}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-injections}: Interaction With Injections}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-i-interaction-with-surjections}: Interaction With Surjections}%
+    \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-surjections}: Interaction With Surjections}%
     Omitted.
 \end{Proof}
-\begin{proposition}{Properties of Direct Images With Compact Support \rmII}{properties-of-direct-images-with-compact-support-ii}%
+\begin{proposition}{Properties of Codirect Images \rmII}{properties-of-codirect-images-ii}%
     Let $f\colon X\to B$ be a function.
     \begin{enumerate}
-        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{*}$ defines a function
+        \item\label{properties-of-codirect-images-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{*}$ defines a function
             \[
                 (-)_{!|X,Y}%
                 \colon%
@@ -12921,7 +12925,7 @@ Let $f\colon X\to Y$ be a function.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-direct-images-with-compact-support-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{*}$ defines a function
+        \item\label{properties-of-codirect-images-ii-functionality-2}\SloganFont{Functionality \rmII. }The assignment $f\mapsto f_{*}$ defines a function
             \[
                 (-)_{!|X,Y}%
                 \colon%
@@ -12929,13 +12933,13 @@ Let $f\colon X\to Y$ be a function.
                 \to%
                 \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-direct-images-with-compact-support-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
+        \item\label{properties-of-codirect-images-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
                 (\id_{X})_{*}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-direct-images-with-compact-support-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
+        \item\label{properties-of-codirect-images-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
             \begin{webcompile}
                 (g\circ f)_{*}%
                 =%
@@ -12953,25 +12957,25 @@ Let $f\colon X\to Y$ be a function.
                     \mathcal{P}(Z)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}%
-        %\item\label{properties-of-direct-images-with-compact-support-ii-}\SloganFont{. }
+        %\item\label{properties-of-codirect-images-ii-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-direct-images-with-compact-support-ii}}%
-    \FirstProofBox{\cref{properties-of-direct-images-with-compact-support-ii-functionality-1}: Functionality \rmI}%
+\begin{Proof}{Proof of \cref{properties-of-codirect-images-ii}}%
+    \FirstProofBox{\cref{properties-of-codirect-images-ii-functionality-1}: Functionality \rmI}%
     There is nothing to prove.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-ii-functionality-2}: Functionality \rmII}%
-    This follows from \cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}.
+    \ProofBox{\cref{properties-of-codirect-images-ii-functionality-2}: Functionality \rmII}%
+    This follows from \cref{properties-of-codirect-images-i-functoriality} of \cref{properties-of-codirect-images-i}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-ii-interaction-with-identities}: Interaction With Identities}%
-    This follows from \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function} and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-interaction-with-identities} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-identities} of \cref{properties-of-kan-extensions}}.
+    \ProofBox{\cref{properties-of-codirect-images-ii-interaction-with-identities}: Interaction With Identities}%
+    This follows from \cref{unwinding-the-codirect-image-function-associated-to-a-function} and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-interaction-with-identities} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-identities} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-direct-images-with-compact-support-ii-interaction-with-composition}: Interaction With Composition}%
-    This follows from \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-function} and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-interaction-with-composition} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-composition} of \cref{properties-of-kan-extensions}}.
+    \ProofBox{\cref{properties-of-codirect-images-ii-interaction-with-composition}: Interaction With Composition}%
+    This follows from \cref{unwinding-the-codirect-image-function-associated-to-a-function} and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-interaction-with-composition} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-composition} of \cref{properties-of-kan-extensions}}.
 \end{Proof}
 \subsection{A Six-Functor Formalism for Sets}\label{subsection-a-six-functor-formalism-for-sets}
 \begin{remark}{A Six-Functor Formalism for Sets}{remark-a-six-functor-formalism-for-sets}%
-    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{*}$, $f^{-1}$, and $f_{!}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-direct-images-with-compact-support-i-functoriality} of \cref{properties-of-direct-images-with-compact-support-i}, and the functors
+    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{*}$, $f^{-1}$, and $f_{!}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-codirect-images-i-functoriality} of \cref{properties-of-codirect-images-i}, and the functors
     \begin{align*}
         -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
         [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
@@ -13017,8 +13021,8 @@ Let $f\colon X\to Y$ be a function.
                 \end{tikzcd}
                 \quad
                 \begin{aligned}
-                    g^{-1}\circ f_{!} &= (\pr_{2})_{kkkkkk}\circ\pr^{-1}_{1},\\%
-                    f^{-1}\circ g_{!} &= (\pr_{1})_{kkkkkk}\circ\pr^{-1}_{2},%
+                    g^{-1}\circ f_{!} &= (\pr_{2})_{!}\circ\pr^{-1}_{1},\\%
+                    f^{-1}\circ g_{!} &= (\pr_{1})_{!}\circ\pr^{-1}_{2},%
                 \end{aligned}
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundZolor, ampersand replacement=\&]
@@ -13157,23 +13161,23 @@ Let $f\colon X\to Y$ be a function.
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)\times\mathcal{P}(Y)
-                            \arrow[r,"f_{!}\times g_{kkkkkk}"]
+                            \arrow[r,"f_{!}\times g_{!}"]
                             \arrow[d,"\boxtimes_{X\times Y}"']
                             \&
                             \mathcal{P}(X')\times\mathcal{P}(Y')
                             \arrow[d,"\boxtimes_{X'\times Y'}"]
                             \\
                             \mathcal{P}(X\times Y)
-                            \arrow[r,"f_{!}\times g_{kkkkkk}"']
+                            \arrow[r,"f_{!}\times g_{!}"']
                             \&
                             \mathcal{P}(X'\times Y')
                         \end{tikzcd}
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        [f_{!}\times g_{kkkkkk}](U\boxtimes_{X\times Y}V)%
+                        [f_{!}\times g_{!}](U\boxtimes_{X\times Y}V)%
                         =%
-                        f_{!}(U)\boxtimes_{X'\times Y'}g_{kkkkkk}(V)%
+                        f_{!}(U)\boxtimes_{X'\times Y'}g_{!}(V)%
                     \]%
                     for each $(U,V)\in\mathcal{P}(X)\times\mathcal{P}(Y)$.
                 \item\label{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be functions. The diagram
@@ -13199,7 +13203,7 @@ Let $f\colon X\to Y$ be a function.
                         f^{-1}(U)\boxtimes_{X\times Y}g^{-1}(V)%
                     \]%
                     for each $(U,V)\in\mathcal{P}(X')\times\mathcal{P}(Y')$.
-                \item\label{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be functions. The diagram
+                \item\label{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be functions. The diagram
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)\times\mathcal{P}(Y)
@@ -13352,7 +13356,7 @@ Let $f\colon X\to Y$ be a function.
                         D_{X}(f^{-1}(U))%
                     \]%
                     for each $U\in\mathcal{P}(X)$.
-                \item\label{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-direct-images-with-compact-support}\SloganFont{Interaction With Direct Images With Compact Support. }The diagram
+                \item\label{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }The diagram
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(X)^{\op}
@@ -13383,7 +13387,7 @@ Let $f\colon X\to Y$ be a function.
     \FirstProofBox{\cref{a-six-functor-formalism-for-sets-the-beck-chevalley-condition}: The Beck--Chevalley Condition}%
     We have
     \begin{align*}
-        [g^{-1}\circ f_{!}](U) &\defeq g^{-1}(f_{kkkkkk}(U))\\
+        [g^{-1}\circ f_{!}](U) &\defeq g^{-1}(f_{!}(U))\\
                                &\defeq \{y\in Y\ \middle|\ g(y)\in f_{!}(U)\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some $x\in U$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\end{aligned}\}\\
@@ -13402,7 +13406,7 @@ Let $f\colon X\to Y$ be a function.
     \]%
     For the second equality, we have
     \begin{align*}
-        [f^{-1}\circ g_{!}](U) &\defeq f^{-1}(g_{kkkkkk}(U))\\
+        [f^{-1}\circ g_{!}](U) &\defeq f^{-1}(g_{!}(U))\\
                                &\defeq \{x\in X\ \middle|\ f(x)\in g_{!}(V)\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some $y\in V$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\end{aligned}\}\\
@@ -13430,7 +13434,7 @@ Let $f\colon X\to Y$ be a function.
     \]%
     Indeed, we have
     \begin{align*}
-        f_{!}(U)\cap V &\subset f_{kkkkkk}(U)\cap f_{kkkkkk}(f^{-1}(V))\\
+        f_{!}(U)\cap V &\subset f_{!}(U)\cap f_{!}(f^{-1}(V))\\
                        &=       f_{!}(U\cap f^{-1}(V)),
     \end{align*}
     where we have used:
@@ -13450,9 +13454,9 @@ Let $f\colon X\to Y$ be a function.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-4}Since $y\in f_{!}(U\cap f^{-1}(V))$, there exists some $x\in U\cap f^{-1}(V)$ such that $f(x)=y$.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-5}Since $x\in U\cap f^{-1}(V)$, we have $x\in U$, and thus $f(x)\in f_{!}(U)$.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-6}Since $x\in U\cap f^{-1}(V)$, we have $x\in f^{-1}(V)$, and thus $f(x)\in V$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-7}Since $f(x)\in f_{!}(U)$ and $f(x)\in V$, we have $f(x)\in f_{kkkkkk}(U)\cap V$.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-7}Since $f(x)\in f_{!}(U)$ and $f(x)\in V$, we have $f(x)\in f_{!}(U)\cap V$.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-8}But $y=f(x)$, so $y\in f_{!}(U)\cap V$.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-9}Thus $f_{!}(U\cap f^{-1}(V))\subset f_{kkkkkk}(U)\cap V$.%
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-1-9}Thus $f_{!}(U\cap f^{-1}(V))\subset f_{!}(U)\cap V$.%
     \end{enumerate}
     This finishes the proof.
 
@@ -13464,8 +13468,8 @@ Let $f\colon X\to Y$ be a function.
     \end{align*}
     where we have used:
     \begin{enumerate}
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-1}\cref{properties-of-direct-images-with-compact-support-i-triple-adjointness} of \cref{properties-of-direct-images-with-compact-support-i} for the inclusion.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-2}\cref{properties-of-direct-images-with-compact-support-i-interaction-with-binary-intersections} of \cref{properties-of-direct-images-with-compact-support-i} for the equality.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-1}\cref{properties-of-codirect-images-i-triple-adjointness} of \cref{properties-of-codirect-images-i} for the inclusion.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-projection-formula-2-2}\cref{properties-of-codirect-images-i-interaction-with-binary-intersections} of \cref{properties-of-codirect-images-i} for the equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}).
 
@@ -13483,11 +13487,11 @@ Let $f\colon X\to Y$ be a function.
                                 &=             \{(x,y)\in X\times Y\ \middle|\ \text{$x\in U$ and $y\in V$}\}\\
                                 &\defeq        U\times V.
     \end{align*}
-    Next, we claim that \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} are indeed true:
+    Next, we claim that \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-codirect-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} are indeed true:
     \begin{enumerate}
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-1}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images}: }This is a repetition of \cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i} and is proved there.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-2}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images}: }This is a repetition of \cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i} and is proved there.
-        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-3}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images-with-compact-support}: }This is a repetition of \cref{properties-of-direct-images-with-compact-support-i-interaction-with-products} of \cref{properties-of-direct-images-with-compact-support-i} and is proved there.
+        \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-3}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-codirect-images}: }This is a repetition of \cref{properties-of-codirect-images-i-interaction-with-products} of \cref{properties-of-codirect-images-i} and is proved there.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-4}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}: }We have
             \begin{envsmallsize}
                 \begin{align*}

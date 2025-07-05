@@ -102,7 +102,7 @@ for line in tex_file:
         if "tcb" in path_name:
             if (re.search(r"\\begin{warning}",line)):
                 content += "\\hypertarget{" + label_tags[label] + "}{}"
-                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[0.0625\\baselineskip]\\par\\vspace{-0.5625\\baselineskip}"
+                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}\\vspace{-1.625\\baselineskip}"
                 content += line
             else:
                 if label in label_tags and line.find("\\item\\label") >= 0:
@@ -124,8 +124,11 @@ for line in tex_file:
                     else:
                         content += line
                         if label in label_tags:
-                            content += "\\hypertarget{" + label_tags[label] + "}{}"
-                            content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.625\\baselineskip]"
+                            if short.find("section-phantom") >= 0:
+                                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
+                            else:
+                                content += "\\hypertarget{" + label_tags[label] + "}{}"
+                                content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}[-1.625\\baselineskip]"
                         #if label in label_tags and line.find("section-") >= 0 and short.find("section-phantom") >= 0:
                         #    content += "\\reversemarginpar\\marginnote{\\texttt{\\href{https://www.clowderproject.com/tag/" + label_tags[label] + ".html}{" + label_tags[label] + "}}}"
                         #else:
