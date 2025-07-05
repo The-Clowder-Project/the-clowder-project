@@ -1791,7 +1791,7 @@ chapters-cm:
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
 			python$(PYTHON_VERSION) scripts/process_chapter.py cm "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
+			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -1800,7 +1800,7 @@ chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (1/4)...$(NC)\n"; \
-			cd tmp/tags/cm/; \
+			cd tmp/cm/; \
 			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
@@ -1812,7 +1812,7 @@ chapters-cm:
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (2/4)...$(NC)\n"; \
-			cd tmp/tags/cm/; \
+			cd tmp/cm/; \
 			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Running Biber...$(NC)\n"; \
 			biber $${item_basename}; \
@@ -1824,7 +1824,7 @@ chapters-cm:
 		for item_basename in $(LIJST); do \
 			printf "--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Compiling with LuaLaTeX (4/4)...$(NC)\n"; \
-			cd tmp/tags/cm/; \
+			cd tmp/cm/; \
 			$(LUALATEX_ARGS) $(LUALATEX) $${item_basename}.tex; \
 			printf "$(GREEN)Saving PDF...$(NC)\n"; \
 			mv $$item_basename.pdf ../../output/chapters/cm/$$item_basename.pdf; \
@@ -4189,7 +4189,8 @@ web-and-serve:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py --noProofs; \
+		cp ../../../WEB/book/tag_ancestors_2.json ../tag_ancestors_2.json ; \
+		python$(PYTHON_VERSION) update.py; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
@@ -4300,7 +4301,8 @@ web-and-serve-on-ipv6:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py --noProofs; \
+		cp ../../../WEB/book/tag_ancestors_2.json ../tag_ancestors_2.json ; \
+		python$(PYTHON_VERSION) update.py; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
@@ -4411,7 +4413,8 @@ web-and-record:
 		cp ../../../output/tags-book/alegreya-sans-tcb.pdf stacks.pdf; \
 		cp ../../../WEB/book.paux stacks.paux ; \
 		cp ../../../WEB/tags stacks.tags ; \
-		python$(PYTHON_VERSION) update.py --noProofs; \
+		cp ../../../WEB/book/tag_ancestors_2.json ../tag_ancestors_2.json ; \
+		python$(PYTHON_VERSION) update.py; \
 		cd ../; \
 		gerby_end=$$(date +%s.%2N); \
 		gerby_duration=$$(echo "$$gerby_end - $$gerby_start" | bc); \
