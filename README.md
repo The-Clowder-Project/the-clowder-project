@@ -30,13 +30,13 @@ This will install all required dependencies. You can now proceed to build the we
 ## Building the PDFs
 The PDFs can be built by running `make all`.
 
-There are individual `make` commands for the chapters, books, etc.:
+There are also individual `make` commands for the chapters, books, etc.:
 1. `make all-books` will build all book PDFs.
 2. `make all-tags-books` will build all book PDFs with tags.
 3. `make all-chapters` will build all chapter PDFs.
 4. `make all-tags-chapters` will build all chapter PDFs with tags.
 
-In addition, there are also `make` commands for particular styles. These are formatted as follows:
+In addition, there are `make` commands for particular “styles”. These are formatted as follows:
 1. `make [style]` will build the book PDF for the given `style`.
 2. `make tags-[style]` will build the book PDF with tags for the given `style`.
 3. `make chapters-[style]` will build all chapter PDFs for the given `style`.
