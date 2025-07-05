@@ -42,21 +42,7 @@ In addition, there are also `make` commands for particular styles. These are for
 3. `make chapters-[style]` will build all chapter PDFs for the given `style`.
 4. `make tags-chapters-[style]` will build all chapter PDFs with tags for the given `style`.
 
-The available styles are:
-1. `cm-tcb`.
-2. `alegreya-tcb`.
-3. `alegreya-sans-tcb`.
-4. `crimson-pro-tcb`.
-5. `eb-garamond-tcb`.
-6. `xcharter-tcb`.
-7. `cm`.
-8. `alegreya`.
-9. `alegreya-sans`.
-10. `crimson-pro`.
-11. `eb-garamond`.
-12. `xcharter`.
-
-Here's
+The available styles are the following:
 
 | Style               |  Typeface                                                          | Theorem Environments |
 | ------------------- |  ----------------------------------------------------------------- | -------------------- |
@@ -73,7 +59,7 @@ Here's
 | `eb-garamond`       |  [EB Garamond](https://fonts.google.com/specimen/EB+Garamond)      | `amsthm` (Standard)  | 
 | `xcharter`          |  [XCharter](https://ctan.org/pkg/xcharter)                         | `amsthm` (Standard)  | 
 
-*The default style is `alegreya-sans-tcb`.*
+**The default style is `alegreya-sans-tcb`.**
 
 ## Building the web version
 To build and serve the website on localhost (`127.0.0.1:5000`), run `make web-and-serve`.
