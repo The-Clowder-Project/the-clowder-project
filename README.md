@@ -4,8 +4,8 @@
 
 ## Requirements
 This project requires:
-- [Conda](https://anaconda.org/anaconda/conda), as Gerby needs `python3.6`.
-- `inkscape`, for `make pictures` to run properly.
+- [Conda](https://anaconda.org/anaconda/conda), for Gerby (which needs `python3.6`).
+- `inkscape`, for `make pictures`.
 
 ## Initial setup
 After installing the requirements, follow the instructions below. 
@@ -43,18 +43,35 @@ In addition, there are also `make` commands for particular styles. These are for
 4. `make tags-chapters-[style]` will build all chapter PDFs with tags for the given `style`.
 
 The available styles are:
-1. `cm-tcb` (Computer Modern with `tcbthm` theorem environments).
-2. `alegreya-tcb` (Alegreya with `tcbthm` theorem environments).
-3. `alegreya-sans-tcb` (Alegreya Sans with `tcbthm` theorem environments).
-4. `crimson-pro-tcb` (Crimson Pro with `tcbthm` theorem environments).
-5. `eb-garamond-tcb` (EB Garamond with `tcbthm` theorem environments).
-6. `xcharter-tcb` (XCharter with `tcbthm` theorem environments).
-7. `cm` (Computer Modern with `amsthm` theorem environments).
-8. `alegreya` (Alegreya with `amsthm` theorem environments).
-9. `alegreya-sans` (Alegreya Sans with `amsthm` theorem environments).
-10. `crimson-pro` (Crimson Pro with `amsthm` theorem environments).
-11. `eb-garamond` (EB Garamond with `amsthm` theorem environments).
-12. `xcharter` (XCharter with `amsthm` theorem environments).
+1. `cm-tcb`.
+2. `alegreya-tcb`.
+3. `alegreya-sans-tcb`.
+4. `crimson-pro-tcb`.
+5. `eb-garamond-tcb`.
+6. `xcharter-tcb`.
+7. `cm`.
+8. `alegreya`.
+9. `alegreya-sans`.
+10. `crimson-pro`.
+11. `eb-garamond`.
+12. `xcharter`.
+
+Here's
+
+| Style               |  Typeface                                                          | Theorem Environments |
+| ------------------- |  ----------------------------------------------------------------- | -------------------- |
+| `cm-tcb`            |  [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern)  | `tcbthm` (Boxed)     | 
+| `alegreya-tcb`      |  [Alegreya](https://fonts.google.com/specimen/Alegreya)            | `tcbthm` (Boxed)     | 
+| `alegreya-sans-tcb` |  [Alegreya Sans](https://fonts.google.com/specimen/Alegreya+Sans)  | `tcbthm` (Boxed)     | 
+| `crimson-pro-tcb`   |  [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro)      | `tcbthm` (Boxed)     | 
+| `eb-garamond-tcb`   |  [EB Garamond](https://fonts.google.com/specimen/EB+Garamond)      | `tcbthm` (Boxed)     | 
+| `xcharter-tcb`      |  [XCharter](https://ctan.org/pkg/xcharter)                         | `tcbthm` (Boxed)     | 
+| `cm`                |  [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern)  | `amsthm` (Standard)  | 
+| `alegreya`          |  [Alegreya](https://fonts.google.com/specimen/Alegreya)            | `amsthm` (Standard)  | 
+| `alegreya-sans`     |  [Alegreya Sans](https://fonts.google.com/specimen/Alegreya+Sans)  | `amsthm` (Standard)  | 
+| `crimson-pro`       |  [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro)      | `amsthm` (Standard)  | 
+| `eb-garamond`       |  [EB Garamond](https://fonts.google.com/specimen/EB+Garamond)      | `amsthm` (Standard)  | 
+| `xcharter`          |  [XCharter](https://ctan.org/pkg/xcharter)                         | `amsthm` (Standard)  | 
 
 *The default style is `alegreya-sans-tcb`.*
 
