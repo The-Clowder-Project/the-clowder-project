@@ -8421,7 +8421,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 f_{*}(U\sdiff V)%
                 \subset%
-                f_{1}(U)\sdiff f_{*}(V)%
+                f_{*}(U)\sdiff f_{*}(V)%
             \]%
             indexed by $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
@@ -8588,7 +8588,7 @@ Let $X$ be a set.%
                     {U\cup V}
                 \end{tikzcd}
             \end{webcompile}%
-            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
+            is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         \item\label{properties-of-powersets-as-categories-interaction-with-products-2}\SloganFont{Interaction With Products \rmII. }The map
             \begin{webcompile}
                 \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.5*\the\DL, background color=backgroundColor, ampersand replacement=\&]
@@ -12352,16 +12352,16 @@ Let $f\colon X\to Y$ be a function.
         \[%
             f_{*}(U)%
             =%
-            f_{!,\rmim}(U)%
+            f_{*,\rmim}(U)%
             \cup%
-            f_{!,\rmcp}(U),%
+            f_{*,\rmcp}(U),%
         \]%
         as
         \begin{align*}
             f_{*}(U) &= f_{*}(U)\cap Y\\
                      &=      f_{*}(U)\cap(\Im(f)\cup(Y\setminus\Im(f)))\\
                      &=      (f_{*}(U)\cap\Im(f))\cup(f_{*}(U)\cap(Y\setminus\Im(f)))\\
-                     &\defeq f_{!,\rmim}(U)\cup f_{!,\rmcp}(U).
+                     &\defeq f_{*,\rmim}(U)\cup f_{*,\rmcp}(U).
         \end{align*}
     }%
     %---  End Footnote  ---%
@@ -12373,14 +12373,14 @@ Let $f\colon X\to Y$ be a function.
             =%
             \bigwedge_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
         \]%
-        we see that $\smash{f_{!,\rmim}}$ corresponds to meets indexed over nonempty sets, while $\smash{f_{!,\rmcp}}$ corresponds to meets indexed over the empty set.
+        we see that $\smash{f_{*,\rmim}}$ corresponds to meets indexed over nonempty sets, while $\smash{f_{*,\rmcp}}$ corresponds to meets indexed over the empty set.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekimU@$f_{"!,\rmim}(U)$}$f_{!,\rmim}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarimU@$f_{*,\rmim}(U)$}$f_{*,\rmim}(U)$ defined by
             \begin{align*}
-                f_{!,\rmim}(U) &\defeq f_{*}(U)\cap\Im(f)\\
+                f_{*,\rmim}(U) &\defeq f_{*}(U)\cap\Im(f)\\
                                &=      \{%
                                            y\in Y%
                                            \ \middle|\ %
@@ -12390,9 +12390,9 @@ Let $f\colon X\to Y$ be a function.
                                            \end{aligned}%
                                        \}.%
             \end{align*}
-        \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fshriekcpU@$f_{"!,\rmcp}(U)$}$f_{!,\rmcp}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarcpU@$f_{*,\rmcp}(U)$}$f_{*,\rmcp}(U)$ defined by
             \begin{align*}
-                f_{!,\rmcp}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
+                f_{*,\rmcp}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
                                &=      Y\setminus\Im(f)\\
                                &=      \{%
                                            y\in Y%
@@ -12417,8 +12417,8 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $n\in\N$. Since $f$ is injective, we have
             \begin{align*}
-                f_{!,\rmim}(U) &= f_{!}(U)\\
-                f_{!,\rmcp}(U) &= \{\text{odd natural numbers}\}
+                f_{*,\rmim}(U) &= f_{!}(U)\\
+                f_{*,\rmcp}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
             for any $U\subset\N$.
         \item\label{examples-of-codirect-images-parabolas}\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
@@ -12429,16 +12429,16 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $x\in\R$. We have
             \[
-                f_{!,\rmcp}(U)%
+                f_{*,\rmcp}(U)%
                 =%
                 \R_{<0}
             \]%
             for any $U\subset\R$. Moreover, since $f^{-1}(x)=\{-\sqrt{x},\sqrt{x}\}$, we have e.g.:
             \begin{gather*}
-                f_{!,\rmim}([0,1])            = \{0\},\\
-                f_{!,\rmim}([-1,1])           = [0,1],\\
-                f_{!,\rmim}([1,2])            = \emptyset,\\
-                f_{!,\rmim}([-2,-1]\cup[1,2]) = [1,4].
+                f_{*,\rmim}([0,1])            = \{0\},\\
+                f_{*,\rmim}([-1,1])           = [0,1],\\
+                f_{*,\rmim}([1,2])            = \emptyset,\\
+                f_{*,\rmim}([-2,-1]\cup[1,2]) = [1,4].
             \end{gather*}
         \item\label{examples-of-codirect-images-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
             \[
@@ -12448,7 +12448,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $(x,y)\in\R^{2}$. We have
             \[
-                f_{!,\rmcp}(U)%
+                f_{*,\rmcp}(U)%
                 =%
                 \R_{<0}
             \]%
@@ -12464,8 +12464,8 @@ Let $f\colon X\to Y$ be a function.
             \]%
             we have e.g.:
             \begin{gather*}
-                f_{!,\rmim}([-1,1]\times[-1,1])                             = [0,1],\\
-                f_{!,\rmim}(([-1,1]\times[-1,1])\setminus[-1,1]\times\{0\}) = \emptyset.
+                f_{*,\rmim}([-1,1]\times[-1,1])                             = [0,1],\\
+                f_{*,\rmim}(([-1,1]\times[-1,1])\setminus[-1,1]\times\{0\}) = \emptyset.
             \end{gather*}
     \end{enumerate}
 \end{example}
@@ -12732,7 +12732,7 @@ Let $f\colon X\to Y$ be a function.
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-images-i-functoriality} has a symmetric lax monoidal structure
             \[
-                (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
+                (f_{*},f^{\otimes}_{*},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cup,\emptyset)
                 \to
@@ -12741,14 +12741,14 @@ Let $f\colon X\to Y$ be a function.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{!|U,V}   \colon f_{*}(U)\cup f_{*}(V) \hookrightarrow f_{*}(U\cup V),\\
-                    f^{\otimes}_{!|\Unit} \colon \emptyset             \hookrightarrow f_{*}(\emptyset),
+                    f^{\otimes}_{*|U,V}   \colon f_{*}(U)\cup f_{*}(V) \hookrightarrow f_{*}(U\cup V),\\
+                    f^{\otimes}_{*|\Unit} \colon \emptyset             \hookrightarrow f_{*}(\emptyset),
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-images-i-functoriality} has a symmetric strict monoidal structure
             \[
-                (f_{*},f^{\otimes}_{*},f^{\otimes}_{!|\Unit})
+                (f_{*},f^{\otimes}_{*},f^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(X),\cap,X)
                 \to
@@ -12757,8 +12757,8 @@ Let $f\colon X\to Y$ be a function.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{!|U,V}   \colon f_{*}(U\cap V) \rightequalsarrow f_{*}(U)\cap f_{*}(V),\\
-                    f^{\otimes}_{!|\Unit} \colon f_{*}(X)       \rightequalsarrow Y,
+                    f^{\otimes}_{*|U,V}   \colon f_{*}(U\cap V) \rightequalsarrow f_{*}(U)\cap f_{*}(V),\\
+                    f^{\otimes}_{*|\Unit} \colon f_{*}(X)       \rightequalsarrow Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
@@ -12784,18 +12784,18 @@ Let $f\colon X\to Y$ be a function.
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-injections}\SloganFont{Interaction With Injections. }If $f$ is injective, then we have
             \begin{gather*}
-                f_{!,\rmim}(U) = f_{!}(U),\\
-                f_{!,\rmcp}(U) = Y\setminus\Im(f),\\
+                f_{*,\rmim}(U) = f_{!}(U),\\
+                f_{*,\rmcp}(U) = Y\setminus\Im(f),\\
                 \begin{aligned}
-                    f_{*}(U)       &= f_{!,\rmim}(U)\cup f_{!,\rmcp}(U)\\
+                    f_{*}(U)       &= f_{*,\rmim}(U)\cup f_{*,\rmcp}(U)\\
                                    &= f_{!}(U)\cup(Y\setminus\Im(f))
                 \end{aligned}
             \end{gather*}
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
             \begin{align*}
-                f_{!,\rmim}(U) &\subset  f_{!}(U),\\
-                f_{!,\rmcp}(U) &=       \emptyset,\\
+                f_{*,\rmim}(U) &\subset  f_{!}(U),\\
+                f_{*,\rmcp}(U) &=       \emptyset,\\
                 f_{*}(U)       &\subset f_{!}(U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
