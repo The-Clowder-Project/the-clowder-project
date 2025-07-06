@@ -54,7 +54,7 @@
 %--------------------------%
 %--------Definition--------% (Has to be declared before the other environments because of the definition counter)
 %--------------------------%
-\newtcbtheorem[number within=subsection,crefname={Definition}{Definitions}]{tcbdefinition}{\textsc{\bfseries\SmallCapsFont Definition}}{%
+\newtcbtheorem[number within=subsubsection,crefname={Definition}{Definitions}]{tcbdefinition}{\textsc{\bfseries\SmallCapsFont Definition}}{%
     sharp corners,
     left=0.25cm,
     right=0.25cm,
@@ -78,7 +78,7 @@
 }%
 
 \newcommand{\Newtcbtheorem}[5]{%
-    \newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={#2}{#3}]{#4}{\bfseries\textsc{\SmallCapsFont #2}}{%
+    \newtcbtheorem[use counter from=tcbdefinition,number within=subsubsection,crefname={#2}{#3}]{#4}{\bfseries\textsc{\SmallCapsFont #2}}{%
         sharp corners,%
         left=0.25cm,%
         right=0.25cm,%
@@ -121,7 +121,7 @@
 \Newtcbtheorem{gapColor}{Gap}{Gaps}{tcbgap}{gap}
 %
 \newcommand{\NewtcbtheoremTwoColours}[6]{%
-    \newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={#3}{#4}]{#5}{\textsc{\bfseries\SmallCapsFont #3}}{%
+    \newtcbtheorem[use counter from=tcbdefinition,number within=subsubsection,crefname={#3}{#4}]{#5}{\textsc{\bfseries\SmallCapsFont #3}}{%
         %frame style={left color=red!75!black,right color=blue!75!black},
         skin=enhanced,
         frame style={left color=#1,right color=#2},
@@ -154,7 +154,7 @@
 %--------Construction--------%
 %----------------------------%
 \usepackage{pdfrender}
-\newtcbtheorem[use counter from=tcbdefinition,number within=subsection,crefname={Construction}{Constructions}]{tcbconstruction}{\textsc{\bfseries\SmallCapsFont Construction}}{%
+\newtcbtheorem[use counter from=tcbdefinition,number within=subsubsection,crefname={Construction}{Constructions}]{tcbconstruction}{\textsc{\bfseries\SmallCapsFont Construction}}{%
     enhanced,
     sharp corners,
     left=0.25cm,
@@ -398,3 +398,6 @@ separator sign={\ $\blacktriangleright$}%
     \FirstProofBox{#1}
 }%
 \tcbsetforeverylayer{shield externalize}% <--- interim solution before bug fix
+\numberwithin{equation}{subsubsection}
+\renewcommand{\theequation}{\thesubsubsection.\arabic{definition}}
+\let\originalThetcbdefinition\thetcbdefinition

@@ -1785,14 +1785,16 @@ chapters-cm:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py cm "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py cm "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1));
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -1860,14 +1862,16 @@ chapters-alegreya:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/alegreya/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -1935,14 +1939,16 @@ chapters-alegreya-sans:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/alegreya-sans/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2010,14 +2016,16 @@ chapters-crimson-pro:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/crimson-pro/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2085,14 +2093,16 @@ chapters-eb-garamond:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/eb-garamond/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2160,14 +2170,16 @@ chapters-xcharter:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/xcharter/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2235,14 +2247,16 @@ chapters-alegreya-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/alegreya-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2310,14 +2324,16 @@ chapters-alegreya-sans-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/alegreya-sans-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2385,14 +2401,16 @@ chapters-cm-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py cm-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py cm-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/cm-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2460,14 +2478,16 @@ chapters-crimson-pro-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/crimson-pro-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2535,14 +2555,16 @@ chapters-eb-garamond-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/eb-garamond-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2610,14 +2632,16 @@ chapters-xcharter-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/xcharter-tcb/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2692,14 +2716,16 @@ tags-chapters-cm:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2778,14 +2804,16 @@ tags-chapters-alegreya:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2864,14 +2892,16 @@ tags-chapters-alegreya-sans:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2950,14 +2980,16 @@ tags-chapters-crimson-pro:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3036,14 +3068,16 @@ tags-chapters-eb-garamond:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3122,14 +3156,16 @@ tags-chapters-xcharter:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3208,14 +3244,16 @@ tags-chapters-alegreya-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3294,14 +3332,16 @@ tags-chapters-alegreya-sans-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3380,14 +3420,16 @@ tags-chapters-cm-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/cm-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3466,14 +3508,16 @@ tags-chapters-crimson-pro-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3552,14 +3596,16 @@ tags-chapters-eb-garamond-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3638,14 +3684,16 @@ tags-chapters-xcharter-tcb:
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
+		i=1; \
 		for item_basename in $(LIJST); do \
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter-tcb "$${item_basename}"; \
+			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/tags/xcharter-tcb/$${item_basename}.tex"; \
 			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter-tcb/ $${item_basename}; \
+			i=$$((i+1)); \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
