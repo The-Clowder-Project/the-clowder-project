@@ -68,10 +68,11 @@ Let $A$ and $B$ be sets.
         \item\label{relations-3}A function from $A$                                               to $\mathcal{P}(B)$.
         \item\label{relations-4}A function from $B$                                               to $\mathcal{P}(A)$.
         \item\label{relations-5}A cocontinuous morphism of posets from $(\mathcal{P}(A),\subset)$ to $(\mathcal{P}(B),\subset)$.
+        \item\label{relations-6}A continuous morphism of posets from $(\mathcal{P}(B),\supset)$ to $(\mathcal{P}(A),\supset)$.
     \end{enumerate}
 \end{definition}
 \begin{Proof}{Proof of the Equivalences in \cref{relations}}%
-    (We will prove that \cref{relations-1,relations-2,relations-3,relations-4,relations-5} are indeed equivalent in a bit.)
+    (We will prove that \cref{relations-1,relations-2,relations-3,relations-4,relations-5,relations-6} are indeed equivalent in a bit.)
 \end{Proof}
 \begin{remark}{Unwinding \cref{relations-1}, \rmI}{unwinding-relations-1}%
     We may think of a relation $R\colon A\rightproarrow B$ as a function from $A$ to $B$ that is \emph{multivalued}, assigning to each element $a$ in $A$ a set $R(a)$ of elements of $B$, thought of as the \emph{set of values of $R$ at $a$}.
@@ -85,7 +86,8 @@ Let $A$ and $B$ be sets.
                                              &\cong \Sets(A\times B,\TV)\\
                                              &\cong \Sets(A,\mathcal{P}(B))\\
                                              &\cong \Sets(B,\mathcal{P}(A))\\
-                                             &\cong \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
+                                             &\cong \CoContPos(\mathcal{P}(A),\mathcal{P}(B))\\
+                                             &\cong \ContPos(\mathcal{P}(B),\mathcal{P}(A))
     \end{align*}
     natural in $A,B\in\Obj(\Sets)$, where $\mathcal{P}(A)$ and $\mathcal{P}(B)$ are endowed with the poset structure given by inclusion.
 \end{remark}
@@ -120,6 +122,7 @@ Let $A$ and $B$ be sets.
                 \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
             \]%
             is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ from $A$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$, recovering the direct image function $f_{*}\colon\mathcal{P}(A)\to\mathcal{P}(B)$ of $f$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}}.
+        \item\SloganFont{\cref{relations-5}$\iff$\cref{relations-6}: }Omitted.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -189,7 +192,7 @@ Let $A$ and $B$ be sets.
             \emptyset &\text{otherwise.}%
         \end{cases}%
     \]%
-    It is then clear that the conditions for each set to evaluate to $\pt$ (up to isomorphism) are equivalent, implying that those two sets are isomorphic.
+    Since $(a\sim_{R}b\implies a\sim_{S}b)$ \textiff $R\subset S$, the two sets above are isomorphic. This finishes the proof.
 \end{Proof}
 \subsection{Relations as Decategorifications of Profunctors}\label{subsection-relations-as-decategorifications-of-profunctors}
 \begin{remark}{Relations as Decategorifications of Profunctors \rmI}{relations-as-decategorifications-of-profunctors-1}%
@@ -239,8 +242,9 @@ Let $A$ and $B$ be sets.
     \begin{enumerate}
         \item\label{profunctors-equivalent-characterisations-item-1}A                    functor $\mathfrak{p}\colon\CatFont{D}^{\op}\times\CatFont{C}\to\Sets$.
         \item\label{profunctors-equivalent-characterisations-item-2}A                    functor $\mathfrak{p}\colon\CatFont{C}\to\PSh(\CatFont{D})$.
-        \item\label{profunctors-equivalent-characterisations-item-3}A                    functor $\mathfrak{p}\colon\CatFont{D}^{\op}\to\Fun(\CatFont{C},\Sets)$.
+        \item\label{profunctors-equivalent-characterisations-item-3}A                    functor $\mathfrak{p}\colon\CatFont{D}^{\op}\to\CoPSh(\CatFont{C})$.
         \item\label{profunctors-equivalent-characterisations-item-4}A colimit-preserving functor $\mathfrak{p}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$.
+        \item\label{profunctors-equivalent-characterisations-item-5}A   limit-preserving functor $\mathfrak{p}\colon\CoPSh(\CatFont{D})^{\op}\to\CoPSh(\CatFont{C})^{\op}$.
     \end{enumerate}
     Indeed:
     \begin{itemize}
@@ -254,7 +258,7 @@ Let $A$ and $B$ be sets.
                 \Fun(\CatFont{D}^{\op}\times\CatFont{D},\Sets) &\cong \Fun(\CatFont{C},\Fun(\CatFont{D}^{\op},\Sets))\\
                                                                &\cong \Fun(\CatFont{C},\PSh(\CatFont{D})).
             \end{align*}
-        \item The equivalence between \cref{profunctors-equivalent-characterisations-item-1,profunctors-equivalent-characterisations-item-3} follows from the universal properties of:
+        \item The equivalence between \cref{profunctors-equivalent-characterisations-item-2,profunctors-equivalent-characterisations-item-4} follows from the universal properties of:
             \begin{itemize}
                 \item The powerset $\mathcal{P}(X)$ of a set $X$ as the free cocompletion of $X$ via the characteristic embedding
                     \[
@@ -273,7 +277,28 @@ Let $A$ and $B$ be sets.
                         \hookrightarrow
                         \PSh(\CatFont{C})
                     \]%
-                    of $\CatFont{C}$ into $\PSh(\CatFont{C})$, as stated and proved in \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-the-yoneda-embedding-as-the-free-cocompletion} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-the-yoneda-embedding}}{\cref{properties-of-the-yoneda-embedding-as-the-free-cocompletion} of \cref{properties-of-the-yoneda-embedding}}.
+                    of $\CatFont{C}$ into $\PSh(\CatFont{C})$, as stated and proved in \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding-as-the-free-cocompletion} of \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding}}{\cref{properties-of-the-yoneda-embedding-as-the-free-cocompletion} of \cref{properties-of-the-yoneda-embedding}}.
+            \end{itemize}
+        \item The equivalence between \cref{profunctors-equivalent-characterisations-item-3,profunctors-equivalent-characterisations-item-5} follows from the universal properties of:
+            \begin{itemize}
+                \item The powerset $\mathcal{P}(X)$ of a set $X$ as the free completion of $X$ via the characteristic embedding
+                    \[
+                        \chi_{(-)}
+                        \colon
+                        X
+                        \hookrightarrow
+                        \mathcal{P}(X)
+                    \]%
+                    of $X$ into $\mathcal{P}(X)$, as stated and proved in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:powersets-as-free-completions-universal-property}}{\cref{powersets-as-free-completions-universal-property}}.
+                \item The category $\CoPSh(\CatFont{D})^{\op}$ of copresheaves on a category $\CatFont{D}$ as the free completion of $\CatFont{D}$ via the dual Yoneda embedding
+                    \[
+                        \coyo
+                        \colon
+                        \CatFont{D}
+                        \hookrightarrow
+                        \CoPSh(\CatFont{D})^{\op}
+                    \]%
+                    of $\CatFont{D}$ into $\CoPSh(\CatFont{D})^{\op}$, as stated and proved in \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding-as-the-free-completion} of \cref{presheaves-and-the-yoneda-lemma:properties-of-the-yoneda-embedding}}{\cref{properties-of-the-yoneda-embedding-as-the-free-completion} of \cref{properties-of-the-yoneda-embedding}}.
             \end{itemize}
     \end{itemize}
 \end{remark}
