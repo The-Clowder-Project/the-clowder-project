@@ -3992,17 +3992,27 @@ clean:
 	rm -f output/chapters/cm/*; \
 	rm -f output/chapters/alegreya/*; \
 	rm -f output/chapters/alegreya-sans/*; \
-	rm -f output/chapters/alegreya-sans-tcb/*; \
 	rm -f output/chapters/crimson-pro/*; \
 	rm -f output/chapters/eb-garamond/*; \
 	rm -f output/chapters/xcharter/*; \
+	rm -f output/chapters/cm-tcb/*; \
+	rm -f output/chapters/alegreya-tcb/*; \
+	rm -f output/chapters/alegreya-sans-tcb/*; \
+	rm -f output/chapters/crimson-pro-tcb/*; \
+	rm -f output/chapters/eb-garamond-tcb/*; \
+	rm -f output/chapters/xcharter-tcb/*; \
 	rm -f output/tags-chapters/cm/*; \
 	rm -f output/tags-chapters/alegreya/*; \
 	rm -f output/tags-chapters/alegreya-sans/*; \
-	rm -f output/tags-chapters/alegreya-sans-tcb/*; \
 	rm -f output/tags-chapters/crimson-pro/*; \
 	rm -f output/tags-chapters/eb-garamond/*; \
 	rm -f output/tags-chapters/xcharter/*;
+	rm -f output/tags-chapters/cm-tcb/*; \
+	rm -f output/tags-chapters/alegreya-tcb/*; \
+	rm -f output/tags-chapters/alegreya-sans-tcb/*; \
+	rm -f output/tags-chapters/crimson-pro-tcb/*; \
+	rm -f output/tags-chapters/eb-garamond-tcb/*; \
+	rm -f output/tags-chapters/xcharter-tcb/*;
 
 # Target which creates all pdf files of chapters
 .PHONY: pdfs
