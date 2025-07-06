@@ -173,7 +173,7 @@
 % FIX "! Package multicol Error: Error saving partial page."
 % Fix: Before starting a multicols environment, check if there are at least 3 lines of space.
 \usepackage{needspace}
-\AtBeginEnvironment{multicols}{\needspace{3\baselineskip}}
+\AtBeginEnvironment{appendices}{\needspace{3\baselineskip}}
 % FIX END
 \let\oldthesection\thesection
 \renewcommand{\thesection}{\oldthesection}
