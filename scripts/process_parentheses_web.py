@@ -135,6 +135,7 @@ def regex_exceptions(content):
     # to path
     for n in range(0,10):
         content = re.sub(r'to path(.*?)\\webleft\((.*?)\\webright\)', r'to path\1(\2)', content)
+    content = re.sub(r'oldtag}\\webleft\[(.*?)\\webright', r'oldtag}[\1', content)
     # Should be applied last
     content = re.sub(r'\\arrow\\webleft\[', r'\\arrow[', content)
     content = re.sub(r'\\webleft\\webleft', r'\\webleft', content)
