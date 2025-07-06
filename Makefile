@@ -4120,10 +4120,8 @@ NC      := \033[0m    # No Color / Reset
 # Target which clones a static version of the flask server running on 127.0.0.1:5000
 .PHONY: wget-clone
 wget-clone:
-	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
 	rm -rf web-clone; \
-	-mv "127.0.0.1" web-clone; \
-	-mv "127.0.0.1:5000" web-clone; \
+	wget -k -p -E -m --no-host-directories -e robots=off http://127.0.0.1:5000/ -P web-clone || true;
 	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
 	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
 	mkdir -p web-clone/static/scalemath-images/; \
