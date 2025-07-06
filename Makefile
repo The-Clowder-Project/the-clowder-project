@@ -345,6 +345,7 @@ init:
 		echo "-- Compiling preambles."; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
 		echo "-- Creatings directories."; \
+		mkdir -p gerby-website/gerby/static/gifs/dark-mode; \
 		mkdir -p preamble/compiled; \
 		mkdir -p tmp/alegreya-sans-tcb; \
 		mkdir -p tmp/alegreya-tcb; \
@@ -4121,7 +4122,8 @@ NC      := \033[0m    # No Color / Reset
 wget-clone:
 	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
 	rm -rf web-clone; \
-	mv "127.0.0.1" web-clone; \
+	-mv "127.0.0.1" web-clone; \
+	-mv "127.0.0.1:5000" web-clone; \
 	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
 	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
 	mkdir -p web-clone/static/scalemath-images/; \
