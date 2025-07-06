@@ -102,7 +102,7 @@ with open(tex_file) as fp:
                    if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.35em}}") >= 0:
                        line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}"+"\n"
                    if line2.find(r"{\hspace*{1.35em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.1em}}") >= 0:
-                       line2 = r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.4em}}"+"\n"
+                       line2 = r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.8em}}"+"\n"
                    f.write(line2)
            line = fp.readline()
            cnt += 1

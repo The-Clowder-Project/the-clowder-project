@@ -177,3 +177,5 @@
 % If not, break the column first.
 \AtBeginEnvironment{enumerate}{\needspace{3\baselineskip}}
 % FIX END
+\let\oldthesection\thesection
+\renewcommand{\thesection}{\oldthesection}
