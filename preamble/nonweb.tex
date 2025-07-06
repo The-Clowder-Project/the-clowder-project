@@ -171,11 +171,9 @@
 \newcommand{\audio}[1]{See \href{https://www.clowderproject.com/static/audios/#1}{here}.}
 \newcommand{\warningsign}{\includegraphics[width=0.03\textwidth]{ABSOLUTEPATH/pictures/warning.pdf}\xspace}
 % FIX "! Package multicol Error: Error saving partial page."
-\usepackage{etoolbox}
+% Fix: Before starting a multicols environment, check if there are at least 3 lines of space.
 \usepackage{needspace}
-% Before starting a list, check if there are at least 3 lines of space.
-% If not, break the column first.
-\AtBeginEnvironment{enumerate}{\needspace{3\baselineskip}}
+\AtBeginEnvironment{multicols}{\needspace{3\baselineskip}}
 % FIX END
 \let\oldthesection\thesection
 \renewcommand{\thesection}{\oldthesection}
