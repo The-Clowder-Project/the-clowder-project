@@ -1795,7 +1795,7 @@ chapters-cm:
 			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
 			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
-			i=$$((i+1));
+			i=$$((i+1)); \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
