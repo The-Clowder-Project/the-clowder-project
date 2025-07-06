@@ -134,105 +134,145 @@ with open(tex_file) as fp:
                 # Column #2: length for subsection headings
                 # Column #3: length for subsection headings when subsecnum >= 10
                 # Column #4: length for section    headings when chapter number >= 10
-                # Column #5: length for subsection headings when chapter number >= 10 and subsecnum < 10
-                # Column #6: length for section    headings when chapter number >= 10 and subsecnum >= 10
+                # Column #5: length for subsection headings when chapter number >= 10                  and subsecnum < 10
+                # Column #6: length for section    headings when chapter number >= 10                  and subsecnum >= 10
+                # Column #7: length for section    headings when chapter number >= 10 and secnum >= 10
+                # Column #8: length for subsection headings when chapter number >= 10 and secnum >= 10
                 lengths = [ \
-                        [1.65, 2.5,  2.9,  2.15, 2.85, 3.35],# Alegreya
-                        [1.65, 2.5,  2.9,  2.15, 2.85, 3.35],# Alegreya Sans
-                        [1.75, 2.6,  3.0,  2.35, 3.0,  3.55],# Crimson Pro
-                        [2.0,  2.85, 3.15, 2.5,  3.3,  3.7],# Computer Modern
-                        [1.85, 2.5,  2.9,  2.4,  2.9,  3.4],# EB Garamond
-                        [2.0,  2.85, 3.25, 2.6,  3.35, 3.9],# XCharter
+                        [1.65, 2.5,  2.9,  2.15, 2.85, 3.35, 2.5, 3.3],# Alegreya
+                        [1.65, 2.5,  2.9,  2.15, 2.85, 3.35, 2.5, 3.3],# Alegreya Sans
+                        [1.75, 2.6,  3.0,  2.35, 3.0,  3.55, 2.8, 3.45],# Crimson Pro
+                        [2.0,  2.85, 3.15, 2.65, 3.3,  3.7,  3.1, 3.75],# Computer Modern
+                        [1.85, 2.5,  2.9,  2.4,  2.9,  3.4, 2.95, 3.45],# EB Garamond
+                        [2.0,  2.85, 3.25, 2.6,  3.35, 3.9, 3.25, 4.0],# XCharter
                            ]
                 for line2 in modifications:
                     if int(chapter_number) < 10:
-                        # Sections
-                        if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}") >= 0:
-                            if "alegreya" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][0])+r"em}}"+"\n"
-                            elif "alegreya-sans" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][0])+r"em}}"+"\n"
-                            elif "crimson-pro" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][0])+r"em}}"+"\n"
-                            elif "cm" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][0])+r"em}}"+"\n"
-                            elif "eb-garamond" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][0])+r"em}}"+"\n"
-                            elif "xcharter" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][0])+r"em}}"+"\n"
-                        # Subsections
-                        if number_of_subsections < 10:
-                            if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                        if number_of_sections >= 10:
+                            # Doesn't happen at the moment
+                            nothing = "nothing"
+                        else:
+                            # Sections
+                            if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}") >= 0:
                                 if "alegreya" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[0][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][1])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][0])+r"em}}"+"\n"
                                 elif "alegreya-sans" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[1][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][1])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][0])+r"em}}"+"\n"
                                 elif "crimson-pro" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[2][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][1])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][0])+r"em}}"+"\n"
                                 elif "cm" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[3][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][1])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][0])+r"em}}"+"\n"
                                 elif "eb-garamond" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[4][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][1])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][0])+r"em}}"+"\n"
                                 elif "xcharter" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[5][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][1])+r"em}}"+"\n"
-                        else: # i.e. number_of_subsections >= 10:
-                            if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
-                                if "alegreya" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[0][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][2])+r"em}}"+"\n"
-                                elif "alegreya-sans" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[1][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][2])+r"em}}"+"\n"
-                                elif "crimson-pro" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[2][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][2])+r"em}}"+"\n"
-                                elif "cm" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[3][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][2])+r"em}}"+"\n"
-                                elif "eb-garamond" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[4][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][2])+r"em}}"+"\n"
-                                elif "xcharter" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[5][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][2])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][0])+r"em}}"+"\n"
+                            # Subsections
+                            if number_of_subsections < 10:
+                                if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    if "alegreya" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[0][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][1])+r"em}}"+"\n"
+                                    elif "alegreya-sans" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[1][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][1])+r"em}}"+"\n"
+                                    elif "crimson-pro" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[2][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][1])+r"em}}"+"\n"
+                                    elif "cm" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[3][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][1])+r"em}}"+"\n"
+                                    elif "eb-garamond" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[4][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][1])+r"em}}"+"\n"
+                                    elif "xcharter" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[5][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][1])+r"em}}"+"\n"
+                            else: # i.e. number_of_subsections >= 10:
+                                if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    if "alegreya" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[0][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][2])+r"em}}"+"\n"
+                                    elif "alegreya-sans" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[1][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][2])+r"em}}"+"\n"
+                                    elif "crimson-pro" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[2][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][2])+r"em}}"+"\n"
+                                    elif "cm" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[3][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][2])+r"em}}"+"\n"
+                                    elif "eb-garamond" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[4][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][2])+r"em}}"+"\n"
+                                    elif "xcharter" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[5][0])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][2])+r"em}}"+"\n"
                     else: # i.e. chapter_number >= 10:
-                        # Sections
-                        if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}") >= 0:
-                            if "alegreya" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][3])+r"em}}"+"\n"
-                            elif "alegreya-sans" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][3])+r"em}}"+"\n"
-                            elif "crimson-pro" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][3])+r"em}}"+"\n"
-                            elif "cm" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][3])+r"em}}"+"\n"
-                            elif "eb-garamond" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][3])+r"em}}"+"\n"
-                            elif "xcharter" in style:
-                                line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][3])+r"em}}"+"\n"
-                        # Subsections
-                        if number_of_subsections < 10:
-                            if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                        if number_of_sections >= 10:
+                            # Sections
+                            if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}") >= 0:
                                 if "alegreya" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[0][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][4])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][6])+r"em}}"+"\n"
                                 elif "alegreya-sans" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[1][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][4])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][6])+r"em}}"+"\n"
                                 elif "crimson-pro" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[2][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][4])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][6])+r"em}}"+"\n"
                                 elif "cm" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[3][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][4])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][6])+r"em}}"+"\n"
                                 elif "eb-garamond" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[4][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][4])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][6])+r"em}}"+"\n"
                                 elif "xcharter" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[5][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][4])+r"em}}"+"\n"
-                        else: # i.e. number_of_subsections >= 10:
-                            if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][6])+r"em}}"+"\n"
+                            # Subsections
+                            if number_of_subsections < 10:
+                                if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    if "alegreya" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[0][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][7])+r"em}}"+"\n"
+                                    elif "alegreya-sans" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[1][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][7])+r"em}}"+"\n"
+                                    elif "crimson-pro" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[2][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][7])+r"em}}"+"\n"
+                                    elif "cm" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[3][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][7])+r"em}}"+"\n"
+                                    elif "eb-garamond" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[4][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][7])+r"em}}"+"\n"
+                                    elif "xcharter" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[5][6])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][7])+r"em}}"+"\n"
+                            else: # i.e. number_of_subsections >= 10:
+                                # Doesn't happen at the moment
+                                nothing = "nothing"
+                        else:
+                            # Sections
+                            if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}") >= 0:
                                 if "alegreya" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[0][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][3])+r"em}}"+"\n"
                                 elif "alegreya-sans" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[1][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][3])+r"em}}"+"\n"
                                 elif "crimson-pro" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[2][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][3])+r"em}}"+"\n"
                                 elif "cm" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[3][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][3])+r"em}}"+"\n"
                                 elif "eb-garamond" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[4][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][3])+r"em}}"+"\n"
                                 elif "xcharter" in style:
-                                    line2 = r"{\hspace*{"+str(lengths[5][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][5])+r"em}}"+"\n"
+                                    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][3])+r"em}}"+"\n"
+                            # Subsections
+                            if number_of_subsections < 10:
+                                if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    if "alegreya" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[0][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][4])+r"em}}"+"\n"
+                                    elif "alegreya-sans" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[1][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][4])+r"em}}"+"\n"
+                                    elif "crimson-pro" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[2][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][4])+r"em}}"+"\n"
+                                    elif "cm" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[3][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][4])+r"em}}"+"\n"
+                                    elif "eb-garamond" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[4][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][4])+r"em}}"+"\n"
+                                    elif "xcharter" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[5][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][4])+r"em}}"+"\n"
+                            else: # i.e. number_of_subsections >= 10:
+                                if line2.find(r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.5em}}") >= 0:
+                                    if "alegreya" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[0][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[0][5])+r"em}}"+"\n"
+                                    elif "alegreya-sans" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[1][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[1][5])+r"em}}"+"\n"
+                                    elif "crimson-pro" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[2][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[2][5])+r"em}}"+"\n"
+                                    elif "cm" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[3][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[3][5])+r"em}}"+"\n"
+                                    elif "eb-garamond" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[4][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[4][5])+r"em}}"+"\n"
+                                    elif "xcharter" in style:
+                                        line2 = r"{\hspace*{"+str(lengths[5][3])+r"em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{"+str(lengths[5][5])+r"em}}"+"\n"
                     f.write(line2)
             line = fp.readline()
             cnt += 1
