@@ -74,8 +74,8 @@ with open(tex_file) as fp:
                preamble_path = "./preamble/compiled/preamble-xcharter-tcb.tex"
            with open(preamble_path,'r') as preamble:
                for line2 in preamble:
-                   if line2.find("\documentclass") >= 0:
-                       if style == "xcharter" or style == "tags-xcharter":
+                   if line2.find(r"\documentclass") >= 0:
+                       if "xcharter" in style:
                            line2 = r"\documentclass[oneside,11pt]{article}"
                        else:
                            line2 = r"\documentclass[oneside,12pt]{article}"
@@ -99,10 +99,11 @@ with open(tex_file) as fp:
            line = ""
            with open('preamble/chapter_modifications.tex','r') as modifications:
                for line2 in modifications:
-                   if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.35em}}") >= 0:
-                       line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.65em}}"+"\n"
-                   if line2.find(r"{\hspace*{1.35em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.1em}}") >= 0:
-                       line2 = r"{\hspace*{1.65em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.8em}}"+"\n"
+                   # Why was I doing this in RegEx if I can just edit the file?? I think I've got RegEx brainrot at this point... —_—
+                   #if line2.find(r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{1.35em}}") >= 0:
+                   #    line2 = r"{\color{black}\bfseries\textcolor{TitlingRed}{\contentslabel{0.0em}}\hspace*{2.5em}}"+"\n"
+                   #if line2.find(r"{\hspace*{1.35em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{2.1em}}") >= 0:
+                   #    line2 = r"{\hspace*{2.5em}\color{ToCGrey}{\contentslabel{0.0em}}\hspace*{3.75em}}"+"\n"
                    f.write(line2)
            line = fp.readline()
            cnt += 1

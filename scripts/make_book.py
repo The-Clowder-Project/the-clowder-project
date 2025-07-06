@@ -114,7 +114,7 @@ def print_preamble(path,style,stacks=False):
                 line = line.replace("stacks-project", "stacks-project-book")
         else:
             if line.find("\\documentclass") >= 0:
-                if style == "xcharter":
+                if "xcharter" in style:
                     line = "\\documentclass[oneside,11pt,a4paper]{book}\n"
                 elif style == "web":
                     line = "\\documentclass[oneside,12pt,a4paper]{book}\n\\usepackage{amsmath}"
