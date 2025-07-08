@@ -5,6 +5,7 @@
 # Master list of stems of tex files in the project.
 # This should be in order.
 LIJST = introduction \
+        a-guide-to-the-literature \
         sets \
 		constructions-with-sets \
 		monoidal-structures-on-the-category-of-sets \
@@ -4130,10 +4131,10 @@ NC      := \033[0m    # No Color / Reset
 # Target which clones a static version of the flask server running on 127.0.0.1:5000
 .PHONY: wget-clone
 wget-clone:
+	wget -k -p -E -m -e robots=off http://127.0.0.1:5000/ || true;
 	rm -rf web-clone; \
-	wget k -p -E -m --no-host-directories -e robots=off http://127.0.0.1:5000/ -P web-clone || true;
-	find web-clone -name "*.html" -exec sed -i 's|href="[^"]*">Stacks Project</a>|href="https://stacks.math.columbia.edu/">Stacks Project</a>|g' {} + ; \
-	find web-clone -name "*.html" -exec sed -i -e 's|href="/browse"|href="browse.html"|g' -e 's|href="/bibliography"|href="bibliography.html"|g' -e 's|href="/contributors"|href="contributors.html"|g' -e 's|href="/donations"|href="donations.html"|g' -e 's|href="/changes"|href="changes.html"|g' {} +; \
+	-mv "127.0.0.1" web-clone; \
+	-mv "127.0.0.1:5000" web-clone; \
 	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
 	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
 	mkdir -p web-clone/static/scalemath-images/; \
