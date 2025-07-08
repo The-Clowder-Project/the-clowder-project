@@ -4131,7 +4131,8 @@ NC      := \033[0m    # No Color / Reset
 .PHONY: wget-clone
 wget-clone:
 	rm -rf web-clone; \
-	wget -k -p -E -m --no-host-directories -e robots=off http://127.0.0.1:5000/ -P web-clone || true;
+	wget k -p -E -m --no-host-directories -e robots=off http://127.0.0.1:5000/ -P web-clone || true;
+	find web-clone -name "*.html" -exec sed -i 's|href="[^"]*">Stacks Project</a>|href="https://stacks.math.columbia.edu/">Stacks Project</a>|g' {} + ; \
 	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
 	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
 	mkdir -p web-clone/static/scalemath-images/; \
