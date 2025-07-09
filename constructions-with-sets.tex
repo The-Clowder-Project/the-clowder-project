@@ -11481,7 +11481,7 @@ Let $f\colon X\to Y$ be a function.
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric strict monoidal structure
             \[
-                (f_{!},f^{\otimes}_{!},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{!},f^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(X),\cup,\emptyset)
                 \to
@@ -11490,14 +11490,14 @@ Let $f\colon X\to Y$ be a function.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{!}(U)\cup f_{!}(V) \rightequalsarrow f_{!}(U\cup V),\\
-                    f^{\otimes}_{*|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
+                    f^{\otimes}_{!|U,V}   \colon f_{!}(U)\cup f_{!}(V) \rightequalsarrow f_{!}(U\cup V),\\
+                    f^{\otimes}_{!|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-images-i-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-images-i-functoriality} has a symmetric oplax monoidal structure
             \[
-                (f_{!},f^{\otimes}_{!},f^{\otimes}_{*|\Unit})
+                (f_{!},f^{\otimes}_{!},f^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(X),\cap,X)
                 \to
@@ -11506,8 +11506,8 @@ Let $f\colon X\to Y$ be a function.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    f^{\otimes}_{*|U,V}   \colon f_{!}(U\cap V) \hookrightarrow f_{!}(U)\cap f_{!}(V),\\
-                    f^{\otimes}_{*|\Unit} \colon f_{!}(X)       \hookrightarrow Y,
+                    f^{\otimes}_{!|U,V}   \colon f_{!}(U\cap V) \hookrightarrow f_{!}(U)\cap f_{!}(V),\\
+                    f^{\otimes}_{!|\Unit} \colon f_{!}(X)       \hookrightarrow Y,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
@@ -12409,7 +12409,7 @@ Let $f\colon X\to Y$ be a function.
 \begin{example}{Examples of Codirect Images}{examples-of-codirect-images}%
     Here are some examples of codirect images.
     \begin{enumerate}
-        \item\label{examples-of-codirect-images-multiplication-by-two}\SloganFont{The Multiplication by Two Map on the Natural Numbers. }Consider the function $f\colon\N\to\N$ given by
+        \item\label{examples-of-codirect-images-multiplication-by-two}\SloganFont{Multiplication by Two. }Consider the function $f\colon\N\to\N$ given by
             \[
                 f(n)
                 \defeq
@@ -12420,7 +12420,12 @@ Let $f\colon X\to Y$ be a function.
                 f_{*,\rmim}(U) &= f_{!}(U)\\
                 f_{*,\rmcp}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
-            for any $U\subset\N$.
+            for any $U\subset\N$. In particular, we have
+            \[
+                f_{*}(\{\text{even natural numbers}\})%
+                =%
+                \N.%
+            \]%
         \item\label{examples-of-codirect-images-parabolas}\SloganFont{Parabolas. }Consider the function $f\colon\R\to\R$ given by
             \[
                 f(x)%
@@ -12435,10 +12440,13 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for any $U\subset\R$. Moreover, since $f^{-1}(x)=\{-\sqrt{x},\sqrt{x}\}$, we have e.g.:
             \begin{gather*}
-                f_{*,\rmim}([0,1])            = \{0\},\\
-                f_{*,\rmim}([-1,1])           = [0,1],\\
-                f_{*,\rmim}([1,2])            = \emptyset,\\
-                f_{*,\rmim}([-2,-1]\cup[1,2]) = [1,4].
+                \begin{aligned}
+                    f_{*,\rmim}([0,1])        &= \{0\},\\
+                    f_{*,\rmim}([-1,1])       &= [0,1],\\
+                    f_{*,\rmim}([1,2])        &= \emptyset,
+                \end{aligned}
+                \\
+                f_{*,\rmim}([-2,-1]\cup[1,2])  = [1,4].
             \end{gather*}
         \item\label{examples-of-codirect-images-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
             \[
@@ -12786,18 +12794,24 @@ Let $f\colon X\to Y$ be a function.
             \begin{gather*}
                 f_{*,\rmim}(U) = f_{!}(U),\\
                 f_{*,\rmcp}(U) = Y\setminus\Im(f),\\
-                \begin{aligned}
-                    f_{*}(U)       &= f_{*,\rmim}(U)\cup f_{*,\rmcp}(U)\\
-                                   &= f_{!}(U)\cup(Y\setminus\Im(f))
-                \end{aligned}
             \end{gather*}
+            and so
+            \begin{align*}
+                f_{*}(U) &= f_{*,\rmim}(U)\cup f_{*,\rmcp}(U)\\
+                         &= f_{!}(U)\cup(Y\setminus\Im(f))
+            \end{align*}
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
             \begin{align*}
                 f_{*,\rmim}(U) &\subset  f_{!}(U),\\
                 f_{*,\rmcp}(U) &=       \emptyset,\\
-                f_{*}(U)       &\subset f_{!}(U)
             \end{align*}
+            and so
+            \[
+                f_{*}(U)%
+                \subset%
+                f_{!}(U)%
+            \]%
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-codirect-images-i-}\SloganFont{. }
     \end{enumerate}
@@ -12996,7 +13010,7 @@ Let $f\colon X\to Y$ be a function.
     }%
     %---  End Footnote  ---%
 \end{remark}
-\begin{proposition}{A Six Functor Formalism for Sets}{a-six-functor-formalism-for-sets}%
+\begin{proposition}{A Six-Functor Formalism for Sets}{a-six-functor-formalism-for-sets}%
     Let $X$ be a set.
     \begin{enumerate}
         \item\label{a-six-functor-formalism-for-sets-the-beck-chevalley-condition}\SloganFont{The Beck--Chevalley Condition. }Let
