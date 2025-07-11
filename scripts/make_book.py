@@ -185,11 +185,34 @@ def print_preamble(path,style,stacks=False):
     preamble.close()
     return
 
-# Print names contributors
-def print_list_contrib(path):
+# Prints the current supporters
+def print_list_supporters(path):
+    # Read supporters
+    filename = path + 'SUPPORTERS'
+    SUPPORTERS = open(filename, 'r')
+    supporters = []
+    for line in SUPPORTERS:
+        if line.find("%") == 0:
+            continue
+        if len(line.rstrip()) == 0:
+            continue
+        supporter = line.rstrip()
+        supporter = supporter.replace("(", "(\\begin{CJK}{UTF8}{min}")
+        supporter = supporter.replace(")", "\\end{CJK})")
+        supporters.append(supporter)
+    SUPPORTERS.close()
+    # Print supporters
+    print("\\begin{enumerate}")
+    for supporter in supporters:
+        print("    \\item " + supporter)
+    print("\\end{enumerate}")
+
+# Prints the project contributors
+def print_list_contributors(path):
+    # Read contributors
     filename = path + 'CONTRIBUTORS'
     CONTRIBUTORS = open(filename, 'r')
-    first = 1
+    contributors = []
     for line in CONTRIBUTORS:
         if line.find("%") == 0:
             continue
@@ -198,14 +221,13 @@ def print_list_contrib(path):
         contributor = line.rstrip()
         contributor = contributor.replace("(", "(\\begin{CJK}{UTF8}{min}")
         contributor = contributor.replace(")", "\\end{CJK})")
-        if first:
-            contributors = contributor
-            first = 0
-            continue
-        contributors = contributors + ", " + contributor
+        contributors.append(contributor)
     CONTRIBUTORS.close()
-    contributors = contributors + "."
-    print(contributors)
+    # Print contributors
+    print("\\begin{enumerate}")
+    for contributor in contributors:
+        print("    \\item " + contributor)
+    print("\\end{enumerate}")
 
 def main(style):
     absolute_path = preprocess.absolute_path()
@@ -243,6 +265,7 @@ def main(style):
     print("\\begin{document}")
     print("\\frontmatter")
     print("\\includepdf[pages={1}, scale=1.0, pagecommand={\\thispagestyle{empty}}]{"+absolute_path+"/titlepage/titlepage.pdf}")
+    # Clowder Contributors
     print("\\newpage")
     print("\\thispagestyle{empty}")
     print("\\begin{center}")
@@ -253,13 +276,32 @@ def main(style):
     print("\\end{center}")
     print("\\vspace{1cm}")
     print("\\begin{center}")
-    print(version(absolute_path+"/"))
+    print(version_no_kern(absolute_path+"/"))
     print("\\end{center}")
     print("\\vspace{3cm}")
     print("\\begin{center}")
     print("The following people have contributed to this project: ")
-    print_list_contrib(absolute_path+"/")
     print("\\end{center}")
+    print_list_contributors(absolute_path+"/")
+    # Clowder Supporters
+    print("\\newpage")
+    print("\\thispagestyle{empty}")
+    print("\\begin{center}")
+    print("\\end{center}")
+    print("\\vspace{3cm}")
+    print("\\begin{center}")
+    print("{\LARGE\\textbf{The Clowder Project Supporters}}")
+    print("\\end{center}")
+    print("\\vspace{1cm}")
+    print("\\begin{center}")
+    print(version_no_kern(absolute_path+"/"))
+    print("\\end{center}")
+    print("\\vspace{3cm}")
+    print("\\begin{center}")
+    print("The following people currently support this project: ")
+    print("\\end{center}")
+    print_list_supporters(absolute_path+"/")
+    # ToC
     print("\\dominitoc")
     print("\\begingroup")
     print("\\hypersetup{hidelinks}")

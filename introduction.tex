@@ -92,6 +92,10 @@ For an outline of several introductory references for different topics in catego
 All kinds of feedback and contributions to the Clowder Project are extremely welcome: pointing out typos, errors, historical remarks, references, layout of webpages, spelling errors, improvements to the overall structure, missing lemmas, etc.
 
 The Clowder Project has an \href{https://discord.gg/b98uG2MWgc}{official Discord server} in which people can ask questions, carry out discussions and give feedback. Please join it if you'd like to contribute to the Clowder Project. Alternatively, you may also reach out to the project maintainer at \href{mailto:emily.de.oliveira.santos.tmf@gmail.com}{\code{emily.de.oliveira.santos.tmf@gmail.com}}.
+\subsubsection{How to Contribute}\label{subsubsection-how-to-contribute}
+There's a number of ways to contribute to the Clowder Project, some of which will be detailed a bit below. However, please keep in mind that they are not just examples, and are most definitely not meant to be exhaustive.
+
+If there's another way in which you'd like to contribute, by all means feel free to drop by the project's Discord (or, alternatively, reach out to the project maintainer).
 \subsubsection{Ways to Contribute: Missing Proofs}\label{subsubsection-ways-to-contribute-missing-proofs}
 There is a large number of missing proofs in the project, ranging from trivial proofs to simple lemmas to more involved results.
 
@@ -109,11 +113,30 @@ Missing proofs are listed in \cref{subsection-list-of-omitted-proofs}.
 \subsubsection{Ways to Contribute: Missing Examples}\label{subsubsection-ways-to-contribute-missing-examples}
 New examples to the Clowder Project are always welcome. These could be examples illustrating a new concept, examples showing why certain conditions are necessary in a given proof, counterexamples to be aware of, etc.
 
-Some examples which would be particularly nice to have in Clowder are listed in \cref{subsection-list-of-missing-examples}.
+Some examples which would be particularly nice to have in Clowder are listed in \cref{subsection-list-of-missing-examples}. Please do keep in mind however that \demph{all examples are welcome}, even if they fall outside the examples listed in \cref{subsection-list-of-missing-examples}.
 \subsubsection{Ways to Contribute: Questions}\label{subsubsection-ways-to-contribute-questions}
-A number of questions appear throughout the Clowder Project; tackling these would be a great way to contribute to the project.
+A number of questions appear throughout the Clowder Project; tackling these would be an amazing way to contribute to the project.
 
 The questions appearing throughout the Clowder Project are listed in \cref{subsection-list-of-questions}.
+\subsection{Frequently Asked Questions}\label{subsection-frequently-asked-questions}
+\subsubsection{How does Clowder differ from the nLab?}\label{subsubsection-how-does-clowder-differ-from-the-nlab}
+Clowder is meant to be much more comprehensive than the nLab, which includes even filling a number of gaps in the category theory literature. Additionally, it also has a different set of goals and stylistic choices. For a more in-depth explanation, see \cref{subsection-project-description-and-goals}.
+\subsubsection{Why not just use the nLab instead?}\label{subsubsection-why-not-just-use-the-nlab-instead}
+There are a number of reasons why Clowder was built as a separate project, instead of e.g.\ just editing the nLab:
+\begin{enumerate}
+    \item\label{why-not-just-use-the-nlab-instead-curation}\SloganFont{Curation. }All content on Clowder is personally curated by the project maintainer. This ensures an even quality to everything in the project.
+    \item\label{why-not-just-use-the-nlab-instead-cohesion}\SloganFont{Cohesion. }As a consequence of \cref{why-not-just-use-the-nlab-instead-curation}, the Clowder Project ends up being much more cohesive than the nLab, having a clear and coherent organization, consistent notation and conventions, as well as a consistent style.
+    \item\label{why-not-just-use-the-nlab-instead-}\SloganFont{Referenceability. }Clowder employs Gerby's Tag system, meaning that every citable statement in Clowder (e.g.\ definitions, examples, constructions, propositions, remarks, even individual items in lists, etc.) carries a corresponding tag.
+
+        \indent This makes the project easy to cite and reference, since although the numbering of e.g.\ a given definition may change, its associated tag will forever be the same. See also \href{https://clowderproject.com/tags.html}{Clowder --- The Tag System}.
+    \item\label{why-not-just-use-the-nlab-instead-crowdsourcing-and-crowdfunding}\SloganFont{Crowdsourcing and Crowdfunding. }Clowder is meant to be a crowdfunded project in which the community can help directly finance its development. As a result, the project has a dedicated project maintainer whose role is to continuously take care of the project, coordinating contributions, developing infrastructure, and expanding the content of the project.
+    \item\label{why-not-just-use-the-nlab-instead-infraststructure}\SloganFont{Infrastructure. }The Clowder Project makes use of several very specific features which simply wouldn't be possible to implement in the nLab. This includes:
+        \begin{enumerate}
+            \item\label{why-not-just-use-the-nlab-instead-infraststructure-gerby-website}An elaborate \href{https://github.com/The-Clowder-Project/gerby-website}{fork} of \href{https://github.com/gerby-project/gerby-website}{\code{gerby-website}}, implementing a variety of new features and quality-of-life additions.
+            \item\label{why-not-just-use-the-nlab-instead-infraststructure-gerby}Another elaborate \href{https://github.com/The-Clowder-Project/plastex}{fork}, this time of \href{https://github.com/gerby-project/plastex}{Gerby} (which is itself a fork of \href{https://github.com/plastex/plastex}{plasTeX}), implement a number of similarly needed features for the website to work as intended.
+        \end{enumerate}
+        See \cref{subsubsection-gerby-and-the-tags-system} for a (slightly) more in-depth description of the features and additions that have been created specifically for Clowder.
+\end{enumerate}
 \subsection{Goodies}\label{subsection-goodies}
 In this section we list a few sample nice results and things from the Clowder Project.
 \subsubsection{General Utility}\label{subsubsection-goodies-general-utility}
@@ -185,19 +208,21 @@ Expressions like \say{it is clear that}, \say{it is straightforward to show that
 \subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
 \subsubsection{Removed Features (in Comparison With the Stacks Project)}\label{subsubsection-removed-features-in-comparison-with-the-stacks-project}
 A few features present in the general infrastructure of the Stacks Project were removed in Clowder, including:
-\begin{itemize}
-    \item The python back-end, in favour of static pages.
-    \item The comment system, as a result of the static nature of the website.
-\end{itemize}
+\begin{enumerate}
+    \item \label{subsubsection-removed-features-in-comparison-with-the-stacks-project-1}The python back-end, in favour of static pages.
+    \item \label{subsubsection-removed-features-in-comparison-with-the-stacks-project-2}The comment system, as a result of the static nature of the website.
+\end{enumerate}
 \subsubsection{Gerby and the Tags System}\label{subsubsection-gerby-and-the-tags-system}
-Clowder is built using \href{https://gerby-project.github.io/}{Gerby}, similarly to the \href{https://stacks.math.columbia.edu/}{Stacks Project}. However, a number of additional features not implemented in plasTeX were required by Clowder, including:
-\begin{itemize}
-    \item Clowder uses \code{tcbtheorem}-like environments, which affects the placement of footnotes (which are often used).
-    \item There are a few aesthetic changes in Clowder’s HTML/CSS structure, including font selection as well as a dark mode.
-    \item \code{tikz-cd} diagrams are very frequently used, and they need to be separately compiled and converted to \code{svg} files.
-    \item Clowder is automatically built using \href{https://github.com/The-Clowder-Project/the-clowder-project/actions}{GitHub actions}.
-    \item Non-sectioning tags are rendered differently and shown in context (\href{https://clowderproject.com/tag/012A.html}{example}).
-\end{itemize}
+Clowder is built using \href{https://gerby-project.github.io/}{Gerby}, similarly to the \href{https://stacks.math.columbia.edu/}{Stacks Project}. However, a number of additional features and quality-of-life additions not implemented in plasTeX or Gerby were required by Clowder, including:
+\begin{enumerate}
+    \item\label{subsubsection-gerby-and-the-tags-system-1}Clowder uses \code{tcbtheorem}-like environments, which affects the placement of footnotes (which are often used).
+    \item\label{subsubsection-gerby-and-the-tags-system-2}Clowder implements a \href{https://en.wikipedia.org/wiki/Bourbaki_dangerous_bend_symbol}{dangerous bend} symbol to help visually highlight warnings (\href{https://www.clowderproject.com/tag/0225.html}{example}).
+    \item\label{subsubsection-gerby-and-the-tags-system-3}There are a few aesthetic changes in Clowder’s HTML/CSS structure, including font selection as well as a dark mode.
+    \item\label{subsubsection-gerby-and-the-tags-system-4}\code{tikz-cd} diagrams are very frequently used, and they need to be separately compiled and converted to \code{svg} files.
+    \item\label{subsubsection-gerby-and-the-tags-system-5}Code in Clowder can be copied easily using a \say{Copy} button, with code for bibliography entries also having proper syntax highlighting (\href{https://www.clowderproject.com/bibliography/borceux1994handbook1.html}{example}).
+    \item\label{subsubsection-gerby-and-the-tags-system-6}Clowder is automatically built using \href{https://github.com/The-Clowder-Project/the-clowder-project/actions}{GitHub actions}.
+    \item\label{subsubsection-gerby-and-the-tags-system-7}Non-sectioning tags are rendered differently and shown in context (\href{https://clowderproject.com/tag/012A.html}{example}).
+\end{enumerate}
 These have been implemented using a \href{https://github.com/The-Clowder-Project/plastex}{fork} of Gerby along with a few build scripts.
 \subsubsection{Placeholder Symbols and Future Style}\label{subsubsection-placeholder-symbols-and-future-style}
 Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result.

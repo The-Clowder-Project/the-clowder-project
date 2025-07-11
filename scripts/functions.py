@@ -424,6 +424,14 @@ def version(path):
     now = date.today()
     version = git_version(path)
     return r"V\kern-1.0ptersion " + version.decode("utf-8") + ", compiled on " + now.strftime('%h %d, %Y.')
+
+# version no kern
+def version_no_kern(path):
+    from datetime import date
+    now = date.today()
+    version = git_version(path)
+    return r"Version " + version.decode("utf-8") + ", compiled on " + now.strftime('%h %d, %Y.')
+
 # Print version and date
 def print_version(path):
     from datetime import date
