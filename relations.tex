@@ -64,6 +64,35 @@ This chapter contains some material about relations. Notably, we discuss and exp
         \end{enumerate}
     \item\label{relations-introduction-item-5}A description of two notions of \say{skew composition} on $\eRel(A,B)$, giving rise to left and right skew monoidal structures analogous to the left skew monoidal structure on $\Fun(\CatFont{C},\CatFont{D})$ appearing in the definition of a relative monad (\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}).
 \end{enumerate}
+TODO:
+\begin{enumerate}
+    \item Define apartness composition
+    \item Revise \cref{subsection-categories-of-relations}
+    \item Replicate \cref{subsection-categories-of-relations} for apartness composition
+    \item Revise \cref{section-properties-of-the-2-category-of-relations}
+        \begin{enumerate}
+            \item Add modules over monads in $\sfbfRel$
+            \item internal relations, \url{https://ncatlab.org/nlab/show/internal+relation}
+            \item Co/limits in $\sfbfRel$.
+            \item Codensity monad $\Ran_{J}(J)$ of a relation (What about $\Rift_{J}(J)$?)
+                \begin{enumerate}
+                    \item Density comonad $\Lan_{J}(J)$ of a relation when it exists (what about $\Lift_{J}(J)$?)
+                \end{enumerate}
+            \item Fibrations in $\sfbfRel$, like discrete fibrations and Street fibrations
+        \end{enumerate}
+    \item Replicate \cref{section-properties-of-the-2-category-of-relations} for apartness composition
+    \item Revise \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
+    \item Add subsection \say{A Six Functor Formalism for Sets, Part 2}, now with relations, building upon \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}.
+    \item Revise sections on skew monoidal structures on $\eRel(A,B)$
+    \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
+    \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
+    \item Consider adding the sections
+        \begin{itemize}
+            \item The Monoidal Bicategory of Relations
+            \item The Monoidal Double Category of Relations
+        \end{itemize}
+        to \ChapterRelations.
+\end{enumerate}
 
 \ChapterTableOfContents
 
@@ -427,7 +456,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 \chi_{B}\procirc R &= R,\\
                 R\procirc\chi_{A}  &= R.
             \end{align*}
-        \item\label{properties-of-composition-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (S\procirc R)^{\dagger}
                 =
@@ -532,13 +561,87 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{itemize}
     \end{itemize}
 
-    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
     Clear.
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-composition}: Interaction With Composition}%
     Clear.
 \end{Proof}
 \subsection{Apartness Composition of Relations}\label{subsection-apartness-composition-of-relations}
+Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
+\begin{definition}{Apartness Composition of Relations}{apartness-composition-of-relations}%
+    The \index[set-theory]{relation!apartness composition of}\textbf{apartness composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\aptcirc R$}$S\aptcirc R$ defined as follows:%
+    \begin{itemize}
+        \item Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
+            \[
+                S\aptcirc R
+                \defeq
+                \{%
+                    (a,c)\in A\times C%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $b\in B$, we have}\\
+                        &\text{$a\sim_{R}b$ or $b\sim_{S}c$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item Viewing relations as functions $A\times B\to\TV$, we define
+            \begin{align*}
+                (S\aptcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}\\%
+                                              &=      \bigwedge_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}},%
+            \end{align*}
+            where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
+        \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+            \begin{webcompile}
+                S\aptcirc R%
+                \defeq%
+                \Ran_{\chi_{B}}(S)\circ R,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[r, "S",""{name=S,pos=0.7}]%
+                    \arrow[d, "\chi_{B}"', hook]%
+                    \&%
+                    \mathcal{P}(C)\mrp{,}%
+                    \\%
+                    A%
+                    \arrow[r, "R"']%
+                    \&%
+                    \mathcal{P}(B)%
+                    \arrow[ru, "\Ran_{\chi_{B}}(S)"', bend right=10]%
+                    \&
+                    % 2-Arrows
+                    \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Leftarrow]%
+                \end{tikzcd}%
+            \end{webcompile}
+            where $\Ran_{\chi_{B}}(S)$ is computed by the formula
+            \begin{align*}
+                [\Ran_{\chi_{B}}(S)](V) &\cong \int^{y\in B}\chi_{\mathcal{P}(B)}(\chi_{y},V)\odot S_{y}\\
+                                        &\cong \int^{y\in B}\chi_{V}(y)\odot S_{y}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
+                                        &\cong \bigcup_{y\in B}\chi_{V}(y)\odot S_{y}\\
+                                        &\cong \bigcup_{y\in V}S_{y}
+            \end{align*}
+            for each $V\in\mathcal{P}(B)$. In other words, $S\aptcirc R$ is defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                That is: the relation $R$ may send $a\in A$ to a number of elements $\{b_{i}\}_{i\in I}$ in $B$, and then the relation $S$ may send the image of each of the $b_{i}$'s to a number of elements
+                \[
+                    \{S(b_{i})\}_{i\in I}%
+                    =%
+                    \{\{c_{j_{i}}\}_{j_{i}\in J_{i}}\}_{i\in I}%
+                \]%
+                in $C$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{align*}
+                [S\aptcirc R](a) &\defeq S(R(a))\\
+                                 &\defeq \bigcup_{x\in R(a)}S(x).
+            \end{align*}
+            for each $a\in A$.
+    \end{itemize}
+\end{definition}
 \subsection{The Converse of a Relation}\label{subsection-the-converse-of-a-relation}
 Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
 \begin{definition}{The Converse of a Relation}{the-converse-of-a-relation}%
@@ -576,22 +679,22 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             for each $b\in B$, where $R^{\dagger}(\{b\})$ is the fibre of $R$ over $\{b\}$.
     \end{itemize}
 \end{definition}
-\begin{example}{Examples of Inverses of Relations}{examples-of-inverses-of-relations}%
-    Here are some examples of inverses of relations.
+\begin{example}{Examples of Converses of Relations}{examples-of-converses-of-relations}%
+    Here are some examples of converses of relations.
     \begin{enumerate}
-        \item\label{examples-of-inverses-of-relations-less-than-equal-signs}\SloganFont{Less Than Equal Signs. }We have $(\mathord{\leq})^{\dagger}=\mathord{\geq}$.
-        \item\label{examples-of-inverses-of-relations-greater-than-equal-signs}\SloganFont{Greater Than Equal Signs. }Dually to \cref{examples-of-inverses-of-relations-less-than-equal-signs}, we have $(\mathord{\geq})^{\dagger}=\mathord{\leq}$.
-        \item\label{examples-of-inverses-of-relations-functions}\SloganFont{Functions. }Let $f\colon A\to B$ be a function. We have
+        \item\label{examples-of-converses-of-relations-less-than-equal-signs}\SloganFont{Less Than Equal Signs. }We have $(\mathord{\leq})^{\dagger}=\mathord{\geq}$.
+        \item\label{examples-of-converses-of-relations-greater-than-equal-signs}\SloganFont{Greater Than Equal Signs. }Dually to \cref{examples-of-converses-of-relations-less-than-equal-signs}, we have $(\mathord{\geq})^{\dagger}=\mathord{\leq}$.
+        \item\label{examples-of-converses-of-relations-functions}\SloganFont{Functions. }Let $f\colon A\to B$ be a function. We have
             \begin{align*}
                 \Gr(f)^{\dagger}   &= f^{-1},\\
                 (f^{-1})^{\dagger} &= \Gr(f).
             \end{align*}
     \end{enumerate}
 \end{example}
-\begin{proposition}{Properties of Inverses of Relations}{properties-of-inverses-of-relations}%
+\begin{proposition}{Properties of Converses of Relations}{properties-of-converses-of-relations}%
     Let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
     \begin{enumerate}
-        \item\label{properties-of-inverses-of-relations-functoriality}\SloganFont{Functoriality. }The assignment $R\mapsto R^{\dagger}$ defines a functor (i.e.\ morphism of posets)
+        \item\label{properties-of-converses-of-relations-functoriality}\SloganFont{Functoriality. }The assignment $R\mapsto R^{\dagger}$ defines a functor (i.e.\ morphism of posets)
             \[
                 (-)^{\dagger}%
                 \colon%
@@ -603,54 +706,54 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             \begin{itemize}
                 \itemstar If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
             \end{itemize}
-        \item\label{properties-of-inverses-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+        \item\label{properties-of-converses-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
                 \dom(R^{\dagger})   &= \range(R),\\
                 \range(R^{\dagger}) &= \dom(R).
             \end{align*}
-        \item\label{properties-of-inverses-of-relations-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }We have
+        \item\label{properties-of-converses-of-relations-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }We have
             \[
                 (S\procirc R)^{\dagger}
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
-        \item\label{properties-of-inverses-of-relations-interaction-with-composition-2}\SloganFont{Interaction With Composition \rmII. }We have
+        \item\label{properties-of-converses-of-relations-interaction-with-composition-2}\SloganFont{Interaction With Composition \rmII. }We have
             \begin{align*}
                 \chi_{B} &\subset R\procirc R^{\dagger},\\
                 \chi_{A} &\subset R^{\dagger}\procirc R.
             \end{align*}
-        \item\label{properties-of-inverses-of-relations-invertibility}\SloganFont{Invertibility. }We have
+        \item\label{properties-of-converses-of-relations-invertibility}\SloganFont{Invertibility. }We have
             \[
                 (R^{\dagger})^{\dagger}
                 =
                 R.
             \]%
-        \item\label{properties-of-inverses-of-relations-identity}\SloganFont{Identity. }We have
+        \item\label{properties-of-converses-of-relations-identity}\SloganFont{Identity. }We have
             \[
                 \chi^{\dagger}_{A}
                 =
                 \chi_{A}.
             \]%
-        %\item\label{properties-of-inverses-of-relations-}\SloganFont{. }
+        %\item\label{properties-of-converses-of-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-inverses-of-relations}}%
-    \FirstProofBox{\cref{properties-of-inverses-of-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-converses-of-relations}}%
+    \FirstProofBox{\cref{properties-of-converses-of-relations-functoriality}: Functoriality}%
     Clear.
 
-    \ProofBox{\cref{properties-of-inverses-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
     Clear.
 
-    \ProofBox{\cref{properties-of-inverses-of-relations-interaction-with-composition-1}: Interaction With Composition \rmI}%
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-composition-1}: Interaction With Composition \rmI}%
     Clear.
 
-    \ProofBox{\cref{properties-of-inverses-of-relations-interaction-with-composition-2}: Interaction With Composition \rmII}%
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-composition-2}: Interaction With Composition \rmII}%
     Clear.
 
-    \ProofBox{\cref{properties-of-inverses-of-relations-invertibility}: Invertibility}%
+    \ProofBox{\cref{properties-of-converses-of-relations-invertibility}: Invertibility}%
     Clear.
 
-    \ProofBox{\cref{properties-of-inverses-of-relations-identity}: Identity}%
+    \ProofBox{\cref{properties-of-converses-of-relations-identity}: Identity}%
     Clear.
 \end{Proof}
 \section{Examples of Relations}\label{section-examples-of-relations}
@@ -893,7 +996,7 @@ Let $f\colon A\to B$ be a function.
             \begin{webcompile}
                 \RelAdjunctionShortSize#4.0#\Gr(f)#f^{-1}#A#B#
             \end{webcompile}%
-            in $\sfbfRel$, where $f^{-1}$ is the inverse of $f$ of \cref{the-inverse-of-a-function}.
+            in $\sfbfRel$, where $f^{-1}$ is the converse of $f$ of \cref{the-converse-of-a-function}.
         \item\label{properties-of-graphs-of-functions-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#\Gr#\mathcal{P}_{!}#\Sets#\Rel,#
@@ -905,7 +1008,7 @@ Let $f\colon A\to B$ be a function.
                 \Sets(A,\mathcal{P}(B))
             \]%
             natural in $A\in\Obj(\Sets)$ and $B\in\Obj(\Rel)$.
-        \item\label{properties-of-graphs-of-functions-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-graphs-of-functions-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \begin{align*}
                 \Gr(f)^{\dagger}   &= f^{-1},\\
                 (f^{-1})^{\dagger} &= \Gr(f).
@@ -941,7 +1044,7 @@ Let $f\colon A\to B$ be a function.
     \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
     The stated bijection follows from \ChapterRef{\ChapterRelations, \cref{relations:equivalent-definitions-of-relations}}{\cref{equivalent-definitions-of-relations}}, with naturality being clear.
 
-    \ProofBox{\cref{properties-of-graphs-of-functions-interaction-with-inverses}: Interaction With Inverses}%
+    \ProofBox{\cref{properties-of-graphs-of-functions-interaction-with-converses}: Interaction With Converses}%
     Clear.
 
     \ProofBox{\cref{properties-of-graphs-of-functions-cocontinuity}: Cocontinuity}%
@@ -1073,7 +1176,7 @@ Let $f\colon A\to B$ be a function.
                 \RelAdjunctionShortSize#4.0#\Gr(f)#f^{-1}#A#B#
             \end{webcompile}%
             in $\sfbfRel$.
-        \item\label{properties-of-inverses-of-functions-interaction-with-inverses-of-relations}\SloganFont{Interaction With Inverses of Relations. }We have
+        \item\label{properties-of-inverses-of-functions-interaction-with-converses-of-relations}\SloganFont{Interaction With Converses of Relations. }We have
             \begin{align*}
                 (f^{-1})^{\dagger} &= \Gr(f),\\
                 \Gr(f)^{\dagger}   &= f^{-1}.
@@ -1088,7 +1191,7 @@ Let $f\colon A\to B$ be a function.
     \ProofBox{\cref{properties-of-inverses-of-functions-adjointness-inside-sfbfrel}: Adjointness Inside $\sfbfRel$}%
     This is proved in \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}.
 
-    \ProofBox{\cref{properties-of-inverses-of-functions-interaction-with-inverses-of-relations}: Interaction With Inverses of Relations}%
+    \ProofBox{\cref{properties-of-inverses-of-functions-interaction-with-converses-of-relations}: Interaction With Converses of Relations}%
     Clear.
 \end{Proof}
 \subsection{Representable Relations}\label{subsection-representable-relations}

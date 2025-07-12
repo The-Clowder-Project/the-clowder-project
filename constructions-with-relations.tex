@@ -15,7 +15,7 @@
 This chapter contains some material about constructions with relations. Notably, we discuss and explore:
 \begin{enumerate}
     \item\label{constructions-with-relations-introduction-item-1}The existence or non-existence of Kan extensions and Kan lifts in the $2$-category $\sfbfRel$ (\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}).
-    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, inverse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
+    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, converse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -336,7 +336,7 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
 \begin{proposition}{Properties of Binary Unions of Relations}{properties-of-binary-unions-of-relations}%
     Let $R$, $S$, $R_{1}$, and $R_{2}$ be relations from $A$ to $B$, and let $S_{1}$ and $S_{2}$ be relations from $B$ to $C$.
     \begin{enumerate}
-        \item\label{properties-of-binary-unions-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-binary-unions-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (R\cup S)^{\dagger}
                 =
@@ -356,7 +356,7 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-binary-unions-of-relations}}%
-    \FirstProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \FirstProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-converses}: Interaction With Converses}%
     Clear.
 
     \ProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-composition}: Interaction With Composition}%
@@ -423,7 +423,7 @@ Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations fr
 \begin{proposition}{Properties of Unions of Families of Relations}{properties-of-unions-of-families-of-relations}%
     Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
     \begin{enumerate}
-        \item\label{properties-of-unions-of-families-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-unions-of-families-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (\bigcup_{i\in I}R_{i})^{\dagger}
                 =
@@ -443,7 +443,7 @@ Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations fr
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-unions-of-families-of-relations}}%
-    \FirstProofBox{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \FirstProofBox{\cref{properties-of-unions-of-families-of-relations-interaction-with-converses}: Interaction With Converses}%
     Clear.
 \end{Proof}
 \subsection{Binary Intersections of Relations}\label{subsection-binary-intersections-of-relations}
@@ -487,7 +487,7 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
 \begin{proposition}{Properties of Binary Intersections of Relations}{properties-of-binary-intersections-of-relations}%
     Let $R$, $S$, $R_{1}$, and $R_{2}$ be relations from $A$ to $B$, and let $S_{1}$ and $S_{2}$ be relations from $B$ to $C$.
     \begin{enumerate}
-        \item\label{properties-of-binary-intersections-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-binary-intersections-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (R\cap S)^{\dagger}
                 =
@@ -507,7 +507,7 @@ Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-binary-intersections-of-relations}}%
-    \FirstProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \FirstProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-converses}: Interaction With Converses}%
     Clear.
 
     \ProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-composition}: Interaction With Composition}%
@@ -574,7 +574,7 @@ Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations fr
 \begin{proposition}{Properties of Intersections of Families of Relations}{properties-of-intersections-of-families-of-relations}%
     Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
     \begin{enumerate}
-        \item\label{properties-of-intersections-of-families-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }We have
+        \item\label{properties-of-intersections-of-families-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (\bigcap_{i\in I}R_{i})^{\dagger}
                 =
@@ -584,7 +584,7 @@ Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations fr
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-intersections-of-families-of-relations}}%
-    \FirstProofBox{\cref{properties-of-intersections-of-families-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \FirstProofBox{\cref{properties-of-intersections-of-families-of-relations-interaction-with-converses}: Interaction With Converses}%
     Clear.
 \end{Proof}
 \subsection{Binary Products of Relations}\label{subsection-binary-products-of-relations}
@@ -626,7 +626,7 @@ Let $A$, $B$, $X$, and $Y$ be sets, let $R\colon A\rightproarrow B$ be a relatio
 \begin{proposition}{Properties of Binary Products of Relations}{properties-of-binary-products-of-relations}%
     Let $A$, $B$, $X$, and $Y$ be sets.
     \begin{enumerate}
-        \item\label{properties-of-binary-products-of-relations-interaction-with-inverses}\SloganFont{Interaction With Inverses. }Let
+        \item\label{properties-of-binary-products-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }Let
             \begin{align*}
                 R &\colon A\rightproarrow A,\\
                 S &\colon X\rightproarrow X
@@ -654,7 +654,7 @@ Let $A$, $B$, $X$, and $Y$ be sets, let $R\colon A\rightproarrow B$ be a relatio
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-binary-products-of-relations}}%
-    \FirstProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-inverses}: Interaction With Inverses}%
+    \FirstProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-converses}: Interaction With Converses}%
     Unwinding the definitions, we see that:
     \begin{itemize}
         \item We have $(a,x)\sim_{(R\times S)^{\dagger}}(b,y)$ \textiff:
