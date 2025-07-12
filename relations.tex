@@ -64,9 +64,14 @@ This chapter contains some material about relations. Notably, we discuss and exp
         \end{enumerate}
     \item\label{relations-introduction-item-5}A description of two notions of \say{skew composition} on $\eRel(A,B)$, giving rise to left and right skew monoidal structures analogous to the left skew monoidal structure on $\Fun(\CatFont{C},\CatFont{D})$ appearing in the definition of a relative monad (\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}).
 \end{enumerate}
-TODO:
+This chapter is under revision. TODO:
 \begin{enumerate}
     \item Define apartness composition
+    \item Examples:
+        \begin{enumerate}
+            \item partial functions
+            \item hyperring examples (tropical, Berkovich, etc.)
+        \end{enumerate}
     \item Revise \cref{subsection-categories-of-relations}
     \item Replicate \cref{subsection-categories-of-relations} for apartness composition
     \item Revise \cref{section-properties-of-the-2-category-of-relations}
@@ -93,6 +98,7 @@ TODO:
             \item The Monoidal Double Category of Relations
         \end{itemize}
         to \ChapterRelations.
+    \item functional total relations defined with \say{satisfying the following equivalent conditions:}
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -201,6 +207,98 @@ Let $A$ and $B$ be sets.
             %---  End Footnote  ---%
     \end{enumerate}
 \end{notation}
+\begin{example}{The Trivial Relation}{the-trivial-relation}%
+    The \index[set-theory]{relation!trivial}\textbf{trivial relation on $A$ and $B$} is the relation \index[notation]{simtriv@$\unsim_{\triv}$}$\unsim_{\triv}$ defined equivalently as follows:
+    \begin{enumerate}
+        \item\label{the-trivial-relation-1}As a subset of $A\times B$, we have
+            \[
+                \unsim_{\triv}%
+                \defeq%
+                A\times B.%
+            \]%
+        \item\label{the-trivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
+            \[%
+                \Delta_{\true}%
+                \colon%
+                A\times B%
+                \to%
+                \TV%
+            \]%
+            from $A\times B$ to $\TV$ taking the value $\true$.
+        \item\label{the-trivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
+            \[%
+                \Delta_{\true}%
+                \colon%
+                A%
+                \to%
+                \mathcal{P}(B)%
+            \]%
+            defined by
+            \[
+                \Delta_{\true}(a)%
+                \defeq%
+                B%
+            \]%
+            for each $a\in A$.
+        \item\label{the-trivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
+    \end{enumerate}
+\end{example}
+\begin{example}{The Cotrivial Relation}{the-cotrivial-relation}%
+    The \index[set-theory]{relation!cotrivial}\textbf{cotrivial relation on $A$ and $B$} is the relation \index[notation]{simcotriv@$\unsim_{\cotriv}$}$\unsim_{\cotriv}$ defined equivalently as follows:%
+    \begin{enumerate}
+        \item\label{the-cotrivial-relation-1}As a subset of $A\times B$, we have
+            \[
+                \unsim_{\cotriv}%
+                \defeq%
+                \emptyset.%
+            \]%
+        \item\label{the-cotrivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
+            \[%
+                \Delta_{\false}%
+                \colon%
+                A\times B%
+                \to%
+                \TV%
+            \]%
+            from $A\times B$ to $\TV$ taking the value $\false$.
+        \item\label{the-cotrivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
+            \[%
+                \Delta_{\false}%
+                \colon%
+                A%
+                \to%
+                \mathcal{P}(B)%
+            \]%
+            defined by
+            \[
+                \Delta_{\false}(a)%
+                \defeq%
+                \emptyset%
+            \]%
+            for each $a\in A$.
+        \item\label{the-cotrivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
+    \end{enumerate}
+\end{example}
+\begin{example}{The Characteristic Relation of a Set}{the-characteristic-relation}%
+    The characteristic relation
+    \[%
+        \chi_{X}(-_{1},-_{2})%
+        \colon%
+        X\times X%
+        \to%
+        \TTV%
+    \]%
+    on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-relation-of-a-set}}{\cref{the-characteristic-relation-of-a-set}}, defined by%
+    \[
+        \chi_{X}(x,y)
+        \defeq
+        \begin{cases}
+            \true  &\text{if $x=y$,}\\
+            \false &\text{if $x\neq y$}
+        \end{cases}
+    \]%
+    for each $x,y\in X$, is another example of a relation.
+\end{example}
 \begin{proposition}{Properties of Relations}{properties-of-relations}%
     Let $A$ and $B$ be sets and let $R,S\colon A\rightproarrow B$ be relations.
     \begin{enumerate}
@@ -418,7 +516,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             %---  End Footnote  ---%
             \begin{align*}
                 [S\procirc R](a) &\defeq S(R(a))\\
-                                 &\defeq \bigcup_{x\in R(a)}S(x).
+                                 &\defeq \bigcup_{b\in R(a)}S(b).
             \end{align*}
             for each $a\in A$.
     \end{itemize}
@@ -593,58 +691,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
         \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define
-            \begin{webcompile}
-                S\aptcirc R%
-                \defeq%
-                \Ran_{\chi_{B}}(S)\circ R,%
-                \quad%
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \&%
-                    B%
-                    \arrow[r, "S",""{name=S,pos=0.7}]%
-                    \arrow[d, "\chi_{B}"', hook]%
-                    \&%
-                    \mathcal{P}(C)\mrp{,}%
-                    \\%
-                    A%
-                    \arrow[r, "R"']%
-                    \&%
-                    \mathcal{P}(B)%
-                    \arrow[ru, "\Ran_{\chi_{B}}(S)"', bend right=10]%
-                    \&
-                    % 2-Arrows
-                    \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Leftarrow]%
-                \end{tikzcd}%
-            \end{webcompile}
-            ...maybe?
             \[
-                \bigcap_{b\in B\setminus R(a)}S(b)
+                [S\aptcirc R](a)%
+                \defeq%
+                \bigcap_{b\in B\setminus R(a)}S(b)%
             \]%
-            %where $\Ran_{\chi_{B}}(S)$ is computed by the formula
-            %\begin{align*}
-            %    [\Ran_{\chi_{B}}(S)](V) &\cong \int_{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S_{b}\\
-            %                            &\cong \int_{b\in B}\chi_{V}(b)\odot S_{b}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
-            %                            &\cong \bigcap_{b\in B}\chi_{V}(b)\odot S_{b}\\
-            %                            &\cong \bigcap_{b\in V}S_{b}
-            %\end{align*}
-            %for each $V\in\mathcal{P}(B)$. In other words, $S\aptcirc R$ is defined by%
-            %%--- Begin Footnote ---%
-            %\footnote{%
-            %    That is: the relation $R$ may send $a\in A$ to a number of elements $\{b_{i}\}_{i\in I}$ in $B$, and then the relation $S$ may send the image of each of the $b_{i}$'s to a number of elements
-            %    \[
-            %        \{S(b_{i})\}_{i\in I}%
-            %        =%
-            %        \{\{c_{j_{i}}\}_{j_{i}\in J_{i}}\}_{i\in I}%
-            %    \]%
-            %    in $C$.
-            %    \par\vspace*{\TCBBoxCorrection}
-            %}%
-            %%---  End Footnote  ---%
-            %\begin{align*}
-            %    [S\aptcirc R](a) &\defeq S(R(a))\\
-            %                     &\defeq \bigcup_{x\in R(a)}S(x).
-            %\end{align*}
-            %for each $a\in A$.
     \end{itemize}
 \end{definition}
 \subsection{The Converse of a Relation}\label{subsection-the-converse-of-a-relation}
@@ -763,98 +814,7 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
 \end{Proof}
 \section{Examples of Relations}\label{section-examples-of-relations}
 \subsection{Elementary Examples of Relations}\label{subsection-elementary-examples-of-relations}
-\begin{example}{The Trivial Relation}{the-trivial-relation}%
-    The \index[set-theory]{relation!trivial}\textbf{trivial relation on $A$ and $B$} is the relation \index[notation]{simtriv@$\unsim_{\triv}$}$\unsim_{\triv}$ defined equivalently as follows:
-    \begin{enumerate}
-        \item\label{the-trivial-relation-1}As a subset of $A\times B$, we have
-            \[
-                \unsim_{\triv}%
-                \defeq%
-                A\times B.%
-            \]%
-        \item\label{the-trivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
-            \[%
-                \Delta_{\true}%
-                \colon%
-                A\times B%
-                \to%
-                \TV%
-            \]%
-            from $A\times B$ to $\TV$ taking the value $\true$.
-        \item\label{the-trivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
-            \[%
-                \Delta_{\true}%
-                \colon%
-                A%
-                \to%
-                \mathcal{P}(B)%
-            \]%
-            defined by
-            \[
-                \Delta_{\true}(a)%
-                \defeq%
-                B%
-            \]%
-            for each $a\in A$.
-        \item\label{the-trivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
-    \end{enumerate}
-\end{example}
-\begin{example}{The Cotrivial Relation}{the-cotrivial-relation}%
-    The \index[set-theory]{relation!cotrivial}\textbf{cotrivial relation on $A$ and $B$} is the relation \index[notation]{simcotriv@$\unsim_{\cotriv}$}$\unsim_{\cotriv}$ defined equivalently as follows:%
-    \begin{enumerate}
-        \item\label{the-cotrivial-relation-1}As a subset of $A\times B$, we have
-            \[
-                \unsim_{\cotriv}%
-                \defeq%
-                \emptyset.%
-            \]%
-        \item\label{the-cotrivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
-            \[%
-                \Delta_{\false}%
-                \colon%
-                A\times B%
-                \to%
-                \TV%
-            \]%
-            from $A\times B$ to $\TV$ taking the value $\false$.
-        \item\label{the-cotrivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
-            \[%
-                \Delta_{\false}%
-                \colon%
-                A%
-                \to%
-                \mathcal{P}(B)%
-            \]%
-            defined by
-            \[
-                \Delta_{\false}(a)%
-                \defeq%
-                \emptyset%
-            \]%
-            for each $a\in A$.
-        \item\label{the-cotrivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
-    \end{enumerate}
-\end{example}
-\begin{example}{The Characteristic Relation of a Set}{the-characteristic-relation}%
-    The characteristic relation
-    \[%
-        \chi_{X}(-_{1},-_{2})%
-        \colon%
-        X\times X%
-        \to%
-        \TTV%
-    \]%
-    on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-relation-of-a-set}}{\cref{the-characteristic-relation-of-a-set}}, defined by%
-    \[
-        \chi_{X}(x,y)
-        \defeq
-        \begin{cases}
-            \true  &\text{if $x=y$,}\\
-            \false &\text{if $x\neq y$}
-        \end{cases}
-    \]%
-    for each $x,y\in X$, is another example of a relation.
-\end{example}
+% TODO: Examples in TODO
 \begin{example}{Square Roots}{square-roots}%
     Square roots are examples of relations:
     \begin{enumerate}
