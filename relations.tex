@@ -403,12 +403,12 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{webcompile}
             where $\Lan_{\chi_{B}}(S)$ is computed by the formula
             \begin{align*}
-                [\Lan_{\chi_{B}}(S)](V) &\cong \int^{y\in B}\chi_{\mathcal{P}(B)}(\chi_{y},V)\odot S_{y}\\
-                                                   &\cong \int^{y\in B}\chi_{V}(y)\odot S_{y}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
-                                                   &\cong \bigcup_{y\in B}\chi_{V}(y)\odot S_{y}\\
-                                                   &\cong \bigcup_{y\in V}S_{y}
+                [\Lan_{\chi_{B}}(S)](V) &\cong \int^{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S_{b}\\
+                                        &\cong \int^{b\in B}\chi_{V}(b)\odot S_{b}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
+                                        &\cong \bigcup_{b\in B}\chi_{V}(b)\odot S_{b}\\
+                                        &\cong \bigcup_{b\in V}S_{b}
             \end{align*}
-            for each $V\in\mathcal{P}(B)$. In other words, $S\procirc R$ is defined by%
+            for each $V\in\mathcal{P}(B)$, so we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is: the relation $R$ may send $a\in A$ to a number of elements $\{b_{i}\}_{i\in I}$ in $B$, and then the relation $S$ may send the image of each of the $b_{i}$'s to a number of elements $\{S(b_{i})\}_{i\in I}=\{\{c_{j_{i}}\}_{j_{i}\in J_{i}}\}_{i\in I}$ in $C$.
@@ -615,31 +615,37 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                     \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Leftarrow]%
                 \end{tikzcd}%
             \end{webcompile}
-            where $\Ran_{\chi_{B}}(S)$ is computed by the formula
-            \begin{align*}
-                [\Ran_{\chi_{B}}(S)](V) &\cong \int^{y\in B}\chi_{\mathcal{P}(B)}(\chi_{y},V)\odot S_{y}\\
-                                        &\cong \int^{y\in B}\chi_{V}(y)\odot S_{y}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
-                                        &\cong \bigcup_{y\in B}\chi_{V}(y)\odot S_{y}\\
-                                        &\cong \bigcup_{y\in V}S_{y}
-            \end{align*}
-            for each $V\in\mathcal{P}(B)$. In other words, $S\aptcirc R$ is defined by%
-            %--- Begin Footnote ---%
-            \footnote{%
-                That is: the relation $R$ may send $a\in A$ to a number of elements $\{b_{i}\}_{i\in I}$ in $B$, and then the relation $S$ may send the image of each of the $b_{i}$'s to a number of elements
-                \[
-                    \{S(b_{i})\}_{i\in I}%
-                    =%
-                    \{\{c_{j_{i}}\}_{j_{i}\in J_{i}}\}_{i\in I}%
-                \]%
-                in $C$.
-                \par\vspace*{\TCBBoxCorrection}
-            }%
-            %---  End Footnote  ---%
-            \begin{align*}
-                [S\aptcirc R](a) &\defeq S(R(a))\\
-                                 &\defeq \bigcup_{x\in R(a)}S(x).
-            \end{align*}
-            for each $a\in A$.
+            ...maybe?
+            \[
+                \bigcap_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}%
+                \bigcap_{b\in B}S(b)\cup R(a)
+                S(R(a))\cap (B\setminus R(a))
+            \]%
+            %where $\Ran_{\chi_{B}}(S)$ is computed by the formula
+            %\begin{align*}
+            %    [\Ran_{\chi_{B}}(S)](V) &\cong \int_{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S_{b}\\
+            %                            &\cong \int_{b\in B}\chi_{V}(b)\odot S_{b}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
+            %                            &\cong \bigcap_{b\in B}\chi_{V}(b)\odot S_{b}\\
+            %                            &\cong \bigcap_{b\in V}S_{b}
+            %\end{align*}
+            %for each $V\in\mathcal{P}(B)$. In other words, $S\aptcirc R$ is defined by%
+            %%--- Begin Footnote ---%
+            %\footnote{%
+            %    That is: the relation $R$ may send $a\in A$ to a number of elements $\{b_{i}\}_{i\in I}$ in $B$, and then the relation $S$ may send the image of each of the $b_{i}$'s to a number of elements
+            %    \[
+            %        \{S(b_{i})\}_{i\in I}%
+            %        =%
+            %        \{\{c_{j_{i}}\}_{j_{i}\in J_{i}}\}_{i\in I}%
+            %    \]%
+            %    in $C$.
+            %    \par\vspace*{\TCBBoxCorrection}
+            %}%
+            %%---  End Footnote  ---%
+            %\begin{align*}
+            %    [S\aptcirc R](a) &\defeq S(R(a))\\
+            %                     &\defeq \bigcup_{x\in R(a)}S(x).
+            %\end{align*}
+            %for each $a\in A$.
     \end{itemize}
 \end{definition}
 \subsection{The Converse of a Relation}\label{subsection-the-converse-of-a-relation}
@@ -3628,7 +3634,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
-    The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rstar@$R^{*}$}%
+    The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rshriek@$R^{"!}$}%
     \[%
         R_{!}%
         \colon%
@@ -3637,6 +3643,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \mathcal{P}(B)%
     \]%
     defined by\index[notation]{RU@$R(U)$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }The set $R_{!}(U)$ is also denoted $R(U)$.
+    }%
+    %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }The set $R(U)$ is called the \textbf{direct image of $U$ by $R$}.
@@ -3655,8 +3666,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        R_{!}(U) &\defeq R(U)\\%
-                 &\defeq \bigcup_{a\in U}R(a)\\
+        R_{!}(U) &\defeq \bigcup_{a\in U}R(a)\\
                  &=      \{%
                              b\in B%
                              \ \middle|\ %
@@ -4689,7 +4699,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \subsection{Codirect Images}\label{subsection-codirect-images-relations}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{definition}{Codirect Images}{the-codirect-image-function-associated-to-a-relation}%
-    The \index[set-theory]{relation!associated codirect image function}\textbf{codirect image function associated to $R$} is the function\index[notation]{Rshriek@$R_{"!}$}%
+    The \index[set-theory]{relation!associated codirect image function}\textbf{codirect image function associated to $R$} is the function\index[notation]{Rstar@$R_{*}$}%
     \[%
         R_{*}%
         \colon%
@@ -4697,7 +4707,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \to%
         \mathcal{P}(B)%
     \]%
-    defined by\index[notation]{RshriekU@$R_{"!}(U)$}%
+    defined by\index[notation]{RstarU@$R_{*}(U)$}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }The set $R_{*}(U)$ is called the \textbf{codirect image of $U$ by $R$}.
@@ -5070,7 +5080,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \end{Proof}
 \subsection{Functoriality of Powersets}\label{subsection-functoriality-of-powersets}
 \begin{proposition}{Functoriality of Powersets \rmI}{functoriality-of-powersets-1}%
-    The assignment $X\mapsto\mathcal{P}(X)$ defines functors\index[notation]{Pstar@$\mathcal{P}_{!}$}\index[notation]{Pminusone@$\mathcal{P}^{-1}$}\index[notation]{Pshriek@$\mathcal{P}_{"!}$}%
+    The assignment $X\mapsto\mathcal{P}(X)$ defines functors\index[notation]{Pshriek@$\mathcal{P}_{"!}$}\index[notation]{Pminusone@$\mathcal{P}^{-1}$}\index[notation]{Pstar@$\mathcal{P}_{*}$}%
     %--- Begin Footnote ---%
     \footnote{%
         The functor $\mathcal{P}_{!}\colon\Rel\to\Sets$ admits a left adjoint; see \cref{properties-of-graphs-of-functions-adjointness} of \cref{properties-of-graphs-of-functions}.
