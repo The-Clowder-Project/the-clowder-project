@@ -20,6 +20,85 @@ This chapter contains some material about reflexive, symmetric, transitive, equi
 
 \ChapterTableOfContents
 
+\section{Functional and Total Relations}\label{section-functional-and-total-relations}
+\subsection{Functional Relations}\label{subsection-functional-relations}
+Let $A$ and $B$ be sets.
+\begin{definition}{Functional Relations}{functional-relations}%
+    A relation $R\colon A\rightproarrow B$ is \index[set-theory]{relation!functional}\textbf{functional} if, for each $a\in A$, the set $R(a)$ is either empty or a singleton.
+\end{definition}
+\begin{proposition}{Properties of Functional Relations}{properties-of-functional-relations}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{properties-of-functional-relations-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-functional-relations-characterisations-1}The relation $R$ is functional.
+                \item\label{properties-of-functional-relations-characterisations-2}We have $R\procirc R^{\dagger}\subset\chi_{B}$.
+            \end{enumerate}
+        %\item\label{properties-of-functional-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-functional-relations}}%
+    \FirstProofBox{\cref{properties-of-functional-relations-characterisations}: Characterisations}%
+    We claim that \cref{properties-of-functional-relations-characterisations-1,properties-of-functional-relations-characterisations-2} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-functional-relations-characterisations-1}$\implies$\cref{properties-of-functional-relations-characterisations-2}: }Let $(b,b')\in B\times B$. We need to show that
+            \[
+                [R\procirc R^{\dagger}](b,b')%
+                \preceq_{\TTV}%
+                \chi_{B}(b,b'),%
+            \]%
+            i.e.\ that if there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, then $b=b'$. But since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, we have both $a\sim_{R}b$ and $a\sim_{R}b'$ at the same time, which implies $b=b'$ since $R$ is functional.
+        \item\SloganFont{\cref{properties-of-functional-relations-characterisations-2}$\implies$\cref{properties-of-functional-relations-characterisations-1}: }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
+            \begin{itemize}
+                \item Since $a\sim_{R}b$, we have $b\sim_{R^{\dagger}}a$.
+                \item Since $R\procirc R^{\dagger}\subset\chi_{B}$, we have
+                    \[
+                        [R\procirc R^{\dagger}](b,b')%
+                        \preceq_{\TTV}%
+                        \chi_{B}(b,b'),%
+                    \]%
+                    and since $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, it follows that $[R\procirc R^{\dagger}](b,b')=\true$, and thus $\chi_{B}(b,b')=\true$ as well, i.e.\ $b=b'$.
+            \end{itemize}
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
+\subsection{Total Relations}\label{subsection-total-relations}
+Let $A$ and $B$ be sets.
+\begin{definition}{Total Relations}{total-relations}%
+    A relation $R\colon A\rightproarrow B$ is \index[set-theory]{relation!total}\textbf{total} if, for each $a\in A$, we have $R(a)\neq\emptyset$.
+\end{definition}
+\begin{proposition}{Properties of Total Relations}{properties-of-total-relations}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{properties-of-total-relations-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-total-relations-characterisations-1}The relation $R$ is total.
+                \item\label{properties-of-total-relations-characterisations-2}We have $\chi_{A}\subset R^{\dagger}\procirc R$.
+            \end{enumerate}
+        %\item\label{properties-of-total-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-total-relations}}%
+    \FirstProofBox{\cref{properties-of-total-relations-characterisations}: Characterisations}%
+    We claim that \cref{properties-of-total-relations-characterisations-1,properties-of-total-relations-characterisations-2} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-total-relations-characterisations-1}$\implies$\cref{properties-of-total-relations-characterisations-2}: }We have to show that, for each $(a,a')\in A$, we have
+            \[
+                \chi_{A}(a,a')%
+                \preceq_{\TTV}%
+                [R^{\dagger}\procirc R](a,a'),%
+            \]%
+            i.e.\ that if $a=a'$, then there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a'$ (i.e.\ $a\sim_{R}b$ again), which follows from the totality of $R$.
+        \item\SloganFont{\cref{properties-of-total-relations-characterisations-2}$\implies$\cref{properties-of-total-relations-characterisations-1}: }Given $a\in A$, since $\chi_{A}\subset R^{\dagger}\procirc R$, we must have
+            \[
+                \{a\}%
+                \subset%
+                [R^{\dagger}\procirc R](a),%
+            \]%
+            implying that there must exist some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a$ (i.e.\ $a\sim_{R}b$) and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \section{Reflexive Relations}\label{section-reflexive-relations}
 \subsection{Foundations}\label{subsection-reflexive-relations-foundations}
 Let $A$ be a set.
