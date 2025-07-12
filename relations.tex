@@ -40,6 +40,28 @@ This chapter contains some material about relations. Notably, we discuss and exp
             \item\label{relations-introduction-item-4m}The closedness of $\sfbfRel$ (\cref{closedness-of-rel}).
             \item\label{relations-introduction-item-4n}The identification of $\sfbfRel$ with the category of free algebras of the powerset monad on $\Sets$ (\cref{rel-as-a-category-of-free-algebras}).
         \end{enumerate}
+    \item\label{relations-introduction-item-3}The adjoint pairs% TODO: FIX LABEL NUMBERING
+        \begin{align*}
+            R_{!}  \dashv R_{-1} &\colon \mathcal{P}(A) \rightleftarrows \mathcal{P}(B),\\
+            R^{-1} \dashv R_{*}  &\colon \mathcal{P}(B) \rightleftarrows \mathcal{P}(A)
+        \end{align*}
+        of functors (morphisms of posets) between $\mathcal{P}(A)$ and $\mathcal{P}(B)$ induced by a relation $R\colon A\rightproarrow B$, as well as the properties of $R_{!}$, $R_{-1}$, $R^{-1}$, and $R_{*}$ (\cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}).
+
+        Of particular note are the following points:
+        \begin{enumerate}
+            \item\label{relations-introduction-item-3a}These two pairs of adjoint functors are the counterpart for relations of the adjoint triple $f_{!}\dashv f^{-1}\dashv f_{*}$ induced by a function $f\colon A\to B$ studied in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}{\cref{section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}.
+            \item\label{relations-introduction-item-3b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}).
+            \item\label{relations-introduction-item-3c}As a consequence of the previous item, when $R$ comes from a function $f$, the pair of adjunctions
+                \[
+                    R_{!}\dashv R_{-1}=R^{-1}\dashv R_{*}%
+                \]%
+                reduces to the triple adjunction
+                \[
+                    f_{!}\dashv f^{-1}\dashv f_{*}%
+                \]%
+                from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}{\cref{section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}.
+            \item\label{relations-introduction-item-3d}The pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$ turn out to be rather important later on, as they appear in the definition and study of continuous, open, and closed relations between topological spaces (\ChapterRef{\ChapterTopologicalSpaces, \cref{topological-spaces:section-relations-between-topological-spaces}}{\cref{section-relations-between-topological-spaces}}).
+        \end{enumerate}
     \item\label{relations-introduction-item-5}A description of two notions of \say{skew composition} on $\eRel(A,B)$, giving rise to left and right skew monoidal structures analogous to the left skew monoidal structure on $\Fun(\CatFont{C},\CatFont{D})$ appearing in the definition of a relative monad (\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}).
 \end{enumerate}
 
@@ -2693,7 +2715,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                 \mathcal{P}(B)%
             \]%
             associated to $R$ is injective.
-        \item\label{characterisations-of-monomorphisms-in-rel-3}The direct image with compact support function
+        \item\label{characterisations-of-monomorphisms-in-rel-3}The codirect image function
             \[
                 R_{*}%
                 \colon%
@@ -2714,7 +2736,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel}}%
-    Firstly note that \cref{characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2} are also equivalent:
+    Firstly note that \cref{characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2} are also equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
             \[
@@ -2953,7 +2975,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             is also true. We proceed step by step:
             \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{*}(U)\subset R_{*}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}, we have
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-codirect-image-functions-associated-to-relations}}{\cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations}}, we have
                     \begin{align*}
                         R_{*}(U) &= B\setminus R_{!}(A\setminus U),\\
                         R_{*}(V) &= B\setminus R_{!}(A\setminus V).
@@ -2973,7 +2995,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             is also true. We proceed step by step:
             \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{!}(U)\subset R_{!}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
                     \begin{align*}
                         R_{!}(U) &= B\setminus R_{*}(A\setminus U),\\
                         R_{!}(V) &= B\setminus R_{*}(A\setminus V).
@@ -3499,7 +3521,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \begin{Proof}{Proof of \cref{rel-as-a-category-of-free-algebras}}%
     Omitted.
 \end{Proof}
-\section{Functoriality of Powersets}\label{section-functoriality-of-powersets}
+\section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
@@ -3525,7 +3547,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             =%
             B\setminus R_{*}(A\setminus U);
         \]%
-        see \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}.
+        see \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -3669,7 +3691,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
-        \item\label{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support}\SloganFont{Relation to Direct Images With Compact Support. }We have
+        \item\label{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images}\SloganFont{Relation to Codirect Images. }We have
             \[
                 R_{!}(U)%
                 =%
@@ -3698,8 +3720,8 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}: Symmetric Oplax Monoidality With Respect to Intersections}%
     This follows from \cref{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support}: Relation to Direct Images With Compact Support}%
-    The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-direct-images-with-compact-support} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations} to $A\setminus U$, we have
+    \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images}: Relation to Codirect Images}%
+    The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-codirect-images} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations} to $A\setminus U$, we have
     \begin{align*}
         R_{*}(A\setminus U) &= B\setminus R_{!}(A\setminus(A\setminus U))\\
                             &= B\setminus R_{!}(U).
@@ -4017,7 +4039,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(B)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The direct image with compact support function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
+        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{-1},R^{\otimes}_{-1},R^{\otimes}_{-1|\Unit})
                 \colon
@@ -4561,10 +4583,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     %\end{align*}
     %for each $U\in\mathcal{P}(A)$. Thus $(S\procirc R)^{-1}=S^{-1}\circ R^{-1}$.
 \end{Proof}
-\subsection{Direct Images With Compact Support}\label{subsection-direct-images-with-compact-support-relations}
+\subsection{Codirect Images}\label{subsection-codirect-images-relations}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
-\begin{definition}{Direct Images With Compact Support}{the-direct-image-with-compact-support-function-associated-to-a-relation}%
-    The \index[set-theory]{relation!associated direct image with compact support function}\textbf{direct image with compact support function associated to $R$} is the function\index[notation]{Rshriek@$R_{"!}$}%
+\begin{definition}{Codirect Images}{the-codirect-image-function-associated-to-a-relation}%
+    The \index[set-theory]{relation!associated codirect image function}\textbf{codirect image function associated to $R$} is the function\index[notation]{Rshriek@$R_{"!}$}%
     \[%
         R_{*}%
         \colon%
@@ -4575,7 +4597,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     defined by\index[notation]{RshriekU@$R_{"!}(U)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $R_{*}(U)$ is called the \textbf{direct image with compact support of $U$ by $R$}.
+        \SloganFont{Further Terminology: }The set $R_{*}(U)$ is called the \textbf{codirect image of $U$ by $R$}.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
@@ -4586,7 +4608,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             =%
             B\setminus R_{!}(A\setminus U);
         \]%
-        see \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}.
+        see \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -4607,8 +4629,8 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(A)$.
 \end{definition}
-\begin{remark}{Unwinding \cref{the-direct-image-with-compact-support-function-associated-to-a-relation}}{unwinding-the-direct-image-with-compact-support-function-associated-to-a-relation}%
-    Identifying subsets of $B$ with relations from $\pt$ to $B$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the direct image with compact support function associated to $R$ is equivalently the function
+\begin{remark}{Unwinding \cref{the-codirect-image-function-associated-to-a-relation}}{unwinding-the-codirect-image-function-associated-to-a-relation}%
+    Identifying subsets of $B$ with relations from $\pt$ to $B$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the codirect image function associated to $R$ is equivalently the function
     \[
         R_{*}%
         \colon%
@@ -4643,7 +4665,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{align*}
     where we have used \cref{existence-of-right-kan-extensions-in-rel}.
 \end{remark}
-\begin{Proof}{Proof of \cref{unwinding-the-direct-image-with-compact-support-function-associated-to-a-relation}}%
+\begin{Proof}{Proof of \cref{unwinding-the-codirect-image-function-associated-to-a-relation}}%
     We have
     \begin{envsmallsize}
         \begin{align*}
@@ -4704,10 +4726,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of Direct Images With Compact Support}{properties-of-direct-image-with-compact-support-functions-associated-to-relations}%
+\begin{proposition}{Properties of Codirect Images}{properties-of-codirect-image-functions-associated-to-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
             \[
                 R_{*}%
                 \colon%
@@ -4728,7 +4750,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                         \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#R^{-1}#R_{*}#\mathcal{P}(B)#\mathcal{P}(A),#
             \end{webcompile}
@@ -4746,7 +4768,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                         \item We have $U\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
                 \bigcup_{i\in I}R_{*}(U_{i})%
                 \subset%
@@ -4760,7 +4782,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
                     R_{*}(\bigcap_{i\in I}U_{i})%
                     =%
@@ -4774,7 +4796,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The direct image with compact support function of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
@@ -4790,7 +4812,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
@@ -4806,37 +4828,37 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \[
                 R_{*}(U)%
                 =%
                 B\setminus R_{!}(A\setminus U)
             \]%
             for each $U\in\mathcal{P}(A)$.
-        %\item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-}\SloganFont{. }
+        %\item\label{properties-of-codirect-image-functions-associated-to-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}%
-    \FirstProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-codirect-image-functions-associated-to-relations}}%
+    \FirstProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-functoriality}: Functoriality}%
     Clear.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-adjointness}: Adjointness}%
     This follows from \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-preservation-of-limits}: Preservation of Limits}%
-    This follows from \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}: Preservation of Limits}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
-    This follows from \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
-    This follows from \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-preservation-of-limits}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images}: Relation to Direct Images}%
-    This follows from \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}. Alternatively, we may prove it directly as follows, with the proof proceeding in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i}}).
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}: Relation to Direct Images}%
+    This follows from \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}. Alternatively, we may prove it directly as follows, with the proof proceeding in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-relation-to-direct-images} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i}}).
 
     We claim that $R_{*}(U)=B\setminus R_{!}(A\setminus U)$:
     \begin{itemize}
@@ -4865,10 +4887,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of the Direct Image With Compact Support Function Operation}{properties-of-the-direct-image-with-compact-support-function-operation-for-relations}%
+\begin{proposition}{Properties of the Codirect Image Function Operation}{properties-of-the-codirect-image-function-operation-for-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
@@ -4876,7 +4898,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \to%
                 \Sets(\mathcal{P}(A),\mathcal{P}(B)).
             \]%
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
@@ -4884,13 +4906,13 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \to%
                 \Hom_{\Pos}((\mathcal{P}(A),\subset),(\mathcal{P}(B),\subset)).
             \]%
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have
             \[
                 (\id_{A})_{*}%
                 =%
                 \id_{\mathcal{P}(A)}.%
             \]%
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
             \begin{webcompile}
                 (S\procirc R)_{*}%
                 =%
@@ -4908,17 +4930,17 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     \mathcal{P}(C)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
-        %\item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-}\SloganFont{. }
+        %\item\label{properties-of-the-codirect-image-function-operation-for-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations}}%
-    \FirstProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-1}: Functionality \rmI}%
+\begin{Proof}{Proof of \cref{properties-of-the-codirect-image-function-operation-for-relations}}%
+    \FirstProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-2}: Functionality \rmII}%
+    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
+    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
         (\chi_{A})_{*}(U) &\defeq \{a\in A\ \middle|\ \chi^{-1}_{A}(a)\subset U\}\\
@@ -4927,7 +4949,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{*}=\id_{\mathcal{P}(A)}$.
 
-    \ProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
+    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
         (S\procirc R)_{*}(U) &\defeq \{c\in C\ \middle|\ [S\procirc R]^{-1}(c)\subset U\}\\
@@ -4936,7 +4958,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                              &\defeq R_{*}(S_{*}(U))\\
                              &\defeq [R_{*}\circ S_{*}](U)
     \end{align*}
-    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}, which implies that the conditions
+    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-codirect-image-functions-associated-to-relations-adjointness} of \cref{properties-of-codirect-image-functions-associated-to-relations}, which implies that the conditions
     \begin{itemize}
         \item We have $S^{-1}(R^{-1}(c))\subset U$.
         \item We have $R^{-1}(c)\subset S_{*}(U)$.
@@ -4981,11 +5003,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \mathcal{P}^{-1}(R) &\defeq R^{-1},\\%
                 \mathcal{P}_{*}(R)  &\defeq R_{*},%
             \end{align*}
-            as in \cref{the-direct-image-function-associated-to-a-relation,the-strong-inverse-image-function-associated-to-a-relation,the-weak-inverse-image-function-associated-to-a-relation,the-direct-image-with-compact-support-function-associated-to-a-relation}.
+            as in \cref{the-direct-image-function-associated-to-a-relation,the-strong-inverse-image-function-associated-to-a-relation,the-weak-inverse-image-function-associated-to-a-relation,the-codirect-image-function-associated-to-a-relation}.
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{functoriality-of-powersets-1}}%
-    This follows from \cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-function-operation-for-relations}, \cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-strong-inverse-image-function-operation-for-relations}, \cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-weak-inverse-image-function-operation-for-relations}, and \cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations}.
+    This follows from \cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-function-operation-for-relations}, \cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-strong-inverse-image-function-operation-for-relations}, \cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-weak-inverse-image-function-operation-for-relations}, and \cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities,properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-codirect-image-function-operation-for-relations}.
 \end{Proof}
 \subsection{Functoriality of Powersets: Relations on Powersets}\label{functoriality-of-powersets-relations-on-powersets}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
