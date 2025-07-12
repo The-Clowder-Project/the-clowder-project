@@ -83,6 +83,7 @@ TODO:
     \item Replicate \cref{section-properties-of-the-2-category-of-relations} for apartness composition
     \item Revise \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
     \item Add subsection \say{A Six Functor Formalism for Sets, Part 2}, now with relations, building upon \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}.
+    \item Replicate \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star} for apartness composition
     \item Revise sections on skew monoidal structures on $\eRel(A,B)$
     \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
     \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
@@ -617,9 +618,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{webcompile}
             ...maybe?
             \[
-                \bigcap_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}%
-                \bigcap_{b\in B}S(b)\cup R(a)
-                S(R(a))\cap (B\setminus R(a))
+                \bigcap_{b\in B\setminus R(a)}S(b)
             \]%
             %where $\Ran_{\chi_{B}}(S)$ is computed by the formula
             %\begin{align*}
