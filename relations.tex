@@ -121,7 +121,7 @@ Let $A$ and $B$ be sets.
                 \cong
                 \CoContPos(\mathcal{P}(A),\mathcal{P}(B))
             \]%
-            is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ from $A$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$, recovering the direct image function $f_{*}\colon\mathcal{P}(A)\to\mathcal{P}(B)$ of $f$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}}.
+            is given by extending each $f\colon A\to\mathcal{P}(B)$ in $\Sets(A,\mathcal{P}(B))$ from $A$ to all of $\mathcal{P}(A)$ by taking its left Kan extension along $\chi_{X}$, recovering the direct image function $f_{!}\colon\mathcal{P}(A)\to\mathcal{P}(B)$ of $f$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-direct-image-function-associated-to-a-function}}{\cref{the-direct-image-function-associated-to-a-function}}.
         \item\SloganFont{\cref{relations-5}$\iff$\cref{relations-6}: }Omitted.
     \end{itemize}
     This finishes the proof.
@@ -874,7 +874,7 @@ Let $f\colon A\to B$ be a function.
             in $\sfbfRel$, where $f^{-1}$ is the inverse of $f$ of \cref{the-inverse-of-a-function}.
         \item\label{properties-of-graphs-of-functions-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#\Gr#\mathcal{P}_{*}#\Sets#\Rel,#
+                \Adjunction#\Gr#\mathcal{P}_{!}#\Sets#\Rel,#
             \end{webcompile}%
             witnessed by a bijection of sets%
             \[
@@ -2674,7 +2674,7 @@ Let $A$ be a set.
     \end{enumerate}
     Taking $k=b$ in the first condition above shows it to be trivially satisfied, while the second condition implies $R\subset\Delta_{A}$, i.e.\ $R$ must be a subset of $A$. Conversely, any subset $U$ of $A$ satisfies $U\subset\Delta_{A}$, defining a comonad as above.
 \end{Proof}
-\subsection{Co/Monoids in $\sfbfRel$}\label{subsection-co-monoids-in-rel}
+\subsection{Co/Monoids}\label{subsection-co-monoids-in-rel}
 \begin{remark}{Co/Monoids in $\sfbfRel$}{co-monoids-in-rel}%
     The monoids in $\sfbfRel$ with respect to the Cartesian monoidal structure of \cref{the-closed-symmetric-monoidal-category-of-relations} are called \emph{hypermonoids}, and their theory is explored in \ChapterHypermonoids. Similarly, the comonoids in $\sfbfRel$ are called \emph{hypercomonoids}, and they are defined and studied in \ChapterHypergroups.
 \end{remark}
@@ -2686,7 +2686,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
         \item\label{characterisations-of-monomorphisms-in-rel-1}The relation $R$ is a monomorphism in $\sfRel$.
         \item\label{characterisations-of-monomorphisms-in-rel-2}The direct image function%
             \[
-                R_{*}%
+                R_{!}%
                 \colon%
                 \mathcal{P}(A)%
                 \to%
@@ -2695,7 +2695,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             associated to $R$ is injective.
         \item\label{characterisations-of-monomorphisms-in-rel-3}The direct image with compact support function
             \[
-                R_{!}%
+                R_{*}%
                 \colon%
                 \mathcal{P}(A)%
                 \to%
@@ -2731,11 +2731,11 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \]%
             By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}, we have
             \begin{align*}
-                R_{*}(U) &= R\procirc U,\\
-                R_{*}(V) &= R\procirc V.
+                R_{!}(U) &= R\procirc U,\\
+                R_{!}(V) &= R\procirc V.
             \end{align*}
-            Now, if $R\procirc U=R\procirc V$, i.e.\ $R_{*}(U)=R_{*}(V)$, then $U=V$ since $R$ is assumed to be a monomorphism, showing $R_{*}$ to be injective.
-        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1}: }Conversely, suppose that $R_{*}$ is injective, consider the diagram
+            Now, if $R\procirc U=R\procirc V$, i.e.\ $R_{!}(U)=R_{!}(V)$, then $U=V$ since $R$ is assumed to be a monomorphism, showing $R_{!}$ to be injective.
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1}: }Conversely, suppose that $R_{!}$ is injective, consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     X
@@ -2748,7 +2748,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     B\mrp{,}
                 \end{tikzcd}
             \]%
-            and suppose that $R\procirc S=R\procirc T$. Note that, since $R_{*}$ is injective, given a diagram of the form
+            and suppose that $R\procirc S=R\procirc T$. Note that, since $R_{!}$ is injective, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
@@ -2761,7 +2761,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     B\mrp{,}
                 \end{tikzcd}
             \]%
-            if $R_{*}(U)=R\procirc U=R\procirc V=R_{*}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
+            if $R_{!}(U)=R\procirc U=R\procirc V=R_{!}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
@@ -2793,17 +2793,17 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2}: }Assume that $R$ is a monomorphism.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{*}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
+                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
                 \item Since $\Rel(\pt,-)$ preserves all limits by \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-commutativity-with-homs} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-commutativity-with-homs} of \cref{properties-of-co-limits}}, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-monomorphism-preserving-functors-interaction-with-limits} of \cref{types-of-morphisms-in-categories:properties-of-monomorphism-preserving-functors}}{\cref{properties-of-monomorphism-preserving-functors-interaction-with-limits} of \cref{properties-of-monomorphism-preserving-functors}} that $\Rel(\pt,-)$ also preserves monomorphisms.
-                \item Since $R$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{*}$, it follows that $R_{*}$ is also a monomorphism.
-                \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{*}$ is injective.
+                \item Since $R$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{!}$, it follows that $R_{!}$ is also a monomorphism.
+                \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{!}$ is injective.
             \end{itemize}
-        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1}: }Assume that $R_{*}$ is injective.
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1}: }Assume that $R_{!}$ is injective.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{*}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
-                \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{*}$ is a monomorphism.
+                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
+                \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{!}$ is a monomorphism.
                 \item Since $\Rel(\pt,-)$ is faithful, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-monomorphism-reflecting-functors-interaction-with-faithfulness} of \cref{types-of-morphisms-in-categories:properties-of-monomorphism-reflecting-functors}}{\cref{properties-of-monomorphism-reflecting-functors-interaction-with-faithfulness} of \cref{properties-of-monomorphism-reflecting-functors}} that $\Rel(\pt,-)$ reflects monomorphisms.
-                \item Since $R_{*}$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{*}$, it follows that $R$ is also a monomorphism.
+                \item Since $R_{!}$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{!}$, it follows that $R$ is also a monomorphism.
             \end{itemize}
     \end{itemize}
     Finally, we prove the second part of the statement. Assume that $R$ is a monomorphism, let $a,a'\in A$ such that $a\sim_{R}b$ and $a'\sim_{R}b$ for some $b\in B$, and consider the diagram
@@ -2862,16 +2862,6 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     \end{itemize}
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}The functor
                     \[
-                        R_{*}%
-                        \colon%
-                        (\mathcal{P}(A),\subset)%
-                        \to%
-                        (\mathcal{P}(B),\subset)%
-                    \]%
-                    is full.
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}The functor
-                    \[
                         R_{!}%
                         \colon%
                         (\mathcal{P}(A),\subset)%
@@ -2879,7 +2869,17 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                         (\mathcal{P}(B),\subset)%
                     \]%
                     is full.
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}The functor
+                    \[
+                        R_{*}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    is full.
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
             \end{enumerate}
         \item\label{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}\SloganFont{Representably Fully Faithful Morphisms in $\sfbfRel$. }Every representably full morphism in $\sfbfRel$ is a representably fully faithful morphism.
     \end{enumerate}
@@ -2888,7 +2888,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
     \FirstProofBox{\cref{2-categorical-monomorphisms-in-rel-representably-faithful-morphisms-in-rel}: Representably Faithful Morphisms in $\sfbfRel$}%
     The relation $R$ is a representably faithful morphism in $\sfbfRel$ \textiff, for each $X\in\Obj(\sfbfRel)$, the functor
     \[
-        R_{*}%
+        R_{!}%
         \colon%
         \eRel(X,A)%
         \to%
@@ -2909,7 +2909,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
     \begin{itemize}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }This is simply a matter of unwinding definitions: The relation $R$ is a representably full morphism in $\sfbfRel$ \textiff, for each $X\in\Obj(\sfbfRel)$, the functor
             \[
-                R_{*}%
+                R_{!}%
                 \colon%
                 \eRel(X,A)%
                 \to%
@@ -2926,7 +2926,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             is surjective for each $S,T\in\Obj(\eRel(X,A))$, i.e.\ \textiff, whenever $R\procirc S\subset R\procirc T$, we also have $S\subset T$.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }This is also simply a matter of unwinding definitions: The functor
             \[
-                R_{*}%
+                R_{!}%
                 \colon%
                 (\mathcal{P}(A),\subset)%
                 \to%
@@ -2938,31 +2938,11 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                 \colon%
                 \Hom_{\mathcal{P}(A)}(U,V)%
                 \to%
-                \Hom_{\mathcal{P}(B)}(R_{*}(U),R_{*}(V))%
+                \Hom_{\mathcal{P}(B)}(R_{!}(U),R_{!}(V))%
             \]%
-            is surjective, i.e.\ \textiff whenever $R_{*}(U)\subset R_{*}(V)$, we also necessarily have $U\subset V$.
+            is surjective, i.e.\ \textiff whenever $R_{!}(U)\subset R_{!}(V)$, we also necessarily have $U\subset V$.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4} given above.
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
-            \begin{itemize}
-                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
-            \end{itemize}
-            We need to show that the condition
-            \begin{itemize}
-                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
-            \end{itemize}
-            is also true. We proceed step by step:
-            \begin{itemize}
-                \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{!}(U)\subset R_{!}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}, we have
-                    \begin{align*}
-                        R_{!}(U) &= B\setminus R_{*}(A\setminus U),\\
-                        R_{!}(V) &= B\setminus R_{*}(A\setminus V).
-                    \end{align*}
-                \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{*}(A\setminus V)\subset R_{*}(A\setminus U)$.
-                \item By assumption, we then have $A\setminus V\subset A\setminus U$.
-                \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
-            \end{itemize}
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
             \begin{itemize}
                 \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
             \end{itemize}
@@ -2973,12 +2953,32 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             is also true. We proceed step by step:
             \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{*}(U)\subset R_{*}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}, we have
                     \begin{align*}
                         R_{*}(U) &= B\setminus R_{!}(A\setminus U),\\
                         R_{*}(V) &= B\setminus R_{!}(A\setminus V).
                     \end{align*}
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{!}(A\setminus V)\subset R_{!}(A\setminus U)$.
+                \item By assumption, we then have $A\setminus V\subset A\setminus U$.
+                \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
+            \end{itemize}
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
+            \begin{itemize}
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
+            \end{itemize}
+            We need to show that the condition
+            \begin{itemize}
+                \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
+            \end{itemize}
+            is also true. We proceed step by step:
+            \begin{itemize}
+                \item Suppose we have $U,V\in\mathcal{P}(A)$ with $R_{!}(U)\subset R_{!}(V)$.
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}}, we have
+                    \begin{align*}
+                        R_{!}(U) &= B\setminus R_{*}(A\setminus U),\\
+                        R_{!}(V) &= B\setminus R_{*}(A\setminus V).
+                    \end{align*}
+                \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} we have $R_{*}(A\setminus V)\subset R_{*}(A\setminus U)$.
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
             \end{itemize}
@@ -3008,7 +3008,7 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
                     B\mrp{,}
                 \end{tikzcd}
             \]%
-            if $R_{*}(U)=R\procirc U\subset R\procirc V=R_{*}(V)$, then $U\subset V$. In particular, for each $x\in X$, we may consider the diagram
+            if $R_{!}(U)=R\procirc U\subset R\procirc V=R_{!}(V)$, then $U\subset V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
@@ -3050,10 +3050,10 @@ In this section we characterise (for now, some of) the $2$-categorical monomorph
             \]%
             By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
             \begin{align*}
-                R_{*}(U) &= R\procirc U,\\
-                R_{*}(V) &= R\procirc V.
+                R_{!}(U) &= R\procirc U,\\
+                R_{!}(V) &= R\procirc V.
             \end{align*}
-            Now, if $R_{*}(U)\subset R_{*}(V)$, i.e.\ $R\procirc U\subset R\procirc V$, then $U\subset V$ by assumption.
+            Now, if $R_{!}(U)\subset R_{!}(V)$, i.e.\ $R\procirc U\subset R\procirc V$, then $U\subset V$ by assumption.
     \end{itemize}
 
     \ProofBox{\cref{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}: Representably Fully Faithful Morphisms in $\sfbfRel$}%
@@ -3448,7 +3448,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 
     This question also appears as \cite{MO467527}.
 \end{question}
-\subsection{Co/Limits in $\sfRel$ and $\sfbfRel$}\label{subsection-co-limits-in-rel}
+\subsection{Co/Limits}\label{subsection-co-limits-in-rel}
 \begin{proposition}{Co/Limits in $\sfRel$}{co-limits-in-rel}%
     This will be properly written later on.
     %The category $\sfRel$ admits some co/limits, but not all, as does its $2$-categorical counterpart:
@@ -3473,7 +3473,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
     \begin{webcompile}
         \begin{gathered}
             \Adjunction#R^{*}#\Ran_{R}#\Rel(B,X)#\Rel(A,X),#\\
-            \Adjunction#R_{*}#\Rift_{R}#\Rel(X,A)#\Rel(X,B),#
+            \Adjunction#R_{!}#\Rift_{R}#\Rel(X,A)#\Rel(X,B),#
         \end{gathered}
     \end{webcompile}%
     witnessed by bijections
@@ -3486,15 +3486,15 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \begin{Proof}{Proof of \cref{closedness-of-rel}}%
     This follows from \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:existence-of-right-kan-extensions-in-rel,constructions-with-relations:existence-of-right-kan-lifts-in-rel}}{\cref{existence-of-right-kan-extensions-in-rel,existence-of-right-kan-lifts-in-rel}}.
 \end{Proof}
-\subsection{$\sfbfRel$ as a Category of Free Algebras}\label{subsection-rel-as-a-category-of-free-algebras}
-\begin{proposition}{$\sfbfRel$ as a Category of Free Algebras}{rel-as-a-category-of-free-algebras}%
+\subsection{$\sfRel$ as a Category of Free Algebras}\label{subsection-rel-as-a-category-of-free-algebras}
+\begin{proposition}{$\sfRel$ as a Category of Free Algebras}{rel-as-a-category-of-free-algebras}%
     We have an isomorphism of categories
     \[
         \Rel%
         \cong%
-        \FreeAlg_{\mathcal{P}_{*}}(\Sets),
+        \FreeAlg_{\mathcal{P}_{!}}(\Sets),
     \]%
-    where $\mathcal{P}_{*}$ is the powerset monad of \ChapterRef{\ChapterMonads, \cref{monads:the-powerset-monad}}{\cref{the-powerset-monad}}.
+    where $\mathcal{P}_{!}$ is the powerset monad of \ChapterRef{\ChapterMonads, \cref{monads:the-powerset-monad}}{\cref{the-powerset-monad}}.
 \end{proposition}
 \begin{Proof}{Proof of \cref{rel-as-a-category-of-free-algebras}}%
     Omitted.
@@ -3505,7 +3505,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rstar@$R^{*}$}%
     \[%
-        R_{*}%
+        R_{!}%
         \colon%
         \mathcal{P}(A)%
         \to%
@@ -3521,16 +3521,16 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \footnote{%
         We also have
         \[
-            R_{*}(U)%
+            R_{!}(U)%
             =%
-            B\setminus R_{!}(A\setminus U);
+            B\setminus R_{*}(A\setminus U);
         \]%
         see \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        R_{*}(U) &\defeq R(U)\\%
+        R_{!}(U) &\defeq R(U)\\%
                  &\defeq \bigcup_{a\in U}R(a)\\
                  &=      \{%
                              b\in B%
@@ -3546,7 +3546,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{remark}{Unwinding \cref{the-direct-image-function-associated-to-a-relation}}{unwinding-the-direct-image-function-associated-to-a-relation}%
     Identifying subsets of $A$ with relations from $\pt$ to $A$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the direct image function associated to $R$ is equivalently the function
     \[
-        R_{*}%
+        R_{!}%
         \colon%
         \underbrace{\mathcal{P}(A)}_{\cong\Rel(\pt,A)}
         \to%
@@ -3554,7 +3554,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \]%
     defined by
     \[
-        R_{*}(U)%
+        R_{!}(U)%
         \defeq%
         R\procirc U%
     \]%
@@ -3570,9 +3570,9 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{proposition}{Properties of Direct Image Functions}{properties-of-direct-image-functions-associated-to-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-direct-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
+        \item\label{properties-of-direct-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{!}(U)$ defines a functor
             \[
-                R_{*}%
+                R_{!}%
                 \colon%
                 (\mathcal{P}(A),\subset)%
                 \to%
@@ -3582,22 +3582,22 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(A)$, we have
                     \[
-                        [R_{*}](U)%
+                        [R_{!}](U)%
                         \defeq%
-                        R_{*}(U).
+                        R_{!}(U).
                     \]%
                 \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(A)$:
                     \begin{itemize}
-                        \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
+                        \item If $U\subset V$, then $R_{!}(U)\subset R_{!}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R_{*}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
+                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
-                \Hom_{\mathcal{P}(A)}(R_{*}(U),V)%
+                \Hom_{\mathcal{P}(A)}(R_{!}(U),V)%
                 \cong%
                 \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
             \]%
@@ -3605,41 +3605,41 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
-                        \item We have $R_{*}(U)\subset V$.
+                        \item We have $R_{!}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
-                R_{*}(\bigcup_{i\in I}U_{i})%
+                R_{!}(\bigcup_{i\in I}U_{i})%
                 =%
-                \bigcup_{i\in I}R_{*}(U_{i}),%
+                \bigcup_{i\in I}R_{!}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
-                    R_{*}(U)\cup R_{*}(V)                  = R_{*}(U\cup V),\\
-                    R_{*}(\emptyset)                       = \emptyset,
+                    R_{!}(U)\cup R_{!}(V)                  = R_{!}(U\cup V),\\
+                    R_{!}(\emptyset)                       = \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
             \[
-                R_{*}(\bigcap_{i\in I}U_{i})%
+                R_{!}(\bigcap_{i\in I}U_{i})%
                 \subset%
-                \bigcap_{i\in I}R_{*}(U_{i}),%
+                \bigcap_{i\in I}R_{!}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
-                    R_{*}(U\cap V) \subset R_{*}(U)\cap R_{*}(V),\\
-                    R_{*}(A)       \subset B,
+                    R_{!}(U\cap V) \subset R_{!}(U)\cap R_{!}(V),\\
+                    R_{!}(A)       \subset B,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-direct-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
-                (R_{*},R^{\otimes}_{*},R^{\otimes}_{*|\Unit})
+                (R_{!},R^{\otimes}_{!},R^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(A),\cup,\emptyset)
                 \to
@@ -3648,14 +3648,14 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    R^{\otimes}_{*|U,V}   \colon R_{*}(U)\cup R_{*}(V) \rightequalsarrow R_{*}(U\cup V),\\
+                    R^{\otimes}_{*|U,V}   \colon R_{!}(U)\cup R_{!}(V) \rightequalsarrow R_{!}(U\cup V),\\
                     R^{\otimes}_{*|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-image-functions-associated-to-relations-functoriality} has a symmetric oplax monoidal structure
             \[
-                (R_{*},R^{\otimes}_{*},R^{\otimes}_{*|\Unit})
+                (R_{!},R^{\otimes}_{!},R^{\otimes}_{*|\Unit})
                 \colon
                 (\mathcal{P}(A),\cap,A)
                 \to
@@ -3664,16 +3664,16 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    R^{\otimes}_{*|U,V}   \colon R_{*}(U\cap V) \subset R_{*}(U)\cap R_{*}(V),\\
-                    R^{\otimes}_{*|\Unit} \colon R_{*}(A)       \subset B,
+                    R^{\otimes}_{*|U,V}   \colon R_{!}(U\cap V) \subset R_{!}(U)\cap R_{!}(V),\\
+                    R^{\otimes}_{*|\Unit} \colon R_{!}(A)       \subset B,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support}\SloganFont{Relation to Direct Images With Compact Support. }We have
             \[
-                R_{*}(U)%
+                R_{!}(U)%
                 =%
-                B\setminus R_{!}(A\setminus U)%
+                B\setminus R_{*}(A\setminus U)%
             \]%
             for each $U\in\mathcal{P}(A)$.
         %\item\label{properties-of-direct-image-functions-associated-to-relations-}\SloganFont{. }
@@ -3701,30 +3701,30 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support}: Relation to Direct Images With Compact Support}%
     The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-direct-images-with-compact-support} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations} to $A\setminus U$, we have
     \begin{align*}
-        R_{!}(A\setminus U) &= B\setminus R_{*}(A\setminus(A\setminus U))\\
-                            &= B\setminus R_{*}(U).
+        R_{*}(A\setminus U) &= B\setminus R_{!}(A\setminus(A\setminus U))\\
+                            &= B\setminus R_{!}(U).
     \end{align*}
     Taking complements, we then obtain
     \begin{align*}
-        R_{*}(U) &= B\setminus(B\setminus R_{*}(U)),\\
-                 &= B\setminus R_{!}(A\setminus U),
+        R_{!}(U) &= B\setminus(B\setminus R_{!}(U)),\\
+                 &= B\setminus R_{*}(A\setminus U),
     \end{align*}
     which finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of the Direct Image Function Operation}{properties-of-the-direct-image-function-operation-for-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{!}$ defines a function
             \[
-                (-)_{*}%
+                (-)_{!}%
                 \colon%
                 \Rel(A,B)
                 \to%
                 \Sets(\mathcal{P}(A),\mathcal{P}(B)).
             \]%
-        \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{!}$ defines a function
             \[
-                (-)_{*}%
+                (-)_{!}%
                 \colon%
                 \Rel(A,B)
                 \to%
@@ -3735,7 +3735,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \footnote{%
                 That is, the postcomposition function
                 \[
-                    (\chi_{A})_{*}%
+                    (\chi_{A})_{!}%
                     \colon%
                     \Rel(\pt,A)%
                     \to%
@@ -3745,7 +3745,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             }%
             %---  End Footnote  ---%
             \[
-                (\chi_{A})_{*}%
+                (\chi_{A})_{!}%
                 =%
                 \id_{\mathcal{P}(A)}.%
             \]%
@@ -3754,17 +3754,17 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \footnote{%
                 That is, we have
                 \begin{webcompile}
-                    (S\procirc R)_{*}%
+                    (S\procirc R)_{!}%
                     =%
-                    S_{*}\circ R_{*},%
+                    S_{!}\circ R_{!},%
                     \quad%
                     \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         {\Rel(\pt,A)}
-                        \arrow[r,"R_{*}"]
-                        \arrow[rd,"{(S\procirc R)_{*}}"']
+                        \arrow[r,"R_{!}"]
+                        \arrow[rd,"{(S\procirc R)_{!}}"']
                         \&
                         {\Rel(\pt,B)}
-                        \arrow[d,"S_{*}"]
+                        \arrow[d,"S_{!}"]
                         \\
                         \&
                         {\Rel(\pt,C)}\mrp{.}
@@ -3774,17 +3774,17 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             }%
             %---  End Footnote  ---%
             \begin{webcompile}
-                (S\procirc R)_{*}%
+                (S\procirc R)_{!}%
                 =%
-                S_{*}\circ R_{*},%
+                S_{!}\circ R_{!},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(A)
-                    \arrow[r,"R_{*}"]
-                    \arrow[rd,"{(S\procirc R)_{*}}"']
+                    \arrow[r,"R_{!}"]
+                    \arrow[rd,"{(S\procirc R)_{!}}"']
                     \&
                     \mathcal{P}(B)
-                    \arrow[d,"S_{*}"]
+                    \arrow[d,"S_{!}"]
                     \\
                     \&
                     \mathcal{P}(C)\mrp{.}
@@ -3803,26 +3803,26 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
-        (\chi_{A})_{*}(U) &\defeq \bigcup_{a\in U}\chi_{A}(a)\\
+        (\chi_{A})_{!}(U) &\defeq \bigcup_{a\in U}\chi_{A}(a)\\
                           &\defeq \bigcup_{a\in U}\{a\}\\
                           &=      U\\
                           &\defeq \id_{\mathcal{P}(A)}(U)
     \end{align*}
-    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{*}=\id_{\mathcal{P}(A)}$.
+    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{!}=\id_{\mathcal{P}(A)}$.
 
     \ProofBox{\cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
-        (S\procirc R)_{*}(U) &\defeq \bigcup_{a\in U}[S\procirc R](a)\\
+        (S\procirc R)_{!}(U) &\defeq \bigcup_{a\in U}[S\procirc R](a)\\
                              &\defeq \bigcup_{a\in U}S(R(a))\\
-                             &\defeq \bigcup_{a\in U}S_{*}(R(a))\\
+                             &\defeq \bigcup_{a\in U}S_{!}(R(a))\\
                              %&\defeq \bigcup_{a\in U}\bigcup_{x\in R(a)}S(x)\\
-                             %&\defeq  \bigcup_{a\in U}S_{*}(R(a))\\
-                             &=      S_{*}(\bigcup_{a\in U}R(a))\\
-                             &\defeq S_{*}(R_{*}(U))\\
-                             &\defeq [S_{*}\circ R_{*}](U)
+                             %&\defeq  \bigcup_{a\in U}S_{!}(R(a))\\
+                             &=      S_{!}(\bigcup_{a\in U}R(a))\\
+                             &\defeq S_{!}(R_{!}(U))\\
+                             &\defeq [S_{!}\circ R_{!}](U)
     \end{align*}
-    for each $U\in\mathcal{P}(A)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations}. Thus $(S\procirc R)_{*}=S_{*}\circ R_{*}$.
+    for each $U\in\mathcal{P}(A)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations}. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
 \end{Proof}
 \subsection{Strong Inverse Images}\label{subsection-strong-inverse-images}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
@@ -3973,11 +3973,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \end{itemize}
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R_{*}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
+                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
-                \Hom_{\mathcal{P}(A)}(R_{*}(U),V)%
+                \Hom_{\mathcal{P}(A)}(R_{!}(U),V)%
                 \cong%
                 \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
             \]%
@@ -3985,7 +3985,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
-                        \item We have $R_{*}(U)\subset V$.
+                        \item We have $R_{!}(U)\subset V$.
                         \item We have $U\subset R_{-1}(V)$.
                     \end{itemize}
             \end{itemize}
@@ -4174,14 +4174,14 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \begin{align*}
         (S\procirc R)_{-1}(U) &\defeq \{a\in A\ \middle|\ [S\procirc R](a)\subset U\}\\
                               &\defeq \{a\in A\ \middle|\ S(R(a))\subset U\}\\
-                              &\defeq \{a\in A\ \middle|\ S_{*}(R(a))\subset U\}\\
+                              &\defeq \{a\in A\ \middle|\ S_{!}(R(a))\subset U\}\\
                               &=      \{a\in A\ \middle|\ R(a)\subset S_{-1}(U)\}\\
                               &\defeq R_{-1}(S_{-1}(U))\\
                               &\defeq [R_{-1}\circ S_{-1}](U)
     \end{align*}
     for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}, which implies that the conditions
     \begin{itemize}
-        \item We have $S_{*}(R(a))\subset U$.
+        \item We have $S_{!}(R(a))\subset U$.
         \item We have $R(a)\subset S_{-1}(U)$.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{-1}=R_{-1}\circ S_{-1}$.
@@ -4327,20 +4327,20 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \end{itemize}
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R^{-1}#R_{!}#\mathcal{P}(B)#\mathcal{P}(A),#
+                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(B)#\mathcal{P}(A),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
                 \Hom_{\mathcal{P}(A)}(R^{-1}(U),V)%
                 \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{!}(V)),%
+                \Hom_{\mathcal{P}(A)}(U,R_{*}(V)),%
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
-                        \item We have $U\subset R_{!}(V)$.
+                        \item We have $U\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
@@ -4566,7 +4566,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{definition}{Direct Images With Compact Support}{the-direct-image-with-compact-support-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated direct image with compact support function}\textbf{direct image with compact support function associated to $R$} is the function\index[notation]{Rshriek@$R_{"!}$}%
     \[%
-        R_{!}%
+        R_{*}%
         \colon%
         \mathcal{P}(A)%
         \to%
@@ -4575,23 +4575,23 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     defined by\index[notation]{RshriekU@$R_{"!}(U)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $R_{!}(U)$ is called the \textbf{direct image with compact support of $U$ by $R$}.
+        \SloganFont{Further Terminology: }The set $R_{*}(U)$ is called the \textbf{direct image with compact support of $U$ by $R$}.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
         We also have
         \[
-            R_{!}(U)%
+            R_{*}(U)%
             =%
-            B\setminus R_{*}(A\setminus U);
+            B\setminus R_{!}(A\setminus U);
         \]%
         see \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        R_{!}(U) &\defeq \{%
+        R_{*}(U) &\defeq \{%
                              b\in B%
                              \ \middle|\ %
                              \begin{aligned}
@@ -4610,7 +4610,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{remark}{Unwinding \cref{the-direct-image-with-compact-support-function-associated-to-a-relation}}{unwinding-the-direct-image-with-compact-support-function-associated-to-a-relation}%
     Identifying subsets of $B$ with relations from $\pt$ to $B$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the direct image with compact support function associated to $R$ is equivalently the function
     \[
-        R_{!}%
+        R_{*}%
         \colon%
         \underbrace{\mathcal{P}(A)}_{\cong\Rel(A,\pt)}%
         \to%
@@ -4618,7 +4618,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \]%
     defined by
     \begin{webcompile}
-        R_{!}(U)%
+        R_{*}(U)%
         \defeq%
         \Ran_{R}(U),%
         \quad
@@ -4707,9 +4707,9 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
 \begin{proposition}{Properties of Direct Images With Compact Support}{properties-of-direct-image-with-compact-support-functions-associated-to-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{!}(U)$ defines a functor
+        \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
             \[
-                R_{!}%
+                R_{*}%
                 \colon%
                 (\mathcal{P}(A),\subset)%
                 \to%
@@ -4719,64 +4719,64 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \begin{itemize}
                 \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(A)$, we have
                     \[
-                        [R_{!}](U)%
+                        [R_{*}](U)%
                         \defeq%
-                        R_{!}(U).
+                        R_{*}(U).
                     \]%
                 \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(A)$:
                     \begin{itemize}
-                        \item If $U\subset V$, then $R_{!}(U)\subset R_{!}(V)$.
+                        \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R^{-1}#R_{!}#\mathcal{P}(B)#\mathcal{P}(A),#
+                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(B)#\mathcal{P}(A),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
                 \Hom_{\mathcal{P}(A)}(R^{-1}(U),V)%
                 \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{!}(V)),%
+                \Hom_{\mathcal{P}(A)}(U,R_{*}(V)),%
             \]%
             natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
                         \item We have $R^{-1}(U)\subset V$.
-                        \item We have $U\subset R_{!}(V)$.
+                        \item We have $U\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
-                \bigcup_{i\in I}R_{!}(U_{i})%
+                \bigcup_{i\in I}R_{*}(U_{i})%
                 \subset%
-                R_{!}(\bigcup_{i\in I}U_{i}),%
+                R_{*}(\bigcup_{i\in I}U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
-                    R_{!}(U)\cup R_{!}(V) \subset R_{!}(U\cup V),\\
-                    \emptyset             \subset R_{!}(\emptyset),
+                    R_{*}(U)\cup R_{*}(V) \subset R_{*}(U\cup V),\\
+                    \emptyset             \subset R_{*}(\emptyset),
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
-                    R_{!}(\bigcap_{i\in I}U_{i})%
+                    R_{*}(\bigcap_{i\in I}U_{i})%
                     =%
-                    \bigcap_{i\in I}R_{!}(U_{i}),%
+                    \bigcap_{i\in I}R_{*}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
-                    R_{!}(U\cap V) = R_{!}(U)\cap R_{!}(V),\\
-                    R_{!}(A)       = B,
+                    R_{*}(U\cap V) = R_{*}(U)\cap R_{*}(V),\\
+                    R_{*}(A)       = B,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The direct image with compact support function of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
-                (R_{!},R^{\otimes}_{!},R^{\otimes}_{!|\Unit})
+                (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(A),\cup,\emptyset)
                 \to
@@ -4785,14 +4785,14 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             being equipped with inclusions%
             \[
                 \begin{gathered}
-                    R^{\otimes}_{!|U,V}   \colon R_{!}(U)\cup R_{!}(V) \subset R_{!}(U\cup V),\\
-                    R^{\otimes}_{!|\Unit} \colon \emptyset               \subset R_{!}(\emptyset),
+                    R^{\otimes}_{!|U,V}   \colon R_{*}(U)\cup R_{*}(V) \subset R_{*}(U\cup V),\\
+                    R^{\otimes}_{!|\Unit} \colon \emptyset               \subset R_{*}(\emptyset),
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
-                (R_{!},R^{\otimes}_{!},R^{\otimes}_{!|\Unit})
+                (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
                 (\mathcal{P}(A),\cap,A)
                 \to
@@ -4801,16 +4801,16 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             being equipped with equalities%
             \[
                 \begin{gathered}
-                    R^{\otimes}_{!|U,V}   \colon R_{!}(U\cap V) \rightequalsarrow R_{!}(U)\cap R_{!}(V),\\
-                    R^{\otimes}_{!|\Unit} \colon R_{!}(A)       \rightequalsarrow B,
+                    R^{\otimes}_{!|U,V}   \colon R_{*}(U\cap V) \rightequalsarrow R_{*}(U)\cap R_{*}(V),\\
+                    R^{\otimes}_{!|\Unit} \colon R_{*}(A)       \rightequalsarrow B,
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(A)$.
         \item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \[
-                R_{!}(U)%
+                R_{*}(U)%
                 =%
-                B\setminus R_{*}(A\setminus U)
+                B\setminus R_{!}(A\setminus U)
             \]%
             for each $U\in\mathcal{P}(A)$.
         %\item\label{properties-of-direct-image-with-compact-support-functions-associated-to-relations-}\SloganFont{. }
@@ -4838,47 +4838,47 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-relation-to-direct-images}: Relation to Direct Images}%
     This follows from \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-direct-images-with-compact-support} of \cref{properties-of-direct-image-functions-associated-to-relations}. Alternatively, we may prove it directly as follows, with the proof proceeding in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{constructions-with-sets:properties-of-direct-images-with-compact-support-i}}{\cref{properties-of-direct-images-with-compact-support-i-relation-to-direct-images} of \cref{properties-of-direct-images-with-compact-support-i}}).
 
-    We claim that $R_{!}(U)=B\setminus R_{*}(A\setminus U)$:
+    We claim that $R_{*}(U)=B\setminus R_{!}(A\setminus U)$:
     \begin{itemize}
         \item\SloganFont{The First Implication. }We claim that
             \[
-                R_{!}(U)%
+                R_{*}(U)%
                 \subset%
-                B\setminus R_{*}(A\setminus U).%
+                B\setminus R_{!}(A\setminus U).%
             \]%
-            Let $b\in R_{!}(U)$. We need to show that $b\nin R_{*}(A\setminus U)$, i.e.\ that there is no $a\in A\setminus U$ such that $b\in R(a)$.
+            Let $b\in R_{*}(U)$. We need to show that $b\nin R_{!}(A\setminus U)$, i.e.\ that there is no $a\in A\setminus U$ such that $b\in R(a)$.
 
-            This is indeed the case, as otherwise we would have $a\in R^{-1}(b)$ and $a\nin U$, contradicting $R^{-1}(b)\subset U$ (which holds since $b\in R_{!}(U)$).
+            This is indeed the case, as otherwise we would have $a\in R^{-1}(b)$ and $a\nin U$, contradicting $R^{-1}(b)\subset U$ (which holds since $b\in R_{*}(U)$).
 
-            Thus $b\in B\setminus R_{*}(A\setminus U)$.
+            Thus $b\in B\setminus R_{!}(A\setminus U)$.
         \item\SloganFont{The Second Implication. }We claim that
             \[
-                B\setminus R_{*}(A\setminus U)%
+                B\setminus R_{!}(A\setminus U)%
                 \subset%
-                R_{!}(U).%
+                R_{*}(U).%
             \]%
-            Let $b\in B\setminus R_{*}(A\setminus U)$. We need to show that $b\in R_{!}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
+            Let $b\in B\setminus R_{!}(A\setminus U)$. We need to show that $b\in R_{*}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
 
-            Since $b\nin R_{*}(A\setminus U)$, there exists no $a\in A\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
+            Since $b\nin R_{!}(A\setminus U)$, there exists no $a\in A\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
 
-            Thus $b\in R_{!}(U)$.
+            Thus $b\in R_{*}(U)$.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of the Direct Image With Compact Support Function Operation}{properties-of-the-direct-image-with-compact-support-function-operation-for-relations}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{!}$ defines a function
+        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
             \[
-                (-)_{!}%
+                (-)_{*}%
                 \colon%
                 \Sets(A,B)
                 \to%
                 \Sets(\mathcal{P}(A),\mathcal{P}(B)).
             \]%
-        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{!}$ defines a function
+        \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
             \[
-                (-)_{!}%
+                (-)_{*}%
                 \colon%
                 \Sets(A,B)
                 \to%
@@ -4886,23 +4886,23 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \]%
         \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have
             \[
-                (\id_{A})_{!}%
+                (\id_{A})_{*}%
                 =%
                 \id_{\mathcal{P}(A)}.%
             \]%
         \item\label{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
             \begin{webcompile}
-                (S\procirc R)_{!}%
+                (S\procirc R)_{*}%
                 =%
-                S_{!}\circ R_{!},%
+                S_{*}\circ R_{*},%
                 \quad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(A)
-                    \arrow[r,"R_{!}"]
-                    \arrow[rd,"{(S\procirc R)_{!}}"']
+                    \arrow[r,"R_{*}"]
+                    \arrow[rd,"{(S\procirc R)_{*}}"']
                     \&
                     \mathcal{P}(B)
-                    \arrow[d,"S_{!}"]
+                    \arrow[d,"S_{*}"]
                     \\
                     \&
                     \mathcal{P}(C)\mrp{.}
@@ -4921,65 +4921,65 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
-        (\chi_{A})_{!}(U) &\defeq \{a\in A\ \middle|\ \chi^{-1}_{A}(a)\subset U\}\\
+        (\chi_{A})_{*}(U) &\defeq \{a\in A\ \middle|\ \chi^{-1}_{A}(a)\subset U\}\\
                           &\defeq \{a\in A\ \middle|\ \{a\}\subset U\}\\
                           &=      U
     \end{align*}
-    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{!}=\id_{\mathcal{P}(A)}$.
+    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{*}=\id_{\mathcal{P}(A)}$.
 
     \ProofBox{\cref{properties-of-the-direct-image-with-compact-support-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
-        (S\procirc R)_{!}(U) &\defeq \{c\in C\ \middle|\ [S\procirc R]^{-1}(c)\subset U\}\\
+        (S\procirc R)_{*}(U) &\defeq \{c\in C\ \middle|\ [S\procirc R]^{-1}(c)\subset U\}\\
                              &\defeq \{c\in C\ \middle|\ S^{-1}(R^{-1}(c))\subset U\}\\
-                             &=      \{c\in C\ \middle|\ R^{-1}(c)\subset S_{!}(U)\}\\
-                             &\defeq R_{!}(S_{!}(U))\\
-                             &\defeq [R_{!}\circ S_{!}](U)
+                             &=      \{c\in C\ \middle|\ R^{-1}(c)\subset S_{*}(U)\}\\
+                             &\defeq R_{*}(S_{*}(U))\\
+                             &\defeq [R_{*}\circ S_{*}](U)
     \end{align*}
     for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-adjointness} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}, which implies that the conditions
     \begin{itemize}
         \item We have $S^{-1}(R^{-1}(c))\subset U$.
-        \item We have $R^{-1}(c)\subset S_{!}(U)$.
+        \item We have $R^{-1}(c)\subset S_{*}(U)$.
     \end{itemize}
-    are equivalent. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
+    are equivalent. Thus $(S\procirc R)_{*}=S_{*}\circ R_{*}$.
 \end{Proof}
 \subsection{Functoriality of Powersets}\label{subsection-functoriality-of-powersets}
 \begin{proposition}{Functoriality of Powersets \rmI}{functoriality-of-powersets-1}%
-    The assignment $X\mapsto\mathcal{P}(X)$ defines functors\index[notation]{Pstar@$\mathcal{P}_{*}$}\index[notation]{Pminusone@$\mathcal{P}^{-1}$}\index[notation]{Pshriek@$\mathcal{P}_{"!}$}%
+    The assignment $X\mapsto\mathcal{P}(X)$ defines functors\index[notation]{Pstar@$\mathcal{P}_{!}$}\index[notation]{Pminusone@$\mathcal{P}^{-1}$}\index[notation]{Pshriek@$\mathcal{P}_{"!}$}%
     %--- Begin Footnote ---%
     \footnote{%
-        The functor $\mathcal{P}_{*}\colon\Rel\to\Sets$ admits a left adjoint; see \cref{properties-of-graphs-of-functions-adjointness} of \cref{properties-of-graphs-of-functions}.
+        The functor $\mathcal{P}_{!}\colon\Rel\to\Sets$ admits a left adjoint; see \cref{properties-of-graphs-of-functions-adjointness} of \cref{properties-of-graphs-of-functions}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{align*}
-        \mathcal{P}_{*}  &\colon \Rel       \to \Sets,\\%
+        \mathcal{P}_{!}  &\colon \Rel       \to \Sets,\\%
         \mathcal{P}_{-1} &\colon \Rel^{\op} \to \Sets,\\%
         \mathcal{P}^{-1} &\colon \Rel^{\op} \to \Sets,\\%
-        \mathcal{P}_{!}  &\colon \Rel       \to \Sets%
+        \mathcal{P}_{*}  &\colon \Rel       \to \Sets%
     \end{align*}
     where
     \begin{itemize}
         \item\SloganFont{Action on Objects. }For each $A\in\Obj(\Rel)$, we have
             \begin{align*}
-                \mathcal{P}_{*}(A)  &\defeq \mathcal{P}(A),\\%
+                \mathcal{P}_{!}(A)  &\defeq \mathcal{P}(A),\\%
                 \mathcal{P}_{-1}(A) &\defeq \mathcal{P}(A),\\%
                 \mathcal{P}^{-1}(A) &\defeq \mathcal{P}(A),\\%
-                \mathcal{P}_{!}(A)  &\defeq \mathcal{P}(A).%
+                \mathcal{P}_{*}(A)  &\defeq \mathcal{P}(A).%
             \end{align*}
         \item\SloganFont{Action on Morphisms. }For each morphism $R\colon A\rightproarrow B$ of $\Rel$, the images
             \begin{align*}
-                \mathcal{P}_{*}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B),\\%
+                \mathcal{P}_{!}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B),\\%
                 \mathcal{P}_{-1}(R) &\colon \mathcal{P}(B) \to \mathcal{P}(A),\\%
                 \mathcal{P}^{-1}(R) &\colon \mathcal{P}(B) \to \mathcal{P}(A),\\%
-                \mathcal{P}_{!}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B)%
+                \mathcal{P}_{*}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B)%
             \end{align*}
-            of $R$ by $\mathcal{P}_{*}$, $\mathcal{P}_{-1}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{!}$ are defined by
+            of $R$ by $\mathcal{P}_{!}$, $\mathcal{P}_{-1}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ are defined by
             \begin{align*}
-                \mathcal{P}_{*}(R)  &\defeq R_{*},\\%
+                \mathcal{P}_{!}(R)  &\defeq R_{!},\\%
                 \mathcal{P}_{-1}(R) &\defeq R_{-1},\\%
                 \mathcal{P}^{-1}(R) &\defeq R^{-1},\\%
-                \mathcal{P}_{!}(R)  &\defeq R_{!},%
+                \mathcal{P}_{*}(R)  &\defeq R_{*},%
             \end{align*}
             as in \cref{the-direct-image-function-associated-to-a-relation,the-strong-inverse-image-function-associated-to-a-relation,the-weak-inverse-image-function-associated-to-a-relation,the-direct-image-with-compact-support-function-associated-to-a-relation}.
     \end{itemize}
@@ -5242,11 +5242,11 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
     \[
         \epsilon_{S}\twocirc\id_{\Rift_{J}(R)}
         \colon
-        \underbrace{J\procirc\Rift_{J}(S)\procirc\Rift_{J}(R)}_{\defeq J_{*}(\Rift_{J}(S)\procirc\Rift_{J}(R))}
+        \underbrace{J\procirc\Rift_{J}(S)\procirc\Rift_{J}(R)}_{\defeq J_{!}(\Rift_{J}(S)\procirc\Rift_{J}(R))}
         \hookrightarrow
         S\procirc\Rift_{J}(R)
     \]%
-    under the adjunction $J_{*}\dashv\Rift_{J}$, where $\epsilon\colon{J\procirc\Rift_{J}}\Longrightarrow\id_{\eRel(A,B)}$ is the counit of the adjunction $J_{*}\dashv\Rift_{J}$.
+    under the adjunction $J_{!}\dashv\Rift_{J}$, where $\epsilon\colon{J\procirc\Rift_{J}}\Longrightarrow\id_{\eRel(A,B)}$ is the counit of the adjunction $J_{!}\dashv\Rift_{J}$.
 \end{definition}
 \subsection{The Left Skew Left Unitors}\label{subsection-the-left-skew-monoidal-structure-on-rel-a-b-the-left-skew-left-unitors}
 Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
@@ -5290,7 +5290,7 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
         \defeq%
         \epsilon_{R},
     \]%
-    where $\epsilon\colon J_{*}\procirc\Rift_{J}\Longrightarrow\id_{\eRel(A,B)}$ is the counit of the adjunction $J_{*}\dashv\Rift_{J}$.
+    where $\epsilon\colon J_{!}\procirc\Rift_{J}\Longrightarrow\id_{\eRel(A,B)}$ is the counit of the adjunction $J_{!}\dashv\Rift_{J}$.
 \end{definition}
 \subsection{The Left Skew Right Unitors}\label{subsection-the-left-skew-monoidal-structure-on-rel-a-b-the-left-skew-right-unitors}
 Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
@@ -5331,12 +5331,12 @@ Let $A$ and $B$ be sets and let $J\colon A\rightproarrow B$ be a relation.
     at $R$ is given by the composition
     \begin{align*}
         R &\mkern10mu\mrp{\Longrightisoarrow}\mkern50mu                               R\procirc\chi_{A}\\
-          &\mkern10mu\mrp{\xLongrightarrow{\id_{R}\procirc\eta_{\chi_{A}}}}\mkern50mu R\procirc\Rift_{J}(J_{*}(\chi_{A}))\\
+          &\mkern10mu\mrp{\xLongrightarrow{\id_{R}\procirc\eta_{\chi_{A}}}}\mkern50mu R\procirc\Rift_{J}(J_{!}(\chi_{A}))\\
           &\mkern10mu\mrp{\defeq}\mkern50mu                                           R\procirc\Rift_{J}(J\procirc\chi_{A})\\
           &\mkern10mu\mrp{\Longrightisoarrow}\mkern50mu                               R\procirc\Rift_{J}(J)\\
           &\mkern10mu\mrp{\defeq}\mkern50mu                                           R\lhd_{J}J,
     \end{align*}
-    where $\eta\colon\id_{\eRel(A,A)}\Longrightarrow\Rift_{J}\circ J_{*}$ is the unit of the adjunction $J_{*}\dashv\Rift_{J}$.
+    where $\eta\colon\id_{\eRel(A,A)}\Longrightarrow\Rift_{J}\circ J_{!}$ is the unit of the adjunction $J_{!}\dashv\Rift_{J}$.
 \end{definition}
 \subsection{The Left Skew Monoidal Structure on $\eRel(A,B)$}\label{subsection-the-left-skew-monoidal-structure-on-rel-a-b}
 \begin{proposition}{The Left $J$-Skew Monoidal Structure on $\eRel(A,B)$}{the-left-j-skew-monoidal-structure-on-erelab}%
