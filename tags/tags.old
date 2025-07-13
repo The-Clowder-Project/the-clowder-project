@@ -801,8 +801,8 @@
 00QL,relations:properties-of-converses-of-relations
 00QM,relations:properties-of-converses-of-relations-functoriality
 00QN,relations:properties-of-converses-of-relations-interaction-with-ranges-and-domains
-00QP,relations:properties-of-converses-of-relations-interaction-with-composition-1
-00QQ,relations:properties-of-converses-of-relations-interaction-with-composition-2
+00QP,relations:properties-of-converses-of-relations-interaction-with-composition
+00QQ,notes:properties-of-converses-of-relations-interaction-with-composition-2
 00QR,relations:properties-of-converses-of-relations-invertibility
 00QS,relations:properties-of-converses-of-relations-identity
 00QT,relations:subsection-composition-of-relations

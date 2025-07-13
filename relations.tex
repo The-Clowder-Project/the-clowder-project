@@ -66,12 +66,6 @@ This chapter contains some material about relations. Notably, we discuss and exp
 \end{enumerate}
 This chapter is under revision. TODO:
 \begin{enumerate}
-    \item Define apartness composition
-    \item Examples:
-        \begin{enumerate}
-            \item partial functions
-            \item hyperring examples (tropical, Berkovich, etc.)
-        \end{enumerate}
     \item Revise \cref{subsection-categories-of-relations}
     \item Replicate \cref{subsection-categories-of-relations} for apartness composition
     \item Revise \cref{section-properties-of-the-2-category-of-relations}
@@ -99,6 +93,21 @@ This chapter is under revision. TODO:
         \end{itemize}
         to \ChapterRelations.
     \item functional total relations defined with \say{satisfying the following equivalent conditions:}
+    \item Add table:
+        \begingroup%
+        \setlength\cellspacetoplimit{3pt}
+        \setlength\cellspacebottomlimit{3pt}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{center}
+            \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
+                \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
+                $R$ is functional                              & $R\procirc R^{\dagger}\subset \Delta_{B}$            \\\rowcolor{backgroundColor}
+                $R$ is total                                   & $\Delta_{A}           \subset R\procirc R^{\dagger}$ \\\rowcolor{black!05!backgroundColor}
+                $R$ is surjective                              & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
+                $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\hline
+            \end{tabular}
+        \end{center}
+        \endgroup
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -460,8 +469,8 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \]%
         \item\label{properties-of-composition-of-relations-unitality}\SloganFont{Unitality. }We have
             \begin{align*}
-                \chi_{B}\procirc R &= R,\\
-                R\procirc\chi_{A}  &= R.
+                \Delta_{B}\procirc R &= R,\\
+                R\procirc\Delta_{A}  &= R.
             \end{align*}
         \item\label{properties-of-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
@@ -559,23 +568,23 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \ProofBox{\cref{properties-of-composition-of-relations-unitality}: Unitality}%
     Indeed, we have
     \begin{align*}
-        \chi_{B}\procirc R &\defeq \int^{b\in B}(\chi_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
-                           &=      \bigvee_{b\in B}(\chi_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
-                           &=      \bigvee_{\substack{b\in B\\b=-_{1}}}R^{b}_{-_{2}}\\
-                           &=      R^{-_{1}}_{-_{2}},
+        \Delta_{B}\procirc R &\defeq \int^{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                             &=      \bigvee_{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                             &=      \bigvee_{\substack{b\in B\\b=-_{1}}}R^{b}_{-_{2}}\\
+                             &=      R^{-_{1}}_{-_{2}},
     \end{align*}
     and
     \begin{align*}
-        R\procirc\chi_{A} &\defeq \int^{a\in A}R^{-_{1}}_{a}\times(\chi_{A})^{a}_{-_{2}}\\
-                          &=      \bigvee_{a\in B}R^{-_{1}}_{a}\times(\chi_{A})^{a}_{-_{2}}\\
-                          &=      \bigvee_{\substack{a\in B\\a=-_{2}}}R^{-_{1}}_{a}\\
-                          &=      R^{-_{1}}_{-_{2}}.
+        R\procirc\Delta_{A} &\defeq \int^{a\in A}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
+                            &=      \bigvee_{a\in B}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
+                            &=      \bigvee_{\substack{a\in B\\a=-_{2}}}R^{-_{1}}_{a}\\
+                            &=      R^{-_{1}}_{-_{2}}.
     \end{align*}
     In the language of relations, given $a\in A$ and $b\in B$:
     \begin{itemize}
         \item The equality
             \[
-                \chi_{B}\procirc R%
+                \Delta_{B}\procirc R%
                 =%
                 R%
             \]%
@@ -585,12 +594,12 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 \item There exists some $b'\in B$ such that:
                     \begin{itemize}
                         \item We have $a\sim_{R}b'$
-                        \item We have $b'\sim_{\chi_{B}}b$, i.e.\ $b'=b$.
+                        \item We have $b'\sim_{\Delta_{B}}b$, i.e.\ $b'=b$.
                     \end{itemize}
             \end{itemize}
         \item The equality
             \[
-                R\procirc\chi_{A}%
+                R\procirc\Delta_{A}%
                 =%
                 R%
             \]%
@@ -598,7 +607,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \begin{itemize}
                 \item There exists some $a'\in A$ such that:
                     \begin{itemize}
-                        \item We have $a\sim_{\chi_{B}}a'$, i.e.\ $a=a'$.
+                        \item We have $a\sim_{\Delta_{B}}a'$, i.e.\ $a=a'$.
                         \item We have $a'\sim_{R}b$
                     \end{itemize}
                 \item We have $a\sim_{b}B$.
@@ -606,37 +615,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{itemize}
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
-    We have
-    \begin{align*}
-        (S\procirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\procirc R)^{\dagger}}a\}\\
-                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\procirc R}c\}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{there exists some $b\in B$ such}\\
-                                                &\text{that $a\sim_{R}b$ and $b\sim_{S}c$}\\
-                                            \end{aligned}
-                                        \}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{there exists some $b\in B$ such}\\
-                                                &\text{that $b\sim_{R^{\dagger}}a$ and $c\sim_{S^{\dagger}}b$}\\
-                                            \end{aligned}
-                                        \}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{there exists some $b\in B$ such}\\
-                                                &\text{that $c\sim_{S^{\dagger}}b$ and $b\sim_{R^{\dagger}}a$ }\\
-                                            \end{aligned}
-                                        \}\\
-                                &\defeq R^{\dagger}\procirc S^{\dagger}.
-    \end{align*}
-    This finishes the proof.
+    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition-1} of \cref{properties-of-converses-of-relations} and is proved there.
 \end{Proof}
 \subsection{Apartness Composition of Relations}\label{subsection-apartness-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
@@ -826,7 +805,6 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called the \textbf{opposite of $R$} or the \textbf{transpose of $R$}.
-        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     is the relation \index[notation]{Rdagger@$R^{\dagger}$}$\smash{R^{\dagger}}$ defined as follows:
@@ -838,7 +816,7 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 \{%
                     (b,a)\in B\times A%
                     \ \middle|\ %
-                    \text{we have $b\sim_{R}a$}%
+                    \text{we have $a\sim_{R}b$}%
                 \}.%
             \]%
         \item Viewing relations as functions $A\times B\to\TV$, we define
@@ -848,12 +826,19 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 R^{b}_{a}
             \]%
             for each $(b,a)\in B\times A$.
-        \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define
-            \begin{align*}
-                [R^{\dagger}](b) &\defeq R^{\dagger}(\{b\})\\
-                                 &\defeq \{a\in A\ \middle|\ b\in R(a)\}
-            \end{align*}
-            for each $b\in B$, where $R^{\dagger}(\{b\})$ is the fibre of $R$ over $\{b\}$.
+        \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Note that $R^{\dagger}(b)=R^{-1}(\{b\})$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                R^{\dagger}(b)%
+                \defeq%
+                \{a\in A\ \middle|\ b\in R(a)\}%
+            \]%
+            for each $b\in B$.
     \end{itemize}
 \end{definition}
 \begin{example}{Examples of Converses of Relations}{examples-of-converses-of-relations}%
@@ -864,8 +849,9 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
         \item\label{examples-of-converses-of-relations-functions}\SloganFont{Functions. }Let $f\colon A\to B$ be a function. We have
             \begin{align*}
                 \Gr(f)^{\dagger}   &= f^{-1},\\
-                (f^{-1})^{\dagger} &= \Gr(f).
+                (f^{-1})^{\dagger} &= \Gr(f),
             \end{align*}
+            where $\Gr(f)$ and $f^{-1}$ are the relations of \cref{subsection-the-graph-of-a-function,subsection-the-inverse-of-a-function}.
     \end{enumerate}
 \end{example}
 \begin{proposition}{Properties of Converses of Relations}{properties-of-converses-of-relations}%
@@ -879,7 +865,7 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 \to%
                 \eRel(B,A).%
             \]%
-            In particular, given relations $R,S\colon A\rightproarrows B$, we have:
+            In other words, given relations $R,S\colon A\rightproarrows B$, we have:
             \begin{itemize}
                 \itemstar If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
             \end{itemize}
@@ -888,17 +874,12 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 \dom(R^{\dagger})   &= \range(R),\\
                 \range(R^{\dagger}) &= \dom(R).
             \end{align*}
-        \item\label{properties-of-converses-of-relations-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }We have
+        \item\label{properties-of-converses-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
             \[
                 (S\procirc R)^{\dagger}
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
-        \item\label{properties-of-converses-of-relations-interaction-with-composition-2}\SloganFont{Interaction With Composition \rmII. }We have
-            \begin{align*}
-                \chi_{B} &\subset R\procirc R^{\dagger},\\
-                \chi_{A} &\subset R^{\dagger}\procirc R.
-            \end{align*}
         \item\label{properties-of-converses-of-relations-invertibility}\SloganFont{Invertibility. }We have
             \[
                 (R^{\dagger})^{\dagger}
@@ -907,31 +888,88 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             \]%
         \item\label{properties-of-converses-of-relations-identity}\SloganFont{Identity. }We have
             \[
-                \chi^{\dagger}_{A}
+                \Delta^{\dagger}_{A}
                 =
-                \chi_{A}.
+                \Delta_{A}.
             \]%
         %\item\label{properties-of-converses-of-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-converses-of-relations}}%
     \FirstProofBox{\cref{properties-of-converses-of-relations-functoriality}: Functoriality}%
-    Clear.
+    We have
+    \begin{align*}
+        R^{\dagger} &\defeq  \{a\in A\ \middle|\ b\in R(a)\}\\
+                    &\subset \{a\in A\ \middle|\ b\in S(a)\}\\
+                    &\defeq  S^{\dagger}.
+    \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
-    Clear.
+    We have
+    \begin{align*}
+        \dom(R^{\dagger}) &\defeq \{b\in B\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $a\in A$}\}\\
+                          &=      \{b\in B\ \middle|\ \text{$a\sim_{R}b$ for some $a\in A$}\}\\
+                          &\defeq \range(R)
+    \end{align*}
+    and
+    \begin{align*}
+        \range(R^{\dagger}) &\defeq \{a\in A\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $b\in B$}\}\\
+                            &=      \{a\in A\ \middle|\ \text{$a\sim_{R}b$ for some $b\in B$}\}\\
+                            &\defeq \dom(R).
+    \end{align*}
+    This finishes the proof.
 
-    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-composition-1}: Interaction With Composition \rmI}%
-    Clear.
-
-    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-composition-2}: Interaction With Composition \rmII}%
-    Clear.
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-composition}: Interaction With Composition}%
+    We have
+    \begin{align*}
+        (S\procirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\procirc R)^{\dagger}}a\}\\
+                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\procirc R}c\}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $a\sim_{R}b$ and $b\sim_{S}c$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $b\sim_{R^{\dagger}}a$ and $c\sim_{S^{\dagger}}b$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $c\sim_{S^{\dagger}}b$ and $b\sim_{R^{\dagger}}a$ }\\
+                                            \end{aligned}
+                                        \}\\
+                                &\defeq R^{\dagger}\procirc S^{\dagger}.
+    \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-converses-of-relations-invertibility}: Invertibility}%
-    Clear.
+    We have
+    \begin{align*}
+        (R^{\dagger})^{\dagger} &\defeq \{(a,b)\in A\times B\ \middle|\ b\sim_{R^{\dagger}}a\}\\
+                                &=      \{(a,b)\in A\times B\ \middle|\ a\sim_{R}b\}\\
+                                &\defeq R.
+    \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-converses-of-relations-identity}: Identity}%
-    Clear.
+    We have
+    \begin{align*}
+        \Delta^{\dagger}_{A} &\defeq \{(a,b)\in A\times A\ \middle|\ a\sim_{\Delta_{A}}b\}\\
+                             &=      \{(a,b)\in A\times A\ \middle|\ a=b\}\\
+                             &=      \Delta_{A}.
+    \end{align*}
+    This finishes the proof.
 \end{Proof}
 \section{Examples of Relations}\label{section-examples-of-relations}
 \subsection{Elementary Examples of Relations}\label{subsection-elementary-examples-of-relations}
@@ -1062,6 +1100,9 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             \]%
             for each $x\in X$.
     \end{enumerate}
+\end{example}
+\begin{example}{Partial Functions}{examples-of-relations-partial-functions}%
+    Partial functions may be viewed (or defined) as being exactly those relations which are functional (\ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:subsection-functional-relations}}{\cref{subsection-functional-relations}}).
 \end{example}
 \begin{example}{Square Roots}{square-roots}%
     Square roots are examples of relations:
