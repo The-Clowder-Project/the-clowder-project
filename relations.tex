@@ -207,98 +207,6 @@ Let $A$ and $B$ be sets.
             %---  End Footnote  ---%
     \end{enumerate}
 \end{notation}
-\begin{example}{The Trivial Relation}{the-trivial-relation}%
-    The \index[set-theory]{relation!trivial}\textbf{trivial relation on $A$ and $B$} is the relation \index[notation]{simtriv@$\unsim_{\triv}$}$\unsim_{\triv}$ defined equivalently as follows:
-    \begin{enumerate}
-        \item\label{the-trivial-relation-1}As a subset of $A\times B$, we have
-            \[
-                \unsim_{\triv}%
-                \defeq%
-                A\times B.%
-            \]%
-        \item\label{the-trivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
-            \[%
-                \Delta_{\true}%
-                \colon%
-                A\times B%
-                \to%
-                \TV%
-            \]%
-            from $A\times B$ to $\TV$ taking the value $\true$.
-        \item\label{the-trivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
-            \[%
-                \Delta_{\true}%
-                \colon%
-                A%
-                \to%
-                \mathcal{P}(B)%
-            \]%
-            defined by
-            \[
-                \Delta_{\true}(a)%
-                \defeq%
-                B%
-            \]%
-            for each $a\in A$.
-        \item\label{the-trivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
-    \end{enumerate}
-\end{example}
-\begin{example}{The Cotrivial Relation}{the-cotrivial-relation}%
-    The \index[set-theory]{relation!cotrivial}\textbf{cotrivial relation on $A$ and $B$} is the relation \index[notation]{simcotriv@$\unsim_{\cotriv}$}$\unsim_{\cotriv}$ defined equivalently as follows:%
-    \begin{enumerate}
-        \item\label{the-cotrivial-relation-1}As a subset of $A\times B$, we have
-            \[
-                \unsim_{\cotriv}%
-                \defeq%
-                \emptyset.%
-            \]%
-        \item\label{the-cotrivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
-            \[%
-                \Delta_{\false}%
-                \colon%
-                A\times B%
-                \to%
-                \TV%
-            \]%
-            from $A\times B$ to $\TV$ taking the value $\false$.
-        \item\label{the-cotrivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
-            \[%
-                \Delta_{\false}%
-                \colon%
-                A%
-                \to%
-                \mathcal{P}(B)%
-            \]%
-            defined by
-            \[
-                \Delta_{\false}(a)%
-                \defeq%
-                \emptyset%
-            \]%
-            for each $a\in A$.
-        \item\label{the-cotrivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
-    \end{enumerate}
-\end{example}
-\begin{example}{The Characteristic Relation of a Set}{the-characteristic-relation}%
-    The characteristic relation
-    \[%
-        \chi_{X}(-_{1},-_{2})%
-        \colon%
-        X\times X%
-        \to%
-        \TTV%
-    \]%
-    on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-relation-of-a-set}}{\cref{the-characteristic-relation-of-a-set}}, defined by%
-    \[
-        \chi_{X}(x,y)
-        \defeq
-        \begin{cases}
-            \true  &\text{if $x=y$,}\\
-            \false &\text{if $x\neq y$}
-        \end{cases}
-    \]%
-    for each $x,y\in X$, is another example of a relation.
-\end{example}
 \begin{proposition}{Properties of Relations}{properties-of-relations}%
     Let $A$ and $B$ be sets and let $R,S\colon A\rightproarrow B$ be relations.
     \begin{enumerate}
@@ -524,12 +432,12 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{example}{Examples of Composition of Relations}{examples-of-composition-of-relations}%
     Here are some examples of composition of relations.
     \begin{enumerate}
-        \item\label{examples-of-composition-of-relations-1}\SloganFont{Composing Less/Greater Than Equal With Greater/Less Than Equal Signs. }We have
+        \item\label{examples-of-composition-of-relations-1}\SloganFont{Composing Less/Greater Than Equal With Greater/Less Than Equal Signs. }Let $A=B=C=\R$. We have
             \begin{align*}
                 \mathord{\leq}\procirc\mathord{\geq} &= \sim_{\triv},\\
                 \mathord{\geq}\procirc\mathord{\leq} &= \sim_{\triv}.
             \end{align*}
-        \item\label{examples-of-composition-of-relations-2}\SloganFont{Composing Less/Greater Than Equal Signs With Less/Greater Than Equal Signs. }We have
+        \item\label{examples-of-composition-of-relations-2}\SloganFont{Composing Less/Greater Than Equal Signs With Less/Greater Than Equal Signs. }Let $A=B=C=\R$. We have
             \begin{align*}
                 \mathord{\leq}\procirc\mathord{\leq} &= \mathord{\leq},\\
                 \mathord{\geq}\procirc\mathord{\geq} &= \mathord{\geq}.
@@ -561,33 +469,70 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
-        \item\label{properties-of-composition-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
-            \begin{align*}
-                \chi_{B} &\subset R\procirc R^{\dagger},\\
-                \chi_{A} &\subset R^{\dagger}\procirc R.
-            \end{align*}
         %\item\label{properties-of-composition-of-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-composition-of-relations}}%
     \FirstProofBox{\cref{properties-of-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
-    Clear.
+    We have
+    \begin{align*}
+        \dom(S\procirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\procirc R}c\text{ for some $c\in C$}\},\\
+                          &=       \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$ and $c\in C$}\\
+                                           &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                       \end{aligned}
+                                   \},\\
+                          &\subset \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$}\\
+                                           &\text{such that $a\sim_{R}b$}
+                                       \end{aligned}
+                                   \},\\
+                          &\defeq  \dom(R)
+    \end{align*}
+    and
+    \begin{align*}
+        \range(S\procirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\procirc R}c\text{ for some $a\in A$}\},\\
+                            &=       \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $a\in A$ and $b\in B$}\\
+                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\subset \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $b\in B$}\\
+                                             &\text{such that $b\sim_{S}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\defeq  \range(S).
+    \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-composition-of-relations-associativity}: Associativity}%
     Indeed, we have
     \begin{align*}
         (T\procirc S)\procirc R &\defeq (\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{-_{2}})\procirc R\\
-                                &\defeq \int^{b\in B}(\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{b})\procirc R^{b}_{-_{2}}\\
-                                &=      \int^{b\in B}\int^{c\in C}(T^{-_{1}}_{c}\times S^{c}_{b})\procirc R^{b}_{-_{2}}\\
-                                &=      \int^{c\in C}\int^{b\in B}(T^{-_{1}}_{c}\times S^{c}_{b})\procirc R^{b}_{-_{2}}\\
-                                &=      \int^{c\in C}\int^{b\in B}T^{-_{1}}_{c}\times(S^{c}_{b}\procirc R^{b}_{-_{2}})\\
-                                &=      \int^{c\in C}T^{-_{1}}_{c}\times(\int^{b\in B}S^{c}_{b}\procirc R^{b}_{-_{2}})\\
+                                &\defeq \int^{b\in B}(\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{b\in B}\int^{c\in C}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{c\in C}\int^{b\in B}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{c\in C}\int^{b\in B}T^{-_{1}}_{c}\times(S^{c}_{b}\times R^{b}_{-_{2}})\\
+                                &=      \int^{c\in C}T^{-_{1}}_{c}\times(\int^{b\in B}S^{c}_{b}\times R^{b}_{-_{2}})\\
                                 &\defeq \int^{c\in C}T^{-_{1}}_{c}\times(S\procirc R)^{c}_{-_{2}}\\
                                 &\defeq T\procirc(S\procirc R).
     \end{align*}
     In the language of relations, given $a\in A$ and $d\in D$, the stated equality witnesses the equivalence of the following two statements:
-    \begin{itemize}
-        \item We have $a\sim_{(T\procirc S)\procirc R}d$, i.e.\ there exists some $b\in B$ such that:
+    \begin{enumerate}
+        \item\label{proof-of-properties-of-composition-of-relations-associativity-1}We have $a\sim_{(T\procirc S)\procirc R}d$, i.e.\ there exists some $b\in B$ such that:
             \begin{itemize}
                 \item We have $a\sim_{R}b$;
                 \item We have $b\sim_{T\procirc S}d$, i.e.\ there exists some $c\in C$ such that:
@@ -596,7 +541,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                         \item We have $c\sim_{T}d$;
                     \end{itemize}
             \end{itemize}
-        \item We have $a\sim_{T\procirc(S\procirc R)}d$, i.e.\ there exists some $c\in C$ such that:
+        \item\label{proof-of-properties-of-composition-of-relations-associativity-2}We have $a\sim_{T\procirc(S\procirc R)}d$, i.e.\ there exists some $c\in C$ such that:
             \begin{itemize}
                 \item We have $a\sim_{S\procirc R}c$, i.e.\ there exists some $b\in B$ such that:
                     \begin{itemize}
@@ -605,25 +550,25 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                     \end{itemize}
                 \item We have $c\sim_{T}d$;
             \end{itemize}
-    \end{itemize}
+    \end{enumerate}
     both of which are equivalent to the statement
     \begin{itemize}
-        \item There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
+        \itemstar There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
     \end{itemize}
 
     \ProofBox{\cref{properties-of-composition-of-relations-unitality}: Unitality}%
     Indeed, we have
     \begin{align*}
-        \chi_{B}\procirc R &\defeq \int^{x\in B}(\chi_{B})^{-_{1}}_{x}\times R^{x}_{-_{2}}\\
-                           &=      \bigvee_{x\in B}(\chi_{B})^{-_{1}}_{x}\times R^{x}_{-_{2}}\\
-                           &=      \bigvee_{\substack{x\in B\\x=-_{1}}}R^{x}_{-_{2}}\\
+        \chi_{B}\procirc R &\defeq \int^{b\in B}(\chi_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                           &=      \bigvee_{b\in B}(\chi_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                           &=      \bigvee_{\substack{b\in B\\b=-_{1}}}R^{b}_{-_{2}}\\
                            &=      R^{-_{1}}_{-_{2}},
     \end{align*}
     and
     \begin{align*}
-        R\procirc\chi_{A} &\defeq \int^{x\in A}R^{-_{1}}_{x}\times(\chi_{A})^{x}_{-_{2}}\\
-                          &=      \bigvee_{x\in B}R^{-_{1}}_{x}\times(\chi_{A})^{x}_{-_{2}}\\
-                          &=      \bigvee_{\substack{x\in B\\x=-_{2}}}R^{-_{1}}_{x}\\
+        R\procirc\chi_{A} &\defeq \int^{a\in A}R^{-_{1}}_{a}\times(\chi_{A})^{a}_{-_{2}}\\
+                          &=      \bigvee_{a\in B}R^{-_{1}}_{a}\times(\chi_{A})^{a}_{-_{2}}\\
+                          &=      \bigvee_{\substack{a\in B\\a=-_{2}}}R^{-_{1}}_{a}\\
                           &=      R^{-_{1}}_{-_{2}}.
     \end{align*}
     In the language of relations, given $a\in A$ and $b\in B$:
@@ -661,17 +606,44 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{itemize}
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
-    Clear.
-
-    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-composition}: Interaction With Composition}%
-    Clear.
+    We have
+    \begin{align*}
+        (S\procirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\procirc R)^{\dagger}}a\}\\
+                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\procirc R}c\}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $a\sim_{R}b$ and $b\sim_{S}c$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $b\sim_{R^{\dagger}}a$ and $c\sim_{S^{\dagger}}b$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{there exists some $b\in B$ such}\\
+                                                &\text{that $c\sim_{S^{\dagger}}b$ and $b\sim_{R^{\dagger}}a$ }\\
+                                            \end{aligned}
+                                        \}\\
+                                &\defeq R^{\dagger}\procirc S^{\dagger}.
+    \end{align*}
+    This finishes the proof.
 \end{Proof}
 \subsection{Apartness Composition of Relations}\label{subsection-apartness-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
 \begin{definition}{Apartness Composition of Relations}{apartness-composition-of-relations}%
     The \index[set-theory]{relation!apartness composition of}\textbf{apartness composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\aptcirc R$}$S\aptcirc R$ defined as follows:%
     \begin{itemize}
-        \item Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
+        \item Viewing relations as subsets of $A\times C$, we define
             \[
                 S\aptcirc R
                 \defeq
@@ -684,20 +656,169 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                     \end{aligned}
                 \}.%
             \]%
-        \item Viewing relations as functions $A\times B\to\TV$, we define
+        \item Viewing relations as functions $A\times C\to\TV$, we define
             \begin{align*}
                 (S\aptcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}\\%
                                               &=      \bigwedge_{b\in B}S^{-_{1}}_{b}\icoprod R^{b}_{-_{2}},%
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
-        \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+        \item Viewing relations as functions $A\to\mathcal{P}(C)$, we define
             \[
                 [S\aptcirc R](a)%
                 \defeq%
                 \bigcap_{b\in B\setminus R(a)}S(b)%
             \]%
+            for each $a\in A$.
     \end{itemize}
 \end{definition}
+\begin{example}{Examples of Apartness Composition of Relations}{examples-of-apartness-composition-of-relations}%
+    Here are some examples of apartness composition of relations.
+    \begin{enumerate}
+        \item\label{examples-of-apartness-composition-of-relations-1}\SloganFont{Composing Less/Greater Than Equal With Greater/Less Than Equal Signs. }Let $A=B=C=\R$. We have
+            \begin{align*}
+                \mathord{\leq}\aptcirc\mathord{\geq} &= \emptyset,\\
+                \mathord{\geq}\aptcirc\mathord{\leq} &= \emptyset.
+            \end{align*}
+        \item\label{examples-of-apartness-composition-of-relations-2}\SloganFont{Composing Less/Greater Than Equal Signs With Less/Greater Than Equal Signs. }Let $A=B=C=\R$. We have
+            \begin{align*}
+                \mathord{\leq}\aptcirc\mathord{\leq} &= \emptyset,\\
+                \mathord{\geq}\aptcirc\mathord{\geq} &= \emptyset.
+            \end{align*}
+        \item\label{examples-of-apartness-composition-of-relations-3}\SloganFont{Equality and Inequality. }Let $A=B=C=\Z$. We have
+            \begin{align*}
+                \mathord{=}\aptcirc\mathord{\neq} &= \mathord{=},\\
+                \mathord{\neq}\aptcirc\mathord{=} &= \mathord{=}.
+            \end{align*}
+        \item\label{examples-of-apartness-composition-of-relations-4}\SloganFont{Subset Inclusion. }Let $X$ be a set with at least three elements and consider the relations $\subset$ and $\supset$ in $\mathcal{P}(X)$. We have
+            \[
+                \mathord{\supset}\aptcirc\mathord{\subset}%
+                =%
+                \{%
+                    (U,V)\in\mathcal{P}(X)%
+                    \ \middle|\ %
+                    \text{$U=\emptyset$ or $V=\emptyset$}%
+                \}.%
+            \]%
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of Apartness Composition of Relations}{properties-of-apartness-composition-of-relations}%
+    Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
+    \begin{enumerate}
+        \item\label{properties-of-apartness-composition-of-relations-associativity}\SloganFont{Associativity. }We have
+            \[
+                (T\aptcirc S)\aptcirc R
+                =
+                T\aptcirc(S\aptcirc R).
+            \]%
+        \item\label{properties-of-apartness-composition-of-relations-unitality}\SloganFont{Unitality. }We have
+            \begin{align*}
+                \nabla_{B}\aptcirc R &= R,\\
+                R\aptcirc\nabla_{A}  &= R.
+            \end{align*}
+        \item\label{properties-of-apartness-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (S\aptcirc R)^{\dagger}
+                =
+                R^{\dagger}\aptcirc S^{\dagger}.
+            \]%
+        %\item\label{properties-of-apartness-composition-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-apartness-composition-of-relations}}%
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-associativity}: Associativity}%
+    Indeed, we have
+    \begin{align*}
+        (T\aptcirc S)\aptcirc R &\defeq (\int_{c\in C}T^{-_{1}}_{c}\icoprod S^{c}_{-_{2}})\aptcirc R\\
+                                &\defeq \int_{b\in B}(\int_{c\in C}T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
+                                &=      \int_{b\in B}\int_{c\in C}(T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
+                                &=      \int_{c\in C}\int_{b\in B}(T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
+                                &=      \int_{c\in C}\int_{b\in B}T^{-_{1}}_{c}\icoprod(S^{c}_{b}\icoprod R^{b}_{-_{2}})\\
+                                &=      \int_{c\in C}T^{-_{1}}_{c}\icoprod(\int_{b\in B}S^{c}_{b}\icoprod R^{b}_{-_{2}})\\
+                                &\defeq \int_{c\in C}T^{-_{1}}_{c}\icoprod(S\aptcirc R)^{c}_{-_{2}}\\
+                                &\defeq T\aptcirc(S\aptcirc R).
+    \end{align*}
+    In the language of relations, given $a\in A$ and $d\in D$, the stated equality witnesses the equivalence of the following two statements:
+    \begin{itemize}
+        \item We have $a\sim_{(T\aptcirc S)\aptcirc R}d$, i.e.\ there exists some $b\in B$ such that:
+            \begin{itemize}
+                \item We have $a\sim_{R}b$;
+                \item We have $b\sim_{T\aptcirc S}d$, i.e.\ there exists some $c\in C$ such that:
+                    \begin{itemize}
+                        \item We have $b\sim_{S}c$;
+                        \item We have $c\sim_{T}d$;
+                    \end{itemize}
+            \end{itemize}
+        \item We have $a\sim_{T\aptcirc(S\aptcirc R)}d$, i.e.\ there exists some $c\in C$ such that:
+            \begin{itemize}
+                \item We have $a\sim_{S\aptcirc R}c$, i.e.\ there exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item We have $a\sim_{R}b$;
+                        \item We have $b\sim_{S}c$;
+                    \end{itemize}
+                \item We have $c\sim_{T}d$;
+            \end{itemize}
+    \end{itemize}
+    both of which are equivalent to the statement
+    \begin{itemize}
+        \item There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
+    \end{itemize}
+
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-unitality}: Unitality}%
+    Indeed, we have
+    \begin{align*}
+        \nabla_{B}\aptcirc R &\defeq \int_{b\in B}(\nabla_{B})^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}\\
+                             &=      \bigwedge_{b\in B}(\nabla_{B})^{-_{1}}_{b}\icoprod R^{b}_{-_{2}}\\
+                             &=      (\bigwedge_{\substack{b\in B\\b=-_{1}}}(\nabla_{B})^{-_{1}}_{b}\icoprod R^{b}_{-_{2}})\wedge(\bigwedge_{\substack{b\in B\\b\neq-_{1}}}(\nabla_{B})^{-_{1}}_{b}\icoprod R^{b}_{-_{2}})\\
+                             &=      ((\nabla_{B})^{-_{1}}_{-_{1}}\icoprod R^{-_{1}}_{-_{2}})\wedge(\bigwedge_{\substack{b\in B\\b\neq-_{1}}}\ttrue\icoprod R^{b}_{-_{2}})\\
+                             &=      (\tfalse\icoprod R^{-_{1}}_{-_{2}})\wedge(\bigwedge_{\substack{b\in B\\b\neq-_{1}}}\ttrue)\\
+                             &=      R^{-_{1}}_{-_{2}}\wedge\ttrue\\
+                             &=      R^{-_{1}}_{-_{2}},
+    \end{align*}
+    and
+    \begin{align*}
+        R\aptcirc\nabla_{A} &\defeq \int_{a\in A}R^{-_{1}}_{a}\icoprod(\nabla_{A})^{a}_{-_{2}}\\
+                            &=      \bigwedge_{a\in A}R^{-_{1}}_{a}\icoprod(\nabla_{A})^{a}_{-_{2}}\\
+                            &=      (\bigwedge_{\substack{a\in A\\a=-_{2}}}R^{-_{1}}_{a}\icoprod(\nabla_{A})^{a}_{-_{2}})\wedge(\bigwedge_{\substack{a\in A\\a\neq-_{2}}}R^{-_{1}}_{a}\icoprod(\nabla_{A})^{a}_{-_{2}})\\
+                            &=      (R^{-_{1}}_{-_{2}}\icoprod(\nabla_{A})^{-_{2}}_{-_{2}})\wedge(\bigwedge_{\substack{a\in A\\a\neq-_{2}}}R^{-_{1}}_{a}\icoprod\ttrue)\\
+                            &=      (R^{-_{1}}_{-_{2}}\icoprod\tfalse)\wedge(\bigwedge_{\substack{a\in A\\a\neq-_{2}}}\ttrue)\\
+                            &=      R^{-_{1}}_{-_{2}}\wedge\ttrue\\
+                            &=      R^{-_{1}}_{-_{2}},
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
+    We have
+    \begin{align*}
+        (S\aptcirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\aptcirc R)^{\dagger}}a\}\\
+                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\aptcirc R}c\}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$a\sim_{R}b$ or $b\sim_{S}c$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$b\sim_{R^{\dagger}}a$ or $c\sim_{S^{\dagger}}b$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$c\sim_{S^{\dagger}}b$ or $b\sim_{R^{\dagger}}a$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &\defeq R^{\dagger}\aptcirc S^{\dagger}.
+    \end{align*}
+    This finishes the proof.
+\end{Proof}
 \subsection{The Converse of a Relation}\label{subsection-the-converse-of-a-relation}
 Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
 \begin{definition}{The Converse of a Relation}{the-converse-of-a-relation}%
@@ -815,6 +936,133 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
 \section{Examples of Relations}\label{section-examples-of-relations}
 \subsection{Elementary Examples of Relations}\label{subsection-elementary-examples-of-relations}
 % TODO: Examples in TODO
+\begin{example}{The Trivial Relation}{the-trivial-relation}%
+    The \index[set-theory]{relation!trivial}\textbf{trivial relation on $A$ and $B$} is the relation \index[notation]{simtriv@$\unsim_{\triv}$}$\unsim_{\triv}$ defined equivalently as follows:
+    \begin{enumerate}
+        \item\label{the-trivial-relation-1}As a subset of $A\times B$, we have
+            \[
+                \unsim_{\triv}%
+                \defeq%
+                A\times B.%
+            \]%
+        \item\label{the-trivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\triv}$ is the constant function
+            \[%
+                \Delta_{\true}%
+                \colon%
+                A\times B%
+                \to%
+                \TV%
+            \]%
+            from $A\times B$ to $\TV$ taking the value $\true$.
+        \item\label{the-trivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\triv}$ is the function
+            \[%
+                \Delta_{\true}%
+                \colon%
+                A%
+                \to%
+                \mathcal{P}(B)%
+            \]%
+            defined by
+            \[
+                \Delta_{\true}(a)%
+                \defeq%
+                B%
+            \]%
+            for each $a\in A$.
+        \item\label{the-trivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\sim_{R}b$ for each $a\in A$ and each $b\in B$.
+    \end{enumerate}
+\end{example}
+\begin{example}{The Cotrivial Relation}{the-cotrivial-relation}%
+    The \index[set-theory]{relation!cotrivial}\textbf{cotrivial relation on $A$ and $B$} is the relation \index[notation]{simcotriv@$\unsim_{\cotriv}$}$\unsim_{\cotriv}$ defined equivalently as follows:%
+    \begin{enumerate}
+        \item\label{the-cotrivial-relation-1}As a subset of $A\times B$, we have
+            \[
+                \unsim_{\cotriv}%
+                \defeq%
+                \emptyset.%
+            \]%
+        \item\label{the-cotrivial-relation-2}As a function from $A\times B$ to $\TV$, the relation $\unsim_{\cotriv}$ is the constant function
+            \[%
+                \Delta_{\false}%
+                \colon%
+                A\times B%
+                \to%
+                \TV%
+            \]%
+            from $A\times B$ to $\TV$ taking the value $\false$.
+        \item\label{the-cotrivial-relation-3}As a function from $A$ to $\mathcal{P}(B)$, the relation $\unsim_{\cotriv}$ is the function
+            \[%
+                \Delta_{\false}%
+                \colon%
+                A%
+                \to%
+                \mathcal{P}(B)%
+            \]%
+            defined by
+            \[
+                \Delta_{\false}(a)%
+                \defeq%
+                \emptyset%
+            \]%
+            for each $a\in A$.
+        \item\label{the-cotrivial-relation-4}Lastly, it is the unique relation $R$ on $A$ and $B$ such that we have $a\nsim_{R}b$ for each $a\in A$ and each $b\in B$.
+    \end{enumerate}
+\end{example}
+\begin{example}{The Characteristic Relation of a Set}{the-characteristic-relation}%
+    The characteristic relation $\chi_{X}$ on $X$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:the-characteristic-relation-of-a-set}}{\cref{the-characteristic-relation-of-a-set}}:
+    \begin{enumerate}
+        \item\label{the-characteristic-relation-1}As a subset of $X\times X$, we have
+            \begin{align*}
+                \unsim_{\chi_{X}} &\defeq \Delta_{X}\\%
+                                  &\defeq \{(x,x)\in X\times X\}.%
+            \end{align*}
+        \item\label{the-characteristic-relation-2}As a function from $X\times X$ to $\TV$, we have
+            \[
+                \chi_{X}(x,y)
+                \defeq
+                \begin{cases}
+                    \true  &\text{if $x=y$,}\\
+                    \false &\text{if $x\neq y$}
+                \end{cases}
+            \]%
+            for each $x,y\in X$.
+        \item\label{the-characteristic-relation-3}As a function from $X$ to $\mathcal{P}(X)$, we have
+            \[%
+                \chi_{X}(x)%
+                \defeq%
+                \{x\}%
+            \]%
+            for each $x\in X$.
+    \end{enumerate}
+\end{example}
+\begin{example}{The Antidiagonal Relation on a Set}{the-antidiagonal-relation}%
+    The \index[set-theory]{relation!antidiagonal}\textbf{antidiagonal relation on $X$} is the relation \index[notation]{nablaX@$\nabla_{X}$}$\nabla_{X}$ defined equivalently as follows:%
+    \begin{enumerate}
+        \item\label{the-antidiagonal-relation-1}As a subset of $X\times X$, we have
+            \begin{align*}
+                \unsim_{\nabla_{X}} &\defeq \nabla_{X}\\%
+                                    &\defeq X\setminus\Delta_{X}\\
+                                    &=      \{(x,y)\in X\times X\ |\ x\neq y\}.%
+            \end{align*}
+        \item\label{the-antidiagonal-relation-2}As a function from $X\times X$ to $\TV$, we have
+            \[
+                \nabla_{X}(x,y)
+                \defeq
+                \begin{cases}
+                    \true  &\text{if $a\neq b$,}\\
+                    \false &\text{if $a=b$}
+                \end{cases}
+            \]%
+            for each $x,y\in X$.
+        \item\label{the-antidiagonal-relation-3}As a function from $X$ to $\mathcal{P}(X)$, we have
+            \[%
+                \nabla_{X}(x)%
+                \defeq%
+                X\setminus\{x\}%
+            \]%
+            for each $x\in X$.
+    \end{enumerate}
+\end{example}
 \begin{example}{Square Roots}{square-roots}%
     Square roots are examples of relations:
     \begin{enumerate}

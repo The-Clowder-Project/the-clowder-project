@@ -200,19 +200,42 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
-    \begin{align*}
-        \ttrue  \times \ttrue  &= \ttrue,\\
-        \ttrue  \times \tfalse &= \tfalse,\\
-        \tfalse \times \ttrue  &= \tfalse,\\
-        \tfalse \times \tfalse &= \tfalse,
-    \end{align*}
+    \begin{webcompile}
+        \begin{aligned}
+            \ttrue  \times \ttrue  &= \ttrue,\\
+            \ttrue  \times \tfalse &= \tfalse,
+        \end{aligned}
+        \quad
+        \begin{aligned}
+            \tfalse \times \ttrue  &= \tfalse,\\
+            \tfalse \times \tfalse &= \tfalse,
+        \end{aligned}
+        \qquad
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{$\times$}                       & \textcolor{white}{$\ttrue$}  & \textcolor{white}{$\tfalse$} \\\hline\rowcolor{backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\ttrue$}}  &                   $\ttrue$   &                   $\tfalse$  \\\rowcolor{black!05!backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\tfalse$}} &                   $\tfalse$  &                   $\tfalse$  \\\hline
+        \end{tabular}
+    \end{webcompile}
     and internal Hom $\eHom_{\TTV}$ given by the partial order of $\TTV$, i.e.\ by
-    \begin{align*}
-        \eHom_{\TTV}(\ttrue,\ttrue)   &= \ttrue,\\
-        \eHom_{\TTV}(\ttrue,\tfalse)  &= \tfalse,\\
-        \eHom_{\TTV}(\tfalse,\ttrue)  &= \ttrue,\\
-        \eHom_{\TTV}(\tfalse,\tfalse) &= \ttrue.
-    \end{align*}
+    \begin{webcompile}
+        \begin{aligned}
+            \eHom_{\TTV}(\ttrue,\ttrue)   &= \ttrue,\\
+            \eHom_{\TTV}(\ttrue,\tfalse)  &= \tfalse,
+        \end{aligned}
+        \quad
+        \begin{aligned}
+            \eHom_{\TTV}(\tfalse,\ttrue)  &= \ttrue,\\
+            \eHom_{\TTV}(\tfalse,\tfalse) &= \ttrue,
+        \end{aligned}
+        \qquad
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{$\eHom_{\TTV}$}                 & \textcolor{white}{$\ttrue$} & \textcolor{white}{$\tfalse$} \\\hline\rowcolor{backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\ttrue$}}  &                   $\ttrue$  &                   $\ttrue$   \\\rowcolor{black!05!backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\tfalse$}} &                   $\ttrue$  &                   $\tfalse$  \\\hline
+        \end{tabular}
+        \mkern3mu.
+    \end{webcompile}
 \end{proposition}
 \begin{Proof}{Proof of \cref{cartesian-closedness-of-the-poset-of-truth-values}}%
     \ProofBox{Existence of Products}%
