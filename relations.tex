@@ -66,8 +66,6 @@ This chapter contains some material about relations. Notably, we discuss and exp
 \end{enumerate}
 This chapter is under revision. TODO:
 \begin{enumerate}
-    \item Revise \cref{subsection-categories-of-relations}
-    \item Replicate \cref{subsection-categories-of-relations} for apartness composition
     \item Revise \cref{section-properties-of-the-2-category-of-relations}
         \begin{enumerate}
             \item Add modules over monads in $\sfbfRel$
@@ -456,11 +454,31 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{proposition}{Properties of Composition of Relations}{properties-of-composition-of-relations}%
     Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
     \begin{enumerate}
-        \item\label{properties-of-composition-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
-            \begin{align*}
-                \dom(S\procirc R)   &\subset \dom(R),\\
-                \range(S\procirc R) &\subset \range(S).
-            \end{align*}
+        \item\label{properties-of-composition-of-relations-functoriality}\SloganFont{Functoriality. }Composition of relations defines a morphism of posets
+            \[
+                \procirc_{A,B,C}%
+                \colon%
+                \eRel(B,C)%
+                \times%
+                \eRel(A,B)%
+                \to%
+                \eRel(A,C).%
+            \]%
+            In other words, given relations
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"R_{1}", mid vert]%
+                    \arrow[r,"R_{2}"',mid vert]%
+                    \&
+                    B
+                    \arrow[r,"S_{1}", mid vert]%
+                    \arrow[r,"S_{2}"',mid vert]%
+                    \&
+                    C\mrp{,}
+                \end{tikzcd}
+            \]%
+            if $R_{1}\subset R_{2}$ and $S_{1}\subset S_{2}$, then $S_{1}\procirc R_{1}\subset S_{2}\procirc R_{2}$.
         \item\label{properties-of-composition-of-relations-associativity}\SloganFont{Associativity. }We have
             \[
                 (T\procirc S)\procirc R
@@ -478,52 +496,35 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
+        \item\label{properties-of-composition-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+            \begin{align*}
+                \dom(S\procirc R)   &\subset \dom(R),\\
+                \range(S\procirc R) &\subset \range(S).
+            \end{align*}
         %\item\label{properties-of-composition-of-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-composition-of-relations}}%
-    \FirstProofBox{\cref{properties-of-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    \FirstProofBox{\cref{properties-of-composition-of-relations-functoriality}: Functoriality}%
     We have
     \begin{align*}
-        \dom(S\procirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\procirc R}c\text{ for some $c\in C$}\},\\
-                          &=       \{%
-                                       a\in A%
-                                       \ \middle|\ %
-                                       \begin{aligned}
-                                           &\text{there exists some $b\in B$ and $c\in C$}\\
-                                           &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
-                                       \end{aligned}
-                                   \},\\
-                          &\subset \{%
-                                       a\in A%
-                                       \ \middle|\ %
-                                       \begin{aligned}
-                                           &\text{there exists some $b\in B$}\\
-                                           &\text{such that $a\sim_{R}b$}
-                                       \end{aligned}
-                                   \},\\
-                          &\defeq  \dom(R)
-    \end{align*}
-    and
-    \begin{align*}
-        \range(S\procirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\procirc R}c\text{ for some $a\in A$}\},\\
-                            &=       \{%
-                                         c\in C%
+        S_{1}\procirc R_{1} &\defeq  \{%
+                                         (a,c)\in A\times C%
                                          \ \middle|\ %
                                          \begin{aligned}
-                                             &\text{there exists some $a\in A$ and $b\in B$}\\
-                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                             &\text{there exists some $b\in B$, such}\\%
+                                             &\text{that $a\sim_{R_{1}}b$ or $b\sim_{S_{1}}c$}%
                                          \end{aligned}
-                                     \},\\
+                                     \}\\%
                             &\subset \{%
-                                         c\in C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $b\in B$}\\
-                                             &\text{such that $b\sim_{S}c$}
-                                         \end{aligned}
-                                     \},\\
-                            &\defeq  \range(S).
+                                        (a,c)\in A\times C%
+                                        \ \middle|\ %
+                                        \begin{aligned}
+                                             &\text{there exists some $b\in B$, such}\\%
+                                             &\text{that $a\sim_{R_{2}}b$ or $b\sim_{S_{2}}c$}%
+                                        \end{aligned}
+                                    \}\\%
+                            &\defeq S_{2}\procirc R_{2}.
     \end{align*}
     This finishes the proof.
 
@@ -616,6 +617,52 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
     This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition-1} of \cref{properties-of-converses-of-relations} and is proved there.
+
+    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    We have
+    \begin{align*}
+        \dom(S\procirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\procirc R}c\text{ for some $c\in C$}\},\\
+                          &=       \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$ and $c\in C$}\\
+                                           &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                       \end{aligned}
+                                   \},\\
+                          &\subset \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$}\\
+                                           &\text{such that $a\sim_{R}b$}
+                                       \end{aligned}
+                                   \},\\
+                          &\defeq  \dom(R)
+    \end{align*}
+    and
+    \begin{align*}
+        \range(S\procirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\procirc R}c\text{ for some $a\in A$}\},\\
+                            &=       \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $a\in A$ and $b\in B$}\\
+                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\subset \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $b\in B$}\\
+                                             &\text{such that $b\sim_{S}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\defeq  \range(S).
+    \end{align*}
+    This finishes the proof.
+
 \end{Proof}
 \subsection{Apartness Composition of Relations}\label{subsection-apartness-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
@@ -683,6 +730,31 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{proposition}{Properties of Apartness Composition of Relations}{properties-of-apartness-composition-of-relations}%
     Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
     \begin{enumerate}
+        \item\label{properties-of-apartness-composition-of-relations-functoriality}\SloganFont{Functoriality. }Apartness composition of relations defines a morphism of posets
+            \[
+                \aptcirc_{A,B,C}%
+                \colon%
+                \eRel(B,C)%
+                \times%
+                \eRel(A,B)%
+                \to%
+                \eRel(A,C).%
+            \]%
+            In other words, given relations
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"R_{1}", mid vert]%
+                    \arrow[r,"R_{2}"',mid vert]%
+                    \&
+                    B
+                    \arrow[r,"S_{1}", mid vert]%
+                    \arrow[r,"S_{2}"',mid vert]%
+                    \&
+                    C\mrp{,}
+                \end{tikzcd}
+            \]%
+            if $R_{1}\subset R_{2}$ and $S_{1}\subset S_{2}$, then $S_{1}\aptcirc R_{1}\subset S_{2}\aptcirc R_{2}$.
         \item\label{properties-of-apartness-composition-of-relations-associativity}\SloganFont{Associativity. }We have
             \[
                 (T\aptcirc S)\aptcirc R
@@ -704,6 +776,29 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-apartness-composition-of-relations}}%
+    \FirstProofBox{\cref{properties-of-apartness-composition-of-relations-functoriality}: Functoriality}%
+    We have
+    \begin{align*}
+        S_{1}\aptcirc R_{1} &\defeq  \{%
+                                         (a,c)\in A\times C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{for each $b\in B$, we have}\\%
+                                             &\text{$a\sim_{R_{1}}b$ or $b\sim_{S_{1}}c$}%
+                                         \end{aligned}
+                                     \}\\%
+                            &\subset \{%
+                                        (a,c)\in A\times C%
+                                        \ \middle|\ %
+                                        \begin{aligned}
+                                            &\text{for each $b\in B$, we have}\\%
+                                            &\text{$a\sim_{R_{2}}b$ or $b\sim_{S_{2}}c$}%
+                                        \end{aligned}
+                                    \}\\%
+                            &\defeq S_{2}\aptcirc R_{2}.
+    \end{align*}
+    This finishes the proof.
+
     \ProofBox{\cref{properties-of-apartness-composition-of-relations-associativity}: Associativity}%
     Indeed, we have
     \begin{align*}
@@ -1102,7 +1197,7 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
     \end{enumerate}
 \end{example}
 \begin{example}{Partial Functions}{examples-of-relations-partial-functions}%
-    Partial functions may be viewed (or defined) as being exactly those relations which are functional (\ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:subsection-functional-relations}}{\cref{subsection-functional-relations}}).
+    Partial functions may be viewed (or defined) as being exactly those relations which are functional; see \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:subsection-functional-relations}}{\cref{subsection-functional-relations}}.
 \end{example}
 \begin{example}{Square Roots}{square-roots}%
     Square roots are examples of relations:
@@ -1157,7 +1252,7 @@ Let $f\colon A\to B$ be a function.
     The \index[set-theory]{function!graph of}\textbf{graph of $f$} is the relation $\Gr(f)\colon A\rightproarrow B$ defined as follows:%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Notation: }We write \index[notation]{GrA@$\Gr(A)$}$\Gr(A)$ for $\Gr(\id_{A})$, and call it the \textbf{graph} of $A$.
+        \SloganFont{Further Terminology and Notation: }When $f=\id_{A}$, we write \index[notation]{GrA@$\Gr(A)$}$\Gr(A)$ for $\Gr(\id_{A})$, calling it the \textbf{graph of $A$}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -1170,7 +1265,7 @@ Let $f\colon A\to B$ be a function.
             \]%
         \item Viewing relations from $A$ to $B$ as functions $A\times B\to\TV$, we define
             \[
-                [\Gr(f)](a,b)%
+                \Gr(f)^{b}_{a}%
                 \defeq%
                 \begin{cases}
                     \true  &\text{if $b=f(a)$,}\\
@@ -1189,7 +1284,7 @@ Let $f\colon A\to B$ be a function.
                 A
                 \xlongrightarrow{f}
                 B
-                \xlongrightarrow{\chi_{B}}
+                \xlonghookrightarrow{\chi_{B}}
                 \mathcal{P}(B).
             \]%
     \end{itemize}
@@ -1229,7 +1324,7 @@ Let $f\colon A\to B$ be a function.
                     \]%
                     where $\Gr(f)$ is the graph of $f$ as in \cref{the-graph-of-a-function}.
             \end{itemize}
-            In particular:
+            In particular, the following statements are true:
             \begin{itemize}
                 \item\SloganFont{Preservation of Identities. }We have
                     \[
@@ -1246,11 +1341,6 @@ Let $f\colon A\to B$ be a function.
                     \]%
                     for each pair of functions $f\colon A\to B$ and $g\colon B\to C$.
             \end{itemize}
-        \item\label{properties-of-graphs-of-functions-adjointness-inside-sfbfrel}\SloganFont{Adjointness Inside $\sfbfRel$. }We have an adjunction
-            \begin{webcompile}
-                \RelAdjunctionShortSize#4.0#\Gr(f)#f^{-1}#A#B#
-            \end{webcompile}%
-            in $\sfbfRel$, where $f^{-1}$ is the converse of $f$ of \cref{the-converse-of-a-function}.
         \item\label{properties-of-graphs-of-functions-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#\Gr#\mathcal{P}_{!}#\Sets#\Rel,#
@@ -1262,12 +1352,17 @@ Let $f\colon A\to B$ be a function.
                 \Sets(A,\mathcal{P}(B))
             \]%
             natural in $A\in\Obj(\Sets)$ and $B\in\Obj(\Rel)$.
+        \item\label{properties-of-graphs-of-functions-cocontinuity}\SloganFont{Cocontinuity. }The functor $\Gr\colon\Sets\to\Rel$ of \cref{properties-of-graphs-of-functions-functoriality} preserves colimits.
+        \item\label{properties-of-graphs-of-functions-adjointness-inside-sfbfrel}\SloganFont{Adjointness Inside $\sfbfRel$. }We have an internal adjunction
+            \begin{webcompile}
+                \RelAdjunctionShortSize#4.0#\Gr(f)#f^{-1}#A#B#
+            \end{webcompile}%
+            in $\sfbfRel$, where $f^{-1}$ is the inverse of $f$ of \cref{the-inverse-of-a-function}.
         \item\label{properties-of-graphs-of-functions-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \begin{align*}
                 \Gr(f)^{\dagger}   &= f^{-1},\\
                 (f^{-1})^{\dagger} &= \Gr(f).
             \end{align*}
-        \item\label{properties-of-graphs-of-functions-cocontinuity}\SloganFont{Cocontinuity. }The functor $\Gr\colon\Sets\to\Rel$ of \cref{properties-of-graphs-of-functions-functoriality} preserves colimits.
         \item\label{properties-of-graphs-of-functions-characterisations}\SloganFont{Characterisations. }Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:
             \begin{enumerate}
                 \item\label{properties-of-graphs-of-functions-characterisations-1}There exists a function $f\colon A\to B$ such that $R=\Gr(f)$.
@@ -1280,14 +1375,20 @@ Let $f\colon A\to B$ be a function.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-graphs-of-functions}}%
     \FirstProofBox{\cref{properties-of-graphs-of-functions-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
+
+    \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
+    This is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:adjointness-of-powersets-2}}{\cref{adjointness-of-powersets-2}}, and is proved there.
+
+    \ProofBox{\cref{properties-of-graphs-of-functions-cocontinuity}: Cocontinuity}%
+    This follows from \cref{properties-of-graphs-of-functions-adjointness} and \cref{TODO}.
 
     \ProofBox{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel}: Adjointness Inside $\sfbfRel$}%
     We need to check that there are inclusions
-    \begin{align*}
-        \chi_{A}              &\subset f^{-1}\procirc\Gr(f),\\
-        \Gr(f)\procirc f^{-1} &\subset \chi_{B}.
-    \end{align*}
+    \begin{gather*}
+        \chi_{A}              \subset f^{-1}\procirc\Gr(f),\\
+        \Gr(f)\procirc f^{-1} \subset \chi_{B}.
+    \end{gather*}
     These correspond respectively to the following conditions:
     \begin{enumerate}
         \item\label{proof-of-properties-of-graphs-of-functions-adjointness-inside-sfbfrel-1}For each $a\in A$, there exists some $b\in B$ such that $a\sim_{\Gr(f)}b$ and $b\sim_{f^{-1}}a$.
@@ -1295,34 +1396,38 @@ Let $f\colon A\to B$ be a function.
     \end{enumerate}
     In other words, the first condition states that the image of any $a\in A$ by $f$ is nonempty, whereas the second condition states that $f$ is not multivalued. As $f$ is a function, both of these statements are true, and we are done.
 
-    \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
-    The stated bijection follows from \ChapterRef{\ChapterRelations, \cref{relations:equivalent-definitions-of-relations}}{\cref{equivalent-definitions-of-relations}}, with naturality being clear.
-
     \ProofBox{\cref{properties-of-graphs-of-functions-interaction-with-converses}: Interaction With Converses}%
-    Clear.
-
-    \ProofBox{\cref{properties-of-graphs-of-functions-cocontinuity}: Cocontinuity}%
     Omitted.
 
     \ProofBox{\cref{properties-of-graphs-of-functions-characterisations}: Characterisations}%
     We claim that \cref{properties-of-graphs-of-functions-characterisations-1,properties-of-graphs-of-functions-characterisations-2,properties-of-graphs-of-functions-characterisations-3,properties-of-graphs-of-functions-characterisations-4} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-1}$\iff$\cref{properties-of-graphs-of-functions-characterisations-2}. }This is shown in the proof of \cref{properties-of-the-category-of-relations-adjunctions-in-rel} of \cref{properties-of-the-category-of-relations}.
-        \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-2}$\implies$\cref{properties-of-graphs-of-functions-characterisations-3}. }If $R$ is total and functional, then, for each $a\in A$, the set $R(a)$ is a singleton, implying that
+        \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-1}$\iff$\cref{properties-of-graphs-of-functions-characterisations-2}. }This is shown in the proof of \cref{isomorphisms-and-equivalences-in-rel}.
+        \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-2}$\implies$\cref{properties-of-graphs-of-functions-characterisations-3}. }If $R$ is total and functional, then, for each $a\in A$, the set $R(a)$ is a singleton. Since the conditions
+            \begin{itemize}
+                \item $R(a)\cap V\neq\emptyset$;
+                \item $R(a)\subset V$;
+            \end{itemize}
+            are equivalent when $R(a)$ is a singleton, it follows that the sets
             \begin{align*}
                 R^{-1}(V) &\defeq \{a\in A \ \middle|\ R(a)\cap V\neq\emptyset\},\\
                 R_{-1}(V) &\defeq \{a\in A\ \middle|\ R(a)\subset V\}%
             \end{align*}
-            are equal for all $V\in\mathcal{P}(B)$, as the conditions $R(a)\cap V\neq\emptyset$ and $R(a)\subset V$ are equivalent when $R(a)$ is a singleton.
+            are equal for all $V\in\mathcal{P}(B)$.
         \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-3}$\implies$\cref{properties-of-graphs-of-functions-characterisations-2}. }We claim that $R$ is indeed total and functional:
             \begin{itemize}
-                \item\SloganFont{Totality. }If we had $R(a)=\emptyset$ for some $a\in A$, then we would have $a\in R_{-1}(\emptyset)$, so that $R_{-1}(\emptyset)\neq\emptyset$. But since $R^{-1}(\emptyset)=\emptyset$, this would imply $R_{-1}(\emptyset)\neq R^{-1}(\emptyset)$, a contradiction. Thus $R(a)\neq\emptyset$ for all $a\in A$ and $R$ is total.
-                \item\SloganFont{Functionality. } If $R^{-1}=R_{-1}$, then we have
+                \item\SloganFont{Totality. }We proceed in a few steps:
+                    \begin{itemize}
+                        \item If we had $R(a)=\emptyset$ for some $a\in A$, then we would have $a\in R_{-1}(\emptyset)$, so that $R_{-1}(\emptyset)\neq\emptyset$.
+                        \item But since $R^{-1}(\emptyset)=\emptyset$, this would imply $R_{-1}(\emptyset)\neq R^{-1}(\emptyset)$, a contradiction.
+                        \item Thus $R(a)\neq\emptyset$ for all $a\in A$ and $R$ is total.
+                    \end{itemize}
+                \item\SloganFont{Functionality. }If $R^{-1}=R_{-1}$, then we have
                     \begin{align*}
                         \{a\} &= R^{-1}(\{b\})\\
                               &= R_{-1}(\{b\})
                     \end{align*}
-                    for each $b\in R(a)$ and each $a\in A$, and thus $R(a)\subset\{b\}$. But since $R$ is total, we must have $R(a)=\{b\}$, and thus we see that $R$ is functional.
+                    for each $b\in R(a)$ and each $a\in A$, and thus $R(a)\subset\{b\}$. But since $R$ is total, we must have $R(a)=\{b\}$, so $R$ is functional.
             \end{itemize}
         \item\SloganFont{\cref{properties-of-graphs-of-functions-characterisations-1}$\iff$\cref{properties-of-graphs-of-functions-characterisations-4}. }This follows from \ChapterRef{\ChapterRelations, \cref{relations:adjunctions-in-rel}}{\cref{adjunctions-in-rel}}.
     \end{itemize}
@@ -1352,7 +1457,7 @@ Let $f\colon A\to B$ be a function.
             for each $b\in B$.
         \item Viewing relations from $B$ to $A$ as functions $B\times A\to\TV$, we define
             \[
-                f^{-1}(b,a)%
+                [f^{-1}]^{b}_{a}%
                 \defeq%
                 \begin{cases}
                     \true  &\text{if there exists $a\in A$ with $f(a)=b$,}\\
@@ -1408,7 +1513,7 @@ Let $f\colon A\to B$ be a function.
                     \]%
                     where $f^{-1}$ is the inverse of $f$ as in \cref{the-inverse-of-a-function}.
             \end{itemize}
-            In particular:
+            In particular, the following statements are true:
             \begin{itemize}
                 \item\SloganFont{Preservation of Identities. }We have
                     \[
@@ -1440,13 +1545,13 @@ Let $f\colon A\to B$ be a function.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-inverses-of-functions}}%
     \FirstProofBox{\cref{properties-of-inverses-of-functions-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-inverses-of-functions-adjointness-inside-sfbfrel}: Adjointness Inside $\sfbfRel$}%
-    This is proved in \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}.
+    This is a repetition of \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions} and is proved there.
 
     \ProofBox{\cref{properties-of-inverses-of-functions-interaction-with-converses-of-relations}: Interaction With Converses of Relations}%
-    Clear.
+    This is a repetition of \cref{properties-of-graphs-of-functions-interaction-with-converses} of \cref{properties-of-graphs-of-functions} and is proved there.
 \end{Proof}
 \subsection{Representable Relations}\label{subsection-representable-relations}
 Let $A$ and $B$ be sets.
@@ -1534,7 +1639,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 \chi_{A}(-_{1},-_{2}),
             \]%
-            where $\chi_{A}(-_{1},-_{2})$ is the characteristic relation of $A$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions-characteristic-relation} of \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions-characteristic-relation} of \cref{characteristic-functions}}.
+            where $\chi_{A}(-_{1},-_{2})$ is the characteristic relation of $A$ of \cref{the-characteristic-relation}.
         \item\SloganFont{Composition. }For each $A,B,C\in\Obj(\sfRel)$, the composition map
             \[
                 \circ^{\sfRel}_{A,B,C}%
@@ -1551,7 +1656,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 S\procirc R
             \]%
-            for each $(S,R)\in\Rel(B,C)\times\Rel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:composition-of-relations}}{\cref{composition-of-relations}}.
+            for each $(S,R)\in\Rel(B,C)\times\Rel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
 \subsection{The Closed Symmetric Monoidal Category of Relations}\label{subsection-the-closed-symmetric-monoidal-category-of-relations}
@@ -1770,7 +1875,7 @@ Let $A$ and $B$ be sets.
         \quad
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \sfRel\times\sfRel
-            \arrow[rr,"\times"{name=1},pos=0.5]
+            \arrow[rr,"\times"{name=1},pos=0.3425]
             \arrow[rd,"\bfsigma^{\TwoCategoryOfCategories}_{\sfRel,\sfRel}"'{pos=0.25},bend right=15]
             \&
             {}
@@ -1814,7 +1919,7 @@ Let $A$ and $B$ be sets.
     defined
     \begin{itemize}
         \item On objects by sending $A,B\in\Obj(\sfRel)$ to the set $\Rel(A,B)$ of \cref{the-set-of-relations-between-two-sets-1} of \cref{the-set-of-relations-between-two-sets}.
-        \item On morphisms by pre/post-composition defined as in \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:composition-of-relations}}{\cref{composition-of-relations}}.
+        \item On morphisms by pre/post-composition defined as in \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
 \begin{proposition}{Properties of the Internal Hom of $\sfRel$}{properties-of-the-internal-hom-of-rel}%
@@ -1949,16 +2054,11 @@ Let $A$ and $B$ be sets.
                 \defeq
                 \chi_{A}(-_{1},-_{2}),
             \]%
-            where $\chi_{A}(-_{1},-_{2})$ is the characteristic relation of $A$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:characteristic-functions-characteristic-relation} of \cref{constructions-with-sets:characteristic-functions}}{\cref{characteristic-functions-characteristic-relation} of \cref{characteristic-functions}}.
+            where $\chi_{A}(-_{1},-_{2})$ is the characteristic relation of $A$ of \cref{the-characteristic-relation}.
         \item\SloganFont{Composition. }For each $A,B,C\in\Obj(\sfbfRel)$, the composition map%
             %--- Begin Footnote ---%
             \footnote{%
-                Note that this is indeed a morphism of posets: given relations $R_{1},R_{2}\in\eRel(A,B)$ and $S_{1},S_{2}\in\eRel(B,C)$ such that
-                \begin{align*}
-                    R_{1} &\subset R_{2},\\
-                    S_{1} &\subset S_{2},
-                \end{align*}
-                we have also $S_{1}\procirc R_{1}\subset S_{2}\procirc R_{2}$.
+                That this is indeed a morphism of posets is proven in \cref{properties-of-composition-of-relations-interaction-with-inclusions} of \cref{properties-of-composition-of-relations}.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
@@ -1977,7 +2077,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 S\procirc R
             \]%
-            for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:composition-of-relations}}{\cref{composition-of-relations}}.
+            for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
 \subsection{The Double Category of Relations}\label{subsection-the-double-category-of-relations}
@@ -2083,9 +2183,9 @@ Let $A$ and $B$ be sets.
                 g\circ f.
             \]%
         \item\SloganFont{Vertical Composition of $2$-Morphisms. }The vertical composition of $2$-morphisms in $\dblRel$ is defined as in \cref{the-vertical-composition-of-two-morphisms-in-dblrel}.
-        \item\SloganFont{Associators. }The associators of $\dblRel$ is defined as in \cref{the-associators-of-dblrel}.
-        \item\SloganFont{Left Unitors. }The left unitors of $\dblRel$ is defined as in \cref{the-left-unitors-of-dblrel}.
-        \item\SloganFont{Right Unitors. }The right unitors of $\dblRel$ is defined as in \cref{the-right-unitors-of-dblrel}.
+        \item\SloganFont{Associators. }The associators of $\dblRel$ are defined as in \cref{the-associators-of-dblrel}.
+        \item\SloganFont{Left Unitors. }The left unitors of $\dblRel$ are defined as in \cref{the-left-unitors-of-dblrel}.
+        \item\SloganFont{Right Unitors. }The right unitors of $\dblRel$ are defined as in \cref{the-right-unitors-of-dblrel}.
     \end{itemize}
 \end{definition}
 \subsubsection{Horizontal Identities}\label{subsubsection-the-double-category-of-relations-the-associator}
@@ -2167,7 +2267,7 @@ Let $A$ and $B$ be sets.
                 \defeq%
                 S\procirc R,%
             \]%
-            where $S\procirc R$ is the composition of $R$ and $S$ of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:composition-of-relations}}{\cref{composition-of-relations}}.
+            where $S\procirc R$ is the composition of $R$ and $S$ of \cref{composition-of-relations}.
         \item\SloganFont{Action on Morphisms. }For each horizontally composable pair
             \begin{webcompile}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -2255,32 +2355,6 @@ Let $A$ and $B$ be sets.
                 \end{tikzcd}
             \]%
             of $\alpha$ and $\beta$ is the inclusion of relations%
-            %--- Begin Footnote ---%
-            \footnote{%
-                This is justified by noting that, given $(a,c)\in A\times C$, the statement
-                \begin{itemize}
-                    \item We have $a\sim_{(U\procirc T)\circ(f\times h)}c$, i.e.\ $f(a)\sim_{U\procirc T}h(c)$, i.e.\ there exists some $y\in Y$ such that:
-                        \begin{itemize}
-                            \item We have $f(a)\sim_{T}y$.
-                            \item We have $y\sim_{U}h(c)$.
-                        \end{itemize}
-                \end{itemize}
-                is implied by the statement
-                \begin{itemize}
-                    \item We have $a\sim_{S\procirc R}c$, i.e.\ there exists some $b\in B$ such that:
-                        \begin{itemize}
-                            \item We have $a\sim_{R}b$.
-                            \item We have $b\sim_{S}c$.
-                        \end{itemize}
-                \end{itemize}
-                since:
-                \begin{itemize}
-                    \item If $a\sim_{R}b$, then $f(a)\sim_{T}g(b)$, as $T\circ(f\times g)\subset R$;
-                    \item If $b\sim_{S}c$, then $g(b)\sim_{U}h(c)$, as $U\circ(g\times h)\subset S$.
-                \end{itemize}
-                \par\vspace*{\TCBBoxCorrection}
-            }%
-            %---  End Footnote  ---%
             \begin{webcompile}
                 (U\procirc T)\circ(f\times h)%
                 \subset%
@@ -2304,6 +2378,36 @@ Let $A$ and $B$ be sets.
             \end{webcompile}%
     \end{itemize}
 \end{definition}
+\begin{Proof}{Proof of the Inclusion in \cref{the-horizontal-composition-of-dblrel}}%
+    The inclusion of relations
+    \[
+        (U\procirc T)\circ(f\times h)%
+        \subset%
+        (S\procirc R)%
+    \]%
+    follows from the fact that the statement
+    \begin{itemize}
+        \item We have $a\sim_{(U\procirc T)\circ(f\times h)}c$, i.e.\ $f(a)\sim_{U\procirc T}h(c)$, i.e.\ there exists some $y\in Y$ such that:
+            \begin{itemize}
+                \item We have $f(a)\sim_{T}y$.
+                \item We have $y\sim_{U}h(c)$.
+            \end{itemize}
+    \end{itemize}
+    is implied by the statement
+    \begin{itemize}
+        \item We have $a\sim_{S\procirc R}c$, i.e.\ there exists some $b\in B$ such that:
+            \begin{itemize}
+                \item We have $a\sim_{R}b$.
+                \item We have $b\sim_{S}c$.
+            \end{itemize}
+    \end{itemize}
+    since:
+    \begin{itemize}
+        \item If $a\sim_{R}b$, then $f(a)\sim_{T}g(b)$, as $T\circ(f\times g)\subset R$;
+        \item If $b\sim_{S}c$, then $g(b)\sim_{U}h(c)$, as $U\circ(g\times h)\subset S$.
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \subsubsection{Vertical Composition of 2-Morphisms}\label{subsubsection-the-double-category-of-relations-vertical-composition-of-2-morphisms}
 \begin{definition}{The Vertical Composition of 2-Morphisms in $\dblRel$}{the-vertical-composition-of-two-morphisms-in-dblrel}%
     The \textbf{vertical composition} in $\dblRel$ is defined as follows: for each vertically composable pair
@@ -2415,27 +2519,6 @@ Let $A$ and $B$ be sets.
         \end{tikzcd}
     \end{webcompile}%
     given by the pasting of inclusions%
-    %--- Begin Footnote ---%
-    \footnote{%
-        This is justified by noting that, given $(a,x)\in A\times X$, the statement
-        \begin{itemize}
-            \item We have $h(f(a))\sim_{T}k(g(x))$;
-        \end{itemize}
-        is implied by the statement
-        \begin{itemize}
-            \item We have $a\sim_{R}x$;
-        \end{itemize}
-        since
-        \begin{itemize}
-            \item If $a\sim_{R}x$,       then $f(a)\sim_{S}g(x)$, as $S\circ(f\times g)\subset R$;
-            \item If $b\sim_{S}y$,       then $h(b)\sim_{T}k(y)$, as $T\circ(h\times k)\subset S$, and thus, in particular:
-                \begin{itemize}
-                    \item If $f(a)\sim_{S}g(x)$, then $h(f(a))\sim_{T}k(g(x))$.
-                \end{itemize}
-        \end{itemize}
-        \par\vspace*{\TCBBoxCorrection}
-    }%
-    %---  End Footnote  ---%
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A\times X
@@ -2462,6 +2545,31 @@ Let $A$ and $B$ be sets.
         \end{tikzcd}
     \]%
 \end{definition}
+\begin{Proof}{Proof of the Inclusion in \cref{the-vertical-composition-of-two-morphisms-in-dblrel}}%
+    The inclusion
+    \[%
+        T\circ[(h\circ f)\times(k\circ g)]%
+        \subset%
+        R%
+    \]%
+    follows from the fact that, given $(a,x)\in A\times X$, the statement
+    \begin{itemize}
+        \item We have $h(f(a))\sim_{T}k(g(x))$;
+    \end{itemize}
+    is implied by the statement
+    \begin{itemize}
+        \item We have $a\sim_{R}x$;
+    \end{itemize}
+    since
+    \begin{itemize}
+        \item If $a\sim_{R}x$,       then $f(a)\sim_{S}g(x)$, as $S\circ(f\times g)\subset R$;
+        \item If $b\sim_{S}y$,       then $h(b)\sim_{T}k(y)$, as $T\circ(h\times k)\subset S$, and thus, in particular:
+            \begin{itemize}
+                \item If $f(a)\sim_{S}g(x)$, then $h(f(a))\sim_{T}k(g(x))$.
+            \end{itemize}
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \subsubsection{The Associators}\label{subsubsection-the-double-category-of-relations-the-associators}
 \begin{definition}{The Associators of $\dblRel$}{the-associators-of-dblrel}%
     For each composable triple%
@@ -2509,7 +2617,7 @@ Let $A$ and $B$ be sets.
     of the associator of $\dblRel$ at $(R,S,T)$ is the identity inclusion%
     %--- Begin Footnote ---%
     \footnote{%
-        This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-associativity} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-associativity} of \cref{properties-of-composition-of-relations}}.
+        As proved in \cref{properties-of-composition-of-relations-associativity} of \cref{properties-of-composition-of-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -2568,7 +2676,7 @@ Let $A$ and $B$ be sets.
     of the left unitor of $\dblRel$ at $R$ is the identity inclusion%
     %--- Begin Footnote ---%
     \footnote{%
-        This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-unitality} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}}.
+        As proved in \cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -2627,7 +2735,7 @@ Let $A$ and $B$ be sets.
     of the right unitor of $\dblRel$ at $R$ is the identity inclusion%
     %--- Begin Footnote ---%
     \footnote{%
-        This is justified by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations-unitality} of \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}}.
+        As proved in \cref{properties-of-composition-of-relations-unitality} of \cref{properties-of-composition-of-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -2652,6 +2760,102 @@ Let $A$ and $B$ be sets.
             \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$=$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
         \end{tikzcd}
     \end{webcompile}%
+\end{definition}
+\section{Categories of Relations With Apartness Composition}\label{subsection-categories-of-relations-with-apartness-composition}
+\subsection{The Category of Relations With Apartness Composition}\label{subsection-the-category-of-relations-with-apartness-composition}
+\begin{definition}{The Category of Relations With Apartness Composition}{the-category-of-relations-with-apartness-composition}%
+    The \index[set-theory]{category of relations!with apartness composition}\textbf{category of relations with apartness composition} is the category \index[notation]{Relbox@$\aptsfRel$}$\aptsfRel$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\aptsfRel$ are sets.
+        \item\SloganFont{Morphisms. }For each $A,B\in\Obj(\Sets)$, we have
+            \[
+                \aptsfRel(A,B)
+                \defeq
+                \Rel(A,B).
+            \]%
+        \item\SloganFont{Identities. }For each $A\in\Obj(\aptsfRel)$, the unit map
+            \[
+                \Unit^{\aptsfRel}_{A}
+                \colon
+                \pt
+                \to
+                \Rel(A,A)
+            \]%
+            of $\aptsfRel$ at $A$ is defined by
+            \[
+                \id^{\aptsfRel}_{A}
+                \defeq
+                \nabla_{A}(-_{1},-_{2}),
+            \]%
+            where $\nabla_{A}(-_{1},-_{2})$ is the antidiagonal relation of $A$ of \cref{the-antidiagonal-relation}.
+        \item\SloganFont{Composition. }For each $A,B,C\in\Obj(\aptsfRel)$, the composition map
+            \[
+                \circ^{\aptsfRel}_{A,B,C}%
+                \colon%
+                \Rel(B,C)%
+                \times%
+                \Rel(A,B)%
+                \to%
+                \Rel(A,C)%
+            \]%
+            of $\aptsfRel$ at $(A,B,C)$ is defined by%
+            \[
+                S\mathbin{{\circ}^{\aptsfRel}_{A,B,C}}R
+                \defeq
+                S\aptcirc R
+            \]%
+            for each $(S,R)\in\Rel(B,C)\times\Rel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{apartness-composition-of-relations}.
+    \end{itemize}
+\end{definition}
+\subsection{The $2$-Category of Relations With Apartness Composition}\label{subsection-the-2-category-of-relations-with-apartness-composition}
+\begin{definition}{The $2$-Category of Relations With Apartness Composition}{the-2-category-of-relations-with-apartness-composition}%
+    The \index[set-theory]{relation!two-category of@$2$-category of!with apartness composition}\textbf{$2$-category of relations with apartness composition} is the locally posetal $2$-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\sfbfRel$ are sets.
+        \item\SloganFont{$\eHom$-Objects. }For each $A,B\in\Obj(\Sets)$, we have
+            \begin{align*}
+                \Hom_{\sfbfRel}(A,B) &\defeq \eRel(A,B)\\%
+                                     &\defeq (\Rel(A,B),\subset).%
+            \end{align*}
+        \item\SloganFont{Identities. }For each $A\in\Obj(\sfbfRel)$, the unit map
+            \[
+                \Unit^{\sfbfRel}_{A}
+                \colon
+                \pt
+                \to
+                \eRel(A,A)
+            \]%
+            of $\sfbfRel$ at $A$ is defined by
+            \[
+                \id^{\sfbfRel}_{A}
+                \defeq
+                \chi_{A}(-_{1},-_{2}),
+            \]%
+            where $\chi_{A}(-_{1},-_{2})$ is the characteristic relation of $A$ of \cref{the-characteristic-relation}.
+        \item\SloganFont{Composition. }For each $A,B,C\in\Obj(\sfbfRel)$, the composition map%
+            %--- Begin Footnote ---%
+            \footnote{%
+                That this is indeed a morphism of posets is proven in \cref{properties-of-apartness-composition-of-relations-interaction-with-inclusions} of \cref{properties-of-apartness-composition-of-relations}.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \circ^{\sfbfRel}_{A,B,C}%
+                \colon%
+                \eRel(B,C)%
+                \times%
+                \eRel(A,B)%
+                \to%
+                \eRel(A,C)%
+            \]%
+            of $\sfbfRel$ at $(A,B,C)$ is defined by%
+            \[
+                S\mathbin{{\circ}^{\sfbfRel}_{A,B,C}}R
+                \defeq
+                S\procirc R
+            \]%
+            for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
+    \end{itemize}
 \end{definition}
 \section{Properties of the $2$-Category of Relations}\label{section-properties-of-the-2-category-of-relations}
 \subsection{Self-Duality}\label{subsection-self-duality-of-rel}
@@ -3878,6 +4082,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \begin{Proof}{Proof of \cref{rel-as-a-category-of-free-algebras}}%
     Omitted.
 \end{Proof}
+\section{Properties of the $2$-Category of Relations With Apartness Composition}\label{section-properties-of-the-2-category-of-relations-with-apartness-composition}
 \section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
