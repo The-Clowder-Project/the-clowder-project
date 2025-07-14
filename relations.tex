@@ -4327,6 +4327,19 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     Thus $(-)^{\dagger}$ is indeed a 2-isomorphism of categories.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel-apartness}
+\begin{itemize}
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $a,b\in B$, if, for each $y\in B$, either $a\sim_{R}y$ or $b\sim_{R}y$, then $a\neq b$.
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a,b\in A$, if, for each $x\in A$, either $x\sim_{R}a$ or $x\sim_{R}b$, then $a\neq b$.
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a,b\in A$, if $a\neq b$, then, for each $y\in B$, either $a\sim_{R}y$ or $b\sim_{R}y$.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $a,b\in B$, if $a\neq b$, then, for each $x\in A$, either $x\sim_{R}b$ or $b\sim_{R}x$.
+\end{itemize}
+A
+\begin{itemize}
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $a,b\in B$, if $R(a)\cup R(b)=B$,           then $a\neq b$.
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a,b\in A$, if $R^{-1}(a)\cup R^{-1}(b)=A$, then $a\neq b$.
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a,b\in A$, if $a\neq B$, then $R(a)\cup R(b)=B$.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $a,b\in B$, if $a\neq B$, then $R^{-1}(a)\cup R^{-1}(b)=A$.
+\end{itemize}
 \subsection{Internal Adjunctions}\label{subsection-internal-adjunctions-in-rel-apartness}
 \subsection{Internal Monads}\label{subsection-internal-monads-in-rel-apartness}
 \subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel-apartness}
