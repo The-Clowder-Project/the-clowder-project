@@ -20,10 +20,10 @@ This chapter contains some material about relations. Notably, we discuss and exp
         \begin{enumerate}
             \item\label{relations-introduction-item-3a}A category (\cref{subsection-the-category-of-relations}).
             \item\label{relations-introduction-item-3b}A monoidal category (\cref{subsection-the-closed-symmetric-monoidal-category-of-relations}).
-            \item\label{relations-introduction-item-3c}A $2$-category (\cref{subsection-the-2-category-of-relations}).
+            \item\label{relations-introduction-item-3c}A 2-category (\cref{subsection-the-2-category-of-relations}).
             \item\label{relations-introduction-item-3d}A double category (\cref{subsection-the-double-category-of-relations}).
         \end{enumerate}
-    \item\label{relations-introduction-item-4}The various categorical properties of the $2$-category of relations, including:
+    \item\label{relations-introduction-item-4}The various categorical properties of the 2-category of relations, including:
         \begin{enumerate}
             \item\label{relations-introduction-item-4a}The self-duality of $\sfRel$ and $\sfbfRel$ (\cref{self-duality-for-the-2-category-of-relations}).
             \item\label{relations-introduction-item-4b}Identifications of equivalences and isomorphisms in $\sfbfRel$ with bijections (\cref{isomorphisms-and-equivalences-in-rel}).
@@ -32,9 +32,9 @@ This chapter contains some material about relations. Notably, we discuss and exp
             \item\label{relations-introduction-item-4e}Identifications of comonads in $\sfbfRel$ with subsets (\cref{comonads-in-rel}).
             \item\label{relations-introduction-item-4f}A description of the monoids and comonoids in $\sfbfRel$ with respect to the Cartesian product (\cref{co-monoids-in-rel}).
             \item\label{relations-introduction-item-4g}Characterisations of monomorphisms in $\sfRel$ (\cref{characterisations-of-monomorphisms-in-rel}).
-            \item\label{relations-introduction-item-4h}Characterisations of $2$-categorical notions of monomorphisms in $\sfbfRel$ (\cref{2-categorical-monomorphisms-in-rel}).
+            \item\label{relations-introduction-item-4h}Characterisations of 2-categorical notions of monomorphisms in $\sfbfRel$ (\cref{2-categorical-monomorphisms-in-rel}).
             \item\label{relations-introduction-item-4i}Characterisations of epimorphisms in $\sfRel$ (\cref{characterisations-of-epimorphisms-in-rel}).
-            \item\label{relations-introduction-item-4j}Characterisations of $2$-categorical notions of epimorphisms in $\sfbfRel$ (\cref{2-categorical-epimorphisms-in-rel}).
+            \item\label{relations-introduction-item-4j}Characterisations of 2-categorical notions of epimorphisms in $\sfbfRel$ (\cref{2-categorical-epimorphisms-in-rel}).
             \item\label{relations-introduction-item-4k}The partial co/completeness of $\sfRel$ (\cref{co-limits-in-rel}).
             \item\label{relations-introduction-item-4l}The existence or non-existence of Kan extensions and Kan lifts in $\sfRel$ (\cref{kan-extensions-and-kan-lifts-in-rel}).
             \item\label{relations-introduction-item-4m}The closedness of $\sfbfRel$ (\cref{closedness-of-rel}).
@@ -84,12 +84,6 @@ This chapter is under revision. TODO:
     \item Revise sections on skew monoidal structures on $\eRel(A,B)$
     \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
     \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
-    \item Consider adding the sections
-        \begin{itemize}
-            \item The Monoidal Bicategory of Relations
-            \item The Monoidal Double Category of Relations
-        \end{itemize}
-        to \ChapterRelations.
     \item functional total relations defined with \say{satisfying the following equivalent conditions:}
     \item Add table:
         \begingroup%
@@ -466,14 +460,14 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \]%
             In other words, given relations
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
-                    \arrow[r,"R_{1}", mid vert]%
-                    \arrow[r,"R_{2}"',mid vert]%
+                    \arrow[r,"R_{1}", mid vert,shift left=1.0]%
+                    \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
                     \&
                     B
-                    \arrow[r,"S_{1}", mid vert]%
-                    \arrow[r,"S_{2}"',mid vert]%
+                    \arrow[r,"S_{1}", mid vert,shift left=0.8]%
+                    \arrow[r,"S_{2}"',mid vert,shift right=0.8]%
                     \&
                     C\mrp{,}
                 \end{tikzcd}
@@ -489,6 +483,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \begin{align*}
                 \Delta_{B}\procirc R &= R,\\
                 R\procirc\Delta_{A}  &= R.
+            \end{align*}
+        \item\label{properties-of-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
+            \begin{align*}
+                T\procirc(S\aptcirc R)  &\subset (T\procirc S)\aptcirc R,\\
+                (T\aptcirc S)\procirc R &\subset T\aptcirc(S\procirc R).
             \end{align*}
         \item\label{properties-of-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
@@ -615,8 +614,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{itemize}
     \end{itemize}
 
+    \ProofBox{\cref{properties-of-composition-of-relations-linear-distributivity}: Linear Distributivity}%
+    This is a repetition of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
+
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
-    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition-1} of \cref{properties-of-converses-of-relations} and is proved there.
+    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition} of \cref{properties-of-converses-of-relations} and is proved there.
 
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
     We have
@@ -742,14 +744,14 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \]%
             In other words, given relations
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
-                    \arrow[r,"R_{1}", mid vert]%
-                    \arrow[r,"R_{2}"',mid vert]%
+                    \arrow[r,"R_{1}", mid vert,shift left=1.0]%
+                    \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
                     \&
                     B
-                    \arrow[r,"S_{1}", mid vert]%
-                    \arrow[r,"S_{2}"',mid vert]%
+                    \arrow[r,"S_{1}", mid vert,shift left=0.8]%
+                    \arrow[r,"S_{2}"',mid vert,shift right=0.8]%
                     \&
                     C\mrp{,}
                 \end{tikzcd}
@@ -765,6 +767,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \begin{align*}
                 \nabla_{B}\aptcirc R &= R,\\
                 R\aptcirc\nabla_{A}  &= R.
+            \end{align*}
+        \item\label{properties-of-apartness-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
+            \begin{align*}
+                T\procirc(S\aptcirc R)  &\subset (T\procirc S)\aptcirc R,\\
+                (T\aptcirc S)\procirc R &\subset T\aptcirc(S\procirc R).
             \end{align*}
         \item\label{properties-of-apartness-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
@@ -860,38 +867,133 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-apartness-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-linear-distributivity}: Linear Distributivity}%
     We have
-    \begin{align*}
-        (S\aptcirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\aptcirc R)^{\dagger}}a\}\\
-                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\aptcirc R}c\}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{for each $b\in B$, we have}\\
-                                                &\text{$a\sim_{R}b$ or $b\sim_{S}c$}\\
-                                            \end{aligned}
-                                        \}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{for each $b\in B$, we have}\\
-                                                &\text{$b\sim_{R^{\dagger}}a$ or $c\sim_{S^{\dagger}}b$}\\
-                                            \end{aligned}
-                                        \}\\
-                                &=      \{%
-                                            (c,a)\in C\times A%
-                                            \ \middle|\ %
-                                            \begin{aligned}
-                                                &\text{for each $b\in B$, we have}\\
-                                                &\text{$c\sim_{S^{\dagger}}b$ or $b\sim_{R^{\dagger}}a$}\\
-                                            \end{aligned}
-                                        \}\\
-                                &\defeq R^{\dagger}\aptcirc S^{\dagger}.
-    \end{align*}
+    \begin{envsmallsize}
+        \begin{align*}
+            T\procirc(S\aptcirc R) &\defeq  \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{there exists some $c\in C$ such}\\
+                                                    &\text{that $a\sim_{S\aptcirc R}c$ and $c\sim_{T}d$}
+                                                \end{aligned}
+                                            \}\\
+                                   &\defeq  \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{there exists some $c\in C$ such that}\\
+                                                    &\text{$c\sim_{T}d$ and, for each $b\in B$,}\\
+                                                    &\text{we have $a\sim_{R}b$ or $b\sim_{S}c$}%
+                                                \end{aligned}
+                                            \}\\
+                                   &=       \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{the following conditions are satisfied:}\\
+                                                    &\mkern20mu\text{1. For each $b\in B$, we have $a\sim_{R}b$ or $b\sim_{S}c$.}\\
+                                                    &\mkern20mu\text{2. There exists $c\in C$ such that $c\sim_{T}d$.}
+                                                \end{aligned}
+                                            \}\\
+                                   &\subset \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{for each $b\in B$, at least one of the}\\
+                                                    &\text{following conditions is satisfied:}\\
+                                                    &\mkern20mu\text{1. We have $a\sim_{R}b$.}\\
+                                                    &\mkern20mu\text{2. There exists $c\in C$ such that $b\sim_{S}c$}\\
+                                                    &\mkern20mu\phantom{\text{2. }}\text{and $c\sim_{T}d$.}
+                                                \end{aligned}
+                                            \}\\
+                                   &\defeq  \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{for each $b\in B$, we have}\\
+                                                    &\text{$a\sim_{R}b$ or there exists some $c\in C$}\\
+                                                    &\text{such that $b\sim_{S}c$ and $c\sim_{T}d$}\\
+                                                \end{aligned}
+                                            \}\\
+                                   &\defeq  \{%
+                                                (d,a)\in D\times A%
+                                                \ \middle|\ %
+                                                \begin{aligned}
+                                                    &\text{for each $b\in B$, we have}\\
+                                                    &\text{$a\sim_{R}b$ or $b\sim_{T\procirc S}d$}\\
+                                                \end{aligned}
+                                            \}\\
+                                   &\defeq  (T\procirc S)\aptcirc R%
+        \end{align*}
+    \end{envsmallsize}
+    and
+    \begin{envsmallsize}
+        \begin{align*}
+            (T\aptcirc S)\procirc R &\defeq  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{there exists some $b\in B$ such}\\
+                                                     &\text{that $a\sim_{R}b$ and $b\sim_{T\aptcirc S}d$}
+                                                 \end{aligned}
+                                             \}\\
+                                    &\defeq  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{there exists some $b\in B$ such}\\
+                                                     &\text{that $a\sim_{R}b$ and, for each $c\in C$,}\\
+                                                     &\text{we have $b\sim_{S}c$ or $c\sim_{T}d$}%
+                                                 \end{aligned}
+                                             \}\\
+                                    &\defeq  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{there exists some $b\in B$ satisfying}\\
+                                                     &\text{the following conditions:}\\
+                                                     &\mkern20mu\text{1. We have $a\sim_{R}b$.}\\
+                                                     &\mkern20mu\text{2. For each $c\in C$, we have $b\sim_{S}c$}\\
+                                                     &\mkern20mu\phantom{\text{2. }}\text{or $c\sim_{T}d$.}
+                                                 \end{aligned}
+                                             \}\\
+                                    &\subset  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{for each $c\in C$, at least one of the}\\
+                                                     &\text{following conditions is satisfied:}\\
+                                                     &\mkern20mu\text{1. We have $c\sim_{T}d$.}\\
+                                                     &\mkern20mu\text{2. There exists some $b\in B$ such that}\\
+                                                     &\mkern20mu\phantom{\text{2. }}\text{we have $a\sim_{R}b$ and $b\sim_{S}c$}
+                                                 \end{aligned}
+                                             \}\\
+                                    &\defeq  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{for each $c\in C$, we have $c\sim_{T}d$}\\
+                                                     &\text{or there exists some $b\in B$, such that}\\
+                                                     &\text{we have $a\sim_{R}b$ and $b\sim_{S}c$}
+                                                 \end{aligned}
+                                             \}\\
+                                    &\defeq  \{%
+                                                 (d,a)\in D\times A%
+                                                 \ \middle|\ %
+                                                 \begin{aligned}
+                                                     &\text{for each $c\in C$, we have}\\
+                                                     &\text{$a\sim_{S\procirc R}c$ or $c\sim_{T}d$}%
+                                                 \end{aligned}
+                                             \}\\
+                                    &\subset T\aptcirc(S\procirc R).
+        \end{align*}
+    \end{envsmallsize}
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
+    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-apartness-composition} of \cref{properties-of-converses-of-relations} and is proved there.
 \end{Proof}
 \subsection{The Converse of a Relation}\label{subsection-the-converse-of-a-relation}
 Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
@@ -975,17 +1077,29 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
+        \item\label{properties-of-converses-of-relations-interaction-with-apartness-composition}\SloganFont{Interaction With Apartness Composition. }We have
+            \[
+                (S\aptcirc R)^{\dagger}
+                =
+                R^{\dagger}\aptcirc S^{\dagger}.
+            \]%
         \item\label{properties-of-converses-of-relations-invertibility}\SloganFont{Invertibility. }We have
             \[
                 (R^{\dagger})^{\dagger}
                 =
                 R.
             \]%
-        \item\label{properties-of-converses-of-relations-identity}\SloganFont{Identity. }We have
+        \item\label{properties-of-converses-of-relations-identity-1}\SloganFont{Identity \rmI. }We have
             \[
                 \Delta^{\dagger}_{A}
                 =
                 \Delta_{A}.
+            \]%
+        \item\label{properties-of-converses-of-relations-identity-2}\SloganFont{Identity \rmII. }We have
+            \[
+                \nabla^{\dagger}_{A}
+                =
+                \nabla_{A}.
             \]%
         %\item\label{properties-of-converses-of-relations-}\SloganFont{. }
     \end{enumerate}
@@ -1048,6 +1162,39 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
     \end{align*}
     This finishes the proof.
 
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-apartness-composition}: Interaction With Apartness Composition}%
+    We have
+    \begin{align*}
+        (S\aptcirc R)^{\dagger} &\defeq \{(c,a)\in C\times A\ \middle|\ c\sim_{(S\aptcirc R)^{\dagger}}a\}\\
+                                &=      \{(c,a)\in C\times A\ \middle|\ a\sim_{S\aptcirc R}c\}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$a\sim_{R}b$ or $b\sim_{S}c$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$b\sim_{R^{\dagger}}a$ or $c\sim_{S^{\dagger}}b$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &=      \{%
+                                            (c,a)\in C\times A%
+                                            \ \middle|\ %
+                                            \begin{aligned}
+                                                &\text{for each $b\in B$, we have}\\
+                                                &\text{$c\sim_{S^{\dagger}}b$ or $b\sim_{R^{\dagger}}a$}\\
+                                            \end{aligned}
+                                        \}\\
+                                &\defeq R^{\dagger}\aptcirc S^{\dagger}.
+    \end{align*}
+    This finishes the proof.
+
     \ProofBox{\cref{properties-of-converses-of-relations-invertibility}: Invertibility}%
     We have
     \begin{align*}
@@ -1057,12 +1204,21 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-converses-of-relations-identity}: Identity}%
+    \ProofBox{\cref{properties-of-converses-of-relations-identity-1}: Identity \rmI}%
     We have
     \begin{align*}
         \Delta^{\dagger}_{A} &\defeq \{(a,b)\in A\times A\ \middle|\ a\sim_{\Delta_{A}}b\}\\
                              &=      \{(a,b)\in A\times A\ \middle|\ a=b\}\\
                              &=      \Delta_{A}.
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-converses-of-relations-identity-2}: Identity \rmII}%
+    We have
+    \begin{align*}
+        \nabla^{\dagger}_{A} &\defeq \{(a,b)\in A\times A\ \middle|\ a\sim_{\nabla_{A}}b\}\\
+                             &=      \{(a,b)\in A\times A\ \middle|\ a\neq b\}\\
+                             &=      \nabla_{A}.
     \end{align*}
     This finishes the proof.
 \end{Proof}
@@ -2030,9 +2186,9 @@ Let $A$ and $B$ be sets.
 \begin{Proof}{Proof of \cref{the-closed-symmetric-monoidal-category-of-relations}}%
     Omitted.
 \end{Proof}
-\subsection{The $2$-Category of Relations}\label{subsection-the-2-category-of-relations}
-\begin{definition}{The $2$-Category of Relations}{the-2-category-of-relations}%
-    The \index[set-theory]{relation!two-category of@$2$-category of}\textbf{$2$-category of relations} is the locally posetal $2$-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
+\subsection{The 2-Category of Relations}\label{subsection-the-2-category-of-relations}
+\begin{definition}{The 2-Category of Relations}{the-2-category-of-relations}%
+    The \index[set-theory]{relation!two-category of@2-category of}\textbf{2-category of relations} is the locally posetal 2-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
     \begin{itemize}
         \item\SloganFont{Objects. }The objects of $\sfbfRel$ are sets.
         \item\SloganFont{$\eHom$-Objects. }For each $A,B\in\Obj(\Sets)$, we have
@@ -2088,7 +2244,7 @@ Let $A$ and $B$ be sets.
         \item\SloganFont{Objects. }The objects of $\dblRel$ are sets.
         \item\SloganFont{Vertical Morphisms. }The vertical morphisms of $\dblRel$ are maps of sets $f\colon A\to B$.
         \item\SloganFont{Horizontal Morphisms. }The horizontal morphisms of $\dblRel$ are relations $R\colon A\rightproarrow X$.
-        \item\SloganFont{$2$-Morphisms. }A $2$-cell
+        \item\SloganFont{2-Morphisms. }A 2-cell
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -2135,7 +2291,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 \id_{A}.
             \]%
-        \item\SloganFont{Identity $2$-Morphisms. }For each horizontal morphism $R\colon A\rightproarrow B$ of $\dblRel$, the identity $2$-morphism
+        \item\SloganFont{Identity 2-Morphisms. }For each horizontal morphism $R\colon A\rightproarrow B$ of $\dblRel$, the identity 2-morphism
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -2182,7 +2338,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 g\circ f.
             \]%
-        \item\SloganFont{Vertical Composition of $2$-Morphisms. }The vertical composition of $2$-morphisms in $\dblRel$ is defined as in \cref{the-vertical-composition-of-two-morphisms-in-dblrel}.
+        \item\SloganFont{Vertical Composition of 2-Morphisms. }The vertical composition of 2-morphisms in $\dblRel$ is defined as in \cref{the-vertical-composition-of-two-morphisms-in-dblrel}.
         \item\SloganFont{Associators. }The associators of $\dblRel$ are defined as in \cref{the-associators-of-dblrel}.
         \item\SloganFont{Left Unitors. }The left unitors of $\dblRel$ are defined as in \cref{the-left-unitors-of-dblrel}.
         \item\SloganFont{Right Unitors. }The right unitors of $\dblRel$ are defined as in \cref{the-right-unitors-of-dblrel}.
@@ -2206,7 +2362,7 @@ Let $A$ and $B$ be sets.
                 \defeq
                 \chi_{A}(-_{1},-_{2}).
             \]%
-        \item\SloganFont{Action on Morphisms. }For each vertical morphism $f\colon A\to B$ of $\dblRel$, i.e.\ each map of sets $f$ from $A$ to $B$, the identity $2$-morphism
+        \item\SloganFont{Action on Morphisms. }For each vertical morphism $f\colon A\to B$ of $\dblRel$, i.e.\ each map of sets $f$ from $A$ to $B$, the identity 2-morphism
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -2302,7 +2458,7 @@ Let $A$ and $B$ be sets.
                     \arrow[from=1,to=2,"\beta"description,shorten=0.75*\the\DL,Rightarrow]%
                 \end{tikzcd}
             \end{webcompile}%
-            of $2$-morphisms of $\dblRel$, i.e.\ for each pair
+            of 2-morphisms of $\dblRel$, i.e.\ for each pair
             \begin{webcompile}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A\times B
@@ -2444,7 +2600,7 @@ Let $A$ and $B$ be sets.
             \arrow[from=1,to=2,"\beta"description,shorten=0.75*\the\DL,Rightarrow]%
         \end{tikzcd}
     \end{webcompile}%
-    of $2$-morphisms of $\dblRel$, i.e.\ for each each pair
+    of 2-morphisms of $\dblRel$, i.e.\ for each each pair
     \begin{webcompile}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A\times X
@@ -2807,9 +2963,9 @@ Let $A$ and $B$ be sets.
             for each $(S,R)\in\Rel(B,C)\times\Rel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{apartness-composition-of-relations}.
     \end{itemize}
 \end{definition}
-\subsection{The $2$-Category of Relations With Apartness Composition}\label{subsection-the-2-category-of-relations-with-apartness-composition}
-\begin{definition}{The $2$-Category of Relations With Apartness Composition}{the-2-category-of-relations-with-apartness-composition}%
-    The \index[set-theory]{relation!two-category of@$2$-category of!with apartness composition}\textbf{$2$-category of relations with apartness composition} is the locally posetal $2$-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
+\subsection{The 2-Category of Relations With Apartness Composition}\label{subsection-the-2-category-of-relations-with-apartness-composition}
+\begin{definition}{The 2-Category of Relations With Apartness Composition}{the-2-category-of-relations-with-apartness-composition}%
+    The \index[set-theory]{relation!two-category of@2-category of!with apartness composition}\textbf{2-category of relations with apartness composition} is the locally posetal 2-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
     \begin{itemize}
         \item\SloganFont{Objects. }The objects of $\sfbfRel$ are sets.
         \item\SloganFont{$\eHom$-Objects. }For each $A,B\in\Obj(\Sets)$, we have
@@ -2857,40 +3013,66 @@ Let $A$ and $B$ be sets.
             for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
-\section{Properties of the $2$-Category of Relations}\label{section-properties-of-the-2-category-of-relations}
+\subsection{The Linear Bicategory of Relations}\label{subsection-the-linear-bicategory-of-relations}
+\begin{definition}{The Linear Bicategory of Relations}{the-linear-bicategory-of-relations}%
+    The \index[set-theory]{relation!linear bicategory of}\textbf{linear bicategory of relations} is the linear bicategory consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Bicategory \rmI. }The bicategory $\sfRel$ of \cref{the-2-category-of-relations}.
+        \item\SloganFont{The Underlying Bicategory \rmII. }The bicategory $\sfRel$ of \cref{the-2-category-of-relations-with-apartness-composition}.
+        \item\SloganFont{Linear Distributors. }The inclusions
+            \begin{align*}
+                \delta^{\ell}_{R,S,T} &\colon T\procirc(S\aptcirc R)  \hookrightarrow (T\procirc S)\aptcirc R,\\
+                \delta^{r}_{R,S,T}    &\colon (T\aptcirc S)\procirc R \hookrightarrow T\aptcirc(S\procirc R)
+            \end{align*}
+            of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations}.
+    \end{itemize}
+\end{definition}
+\begin{Proof}{Proof of the Claims in \cref{the-linear-bicategory-of-relations}}%
+    Since $\sfRel$ and $\aptsfRel$ are locally posetal, the commutativity of the coherence conditions for linear bicategories follows automatically (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}).
+\end{Proof}
+\subsection{Other Categorical Structures With Apartness Composition}\label{subsection-other-categorical-structures-with-apartness-composition}
+\begin{remark}{Other Categorical Structures With Apartness Composition}{other-categorical-structures-with-apartness-composition}%
+    It seems apartness composition fails to form the following categorical structures:
+    \begin{itemize}
+        \item\label{other-categorical-structures-with-apartness-composition-monoidal-category-with-products}\SloganFont{Monoidal Category With Products. }Products don't seem to endow $\aptsfRel$ with a monoidal structure.
+        \item\label{other-categorical-structures-with-apartness-composition-monoidal-category-with-coproducts}\SloganFont{Monoidal Category With Coproducts. }Coproducts also don't seem to endow $\aptsfRel$ with a monoidal structure.
+        \item\label{other-categorical-structures-with-apartness-composition-double-categorical-structure}\SloganFont{Double Categorical Structure. }It seems the apartness composition of relations doesn't form a double category in a natural way.
+    \end{itemize}
+\end{remark}
+\section{Properties of the 2-Category of Relations}\label{section-properties-of-the-2-category-of-relations}
 \subsection{Self-Duality}\label{subsection-self-duality-of-rel}
 \begin{proposition}{Self-Duality for the (2-)Category of Relations}{self-duality-for-the-2-category-of-relations}%
-    The ($2$-)category of relations is self-dual:
+    The 2-/category of relations is self-dual:
     \begin{enumerate}
         \item\label{self-duality-for-the-2-category-of-relations-1}\SloganFont{Self-Duality \rmI. }We have an isomorphism
             \[
-                \Rel^{\op}%
-                \eqcong%
-                \Rel%
+                \sfRel^{\op}%
+                \cong%
+                \sfRel%
             \]%
             of categories.
-        \item\label{self-duality-for-the-2-category-of-relations-2}\SloganFont{Self-Duality \rmII. }We have a $2$-isomorphism
+        \item\label{self-duality-for-the-2-category-of-relations-2}\SloganFont{Self-Duality \rmII. }We have a 2-isomorphism
             \[
                 \sfbfRel^{\op}%
-                \eqcong%
+                \cong%
                 \sfbfRel%
             \]%
-            of $2$-categories.
+            of 2-categories.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{self-duality-for-the-2-category-of-relations}}%
     \FirstProofBox{\cref{self-duality-for-the-2-category-of-relations-1}: Self-Duality \rmI}%
     We claim that the functor
     \[
-        F%
+        (-)^{\dagger}%
         \colon%
         \sfRel^{\op}%
         \to%
         \sfRel%
     \]%
-    given by the identity on objects and by $R\mapsto R^{\dagger}$ on morphisms is an isomorphism of categories.
+    given by the identity on objects and by $R\mapsto R^{\dagger}$ on morphisms is an isomorphism of categories. Note that this is indeed a functor by \cref{properties-of-converses-of-relations-interaction-with-composition,properties-of-converses-of-relations-identity-1} of \cref{properties-of-converses-of-relations}.
 
-    \indent By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $F$ is bijective on objects (which is clear) and fully faithful. Indeed, the map
+    \indent By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $(-)^{\dagger}$ is bijective on objects (which follows by definition) and fully faithful. Indeed, the map
     \[
         (-)^{\dagger}%
         \colon%
@@ -2898,26 +3080,26 @@ Let $A$ and $B$ be sets.
         \to%
         \Rel(B,A)%
     \]%
-    defined by the assignment $R\mapsto R^{\dagger}$ is a bijection by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations-invertibility} of \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations-invertibility} of \cref{properties-of-inverses-of-relations}}, showing $F$ to be fully faithful.
+    defined by the assignment $R\mapsto R^{\dagger}$ is a bijection by \cref{properties-of-converses-of-relations-invertibility} of \cref{properties-of-converses-of-relations}, showing $(-)^{\dagger}$ to be fully faithful.
 
     \ProofBox{\cref{self-duality-for-the-2-category-of-relations-2}: Self-Duality \rmII}%
-    We claim that the $2$-functor
+    We claim that the 2-functor
     \[
-        F%
+        (-)^{\dagger}%
         \colon%
         \sfRel^{\op}%
         \to%
         \sfRel%
     \]%
-    given by the identity on objects, by $R\mapsto R^{\dagger}$ on morphisms, and by preserving inclusions on $2$-morphisms via \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations-functoriality} of \cref{properties-of-inverses-of-relations}}, is an isomorphism of categories.
+    given by the identity on objects, by $R\mapsto R^{\dagger}$ on morphisms, and by preserving inclusions on 2-morphisms via \cref{properties-of-converses-of-relations-functoriality} of \cref{properties-of-converses-of-relations}, is an isomorphism of categories.
 
-    \indent By \ChapterRef{\ChapterBicategories, \cref{bicategories:properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{bicategories:properties-of-2-isomorphisms-of-2-categories}}{\cref{properties-of-2-isomorphisms-of-2-categories-characterisations} of \cref{properties-of-2-isomorphisms-of-2-categories}}, it suffices to show that $F$ is:
+    \indent By \cref{TODO}, it suffices to show that $(-)^{\dagger}$ is:
     \begin{itemize}
-        \item Bijective on objects, which is clear.
+        \item Bijective on objects, which follows by definition.
         \item Bijective on $1$-morphisms, which was shown in \cref{self-duality-for-the-2-category-of-relations-1}.
-        \item Bijective on $2$-morphisms, which follows from \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations-functoriality} of \cref{properties-of-inverses-of-relations}}.
+        \item Bijective on 2-morphisms, which follows from \cref{properties-of-converses-of-relations-functoriality} of \cref{properties-of-converses-of-relations}.
     \end{itemize}
-    Thus $F$ is indeed a $2$-isomorphism of categories.
+    Thus $(-)^{\dagger}$ is indeed a 2-isomorphism of categories.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel}
 Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
@@ -3431,7 +3613,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     A similar argument shows that if $(x,a)\in T$, then $(x,a)\in S$, and thus $S=T$ and it follows that $R$ is a monomorphism.
 \end{Proof}
 \subsection{2-Categorical Monomorphisms}\label{subsection-2-categorical-monomorphisms-in-rel}
-In this section we characterise (for now, some of) the $2$-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-monomorphisms-in-bicategories}}{\cref{section-monomorphisms-in-bicategories}}.
+In this section we characterise (for now, some of) the 2-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-monomorphisms-in-bicategories}}{\cref{section-monomorphisms-in-bicategories}}.
 \begin{proposition}{2-Categorical Monomorphisms in $\sfbfRel$}{2-categorical-monomorphisms-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
@@ -3813,7 +3995,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     for each $b\in B$. Since $R$ is total, we have $a\sim_{S\procirc R}0$ and $a\sim_{T\procirc R}0$ for all $a\in A$, and no element of $A$ is related to $1$ by $S\procirc R$ or $T\procirc R$. Thus $S\procirc R=T\procirc R$, and since $R$ is an epimorphism, we have $S=T$. But by the definition of $T$, this implies $\Im(R)=B$.
 \end{Proof}
 \subsection{2-Categorical Epimorphisms}\label{subsection-2-categorical-epimorphisms-in-rel}
-In this section we characterise (for now, some of) the $2$-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-epimorphisms-in-bicategories}}{\cref{section-epimorphisms-in-bicategories}}.
+In this section we characterise (for now, some of) the 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-epimorphisms-in-bicategories}}{\cref{section-epimorphisms-in-bicategories}}.
 \begin{proposition}{2-Categorical Epimorphisms in $\sfbfRel$}{2-categorical-epimorphisms-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
@@ -4034,7 +4216,7 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \subsection{Co/Limits}\label{subsection-co-limits-in-rel}
 \begin{proposition}{Co/Limits in $\sfRel$}{co-limits-in-rel}%
     This will be properly written later on.
-    %The category $\sfRel$ admits some co/limits, but not all, as does its $2$-categorical counterpart:
+    %The category $\sfRel$ admits some co/limits, but not all, as does its 2-categorical counterpart:
     %\begin{enumerate}
     %    \item\SloganFont{Zero Objects. }The category $\Rel$ has a zero object, the empty set $\emptyset$.
     %    \item\SloganFont{Co/Products. }The category $\Rel$ has co/products, both given by disjoint union of sets.
@@ -4048,11 +4230,11 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \end{Proof}
 \subsection{Internal Kan Extensions and Lifts}\label{subsection-internal-kan-extensions-and-lifts-in-rel}
 \begin{remark}{Kan Extensions and Kan Lifts in $\sfbfRel$}{kan-extensions-and-kan-lifts-in-rel}%
-    The $2$-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
+    The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
-    The $2$-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
+    The 2-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
     \begin{webcompile}
         \begin{gathered}
             \Adjunction#R^{*}#\Ran_{R}#\Rel(B,X)#\Rel(A,X),#\\
@@ -4082,46 +4264,108 @@ In this section we characterise (for now, some of) the $2$-categorical epimorphi
 \begin{Proof}{Proof of \cref{rel-as-a-category-of-free-algebras}}%
     Omitted.
 \end{Proof}
-\section{Properties of the $2$-Category of Relations With Apartness Composition}\label{section-properties-of-the-2-category-of-relations-with-apartness-composition}
+\section{Properties of the 2-Category of Relations With Apartness Composition}\label{section-properties-of-the-2-category-of-relations-with-apartness-composition}
+\subsection{Self-Duality}\label{subsection-self-duality-of-rel-apartness}
+\begin{proposition}{Self-Duality for the (2-)Category of Relations With Apartness Composition}{self-duality-for-the-2-category-of-relations-with-apartness-composition}%
+    The 2-/category of relations with apartness-composition-is self-dual:
+    \begin{enumerate}
+        \item\label{self-duality-for-the-2-category-of-relations-with-apartness-composition-1}\SloganFont{Self-Duality \rmI. }We have an isomorphism
+            \[
+                (\aptsfRel)^{\op}%
+                \cong%
+                \aptsfRel%
+            \]%
+            of categories.
+        \item\label{self-duality-for-the-2-category-of-relations-with-apartness-composition-2}\SloganFont{Self-Duality \rmII. }We have a 2-isomorphism
+            \[
+                (\aptsfbfRel)^{\op}%
+                \cong%
+                \aptsfbfRel%
+            \]%
+            of 2-categories.
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{self-duality-for-the-2-category-of-relations-with-apartness-composition}}%
+    \FirstProofBox{\cref{self-duality-for-the-2-category-of-relations-with-apartness-composition-1}: Self-Duality \rmI}%
+    We claim that the functor
+    \[
+        (-)^{\dagger}%
+        \colon%
+        (\aptsfRel)^{\op}%
+        \to%
+        \aptsfRel%
+    \]%
+    given by the identity on objects and by $R\mapsto R^{\dagger}$ on morphisms is an isomorphism of categories. Note that this is indeed a functor by \cref{properties-of-converses-of-relations-interaction-with-apartness-composition,properties-of-converses-of-relations-identity-2} of \cref{properties-of-converses-of-relations}.
+
+    \indent By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $(-)^{\dagger}$ is bijective on objects (which follows by definition) and fully faithful. Indeed, the map
+    \[
+        (-)^{\dagger}%
+        \colon%
+        \Rel(A,B)%
+        \to%
+        \Rel(B,A)%
+    \]%
+    defined by the assignment $R\mapsto R^{\dagger}$ is a bijection by \cref{properties-of-converses-of-relations-invertibility} of \cref{properties-of-converses-of-relations}, showing $(-)^{\dagger}$ to be fully faithful.
+
+    \ProofBox{\cref{self-duality-for-the-2-category-of-relations-with-apartness-composition-2}: Self-Duality \rmII}%
+    We claim that the 2-functor
+    \[
+        (-)^{\dagger}%
+        \colon%
+        \sfRel^{\op}%
+        \to%
+        \sfRel%
+    \]%
+    given by the identity on objects, by $R\mapsto R^{\dagger}$ on morphisms, and by preserving inclusions on 2-morphisms via \cref{properties-of-converses-of-relations-functoriality} of \cref{properties-of-converses-of-relations}, is an isomorphism of categories.
+
+    \indent By \cref{TODO}, it suffices to show that $(-)^{\dagger}$ is:
+    \begin{itemize}
+        \item Bijective on objects, which follows by definition.
+        \item Bijective on $1$-morphisms, which was shown in \cref{self-duality-for-the-2-category-of-relations-1}.
+        \item Bijective on 2-morphisms, which follows from \cref{properties-of-converses-of-relations-functoriality} of \cref{properties-of-converses-of-relations}.
+    \end{itemize}
+    Thus $(-)^{\dagger}$ is indeed a 2-isomorphism of categories.
+\end{Proof}
+\subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel-apartness}
+\subsection{Internal Adjunctions}\label{subsection-internal-adjunctions-in-rel-apartness}
+\subsection{Internal Monads}\label{subsection-internal-monads-in-rel-apartness}
+\subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel-apartness}
+\subsection{Co/Monoids}\label{subsection-co-monoids-in-rel-apartness}
+\subsection{Monomorphisms}\label{subsection-monomorphisms-in-rel-apartness}
+\subsection{2-Categorical Monomorphisms}\label{subsection-2-categorical-monomorphisms-in-rel-apartness}
+\subsection{Epimorphisms}\label{subsection-epimorphisms-in-rel-apartness}
+\subsection{2-Categorical Epimorphisms}\label{subsection-2-categorical-epimorphisms-in-rel-apartness}
+\subsection{Co/Limits}\label{subsection-co-limits-in-rel-apartness}
+\subsection{Internal Kan Extensions and Lifts}\label{subsection-internal-kan-extensions-and-lifts-in-rel-apartness}
+\subsection{Closedness}\label{subsection-closedness-of-rel-apartness}
+\subsection{$\aptsfRel$ as a Category of Free Algebras}\label{subsection-rel-apartness-as-a-category-of-free-algebras}
 \section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
-Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rshriek@$R^{"!}$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written simply $R\colon\mathcal{P}(X)\to\mathcal{P}(Y)$.
+    }%
+    %---  End Footnote  ---%
     \[%
         R_{!}%
         \colon%
-        \mathcal{P}(A)%
+        \mathcal{P}(X)%
         \to%
-        \mathcal{P}(B)%
+        \mathcal{P}(Y)%
     \]%
     defined by\index[notation]{RU@$R(U)$}%
-    %--- Begin Footnote ---%
-    \footnote{%
-        \SloganFont{Further Notation: }The set $R_{!}(U)$ is also denoted $R(U)$.
-    }%
-    %---  End Footnote  ---%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }The set $R(U)$ is called the \textbf{direct image of $U$ by $R$}.
     }%
     %---  End Footnote  ---%
-    %--- Begin Footnote ---%
-    \footnote{%
-        We also have
-        \[
-            R_{!}(U)%
-            =%
-            B\setminus R_{*}(A\setminus U);
-        \]%
-        see \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}.
-        \par\vspace*{\TCBBoxCorrection}
-    }%
-    %---  End Footnote  ---%
     \begin{align*}
         R_{!}(U) &\defeq \bigcup_{a\in U}R(a)\\
                  &=      \{%
-                             b\in B%
+                             b\in Y%
                              \ \middle|\ %
                              \begin{aligned}
                                  &\text{there exists some $a\in U$}\\
@@ -4129,16 +4373,19 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                              \end{aligned}
                          \}%
     \end{align*}
-    for each $U\in\mathcal{P}(A)$.
+    for each $U\in\mathcal{P}(X)$.
 \end{definition}
+\begin{warning}{Notation for Direct Images Is Confusing}{notation-for-direct-images-is-confusing-relations}%
+    Notation for direct images between powersets is tricky; see \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:notation-for-direct-images-is-confusing}}{\cref{notation-for-direct-images-is-confusing}}. Here we'll try to align our notation for relations with that for functions.
+\end{warning}
 \begin{remark}{Unwinding \cref{the-direct-image-function-associated-to-a-relation}}{unwinding-the-direct-image-function-associated-to-a-relation}%
-    Identifying subsets of $A$ with relations from $\pt$ to $A$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the direct image function associated to $R$ is equivalently the function
+    Identifying subsets of $X$ with relations from $\pt$ to $X$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the direct image function associated to $R$ is equivalently the function
     \[
         R_{!}%
         \colon%
-        \underbrace{\mathcal{P}(A)}_{\cong\Rel(\pt,A)}
+        \underbrace{\mathcal{P}(X)}_{\cong\Rel(\pt,X)}
         \to%
-        \underbrace{\mathcal{P}(B)}_{\cong\Rel(\pt,B)}%
+        \underbrace{\mathcal{P}(Y)}_{\cong\Rel(\pt,Y)}%
     \]%
     defined by
     \[
@@ -4146,92 +4393,106 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \defeq%
         R\procirc U%
     \]%
-    for each $U\in\mathcal{P}(A)$, where $R\procirc U$ is the composition
+    for each $U\in\mathcal{P}(X)$, where $R\procirc U$ is the composition
     \[
         \pt%
         \xrightproarrow{U}%
-        A%
+        X%
         \xrightproarrow{R}%
-        B.
+        Y.
     \]%
 \end{remark}
 \begin{proposition}{Properties of Direct Image Functions}{properties-of-direct-image-functions-associated-to-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-direct-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{!}(U)$ defines a functor
             \[
                 R_{!}%
                 \colon%
-                (\mathcal{P}(A),\subset)%
+                (\mathcal{P}(X),\subset)%
                 \to%
-                (\mathcal{P}(B),\subset)%
+                (\mathcal{P}(Y),\subset)%
             \]%
             where
             \begin{itemize}
-                \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(A)$, we have
+                \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(X)$, we have
                     \[
                         [R_{!}](U)%
                         \defeq%
                         R_{!}(U).
                     \]%
-                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(A)$:
+                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(X)$:
                     \begin{itemize}
                         \item If $U\subset V$, then $R_{!}(U)\subset R_{!}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-direct-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
+                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}
-            witnessed by a bijections of sets
-            \[%
-                \Hom_{\mathcal{P}(A)}(R_{!}(U),V)%
-                \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
-            \]%
-            natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
-            \begin{itemize}
-                \itemstar The following conditions are equivalent:
+            witnessed by:
+            \begin{enumerate}
+                \item\label{properties-of-direct-image-functions-associated-to-relations-adjointness-1}Units and counits of the form
+                    \begin{align*}
+                        \id_{\mathcal{P}(X)} \hookrightarrow R_{-1}\circ R_{!},\\
+                        R_{!}\circ R_{-1}    \hookrightarrow \id_{\mathcal{P}(Y)},
+                    \end{align*}
+                    having components of the form
+                    \begin{gather*}
+                        U\subset R_{-1}(R_{!}(U)),\\
+                        R_{!}(R_{-1}(V))\subset V
+                    \end{gather*}
+                    indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$
+                \item\label{properties-of-direct-image-functions-associated-to-relations-adjointness-2}A bijections of sets
+                    \[%
+                        \Hom_{\mathcal{P}(X)}(R_{!}(U),V)%
+                        \cong%
+                        \Hom_{\mathcal{P}(X)}(U,R_{-1}(V)),%
+                    \]%
+                    natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$. In particular:
                     \begin{itemize}
-                        \item We have $R_{!}(U)\subset V$.
-                        \item We have $U\subset R_{-1}(V)$.
+                        \itemstar The following conditions are equivalent:
+                            \begin{itemize}
+                                \item We have $R_{!}(U)\subset V$.
+                                \item We have $U\subset R_{-1}(V)$.
+                            \end{itemize}
                     \end{itemize}
-            \end{itemize}
+            \end{enumerate}
         \item\label{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
                 R_{!}(\bigcup_{i\in I}U_{i})%
                 =%
                 \bigcup_{i\in I}R_{!}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have equalities%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
                     R_{!}(U)\cup R_{!}(V)                  = R_{!}(U\cup V),\\
                     R_{!}(\emptyset)                       = \emptyset,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
             \[
                 R_{!}(\bigcap_{i\in I}U_{i})%
                 \subset%
                 \bigcap_{i\in I}R_{!}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have inclusions%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
                     R_{!}(U\cap V) \subset R_{!}(U)\cap R_{!}(V),\\
-                    R_{!}(A)       \subset B,
+                    R_{!}(X)       \subset Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-direct-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{!},R^{\otimes}_{!},R^{\otimes}_{*|\Unit})
                 \colon
-                (\mathcal{P}(A),\cup,\emptyset)
+                (\mathcal{P}(X),\cup,\emptyset)
                 \to
-                (\mathcal{P}(B),\cup,\emptyset),
+                (\mathcal{P}(Y),\cup,\emptyset),
             \]%
             being equipped with equalities%
             \[
@@ -4240,30 +4501,30 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     R^{\otimes}_{*|\Unit} \colon \emptyset             \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-direct-image-functions-associated-to-relations-functoriality} has a symmetric oplax monoidal structure
             \[
                 (R_{!},R^{\otimes}_{!},R^{\otimes}_{*|\Unit})
                 \colon
-                (\mathcal{P}(A),\cap,A)
+                (\mathcal{P}(X),\cap,X)
                 \to
-                (\mathcal{P}(B),\cap,B),
+                (\mathcal{P}(Y),\cap,Y),
             \]%
             being equipped with inclusions%
             \[
                 \begin{gathered}
                     R^{\otimes}_{*|U,V}   \colon R_{!}(U\cap V) \subset R_{!}(U)\cap R_{!}(V),\\
-                    R^{\otimes}_{*|\Unit} \colon R_{!}(A)       \subset B,
+                    R^{\otimes}_{*|\Unit} \colon R_{!}(X)       \subset Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images}\SloganFont{Relation to Codirect Images. }We have
             \[
                 R_{!}(U)%
                 =%
-                B\setminus R_{*}(A\setminus U)%
+                Y\setminus R_{*}(X\setminus U)%
             \]%
-            for each $U\in\mathcal{P}(A)$.
+            for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-direct-image-functions-associated-to-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -4289,55 +4550,55 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images}: Relation to Codirect Images}%
     The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-codirect-images} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations} to $A\setminus U$, we have
     \begin{align*}
-        R_{*}(A\setminus U) &= B\setminus R_{!}(A\setminus(A\setminus U))\\
-                            &= B\setminus R_{!}(U).
+        R_{*}(X\setminus U) &= Y\setminus R_{!}(X\setminus(X\setminus U))\\
+                            &= Y\setminus R_{!}(U).
     \end{align*}
     Taking complements, we then obtain
     \begin{align*}
-        R_{!}(U) &= B\setminus(B\setminus R_{!}(U)),\\
-                 &= B\setminus R_{*}(A\setminus U),
+        R_{!}(U) &= Y\setminus(Y\setminus R_{!}(U)),\\
+                 &= Y\setminus R_{*}(X\setminus U),
     \end{align*}
     which finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of the Direct Image Function Operation}{properties-of-the-direct-image-function-operation-for-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{!}$ defines a function
             \[
                 (-)_{!}%
                 \colon%
-                \Rel(A,B)
+                \Rel(X,Y)
                 \to%
-                \Sets(\mathcal{P}(A),\mathcal{P}(B)).
+                \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
         \item\label{properties-of-the-direct-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{!}$ defines a function
             \[
                 (-)_{!}%
                 \colon%
-                \Rel(A,B)
+                \Rel(X,Y)
                 \to%
-                \Pos((\mathcal{P}(A),\subset),(\mathcal{P}(B),\subset)).
+                \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have%
+        \item\label{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, the postcomposition function
                 \[
-                    (\chi_{A})_{!}%
+                    (\chi_{X})_{!}%
                     \colon%
-                    \Rel(\pt,A)%
+                    \Rel(\pt,X)%
                     \to%
-                    \Rel(\pt,A)%
+                    \Rel(\pt,X)%
                 \]%
-                is equal to $\id_{\Rel(\pt,A)}$.
+                is equal to $\id_{\Rel(\pt,X)}$.
             }%
             %---  End Footnote  ---%
             \[
-                (\chi_{A})_{!}%
+                (\chi_{X})_{!}%
                 =%
-                \id_{\mathcal{P}(A)}.%
+                \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
+        \item\label{properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, we have
@@ -4347,11 +4608,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     S_{!}\circ R_{!},%
                     \quad%
                     \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        {\Rel(\pt,A)}
+                        {\Rel(\pt,X)}
                         \arrow[r,"R_{!}"]
                         \arrow[rd,"{(S\procirc R)_{!}}"']
                         \&
-                        {\Rel(\pt,B)}
+                        {\Rel(\pt,Y)}
                         \arrow[d,"S_{!}"]
                         \\
                         \&
@@ -4367,11 +4628,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 S_{!}\circ R_{!},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(A)
+                    \mathcal{P}(X)
                     \arrow[r,"R_{!}"]
                     \arrow[rd,"{(S\procirc R)_{!}}"']
                     \&
-                    \mathcal{P}(B)
+                    \mathcal{P}(Y)
                     \arrow[d,"S_{!}"]
                     \\
                     \&
@@ -4391,12 +4652,12 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
-        (\chi_{A})_{!}(U) &\defeq \bigcup_{a\in U}\chi_{A}(a)\\
+        (\chi_{X})_{!}(U) &\defeq \bigcup_{a\in U}\chi_{X}(a)\\
                           &\defeq \bigcup_{a\in U}\{a\}\\
                           &=      U\\
-                          &\defeq \id_{\mathcal{P}(A)}(U)
+                          &\defeq \id_{\mathcal{P}(X)}(U)
     \end{align*}
-    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{!}=\id_{\mathcal{P}(A)}$.
+    for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})_{!}=\id_{\mathcal{P}(X)}$.
 
     \ProofBox{\cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
@@ -4410,18 +4671,18 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                              &\defeq S_{!}(R_{!}(U))\\
                              &\defeq [S_{!}\circ R_{!}](U)
     \end{align*}
-    for each $U\in\mathcal{P}(A)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations}. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
+    for each $U\in\mathcal{P}(X)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations}. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
 \end{Proof}
 \subsection{Strong Inverse Images}\label{subsection-strong-inverse-images}
-Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Strong Inverse Images}{the-strong-inverse-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated strong inverse image function}\textbf{strong inverse image function associated to $R$} is the function\index[notation]{Rminusone@$R_{-1}$}%
     \[%
         R_{-1}%
         \colon%
-        \mathcal{P}(B)%
+        \mathcal{P}(Y)%
         \to%
-        \mathcal{P}(A)%
+        \mathcal{P}(X)%
     \]%
     defined by\index[notation]{RminusoneV@$R_{-1}(V)$}%
     %--- Begin Footnote ---%
@@ -4434,21 +4695,21 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         R_{-1}(V)
         \defeq%
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             R(a)\subset V%
         \}%
     \]%
-    for each $V\in\mathcal{P}(B)$.
+    for each $V\in\mathcal{P}(Y)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-strong-inverse-image-function-associated-to-a-relation}}{unwinding-the-strong-inverse-image-function-associated-to-a-relation}%
-    Identifying subsets of $B$ with relations from $\pt$ to $B$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the inverse image function associated to $R$ is equivalently the function
+    Identifying subsets of $Y$ with relations from $\pt$ to $Y$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the inverse image function associated to $R$ is equivalently the function
     \[
         R_{-1}%
         \colon%
-        \underbrace{\mathcal{P}(B)}_{\cong\Rel(\pt,B)}%
+        \underbrace{\mathcal{P}(Y)}_{\cong\Rel(\pt,Y)}%
         \to%
-        \underbrace{\mathcal{P}(A)}_{\cong\Rel(\pt,A)}%
+        \underbrace{\mathcal{P}(X)}_{\cong\Rel(\pt,X)}%
     \]%
     defined by
     \begin{webcompile}
@@ -4458,22 +4719,22 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \quad
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
-            A
+            X
             \arrow[d,mid vert, "R"]
             \\
             \pt%
             \arrow[ru,"\Rift_{R}(V)",dashed, mid vert]
             \arrow[r,mid vert, "V"'{name=F}]
             \&
-            B\mrp{,}
-            % 2-Arrows
+            Y\mrp{,}
+            % 2-Xrrows
             \arrow[from=1-2,to=F,Rightarrow,shorten=0.5em,pos=0.4]
         \end{tikzcd}
     \end{webcompile}
     and being explicitly computed by
     \begin{align*}
         R_{-1}(V) &\defeq \Rift_{R}(V)\\%
-                  &\cong  \int_{b\in B}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}}),%
+                  &\cong  \int_{b\in Y}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}}),%
     \end{align*}
     where we have used \cref{existence-of-right-kan-lifts-in-rel}.
 \end{remark}
@@ -4483,20 +4744,20 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \begin{align*}
             \Rift_{R}(V)%
             &\cong%
-            \int_{b\in B}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}})\\%
+            \int_{b\in Y}\Hom_{\TTV}(R^{b}_{-_{1}},V^{b}_{-_{2}})\\%
             &=%
             \{%
-                a\in A%
+                a\in X%
                 \ \middle|\ %
-                \int_{b\in B}\Hom_{\TTV}(R^{b}_{a},V^{b}_{\point})=\true%
+                \int_{b\in Y}\Hom_{\TTV}(R^{b}_{a},V^{b}_{\point})=\true%
             \}%
             \\
             &=
             \{%
-                a\in A%
+                a\in X%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
+                    &\text{for each $b\in Y$, at least one of the}\\[-2.5pt]
                     &\text{following conditions hold:}\\[7.5pt]
                     &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
                     &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
@@ -4506,10 +4767,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \}\\%
             &=
             \{%
-                a\in A%
+                a\in X%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $b\in B$, at least one of the}\\[-2.5pt]
+                    &\text{for each $b\in Y$, at least one of the}\\[-2.5pt]
                     &\text{following conditions hold:}\\[7.5pt]
                     &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(a)$}\\%
                     &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
@@ -4519,13 +4780,13 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \}\\%
             &=
             \{%
-                a\in A%
+                a\in X%
                 \ \middle|\ %
                 \text{for each $b\in R(a)$, we have $b\in V$}%
             \}\\%
             &=
             \{%
-                a\in A%
+                a\in X%
                 \ \middle|\ %
                 R(a)\subset V%
             \}\\%
@@ -4536,40 +4797,40 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Strong Inverse Images}{properties-of-strong-inverse-image-functions-associated-to-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R_{-1}(V)$ defines a functor
             \[
                 R_{-1}%
                 \colon%
-                (\mathcal{P}(B),\subset)%
+                (\mathcal{P}(Y),\subset)%
                 \to%
-                (\mathcal{P}(A),\subset)%
+                (\mathcal{P}(X),\subset)%
             \]%
             where
             \begin{itemize}
-                \item\SloganFont{Action on Objects. }For each $V\in\mathcal{P}(B)$, we have
+                \item\SloganFont{Action on Objects. }For each $V\in\mathcal{P}(Y)$, we have
                     \[
                         [R_{-1}](V)%
                         \defeq%
                         R_{-1}(V).
                     \]%
-                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(B)$:
+                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(Y)$:
                     \begin{itemize}
                         \item If $U\subset V$, then $R_{-1}(U)\subset R_{-1}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(A)#\mathcal{P}(B),#
+                \Adjunction#R_{!}#R_{-1}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
-                \Hom_{\mathcal{P}(A)}(R_{!}(U),V)%
+                \Hom_{\mathcal{P}(X)}(R_{!}(U),V)%
                 \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{-1}(V)),%
+                \Hom_{\mathcal{P}(X)}(U,R_{-1}(V)),%
             \]%
-            natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
+            natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$, i.e.\ such that:
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
@@ -4583,35 +4844,35 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \subset%
                 R_{-1}(\bigcup_{i\in I}U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(B)^{\times I}$. In particular, we have inclusions%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(Y)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
                     R_{-1}(U)\cup R_{-1}(V) \subset R_{-1}(U\cup V),\\
                     \emptyset               \subset R_{-1}(\emptyset),
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
                     R_{-1}(\bigcap_{i\in I}U_{i})%
                     =%
                     \bigcap_{i\in I}R_{-1}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(B)^{\times I}$. In particular, we have equalities%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(Y)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
                     R_{-1}(U\cap V) = R_{-1}(U)\cap R_{-1}(V),\\
-                    R_{-1}(B)       = B,
+                    R_{-1}(Y)       = Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{-1},R^{\otimes}_{-1},R^{\otimes}_{-1|\Unit})
                 \colon
-                (\mathcal{P}(A),\cup,\emptyset)
+                (\mathcal{P}(X),\cup,\emptyset)
                 \to
-                (\mathcal{P}(B),\cup,\emptyset),
+                (\mathcal{P}(Y),\cup,\emptyset),
             \]%
             being equipped with inclusions%
             \[
@@ -4620,31 +4881,31 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     R^{\otimes}_{-1|\Unit} \colon \emptyset               \subset R_{-1}(\emptyset),
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{-1},R^{\otimes}_{-1},R^{\otimes}_{-1|\Unit})
                 \colon
-                (\mathcal{P}(A),\cap,A)
+                (\mathcal{P}(X),\cap,X)
                 \to
-                (\mathcal{P}(B),\cap,B),
+                (\mathcal{P}(Y),\cap,Y),
             \]%
             being equipped with equalities%
             \[
                 \begin{gathered}
                     R^{\otimes}_{-1|U,V}   \colon R_{-1}(U\cap V) \rightequalsarrow R_{-1}(U)\cap R_{-1}(V),\\
-                    R^{\otimes}_{-1|\Unit} \colon R_{-1}(A)       \rightequalsarrow B,
+                    R^{\otimes}_{-1|\Unit} \colon R_{-1}(X)       \rightequalsarrow Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1}\SloganFont{Interaction With Weak Inverse Images \rmI. }We have
             \[
                 R_{-1}(V)%
                 =%
-                A\setminus R^{-1}(B\setminus V)
+                X\setminus R^{-1}(Y\setminus V)
             \]%
-            for each $V\in\mathcal{P}(B)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2}\SloganFont{Interaction With Weak Inverse Images \rmII. }Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2}\SloganFont{Interaction With Weak Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
                 \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
@@ -4652,7 +4913,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                         \subset
                         R^{-1}(V)
                     \]%
-                    natural in $V\in\mathcal{P}(B)$.
+                    natural in $V\in\mathcal{P}(Y)$.
                 \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
                 \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
@@ -4681,46 +4942,46 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1}: Interaction With Weak Inverse Images \rmI}%
     We claim we have an equality
     \[
-        R_{-1}(B\setminus V)%
+        R_{-1}(Y\setminus V)%
         =%
-        A\setminus R^{-1}(V).%
+        X\setminus R^{-1}(V).%
     \]%
     Indeed, we have
     \begin{align*}
-        R_{-1}(B\setminus V) &= \{a\in A\ |\ R(a)\subset B\setminus V\},\\%
-        A\setminus R^{-1}(V) &= \{a\in A\ |\ R(a)\cap V=\emptyset\}.%
+        R_{-1}(Y\setminus V) &= \{a\in X\ |\ R(a)\subset Y\setminus V\},\\%
+        X\setminus R^{-1}(V) &= \{a\in X\ |\ R(a)\cap V=\emptyset\}.%
     \end{align*}
-    Taking $V=B\setminus V$ then implies the original statement.
+    Taking $V=Y\setminus V$ then implies the original statement.
 
     \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2}: Interaction With Weak Inverse Images \rmII}%
     \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-a} is clear, while \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-b,properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
 \end{Proof}
 \begin{proposition}{Properties of the Strong Inverse Image Function Operation}{properties-of-the-strong-inverse-image-function-operation-for-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{-1}$ defines a function
             \[
                 (-)_{-1}%
                 \colon%
-                \Sets(A,B)
+                \Sets(X,Y)
                 \to%
-                \Sets(\mathcal{P}(A),\mathcal{P}(B)).
+                \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
         \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{-1}$ defines a function
             \[
                 (-)_{-1}%
                 \colon%
-                \Sets(A,B)
+                \Sets(X,Y)
                 \to%
-                \Pos((\mathcal{P}(A),\subset),(\mathcal{P}(B),\subset)).
+                \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have
+        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
-                (\id_{A})_{-1}%
+                (\id_{X})_{-1}%
                 =%
-                \id_{\mathcal{P}(A)}.%
+                \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
+        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             \begin{webcompile}
                 (S\procirc R)_{-1}%
                 =%
@@ -4731,11 +4992,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     \arrow[r,"S_{-1}"]
                     \arrow[rd,"{(S\procirc R)_{-1}}"']
                     \&
-                    \mathcal{P}(B)
+                    \mathcal{P}(Y)
                     \arrow[d,"R_{-1}"]
                     \\
                     \&
-                    \mathcal{P}(A)\mrp{.}
+                    \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
         %\item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-}\SloganFont{. }
@@ -4751,19 +5012,19 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
-        (\chi_{A})_{-1}(U) &\defeq \{a\in A\ \middle|\ \chi_{A}(a)\subset U\}\\
-                           &\defeq \{a\in A\ \middle|\ \{a\}\subset U\}\\
+        (\chi_{X})_{-1}(U) &\defeq \{a\in X\ \middle|\ \chi_{X}(a)\subset U\}\\
+                           &\defeq \{a\in X\ \middle|\ \{a\}\subset U\}\\
                            &=      U
     \end{align*}
-    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{-1}=\id_{\mathcal{P}(A)}$.
+    for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})_{-1}=\id_{\mathcal{P}(X)}$.
 
     \ProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
-        (S\procirc R)_{-1}(U) &\defeq \{a\in A\ \middle|\ [S\procirc R](a)\subset U\}\\
-                              &\defeq \{a\in A\ \middle|\ S(R(a))\subset U\}\\
-                              &\defeq \{a\in A\ \middle|\ S_{!}(R(a))\subset U\}\\
-                              &=      \{a\in A\ \middle|\ R(a)\subset S_{-1}(U)\}\\
+        (S\procirc R)_{-1}(U) &\defeq \{a\in X\ \middle|\ [S\procirc R](a)\subset U\}\\
+                              &\defeq \{a\in X\ \middle|\ S(R(a))\subset U\}\\
+                              &\defeq \{a\in X\ \middle|\ S_{!}(R(a))\subset U\}\\
+                              &=      \{a\in X\ \middle|\ R(a)\subset S_{-1}(U)\}\\
                               &\defeq R_{-1}(S_{-1}(U))\\
                               &\defeq [R_{-1}\circ S_{-1}](U)
     \end{align*}
@@ -4775,7 +5036,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     are equivalent. Thus $(S\procirc R)_{-1}=R_{-1}\circ S_{-1}$.
 \end{Proof}
 \subsection{Weak Inverse Images}\label{subsection-weak-inverse-images}
-Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Weak Inverse Images}{the-weak-inverse-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated weak inverse image function}\textbf{weak inverse image function associated to $R$}%
     %--- Begin Footnote ---%
@@ -4787,9 +5048,9 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \[%
         R^{-1}%
         \colon%
-        \mathcal{P}(B)%
+        \mathcal{P}(Y)%
         \to%
-        \mathcal{P}(A)%
+        \mathcal{P}(X)%
     \]%
     defined by\index[notation]{RminusoneV@$R^{-1}(V)$}%
     %--- Begin Footnote ---%
@@ -4802,21 +5063,21 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         R^{-1}(V)
         \defeq%
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             R(a)\cap V\neq\emptyset%
         \}%
     \]%
-    for each $V\in\mathcal{P}(B)$.
+    for each $V\in\mathcal{P}(Y)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-weak-inverse-image-function-associated-to-a-relation}}{unwinding-the-weak-inverse-image-function-associated-to-a-relation}%
-    Identifying subsets of $B$ with relations from $B$ to $\pt$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the weak inverse image function associated to $R$ is equivalently the function
+    Identifying subsets of $Y$ with relations from $Y$ to $\pt$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the weak inverse image function associated to $R$ is equivalently the function
     \[
         R^{-1}%
         \colon%
-        \underbrace{\mathcal{P}(B)}_{\cong\Rel(B,\pt)}%
+        \underbrace{\mathcal{P}(Y)}_{\cong\Rel(Y,\pt)}%
         \to%
-        \underbrace{\mathcal{P}(A)}_{\cong\Rel(A,\pt)}
+        \underbrace{\mathcal{P}(X)}_{\cong\Rel(X,\pt)}
     \]%
     defined by
     \[
@@ -4824,18 +5085,18 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \defeq%
         V\procirc R%
     \]%
-    for each $V\in\mathcal{P}(A)$, where $R\procirc V$ is the composition
+    for each $V\in\mathcal{P}(X)$, where $R\procirc V$ is the composition
     \[
-        A%
+        X%
         \xrightproarrow{R}%
-        B
+        Y
         \xrightproarrow{V}%
         \pt.%
     \]%
     Explicitly, we have
     \begin{align*}
         R^{-1}(V) &\defeq V\procirc R\\
-                  &\defeq \int^{b\in B}V^{-_{1}}_{b}\times R^{b}_{-_{2}}.
+                  &\defeq \int^{b\in Y}V^{-_{1}}_{b}\times R^{b}_{-_{2}}.
     \end{align*}
 \end{remark}
 \begin{Proof}{Proof of \cref{unwinding-the-weak-inverse-image-function-associated-to-a-relation}}%
@@ -4843,20 +5104,20 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \begin{align*}
         V\procirc R%
         &\defeq%
-        \int^{b\in B}V^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+        \int^{b\in Y}V^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
         &=%
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
-            \int^{b\in B}V^{\point}_{b}\times R^{b}_{a}=\true%
+            \int^{b\in Y}V^{\point}_{b}\times R^{b}_{a}=\true%
         \}%
         \\
         &=
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             \begin{aligned}
-                &\text{there exists $b\in B$ such that the}\\[-2.5pt]
+                &\text{there exists $b\in Y$ such that the}\\[-2.5pt]
                 &\text{following conditions hold:}\\[7.5pt]
                 &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $V^{\point}_{b}=\true$}\\%
                 &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\true$}\\[10pt]%
@@ -4864,10 +5125,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \}\\%
         &=
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             \begin{aligned}
-                &\text{there exists $b\in B$ such that the}\\[-2.5pt]
+                &\text{there exists $b\in Y$ such that the}\\[-2.5pt]
                 &\text{following conditions hold:}\\[7.5pt]
                 &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\in V$}\\%
                 &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{We have $b\in R(a)$}\\[10pt]%
@@ -4875,13 +5136,13 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \}\\%
         &=
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             \text{there exists $b\in V$ such that $b\in R(a)$}%
         \}\\%
         &=
         \{%
-            a\in A%
+            a\in X%
             \ \middle|\ %
             R(a)\cap V\neq\emptyset%
         \}\\%
@@ -4890,40 +5151,40 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Weak Inverse Image Functions}{properties-of-weak-inverse-image-functions-associated-to-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R^{-1}(V)$ defines a functor
             \[
                 R^{-1}%
                 \colon%
-                (\mathcal{P}(B),\subset)%
+                (\mathcal{P}(Y),\subset)%
                 \to%
-                (\mathcal{P}(A),\subset)%
+                (\mathcal{P}(X),\subset)%
             \]%
             where
             \begin{itemize}
-                \item\SloganFont{Action on Objects. }For each $V\in\mathcal{P}(B)$, we have
+                \item\SloganFont{Action on Objects. }For each $V\in\mathcal{P}(Y)$, we have
                     \[
                         [R^{-1}](V)%
                         \defeq%
                         R^{-1}(V).
                     \]%
-                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(B)$:
+                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(Y)$:
                     \begin{itemize}
                         \item If $U\subset V$, then $R^{-1}(U)\subset R^{-1}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(B)#\mathcal{P}(A),#
+                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(Y)#\mathcal{P}(X),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
-                \Hom_{\mathcal{P}(A)}(R^{-1}(U),V)%
+                \Hom_{\mathcal{P}(X)}(R^{-1}(U),V)%
                 \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{*}(V)),%
+                \Hom_{\mathcal{P}(X)}(U,R_{*}(V)),%
             \]%
-            natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
+            natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$, i.e.\ such that:
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
@@ -4937,35 +5198,35 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 =%
                 \bigcup_{i\in I}R^{-1}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(B)^{\times I}$. In particular, we have equalities%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(Y)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
                     R^{-1}(U)\cup R^{-1}(V) = R^{-1}(U\cup V),\\
                     R^{-1}(\emptyset)       = \emptyset,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
             \[
                 R^{-1}(\bigcap_{i\in I}U_{i})%
                 \subset%
                 \bigcap_{i\in I}R^{-1}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(B)^{\times I}$. In particular, we have inclusions%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(Y)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
                     R^{-1}(U\cap V) \subset R^{-1}(U)\cap R^{-1}(V),\\
-                    R^{-1}(A)       \subset B,
+                    R^{-1}(X)       \subset Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R^{-1},R^{-1,\otimes},R^{-1,\otimes}_{\Unit})
                 \colon
-                (\mathcal{P}(A),\cup,\emptyset)
+                (\mathcal{P}(X),\cup,\emptyset)
                 \to
-                (\mathcal{P}(B),\cup,\emptyset),
+                (\mathcal{P}(Y),\cup,\emptyset),
             \]%
             being equipped with equalities%
             \[
@@ -4974,31 +5235,31 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     R^{-1,\otimes}_{\Unit} \colon \emptyset               \rightequalsarrow \emptyset,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} has a symmetric oplax monoidal structure
             \[
                 (R^{-1},R^{-1,\otimes},R^{-1,\otimes}_{\Unit})
                 \colon
-                (\mathcal{P}(A),\cap,A)
+                (\mathcal{P}(X),\cap,X)
                 \to
-                (\mathcal{P}(B),\cap,B),
+                (\mathcal{P}(Y),\cap,Y),
             \]%
             being equipped with inclusions%
             \[
                 \begin{gathered}
                     R^{-1,\otimes}_{U,V}   \colon R^{-1}(U\cap V) \subset R^{-1}(U)\cap R^{-1}(V),\\
-                    R^{-1,\otimes}_{\Unit} \colon R^{-1}(A)       \subset B,
+                    R^{-1,\otimes}_{\Unit} \colon R^{-1}(X)       \subset Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(B)$.
+            natural in $U,V\in\mathcal{P}(Y)$.
         \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1}\SloganFont{Interaction With Strong Inverse Images \rmI. }We have
             \[
                 R^{-1}(V)%
                 =%
-                A\setminus R_{-1}(B\setminus V)
+                X\setminus R_{-1}(Y\setminus V)
             \]%
-            for each $V\in\mathcal{P}(B)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2}\SloganFont{Interaction With Strong Inverse Images \rmII. }Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2}\SloganFont{Interaction With Strong Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
                 \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
@@ -5006,7 +5267,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                         \subset
                         R^{-1}(V)
                     \]%
-                    natural in $V\in\mathcal{P}(B)$.
+                    natural in $V\in\mathcal{P}(Y)$.
                 \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
                 \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
@@ -5038,44 +5299,44 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This was proved in \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}.
 \end{Proof}
 \begin{proposition}{Properties of the Weak Inverse Image Function Operation}{properties-of-the-weak-inverse-image-function-operation-for-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R^{-1}$ defines a function
             \[
                 (-)^{-1}%
                 \colon%
-                \Rel(A,B)
+                \Rel(X,Y)
                 \to%
-                \Sets(\mathcal{P}(A),\mathcal{P}(B)).
+                \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
         \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R^{-1}$ defines a function
             \[
                 (-)^{-1}%
                 \colon%
-                \Rel(A,B)
+                \Rel(X,Y)
                 \to%
-                \Pos((\mathcal{P}(A),\subset),(\mathcal{P}(B),\subset)).
+                \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have%
+        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, the postcomposition
                 \[
-                    (\chi_{A})^{-1}%
+                    (\chi_{X})^{-1}%
                     \colon%
-                    \Rel(\pt,A)%
+                    \Rel(\pt,X)%
                     \to%
-                    \Rel(\pt,A)%
+                    \Rel(\pt,X)%
                 \]%
-                is equal to $\id_{\Rel(\pt,A)}$.
+                is equal to $\id_{\Rel(\pt,X)}$.
             }%
             %---  End Footnote  ---%
             \[
-                (\chi_{A})^{-1}%
+                (\chi_{X})^{-1}%
                 =%
-                \id_{\mathcal{P}(A)}.%
+                \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
+        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, we have
@@ -5089,11 +5350,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                         \arrow[r,"R^{-1}"]
                         \arrow[rd,"{(S\procirc R)^{-1}}"']
                         \&
-                        {\Rel(\pt,B)}
+                        {\Rel(\pt,Y)}
                         \arrow[d,"S^{-1}"]
                         \\
                         \&
-                        {\Rel(\pt,A)}\mrp{.}
+                        {\Rel(\pt,X)}\mrp{.}
                     \end{tikzcd}
                 \end{webcompile}
                 \par\vspace*{\TCBBoxCorrection}
@@ -5109,11 +5370,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     \arrow[r,"S^{-1}"]
                     \arrow[rd,"{(S\procirc R)^{-1}}"']
                     \&
-                    \mathcal{P}(B)
+                    \mathcal{P}(Y)
                     \arrow[d,"R^{-1}"]
                     \\
                     \&
-                    \mathcal{P}(A)\mrp{.}
+                    \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
         %\item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-}\SloganFont{. }
@@ -5130,35 +5391,35 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-identities} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-identities} of \cref{properties-of-pre-postcomposition}}.
     %Indeed, we have
     %\begin{align*}
-    %    (\chi_{A})^{-1}(U) &\defeq \{a\in A\ \middle|\ \{a\}\cap U\neq\emptyset\}\\
+    %    (\chi_{X})^{-1}(U) &\defeq \{a\in X\ \middle|\ \{a\}\cap U\neq\emptyset\}\\
     %                       &=      U\\
-    %                       &\defeq \id_{\mathcal{P}(A)}(U)
+    %                       &\defeq \id_{\mathcal{P}(X)}(U)
     %\end{align*}
-    %for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})^{-1}=\id_{\mathcal{P}(A)}$.
+    %for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})^{-1}=\id_{\mathcal{P}(X)}$.
 
     \ProofBox{\cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{properties-of-pre-postcomposition}}.
     %Indeed, we have
     %\begin{align*}
-    %    (S\procirc R)^{-1}(U) &\defeq \{a\in A\ \middle|\ S(R(a))\cap U\neq\emptyset\}\\
+    %    (S\procirc R)^{-1}(U) &\defeq \{a\in X\ \middle|\ S(R(a))\cap U\neq\emptyset\}\\
     %                          &=      ?\\
-    %                          &=      \{a\in A\ \middle|\ R(a)\cap\{b\in B\ \middle|\ S(b)\cap U\neq\emptyset\}\neq\emptyset\}\\
-    %                          &=      R^{-1}(\{b\in B\ \middle|\ S(b)\cap U\neq\emptyset\})\\
+    %                          &=      \{a\in X\ \middle|\ R(a)\cap\{b\in Y\ \middle|\ S(b)\cap U\neq\emptyset\}\neq\emptyset\}\\
+    %                          &=      R^{-1}(\{b\in Y\ \middle|\ S(b)\cap U\neq\emptyset\})\\
     %                          &\defeq R^{-1}(S^{-1}(U))\\
     %                          &\defeq [R^{-1}\circ S^{-1}](U)
     %\end{align*}
-    %for each $U\in\mathcal{P}(A)$. Thus $(S\procirc R)^{-1}=S^{-1}\circ R^{-1}$.
+    %for each $U\in\mathcal{P}(X)$. Thus $(S\procirc R)^{-1}=S^{-1}\circ R^{-1}$.
 \end{Proof}
 \subsection{Codirect Images}\label{subsection-codirect-images-relations}
-Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Codirect Images}{the-codirect-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated codirect image function}\textbf{codirect image function associated to $R$} is the function\index[notation]{Rstar@$R_{*}$}%
     \[%
         R_{*}%
         \colon%
-        \mathcal{P}(A)%
+        \mathcal{P}(X)%
         \to%
-        \mathcal{P}(B)%
+        \mathcal{P}(Y)%
     \]%
     defined by\index[notation]{RstarU@$R_{*}(U)$}%
     %--- Begin Footnote ---%
@@ -5172,7 +5433,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \[
             R_{*}(U)%
             =%
-            B\setminus R_{!}(A\setminus U);
+            Y\setminus R_{!}(X\setminus U);
         \]%
         see \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations}.
         \par\vspace*{\TCBBoxCorrection}
@@ -5180,29 +5441,29 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     %---  End Footnote  ---%
     \begin{align*}
         R_{*}(U) &\defeq \{%
-                             b\in B%
+                             b\in Y%
                              \ \middle|\ %
                              \begin{aligned}
-                                 &\text{for each $a\in A$, if we have}\\%
+                                 &\text{for each $a\in X$, if we have}\\%
                                  &\text{$b\in R(a)$, then $a\in U$}%
                              \end{aligned}
                          \}\\%
                  &=      \{%
-                             b\in B%
+                             b\in Y%
                              \ \middle|\ %
                              R^{-1}(b)\subset U%
                          \}%
     \end{align*}
-    for each $U\in\mathcal{P}(A)$.
+    for each $U\in\mathcal{P}(X)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-codirect-image-function-associated-to-a-relation}}{unwinding-the-codirect-image-function-associated-to-a-relation}%
-    Identifying subsets of $B$ with relations from $\pt$ to $B$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{constructions-with-sets:properties-of-powersets-as-sets-of-functions-relations}}{\cref{properties-of-powersets-as-sets-of-functions-relations-powersets-as-sets-of-relations} of \cref{properties-of-powersets-as-sets-of-functions-relations}}, we see that the codirect image function associated to $R$ is equivalently the function
+    Identifying subsets of $Y$ with relations from $\pt$ to $Y$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the codirect image function associated to $R$ is equivalently the function
     \[
         R_{*}%
         \colon%
-        \underbrace{\mathcal{P}(A)}_{\cong\Rel(A,\pt)}%
+        \underbrace{\mathcal{P}(X)}_{\cong\Rel(X,\pt)}%
         \to%
-        \underbrace{\mathcal{P}(B)}_{\cong\Rel(B,\pt)}
+        \underbrace{\mathcal{P}(Y)}_{\cong\Rel(Y,\pt)}
     \]%
     defined by
     \begin{webcompile}
@@ -5212,10 +5473,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \quad
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
-            B
+            Y
             \arrow[d, "\Ran_{R}(U)",dashed,mid vert]
             \\
-            A
+            X
             \arrow[ru,mid vert, "R"]
             \arrow[r,mid vert,"U"'{name=F}]
             \&
@@ -5227,7 +5488,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     being explicitly computed by
     \begin{align*}
         R^{*}(U) &\defeq \Ran_{R}(U)\\%
-                 &\cong  \int_{a\in A}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a}),
+                 &\cong  \int_{a\in X}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a}),
     \end{align*}
     where we have used \cref{existence-of-right-kan-extensions-in-rel}.
 \end{remark}
@@ -5237,20 +5498,20 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \begin{align*}
             \Ran_{R}(V)%
             &\cong%
-            \int_{a\in A}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a})\\%
+            \int_{a\in X}\Hom_{\TTV}(R^{-_{2}}_{a},U^{-_{1}}_{a})\\%
             &=%
             \{%
-                b\in B%
+                b\in Y%
                 \ \middle|\ %
-                \int_{a\in A}\Hom_{\TTV}(R^{b}_{a},U^{\point}_{a})=\true%
+                \int_{a\in X}\Hom_{\TTV}(R^{b}_{a},U^{\point}_{a})=\true%
             \}%
             \\
             &=
             \{%
-                b\in B%
+                b\in Y%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
+                    &\text{for each $a\in X$, at least one of the}\\[-2.5pt]
                     &\text{following conditions hold:}\\[7.5pt]
                     &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
                     &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
@@ -5260,12 +5521,12 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \}\\%
             &=
             \{%
-                b\in B%
+                b\in Y%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $a\in A$, at least one of the}\\[-2.5pt]
+                    &\text{for each $a\in X$, at least one of the}\\[-2.5pt]
                     &\text{following conditions hold:}\\[7.5pt]
-                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(A)$}\\%
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(X)$}\\%
                     &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
                     &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
                     &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $a\in U$}\\[10pt]
@@ -5273,16 +5534,16 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \}\\%
             &=
             \{%
-                b\in B%
+                b\in Y%
                 \ \middle|\ %
                  \begin{aligned}
-                     &\text{for each $a\in A$, if we have}\\%
+                     &\text{for each $a\in X$, if we have}\\%
                      &\text{$b\in R(a)$, then $a\in U$}%
                  \end{aligned}
             \}\\%
             &=
             \{%
-                b\in B%
+                b\in Y%
                 \ \middle|\ %
                 R^{-1}(b)\subset U%
             \}\\%
@@ -5293,40 +5554,40 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Codirect Images}{properties-of-codirect-image-functions-associated-to-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-codirect-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
             \[
                 R_{*}%
                 \colon%
-                (\mathcal{P}(A),\subset)%
+                (\mathcal{P}(X),\subset)%
                 \to%
-                (\mathcal{P}(B),\subset)%
+                (\mathcal{P}(Y),\subset)%
             \]%
             where
             \begin{itemize}
-                \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(A)$, we have
+                \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(X)$, we have
                     \[
                         [R_{*}](U)%
                         \defeq%
                         R_{*}(U).
                     \]%
-                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(A)$:
+                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(X)$:
                     \begin{itemize}
                         \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
         \item\label{properties-of-codirect-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
-                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(B)#\mathcal{P}(A),#
+                \Adjunction#R^{-1}#R_{*}#\mathcal{P}(Y)#\mathcal{P}(X),#
             \end{webcompile}
             witnessed by a bijections of sets
             \[%
-                \Hom_{\mathcal{P}(A)}(R^{-1}(U),V)%
+                \Hom_{\mathcal{P}(X)}(R^{-1}(U),V)%
                 \cong%
-                \Hom_{\mathcal{P}(A)}(U,R_{*}(V)),%
+                \Hom_{\mathcal{P}(X)}(U,R_{*}(V)),%
             \]%
-            natural in $U\in\mathcal{P}(A)$ and $V\in\mathcal{P}(B)$, i.e.\ such that:
+            natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$, i.e.\ such that:
             \begin{itemize}
                 \itemstar The following conditions are equivalent:
                     \begin{itemize}
@@ -5340,35 +5601,35 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \subset%
                 R_{*}(\bigcup_{i\in I}U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have inclusions%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
                 \begin{gathered}
                     R_{*}(U)\cup R_{*}(V) \subset R_{*}(U\cup V),\\
                     \emptyset             \subset R_{*}(\emptyset),
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
                     R_{*}(\bigcap_{i\in I}U_{i})%
                     =%
                     \bigcap_{i\in I}R_{*}(U_{i}),%
             \]%
-            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(A)^{\times I}$. In particular, we have equalities%
+            natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
                 \begin{gathered}
                     R_{*}(U\cap V) = R_{*}(U)\cap R_{*}(V),\\
-                    R_{*}(A)       = B,
+                    R_{*}(X)       = Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
-                (\mathcal{P}(A),\cup,\emptyset)
+                (\mathcal{P}(X),\cup,\emptyset)
                 \to
-                (\mathcal{P}(B),\cup,\emptyset),
+                (\mathcal{P}(Y),\cup,\emptyset),
             \]%
             being equipped with inclusions%
             \[
@@ -5377,30 +5638,30 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                     R^{\otimes}_{!|\Unit} \colon \emptyset               \subset R_{*}(\emptyset),
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
-                (\mathcal{P}(A),\cap,A)
+                (\mathcal{P}(X),\cap,X)
                 \to
-                (\mathcal{P}(B),\cap,B),
+                (\mathcal{P}(Y),\cap,Y),
             \]%
             being equipped with equalities%
             \[
                 \begin{gathered}
                     R^{\otimes}_{!|U,V}   \colon R_{*}(U\cap V) \rightequalsarrow R_{*}(U)\cap R_{*}(V),\\
-                    R^{\otimes}_{!|\Unit} \colon R_{*}(A)       \rightequalsarrow B,
+                    R^{\otimes}_{!|\Unit} \colon R_{*}(X)       \rightequalsarrow Y,
                 \end{gathered}
             \]%
-            natural in $U,V\in\mathcal{P}(A)$.
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \[
                 R_{*}(U)%
                 =%
-                B\setminus R_{!}(A\setminus U)
+                Y\setminus R_{!}(X\setminus U)
             \]%
-            for each $U\in\mathcal{P}(A)$.
+            for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-codirect-image-functions-associated-to-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -5426,70 +5687,70 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}: Relation to Direct Images}%
     This follows from \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}. Alternatively, we may prove it directly as follows, with the proof proceeding in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-relation-to-direct-images} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i}}).
 
-    We claim that $R_{*}(U)=B\setminus R_{!}(A\setminus U)$:
+    We claim that $R_{*}(U)=Y\setminus R_{!}(X\setminus U)$:
     \begin{itemize}
         \item\SloganFont{The First Implication. }We claim that
             \[
                 R_{*}(U)%
                 \subset%
-                B\setminus R_{!}(A\setminus U).%
+                Y\setminus R_{!}(X\setminus U).%
             \]%
-            Let $b\in R_{*}(U)$. We need to show that $b\nin R_{!}(A\setminus U)$, i.e.\ that there is no $a\in A\setminus U$ such that $b\in R(a)$.
+            Let $b\in R_{*}(U)$. We need to show that $b\nin R_{!}(X\setminus U)$, i.e.\ that there is no $a\in X\setminus U$ such that $b\in R(a)$.
 
             This is indeed the case, as otherwise we would have $a\in R^{-1}(b)$ and $a\nin U$, contradicting $R^{-1}(b)\subset U$ (which holds since $b\in R_{*}(U)$).
 
-            Thus $b\in B\setminus R_{!}(A\setminus U)$.
+            Thus $b\in Y\setminus R_{!}(X\setminus U)$.
         \item\SloganFont{The Second Implication. }We claim that
             \[
-                B\setminus R_{!}(A\setminus U)%
+                Y\setminus R_{!}(X\setminus U)%
                 \subset%
                 R_{*}(U).%
             \]%
-            Let $b\in B\setminus R_{!}(A\setminus U)$. We need to show that $b\in R_{*}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
+            Let $b\in Y\setminus R_{!}(X\setminus U)$. We need to show that $b\in R_{*}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
 
-            Since $b\nin R_{!}(A\setminus U)$, there exists no $a\in A\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
+            Since $b\nin R_{!}(X\setminus U)$, there exists no $a\in X\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
 
             Thus $b\in R_{*}(U)$.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of the Codirect Image Function Operation}{properties-of-the-codirect-image-function-operation-for-relations}%
-    Let $R\colon A\rightproarrow B$ be a relation.
+    Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
         \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
-                \Sets(A,B)
+                \Sets(X,Y)
                 \to%
-                \Sets(\mathcal{P}(A),\mathcal{P}(B)).
+                \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
         \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
-                \Sets(A,B)
+                \Sets(X,Y)
                 \to%
-                \Hom_{\Pos}((\mathcal{P}(A),\subset),(\mathcal{P}(B),\subset)).
+                \Hom_{\Pos}((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $A\in\Obj(\Sets)$, we have
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
-                (\id_{A})_{*}%
+                (\id_{X})_{*}%
                 =%
-                \id_{\mathcal{P}(A)}.%
+                \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$, we have%
+        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             \begin{webcompile}
                 (S\procirc R)_{*}%
                 =%
                 S_{*}\circ R_{*},%
                 \quad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(A)
+                    \mathcal{P}(X)
                     \arrow[r,"R_{*}"]
                     \arrow[rd,"{(S\procirc R)_{*}}"']
                     \&
-                    \mathcal{P}(B)
+                    \mathcal{P}(Y)
                     \arrow[d,"S_{*}"]
                     \\
                     \&
@@ -5509,11 +5770,11 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
-        (\chi_{A})_{*}(U) &\defeq \{a\in A\ \middle|\ \chi^{-1}_{A}(a)\subset U\}\\
-                          &\defeq \{a\in A\ \middle|\ \{a\}\subset U\}\\
+        (\chi_{X})_{*}(U) &\defeq \{a\in X\ \middle|\ \chi^{-1}_{X}(a)\subset U\}\\
+                          &\defeq \{a\in X\ \middle|\ \{a\}\subset U\}\\
                           &=      U
     \end{align*}
-    for each $U\in\mathcal{P}(A)$. Thus $(\chi_{A})_{*}=\id_{\mathcal{P}(A)}$.
+    for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})_{*}=\id_{\mathcal{P}(X)}$.
 
     \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
@@ -5548,19 +5809,19 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     \end{align*}
     where
     \begin{itemize}
-        \item\SloganFont{Action on Objects. }For each $A\in\Obj(\Rel)$, we have
+        \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Rel)$, we have
             \begin{align*}
-                \mathcal{P}_{!}(A)  &\defeq \mathcal{P}(A),\\%
-                \mathcal{P}_{-1}(A) &\defeq \mathcal{P}(A),\\%
-                \mathcal{P}^{-1}(A) &\defeq \mathcal{P}(A),\\%
-                \mathcal{P}_{*}(A)  &\defeq \mathcal{P}(A).%
+                \mathcal{P}_{!}(X)  &\defeq \mathcal{P}(X),\\%
+                \mathcal{P}_{-1}(X) &\defeq \mathcal{P}(X),\\%
+                \mathcal{P}^{-1}(X) &\defeq \mathcal{P}(X),\\%
+                \mathcal{P}_{*}(X)  &\defeq \mathcal{P}(X).%
             \end{align*}
-        \item\SloganFont{Action on Morphisms. }For each morphism $R\colon A\rightproarrow B$ of $\Rel$, the images
+        \item\SloganFont{Action on Morphisms. }For each morphism $R\colon X\rightproarrow Y$ of $\Rel$, the images
             \begin{align*}
-                \mathcal{P}_{!}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B),\\%
-                \mathcal{P}_{-1}(R) &\colon \mathcal{P}(B) \to \mathcal{P}(A),\\%
-                \mathcal{P}^{-1}(R) &\colon \mathcal{P}(B) \to \mathcal{P}(A),\\%
-                \mathcal{P}_{*}(R)  &\colon \mathcal{P}(A) \to \mathcal{P}(B)%
+                \mathcal{P}_{!}(R)  &\colon \mathcal{P}(X) \to \mathcal{P}(Y),\\%
+                \mathcal{P}_{-1}(R) &\colon \mathcal{P}(Y) \to \mathcal{P}(X),\\%
+                \mathcal{P}^{-1}(R) &\colon \mathcal{P}(Y) \to \mathcal{P}(X),\\%
+                \mathcal{P}_{*}(R)  &\colon \mathcal{P}(X) \to \mathcal{P}(Y)%
             \end{align*}
             of $R$ by $\mathcal{P}_{!}$, $\mathcal{P}_{-1}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ are defined by
             \begin{align*}
@@ -5576,15 +5837,15 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
     This follows from \cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-function-operation-for-relations}, \cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-strong-inverse-image-function-operation-for-relations}, \cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-weak-inverse-image-function-operation-for-relations}, and \cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities,properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-codirect-image-function-operation-for-relations}.
 \end{Proof}
 \subsection{Functoriality of Powersets: Relations on Powersets}\label{functoriality-of-powersets-relations-on-powersets}
-Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{The Relation on Powersets Associated to a Relation}{the-relation-on-powersets-associated-to-a-relation}%
     The \index[set-theory]{relation!on powersets associated to a relation}\textbf{relation on powersets associated to $R$} is the relation
     \[
         \mathcal{P}(R)%
         \colon%
-        \mathcal{P}(A)%
+        \mathcal{P}(X)%
         \rightproarrow
-        \mathcal{P}(B)%
+        \mathcal{P}(Y)%
     \]%
     defined by%
     %--- Begin Footnote ---%
@@ -5596,10 +5857,10 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
                 \arrow[rrr,mid vert,bend left=15,"\chi_{\pt}"]
                 \arrow[r,mid vert,"U"']
                 \&
-                A
+                X
                 \arrow[r,mid vert,"R"']
                 \&
-                B
+                Y
                 \arrow[r,mid vert,"V"']
                 \&
                 \pt\mrp{.}%
@@ -5613,7 +5874,7 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \defeq%
         \eRel(\chi_{\pt},V\procirc R\procirc U)%
     \]%
-    for each $U\in\mathcal{P}(A)$ and each $V\in\mathcal{P}(B)$.
+    for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-relation-on-powersets-associated-to-a-relation}}{unwinding-the-relation-on-powersets-associated-to-a-relation}%
     In detail, we have $U\sim_{\mathcal{P}(R)}V$ \textiff the following equivalent conditions hold:
@@ -5621,17 +5882,17 @@ Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation.
         \item We have $\chi_{\pt}\subset V\procirc R\procirc U$.
         \item We have $(V\procirc R\procirc U)^{\point}_{\point}=\true$, i.e.\ we have
             \[
-                \int^{a\in A}\int^{b\in B}V^{\point}_{b}\times R^{b}_{a}\times U^{a}_{\point}%
+                \int^{a\in X}\int^{b\in Y}V^{\point}_{b}\times R^{b}_{a}\times U^{a}_{\point}%
                 =%
                 \true.%
             \]%
-        \item There exists some $a\in A$ and some $b\in B$ such that:
+        \item There exists some $a\in X$ and some $b\in Y$ such that:
             \begin{itemize}
                 \item We have $U^{a}_{\point}=\true$.
                 \item We have $R^{b}_{a}=\true$.
                 \item We have $V^{\point}_{b}=\true$.
             \end{itemize}
-        \item There exists some $a\in A$ and some $b\in B$ such that:
+        \item There exists some $a\in X$ and some $b\in Y$ such that:
             \begin{itemize}
                 \item We have $a\in U$.
                 \item We have $a\sim_{R}b$.
