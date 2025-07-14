@@ -3110,16 +3110,16 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
             \begin{itemize}
                 \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
                     \begin{align*}
-                        R^{-1}\procirc R &\cong \chi_{A},\\
-                        R\procirc R^{-1} &\cong \chi_{B}.
+                        R^{-1}\procirc R &\cong \Delta_{A},\\
+                        R\procirc R^{-1} &\cong \Delta_{B}.
                     \end{align*}
             \end{itemize}
         \item\label{isomorphisms-and-equivalences-in-rel-2}The relation $R\colon A\rightproarrow B$ is an isomorphism in $\Rel$, i.e.:
             \begin{itemize}
                 \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ such that we have
                     \begin{align*}
-                        R^{-1}\procirc R &= \chi_{A},\\
-                        R\procirc R^{-1} &= \chi_{B}.
+                        R^{-1}\procirc R &= \Delta_{A},\\
+                        R\procirc R^{-1} &= \Delta_{B}.
                     \end{align*}
             \end{itemize}
         \item\label{isomorphisms-and-equivalences-in-rel-3}There exists a bijection $f\colon A\isorightarrow B$ with $R=\Gr(f)$.
@@ -3131,23 +3131,23 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-2}: }This follows from the fact that $\sfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-3}: }The equalities in \cref{isomorphisms-and-equivalences-in-rel-2} imply $R\dashv R^{-1}$, and thus by \cref{adjunctions-in-rel}, there exists a function $f_{R}\colon A\to B$ associated to $R$, where, for each $a\in A$, the image $f_{R}(a)$ of $a$ by $f_{R}$ is the unique element of $R(a)$, which implies $R=\Gr(f_{R})$ in particular. Furthermore, we have $R^{-1}=f^{-1}_{R}$ (as in \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:the-inverse-of-a-function}}{\cref{the-inverse-of-a-function}}). The conditions from \cref{isomorphisms-and-equivalences-in-rel-2} then become the following:
             \begin{align*}
-                f^{-1}_{R}\procirc f_{R} = \chi_{A},\\
-                f_{R}\procirc f^{-1}_{R} = \chi_{B}.
+                f^{-1}_{R}\procirc f_{R} = \Delta_{A},\\
+                f_{R}\procirc f^{-1}_{R} = \Delta_{B}.
             \end{align*}
             All that is left is to show then is that $f_{R}$ is a bijection:
             \begin{itemize}
-                \item\SloganFont{The Function $f_{R}$ Is Injective. }Let $a,b\in A$ and suppose that $f_{R}(a)=f_{R}(b)$. Since $a\sim_{R}f_{R}(a)$ and $f_{R}(a)=f_{R}(b)\sim_{R^{-1}}b$, the condition $f^{-1}_{R}\procirc f_{R}=\chi_{A}$ implies that $a=b$, showing $f_{R}$ to be injective.
-                \item\SloganFont{The Function $f_{R}$ Is Surjective. }Let $b\in B$. Applying the condition $f_{R}\procirc f^{-1}_{R}=\chi_{B}$ to $(b,b)$, it follows that there exists some $a\in A$ such that $f^{-1}_{R}(b)=a$ and $f_{R}(a)=b$. This shows $f_{R}$ to be surjective.
+                \item\SloganFont{The Function $f_{R}$ Is Injective. }Let $a,b\in A$ and suppose that $f_{R}(a)=f_{R}(b)$. Since $a\sim_{R}f_{R}(a)$ and $f_{R}(a)=f_{R}(b)\sim_{R^{-1}}b$, the condition $f^{-1}_{R}\procirc f_{R}=\Delta_{A}$ implies that $a=b$, showing $f_{R}$ to be injective.
+                \item\SloganFont{The Function $f_{R}$ Is Surjective. }Let $b\in B$. Applying the condition $f_{R}\procirc f^{-1}_{R}=\Delta_{B}$ to $(b,b)$, it follows that there exists some $a\in A$ such that $f^{-1}_{R}(b)=a$ and $f_{R}(a)=b$. This shows $f_{R}$ to be surjective.
             \end{itemize}
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-2}: }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, we have an adjunction $\Gr(f)\dashv f^{-1}$, giving inclusions
             \begin{gather*}
-                \chi_{A}              \subset f^{-1}\procirc\Gr(f),\\
-                \Gr(f)\procirc f^{-1} \subset \chi_{B}.
+                \Delta_{A}            \subset f^{-1}\procirc\Gr(f),\\
+                \Gr(f)\procirc f^{-1} \subset \Delta_{B}.
             \end{gather*}
             We claim the reverse inclusions are also true:
             \begin{itemize}
-                \item\SloganFont{$f^{-1}\procirc\Gr(f)\subset\chi_{A}$: }This is equivalent to the statement that if $f(a)=b$ and $f^{-1}(b)=a'$, then $a=a'$, which follows from the injectivity of $f$.
-                \item\SloganFont{$\chi_{B}\subset\Gr(f)\procirc f^{-1}$: }This is equivalent to the statement that given $b\in B$ there exists some $a\in A$ such that $f^{-1}(b)=a$ and $f(a)=b$, which follows from the surjectivity of $f$.
+                \item\SloganFont{$f^{-1}\procirc\Gr(f)\subset\Delta_{A}$: }This is equivalent to the statement that if $f(a)=b$ and $f^{-1}(b)=a'$, then $a=a'$, which follows from the injectivity of $f$.
+                \item\SloganFont{$\Delta_{B}\subset\Gr(f)\procirc f^{-1}$: }This is equivalent to the statement that given $b\in B$ there exists some $a\in A$ such that $f^{-1}(b)=a$ and $f(a)=b$, which follows from the surjectivity of $f$.
             \end{itemize}
     \end{itemize}
     This finishes the proof.
@@ -3183,16 +3183,16 @@ Let $A$ and $B$ be sets.
             \end{align*}
             together with inclusions
             \begin{align*}
-                \chi_{A}    &\subset S\procirc R,\\
-                R\procirc S &\subset \chi_{B}.
+                \Delta_{A}  &\subset S\procirc R,\\
+                R\procirc S &\subset \Delta_{B}.
             \end{align*}
             We claim that these conditions imply that $R$ is total and functional, i.e.\ that $R(a)$ is a singleton for each $a\in A$:
             \begin{enumerate}
-                \item\label{proof-of-adjunctions-in-rel-1a}\SloganFont{$R(a)$ Has an Element. }Given $a\in A$, since $\chi_{A}\subset S\procirc R$, we must have $\{a\}\subset S(R(a))$, implying that there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{S}a$, and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
+                \item\label{proof-of-adjunctions-in-rel-1a}\SloganFont{$R(a)$ Has an Element. }Given $a\in A$, since $\Delta_{A}\subset S\procirc R$, we must have $\{a\}\subset S(R(a))$, implying that there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{S}a$, and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
                 \item\label{proof-of-adjunctions-in-rel-1b}\SloganFont{$R(a)$ Has No More Than One Element. }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
                     \begin{enumerate}
-                        \item\label{proof-of-adjunctions-in-rel-1bi}Since $\chi_{A}\subset S\procirc R$, there exists some $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
-                        \item\label{proof-of-adjunctions-in-rel-1bii}Since $R\procirc S\subset\chi_{B}$, if $b''\sim_{S}a'$ and $a'\sim_{R}b'''$, then $b''=b'''$.
+                        \item\label{proof-of-adjunctions-in-rel-1bi}Since $\Delta_{A}\subset S\procirc R$, there exists some $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
+                        \item\label{proof-of-adjunctions-in-rel-1bii}Since $R\procirc S\subset\Delta_{B}$, if $b''\sim_{S}a'$ and $a'\sim_{R}b'''$, then $b''=b'''$.
                         \item\label{proof-of-adjunctions-in-rel-1biii}Applying the above to $b''=k$, $b'''=b$, and $a'=a$, since $k\sim_{S}a$ and $a\sim_{R}b'$, we have $k=b$.
                         \item\label{proof-of-adjunctions-in-rel-1biv}Similarly $k=b'$.
                         \item\label{proof-of-adjunctions-in-rel-1bv}Thus $b=b'$.
@@ -3252,8 +3252,8 @@ Let $A$ and $B$ be sets.
                     \end{itemize}
                     Indeed:
                     \begin{itemize}
-                        \item\SloganFont{If $a\sim_{R}b$, then $b\sim_{S}a$: }Since $\chi_{A}\subset S\procirc R$, there exists $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$, but since $a\sim_{R}b$ and $R$ is functional, we have $k=b$ and thus $b\sim_{S}a$.
-                        \item\SloganFont{If $b\sim_{S}a$, then $a\sim_{R}b$: }First note that since $R$ is total we have $a\sim_{R}b'$ for some $b'\in B$. Now, since $R\procirc S\subset\chi_{B}$, $b\sim_{S}a$, and $a\sim_{R}b'$, we have $b=b'$, and thus $a\sim_{R}b$.
+                        \item\SloganFont{If $a\sim_{R}b$, then $b\sim_{S}a$: }Since $\Delta_{A}\subset S\procirc R$, there exists $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$, but since $a\sim_{R}b$ and $R$ is functional, we have $k=b$ and thus $b\sim_{S}a$.
+                        \item\SloganFont{If $b\sim_{S}a$, then $a\sim_{R}b$: }First note that since $R$ is total we have $a\sim_{R}b'$ for some $b'\in B$. Now, since $R\procirc S\subset\Delta_{B}$, $b\sim_{S}a$, and $a\sim_{R}b'$, we have $b=b'$, and thus $a\sim_{R}b$.
                     \end{itemize}
                     Having show this, we now have
                     \begin{align*}
@@ -3292,12 +3292,12 @@ Let $A$ be a set.
     A monad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
     \begin{align*}
         \mu_{R}  &\colon R\procirc R \subset R,\\
-        \eta_{R} &\colon \chi_{A}    \subset R
+        \eta_{R} &\colon \Delta_{A}    \subset R
     \end{align*}
     making the diagrams
     \begin{webcompile}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
-            \chi_{A}\procirc R
+            \Delta_{A}\procirc R
             \arrow[r,"\eta_{R}\procirc\id_{R}",mid vert]
             \arrow[rd,"\LUnitor^{\eRel(A,B)}_{R}"'{pos=0.55},Equals]
             \&
@@ -3337,7 +3337,7 @@ Let $A$ be a set.
             \arrow[from=3-2,to=3-4,"\mu_{R}"',mid vert]%
         \end{tikzcd}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
-            R\procirc\chi_{A}
+            R\procirc\Delta_{A}
             \arrow[r,"\id_{R}\procirc\eta_{R}",mid vert]
             \arrow[rd,"\RUnitor^{\eRel(A,B)}_{R}"'{pos=0.55},Equals]
             \&
@@ -3374,7 +3374,7 @@ Let $A$ be a set.
     A comonad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
     \begin{align*}
         \Delta_{R}   &\colon R \subset R\procirc R,\\
-        \epsilon_{R} &\colon R \subset \chi_{A}
+        \epsilon_{R} &\colon R \subset \Delta_{A}
     \end{align*}
     making the diagrams
     \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
@@ -3388,7 +3388,7 @@ Let $A$ be a set.
             \arrow[d,"\epsilon_{R}\procirc\id_{R}",mid vert]
             \\
             \&
-            \chi_{A}\procirc R
+            \Delta_{A}\procirc R
         \end{tikzcd}
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&[0.30901699437\TwoCmPlusAQuarter]
@@ -3428,7 +3428,7 @@ Let $A$ be a set.
             \arrow[d,"\id_{R}\procirc\epsilon_{R}",mid vert]
             \\
             \&
-            R\procirc\chi_{A}
+            R\procirc\Delta_{A}
         \end{tikzcd}%
     \end{webcompile}%
     \endgroup
@@ -4328,18 +4328,63 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel-apartness}
 \begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $a,b\in B$, if, for each $y\in B$, either $a\sim_{R}y$ or $b\sim_{R}y$, then $a\neq b$.
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a,b\in A$, if, for each $x\in A$, either $x\sim_{R}a$ or $x\sim_{R}b$, then $a\neq b$.
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a,b\in A$, if $a\neq b$, then, for each $y\in B$, either $a\sim_{R}y$ or $b\sim_{R}y$.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $a,b\in B$, if $a\neq b$, then, for each $x\in A$, either $x\sim_{R}b$ or $b\sim_{R}x$.
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if, for each $x\in A$, either $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$, then $b_{1}\neq b_{2}$.
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if, for each $y\in B$, either $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$, then $a_{1}\neq a_{2}$.
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$, then, for each $x\in A$, either $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$, then, for each $y\in B$, either $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$.
 \end{itemize}
 A
 \begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $a,b\in B$, if $R(a)\cup R(b)=B$,           then $a\neq b$.
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a,b\in A$, if $R^{-1}(a)\cup R^{-1}(b)=A$, then $a\neq b$.
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a,b\in A$, if $a\neq B$, then $R(a)\cup R(b)=B$.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $a,b\in B$, if $a\neq B$, then $R^{-1}(a)\cup R^{-1}(b)=A$.
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$, then $b_{1}\neq b_{2}$.
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if $R(a_{1})\cup R(a_{2})=B$, then $a_{1}\neq a_{2}$.
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$, then $R(a_{1})\cup R(a_{2})=B$.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$, then $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$.
 \end{itemize}
+$R'=A\times B\setminus R$
+\begin{itemize}
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if $R^{\prime,-1}(b_{1})\cap R^{\prime,-1}(b_{2})=\emptyset$, then $b_{1}\neq b_{2}$.
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if $R'(a_{1})\cup R'(a_{2})=\emptyset$,                       then $a_{1}\neq a_{2}$.
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$,                                         then $R'(a_{1})\cap R'(a_{2})=\emptyset$.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$,                                         then $R^{\prime,-1}(b_{1})\cap R^{\prime,-1}(b_{2})=\emptyset$.
+\end{itemize}
+\begin{itemize}
+    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  $R'$ is surjective. (Via contrapositive)
+    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  $R'$ is total. (Via contrapositive)
+    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: $R'$ is injective.
+    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: $R'$ is functional.
+\end{itemize}
+Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+\begin{proposition}{Isomorphisms and Equivalences in $\sfbfRel$}{isomorphisms-and-equivalences-in-rel-apartness}%
+    The following conditions are equivalent:
+    \begin{enumerate}
+        \item\label{isomorphisms-and-equivalences-in-rel-apartness-1}The relation $R\colon A\rightproarrow B$ is an equivalence in $\sfbfRel$, i.e.:
+            \begin{itemize}
+                \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
+                    \begin{align*}
+                        R^{-1}\aptcirc R &\cong \nabla_{A},\\
+                        R\aptcirc R^{-1} &\cong \nabla_{B}.
+                    \end{align*}
+            \end{itemize}
+        \item\label{isomorphisms-and-equivalences-in-rel-apartness-2}The relation $R\colon A\rightproarrow B$ is an isomorphism in $\Rel$, i.e.:
+            \begin{itemize}
+                \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ such that we have
+                    \begin{align*}
+                        R^{-1}\aptcirc R &= \nabla_{A},\\
+                        R\aptcirc R^{-1} &= \nabla_{B}.
+                    \end{align*}
+            \end{itemize}
+        \item\label{isomorphisms-and-equivalences-in-rel-apartness-3}There exists a bijection $f\colon A\isorightarrow B$ with $R=\Gr(f)$.
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{isomorphisms-and-equivalences-in-rel-apartness}}%
+    We claim that \cref{isomorphisms-and-equivalences-in-rel-apartness-1,isomorphisms-and-equivalences-in-rel-apartness-2,isomorphisms-and-equivalences-in-rel-apartness-3} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }This follows from the fact that $\sfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-3}: }
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \subsection{Internal Adjunctions}\label{subsection-internal-adjunctions-in-rel-apartness}
 \subsection{Internal Monads}\label{subsection-internal-monads-in-rel-apartness}
 \subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel-apartness}
