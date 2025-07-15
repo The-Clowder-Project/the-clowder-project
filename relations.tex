@@ -365,8 +365,8 @@ Let $A$ and $B$ be sets.
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
 \begin{definition}{Composition of Relations}{composition-of-relations}%
     The \index[set-theory]{relation!composition of}\textbf{composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\procirc R$}$S\procirc R$ defined as follows:%
-    \begin{itemize}
-        \item Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
+    \begin{enumerate}
+        \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
             \[
                 S\procirc R
                 \defeq
@@ -379,13 +379,13 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                     \end{aligned}
                 \}.%
             \]%
-        \item Viewing relations as functions $A\times B\to\TV$, we define
+        \item\label{composition-of-relations-2}Viewing relations as functions $A\times B\to\TV$, we define
             \begin{align*}
                 (S\procirc R)^{-_{1}}_{-_{2}} &\defeq \int^{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}}\\%
                                               &=      \bigvee_{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}},%
             \end{align*}
             where the join $\bigvee$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
-        \item Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+        \item\label{composition-of-relations-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
             \begin{webcompile}
                 S\procirc R%
                 \defeq%
@@ -412,9 +412,9 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             where $\Lan_{\chi_{B}}(S)$ is computed by the formula
             \begin{align*}
                 [\Lan_{\chi_{B}}(S)](V) &\cong \int^{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S_{b}\\
-                                        &\cong \int^{b\in B}\chi_{V}(b)\odot S_{b}\\%\pptag{\cref{the-yoneda-lemma-for-sets}}\\
-                                        &\cong \bigcup_{b\in B}\chi_{V}(b)\odot S_{b}\\
-                                        &\cong \bigcup_{b\in V}S_{b}
+                                        &\cong \int^{b\in B}\chi_{V}(b)\odot S_{b}\\
+                                        &\cong \bigvee_{b\in B}\chi_{V}(b)\odot S_{b}\\
+                                        &\cong \bigvee_{b\in V}S_{b}
             \end{align*}
             for each $V\in\mathcal{P}(B)$, so we have%
             %--- Begin Footnote ---%
@@ -428,8 +428,53 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                                  &\defeq \bigcup_{b\in R(a)}S(b).
             \end{align*}
             for each $a\in A$.
-    \end{itemize}
+    \end{enumerate}
 \end{definition}
+\begin{remark}{Composing Relations With Right Kan Extensions}{composing-relations-with-right-kan-extensions}%
+    You might wonder what happens if we instead define an alternative composition of relations $\mathord{\procirc'}$ via right Kan extensions. In this case, we would take the right Kan extension of $S$ along the dual characteristic embedding $B\hookrightarrow\mathcal{P}(B)^{\op}$:
+    \begin{webcompile}
+        S\mathbin{\mathord{\procirc}'}R%
+        \defeq%
+        \Ran_{\chi_{B}}(S)\circ R,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&%
+            B%
+            \arrow[r, "S",""{name=S,pos=0.7}]%
+            \arrow[d, "\chi_{B}"', hook]%
+            \&%
+            \mathcal{P}(C)\mrp{.}%
+            \\%
+            A%
+            \arrow[r, "R"']%
+            \&%
+            \mathcal{P}(B)^{\op}%
+            \arrow[ru, "\Ran_{\chi'_{B}}(S)"', bend right=10]%
+            \&
+            % 2-Arrows
+            \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Leftarrow]%
+        \end{tikzcd}%
+    \end{webcompile}
+    In this case, we would have%
+    %--- Begin Footnote ---%
+    \footnote{%
+        If we had $B\setminus R(a)$ instead of $R(a)$, defining
+        \[
+            S\aptcirc R%
+            \defeq%
+            \bigcap_{b\in B\setminus R(a)}S(b),%
+        \]%
+        we'd obtain the apartness composition of relations instead; see \cref{subsection-apartness-composition-of-relations}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        [S\mathbin{\mathord{\procirc}'}R](a)%
+        \defeq%
+        \bigcap_{b\in R(a)}S(b).
+    \]%
+    This alternative composition turns out to actually be a different kind of structure: it's an internal right Kan extension in $\sfbfRel$, namely $\Ran_{R^{\dagger}}(S)$ --- see \cref{subsection-internal-right-kan-extensions-in-rel}.
+\end{remark}
 \begin{example}{Examples of Composition of Relations}{examples-of-composition-of-relations}%
     Here are some examples of composition of relations.
     \begin{enumerate}
@@ -479,16 +524,40 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 =
                 T\procirc(S\procirc R).
             \]%
+            That is, we have
+            \[
+                \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
+                =%
+                \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)%
+            \]%
+            for each $a\in A$.
         \item\label{properties-of-composition-of-relations-unitality}\SloganFont{Unitality. }We have
             \begin{align*}
                 \Delta_{B}\procirc R &= R,\\
                 R\procirc\Delta_{A}  &= R.
             \end{align*}
+            That is, we have
+            \begin{align*}
+                \bigcup_{b\in R(a)}\{b\} &= R(a),\\
+                \bigcup_{a\in\{a\}}R(a)  &= R(a)
+            \end{align*}
+            for each $a\in A$.
         \item\label{properties-of-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
             \begin{align*}
                 T\procirc(S\aptcirc R)  &\subset (T\procirc S)\aptcirc R,\\
                 (T\aptcirc S)\procirc R &\subset T\aptcirc(S\procirc R).
             \end{align*}
+            That is, we have
+            \begin{align*}
+                T(\bigcap_{b\in B\setminus R(a)}S(b))  &\subset \bigcap_{b\in B\setminus R(a)}T(S(b))\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus S(R(a))}T(c)
+            \end{align*}
+            or, unwinding the expression for $S(R(a))$, we have
+            \begin{align*}
+                \bigcup_{c\in\bigcap_{b\in B\setminus R(a)}S(b)}T(c)  &\subset \bigcap_{b\in B\setminus R(a)}\bigcup_{c\in S(b)}T(c)\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus\bigcup_{b\in R(a)}S(b)}T(c)
+            \end{align*}
+            for each $a\in A$.
         \item\label{properties-of-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
                 (S\procirc R)^{\dagger}
@@ -527,7 +596,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-composition-of-relations-associativity}: Associativity}%
+    \ProofBox{\cref{properties-of-composition-of-relations-associativity}: Associativity, Proof \rmI}%
     Indeed, we have
     \begin{align*}
         (T\procirc S)\procirc R &\defeq (\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{-_{2}})\procirc R\\
@@ -564,6 +633,47 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \begin{itemize}
         \itemstar There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
     \end{itemize}
+
+    \ProofBox{\cref{properties-of-composition-of-relations-associativity}: Associativity, Proof \rmII}%
+    Using \cref{composition-of-relations-3}, we have
+    \begin{align*}
+        [(T\procirc S)\procirc R](a) &\defeq \bigcup_{b\in R(a)}(T\procirc S)(b)\\
+                                     &\defeq \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)
+    \end{align*}
+    on the one hand and
+    \begin{align*}
+        [T\procirc(S\procirc R)](a) &\defeq \bigcup_{c\in[S\procirc R](a)}T(c)\\
+                                    &\defeq \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)
+    \end{align*}
+    on the other, so we want to prove an equality of the form
+    \[
+        \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
+        =%
+        \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
+    \]%
+    This then follows from an application of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets-associativity} of \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets}}{\cref{properties-of-unions-of-families-of-subsets-associativity} of \cref{properties-of-unions-of-families-of-subsets}} in which we consider $X=D$, consider $\mathcal{P}(\mathcal{P}(\mathcal{P}(D)))$, take $U=U_{c}=T(c)$, take $A$ to be%
+    \[
+        A_{b}%
+        \defeq%
+        \{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\},%
+    \]%
+    and then finally take
+    \begin{align*}
+        \mathcal{A} &\defeq \{A_{b}\in\mathcal{P}(\mathcal{P}(D))\ \middle|\ b\in R(a)\}\\
+                    &\defeq \{\{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\}\ \middle|\ b\in R(a)\}.
+    \end{align*}
+    Indeed, we have
+    \begin{align*}
+        \bigcup_{A\in\mathcal{A}}(\bigcup_{U\in A}U) &= \bigcup_{A_{b}\in\mathcal{A}}(\bigcup_{c\in S(b)}T(c))\\
+                                                     &= \bigcup_{b\in R(a)}(\bigcup_{c\in S(b)}T(c))
+    \end{align*}
+    and
+    \begin{align*}
+        \bigcup_{U\in\bigcup_{A\in\mathcal{A}}A}U &= \bigcup_{U_{c}\in\bigcup_{b\in R(a)}A_{b}}U_{c}\\%
+                                                  &= \bigcup_{T(c)\in\bigcup_{b\in R(a)}A_{b}}T(c)\\%
+                                                  &= \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
+    \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-composition-of-relations-unitality}: Unitality}%
     Indeed, we have
@@ -664,7 +774,6 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                             &\defeq  \range(S).
     \end{align*}
     This finishes the proof.
-
 \end{Proof}
 \subsection{Apartness Composition of Relations}\label{subsection-apartness-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
@@ -4232,6 +4341,390 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
 \begin{remark}{Kan Extensions and Kan Lifts in $\sfbfRel$}{kan-extensions-and-kan-lifts-in-rel}%
     The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
+\subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
+Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
+\begin{definition}{Intersection Composition of Relations}{intersection-composition-of-relations}%
+    The \index[set-theory]{relation!intersection composition of}\textbf{intersection composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\intcirc R$}$S\intcirc R$ defined as follows:%
+    \begin{enumerate}
+        \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
+            \[
+                S\intcirc R
+                \defeq
+                \{%
+                    (a,c)\in A\times C%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $b\in B$, we have}\\
+                        &\text{$a\sim_{R}b$ and $b\sim_{S}c$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{composition-of-relations-2}Viewing relations as functions $A\times B\to\TV$, we define
+            \begin{align*}
+                (S\intcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}}\\%
+                                              &=      \bigwedge_{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}},%
+            \end{align*}
+            where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
+        \item\label{composition-of-relations-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+            \begin{webcompile}
+                S\intcirc R%
+                \defeq%
+                \Ran_{\chi'_{B}}(S)\circ R,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[r, "S",""{name=S,pos=0.7}]%
+                    \arrow[d, "\chi_{B}"', hook]%
+                    \&%
+                    \mathcal{P}(C)\mrp{,}%
+                    \\%
+                    A%
+                    \arrow[r, "R"']%
+                    \&%
+                    \mathcal{P}(B)^{\op}%
+                    \arrow[ru, "\Ran_{\chi_{B}}(S)"', bend right=10]%
+                    \&
+                    % 2-Arrows
+                    \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Rightarrow]%
+                \end{tikzcd}%
+            \end{webcompile}
+            where $\Ran_{\chi'_{B}}(S)$ is computed by the formula
+            \begin{align*}
+                [\Ran_{\chi'_{B}}(S)](V) &\cong \int_{b\in B}\chi_{\mathcal{P}(B)^{\op}}(V,\chi_{b})\pitchfork S_{b}\\
+                                         &\cong \int_{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\pitchfork S_{b}\\
+                                         &\cong \int_{b\in B}\chi_{V}(b)\pitchfork S_{b}\\
+                                         &\cong \bigwedge_{b\in B}\chi_{V}(b)\pitchfork S_{b}\\
+                                         &\cong \bigwedge_{b\in V}S_{b}
+            \end{align*}
+            for each $V\in\mathcal{P}(B)$, so we have%
+            \begin{align*}
+                [S\intcirc R](a) &\defeq \bigcap_{b\in R(a)}S(b).
+            \end{align*}
+            for each $a\in A$.
+    \end{enumerate}
+\end{definition}
+\begin{example}{Examples of Intersection Composition of Relations}{examples-of-intersection-composition-of-relations}%
+    Here are some examples of composition of relations.
+    \begin{enumerate}
+        \item\label{examples-of-composition-of-relations-orthogonal-complements}\SloganFont{Orthogonal Complements. }Let $A=B=C=\EuScript{V}$ be an inner product space, and let $R=S=\mathord{\perp}$ be the orthogonality relation, so
+            \begin{align*}
+                R(v) &= \{u\in V\ \middle|\ v\perp u\},\\
+                S(u) &= \{w\in V\ \middle|\ u\perp w\}
+            \end{align*}
+            for each $u,v\in\EuScript{V}$. The intersection composition $R\intcirc S$ is then given by the double orthogonal complement, $(v^{\perp})^{\perp}$. In particular:
+            \begin{itemize}
+                \item If $\EuScript{V}$ is finite-dimensional, we have $[R\intcirc S](v)=\rmSpan(v)$.
+                \item If $\EuScript{V}$ is a Hilbert space,    we have $[R\intcirc S](v)=\widebar{\rmSpan(v)}$.
+            \end{itemize}
+        \item\label{examples-of-composition-of-relations-galois-connections-and-closure-operators}\SloganFont{Galois Connections and Closure Operators. }Let $A=(P,\preceq_{P})$, $B=(Q,\preceq_{Q})$, and $C=(P,\preceq_{P})$ be posets and let $(f,g)$ be a Galois connection (adjunction) between $P$ and $Q$. Then, let:
+            \begin{align*}
+                R(p) &\defeq \{q\in Q\ \middle|\ q\preceq_{Q}f(p)\},\\
+                S(q) &\defeq \{p\in P\ \middle|\ p\preceq_{P}g(q)\}.
+            \end{align*}
+            We then have
+            \begin{align*}
+                [S\intcirc R](p)%
+                &=%
+                \{%
+                    p\in P%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $q\in Q$, if $q\preceq_{Q}f(p)$,}\\%
+                        &\text{then we have $p\preceq_{P}g(q)$}%
+                    \end{aligned}
+                \}\\%
+                &=%
+                \downset g(f(p)),%
+            \end{align*}
+            the down set of $g(f(p))$, which is the closure operator on $P$ associated with the Galois connection $(f,g)$.
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of Intersection Composition of Relations}{properties-of-intersection-composition-of-relations}%
+    Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
+    \begin{enumerate}
+        \item\label{properties-of-intersection-composition-of-relations-functoriality}\SloganFont{Functoriality. }Intersection composition of relations defines a morphism of posets
+            \[
+                \intcirc_{A,B,C}%
+                \colon%
+                \eRel(B,C)%
+                \times%
+                \eRel(A,B)%
+                \to%
+                \eRel(A,C).%
+            \]%
+            In other words, given relations
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"R_{1}", mid vert,shift left=1.0]%
+                    \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
+                    \&
+                    B
+                    \arrow[r,"S_{1}", mid vert,shift left=0.8]%
+                    \arrow[r,"S_{2}"',mid vert,shift right=0.8]%
+                    \&
+                    C\mrp{,}
+                \end{tikzcd}
+            \]%
+            if $R_{1}\subset R_{2}$ and $S_{1}\subset S_{2}$, then $S_{1}\intcirc R_{1}\subset S_{2}\intcirc R_{2}$.
+        \item\label{properties-of-intersection-composition-of-relations-associativity}\SloganFont{Associativity. }We have
+            \[
+                (T\intcirc S)\intcirc R
+                =
+                T\intcirc(S\intcirc R).
+            \]%
+            That is, we have
+            \[
+                \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
+                =%
+                \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)%
+            \]%
+            for each $a\in A$.
+        \item\label{properties-of-intersection-composition-of-relations-unitality}\SloganFont{Unitality. }We have
+            \begin{align*}
+                \Delta_{B}\intcirc R &= R,\\
+                R\intcirc\Delta_{A}  &= R.
+            \end{align*}
+            That is, we have
+            \begin{align*}
+                \bigcup_{b\in R(a)}\{b\} &= R(a),\\
+                \bigcup_{a\in\{a\}}R(a)  &= R(a)
+            \end{align*}
+            for each $a\in A$.
+        \item\label{properties-of-intersection-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
+            \begin{align*}
+                T\intcirc(S\aptcirc R)  &\subset (T\intcirc S)\aptcirc R,\\
+                (T\aptcirc S)\intcirc R &\subset T\aptcirc(S\intcirc R).
+            \end{align*}
+            That is, we have
+            \begin{align*}
+                T(\bigcap_{b\in B\setminus R(a)}S(b))  &\subset \bigcap_{b\in B\setminus R(a)}T(S(b))\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus S(R(a))}T(c)
+            \end{align*}
+            or, unwinding the expression for $S(R(a))$, we have
+            \begin{align*}
+                \bigcup_{c\in\bigcap_{b\in B\setminus R(a)}S(b)}T(c)  &\subset \bigcap_{b\in B\setminus R(a)}\bigcup_{c\in S(b)}T(c)\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus\bigcup_{b\in R(a)}S(b)}T(c)
+            \end{align*}
+            for each $a\in A$.
+        \item\label{properties-of-intersection-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (S\intcirc R)^{\dagger}
+                =
+                R^{\dagger}\intcirc S^{\dagger}.
+            \]%
+        \item\label{properties-of-intersection-composition-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+            \begin{align*}
+                \dom(S\intcirc R)   &\subset \dom(R),\\
+                \range(S\intcirc R) &\subset \range(S).
+            \end{align*}
+        %\item\label{properties-of-intersection-composition-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-intersection-composition-of-relations}}%
+    \FirstProofBox{\cref{properties-of-intersection-composition-of-relations-functoriality}: Functoriality}%
+    We have
+    \begin{align*}
+        S_{1}\intcirc R_{1} &\defeq  \{%
+                                         (a,c)\in A\times C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $b\in B$, such}\\%
+                                             &\text{that $a\sim_{R_{1}}b$ or $b\sim_{S_{1}}c$}%
+                                         \end{aligned}
+                                     \}\\%
+                            &\subset \{%
+                                        (a,c)\in A\times C%
+                                        \ \middle|\ %
+                                        \begin{aligned}
+                                             &\text{there exists some $b\in B$, such}\\%
+                                             &\text{that $a\sim_{R_{2}}b$ or $b\sim_{S_{2}}c$}%
+                                        \end{aligned}
+                                    \}\\%
+                            &\defeq S_{2}\intcirc R_{2}.
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-associativity}: Associativity, Proof \rmI}%
+    Indeed, we have
+    \begin{align*}
+        (T\intcirc S)\intcirc R &\defeq (\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{-_{2}})\intcirc R\\
+                                &\defeq \int^{b\in B}(\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{b\in B}\int^{c\in C}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{c\in C}\int^{b\in B}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
+                                &=      \int^{c\in C}\int^{b\in B}T^{-_{1}}_{c}\times(S^{c}_{b}\times R^{b}_{-_{2}})\\
+                                &=      \int^{c\in C}T^{-_{1}}_{c}\times(\int^{b\in B}S^{c}_{b}\times R^{b}_{-_{2}})\\
+                                &\defeq \int^{c\in C}T^{-_{1}}_{c}\times(S\intcirc R)^{c}_{-_{2}}\\
+                                &\defeq T\intcirc(S\intcirc R).
+    \end{align*}
+    In the language of relations, given $a\in A$ and $d\in D$, the stated equality witnesses the equivalence of the following two statements:
+    \begin{enumerate}
+        \item\label{proof-of-properties-of-intersection-composition-of-relations-associativity-1}We have $a\sim_{(T\intcirc S)\intcirc R}d$, i.e.\ there exists some $b\in B$ such that:
+            \begin{itemize}
+                \item We have $a\sim_{R}b$;
+                \item We have $b\sim_{T\intcirc S}d$, i.e.\ there exists some $c\in C$ such that:
+                    \begin{itemize}
+                        \item We have $b\sim_{S}c$;
+                        \item We have $c\sim_{T}d$;
+                    \end{itemize}
+            \end{itemize}
+        \item\label{proof-of-properties-of-intersection-composition-of-relations-associativity-2}We have $a\sim_{T\intcirc(S\intcirc R)}d$, i.e.\ there exists some $c\in C$ such that:
+            \begin{itemize}
+                \item We have $a\sim_{S\intcirc R}c$, i.e.\ there exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item We have $a\sim_{R}b$;
+                        \item We have $b\sim_{S}c$;
+                    \end{itemize}
+                \item We have $c\sim_{T}d$;
+            \end{itemize}
+    \end{enumerate}
+    both of which are equivalent to the statement
+    \begin{itemize}
+        \itemstar There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
+    \end{itemize}
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-associativity}: Associativity, Proof \rmII}%
+    Using \cref{composition-of-relations-3}, we have
+    \begin{align*}
+        [(T\intcirc S)\intcirc R](a) &\defeq \bigcup_{b\in R(a)}(T\intcirc S)(b)\\
+                                     &\defeq \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)
+    \end{align*}
+    on the one hand and
+    \begin{align*}
+        [T\intcirc(S\intcirc R)](a) &\defeq \bigcup_{c\in[S\intcirc R](a)}T(c)\\
+                                    &\defeq \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)
+    \end{align*}
+    on the other, so we want to prove an equality of the form
+    \[
+        \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
+        =%
+        \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
+    \]%
+    This then follows from an application of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets-associativity} of \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets}}{\cref{properties-of-unions-of-families-of-subsets-associativity} of \cref{properties-of-unions-of-families-of-subsets}} in which we consider $X=D$, consider $\mathcal{P}(\mathcal{P}(\mathcal{P}(D)))$, take $U=U_{c}=T(c)$, take $A$ to be%
+    \[
+        A_{b}%
+        \defeq%
+        \{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\},%
+    \]%
+    and then finally take
+    \begin{align*}
+        \mathcal{A} &\defeq \{A_{b}\in\mathcal{P}(\mathcal{P}(D))\ \middle|\ b\in R(a)\}\\
+                    &\defeq \{\{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\}\ \middle|\ b\in R(a)\}.
+    \end{align*}
+    Indeed, we have
+    \begin{align*}
+        \bigcup_{A\in\mathcal{A}}(\bigcup_{U\in A}U) &= \bigcup_{A_{b}\in\mathcal{A}}(\bigcup_{c\in S(b)}T(c))\\
+                                                     &= \bigcup_{b\in R(a)}(\bigcup_{c\in S(b)}T(c))
+    \end{align*}
+    and
+    \begin{align*}
+        \bigcup_{U\in\bigcup_{A\in\mathcal{A}}A}U &= \bigcup_{U_{c}\in\bigcup_{b\in R(a)}A_{b}}U_{c}\\%
+                                                  &= \bigcup_{T(c)\in\bigcup_{b\in R(a)}A_{b}}T(c)\\%
+                                                  &= \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-unitality}: Unitality}%
+    Indeed, we have
+    \begin{align*}
+        \Delta_{B}\intcirc R &\defeq \int^{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                             &=      \bigvee_{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
+                             &=      \bigvee_{\substack{b\in B\\b=-_{1}}}R^{b}_{-_{2}}\\
+                             &=      R^{-_{1}}_{-_{2}},
+    \end{align*}
+    and
+    \begin{align*}
+        R\intcirc\Delta_{A} &\defeq \int^{a\in A}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
+                            &=      \bigvee_{a\in B}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
+                            &=      \bigvee_{\substack{a\in B\\a=-_{2}}}R^{-_{1}}_{a}\\
+                            &=      R^{-_{1}}_{-_{2}}.
+    \end{align*}
+    In the language of relations, given $a\in A$ and $b\in B$:
+    \begin{itemize}
+        \item The equality
+            \[
+                \Delta_{B}\intcirc R%
+                =%
+                R%
+            \]%
+            witnesses the equivalence of the following two statements:
+            \begin{itemize}
+                \item We have $a\sim_{b}B$.
+                \item There exists some $b'\in B$ such that:
+                    \begin{itemize}
+                        \item We have $a\sim_{R}b'$
+                        \item We have $b'\sim_{\Delta_{B}}b$, i.e.\ $b'=b$.
+                    \end{itemize}
+            \end{itemize}
+        \item The equality
+            \[
+                R\intcirc\Delta_{A}%
+                =%
+                R%
+            \]%
+            witnesses the equivalence of the following two statements:
+            \begin{itemize}
+                \item There exists some $a'\in A$ such that:
+                    \begin{itemize}
+                        \item We have $a\sim_{\Delta_{B}}a'$, i.e.\ $a=a'$.
+                        \item We have $a'\sim_{R}b$
+                    \end{itemize}
+                \item We have $a\sim_{b}B$.
+            \end{itemize}
+    \end{itemize}
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-linear-distributivity}: Linear Distributivity}%
+    This is a repetition of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
+    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition} of \cref{properties-of-converses-of-relations} and is proved there.
+
+    \ProofBox{\cref{properties-of-intersection-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    We have
+    \begin{align*}
+        \dom(S\intcirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\intcirc R}c\text{ for some $c\in C$}\},\\
+                          &=       \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$ and $c\in C$}\\
+                                           &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                       \end{aligned}
+                                   \},\\
+                          &\subset \{%
+                                       a\in A%
+                                       \ \middle|\ %
+                                       \begin{aligned}
+                                           &\text{there exists some $b\in B$}\\
+                                           &\text{such that $a\sim_{R}b$}
+                                       \end{aligned}
+                                   \},\\
+                          &\defeq  \dom(R)
+    \end{align*}
+    and
+    \begin{align*}
+        \range(S\intcirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\intcirc R}c\text{ for some $a\in A$}\},\\
+                            &=       \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $a\in A$ and $b\in B$}\\
+                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\subset \{%
+                                         c\in C%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{there exists some $b\in B$}\\
+                                             &\text{such that $b\sim_{S}c$}
+                                         \end{aligned}
+                                     \},\\
+                            &\defeq  \range(S).
+    \end{align*}
+    This finishes the proof.
+\end{Proof}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
     The 2-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
@@ -4347,6 +4840,7 @@ $R'=A\times B\setminus R$
     \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$,                                         then $R'(a_{1})\cap R'(a_{2})=\emptyset$.
     \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$,                                         then $R^{\prime,-1}(b_{1})\cap R^{\prime,-1}(b_{2})=\emptyset$.
 \end{itemize}
+so:
 \begin{itemize}
     \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  $R'$ is surjective. (Via contrapositive)
     \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  $R'$ is total. (Via contrapositive)
