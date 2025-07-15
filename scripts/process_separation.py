@@ -1,4 +1,5 @@
 import re, sys
+from functions import regex_env_str
 
 def main(input_file):
     # Read the content of the input file
@@ -6,7 +7,7 @@ def main(input_file):
         content = file.read()
 
     # Define the regex pattern to search for and the replacement string
-    pattern = r'\\end\{(definition|example|question|proposition|lemma|theorem|corollary|lemma|warning|remark|notation|warning|oldtag)\}\n\\begin\{(definition|example|question|proposition|theorem|corollary|lemma|warning|remark|notation|warning|oldtag)\}'
+    pattern = r'\\end\{'+regex_env_str()+r'\}\n\\begin\{'+regex_env_str()+r'\}'
     replacement = r'\\end{\1}\n\n\\begin{\2}'
     # Perform the regex substitution
     content = re.sub(pattern, replacement, content)

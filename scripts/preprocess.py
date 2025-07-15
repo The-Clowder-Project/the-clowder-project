@@ -2,6 +2,7 @@ import re
 import os
 import sys
 import time
+from functions import regex_env_str
 
 def absolute_path():
     # Get the absolute path of the script
@@ -40,17 +41,17 @@ def trans_flag_tcb_fix(line):
     return re.sub(r"../../pictures/trans-flag",r"../../../pictures/trans-flag",line)
 
 def tcbthm(line):
-    return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag|gap)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
+    return re.sub(r"\\begin\{"+regex_env_str()+r"\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}{\2}{\3}%\\label{\3}",line)
 
 def amsthm(line):
-    return re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag|gap)\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
+    return re.sub(r"\\begin\{"+regex_env_str()+r"\}\{.*?\}\{(.*?)\}",r"\\begin{\1}\\label{\2}",line)
 
 def chaptermacros(line):
     line = re.sub(r'\\newcommand\{(\\\w+)\}\{\\hyperref\[([a-z0-9-]+):section-phantom\].*',r'\\newcommand{\1}{\\cref{\2:section-phantom}\\xspace}',line)
     return line
 
 def amsthm_web(line):
-    line = re.sub(r"\\begin\{(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag|gap)\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}",line)
+    line = re.sub(r"\\begin\{"+regex_env_str()+r"\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?):(.*?)\}%",r"\\begin{proof}[\1:\2}]",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
     line = re.sub(r"FirstProofBox",r"ProofBox",line)

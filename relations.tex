@@ -4342,7 +4342,25 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
-Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
+Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+\begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
+    We want to understand internal right Kan extensions in $\sfbfRel$, which look like this:
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&%
+            B%
+            \arrow[ru, "\Ran_{R}(S)"', bend right=10]%
+            \\%
+            A%
+            \arrow[ru, "R"]%
+            \arrow[r, "S",""{name=S}]%
+            \&%
+            X\mrp{.}%
+            % 2-Arrows
+            \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow]%
+        \end{tikzcd}%
+    \]%
+\end{motivation}
 \begin{definition}{Intersection Composition of Relations}{intersection-composition-of-relations}%
     The \index[set-theory]{relation!intersection composition of}\textbf{intersection composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\intcirc R$}$S\intcirc R$ defined as follows:%
     \begin{enumerate}

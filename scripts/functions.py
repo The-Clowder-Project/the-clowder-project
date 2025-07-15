@@ -1,6 +1,16 @@
 # Find location of repository
 import re, os, sys
 
+def regex_env_str():
+    # Build a string containing environment names
+    regex_env_str
+    envs_str = r"("
+    for env in list_of_labeled_envs_function():
+        envs_str += r"|" + str(env)
+    envs_str += r")"
+    # envs_str looks like "(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag|gap|motivation)"
+    return envs_str
+
 def absolute_path():
     # Get the absolute path of the script
     script_absolute_path = os.path.abspath(__file__)
@@ -79,7 +89,7 @@ def is_label(env_text):
 # Check if the line contains a label
 def is_label_tcb(env_text):
     n = env_text.find("\\label{")
-    if len(re.findall(r"\\begin{(definition|question|proposition|lemma|warning|remark|notation|theorem|example|oldtag)}",env_text)) > 0:
+    if len(re.findall(r"\\begin{"+regex_env_str()+r"}",env_text)) > 0:
         return 1
     if n >= 0:
         return 1
@@ -228,11 +238,27 @@ def get_parts(path):
 # We also have labels for
 #    'section', 'subsection', 'subsubsection' (every one of these has a label)
 #    'item' (typically an item does not have a label)
-list_of_labeled_envs = ['lemma', 'question', 'proposition', 'lemma', 'theorem', 'notation', 'notations', 'warning', 'warnings', 'remark', 'remarks', 'example', 'exercise', 'situation', 'equation', 'definition', 'oldtag']
+list_of_labeled_envs = [ \
+        'corollary', \
+        'definition', \
+        'equation', \
+        'example', \
+        'gap', \
+        'lemma', \
+        'motivation', \
+        'notation', \
+        'oldtag', \
+        'proposition', \
+        'question', \
+        'remark', \
+        'theorem', \
+        'warning']
 
 # Standard labels
-list_of_standard_labels = ['definition', 'lemma', 'question', 'proposition', 'lemma', 'theorem', 'notation', 'notations', 'warning', 'warnings', 'remark', 'remarks', 'example', 'exercise', 'situation', 'equation', 'section', 'subsection', 'subsubsection', 'item', 'oldtag']
+list_of_standard_labels = list_of_labeled_envs.append(['item', 'section', 'subsection', 'subsubsection'])
 
+def list_of_labeled_envs_function():
+    return list_of_labeled_envs
 # List the stems of the TeX files in the project
 # in the correct order
 def list_text_files(path):
