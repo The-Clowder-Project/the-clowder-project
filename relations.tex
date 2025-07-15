@@ -493,17 +493,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{proposition}{Properties of Composition of Relations}{properties-of-composition-of-relations}%
     Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
     \begin{enumerate}
-        \item\label{properties-of-composition-of-relations-functoriality}\SloganFont{Functoriality. }Composition of relations defines a morphism of posets
+        \item\label{properties-of-composition-of-relations-functoriality}\SloganFont{Functoriality. }The assignments $R,S,(R,S)\mapsto S\procirc R$ define functors
             \[
-                \procirc_{A,B,C}%
-                \colon%
-                \eRel(B,C)%
-                \times%
-                \eRel(A,B)%
-                \to%
-                \eRel(A,C).%
+                \BifunctorialityPeriod{S\procirc-}{-\procirc R}{-_{1}\procirc-_{2}}{\eRel(A,B)}{\eRel(B,C)}{\eRel(B,C)\times\eRel(A,B)}{\eRel(A,C)}%
             \]%
-            In other words, given relations
+            In particular, given relations
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -635,7 +629,7 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \end{itemize}
 
     \ProofBox{\cref{properties-of-composition-of-relations-associativity}: Associativity, Proof \rmII}%
-    Using \cref{composition-of-relations-3}, we have
+    Using \cref{composition-of-relations-3} of \cref{composition-of-relations}, we have
     \begin{align*}
         [(T\procirc S)\procirc R](a) &\defeq \bigcup_{b\in R(a)}(T\procirc S)(b)\\
                                      &\defeq \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)
@@ -841,17 +835,11 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
 \begin{proposition}{Properties of Apartness Composition of Relations}{properties-of-apartness-composition-of-relations}%
     Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
     \begin{enumerate}
-        \item\label{properties-of-apartness-composition-of-relations-functoriality}\SloganFont{Functoriality. }Apartness composition of relations defines a morphism of posets
+        \item\label{properties-of-apartness-composition-of-relations-functoriality}\SloganFont{Functoriality. }The assignments $R,S,(R,S)\mapsto S\aptcirc R$ define functors
             \[
-                \aptcirc_{A,B,C}%
-                \colon%
-                \eRel(B,C)%
-                \times%
-                \eRel(A,B)%
-                \to%
-                \eRel(A,C).%
+                \BifunctorialityPeriod{S\aptcirc-}{-\aptcirc R}{-_{1}\aptcirc-_{2}}{\eRel(A,B)}{\eRel(B,C)}{\eRel(B,C)\times\eRel(A,B)}{\eRel(A,C)}%
             \]%
-            In other words, given relations
+            In particular, given relations
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -4344,25 +4332,25 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
 \subsection{Internal Left Kan Extensions}\label{subsection-internal-left-kan-extensions-in-rel}
 \subsection{Internal Left Kan Lifts}\label{subsection-internal-left-kan-lifts-in-rel}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
-Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A\rightproarrow X$ be relations.
+Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A\rightproarrow X$ be relations.
 \begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
     We want to understand internal right Kan extensions in $\sfbfRel$, which look like this:
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&%
             B%
-            \arrow[d, "\Ran_{R}(S)", densely dashed for mid vert, mid vert]%
+            \arrow[d, "\Ran_{R}(F)", densely dashed for mid vert, mid vert]%
             \\%
             A%
             \arrow[ru, "R",mid vert]%
-            \arrow[r, "S"',""'{name=S,pos=0.425},mid vert]%
+            \arrow[r, "F"',""'{name=F,pos=0.425},mid vert]%
             \&%
             X\mrp{.}%
             % 2-Arrows
-            \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+            \arrow[from=1-2,to=F,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
         \end{tikzcd}
     \]%
-    Note in particular here that $S\colon A\rightproarrow X$ is a relation from $A$ to $X$. These will form a functor
+    Note in particular here that $F\colon A\rightproarrow X$ is a relation from $A$ to $X$. These will form a functor
     \[
         \Ran_{R}%
         \colon%
@@ -4380,37 +4368,37 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
     \]%
 \end{motivation}
 \begin{proposition}{Internal Right Kan Extensions in $\sfbfRel$}{internal-right-kan-extensions-in-rel}%
-    The internal right Kan extension of $S$ along $R$ is the relation \index[notation]{RanRS@$\Ran_{R}(S)$}$\Ran_{R}(S)$ described as follows:
+    The internal right Kan extension of $F$ along $R$ is the relation \index[notation]{RanRF@$\Ran_{R}(F)$}$\Ran_{R}(F)$ described as follows:
     \begin{enumerate}
         \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $A$ to $C$ as subsets of $B\times X$, we have
             \[
-                \Ran_{R}(S)%
+                \Ran_{R}(F)%
                 =%
                 \{%
                     (b,x)\in B\times X%
                     \ \middle|\ %
                     \begin{aligned}
                         &\text{for each $a\in A$, if $a\sim_{R}b$,}\\
-                        &\text{then we have $a\sim_{S}x$}%
+                        &\text{then we have $a\sim_{F}x$}%
                     \end{aligned}
                 \}.%
             \]%
         \item\label{internal-right-kan-extensions-in-rel-2}Viewing relations as functions $A\times B\to\TV$, we define
             \begin{align*}
-                (S\intcirc R)^{-_{1}}_{-_{2}} &=      \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a})\\
-                                              &=      \bigwedge_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a}),%
+                (\Ran_{R}(F))^{-_{1}}_{-_{2}} &=      \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},F^{-_{1}}_{a})\\
+                                              &=      \bigwedge_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},F^{-_{1}}_{a}),%
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
         \item\label{internal-right-kan-extensions-in-rel-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
             \begin{webcompile}
-                \Ran_{R}(S)%
+                \Ran_{R}(F)%
                 =%
-                \Ran_{\chi'_{B}}(S)\circ R^{-1},%
+                \Ran_{\chi'_{B}}(F)\circ R^{-1},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&%
                     A%
-                    \arrow[r, "S",""{name=S,pos=0.7}]%
+                    \arrow[r, "F",""{name=F,pos=0.7}]%
                     \arrow[d, "\chi_{A}"', hook]%
                     \&%
                     \mathcal{P}(X)\mrp{,}%
@@ -4419,25 +4407,25 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
                     \arrow[r, "R^{-1}"']%
                     \&%
                     \mathcal{P}(A)^{\op}%
-                    \arrow[ru, "\Ran_{\chi_{A}}(S)"', bend right=10]%
+                    \arrow[ru, "\Ran_{\chi_{A}}(F)"', bend right=10]%
                     \&
                     % 2-Arrows
-                    \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Rightarrow]%
+                    \arrow[from=F,to=2-2,shorten=0.75*\the\DL,Rightarrow]%
                 \end{tikzcd}%
             \end{webcompile}
-            where $\Ran_{\chi'_{B}}(S)$ is computed by the formula
+            where $\Ran_{\chi'_{B}}(F)$ is computed by the formula
             \begin{align*}
-                [\Ran_{\chi'_{A}}(S)](V) &\cong \int_{a\in A}\chi_{\mathcal{P}(A)^{\op}}(V,\chi_{a})\pitchfork S(a)\\
-                                         &\cong \int_{a\in A}\chi_{\mathcal{P}(A)}(\chi_{a},V)\pitchfork S(a)\\
-                                         &\cong \int_{a\in A}\chi_{V}(a)\pitchfork S(a)\\
-                                         &\cong \bigcap_{a\in A}\chi_{V}(a)\pitchfork S(a)\\
-                                         &\cong \bigcap_{a\in V}S(a)
+                [\Ran_{\chi'_{A}}(F)](V) &\cong \int_{a\in A}\chi_{\mathcal{P}(A)^{\op}}(V,\chi_{a})\pitchfork F(a)\\
+                                         &\cong \int_{a\in A}\chi_{\mathcal{P}(A)}(\chi_{a},V)\pitchfork F(a)\\
+                                         &\cong \int_{a\in A}\chi_{V}(a)\pitchfork F(a)\\
+                                         &\cong \bigcap_{a\in A}\chi_{V}(a)\pitchfork F(a)\\
+                                         &\cong \bigcap_{a\in V}F(a)
             \end{align*}
             for each $V\in\mathcal{P}(B)$, so we have%
             \[
-                [\Ran_{R}(S)](b)%
+                [\Ran_{R}(F)](b)%
                 =%
-                \bigcap_{a\in R^{-1}(b)}S(a)%
+                \bigcap_{a\in R^{-1}(b)}F(a)%
             \]%
             for each $b\in B$.
     \end{enumerate}
@@ -4446,16 +4434,16 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
     We have
     \begin{envsmallsize}
         \begin{align*}
-            \Hom_{\eRel(A,X)}(S\procirc R,T) &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((S\procirc R)^{x}_{a},T^{x}_{a})\\
-                                             &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((\int^{b\in B}S^{x}_{b}\times R^{b}_{a}),T^{x}_{a})\\
-                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b}\times R^{b}_{a},T^{x}_{a})\\
-                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                             &\cong  \int_{b\in B}\int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                             &\cong  \int_{b\in B}\int_{x\in X}\eHom_{\TTV}(S^{x}_{b},\int_{a\in A}\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
-                                             &\cong  \Hom_{\eRel(B,X)}(S,\int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a}))%
+            \Hom_{\eRel(A,X)}(F\procirc R,T) &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((F\procirc R)^{x}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((\int^{b\in B}F^{x}_{b}\times R^{b}_{a}),T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(F^{x}_{b}\times R^{b}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(F^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\int_{a\in A}\eHom_{\TTV}(F^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\eHom_{\TTV}(F^{x}_{b},\int_{a\in A}\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \Hom_{\eRel(B,X)}(F,\int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a}))%
         \end{align*}
     \end{envsmallsize}
-    naturally in each $S\in\eRel(B,X)$ and each $T\in\eRel(A,X)$, showing that
+    naturally in each $F\in\eRel(B,X)$ and each $T\in\eRel(A,X)$, showing that
     \[
         \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a})%
     \]%
@@ -4474,10 +4462,10 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
 \begin{example}{Examples of Internal Right Kan Extensions of Relations}{examples-of-internal-right-kan-extensions-of-relations}%
     Here are some examples of internal right Kan extensions of relations.
     \begin{enumerate}
-        \item\label{examples-of-internal-right-kan-extensions-of-relations-orthogonal-complements}\SloganFont{Orthogonal Complements. }Let $A=B=X=\EuScript{V}$ be an inner product space, and let $R=S=\mathord{\perp}$ be the orthogonality relation, so that we have
+        \item\label{examples-of-internal-right-kan-extensions-of-relations-orthogonal-complements}\SloganFont{Orthogonal Complements. }Let $A=B=X=\EuScript{V}$ be an inner product space, and let $R=F=\mathord{\perp}$ be the orthogonality relation, so that we have
             \begin{align*}
                 R(v) &= v^{\perp}\\
-                S(u) &= u^{\perp},
+                F(u) &= u^{\perp},
             \end{align*}
             for each $u,v\in\EuScript{V}$, where
             \[
@@ -4485,25 +4473,31 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
                 \defeq%
                 \{u\in V\ \middle|\ v\perp u\}%
             \]%
-            is the orthogonal complement of $v$. The right Kan extension $\Ran_{R}(S)$ is then given by
+            is the orthogonal complement of $v$. The right Kan extension $\Ran_{R}(F)$ is then given by
             \begin{align*}
-                [\Ran_{R}(S)](v) &=      \bigcap_{u\in R^{-1}(v)}S(u)\\%
+                [\Ran_{R}(F)](v) &=      \bigcap_{u\in R^{-1}(v)}F(u)\\%
                                  &=      \bigcap_{\substack{u\in V\\u\perp v}}u^{\perp}\\%
                                  &=      (v^{\perp})^{\perp},%
             \end{align*}
             the double orthogonal complement. In particular:
             \begin{itemize}
-                \item If $\EuScript{V}$ is finite-dimensional, then $[\Ran_{R}(S)](v)=\rmSpan(v)$.
-                \item If $\EuScript{V}$ is a Hilbert space,    then $[\Ran_{R}(S)](v)=\widebar{\rmSpan(v)}$.
+                \item If $\EuScript{V}$ is finite-dimensional, then $[\Ran_{R}(F)](v)=\rmSpan(v)$.
+                \item If $\EuScript{V}$ is a Hilbert space,    then $[\Ran_{R}(F)](v)=\widebar{\rmSpan(v)}$.
             \end{itemize}
-        \item\label{examples-of-internal-right-kan-extensions-of-relations-galois-connections-and-closure-operators}\SloganFont{Galois Connections and Closure Operators. }Let $B=X=(P,\preceq_{P})$ and $A=(Q,\preceq_{Q})$ be posets and let $(f,g)$ be a Galois connection (adjunction) between $P$ and $Q$. Then, let $R,S\colon Q\rightrightproarrows P$ be the relations defined by
+        \item\label{examples-of-internal-right-kan-extensions-of-relations-galois-connections-and-closure-operators}\SloganFont{Galois Connections and Closure Operators. }Let:
+            \begin{itemize}
+                \item $B=X=(P,\preceq_{P})$ and $A=(Q,\preceq_{Q})$ be posets;
+                \item $(f,g)$ be a Galois connection (adjunction) between $P$ and $Q$;
+                \item $R,F\colon Q\rightrightproarrows P$ be the relations defined by
+                    \begin{align*}
+                        R(q) &\defeq \{p\in P\ \middle|\ q\preceq_{Q}f(p)\},\\
+                        F(q) &\defeq \{p\in P\ \middle|\ p\preceq_{P}g(q)\}
+                    \end{align*}
+                    for each $q\in Q$.
+            \end{itemize}
+            We have
             \begin{align*}
-                R(q) &\defeq \{p\in P\ \middle|\ q\preceq_{Q}f(p)\},\\
-                S(q) &\defeq \{p\in P\ \middle|\ p\preceq_{P}g(q)\}
-            \end{align*}
-            for each $q\in Q$. We then have
-            \begin{align*}
-                [\Ran_{R}(S)](p) &= \bigcap_{q\in R^{-1}(p)}S(q)\\%
+                [\Ran_{R}(F)](p) &= \bigcap_{q\in R^{-1}(p)}F(q)\\%
                                  &= \bigcap_{\substack{q\in Q\\q\preceq_{Q}f(p)}}\{%
                                                                                      p\in P%
                                                                                      \ \middle|\ %
@@ -4516,21 +4510,15 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
                                     \}\\%
                                  &= \downset g(f(p)),
             \end{align*}
-            the down set of $g(f(p))$, which is the closure operator on $P$ associated with the Galois connection $(f,g)$.
+            the down set of $g(f(p))$. In other words, $\Ran_{R}(F)$ is the closure operator on $P$ associated with the Galois connection $(f,g)$.
     \end{enumerate}
 \end{example}
-\begin{proposition}{Properties of Intersection Composition of Relations}{properties-of-intersection-composition-of-relations}%
-    Let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $T\colon C\rightproarrow D$ be relations.
+\begin{proposition}{Properties of Internal Right Kan Extensions in $\sfbfRel$}{properties-of-internal-right-kan-extensions-in-rel}%
+    Let $A$, $B$, $C$ and $X$ be sets and let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $F\colon A\rightproarrow X$ be relations.
     \begin{enumerate}
-        \item\label{properties-of-intersection-composition-of-relations-functoriality}\SloganFont{Functoriality. }Intersection composition of relations defines a morphism of posets
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-functoriality}\SloganFont{Functoriality. }The assignments $R,F,(R,F)\mapsto\Ran_{R}(F)$ define functors
             \[
-                \intcirc_{A,B,C}%
-                \colon%
-                \eRel(B,C)%
-                \times%
-                \eRel(A,B)%
-                \to%
-                \eRel(A,C).%
+                \BifunctorialityPeriod{\Ran_{(-)}(F)}{\Ran_{R}}{\Ran_{(-_{1})}(-_{2})}{\eRel(A,B)^{\op}}{\eRel(A,X)}{\eRel(A,X)\times\eRel(A,B)^{\op}}{\eRel(B,X)}%
             \]%
             In other words, given relations
             \[
@@ -4540,27 +4528,81 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
                     \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
                     \&
                     B
-                    \arrow[r,"S_{1}", mid vert,shift left=0.8]%
-                    \arrow[r,"S_{2}"',mid vert,shift right=0.8]%
+                    \arrow[r,"F_{1}", mid vert,shift left=0.8]%
+                    \arrow[r,"F_{2}"',mid vert,shift right=0.8]%
                     \&
                     C\mrp{,}
                 \end{tikzcd}
             \]%
-            if $R_{1}\subset R_{2}$ and $S_{1}\subset S_{2}$, then $S_{1}\intcirc R_{1}\subset S_{2}\intcirc R_{2}$.
-        \item\label{properties-of-intersection-composition-of-relations-associativity}\SloganFont{Associativity. }We have
+            if $R_{1}\subset R_{2}$ and $F_{1}\subset F_{2}$, then $\Ran_{R_{2}}(F_{1})\subset\Ran_{R_{1}}(F_{2})$.
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
             \[
-                (T\intcirc S)\intcirc R
+                \Ran_{S\procirc R}(F)%
                 =
-                T\intcirc(S\intcirc R).
+                \Ran_{S}(\Ran_{R}(F))%
+            \]%
+            and an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \&
+                    C
+                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    \\
+                    \&
+                    B
+                    \arrow[ru,"S",mid vert]
+                    \arrow[rd,"{\scriptscriptstyle\Ran_{R}(F)}"'{sloped,outer sep=0.1*\the\DL},""'{name=Ran,pos=0.625},densely dashed for mid vert,mid vert]
+                    \&
+                    \\
+                    A
+                    \arrow[rr,"F"',""'{name=F},mid vert]
+                    \arrow[ru,"R",mid vert]
+                    \&
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=2-2,to=F,  shorten <= 0.25em, shorten >= 0.625em,Rightarrow]%
+                    \arrow[from=1-3,to=Ran,shorten <= 0.75em, shorten >= 1.0em,  Rightarrow]%
+                \end{tikzcd}
+                \pastingdiagramequality%
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \&
+                    C
+                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    \\
+                    \&
+                    B
+                    \arrow[ru,"S",mid vert]
+                    \&
+                    \\
+                    A
+                    \arrow[rr,"F"',""'{name=F,pos=0.425},mid vert]
+                    \arrow[ru,"R",mid vert]
+                    \&
+                    \&
+                    X
+                    % 2-Arrows
+                    %\arrow[from=1-3,to=F,shorten=0.5em,Rightarrow,shift left=1.0*\the\DL]%
+                    \arrow[from=1-3,to=F,shorten <= 0.75em, shorten >= 0.75em, Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\sfbfRel$.
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-associativity}\SloganFont{Associativity. }We have
+            \[
+                (T\intcirc F)\intcirc R
+                =
+                T\intcirc(F\intcirc R).
             \]%
             That is, we have
             \[
-                \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
+                \bigcup_{b\in R(a)}\bigcup_{c\in F(b)}T(c)%
                 =%
-                \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)%
+                \bigcup_{c\in\bigcup_{b\in R(a)}F(b)}T(c)%
             \]%
             for each $a\in A$.
-        \item\label{properties-of-intersection-composition-of-relations-unitality}\SloganFont{Unitality. }We have
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-unitality}\SloganFont{Unitality. }We have
             \begin{align*}
                 \Delta_{B}\intcirc R &= R,\\
                 R\intcirc\Delta_{A}  &= R.
@@ -4571,103 +4613,57 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
                 \bigcup_{a\in\{a\}}R(a)  &= R(a)
             \end{align*}
             for each $a\in A$.
-        \item\label{properties-of-intersection-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
             \begin{align*}
-                T\intcirc(S\aptcirc R)  &\subset (T\intcirc S)\aptcirc R,\\
-                (T\aptcirc S)\intcirc R &\subset T\aptcirc(S\intcirc R).
+                T\intcirc(F\aptcirc R)  &\subset (T\intcirc F)\aptcirc R,\\
+                (T\aptcirc F)\intcirc R &\subset T\aptcirc(F\intcirc R).
             \end{align*}
             That is, we have
             \begin{align*}
-                T(\bigcap_{b\in B\setminus R(a)}S(b))  &\subset \bigcap_{b\in B\setminus R(a)}T(S(b))\\
-                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus S(R(a))}T(c)
+                T(\bigcap_{b\in B\setminus R(a)}F(b))  &\subset \bigcap_{b\in B\setminus R(a)}T(F(b))\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus F(b)}T(c) &\subset \bigcap_{c\in C\setminus F(R(a))}T(c)
             \end{align*}
-            or, unwinding the expression for $S(R(a))$, we have
+            or, unwinding the expression for $F(R(a))$, we have
             \begin{align*}
-                \bigcup_{c\in\bigcap_{b\in B\setminus R(a)}S(b)}T(c)  &\subset \bigcap_{b\in B\setminus R(a)}\bigcup_{c\in S(b)}T(c)\\
-                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus S(b)}T(c) &\subset \bigcap_{c\in C\setminus\bigcup_{b\in R(a)}S(b)}T(c)
+                \bigcup_{c\in\bigcap_{b\in B\setminus R(a)}F(b)}T(c)  &\subset \bigcap_{b\in B\setminus R(a)}\bigcup_{c\in F(b)}T(c)\\
+                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus F(b)}T(c) &\subset \bigcap_{c\in C\setminus\bigcup_{b\in R(a)}F(b)}T(c)
             \end{align*}
             for each $a\in A$.
-        \item\label{properties-of-intersection-composition-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
-                (S\intcirc R)^{\dagger}
+                (F\intcirc R)^{\dagger}
                 =
-                R^{\dagger}\intcirc S^{\dagger}.
+                R^{\dagger}\intcirc F^{\dagger}.
             \]%
-        \item\label{properties-of-intersection-composition-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
-                \dom(S\intcirc R)   &\subset \dom(R),\\
-                \range(S\intcirc R) &\subset \range(S).
+                \dom(F\intcirc R)   &\subset \dom(R),\\
+                \range(F\intcirc R) &\subset \range(F).
             \end{align*}
-        %\item\label{properties-of-intersection-composition-of-relations-}\SloganFont{. }
+        %\item\label{properties-of-internal-right-kan-extensions-in-rel-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-intersection-composition-of-relations}}%
-    \FirstProofBox{\cref{properties-of-intersection-composition-of-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-internal-right-kan-extensions-in-rel}}%
+    \FirstProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-functoriality}: Functoriality}%
     We have
     \begin{align*}
-        S_{1}\intcirc R_{1} &\defeq  \{%
-                                         (a,c)\in A\times C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $b\in B$, such}\\%
-                                             &\text{that $a\sim_{R_{1}}b$ or $b\sim_{S_{1}}c$}%
-                                         \end{aligned}
-                                     \}\\%
-                            &\subset \{%
-                                        (a,c)\in A\times C%
-                                        \ \middle|\ %
-                                        \begin{aligned}
-                                             &\text{there exists some $b\in B$, such}\\%
-                                             &\text{that $a\sim_{R_{2}}b$ or $b\sim_{S_{2}}c$}%
-                                        \end{aligned}
-                                    \}\\%
-                            &\defeq S_{2}\intcirc R_{2}.
+        [\Ran_{R_{2}}(F_{1})](b) &=       \bigcap_{a\in R^{-1}_{2}(b)}F_{1}(a)\\
+                                 &\subset \bigcap_{a\in R^{-1}_{1}(b)}F_{1}(a)\\
+                                 &\subset \bigcap_{a\in R^{-1}_{1}(b)}F_{2}(a)\\
+                                 &=       [\Ran_{R_{2}}(F_{1})](b)
     \end{align*}
-    This finishes the proof.
+    for each $b\in B$, and we therefore have $\Ran_{R_{2}}(S_{1})\subset\Ran_{R_{2}}(S_{1})$.
 
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-associativity}: Associativity, Proof \rmI}%
-    Indeed, we have
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-oplax-associativity}: Oplax Associativity}%
+    Using \cref{internal-right-kan-extensions-in-rel-3} of \cref{internal-right-kan-extensions-in-rel}, we have
     \begin{align*}
-        (T\intcirc S)\intcirc R &\defeq (\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{-_{2}})\intcirc R\\
-                                &\defeq \int^{b\in B}(\int^{c\in C}T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
-                                &=      \int^{b\in B}\int^{c\in C}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
-                                &=      \int^{c\in C}\int^{b\in B}(T^{-_{1}}_{c}\times S^{c}_{b})\times R^{b}_{-_{2}}\\
-                                &=      \int^{c\in C}\int^{b\in B}T^{-_{1}}_{c}\times(S^{c}_{b}\times R^{b}_{-_{2}})\\
-                                &=      \int^{c\in C}T^{-_{1}}_{c}\times(\int^{b\in B}S^{c}_{b}\times R^{b}_{-_{2}})\\
-                                &\defeq \int^{c\in C}T^{-_{1}}_{c}\times(S\intcirc R)^{c}_{-_{2}}\\
-                                &\defeq T\intcirc(S\intcirc R).
+        [\Ran_{S}(\Ran_{R}(F))](a) &= \bigcap_{b\in S^{-1}(c)}[\Ran_{S}(F)](b)\\
+                                   &= \bigcap_{b\in S^{-1}(c)}\bigcap_{a\in R^{-1}(b)}F(c)
     \end{align*}
-    In the language of relations, given $a\in A$ and $d\in D$, the stated equality witnesses the equivalence of the following two statements:
-    \begin{enumerate}
-        \item\label{proof-of-properties-of-intersection-composition-of-relations-associativity-1}We have $a\sim_{(T\intcirc S)\intcirc R}d$, i.e.\ there exists some $b\in B$ such that:
-            \begin{itemize}
-                \item We have $a\sim_{R}b$;
-                \item We have $b\sim_{T\intcirc S}d$, i.e.\ there exists some $c\in C$ such that:
-                    \begin{itemize}
-                        \item We have $b\sim_{S}c$;
-                        \item We have $c\sim_{T}d$;
-                    \end{itemize}
-            \end{itemize}
-        \item\label{proof-of-properties-of-intersection-composition-of-relations-associativity-2}We have $a\sim_{T\intcirc(S\intcirc R)}d$, i.e.\ there exists some $c\in C$ such that:
-            \begin{itemize}
-                \item We have $a\sim_{S\intcirc R}c$, i.e.\ there exists some $b\in B$ such that:
-                    \begin{itemize}
-                        \item We have $a\sim_{R}b$;
-                        \item We have $b\sim_{S}c$;
-                    \end{itemize}
-                \item We have $c\sim_{T}d$;
-            \end{itemize}
-    \end{enumerate}
-    both of which are equivalent to the statement
-    \begin{itemize}
-        \itemstar There exist $b\in B$ and $c\in C$ such that $a\sim_{R}b\sim_{S}c\sim_{T}d$.
-    \end{itemize}
-
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-associativity}: Associativity, Proof \rmII}%
-    Using \cref{composition-of-relations-3}, we have
+    and
     \begin{align*}
-        [(T\intcirc S)\intcirc R](a) &\defeq \bigcup_{b\in R(a)}(T\intcirc S)(b)\\
-                                     &\defeq \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)
+        [\Ran_{\Ran_{S}(F)}(R)](a) &= \bigcap_{a\in R^{-1}(b)}[\Ran_{T}(F)]\\
+                                   &= \bigcap_{a\in R^{-1}(b)}\bigcap_{c\in F(b)}T(c)
     \end{align*}
     on the one hand and
     \begin{align*}
@@ -4704,7 +4700,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-unitality}: Unitality}%
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-unitality}: Unitality}%
     Indeed, we have
     \begin{align*}
         \Delta_{B}\intcirc R &\defeq \int^{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
@@ -4753,13 +4749,13 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
             \end{itemize}
     \end{itemize}
 
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-linear-distributivity}: Linear Distributivity}%
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-linear-distributivity}: Linear Distributivity}%
     This is a repetition of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
 
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses}: Interaction With Converses}%
     This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition} of \cref{properties-of-converses-of-relations} and is proved there.
 
-    \ProofBox{\cref{properties-of-intersection-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
     We have
     \begin{align*}
         \dom(S\intcirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\intcirc R}c\text{ for some $c\in C$}\},\\
