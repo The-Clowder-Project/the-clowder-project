@@ -4342,27 +4342,36 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
-Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ be a relation.
+Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A\rightproarrow X$ be relations.
 \begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
     We want to understand internal right Kan extensions in $\sfbfRel$, which look like this:
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&%
             B%
-            \arrow[ru, "\Ran_{R}(S)"', bend right=10]%
+            \arrow[d, "\Ran_{R}(S)","\exists!"',densely dashed,mid vert]%
             \\%
             A%
-            \arrow[ru, "R"]%
-            \arrow[r, "S",""{name=S}]%
+            \arrow[ru, "R",mid vert]%
+            \arrow[r, "S",""{name=S},mid vert]%
             \&%
             X\mrp{.}%
             % 2-Arrows
             \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow]%
-        \end{tikzcd}%
+        \end{tikzcd}
     \]%
+    These will be right adjoint to the functor
+    \[
+        R^{*}%
+        \colon%
+        \eRel(B,X)%
+        \to%
+        \eRel(A,X)%
+    \]%
+    given by precomposition by $R$.
 \end{motivation}
-\begin{definition}{Intersection Composition of Relations}{intersection-composition-of-relations}%
-    The \index[set-theory]{relation!intersection composition of}\textbf{intersection composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\intcirc R$}$S\intcirc R$ defined as follows:%
+\begin{proposition}{Internal Right Kan Extensions in $\sfbfRel$}{internal-right-kan-extensions-in-rel}%
+    The internal right Kan extension of $S$ along $R$ is the relation \index[notation]{RanRS@$\Ran_{R}(S)$}$\Ran_{R}(S)$ described as follows:
     \begin{enumerate}
         \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
             \[
@@ -4421,7 +4430,9 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ be a relation.
             \end{align*}
             for each $a\in A$.
     \end{enumerate}
-\end{definition}
+\end{proposition}
+\begin{Proof}{Proof of \cref{internal-right-kan-extensions-in-rel}}%
+\end{Proof}
 \begin{example}{Examples of Intersection Composition of Relations}{examples-of-intersection-composition-of-relations}%
     Here are some examples of composition of relations.
     \begin{enumerate}
