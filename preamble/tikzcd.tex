@@ -36,9 +36,29 @@
         %dash pattern=on 1.65pt off 1.65pt,%
     }%
 }%
-\tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.8ex}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
 \ifplastex
 \else
+    \tikzset{mid vert/.style={/utils/exec=\tikzset{every node/.append style={outer sep=0.4*\the\DL}},postaction=decorate,decoration={markings,mark=at position #1 with {\draw[solid,-] (0,0.75ex) -- (0,-0.75ex);}}},mid vert/.default=0.5}
+    \tikzset{
+        densely dashed for mid vert/.style={
+        decoration={
+        markings,
+        mark=at position 0 with {
+          \pgfmathsetmacro{\myOn}{4pt}
+          \pgfmathsetmacro{\myOff}{2pt}
+          \pgfmathsetmacro{\mystretch}{((\pgfdecoratedpathlength-\myOn)/(\myOn+\myOff))/int((\pgfdecoratedpathlength-\myOn)/(\myOn+\myOff))}
+          \pgfmathsetmacro{\myon}{\myOn*\mystretch}
+          \xdef\myon{\myon}
+          \pgfmathsetmacro{\myoff}{\myOff*\mystretch}
+          \xdef\myoff{\myoff}
+          \pgfmathsetmacro{\mypathlength}{\pgfdecoratedpathlength}
+          \xdef\mypathlength{\mypathlength}
+        },
+      },
+      preaction={decorate},draw=none,
+      postaction={draw,dash pattern=on \myon pt off \myoff pt,dash phase=0.5*\myon-0.5*\mypathlength}
+      },
+    }
     \tikzset{lddr_to_path/.style={to path={-| ([xshift=-5ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}
     \tikzset{rddl_to_path/.style={to path={-| ([xshift=5ex]\tikztotarget.east) \ifx\relax#1\relax \else node[near end,right]{$\scriptstyle#1$} \fi -- (\tikztotarget)}}}
     \tikzset{lddr_to_path_large/.style={to path={-| ([xshift=-10ex]\tikztotarget.west) \ifx\relax#1\relax \else node[near end,left]{$\scriptstyle#1$} \fi |- (\tikztotarget)}}}

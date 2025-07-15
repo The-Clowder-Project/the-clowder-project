@@ -458,13 +458,13 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     In this case, we would have%
     %--- Begin Footnote ---%
     \footnote{%
-        If we had $B\setminus R(a)$ instead of $R(a)$, defining
+        If we replace $R(a)$ with $B\setminus R(a)$, defining
         \[
             S\aptcirc R%
             \defeq%
             \bigcap_{b\in B\setminus R(a)}S(b),%
         \]%
-        we'd obtain the apartness composition of relations instead; see \cref{subsection-apartness-composition-of-relations}.
+        we instead obtain the apartness composition of relations; see \cref{subsection-apartness-composition-of-relations}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -4341,6 +4341,8 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
 \begin{remark}{Kan Extensions and Kan Lifts in $\sfbfRel$}{kan-extensions-and-kan-lifts-in-rel}%
     The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
+\subsection{Internal Left Kan Extensions}\label{subsection-internal-left-kan-extensions-in-rel}
+\subsection{Internal Left Kan Lifts}\label{subsection-internal-left-kan-lifts-in-rel}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
 Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A\rightproarrow X$ be relations.
 \begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
@@ -4349,50 +4351,57 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&%
             B%
-            \arrow[d, "\Ran_{R}(S)","\exists!"',densely dashed,mid vert]%
+            \arrow[d, "\Ran_{R}(S)", densely dashed for mid vert, mid vert]%
             \\%
             A%
             \arrow[ru, "R",mid vert]%
-            \arrow[r, "S",""{name=S},mid vert]%
+            \arrow[r, "S"',""'{name=S,pos=0.425},mid vert]%
             \&%
             X\mrp{.}%
             % 2-Arrows
-            \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow]%
+            \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
         \end{tikzcd}
     \]%
-    These will be right adjoint to the functor
+    These will form a functor
+    \[
+        \Ran_{R}%
+        \colon%
+        \eRel(A,X)%
+        \to%
+        \eRel(B,X)%
+    \]%
+    that is right adjoint to the precomposition by $R$ functor
     \[
         R^{*}%
         \colon%
         \eRel(B,X)%
         \to%
-        \eRel(A,X)%
+        \eRel(A,X).%
     \]%
-    given by precomposition by $R$.
 \end{motivation}
 \begin{proposition}{Internal Right Kan Extensions in $\sfbfRel$}{internal-right-kan-extensions-in-rel}%
     The internal right Kan extension of $S$ along $R$ is the relation \index[notation]{RanRS@$\Ran_{R}(S)$}$\Ran_{R}(S)$ described as follows:
     \begin{enumerate}
-        \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
+        \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we have
             \[
-                S\intcirc R
-                \defeq
+                \Ran_{R}(S)%
+                =%
                 \{%
                     (a,c)\in A\times C%
                     \ \middle|\ %
                     \begin{aligned}
-                        &\text{for each $b\in B$, we have}\\
-                        &\text{$a\sim_{R}b$ and $b\sim_{S}c$}%
+                        &\text{for each $b\in B$, if $a\sim_{R}b$,}\\
+                        &\text{then we have $a\sim_{S}c$}%
                     \end{aligned}
                 \}.%
             \]%
-        \item\label{composition-of-relations-2}Viewing relations as functions $A\times B\to\TV$, we define
+        \item\label{internal-right-kan-extensions-in-rel-2}Viewing relations as functions $A\times B\to\TV$, we define
             \begin{align*}
-                (S\intcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}}\\%
-                                              &=      \bigwedge_{b\in B}S^{-_{1}}_{b}\times R^{b}_{-_{2}},%
+                (S\intcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a})\\
+                                              &=      \bigwedge_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a}),%
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
-        \item\label{composition-of-relations-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+        \item\label{internal-right-kan-extensions-in-rel-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
             \begin{webcompile}
                 S\intcirc R%
                 \defeq%
@@ -4754,6 +4763,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
     \end{align*}
     This finishes the proof.
 \end{Proof}
+\subsection{Internal Right Kan Lifts}\label{subsection-internal-right-kan-lifts-in-rel}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
     The 2-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
