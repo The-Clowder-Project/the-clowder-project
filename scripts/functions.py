@@ -239,6 +239,7 @@ def get_parts(path):
 #    'section', 'subsection', 'subsubsection' (every one of these has a label)
 #    'item' (typically an item does not have a label)
 list_of_labeled_envs = [ \
+        'construction', \
         'corollary', \
         'definition', \
         'equation', \

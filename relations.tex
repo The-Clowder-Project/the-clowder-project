@@ -411,10 +411,10 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{webcompile}
             where $\Lan_{\chi_{B}}(S)$ is computed by the formula
             \begin{align*}
-                [\Lan_{\chi_{B}}(S)](V) &\cong \int^{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S_{b}\\
-                                        &\cong \int^{b\in B}\chi_{V}(b)\odot S_{b}\\
-                                        &\cong \bigvee_{b\in B}\chi_{V}(b)\odot S_{b}\\
-                                        &\cong \bigvee_{b\in V}S_{b}
+                [\Lan_{\chi_{B}}(S)](V) &\cong \int^{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\odot S(b)\\
+                                        &\cong \int^{b\in B}\chi_{V}(b)\odot S(b)\\
+                                        &\cong \bigcup_{b\in B}\chi_{V}(b)\odot S(b)\\
+                                        &\cong \bigcup_{b\in V}S(b)
             \end{align*}
             for each $V\in\mathcal{P}(B)$, so we have%
             %--- Begin Footnote ---%
@@ -4362,7 +4362,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
             \arrow[from=1-2,to=S,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
         \end{tikzcd}
     \]%
-    These will form a functor
+    Note in particular here that $S\colon A\rightproarrow X$ is a relation from $A$ to $X$. These will form a functor
     \[
         \Ran_{R}%
         \colon%
@@ -4382,44 +4382,44 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
 \begin{proposition}{Internal Right Kan Extensions in $\sfbfRel$}{internal-right-kan-extensions-in-rel}%
     The internal right Kan extension of $S$ along $R$ is the relation \index[notation]{RanRS@$\Ran_{R}(S)$}$\Ran_{R}(S)$ described as follows:
     \begin{enumerate}
-        \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we have
+        \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $A$ to $C$ as subsets of $B\times X$, we have
             \[
                 \Ran_{R}(S)%
                 =%
                 \{%
-                    (a,c)\in A\times C%
+                    (b,x)\in B\times X%
                     \ \middle|\ %
                     \begin{aligned}
-                        &\text{for each $b\in B$, if $a\sim_{R}b$,}\\
-                        &\text{then we have $a\sim_{S}c$}%
+                        &\text{for each $a\in A$, if $a\sim_{R}b$,}\\
+                        &\text{then we have $a\sim_{S}x$}%
                     \end{aligned}
                 \}.%
             \]%
         \item\label{internal-right-kan-extensions-in-rel-2}Viewing relations as functions $A\times B\to\TV$, we define
             \begin{align*}
-                (S\intcirc R)^{-_{1}}_{-_{2}} &\defeq \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a})\\
+                (S\intcirc R)^{-_{1}}_{-_{2}} &=      \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a})\\
                                               &=      \bigwedge_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},S^{-_{1}}_{a}),%
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
         \item\label{internal-right-kan-extensions-in-rel-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
             \begin{webcompile}
-                S\intcirc R%
-                \defeq%
-                \Ran_{\chi'_{B}}(S)\circ R,%
+                \Ran_{R}(S)%
+                =%
+                \Ran_{\chi'_{B}}(S)\circ R^{-1},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&%
-                    B%
-                    \arrow[r, "S",""{name=S,pos=0.7}]%
-                    \arrow[d, "\chi_{B}"', hook]%
-                    \&%
-                    \mathcal{P}(C)\mrp{,}%
-                    \\%
                     A%
-                    \arrow[r, "R"']%
+                    \arrow[r, "S",""{name=S,pos=0.7}]%
+                    \arrow[d, "\chi_{A}"', hook]%
                     \&%
-                    \mathcal{P}(B)^{\op}%
-                    \arrow[ru, "\Ran_{\chi_{B}}(S)"', bend right=10]%
+                    \mathcal{P}(X)\mrp{,}%
+                    \\%
+                    B%
+                    \arrow[r, "R^{-1}"']%
+                    \&%
+                    \mathcal{P}(A)^{\op}%
+                    \arrow[ru, "\Ran_{\chi_{A}}(S)"', bend right=10]%
                     \&
                     % 2-Arrows
                     \arrow[from=S,to=2-2,shorten=0.75*\the\DL,Rightarrow]%
@@ -4427,53 +4427,94 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $S\colon A
             \end{webcompile}
             where $\Ran_{\chi'_{B}}(S)$ is computed by the formula
             \begin{align*}
-                [\Ran_{\chi'_{B}}(S)](V) &\cong \int_{b\in B}\chi_{\mathcal{P}(B)^{\op}}(V,\chi_{b})\pitchfork S_{b}\\
-                                         &\cong \int_{b\in B}\chi_{\mathcal{P}(B)}(\chi_{b},V)\pitchfork S_{b}\\
-                                         &\cong \int_{b\in B}\chi_{V}(b)\pitchfork S_{b}\\
-                                         &\cong \bigwedge_{b\in B}\chi_{V}(b)\pitchfork S_{b}\\
-                                         &\cong \bigwedge_{b\in V}S_{b}
+                [\Ran_{\chi'_{A}}(S)](V) &\cong \int_{a\in A}\chi_{\mathcal{P}(A)^{\op}}(V,\chi_{a})\pitchfork S(a)\\
+                                         &\cong \int_{a\in A}\chi_{\mathcal{P}(A)}(\chi_{a},V)\pitchfork S(a)\\
+                                         &\cong \int_{a\in A}\chi_{V}(a)\pitchfork S(a)\\
+                                         &\cong \bigcap_{a\in A}\chi_{V}(a)\pitchfork S(a)\\
+                                         &\cong \bigcap_{a\in V}S(a)
             \end{align*}
             for each $V\in\mathcal{P}(B)$, so we have%
-            \begin{align*}
-                [S\intcirc R](a) &\defeq \bigcap_{b\in R(a)}S(b).
-            \end{align*}
-            for each $a\in A$.
+            \[
+                [\Ran_{R}(S)](b)%
+                =%
+                \bigcap_{a\in R^{-1}(b)}S(a)%
+            \]%
+            for each $b\in B$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{internal-right-kan-extensions-in-rel}}%
-\end{Proof}
-\begin{example}{Examples of Intersection Composition of Relations}{examples-of-intersection-composition-of-relations}%
-    Here are some examples of composition of relations.
+    We have
+    \begin{envsmallsize}
+        \begin{align*}
+            \Hom_{\eRel(A,X)}(S\procirc R,T) &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((S\procirc R)^{x}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\eHom_{\TTV}((\int^{b\in B}S^{x}_{b}\times R^{b}_{a}),T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b}\times R^{b}_{a},T^{x}_{a})\\
+                                             &\cong  \int_{a\in A}\int_{x\in X}\int_{b\in B}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\int_{a\in A}\eHom_{\TTV}(S^{x}_{b},\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \int_{b\in B}\int_{x\in X}\eHom_{\TTV}(S^{x}_{b},\int_{a\in A}\eHom_{\TTV}(R^{b}_{a},T^{x}_{a}))\\
+                                             &\cong  \Hom_{\eRel(B,X)}(S,\int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a}))%
+        \end{align*}
+    \end{envsmallsize}
+    naturally in each $S\in\eRel(B,X)$ and each $T\in\eRel(A,X)$, showing that
+    \[
+        \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},T^{-_{1}}_{a})%
+    \]%
+    is right adjoint to the precomposition functor $-\procirc R$, being thus the right Kan extension along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
     \begin{enumerate}
-        \item\label{examples-of-composition-of-relations-orthogonal-complements}\SloganFont{Orthogonal Complements. }Let $A=B=C=\EuScript{V}$ be an inner product space, and let $R=S=\mathord{\perp}$ be the orthogonality relation, so
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-2}\cref{composition-of-relations}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+    \end{enumerate}
+    This finishes the proof.
+\end{Proof}
+\begin{example}{Examples of Internal Right Kan Extensions of Relations}{examples-of-internal-right-kan-extensions-of-relations}%
+    Here are some examples of internal right Kan extensions of relations.
+    \begin{enumerate}
+        \item\label{examples-of-internal-right-kan-extensions-of-relations-orthogonal-complements}\SloganFont{Orthogonal Complements. }Let $A=B=X=\EuScript{V}$ be an inner product space, and let $R=S=\mathord{\perp}$ be the orthogonality relation, so that we have
             \begin{align*}
-                R(v) &= \{u\in V\ \middle|\ v\perp u\},\\
-                S(u) &= \{w\in V\ \middle|\ u\perp w\}
+                R(v) &= v^{\perp}\\
+                S(u) &= u^{\perp},
             \end{align*}
-            for each $u,v\in\EuScript{V}$. The intersection composition $R\intcirc S$ is then given by the double orthogonal complement, $(v^{\perp})^{\perp}$. In particular:
+            for each $u,v\in\EuScript{V}$, where
+            \[
+                v^{\perp}%
+                \defeq%
+                \{u\in V\ \middle|\ v\perp u\}%
+            \]%
+            is the orthogonal complement of $v$. The right Kan extension $\Ran_{R}(S)$ is then given by
+            \begin{align*}
+                [\Ran_{R}(S)](v) &=      \bigcap_{u\in R^{-1}(v)}S(u)\\%
+                                 &=      \bigcap_{\substack{u\in V\\u\perp v}}u^{\perp}\\%
+                                 &=      (v^{\perp})^{\perp},%
+            \end{align*}
+            the double orthogonal complement. In particular:
             \begin{itemize}
-                \item If $\EuScript{V}$ is finite-dimensional, we have $[R\intcirc S](v)=\rmSpan(v)$.
-                \item If $\EuScript{V}$ is a Hilbert space,    we have $[R\intcirc S](v)=\widebar{\rmSpan(v)}$.
+                \item If $\EuScript{V}$ is finite-dimensional, then $[\Ran_{R}(S)](v)=\rmSpan(v)$.
+                \item If $\EuScript{V}$ is a Hilbert space,    then $[\Ran_{R}(S)](v)=\widebar{\rmSpan(v)}$.
             \end{itemize}
-        \item\label{examples-of-composition-of-relations-galois-connections-and-closure-operators}\SloganFont{Galois Connections and Closure Operators. }Let $A=(P,\preceq_{P})$, $B=(Q,\preceq_{Q})$, and $C=(P,\preceq_{P})$ be posets and let $(f,g)$ be a Galois connection (adjunction) between $P$ and $Q$. Then, let:
+        \item\label{examples-of-internal-right-kan-extensions-of-relations-galois-connections-and-closure-operators}\SloganFont{Galois Connections and Closure Operators. }Let $B=X=(P,\preceq_{P})$ and $A=(Q,\preceq_{Q})$ be posets and let $(f,g)$ be a Galois connection (adjunction) between $P$ and $Q$. Then, let $R,S\colon Q\rightrightproarrows P$ be the relations defined by
             \begin{align*}
-                R(p) &\defeq \{q\in Q\ \middle|\ q\preceq_{Q}f(p)\},\\
-                S(q) &\defeq \{p\in P\ \middle|\ p\preceq_{P}g(q)\}.
+                R(q) &\defeq \{p\in P\ \middle|\ q\preceq_{Q}f(p)\},\\
+                S(q) &\defeq \{p\in P\ \middle|\ p\preceq_{P}g(q)\}
             \end{align*}
-            We then have
+            for each $q\in Q$. We then have
             \begin{align*}
-                [S\intcirc R](p)%
-                &=%
-                \{%
-                    p\in P%
-                    \ \middle|\ %
-                    \begin{aligned}
-                        &\text{for each $q\in Q$, if $q\preceq_{Q}f(p)$,}\\%
-                        &\text{then we have $p\preceq_{P}g(q)$}%
-                    \end{aligned}
-                \}\\%
-                &=%
-                \downset g(f(p)),%
+                [\Ran_{R}(S)](p) &= \bigcap_{q\in R^{-1}(p)}S(q)\\%
+                                 &= \bigcap_{\substack{q\in Q\\q\preceq_{Q}f(p)}}\{%
+                                                                                     p\in P%
+                                                                                     \ \middle|\ %
+                                                                                     p\preceq_{P}g(q)%
+                                                                                 \}\\%
+                                 &= \{%
+                                        p\in P%
+                                        \ \middle|\ %
+                                        p\preceq_{P}g(f(q))%
+                                    \}\\%
+                                 &= \downset g(f(p)),
             \end{align*}
             the down set of $g(f(p))$, which is the closure operator on $P$ associated with the Galois connection $(f,g)$.
     \end{enumerate}
