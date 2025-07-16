@@ -4574,7 +4574,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                     \&
                     \&
                     C
-                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    \arrow[dd,"{\Ran_{S\procirc R}(F)}",densely dashed for mid vert,mid vert]
                     \\
                     \&
                     B
@@ -4749,7 +4749,12 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
 \begin{example}{Examples of Internal Right Kan Extensions of Relations}{examples-of-internal-right-kan-lifts-of-relations}%
     Here are some examples of internal right Kan lifts of relations.
     \begin{enumerate}
-        \item\label{examples-of-internal-right-kan-lifts-of-relations-}\SloganFont{. }
+        \item\label{examples-of-internal-right-kan-lifts-of-relations-pullbacks}\SloganFont{Pullbacks. }Let $p\colon A\to B$ and $f\colon X\to B$ be functions. We have
+            \begin{align*}
+                [\Rift_{\Gr(p)}(\Gr(f))](x) &= \{a\in A\ \middle|\ [\Gr(p)](a)\subset[\Gr(f)](x)\}%
+                                            &= \{a\in A\ \middle|\ p(a)=f(x)\},%
+            \end{align*}
+            and thus, as a subset of $X\times A$, the right Kan lift $\Rift_{\Gr(p)}(\Gr(f))$ corresponds precisely to the pullback $X\times_{B}A$ of $X$ and $A$ along $p$ and $f$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-limits-of-sets-pullbacks}}{\cref{subsection-limits-of-sets-pullbacks}}.
     \end{enumerate}
 \end{example}
 \begin{proposition}{Properties of Internal Right Kan Lifts in $\sfbfRel$}{properties-of-internal-right-kan-lifts-in-rel}%
@@ -4782,53 +4787,46 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
             \[
                 \Rift_{S\procirc R}(F)%
                 =
-                \Rift_{S}(\Ran_{R}(F))%
+                \Rift_{R}(\Ran_{S}(F))%
             \]%
             and an equality
             \begin{webcompile}
-                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&
-                    \&
-                    C
-                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    A
+                    \arrow[d,"R",mid vert]
                     \\
                     \&
                     B
-                    \arrow[ru,"S",mid vert]
-                    \arrow[rd,"{\scriptscriptstyle\Ran_{R}(F)}"'{sloped,outer sep=0.1*\the\DL},""'{name=Ran,pos=0.625},densely dashed for mid vert,mid vert]
-                    \&
+                    \arrow[d,"S",mid vert]
                     \\
-                    A
-                    \arrow[rr,"F"',""'{name=F},mid vert]
-                    \arrow[ru,"R",mid vert]
-                    \&
-                    \&
                     X
+                    \arrow[r,"F"',""'{name=F,pos=0.35},mid vert]
+                    \arrow[ru, "{\scriptscriptstyle\Rift_{S}(F)}"'{sloped,pos=0.275,outer sep=0.0*\the\DL},""'{name=Rift,pos=0.1},mid vert,densely dashed for mid vert]
+                    \arrow[ruu,"{\Rift_{R}(\Rift_{S}(F))}",    mid vert,densely dashed for mid vert]
+                    \&
+                    C
                     % 2-Arrows
-                    \arrow[from=2-2,to=F,  shorten <= 0.25em, shorten >= 0.625em,Rightarrow]%
-                    \arrow[from=1-3,to=Ran,shorten <= 0.75em, shorten >= 1.0em,  Rightarrow]%
+                    \arrow[from=1-2,to=Rift,shorten <= 0.75em, shorten >= 2.5em,Rightarrow,shift left=0.35*\the\DL]%
+                    \arrow[from=2-2,to=F,   shorten <= 0.0em,  shorten >= 0.75em,  Rightarrow, shift left=0.25*\the\DL]%
                 \end{tikzcd}
                 \pastingdiagramequality%
-                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&
-                    \&
-                    C
-                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    A
+                    \arrow[d,"R",mid vert]
                     \\
                     \&
                     B
-                    \arrow[ru,"S",mid vert]
-                    \&
+                    \arrow[d,"S",mid vert]
                     \\
-                    A
-                    \arrow[rr,"F"',""'{name=F,pos=0.425},mid vert]
-                    \arrow[ru,"R",mid vert]
-                    \&
-                    \&
                     X
+                    \arrow[r,"F"',""'{name=F,pos=0.35},mid vert]
+                    \arrow[ruu,"{\Rift_{S\procirc R}(F)}",    mid vert,densely dashed for mid vert]
+                    \&
+                    C
                     % 2-Arrows
-                    %\arrow[from=1-3,to=F,shorten=0.5em,Rightarrow,shift left=1.0*\the\DL]%
-                    \arrow[from=1-3,to=F,shorten <= 0.75em, shorten >= 0.75em, Rightarrow,shift left=0.15*\the\DL]%
+                    \arrow[from=1-2,to=F,   shorten <= 1.0em,  shorten >= 1.0em,  Rightarrow, shift left=0.175*\the\DL]%
                 \end{tikzcd}
             \end{webcompile}
             of pasting diagrams in $\sfbfRel$.
@@ -4900,12 +4898,13 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
     \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-weak-inverse-images}: Interaction With Weak Inverse Images}%
     We proceed in a few steps.
     \begin{itemize}
-        \item We have $a\in\Rift_{R}(F)(x)$ \textiff $R(a)\subset F(x)$.
+        \item We have $x\in\Rift_{R}(F)^{\dagger}(a)$ \textiff $a\in\Rift_{R}(F)(x)$.
+        \item This holds \textiff $R(a)\subset F(x)$.
         \item This holds \textiff, for each $b\in R(a)$, we have $b\in F(x)$.
         \item This holds \textiff, for each $b\in R(a)$, we have $x\in F^{-1}(b)$.
         \item This holds \textiff $x\in\bigcap_{b\in R(a)}F^{-1}(b)$.
     \end{itemize}
-    This finishes the proof. The rest of the proof is omitted.
+    This finishes the proof.
 \end{Proof}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
