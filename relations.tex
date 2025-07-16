@@ -4589,57 +4589,23 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                 \end{tikzcd}
             \end{webcompile}
             of pasting diagrams in $\sfbfRel$.
-        \item\label{properties-of-internal-right-kan-extensions-in-rel-associativity}\SloganFont{Associativity. }We have
-            \[
-                (T\intcirc F)\intcirc R
-                =
-                T\intcirc(F\intcirc R).
-            \]%
-            That is, we have
-            \[
-                \bigcup_{b\in R(a)}\bigcup_{c\in F(b)}T(c)%
-                =%
-                \bigcup_{c\in\bigcup_{b\in R(a)}F(b)}T(c)%
-            \]%
-            for each $a\in A$.
-        \item\label{properties-of-internal-right-kan-extensions-in-rel-unitality}\SloganFont{Unitality. }We have
-            \begin{align*}
-                \Delta_{B}\intcirc R &= R,\\
-                R\intcirc\Delta_{A}  &= R.
-            \end{align*}
-            That is, we have
-            \begin{align*}
-                \bigcup_{b\in R(a)}\{b\} &= R(a),\\
-                \bigcup_{a\in\{a\}}R(a)  &= R(a)
-            \end{align*}
-            for each $a\in A$.
-        \item\label{properties-of-internal-right-kan-extensions-in-rel-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
-            \begin{align*}
-                T\intcirc(F\aptcirc R)  &\subset (T\intcirc F)\aptcirc R,\\
-                (T\aptcirc F)\intcirc R &\subset T\aptcirc(F\intcirc R).
-            \end{align*}
-            That is, we have
-            \begin{align*}
-                T(\bigcap_{b\in B\setminus R(a)}F(b))  &\subset \bigcap_{b\in B\setminus R(a)}T(F(b))\\
-                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus F(b)}T(c) &\subset \bigcap_{c\in C\setminus F(R(a))}T(c)
-            \end{align*}
-            or, unwinding the expression for $F(R(a))$, we have
-            \begin{align*}
-                \bigcup_{c\in\bigcap_{b\in B\setminus R(a)}F(b)}T(c)  &\subset \bigcap_{b\in B\setminus R(a)}\bigcup_{c\in F(b)}T(c)\\
-                \bigcup_{b\in R(a)}\bigcap_{c\in C\setminus F(b)}T(c) &\subset \bigcap_{c\in C\setminus\bigcup_{b\in R(a)}F(b)}T(c)
-            \end{align*}
-            for each $a\in A$.
         \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
-                (F\intcirc R)^{\dagger}
+                (\Ran_{R}(F))^{\dagger}
                 =
-                R^{\dagger}\intcirc F^{\dagger}.
+                \Rift_{R^{\dagger}}(F^{\dagger}).%
             \]%
-        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
-            \begin{align*}
-                \dom(F\intcirc R)   &\subset \dom(R),\\
-                \range(F\intcirc R) &\subset \range(F).
-            \end{align*}
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}\SloganFont{Interaction With Weak Inverse Images. }We have
+            \[
+                [\Ran_{R}(F)]^{-1}(x)%
+                =%
+                \{%
+                    b\in B%
+                    \ \middle|\ %
+                    R^{-1}(b)\subset F^{-1}(x)%
+                \}%
+            \]%
+            for each $x\in X$.
         %\item\label{properties-of-internal-right-kan-extensions-in-rel-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -4654,153 +4620,46 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
     \end{align*}
     for each $b\in B$, and we therefore have $\Ran_{R_{2}}(S_{1})\subset\Ran_{R_{2}}(S_{1})$.
 
-    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-oplax-associativity}: Oplax Associativity}%
-    Using \cref{internal-right-kan-extensions-in-rel-3} of \cref{internal-right-kan-extensions-in-rel}, we have
-    \begin{align*}
-        [\Ran_{S}(\Ran_{R}(F))](a) &= \bigcap_{b\in S^{-1}(c)}[\Ran_{S}(F)](b)\\
-                                   &= \bigcap_{b\in S^{-1}(c)}\bigcap_{a\in R^{-1}(b)}F(c)
-    \end{align*}
-    and
-    \begin{align*}
-        [\Ran_{\Ran_{S}(F)}(R)](a) &= \bigcap_{a\in R^{-1}(b)}[\Ran_{T}(F)]\\
-                                   &= \bigcap_{a\in R^{-1}(b)}\bigcap_{c\in F(b)}T(c)
-    \end{align*}
-    on the one hand and
-    \begin{align*}
-        [T\intcirc(S\intcirc R)](a) &\defeq \bigcup_{c\in[S\intcirc R](a)}T(c)\\
-                                    &\defeq \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c)
-    \end{align*}
-    on the other, so we want to prove an equality of the form
-    \[
-        \bigcup_{b\in R(a)}\bigcup_{c\in S(b)}T(c)%
-        =%
-        \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
-    \]%
-    This then follows from an application of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets-associativity} of \cref{constructions-with-sets:properties-of-unions-of-families-of-subsets}}{\cref{properties-of-unions-of-families-of-subsets-associativity} of \cref{properties-of-unions-of-families-of-subsets}} in which we consider $X=D$, consider $\mathcal{P}(\mathcal{P}(\mathcal{P}(D)))$, take $U=U_{c}=T(c)$, take $A$ to be%
-    \[
-        A_{b}%
-        \defeq%
-        \{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\},%
-    \]%
-    and then finally take
-    \begin{align*}
-        \mathcal{A} &\defeq \{A_{b}\in\mathcal{P}(\mathcal{P}(D))\ \middle|\ b\in R(a)\}\\
-                    &\defeq \{\{T(c)\in\mathcal{P}(D)\ \middle|\ c\in S(b)\}\ \middle|\ b\in R(a)\}.
-    \end{align*}
-    Indeed, we have
-    \begin{align*}
-        \bigcup_{A\in\mathcal{A}}(\bigcup_{U\in A}U) &= \bigcup_{A_{b}\in\mathcal{A}}(\bigcup_{c\in S(b)}T(c))\\
-                                                     &= \bigcup_{b\in R(a)}(\bigcup_{c\in S(b)}T(c))
-    \end{align*}
-    and
-    \begin{align*}
-        \bigcup_{U\in\bigcup_{A\in\mathcal{A}}A}U &= \bigcup_{U_{c}\in\bigcup_{b\in R(a)}A_{b}}U_{c}\\%
-                                                  &= \bigcup_{T(c)\in\bigcup_{b\in R(a)}A_{b}}T(c)\\%
-                                                  &= \bigcup_{c\in\bigcup_{b\in R(a)}S(b)}T(c).%
-    \end{align*}
-    This finishes the proof.
-
-    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-unitality}: Unitality}%
-    Indeed, we have
-    \begin{align*}
-        \Delta_{B}\intcirc R &\defeq \int^{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
-                             &=      \bigvee_{b\in B}(\Delta_{B})^{-_{1}}_{b}\times R^{b}_{-_{2}}\\
-                             &=      \bigvee_{\substack{b\in B\\b=-_{1}}}R^{b}_{-_{2}}\\
-                             &=      R^{-_{1}}_{-_{2}},
-    \end{align*}
-    and
-    \begin{align*}
-        R\intcirc\Delta_{A} &\defeq \int^{a\in A}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
-                            &=      \bigvee_{a\in B}R^{-_{1}}_{a}\times(\Delta_{A})^{a}_{-_{2}}\\
-                            &=      \bigvee_{\substack{a\in B\\a=-_{2}}}R^{-_{1}}_{a}\\
-                            &=      R^{-_{1}}_{-_{2}}.
-    \end{align*}
-    In the language of relations, given $a\in A$ and $b\in B$:
-    \begin{itemize}
-        \item The equality
-            \[
-                \Delta_{B}\intcirc R%
-                =%
-                R%
-            \]%
-            witnesses the equivalence of the following two statements:
-            \begin{itemize}
-                \item We have $a\sim_{b}B$.
-                \item There exists some $b'\in B$ such that:
-                    \begin{itemize}
-                        \item We have $a\sim_{R}b'$
-                        \item We have $b'\sim_{\Delta_{B}}b$, i.e.\ $b'=b$.
-                    \end{itemize}
-            \end{itemize}
-        \item The equality
-            \[
-                R\intcirc\Delta_{A}%
-                =%
-                R%
-            \]%
-            witnesses the equivalence of the following two statements:
-            \begin{itemize}
-                \item There exists some $a'\in A$ such that:
-                    \begin{itemize}
-                        \item We have $a\sim_{\Delta_{B}}a'$, i.e.\ $a=a'$.
-                        \item We have $a'\sim_{R}b$
-                    \end{itemize}
-                \item We have $a\sim_{b}B$.
-            \end{itemize}
-    \end{itemize}
-
-    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-linear-distributivity}: Linear Distributivity}%
-    This is a repetition of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-composition}: Interaction With Composition}%
+    This holds in a general bicategory with the necessary right Kan extensions, being therefore a special case of \cref{TODO}.
 
     \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses}: Interaction With Converses}%
-    This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition} of \cref{properties-of-converses-of-relations} and is proved there.
-
-    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
     We have
     \begin{align*}
-        \dom(S\intcirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\intcirc R}c\text{ for some $c\in C$}\},\\
-                          &=       \{%
-                                       a\in A%
-                                       \ \middle|\ %
-                                       \begin{aligned}
-                                           &\text{there exists some $b\in B$ and $c\in C$}\\
-                                           &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
-                                       \end{aligned}
-                                   \},\\
-                          &\subset \{%
-                                       a\in A%
-                                       \ \middle|\ %
-                                       \begin{aligned}
-                                           &\text{there exists some $b\in B$}\\
-                                           &\text{such that $a\sim_{R}b$}
-                                       \end{aligned}
-                                   \},\\
-                          &\defeq  \dom(R)
+        [\Rift_{R^{\dagger}}(F^{\dagger})](x) &= \{b\in B\ \middle|\ R^{\dagger}(b)\subset F^{\dagger}(x)\}\\%
+                                              &= \{b\in B\ \middle|\ R^{-1}(b)\subset F^{-1}(x)\}\\%
+                                              &= [\Ran_{R}(F)]^{-1}(x)\\%
+                                              &= [\Ran_{R}(F)]^{\dagger}(x)%
     \end{align*}
-    and
-    \begin{align*}
-        \range(S\intcirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\intcirc R}c\text{ for some $a\in A$}\},\\
-                            &=       \{%
-                                         c\in C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $a\in A$ and $b\in B$}\\
-                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
-                                         \end{aligned}
-                                     \},\\
-                            &\subset \{%
-                                         c\in C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $b\in B$}\\
-                                             &\text{such that $b\sim_{S}c$}
-                                         \end{aligned}
-                                     \},\\
-                            &\defeq  \range(S).
-    \end{align*}
+    where we have used \cref{internal-right-kan-lifts-in-rel} and \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}.
+
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}: Interaction With Weak Inverse Images}%
+    We proceed in a few steps.
+    \begin{itemize}
+        \item We have $b\in[\Ran_{R}(F)]^{-1}(x)$ \textiff, for each $a\in R^{-1}(b)$, we have $b\in F(a)$.
+        \item This holds \textiff, for each $a\in R^{-1}(b)$, we have $a\in F^{-1}(b)$.
+        \item This holds \textiff $R^{-1}(b)\subset F^{-1}(b)$.
+    \end{itemize}
     This finishes the proof.
 \end{Proof}
 \subsection{Internal Right Kan Lifts}\label{subsection-internal-right-kan-lifts-in-rel}
+\[
+    [\Rift_{R}(F)]^{-1}(x)%
+    =%
+    \bigcap_{b\in R(a)}F^{-1}(b)%
+\]%
+\[
+    [\Rift_{R}(F)](x)%
+    =%
+    \{%
+        a\in A%
+        \ \middle|\ %
+        R(a)\subset F(x)%
+    \}%
+\]%
+\begin{proposition}{Internal Right Kan Lifts in $\sfbfRel$}{internal-right-kan-lifts-in-rel}%
+    A
+\end{proposition}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
     The 2-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
