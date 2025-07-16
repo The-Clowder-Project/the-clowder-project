@@ -4370,7 +4370,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
 \begin{proposition}{Internal Right Kan Extensions in $\sfbfRel$}{internal-right-kan-extensions-in-rel}%
     The internal right Kan extension of $F$ along $R$ is the relation \index[notation]{RanRF@$\Ran_{R}(F)$}$\Ran_{R}(F)$ described as follows:
     \begin{enumerate}
-        \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $A$ to $C$ as subsets of $B\times X$, we have
+        \item\label{internal-right-kan-extensions-in-rel-1}Viewing relations from $B$ to $X$ as subsets of $B\times X$, we have
             \[
                 \Ran_{R}(F)%
                 =%
@@ -4383,17 +4383,17 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                     \end{aligned}
                 \}.%
             \]%
-        \item\label{internal-right-kan-extensions-in-rel-2}Viewing relations as functions $A\times B\to\TV$, we define
+        \item\label{internal-right-kan-extensions-in-rel-2}Viewing relations as functions $B\times X\to\TV$, we have
             \begin{align*}
                 (\Ran_{R}(F))^{-_{1}}_{-_{2}} &=      \int_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},F^{-_{1}}_{a})\\
                                               &=      \bigwedge_{a\in A}\eHom_{\TTV}(R^{-_{2}}_{a},F^{-_{1}}_{a}),%
             \end{align*}
             where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
-        \item\label{internal-right-kan-extensions-in-rel-3}Viewing relations as functions $A\to\mathcal{P}(B)$, we define
+        \item\label{internal-right-kan-extensions-in-rel-3}Viewing relations as functions $B\to\mathcal{P}(X)$, we have
             \begin{webcompile}
                 \Ran_{R}(F)%
                 =%
-                \Ran_{\chi'_{B}}(F)\circ R^{-1},%
+                \Ran_{\chi'_{A}}(F)\circ R^{-1},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&%
@@ -4521,19 +4521,23 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                 \BifunctorialityPeriod{\Ran_{(-)}(F)}{\Ran_{R}}{\Ran_{(-_{1})}(-_{2})}{\eRel(A,B)^{\op}}{\eRel(A,X)}{\eRel(A,X)\times\eRel(A,B)^{\op}}{\eRel(B,X)}%
             \]%
             In other words, given relations
-            \[
+            \begin{webcompile}
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
                     \arrow[r,"R_{1}", mid vert,shift left=1.0]%
                     \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
                     \&
                     B
+                \end{tikzcd}
+                \qquad
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
                     \arrow[r,"F_{1}", mid vert,shift left=0.8]%
                     \arrow[r,"F_{2}"',mid vert,shift right=0.8]%
                     \&
-                    C\mrp{,}
+                    X\mrp{,}
                 \end{tikzcd}
-            \]%
+            \end{webcompile}
             if $R_{1}\subset R_{2}$ and $F_{1}\subset F_{2}$, then $\Ran_{R_{2}}(F_{1})\subset\Ran_{R_{1}}(F_{2})$.
         \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
             \[
@@ -4591,7 +4595,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
             of pasting diagrams in $\sfbfRel$.
         \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
             \[
-                (\Ran_{R}(F))^{\dagger}
+                \Ran_{R}(F)^{\dagger}
                 =
                 \Rift_{R^{\dagger}}(F^{\dagger}).%
             \]%
@@ -4616,9 +4620,9 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
         [\Ran_{R_{2}}(F_{1})](b) &=       \bigcap_{a\in R^{-1}_{2}(b)}F_{1}(a)\\
                                  &\subset \bigcap_{a\in R^{-1}_{1}(b)}F_{1}(a)\\
                                  &\subset \bigcap_{a\in R^{-1}_{1}(b)}F_{2}(a)\\
-                                 &=       [\Ran_{R_{2}}(F_{1})](b)
+                                 &=       [\Ran_{R_{1}}(F_{2})](b)
     \end{align*}
-    for each $b\in B$, and we therefore have $\Ran_{R_{2}}(S_{1})\subset\Ran_{R_{2}}(S_{1})$.
+    for each $b\in B$, so we therefore have $\Ran_{R_{2}}(F_{1})\subset\Ran_{R_{1}}(F_{2})$.
 
     \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-composition}: Interaction With Composition}%
     This holds in a general bicategory with the necessary right Kan extensions, being therefore a special case of \cref{TODO}.
@@ -4628,8 +4632,8 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
     \begin{align*}
         [\Rift_{R^{\dagger}}(F^{\dagger})](x) &= \{b\in B\ \middle|\ R^{\dagger}(b)\subset F^{\dagger}(x)\}\\%
                                               &= \{b\in B\ \middle|\ R^{-1}(b)\subset F^{-1}(x)\}\\%
-                                              &= [\Ran_{R}(F)]^{-1}(x)\\%
-                                              &= [\Ran_{R}(F)]^{\dagger}(x)%
+                                              &= \Ran_{R}(F)^{-1}(x)\\%
+                                              &= \Ran_{R}(F)^{\dagger}(x)%
     \end{align*}
     where we have used \cref{internal-right-kan-lifts-in-rel} and \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}.
 
@@ -4643,23 +4647,266 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
     This finishes the proof.
 \end{Proof}
 \subsection{Internal Right Kan Lifts}\label{subsection-internal-right-kan-lifts-in-rel}
-\[
-    [\Rift_{R}(F)]^{-1}(x)%
-    =%
-    \bigcap_{b\in R(a)}F^{-1}(b)%
-\]%
-\[
-    [\Rift_{R}(F)](x)%
-    =%
-    \{%
-        a\in A%
-        \ \middle|\ %
-        R(a)\subset F(x)%
-    \}%
-\]%
+Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X\rightproarrow B$ be relations.
+\begin{motivation}{Setting for Internal Right Kan Lifts in $\sfbfRel$}{setting-for-internal-right-kan-lifts-in-rel}%
+    We want to understand internal right Kan lifts in $\sfbfRel$, which look like this:
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&%
+            A%
+            \arrow[d, "R", mid vert]%
+            \\%
+            X%
+            \arrow[ru, "\Rift_{R}(F)",densely dashed for mid vert, mid vert]%
+            \arrow[r, "F"',""'{name=F,pos=0.425},mid vert]%
+            \&%
+            B\mrp{.}%
+            % 2-Arrows
+            \arrow[from=1-2,to=F,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+        \end{tikzcd}
+    \]%
+    Note in particular here that $F\colon B\rightproarrow X$ is a relation from $B$ to $X$. These will form a functor
+    \[
+        \Rift_{R}%
+        \colon%
+        \eRel(X,B)%
+        \to%
+        \eRel(X,A)%
+    \]%
+    that is right adjoint to the postcomposition by $R$ functor
+    \[
+        R_{*}%
+        \colon%
+        \eRel(X,A)%
+        \to%
+        \eRel(X,B).%
+    \]%
+\end{motivation}
 \begin{proposition}{Internal Right Kan Lifts in $\sfbfRel$}{internal-right-kan-lifts-in-rel}%
-    A
+    The internal right Kan lift of $F$ along $R$ is the relation \index[notation]{RiftRF@$\Rift_{R}(F)$}$\Rift_{R}(F)$ described as follows:
+    \begin{enumerate}
+        \item\label{internal-right-kan-lifts-in-rel-1}Viewing relations from $X$ to $A$ as subsets of $X\times A$, we have
+            \[
+                \Rift_{R}(F)%
+                =%
+                \{%
+                    (x,a)\in X\times A%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $b\in B$, if $a\sim_{R}b$,}\\
+                        &\text{then we have $x\sim_{F}b$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{internal-right-kan-lifts-in-rel-2}Viewing relations as functions $X\times A\to\TV$, we have
+            \begin{align*}
+                (\Rift_{R}(F))^{-_{1}}_{-_{2}} &= \int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},F^{b}_{-_{2}})\\
+                                               &= \bigwedge_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},F^{b}_{-_{2}}),%
+            \end{align*}
+            where the meet $\bigwedge$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
+        \item\label{internal-right-kan-lifts-in-rel-3}Viewing relations as functions $X\to\mathcal{P}(A)$, we have
+            \[
+                [\Rift_{R}(F)](x)%
+                =%
+                \{%
+                    a\in A%
+                    \ \middle|\ %
+                    R(a)\subset F(x)%
+                \}%
+            \]%
+            for each $a\in A$.
+    \end{enumerate}
 \end{proposition}
+\begin{Proof}{Proof of \cref{internal-right-kan-lifts-in-rel}}%
+    We have
+    \begin{envsmallsize}
+        \begin{align*}
+            \Hom_{\eRel(X,B)}(R\procirc F,T) &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((R\procirc F)^{b}_{x},T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\eHom_{\TTV}((\int^{a\in A}R^{b}_{a}\times F^{a}_{x}),T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(R^{b}_{a}\times F^{a}_{x},T^{b}_{x})\\
+                                             &\cong  \int_{x\in X}\int_{b\in B}\int_{a\in A}\eHom_{\TTV}(F^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \int_{x\in X}\int_{a\in A}\int_{b\in B}\eHom_{\TTV}(F^{a}_{x},\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \int_{x\in X}\int_{a\in A}\eHom_{\TTV}(F^{a}_{x},\int_{b\in B}\eHom_{\TTV}(R^{b}_{a},T^{b}_{x}))\\
+                                             &\cong  \Hom_{\eRel(X,A)}(F,\int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},T^{b}_{-_{2}}))%
+        \end{align*}
+    \end{envsmallsize}
+    naturally in each $F\in\eRel(X,A)$ and each $T\in\eRel(X,B)$, showing that
+    \[
+        \int_{b\in B}\eHom_{\TTV}(R^{b}_{-_{1}},F^{b}_{-_{2}})%
+    \]%
+    is right adjoint to the postcomposition functor $R\procirc-$, being thus the right Kan lift along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
+    \begin{enumerate}
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-2}\cref{composition-of-relations}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+    \end{enumerate}
+    This finishes the proof.
+\end{Proof}
+\begin{example}{Examples of Internal Right Kan Extensions of Relations}{examples-of-internal-right-kan-lifts-of-relations}%
+    Here are some examples of internal right Kan lifts of relations.
+    \begin{enumerate}
+        \item\label{examples-of-internal-right-kan-lifts-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of Internal Right Kan Lifts in $\sfbfRel$}{properties-of-internal-right-kan-lifts-in-rel}%
+    Let $A$, $B$, $C$ and $X$ be sets and let $R\colon A\rightproarrow B$, $S\colon B\rightproarrow C$, and $F\colon X\rightproarrow B$ be relations.
+    \begin{enumerate}
+        \item\label{properties-of-internal-right-kan-lifts-in-rel-functoriality}\SloganFont{Functoriality. }The assignments $R,F,(R,F)\mapsto\Rift_{R}(F)$ define functors
+            \[
+                \BifunctorialityPeriod{\Rift_{(-)}(F)}{\Rift_{R}}{\Rift_{(-_{1})}(-_{2})}{\eRel(A,B)^{\op}}{\eRel(A,X)}{\eRel(A,X)\times\eRel(A,B)^{\op}}{\eRel(B,X)}%
+            \]%
+            In other words, given relations
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"R_{1}", mid vert,shift left=1.0]%
+                    \arrow[r,"R_{2}"',mid vert,shift right=1.0]%
+                    \&
+                    B
+                \end{tikzcd}
+                \qquad
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"F_{1}", mid vert,shift left=0.8]%
+                    \arrow[r,"F_{2}"',mid vert,shift right=0.8]%
+                    \&
+                    X\mrp{,}
+                \end{tikzcd}
+            \end{webcompile}
+            if $R_{1}\subset R_{2}$ and $F_{1}\subset F_{2}$, then $\Rift_{R_{2}}(F_{1})\subset\Rift_{R_{1}}(F_{2})$.
+        \item\label{properties-of-internal-right-kan-lifts-in-rel-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \[
+                \Rift_{S\procirc R}(F)%
+                =
+                \Rift_{S}(\Ran_{R}(F))%
+            \]%
+            and an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \&
+                    C
+                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    \\
+                    \&
+                    B
+                    \arrow[ru,"S",mid vert]
+                    \arrow[rd,"{\scriptscriptstyle\Ran_{R}(F)}"'{sloped,outer sep=0.1*\the\DL},""'{name=Ran,pos=0.625},densely dashed for mid vert,mid vert]
+                    \&
+                    \\
+                    A
+                    \arrow[rr,"F"',""'{name=F},mid vert]
+                    \arrow[ru,"R",mid vert]
+                    \&
+                    \&
+                    X
+                    % 2-Arrows
+                    \arrow[from=2-2,to=F,  shorten <= 0.25em, shorten >= 0.625em,Rightarrow]%
+                    \arrow[from=1-3,to=Ran,shorten <= 0.75em, shorten >= 1.0em,  Rightarrow]%
+                \end{tikzcd}
+                \pastingdiagramequality%
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \&
+                    C
+                    \arrow[dd,"{\Ran_{S}(\Ran_{R}(F))}",densely dashed for mid vert,mid vert]
+                    \\
+                    \&
+                    B
+                    \arrow[ru,"S",mid vert]
+                    \&
+                    \\
+                    A
+                    \arrow[rr,"F"',""'{name=F,pos=0.425},mid vert]
+                    \arrow[ru,"R",mid vert]
+                    \&
+                    \&
+                    X
+                    % 2-Arrows
+                    %\arrow[from=1-3,to=F,shorten=0.5em,Rightarrow,shift left=1.0*\the\DL]%
+                    \arrow[from=1-3,to=F,shorten <= 0.75em, shorten >= 0.75em, Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\sfbfRel$.
+        \item\label{properties-of-internal-right-kan-lifts-in-rel-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                \Rift_{R}(F)^{\dagger}
+                =
+                \Ran_{R^{\dagger}}(F^{\dagger}).%
+            \]%
+        \item\label{properties-of-internal-right-kan-lifts-in-rel-interaction-with-weak-inverse-images}\SloganFont{Interaction With Weak Inverse Images. }We have
+            \begin{webcompile}
+                \Rift_{R}(F)^{\dagger}%
+                =%
+                \Ran_{\chi'_{B}}\pig(F^{\dagger}\pig)\circ R,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[r, "F^{\dagger}",""{name=F,pos=0.7}]%
+                    \arrow[d, "\chi_{B}"', hook]%
+                    \&%
+                    \mathcal{P}(X)\mrp{,}%
+                    \\%
+                    A%
+                    \arrow[r, "R"']%
+                    \&%
+                    \mathcal{P}(B)^{\op}%
+                    \arrow[ru, "{\Ran_{\chi_{A}}\pig(F^{-1}\pig)}"', bend right=10]%
+                    \&
+                    % 2-Arrows
+                    \arrow[from=F,to=2-2,shorten=0.75*\the\DL,Rightarrow]%
+                \end{tikzcd}%
+            \end{webcompile}
+            where $\Ran_{\chi_{A}}\pig(F^{\dagger}\pig)$ is computed by the formula
+            \begin{align*}
+                [\Ran_{\chi_{A}}\pig(F^{\dagger}\pig)](U) &\cong \int_{a\in A}\chi_{\mathcal{P}(B)^{\op}}(U,\chi_{a})\pitchfork F^{\dagger}(a)\\
+                                                          &\cong \int_{a\in A}\chi_{\mathcal{P}(B)}(\chi_{a},U)\pitchfork F^{-1}(a)\\
+                                                          &\cong \int_{a\in A}\chi_{U}(a)\pitchfork F(a)\\
+                                                          &\cong \bigcap_{a\in A}\chi_{U}(a)\pitchfork F(a)\\
+                                                          &\cong \bigcap_{a\in U}F(a)
+            \end{align*}
+            for each $U\in\mathcal{P}(A)$, so we have%
+            \[
+                [\Rift_{R}(F)]^{-1}(a)%
+                =%
+                \bigcap_{b\in R(a)}F^{-1}(b)%
+            \]%
+            for each $a\in A$.
+        %\item\label{properties-of-internal-right-kan-lifts-in-rel-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-internal-right-kan-lifts-in-rel}}%
+    \FirstProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-functoriality}: Functoriality}%
+    We have
+    \begin{align*}
+        [\Rift_{R_{2}}(F_{1})](x) &= \{a\in A\ \middle|\ R_{2}(a)\subset F_{1}(x)\}\\
+                                  &\subset \{a\in A\ \middle|\ R_{1}(a)\subset F_{1}(x)\}\\
+                                  &\subset \{a\in A\ \middle|\ R_{1}(a)\subset F_{2}(x)\}\\
+                                  &=       \Rift_{R_{1}}(F_{2})
+    \end{align*}
+    for each $x\in X$, so we therefore have $\Rift_{R_{2}}(F_{1})\subset\Rift_{R_{1}}(F_{2})$.
+
+    \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-composition}: Interaction With Composition}%
+    This holds in a general bicategory with the necessary right Kan lifts, being therefore a special case of \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-converses}: Interaction With Converses}%
+    This follows from \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses} of \cref{properties-of-internal-right-kan-extensions-in-rel} by duality.
+
+    \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-weak-inverse-images}: Interaction With Weak Inverse Images}%
+    We proceed in a few steps.
+    \begin{itemize}
+        \item We have $a\in\Rift_{R}(F)(x)$ \textiff $R(a)\subset F(x)$.
+        \item This holds \textiff, for each $b\in R(a)$, we have $b\in F(x)$.
+        \item This holds \textiff, for each $b\in R(a)$, we have $x\in F^{-1}(b)$.
+        \item This holds \textiff $x\in\bigcap_{b\in R(a)}F^{-1}(b)$.
+    \end{itemize}
+    This finishes the proof. The rest of the proof is omitted.
+\end{Proof}
 \subsection{Closedness}\label{subsection-closedness-of-rel}
 \begin{proposition}{Closedness of $\sfbfRel$}{closedness-of-rel}%
     The 2-category $\sfbfRel$ is a closed bicategory, there being, for each $R\colon A\rightproarrow B$ and set $X$, a pair of adjunctions
