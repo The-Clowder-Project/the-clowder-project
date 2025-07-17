@@ -525,6 +525,18 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 \bigcup_{a\in\{a\}}R(a)  &= R(a)
             \end{align*}
             for each $a\in A$.
+        \item\label{properties-of-composition-of-relations-relation-to-apartness-composition-with-relations}\SloganFont{Relation to Apartness Composition of Relations. }We have
+            \begin{align*}
+                (S\procirc R)^{\sfc} &= S^{\sfc}\aptcirc R^{\sfc},\\
+                (S\aptcirc R)^{\sfc} &= S^{\sfc}\procirc R^{\sfc},
+            \end{align*}
+            where $(-)^{\sfc}$ is the complement functor of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-complements}}{\cref{subsection-complements}}. In particular, $\mathord{\procirc}$ is a special case of apartness composition of relations, as we have
+            \[
+                S\procirc R%
+                =%
+                (S^{\sfc}\aptcirc R^{\sfc})^{\sfc}.
+            \]%
+            This is also compatible with units, as we have $\Delta^{\sfc}_{A}=\nabla_{A}$.
         \item\label{properties-of-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
             \begin{align*}
                 T\procirc(S\aptcirc R)  &\subset (T\procirc S)\aptcirc R,\\
@@ -707,6 +719,9 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{itemize}
     \end{itemize}
 
+    \ProofBox{\cref{properties-of-composition-of-relations-relation-to-apartness-composition-with-relations}: Relation to Apartness Composition of Relations}%
+    This is a repetition of \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
+
     \ProofBox{\cref{properties-of-composition-of-relations-linear-distributivity}: Linear Distributivity}%
     This is a repetition of \cref{properties-of-apartness-composition-of-relations-linear-distributivity} of \cref{properties-of-apartness-composition-of-relations} and is proved there.
 
@@ -854,6 +869,18 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 \nabla_{B}\aptcirc R &= R,\\
                 R\aptcirc\nabla_{A}  &= R.
             \end{align*}
+        \item\label{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations}\SloganFont{Relation to Composition of Relations. }We have
+            \begin{align*}
+                (S\aptcirc R)^{\sfc} &= S^{\sfc}\procirc R^{\sfc},\\
+                (S\procirc R)^{\sfc} &= S^{\sfc}\aptcirc R^{\sfc},
+            \end{align*}
+            where $(-)^{\sfc}$ is the complement functor of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-complements}}{\cref{subsection-complements}}. In particular, $\mathord{\aptcirc}$ is a special case of composition of relations, as we have
+            \[
+                S\aptcirc R%
+                =%
+                (S^{\sfc}\procirc R^{\sfc})^{\sfc}.
+            \]%
+            This is also compatible with units, as we have $\nabla^{\sfc}_{A}=\Delta_{A}$.
         \item\label{properties-of-apartness-composition-of-relations-linear-distributivity}\SloganFont{Linear Distributivity. }We have inclusions of relations
             \begin{align*}
                 T\procirc(S\aptcirc R)  &\subset (T\procirc S)\aptcirc R,\\
@@ -952,6 +979,16 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                             &=      R^{-_{1}}_{-_{2}},
     \end{align*}
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations}: Relation to Composition of Relations}%
+    We proceed in a few steps.
+    \begin{itemize}
+        \item We have $a\sim_{(S\aptcirc R)^{\sfc}}b$ \textiff $a\nsim_{S\aptcirc R}b$.
+        \item We have $a\nsim_{S\aptcirc R}b$ \textiff the assertion \say{for each $b\in B$, we have $a\sim_{R}b$ or $b\sim_{S}c$} is false.
+        \item That happens \textiff there exists some $b\in B$ such that $a\nsim_{R}b$ and $b\nsim_{S}c$.
+        \item That happens \textiff there exists some $b\in B$ such that $a\sim_{R^{\sfc}}b$ and $b\sim_{S^{\sfc}}c$.
+    \end{itemize}
+    The second equality then follows from the first one by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-involutority} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-involutority} of \cref{properties-of-complements}}.
 
     \ProofBox{\cref{properties-of-apartness-composition-of-relations-linear-distributivity}: Linear Distributivity}%
     We have
@@ -3049,6 +3086,30 @@ Let $A$ and $B$ be sets.
             for each $(S,R)\in\Rel(B,C)\times\Rel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{apartness-composition-of-relations}.
     \end{itemize}
 \end{definition}
+\begin{proposition}{Isomorphism Between $\sfRel$ and $\aptsfRel$}{isomorphism-between-sfrel-and-sfaptrel}%
+    The functor
+    \[
+        (-)^{\sfc}%
+        \colon%
+        \sfRel%
+        \to%
+        \aptsfRel%
+    \]%
+    given by the identity on objects and by $R\mapsto R^{\sfc}$ on morphisms is an isomorphism of categories.
+\end{proposition}
+\begin{Proof}{Proof of \cref{isomorphism-between-sfrel-and-sfaptrel}}%
+    By \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}, we see that $(-)^{\sfc}$ is indeed a functor.
+
+    \indent By \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-of-categories-characterisations} of \cref{categories:properties-of-isomorphisms-of-categories}}{\cref{properties-of-isomorphisms-of-categories-characterisations} of \cref{properties-of-isomorphisms-of-categories}}, it suffices to show that $(-)^{\dagger}$ is bijective on objects (which follows by definition) and fully faithful. Indeed, the map
+    \[
+        (-)^{\sfc}%
+        \colon%
+        \Rel(A,B)%
+        \to%
+        \Rel(A,B)%
+    \]%
+    defined by the assignment $R\mapsto R^{\sfc}$ is a bijection by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-involutority} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-involutority} of \cref{properties-of-complements}}. Thus $(-)^{\sfc}$ is an isomorphism of categories.
+\end{Proof}
 \subsection{The 2-Category of Relations With Apartness Composition}\label{subsection-the-2-category-of-relations-with-apartness-composition}
 \begin{definition}{The 2-Category of Relations With Apartness Composition}{the-2-category-of-relations-with-apartness-composition}%
     The \index[set-theory]{relation!two-category of@2-category of!with apartness composition}\textbf{2-category of relations with apartness composition} is the locally posetal 2-category \index[notation]{Rel@$\sfbfRel$}$\sfbfRel$ where
@@ -3099,6 +3160,28 @@ Let $A$ and $B$ be sets.
             for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
+\begin{proposition}{2-Isomorphism Between $\sfbfRel$ and $\aptsfbfRel$}{2-isomorphism-between-sfrel-and-sfaptrel}%
+    The functor
+    \[
+        (-)^{\sfc}%
+        \colon%
+        \sfbfRel%
+        \to%
+        \aptsfbfRel%
+    \]%
+    given by the identity on objects and by $R\mapsto R^{\sfc}$ on 1-morphisms is a 2-isomorphism of 2-categories.
+\end{proposition}
+\begin{Proof}{Proof of \cref{2-isomorphism-between-sfrel-and-sfaptrel}}%
+    By \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}, we see that $(-)^{\sfc}$ is indeed a functor. By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-functoriality} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-functoriality} of \cref{properties-of-complements}}, it is also a 2-functor.
+
+    \indent By \cref{TODO}, it suffices to show that $(-)^{\sfc}$ is:
+    \begin{itemize}
+        \item Bijective on objects, which follows by definition.
+        \item Bijective on $1$-morphisms, which was shown in \cref{the-category-of-relations-with-apartness-composition}.
+        \item Bijective on 2-morphisms, which follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-functoriality} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-functoriality} of \cref{properties-of-complements}}.
+    \end{itemize}
+    Thus $(-)^{\sfc}$ is indeed a 2-isomorphism of categories.
+\end{Proof}
 \subsection{The Linear Bicategory of Relations}\label{subsection-the-linear-bicategory-of-relations}
 \begin{definition}{The Linear Bicategory of Relations}{the-linear-bicategory-of-relations}%
     The \index[set-theory]{relation!linear bicategory of}\textbf{linear bicategory of relations} is the linear bicategory consisting of:
@@ -3189,7 +3272,7 @@ Let $A$ and $B$ be sets.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel}
 Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
-\begin{lemma}{Conditions Involving a Relation and Its Converse}{conditions-involving-a-relation-and-its-converse}%
+\begin{lemma}{Conditions Involving a Relation and Its Converse \rmI}{conditions-involving-a-relation-and-its-converse-1}%
     The conditions below are row-wise equivalent:
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
@@ -3206,7 +3289,7 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \end{center}
     \endgroup
 \end{lemma}
-\begin{Proof}{Proof of \cref{conditions-involving-a-relation-and-its-converse}}%
+\begin{Proof}{Proof of \cref{conditions-involving-a-relation-and-its-converse-1}}%
     \FirstProofBox{Functionality Is Equivalent to $R\procirc R^{\dagger}\subset\Delta_{B}$}%
     The condition $R\procirc R^{\dagger}\subset\Delta_{B}$ unwinds to
     \begin{itemize}
@@ -3264,14 +3347,14 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-3}: }We proceed in a few steps:
             \begin{itemize}
                 \item First, note that the equalities in \cref{isomorphisms-and-equivalences-in-rel-2} imply $R\dashv R^{-1}$ and thus, by \cref{adjunctions-in-rel}, there exists a function $f_{R}\colon A\to B$ associated to $R$.
-                \item By \cref{conditions-involving-a-relation-and-its-converse}, $f_{R}$ is a bijection.
+                \item By \cref{conditions-involving-a-relation-and-its-converse-1}, $f_{R}$ is a bijection.
             \end{itemize}
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-2}: }By \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}, we have an adjunction $\Gr(f)\dashv f^{-1}$, giving inclusions
             \begin{gather*}
                 \Delta_{A}            \subset f^{-1}\procirc\Gr(f),\\
                 \Gr(f)\procirc f^{-1} \subset \Delta_{B}.
             \end{gather*}
-            If $f$ is bijective, then the reverse inclusions are also true by \cref{conditions-involving-a-relation-and-its-converse}.
+            If $f$ is bijective, then the reverse inclusions are also true by \cref{conditions-involving-a-relation-and-its-converse-1}.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -5485,38 +5568,62 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
     Thus $(-)^{\dagger}$ is indeed a 2-isomorphism of categories.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel-apartness}
-\begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if, for each $x\in A$, either $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$, then $b_{1}\neq b_{2}$.
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if, for each $y\in B$, either $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$, then $a_{1}\neq a_{2}$.
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$, then, for each $x\in A$, either $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$, then, for each $y\in B$, either $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$.
-\end{itemize}
-A
-\begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$, then $b_{1}\neq b_{2}$.
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if $R(a_{1})\cup R(a_{2})=B$, then $a_{1}\neq a_{2}$.
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$, then $R(a_{1})\cup R(a_{2})=B$.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$, then $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$.
-\end{itemize}
-$R'=A\times B\setminus R$
-\begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  For each $b_{1},b_{2}\in B$, if $R^{\prime,-1}(b_{1})\cap R^{\prime,-1}(b_{2})=\emptyset$, then $b_{1}\neq b_{2}$.
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  For each $a_{1},a_{2}\in A$, if $R'(a_{1})\cup R'(a_{2})=\emptyset$,                       then $a_{1}\neq a_{2}$.
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: For each $a_{1},a_{2}\in A$, if $a_{1}\neq a_{2}$,                                         then $R'(a_{1})\cap R'(a_{2})=\emptyset$.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: For each $b_{1},b_{2}\in B$, if $b_{1}\neq b_{2}$,                                         then $R^{\prime,-1}(b_{1})\cap R^{\prime,-1}(b_{2})=\emptyset$.
-\end{itemize}
-so:
-\begin{itemize}
-    \item $R\aptcirc R^{\dagger}\subset\nabla_{B}$:  $R'$ is surjective. (Via contrapositive)
-    \item $R^{\dagger}\aptcirc R\subset\nabla_{A}$:  $R'$ is total. (Via contrapositive)
-    \item $\nabla_{A}\subset R\aptcirc R^{\dagger}$: $R'$ is injective.
-    \item $\nabla_{B}\subset R\aptcirc R^{\dagger}$: $R'$ is functional.
-\end{itemize}
 Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
-\begin{proposition}{Isomorphisms and Equivalences in $\sfbfRel$}{isomorphisms-and-equivalences-in-rel-apartness}%
+\begin{lemma}{Conditions Involving a Relation and Its Converse \rmII}{conditions-involving-a-relation-and-its-converse-2}%
+    Let $R^{\sfc}=B\times A\setminus R$. The conditions below are row-wise equivalent:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
+            $R^{\sfc}$ is functional                       & $R\aptcirc R^{\dagger}\subset \nabla_{B}$            \\\rowcolor{backgroundColor}
+            $R^{\sfc}$ is surjective                       & $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ \\\rowcolor{black!05!backgroundColor}
+            $R^{\sfc}$ is total                            & $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ \\\rowcolor{backgroundColor}
+            $R^{\sfc}$ is injective                        & $R^{\dagger}\aptcirc R\subset \nabla_{A}$            \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{lemma}
+\begin{Proof}{Proof of \cref{conditions-involving-a-relation-and-its-converse-2}}%
+    This follows from \cref{conditions-involving-a-relation-and-its-converse-1} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}. Still, here we note what each statement unwinds to:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
+            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If, for each $x\in A$, we have\\$x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$,\\then $b_{1}\neq b_{2}$.}}  \\\rowcolor{backgroundColor}
+            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If $a_{1}\neq a_{2}$, then, for each $x\in A$, \\we have $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$}} \\\rowcolor{black!05!backgroundColor}
+            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If $b_{1}\neq b_{2}$, then, for each $y\in B$, \\we have $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$}} \\\rowcolor{backgroundColor}
+            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If, for each $y\in B$, we have $a_{1}\sim_{R}y$ \\or $a_{2}\sim_{R}y$, then $a_{1}\neq a_{2}$}} \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+    Equivalently:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
+            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{if $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$, then $b_{1}\neq b_{2}$}} \\\rowcolor{backgroundColor}
+            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{if $a_{1}\neq a_{2}$, then $R(a_{1})\cup R(a_{2})=B$}}           \\\rowcolor{black!05!backgroundColor}
+            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{if $b_{1}\neq b_{2}$, then $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$}} \\\rowcolor{backgroundColor}
+            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{if $R(a_{1})\cup R(a_{2})=B$, then $a_{1}\neq a_{2}$}}           \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+    This finishes the description.
+\end{Proof}
+Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+\begin{proposition}{Isomorphisms and Equivalences in $\aptsfbfRel$}{isomorphisms-and-equivalences-in-rel-apartness}%
     The following conditions are equivalent:
     \begin{enumerate}
-        \item\label{isomorphisms-and-equivalences-in-rel-apartness-1}The relation $R\colon A\rightproarrow B$ is an equivalence in $\sfbfRel$, i.e.:
+        \item\label{isomorphisms-and-equivalences-in-rel-apartness-1}The relation $R\colon A\rightproarrow B$ is an equivalence in $\aptsfbfRel$, i.e.:
             \begin{itemize}
                 \itemstar There exists a relation $R^{-1}\colon B\rightproarrow A$ from $B$ to $A$ together with isomorphisms
                     \begin{align*}
@@ -5538,7 +5645,7 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
 \begin{Proof}{Proof of \cref{isomorphisms-and-equivalences-in-rel-apartness}}%
     We claim that \cref{isomorphisms-and-equivalences-in-rel-apartness-1,isomorphisms-and-equivalences-in-rel-apartness-2,isomorphisms-and-equivalences-in-rel-apartness-3} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }This follows from the fact that $\sfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }This follows from the fact that $\aptsfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-3}: }
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }
     \end{itemize}
