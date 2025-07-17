@@ -3040,7 +3040,7 @@ Let $A$ and $B$ be sets.
         \end{tikzcd}
     \end{webcompile}%
 \end{definition}
-\section{Categories of Relations With Apartness Composition}\label{subsection-categories-of-relations-with-apartness-composition}
+\section{Categories of Relations With Apartness Composition}\label{section-categories-of-relations-with-apartness-composition}
 \subsection{The Category of Relations With Apartness Composition}\label{subsection-the-category-of-relations-with-apartness-composition}
 \begin{definition}{The Category of Relations With Apartness Composition}{the-category-of-relations-with-apartness-composition}%
     The \index[set-theory]{category of relations!with apartness composition}\textbf{category of relations with apartness composition} is the category \index[notation]{Relbox@$\aptsfRel$}$\aptsfRel$ where
@@ -3205,7 +3205,14 @@ Let $A$ and $B$ be sets.
     \begin{itemize}
         \item\label{other-categorical-structures-with-apartness-composition-monoidal-category-with-products}\SloganFont{Monoidal Category With Products. }Products don't seem to endow $\aptsfRel$ with a monoidal structure.
         \item\label{other-categorical-structures-with-apartness-composition-monoidal-category-with-coproducts}\SloganFont{Monoidal Category With Coproducts. }Coproducts also don't seem to endow $\aptsfRel$ with a monoidal structure.
-        \item\label{other-categorical-structures-with-apartness-composition-double-categorical-structure}\SloganFont{Double Categorical Structure. }It seems the apartness composition of relations doesn't form a double category in a natural way.
+        \item\label{other-categorical-structures-with-apartness-composition-double-categorical-structure}\SloganFont{Double Categorical Structure. }It seems the apartness composition of relations doesn't form a double category in a natural%
+            %--- Begin Footnote ---%
+            \footnote{%
+                I.e.\ such that the composition of vertical morphisms is the usual composition of functions, as in $\Sets$.  
+                \par\vspace*{\TCBBoxCorrection}
+            } %
+            %---  End Footnote  ---%
+            way.
     \end{itemize}
 \end{remark}
 \section{Properties of the 2-Category of Relations}\label{section-properties-of-the-2-category-of-relations}
@@ -3392,7 +3399,7 @@ Let $A$ and $B$ be sets.
                 \Delta_{A}  &\subset S\procirc R,\\
                 R\procirc S &\subset \Delta_{B}.
             \end{align*}
-            By \cref{conditions-involving-a-relation-and-its-converse}, $R$ is total and functional. In particular, $R(a)$ is a singleton for all $a\in A$. Defining $f_{R}$ such that $f_{R}(a)$ is the unique element of $R(a)$ then gives us our desired function, forming a map
+            By \cref{conditions-involving-a-relation-and-its-converse-1}, $R$ is total and functional. In particular, $R(a)$ is a singleton for all $a\in A$. Defining $f_{R}$ such that $f_{R}(a)$ is the unique element of $R(a)$ then gives us our desired function, forming a map
             \[
                 \{
                     \begin{gathered}
@@ -4704,18 +4711,14 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
 \begin{Proof}{Proof of \cref{co-limits-in-rel}}%
     Omitted.
 \end{Proof}
-\subsection{Internal Kan Extensions and Lifts}\label{subsection-internal-kan-extensions-and-lifts-in-rel}
-\begin{remark}{Kan Extensions and Kan Lifts in $\sfbfRel$}{kan-extensions-and-kan-lifts-in-rel}%
-    The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
-\end{remark}
 \subsection{Internal Left Kan Extensions}\label{subsection-internal-left-kan-extensions-in-rel}
 \begin{proposition}{Internal Left Kan Extensions in $\sfbfRel$}{internal-left-kan-extensions-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
         \item\label{internal-left-kan-extensions-in-rel-non-existence-of-all-internal-left-kan-extensions-in-rel}\SloganFont{Non-Existence of All Internal Left Kan Extensions in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan extensions.
-        \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Extensions Along Them. }The following conditions are equivalent:
+        \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them}\SloganFont{Characterisation of Relations Admitting Internal Left Kan Extensions Along Them. }The following conditions are equivalent:
             \begin{enumerate}
-                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-1}The left Kan extension
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them-1}The left Kan extension
                     \[
                         \Lan_{R}%
                         \colon%
@@ -4724,17 +4727,17 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
                         \eRel(B,X)%
                     \]%
                     along $R$ exists.
-                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-2}The relation $R$ admits a left adjoint in $\sfbfRel$.
-                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-3}The relation $R$ is of the form $\Gr(f)$ (as in \cref{the-graph-of-a-function}) for some function $f$.
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them-2}The relation $R$ admits a left adjoint in $\sfbfRel$.
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them-3}The relation $R$ is of the form $\Gr(f)$ (as in \cref{the-graph-of-a-function}) for some function $f$.
             \end{enumerate}
         %\item\label{internal-left-kan-extensions-in-rel-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{internal-left-kan-extensions-in-rel}}%
     \FirstProofBox{\cref{internal-left-kan-extensions-in-rel-non-existence-of-all-internal-left-kan-extensions-in-rel}: Non-Existence of All Internal Left Kan Extensions in $\sfbfRel$}%
-    By \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}, it suffices to take a relation that doesn't have a left adjoint.
+    By \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them}, it suffices to take a relation that doesn't have a left adjoint.
 
-    \ProofBox{\cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}: Characterisation of Relations Admitting Left Kan Extensions Along Them}%
+    \ProofBox{\cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them}: Characterisation of Relations Admitting Left Kan Extensions Along Them}%
     This proof is mostly due to Tim Campion, via \cite{MO460693}.
     \begin{itemize}
         \item We may view precomposition
@@ -4755,7 +4758,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     \end{itemize}
     This finishes the proof.
 \end{Proof}
-\begin{example}{Left Kan Extensions Along Functions}{left-kan-extensions-along-functions}%
+\begin{example}{Internal Left Kan Extensions Along Functions}{internal-left-kan-extensions-along-functions}%
     Given a function $f\colon A\to B$, the left Kan extension
     \[
         \Lan_{f}%
@@ -4764,7 +4767,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
         \to%
         \eRel(B,X)%
     \]%
-    along $f$ exists by \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}. Explicitly, given a relation $R\colon A\rightproarrow X$, the left Kan extension
+    along $f$ exists by \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}. Explicitly, given a relation $R\colon A\rightproarrow X$, the left Kan extension
     \begin{webcompile}
         \Lan_{f}(R)%
         \colon%
@@ -4788,8 +4791,8 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     \end{webcompile}
     may be described as follows:
     \begin{enumerate}
-        \item\label{left-kan-extensions-along-functions-1}We declare $b\sim_{\Lan_{f}(R)}x$ \textiff there exists some $a\in R$ such that $b=f(a)$ and $a\sim_{R}x$.
-        \item\label{left-kan-extensions-along-functions-2}We have%
+        \item\label{internal-left-kan-extensions-along-functions-1}We declare $b\sim_{\Lan_{f}(R)}x$ \textiff there exists some $a\in R$ such that $b=f(a)$ and $a\sim_{R}x$.
+        \item\label{internal-left-kan-extensions-along-functions-2}We have%
             %--- Begin Footnote ---%
             \footnote{%
                 Cf.\ \cref{internal-right-kan-extensions-in-rel-3} of \cref{internal-right-kan-extensions-in-rel}.
@@ -4804,7 +4807,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     \end{enumerate}
 \end{example}
 \begin{remark}{Illustrating the Failure of Internal Left Kan Extensions in $\sfbfRel$ to Exist}{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist}%
-    Following \cref{left-kan-extensions-along-functions}, given a relation $R\colon A\rightproarrow B$ and a relation $F\colon A\rightproarrow X$, we could perhaps try to define an \say{honorary} left Kan extension
+    Following \cref{internal-left-kan-extensions-along-functions}, given a relation $R\colon A\rightproarrow B$ and a relation $F\colon A\rightproarrow X$, we could perhaps try to define an \say{honorary} left Kan extension
     \[
         \Lan'_{R}(F)%
         \colon%
@@ -4831,14 +4834,33 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
         \item\SloganFont{Functionality. }If $R$ isn't functional, then the implication \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-2} $\Rightarrow$ \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-1} fails.
     \end{itemize}
 \end{remark}
+\begin{question}{Existence of Specific Internal Left Kan Extensions of Relations}{existence-of-specific-internal-left-kan-extensions-of-relations}%
+    Given relations $S\colon A\rightproarrow X$ and $R\colon A\rightproarrow B$, is there a characterisation of when the left Kan extension%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Specifically for $R$ and $S$, not $\Lan_{S}$ the functor.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \Lan_{S}(R)%
+        \colon%
+        B%
+        \rightproarrow%
+        X%
+    \]%
+    exists in terms of properties of $R$ and $S$?
+
+    This question also appears as \cite{MO461592}.
+\end{question}
 \subsection{Internal Left Kan Lifts}\label{subsection-internal-left-kan-lifts-in-rel}
 \begin{proposition}{Internal Left Kan Lifts in $\sfbfRel$}{internal-left-kan-lifts-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
     \begin{enumerate}
         \item\label{internal-left-kan-lifts-in-rel-non-existence-of-all-internal-left-kan-lifts-in-rel}\SloganFont{Non-Existence of All Internal Left Kan Lifts in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan lifts.
-        \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Lifts Along Them. }The following conditions are equivalent:
+        \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them}\SloganFont{Characterisation of Relations Admitting Internal Left Kan Lifts Along Them. }The following conditions are equivalent:
             \begin{enumerate}
-                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-1}The left Kan lift
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them-1}The left Kan lift
                     \[
                         \Lift_{R}%
                         \colon%
@@ -4847,20 +4869,20 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
                         \eRel(X,A)%
                     \]%
                     along $R$ exists.
-                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-2}The relation $R$ admits a right adjoint in $\sfbfRel$.
-                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-3}The relation $R$ is of the form $f^{-1}$ (as in \cref{the-inverse-of-a-function}) for some function $f$.
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them-2}The relation $R$ admits a right adjoint in $\sfbfRel$.
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them-3}The relation $R$ is of the form $f^{-1}$ (as in \cref{the-inverse-of-a-function}) for some function $f$.
             \end{enumerate}
         %\item\label{internal-left-kan-lifts-in-rel-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{internal-left-kan-lifts-in-rel}}%
     \FirstProofBox{\cref{internal-left-kan-lifts-in-rel-non-existence-of-all-internal-left-kan-lifts-in-rel}: Non-Existence of All Internal Left Kan Lifts in $\sfbfRel$}%
-    By \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}, it suffices to take a relation that doesn't have a right adjoint.
+    By \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them}, it suffices to take a relation that doesn't have a right adjoint.
 
-    \ProofBox{\cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}: Characterisation of Relations Admitting Left Kan Lifts Along Them}%
-    This proof is dual to that of \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}, and is therefore omitted.
+    \ProofBox{\cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them}: Characterisation of Relations Admitting Left Kan Lifts Along Them}%
+    This proof is dual to that of \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-internal-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}, and is therefore omitted.
 \end{Proof}
-\begin{example}{Left Kan Lifts Along Functions}{left-kan-lifts-along-functions}%
+\begin{example}{Internal Left Kan Lifts Along Functions}{internal-left-kan-lifts-along-functions}%
     Given a function $f\colon A\to B$, the left Kan lift
     \[
         \Lift_{f^{\dagger}}%
@@ -4869,7 +4891,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
         \to%
         \eRel(X,B)%
     \]%
-    along $f^{\dagger}$ exists by \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{internal-left-kan-lifts-in-rel}. Explicitly, given a relation $R\colon X\rightproarrow A$, the left Kan lift
+    along $f^{\dagger}$ exists by \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them} of \cref{internal-left-kan-lifts-in-rel}. Explicitly, given a relation $R\colon X\rightproarrow A$, the left Kan lift
     \begin{webcompile}
         \Lift_{f^{\dagger}}(R)%
         \colon%
@@ -4898,6 +4920,25 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     \end{align*}
     for each $x\in X$.
 \end{example}
+\begin{question}{Existence of Specific Internal Left Kan Lifts of Relations}{existence-of-specific-internal-left-kan-lifts-of-relations}%
+    Given relations $S\colon A\rightproarrow X$ and $R\colon A\rightproarrow B$, is there a characterisation of when the left Kan lift%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Specifically for $R$ and $S$, not $\Lift_{S}$ the functor.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \Lift_{S}(R)%
+        \colon%
+        X%
+        \rightproarrow%
+        A%
+    \]%
+    exists in terms of properties of $R$ and $S$?
+
+    This question also appears as \cite{MO461592}.
+\end{question}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
 Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A\rightproarrow X$ be relations.
 \begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
@@ -5016,13 +5057,13 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
     \]%
     is right adjoint to the precomposition functor $-\procirc R$, being thus the right Kan extension along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
     \begin{enumerate}
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-2}\cref{composition-of-relations}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-extensions-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-2}\cref{composition-of-relations}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-extensions-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
     \end{enumerate}
     This finishes the proof.
 \end{Proof}
@@ -5303,13 +5344,13 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
     \]%
     is right adjoint to the postcomposition functor $R\procirc-$, being thus the right Kan lift along $R$. Here we have used the following results, respectively (i.e.\ for each $\cong$ sign):
     \begin{enumerate}
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-2}\cref{composition-of-relations}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
-        \item\label{proof-of-existence-of-right-kan-lifts-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-1}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-2}\cref{composition-of-relations}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-3}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-4}\ChapterRef{\ChapterSets, \cref{sets:cartesian-closedness-of-the-poset-of-truth-values}}{\cref{cartesian-closedness-of-the-poset-of-truth-values}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-5}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-the-fubini-rule} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-the-fubini-rule} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-6}\ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-commutativity-with-homs} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-commutativity-with-homs} of \cref{properties-of-co-ends}}.
+        \item\label{proof-of-existence-of-internal-right-kan-lifts-in-rel-7}\ChapterRef{\ChapterRelations, \cref{relations:properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{relations:properties-of-relations}}{\cref{properties-of-relations-end-formula-for-the-set-of-inclusions-of-relations} of \cref{properties-of-relations}}.
     \end{enumerate}
     This finishes the proof.
 \end{Proof}
@@ -5595,10 +5636,10 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \begin{center}
         \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
             \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
-            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If, for each $x\in A$, we have\\$x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$,\\then $b_{1}\neq b_{2}$.}}  \\\rowcolor{backgroundColor}
-            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If $a_{1}\neq a_{2}$, then, for each $x\in A$, \\we have $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$}} \\\rowcolor{black!05!backgroundColor}
-            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If $b_{1}\neq b_{2}$, then, for each $y\in B$, \\we have $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$}} \\\rowcolor{backgroundColor}
-            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If, for each $y\in B$, we have $a_{1}\sim_{R}y$ \\or $a_{2}\sim_{R}y$, then $a_{1}\neq a_{2}$}} \\\hline
+            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If, for each $x\in A$,\\$x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$,\\then $b_{1}\neq b_{2}$.}}  \\\rowcolor{backgroundColor}
+            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If $a_{1}\neq a_{2}$, then, for each $x\in A$, \\we have $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$.}} \\\rowcolor{black!05!backgroundColor}
+            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If $b_{1}\neq b_{2}$, then, for each $y\in B$, \\we have $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$.}} \\\rowcolor{backgroundColor}
+            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If, for each $y\in B$,\\$a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$,\\then $a_{1}\neq a_{2}$}} \\\hline
         \end{tabular}
     \end{center}
     \endgroup
@@ -5610,10 +5651,10 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \begin{center}
         \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
             \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
-            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{if $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$, then $b_{1}\neq b_{2}$}} \\\rowcolor{backgroundColor}
-            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{if $a_{1}\neq a_{2}$, then $R(a_{1})\cup R(a_{2})=B$}}           \\\rowcolor{black!05!backgroundColor}
-            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{if $b_{1}\neq b_{2}$, then $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$}} \\\rowcolor{backgroundColor}
-            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{if $R(a_{1})\cup R(a_{2})=B$, then $a_{1}\neq a_{2}$}}           \\\hline
+            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $(R^{-1}(b_{1})\cup R^{-1}(b_{2})=A)\implies(b_{1}\neq b_{2})$ \\\rowcolor{backgroundColor}
+            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $(a_{1}\neq a_{2})\implies(R(a_{1})\cup R(a_{2})=B)$           \\\rowcolor{black!05!backgroundColor}
+            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $(b_{1}\neq b_{2})\implies(R^{-1}(b_{1})\cup R^{-1}(b_{2})=A)$ \\\rowcolor{backgroundColor}
+            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $(R(a_{1})\cup R(a_{2})=B)\implies(a_{1}\neq a_{2})$           \\\hline
         \end{tabular}
     \end{center}
     \endgroup
