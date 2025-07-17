@@ -738,7 +738,7 @@
 00NR,relations:internal-left-kan-lifts-in-rel-non-existence-of-all-internal-left-kan-lifts-in-rel
 00NS,relations:internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-internal-left-kan-lifts-along-them
 00NT,relations:existence-of-specific-internal-left-kan-lifts-of-relations
-00NU,relations:explicit-description-of-internal-left-kan-lifts-along-functions
+00NU,notes:explicit-description-of-internal-left-kan-lifts-along-functions
 00NV,relations:subsection-internal-right-kan-extensions-in-rel
 00NW,relations:internal-right-kan-extensions-in-rel
 00NX,relations:subsection-internal-right-kan-lifts-in-rel
@@ -1540,7 +1540,6 @@
 01CU,introduction:omitted-proofs-to-add
 01CV,notes:subsection-things-to-explore-add
 01CW,notes:things-to-explore-add
-01CX,book-part:extra
 01CY,book-part:bicategories
 01CZ,book-part:categories
 01D0,book-part:relations
@@ -2392,11 +2391,6 @@
 0289,tensor-products-of-pointed-sets:proof-of-properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-2
 028A,relations:relations-introduction-item-1
 028B,relations:relations-introduction-item-2
-028C,relations:relations-introduction-item-3
-028D,relations:relations-introduction-item-3a
-028E,relations:relations-introduction-item-3b
-028F,relations:relations-introduction-item-3c
-028G,relations:relations-introduction-item-3d
 028H,relations:relations-introduction-item-4
 028J,relations:relations-introduction-item-4a
 028K,relations:relations-introduction-item-4b
@@ -2412,7 +2406,7 @@
 028V,relations:relations-introduction-item-4l
 028W,relations:relations-introduction-item-4m
 028X,relations:relations-introduction-item-4n
-028Y,relations:relations-introduction-item-5
+028Y,relations:relations-introduction-item-6
 028Z,relations:relations-as-decategorifications-of-profunctors-1-item-1
 0290,relations:relations-as-decategorifications-of-profunctors-1-item-2
 0291,relations:the-trivial-relation-1
@@ -2426,13 +2420,6 @@
 0299,relations:square-roots-1
 029A,relations:square-roots-2
 029B,relations:proof-of-adjunctions-in-rel-1
-029C,relations:proof-of-adjunctions-in-rel-1a
-029D,relations:proof-of-adjunctions-in-rel-1b
-029E,relations:proof-of-adjunctions-in-rel-1bi
-029F,relations:proof-of-adjunctions-in-rel-1bii
-029G,relations:proof-of-adjunctions-in-rel-1biii
-029H,relations:proof-of-adjunctions-in-rel-1biv
-029J,relations:proof-of-adjunctions-in-rel-1bv
 029K,relations:proof-of-adjunctions-in-rel-2
 029L,relations:proof-of-adjunctions-in-rel-3
 029M,relations:proof-of-adjunctions-in-rel-4
