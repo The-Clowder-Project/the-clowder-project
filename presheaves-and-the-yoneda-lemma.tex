@@ -16,6 +16,7 @@ This chapter contains some material about presheaves and the Yoneda lemma.
 
 TODO:
 \begin{enumerate}
+    \item Subsection properties of categories of copresheaves
     \item Adjointness of tensor product of functors
     \item Limit of category of elements (instead of colimit)
     \item Category of elements where objects are natural transformations $\SheafFont{F}\Rightarrow h_{X}$ instead of the other way around. Is this related to Isbell duality?
@@ -276,8 +277,8 @@ Let $\CatFont{C}$ be a category, let $A,B\in\Obj(\CatFont{C})$, and let $f\colon
             \]%
             preserves and reflects isomorphisms, i.e.\ given $A,B\in\Obj(\CatFont{C})$, the following conditions are equivalent:
             \begin{enumerate}
-                \item We have $A\cong B$.
-                \item We have $h_{A}\cong h_{B}$.
+                \item\label{properties-of-the-yoneda-embedding-preservation-and-reflection-of-isomorphisms-1}We have $A\cong B$.
+                \item\label{properties-of-the-yoneda-embedding-preservation-and-reflection-of-isomorphisms-2}We have $h_{A}\cong h_{B}$.
             \end{enumerate}
         \item\label{properties-of-the-yoneda-embedding-density}\SloganFont{Density. }The Yoneda embedding
             \[
@@ -290,7 +291,7 @@ Let $\CatFont{C}$ be a category, let $A,B\in\Obj(\CatFont{C})$, and let $f\colon
             is dense.
         \item\label{properties-of-the-yoneda-embedding-interaction-with-density-comonads}\SloganFont{Interaction With Density Comonads. }We have
             \begin{webcompile}
-                \Ran_{\yo}(\yo)%
+                \Lan_{\yo}(\yo)%
                 \cong%
                 \id_{\PSh(\CatFont{C})},%
                 \qquad
@@ -557,7 +558,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
         \end{tikzcd}
     \end{webcompile}
     commutes. Indeed:
-    \begin{enumerate}
+    \begin{itemize}
         \item We have
             \begin{align*}
                 [\alpha\circ h_{f}]_{X}(\id_{X}) &\defeq [\alpha_{X}\circ h_{f|X}](\id_{X})\\
@@ -611,7 +612,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
                 =
                 \alpha_{X}(f)\mrp{.}
             \]%
-    \end{enumerate}
+    \end{itemize}
     Thus the naturality diagram for $\ev$ at $f$ commutes, and $\ev$ is natural.
 
     \ProofBox{Naturality of $\xi\colon\SheafFont{F}\Rightarrow\Nat(h_{(-)},\SheafFont{F})$}%
@@ -695,7 +696,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
         \id_{\Nat(h_{A},\SheafFont{F})}%
     \]%
     for each $A\in\Obj(\CatFont{C})$. Indeed:
-    \begin{enumerate}
+    \begin{itemize}
         \item We have
             \begin{align*}
                 [\xi\circ\ev]_{A}(\alpha) &\defeq [\xi_{A}\circ\ev_{A}](\alpha)\\
@@ -746,7 +747,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
                     {[\SheafFont{F}(f)](\alpha_{A}(\id_{A}))=\alpha_{X}(f)}\mrp{.}
                 \end{tikzcd}
             \]%
-    \end{enumerate}
+    \end{itemize}
     This finishes the proof.
 \end{Proof}%
 \subsection{Properties of Categories of Presheaves}\label{subsection-properties-of-categories-of-presheaves}
@@ -1026,8 +1027,8 @@ Let $\CatFont{C}$ be a category, let $A,B\in\Obj(\CatFont{C})$, and let $f\colon
             \]%
             preserves and reflects isomorphisms, i.e.\ given $A,B\in\Obj(\CatFont{C})$, the following conditions are equivalent:
             \begin{enumerate}
-                \item We have $A\cong B$.
-                \item We have $h^{A}\cong h^{B}$.
+                \item\label{properties-of-the-contravariant-yoneda-embedding-preservation-and-reflection-of-isomorphisms-1}We have $A\cong B$.
+                \item\label{properties-of-the-contravariant-yoneda-embedding-preservation-and-reflection-of-isomorphisms-2}We have $h^{A}\cong h^{B}$.
             \end{enumerate}
         %\item\label{properties-of-the-contravariant-yoneda-embedding-}\SloganFont{. }
     \end{enumerate}
