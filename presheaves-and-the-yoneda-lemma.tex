@@ -1,0 +1,1755 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Presheaves and the Yoneda Lemma}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about presheaves and the Yoneda lemma.
+
+TODO:
+\begin{enumerate}
+    \item Adjointness of tensor product of functors
+    \item Limit of category of elements (instead of colimit)
+    \item Category of elements where objects are natural transformations $\SheafFont{F}\Rightarrow h_{X}$ instead of the other way around. Is this related to Isbell duality?
+    \item Motivate the proof of the Yoneda lemma as in Martin's comment here: \url{https://mathoverflow.net/questions/130883/are-there-proofs-that-you-feel-you-did-not-understand-for-a-long-time#comment360113_131050}
+    \item Add discussion of universal properties
+    \item Add $h_{g\circ f}=h_{g}\circ h_{f}$ to properties of representable natural transformations
+\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Presheaves}\label{section-presheaves}
+\subsection{Foundations}\label{subsection-presheaves-foundations}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{Presheaves on a Category}{presheaves-on-a-category}%
+    A \index[categories]{presheaf}\textbf{presheaf on $\CatFont{C}$} is a functor $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$.
+\end{definition}
+\begin{example}{Presheaves on One-Object Categories}{presheaves-on-one-object-categories}%
+    Presheaves on the delooping $\B{A}$ of a monoid $A$ are precisely the left $A$-sets; see \ChapterRef{\ChapterMonoidActions, \cref{monoid-actions:left-a-sets-as-presheaves-on-ba}}{\cref{left-a-sets-as-presheaves-on-ba}}.
+\end{example}
+\begin{definition}{Morphisms of Presheaves}{morphisms-of-presheaves}%
+    A \index[categories]{presheaf!morphism of}\textbf{morphism of presheaves} on $\CatFont{C}$ from $\SheafFont{F}$ to $\SheafFont{G}$ is a natural transformation $\alpha\colon\SheafFont{F}\Rightarrow\SheafFont{G}$.
+\end{definition}
+\begin{definition}{The Category of Presheaves on a Category}{the-category-of-presheaves-on-a-category}%
+    The \index[set-theory]{presheaf!category of}\textbf{category of presheaves on $\CatFont{C}$} is the category \index[notation]{PShC@$\PSh(\CatFont{C})$}$\PSh(\CatFont{C})$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{Chat@$\widehat{\CatFont{C}}$}$\widehat{\CatFont{C}}$ in some parts of the literature.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    defined by
+    \[
+        \PSh(\CatFont{C})
+        \defeq
+        \Fun\pig(\CatFont{C}^{\op},\Sets\pig).
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-category-of-presheaves-on-a-category}}{unwinding-the-category-of-presheaves-on-a-category}%
+    In detail, the \textbf{category of presheaves on $\CatFont{C}$} is the category $\PSh(\CatFont{C})$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\PSh(\CatFont{C})$ are presheaves on $\CatFont{C}$ as in \cref{presheaves-on-a-category}.
+        \item\SloganFont{Morphisms. }The morphisms of $\PSh(\CatFont{C})$ are morphisms of presheaves as in \cref{morphisms-of-presheaves}, i.e.\ we have
+            \[
+                \Hom_{\PSh(\CatFont{C})}(\SheafFont{F},\SheafFont{G})%
+                \defeq%
+                \Nat(\SheafFont{F},\SheafFont{G})%
+            \]%
+            for each $\SheafFont{F},\SheafFont{G}\in\Obj(\PSh(\CatFont{C}))$.
+        \item\SloganFont{Identities. }For each $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$, the unit map
+            \[
+                \Unit^{\PSh(\CatFont{C})}_{\SheafFont{F}}%
+                \colon%
+                \pt%
+                \to%
+                \Nat(\SheafFont{F},\SheafFont{F})%
+            \]%
+            of $\PSh(\CatFont{C})$ at $\SheafFont{F}$ is defined by
+            \[
+                \id^{\PSh(\CatFont{C})}_{\SheafFont{F}}
+                \defeq
+                \id_{\SheafFont{F}},%
+            \]%
+            where $\id_{\SheafFont{F}}\colon\SheafFont{F}\Rightarrow\SheafFont{F}$ is the identity natural transformation of \ChapterRef{\ChapterCategories, \cref{categories:identity-natural-transformations}}{\cref{identity-natural-transformations}}.
+        \item\SloganFont{Composition. }For each $\SheafFont{F},\SheafFont{G},\SheafFont{H}\in\Obj(\PSh(\CatFont{C}))$, the composition map
+            \[
+                \circ^{\PSh(\CatFont{C})}_{\SheafFont{F},\SheafFont{G},\SheafFont{H}}
+                \colon
+                \Nat(\SheafFont{G},\SheafFont{H})
+                \times
+                \Nat(\SheafFont{F},\SheafFont{G})
+                \to
+                \Nat(\SheafFont{F},\SheafFont{H})
+            \]%
+            of $\PSh(\CatFont{C})$ at $(\SheafFont{F},\SheafFont{G},\SheafFont{H})$ is defined by
+            \[
+                \beta\circ^{\PSh(\CatFont{C})}_{\SheafFont{F},\SheafFont{G},\SheafFont{H}}\alpha%
+                \defeq
+                \beta\circ\alpha,%
+            \]%
+            where $\beta\circ\alpha\colon\SheafFont{F}\Rightarrow\SheafFont{H}$ is the vertical composition of $\alpha$ and $\beta$ of \ChapterRef{\ChapterCategories, \cref{categories:vertical-composition-of-natural-transformations}}{\cref{vertical-composition-of-natural-transformations}}.
+    \end{itemize}
+\end{remark}
+\subsection{Representable Presheaves}\label{subsection-representable-presheaves}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{Representable Presheaves}{representable-presheaves}%
+    Let $A\in\Obj(\CatFont{C})$.
+    \begin{enumerate}
+        \item\label{representable-presheaves-representable-presheaves-associated-to-an-object}The \index[categories]{presheaf!representable associated to an object}\textbf{representable presheaf associated to $A$} is the presheaf \index[notation]{hA@$h_{A}$}
+            \[
+                h_{A}%
+                \colon%
+                \CatFont{C}^{\op}%
+                \to%
+                \Sets%
+            \]%
+            where
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\CatFont{C})$, we have
+                    \[
+                        h_{A}(X)
+                        \defeq
+                        \Hom_{\CatFont{C}}(X,A).
+                    \]%
+                \item\SloganFont{Action on Morphisms. }For each $X,Y\in\Obj(\CatFont{C})$, the action on morphisms
+                    \[
+                        h_{A|X,Y}%
+                        \colon%
+                        \Hom_{\CatFont{C}}(X,Y)%
+                        \to%
+                        \Hom_{\Sets}(h_{A}(Y),h_{A}(X))%
+                    \]%
+                    of $h_{A}$ at $(X,Y)$ is given by sending a morphism
+                    \[
+                        f%
+                        \colon%
+                        X%
+                        \to%
+                        Y%
+                    \]%
+                    of $\CatFont{C}$ to the map of sets
+                    \[
+                        h_{A}(f)
+                        \colon
+                        \underbrace{h_{A}(Y)}_{\defeq\Hom_{\CatFont{C}}(Y,A)}
+                        \to
+                        \underbrace{h_{A}(X)}_{\defeq\Hom_{\CatFont{C}}(X,A)}
+                    \]%
+                    defined by
+                    \[
+                        h_{A}(f)
+                        \defeq
+                        f^{*},
+                    \]%
+                    where $f^{*}$ is the precomposition by $f$ morphism of \ChapterRef{\ChapterCategories, \cref{categories:precomposition-and-postcomposition-functions-precomposition} of \cref{categories:precomposition-and-postcomposition-functions}}{\cref{precomposition-and-postcomposition-functions-precomposition} of \cref{precomposition-and-postcomposition-functions}}.
+            \end{itemize}
+        \item\label{representable-presheaves-representing-objects-for-presheaves}A \index[categories]{presheaf!representing object of}\textbf{representing object} for a presheaf $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ on $\CatFont{C}$ is an object $A$ of $\CatFont{C}$ such that we have $\SheafFont{F}\cong h_{A}$.
+        \item\label{representable-presheaves-representable-presheaves}A presheaf $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ on $\CatFont{C}$ is \index[categories]{presheaf!representable}\textbf{representable} if $\SheafFont{F}$ admits a representing object.
+    \end{enumerate}
+\end{definition}
+\begin{example}{Representable Presheaves on One-Object Categories}{representable-presheaves-on-one-object-categories}%
+    The representable presheaf on the delooping $\B{A}$ of a monoid $A$ associated to the unique object $\bullet$ of $\B{A}$ is the left regular representation of $A$ of \ChapterRef{\ChapterMonoidActions, \cref{monoid-actions:the-left-regular-representation-of-a-monoid}}{\cref{the-left-regular-representation-of-a-monoid}}.
+\end{example}
+\begin{proposition}{Uniqueness of Representing Objects Up to Isomorphism}{uniqueness-of-representing-objects-up-to-isomorphism}%
+    Let $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ be a presheaf. If there exist $A,B\in\Obj(\CatFont{C})$ such that we have natural isomorphisms
+    \begin{align*}
+        h_{A} &\cong\SheafFont{F},\\
+        h_{B} &\cong\SheafFont{F},
+    \end{align*}
+    then $A\cong B$.
+\end{proposition}
+\begin{Proof}{Proof of \cref{uniqueness-of-representing-objects-up-to-isomorphism}}%
+    By composing the isomorphisms $h_{A}\cong\SheafFont{F}\cong h_{B}$, we get a natural isomorphism $h_{A}\cong h_{B}$. By \cref{properties-of-the-yoneda-embedding-preservation-and-reflection-of-isomorphisms} of \cref{properties-of-the-yoneda-embedding}, we have $A\cong B$.
+\end{Proof}
+\subsection{Representable Natural Transformations}\label{subsection-representable-natural-transformations}
+Let $\CatFont{C}$ be a category, let $A,B\in\Obj(\CatFont{C})$, and let $f\colon A\to B$ be a morphism of $\CatFont{C}$.
+\begin{definition}{Representable Natural Transformations}{representable-natural-transformations}%
+    The \index[categories]{representable natural transformation}\textbf{representable natural transformation associated to $f$} is the natural transformation
+    \[
+        h_{f}%
+        \colon%
+        h_{A}%
+        \Rightarrow%
+        h_{B}%
+    \]%
+    consisting of the collection
+    \[
+        \{
+            h_{f|X}
+            \colon
+            \underbrace{h_{A}(X)}_{\defeq\Hom_{\CatFont{C}}(X,A)}
+            \to
+            \underbrace{h_{B}(X)}_{\defeq\Hom_{\CatFont{C}}(X,B)}
+        \}_{X\in\Obj(\CatFont{C})}
+    \]%
+    with
+    \[
+        h_{f|X}
+        \defeq
+        f_{*},
+    \]%
+    where $f_{*}$ is the postcomposition by $f$ morphism of \ChapterRef{\ChapterCategories, \cref{categories:precomposition-and-postcomposition-functions-postcomposition} of \cref{categories:precomposition-and-postcomposition-functions}}{\cref{precomposition-and-postcomposition-functions-postcomposition} of \cref{precomposition-and-postcomposition-functions}}.
+\end{definition}
+\subsection{The Yoneda Embedding}\label{subsection-the-yoneda-embedding}
+\begin{definition}{The Yoneda Embedding}{the-yoneda-embedding}%
+    The \index[categories]{Yoneda embedding}\textbf{Yoneda embedding of $\CatFont{C}$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{covariant Yoneda embedding} to distinguish it from the contravariant Yoneda embedding of \cref{the-contravariant-yoneda-lemma}.
+    } %
+    %---  End Footnote  ---%
+    is the functor\index[notation]{yo@$\yo$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written $h_{(-)}$, or simply $\yo$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    \[
+        \yo_{\CatFont{C}}%
+        \colon%
+        \CatFont{C}%
+        \longhookrightarrow%
+        \PSh(\CatFont{C})%
+    \]%
+    where
+    \begin{itemize}
+        \item\SloganFont{Action on Objects. }For each $A\in\Obj(\CatFont{C})$, we have
+            \[
+                \yo_{\CatFont{C}}(A)
+                \defeq
+                h_{A}.
+            \]%
+        \item\SloganFont{Action on Morphisms. }For each $A,B\in\Obj(\CatFont{C})$, the action on morphisms
+            \[
+                \yo_{\CatFont{C}|A,B}%
+                \colon%
+                \Hom_{\CatFont{C}}(A,B)%
+                \to%
+                \Nat(h_{A},h_{B})%
+            \]%
+            of $\yo_{\CatFont{C}}$ at $(A,B)$ is given by
+            \[
+                \yo_{\CatFont{C}|A,B}(f)%
+                \defeq%
+                h_{f}%
+            \]%
+            for each $f\in\Hom_{\CatFont{C}}(A,B)$, where $h_{f}$ is the representable natural transformation associated to $f$ of \cref{representable-natural-transformations}.
+    \end{itemize}
+\end{definition}
+\begin{remark}{On the Usage of $\yo$ to Denote the Yoneda Embedding}{on-the-usage-of-yo-to-denote-the-yoneda-embedding}%
+    The notation $\yo$ for the Yoneda embedding was first introduced in \cite{oplax-natural-transformations-twisted-quantum-field-theories-and-even-higher-morita-categories}. The symbol $\yo$ is the \href{https://en.wikipedia.org/wiki/Yo_(kana%29}{hiragana for \emph{yo}}, and comes from \say{Yoneda} in Nobuo Yoneda (\Japanese{米田信夫}).
+
+    It is pronounced \emph{yo} but without letting the \say{o} in \emph{yo} sound like an o-u diphthong:
+    \begin{itemize}
+            % BEGIN RAW HTML %
+            <li>Audio: <audio id="audioPlayerYo" src="/static/sounds/yo.mp3" type="audio/mp3"></audio><span class="dark-svg"><button id="playButtonYo"></button></span>
+            % BEGIN LATEX HTML %
+        \item Audio: see \url{https://topological-modular-forms.github.io/the-clowder-project/static/sounds/yo.mp3}
+            % END RAW HTML %
+        \item IPA transcription: [\IPA{jo̞}].
+    \end{itemize}
+\end{remark}
+\begin{proposition}{Properties of the Yoneda Embedding}{properties-of-the-yoneda-embedding}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-the-yoneda-embedding-fully-faithfulness}\SloganFont{Fully Faithfulness. }The Yoneda embedding
+            \[
+                \yo_{\CatFont{C}}%
+                \colon%
+                \CatFont{C}%
+                \hookrightarrow%
+                \PSh(\CatFont{C})%
+            \]%
+            is fully faithful.
+        \item\label{properties-of-the-yoneda-embedding-preservation-and-reflection-of-isomorphisms}\SloganFont{Preservation and Reflection of Isomorphisms. }The Yoneda embedding
+            \[
+                \yo_{\CatFont{C}}%
+                \colon%
+                \CatFont{C}%
+                \hookrightarrow%
+                \PSh(\CatFont{C})%
+            \]%
+            preserves and reflects isomorphisms, i.e.\ given $A,B\in\Obj(\CatFont{C})$, the following conditions are equivalent:
+            \begin{enumerate}
+                \item We have $A\cong B$.
+                \item We have $h_{A}\cong h_{B}$.
+            \end{enumerate}
+        \item\label{properties-of-the-yoneda-embedding-density}\SloganFont{Density. }The Yoneda embedding
+            \[
+                \yo_{\CatFont{C}}%
+                \colon%
+                \CatFont{C}%
+                \hookrightarrow%
+                \PSh(\CatFont{C})%
+            \]%
+            is dense.
+        \item\label{properties-of-the-yoneda-embedding-interaction-with-density-comonads}\SloganFont{Interaction With Density Comonads. }We have
+            \begin{webcompile}
+                \Ran_{\yo}(\yo)%
+                \cong%
+                \id_{\PSh(\CatFont{C})},%
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    {\PSh(\CatFont{C})}
+                    \arrow[d, "\Lan_{\yo}(\yo)",dashed]
+                    \\
+                    \CatFont{C}
+                    \arrow[ru, "\yo_{\CatFont{C}}"]
+                    \arrow[r, "\yo_{\CatFont{C}}"'{name=F}]
+                    \&
+                    {\PSh(\CatFont{C})}\mrp{.}
+                    % 2-Arrows
+                    \arrow[from=F,to=1-2,Rightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.1*\the\DL]},end anchor={[xshift=0.45*\the\DL]}]
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-the-yoneda-embedding-interaction-with-codensity-monads}\SloganFont{Interaction With Codensity Monads. }We have
+            \[
+                \Ran_{\yo}(\yo)%
+                \cong%
+                \IsbellSpec\circ\IsbellO,%
+            \]%
+            where $\IsbellSpec$ and $\IsbellO$ are the functors of \cref{the-isbell-duality-adjunction}.
+        %\item\label{properties-of-the-yoneda-embedding-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-yoneda-embedding}}%
+    \FirstProofBox{\cref{properties-of-the-yoneda-embedding-fully-faithfulness}: Fully Faithfulness}%
+    Let $A,B\in\Obj(\CatFont{C})$. Applying the Yoneda lemma (\cref{the-yoneda-lemma}) to the functor $h_{B}$ (i.e.\ in the case $\SheafFont{F}=h_{B}$), we have
+    \[%
+        \Hom_{\CatFont{C}}(A,B)%
+        \cong%
+        \Nat(h_{A},h_{B}),%
+    \]%
+    and the natural isomorphism
+    \[
+        \xi_{A,B}%
+        \colon%
+        \SheafFont{h}_{B}(A)%
+        \Rightarrow%
+        \Nat(h_{A},h_{B})%
+    \]%
+    witnessing this bijection is given by
+    \begin{align*}
+        \xi_{A,B}(g)_{X} &\defeq h^{X}_{g}\\
+                         &\defeq g_{*}
+    \end{align*}
+    for each $X\in\Obj(\CatFont{C})$ and each $g\in h^{X}_{B}$, i.e.\ we have $\xi_{A,B}=\yo_{\CatFont{C}|A,B}$. Thus $\yo_{\CatFont{C}}$ is fully faithful.
+
+    \ProofBox{\cref{properties-of-the-yoneda-embedding-preservation-and-reflection-of-isomorphisms}: Preservation and Reflection of Isomorphisms}%
+    This follows from \ChapterRef{\ChapterCategories, \cref{categories:elementary-properties-of-functors-preservation-of-isomorphisms} of \cref{categories:elementary-properties-of-functors} and \cref{categories:properties-of-fully-faithful-functors-conservativity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{elementary-properties-of-functors-preservation-of-isomorphisms} of \cref{elementary-properties-of-functors} and \cref{properties-of-fully-faithful-functors-conservativity} of \cref{properties-of-fully-faithful-functors}}.
+
+    \ProofBox{\cref{properties-of-the-yoneda-embedding-density}: Density}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-the-yoneda-embedding-interaction-with-density-comonads}: Interaction With Density Comonads}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-the-yoneda-embedding-interaction-with-codensity-monads}: Interaction With Codensity Monads}%
+    Omitted.
+\end{Proof}
+\subsection{The Yoneda Lemma}\label{subsection-the-yoneda-lemma}
+Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\CatFont{C}$.
+\begin{theorem}{The Yoneda Lemma}{the-yoneda-lemma}%
+    \index[categories]{Yoneda lemma}We have a bijection
+    \[
+        \Nat(h_{A},\SheafFont{F})
+        \cong
+        \SheafFont{F}(A),
+    \]%
+    natural in $A\in\Obj(\CatFont{C})$, determining a natural isomorphism of functors
+    \[
+        \Nat(h_{(-)},\SheafFont{F})
+        \cong
+        \SheafFont{F}.
+    \]%
+\end{theorem}
+\begin{Proof}{Proof of \cref{the-yoneda-lemma}}%
+    \FirstProofBox{The Transformation $\ev\colon\Nat(h_{(-)},\SheafFont{F})\Rightarrow\SheafFont{F}$}%
+    Let
+    \[
+        \ev%
+        \colon%
+        \Nat(h_{(-)},\SheafFont{F})%
+        \Rightarrow%
+        \SheafFont{F}
+    \]%
+    be the transformation consisting of the collection
+    \[
+        \{%
+            \ev_{A}%
+            \colon%
+            \Nat(h_{A},\SheafFont{F})%
+            \to%
+            \SheafFont{F}(A)%
+        \}_{A\in\Obj(\CatFont{C})}%
+    \]%
+    with
+    \[
+        \ev_{A}(\alpha)%
+        =%
+        \alpha_{A}(\id_{A})%
+    \]%
+    for each $\alpha\in\Nat(h_{A},\SheafFont{F})$, where $\alpha_{A}$ is the component
+    \[
+        \alpha_{A}%
+        \colon%
+        \Hom_{\CatFont{C}}(A,A)%
+        \to%
+        \SheafFont{F}(A)%
+    \]%
+    of $\alpha$ at $A$.
+
+    \ProofBox{The Transformation $\xi\colon\SheafFont{F}\Rightarrow\Nat(h_{(-)},\SheafFont{F})$}%
+    Let
+    \[
+        \xi%
+        \colon%
+        \SheafFont{F}%
+        \Rightarrow%
+        \Nat(h_{(-)},\SheafFont{F})%
+    \]%
+    be the transformation consisting of the collection
+    \[
+        \{%
+            \xi_{A}%
+            \colon%
+            \SheafFont{F}(A)%
+            \to%
+            \Nat(h_{A},\SheafFont{F})%
+        \}_{A\in\Obj(\CatFont{C})},%
+    \]
+    where $\xi_{A}$ is the map sending an element $\phi\in\SheafFont{F}(A)$ to the transformation
+    \[%
+        \xi_{A}(\phi)%
+        \colon%
+        h_{A}%
+        \Rightarrow%
+        \SheafFont{F}%
+    \]
+    (which we will show is natural in a bit) consisting of the collection
+    \[%
+        \{
+            \xi_{A}(\phi)_{X}%
+            \colon%
+            h_{A}(X)%
+            \to%
+            \SheafFont{F}(X)%
+        \}_{X\in\Obj(\CatFont{C})},%
+    \]%
+    with
+    \[
+        \xi_{A}(\phi)_{X}(f)%
+        \defeq%
+        [\SheafFont{F}(f)](\phi)%
+    \]%
+    for each $f\in h_{A}(X)$, where
+    \[
+        \SheafFont{F}(f)%
+        \colon%
+        \SheafFont{F}(A)%
+        \to%
+        \SheafFont{F}(X)%
+    \]%
+    is the image of $f$ by $\SheafFont{F}$.
+
+    \ProofBox{Naturality of $\xi_{A}(\phi)\colon h_{A}\Rightarrow\SheafFont{F}$}%
+    The transformation
+    \[%
+        \xi_{A}(\phi)%
+        \colon%
+        h_{A}%
+        \Rightarrow%
+        \SheafFont{F}%
+    \]
+    is indeed natural, as the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            h^{Y}_{A}
+            \arrow[r,"f^{*}"]
+            \arrow[d,"{\xi_{A}(\phi)_{Y}}"']
+            \&
+            h^{X}_{A}
+            \arrow[d,"{\xi_{A}(\phi)_{X}}"]
+            \\
+            \SheafFont{F}(Y)
+            \arrow[r,"\SheafFont{F}(f)"']
+            \&
+            \SheafFont{F}(X)
+        \end{tikzcd}
+    \]%
+    commutes for each morphism $f\colon X\to Y$ of $\CatFont{C}$, acting on elements as
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            h
+            \arrow[d,mapsto]
+            \&
+            \\
+            [\SheafFont{F}(h)](\phi)
+            \arrow[r,mapsto]
+            \&
+            [\SheafFont{F}(f)]([\SheafFont{F}(h)](\phi))
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            h
+            \arrow[r,mapsto]
+            \&
+            h\circ f
+            \arrow[d,mapsto]
+            \\
+            \&
+            [\SheafFont{F}(h\circ f)(\phi)]\mrp{,}
+        \end{tikzcd}
+    \end{webcompile}
+    where we have
+    \[
+        [\SheafFont{F}(f)]([\SheafFont{F}(h)](\phi))%
+        =%
+        [\SheafFont{F}(h\circ f)(\phi)]%
+    \]%
+    by the functoriality of $\SheafFont{F}$.
+
+    \ProofBox{Naturality of $\ev\colon\Nat(h_{(-)},\SheafFont{F})\Rightarrow\SheafFont{F}$}%
+    Let $f\colon X\to Y$ be a morphism of $\CatFont{C}$. We claim the naturality diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Nat(h_{Y},\SheafFont{F})%
+            \arrow[r,"{(h_{f})^{*}}"]
+            \arrow[d,"\ev_{Y}"']
+            \&
+            \Nat(h_{X},\SheafFont{F})%
+            \arrow[d,"\ev_{X}"]
+            \\
+            \SheafFont{F}(Y)
+            \arrow[r,"{\SheafFont{F}(f)}"']
+            \&
+            \SheafFont{F}(X)
+        \end{tikzcd}
+    \]%
+    for $\ev$ at $f$, acting on elements as
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \alpha
+            \arrow[d,mapsto]
+            \&
+            \\
+            {\alpha_{Y}(\id_{Y})}
+            \arrow[r,mapsto]
+            \&
+            {[\SheafFont{F}(f)](\alpha_{Y}(\id_{Y}))}
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \alpha
+            \arrow[r,mapsto]
+            \&
+            \alpha\circ h_{f}
+            \arrow[d,mapsto]
+            \\
+            \&
+            {[\alpha\circ h_{f}]_{X}(\id_{X})}\mrp{,}
+        \end{tikzcd}
+    \end{webcompile}
+    commutes. Indeed:
+    \begin{enumerate}
+        \item We have
+            \begin{align*}
+                [\alpha\circ h_{f}]_{X}(\id_{X}) &\defeq [\alpha_{X}\circ h_{f|X}](\id_{X})\\
+                                                 &\defeq [\alpha_{X}\circ f_{*}](\id_{X})\\
+                                                 &\defeq \alpha_{X}(f_{*}(\id_{X}))\\
+                                                 &\defeq \alpha_{X}(f).
+            \end{align*}
+        \item Applying the naturality diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    h^{Y}_{Y}
+                    \arrow[r,"{f^{*}}"]
+                    \arrow[d,"\alpha_{Y}"']
+                    \&
+                    h^{X}_{Y}
+                    \arrow[d,"\alpha_{X}"]
+                    \\
+                    \SheafFont{F}(Y)
+                    \arrow[r,"{\SheafFont{F}(f)}"']
+                    \&
+                    \SheafFont{F}(X)
+                \end{tikzcd}
+            \]%
+            of $\alpha\colon h_{Y}\Rightarrow\SheafFont{F}$ at $f\colon X\to Y$ to the element $\id_{Y}$ of $h^{Y}_{Y}$, we have
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \id_{Y}
+                    \arrow[d,mapsto]
+                    \&
+                    \\
+                    {\alpha_{Y}(\id_{Y})}
+                    \arrow[r,mapsto]
+                    \&
+                    {[\SheafFont{F}(f)](\alpha_{Y}(\id_{Y}))}
+                \end{tikzcd}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \id_{Y}
+                    \arrow[r,mapsto]
+                    \&
+                    f
+                    \arrow[d,mapsto]
+                    \\
+                    \&
+                    {\alpha_{X}(f)}\mrp{,}
+                \end{tikzcd}
+            \end{webcompile}
+            showing that we have
+            \[
+                [\SheafFont{F}(f)](\alpha_{Y}(\id_{Y}))
+                =
+                \alpha_{X}(f)\mrp{.}
+            \]%
+    \end{enumerate}
+    Thus the naturality diagram for $\ev$ at $f$ commutes, and $\ev$ is natural.
+
+    \ProofBox{Naturality of $\xi\colon\SheafFont{F}\Rightarrow\Nat(h_{(-)},\SheafFont{F})$}%
+    Let $f\colon X\to Y$ be a morphism of $\CatFont{C}$. We claim the naturality diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \SheafFont{F}(Y)
+            \arrow[r,"{\SheafFont{F}(f)}"]
+            \arrow[d,"\xi_{Y}"']
+            \&
+            \SheafFont{F}(X)
+            \arrow[d,"\xi_{X}"]
+            \\
+            \Nat(h_{Y},\SheafFont{F})%
+            \arrow[r,"{(h_{f})^{*}}"']
+            \&
+            \Nat(h_{X},\SheafFont{F})%
+        \end{tikzcd}
+    \]%
+    for $\xi$ at $f$, acting on elements as
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \phi
+            \arrow[d,mapsto]
+            \&
+            \\
+            {\xi_{Y}(\phi)}
+            \arrow[r,mapsto]
+            \&
+            {\xi_{Y}(\phi)\circ h_{f}}
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \phi
+            \arrow[r,mapsto]
+            \&
+            [\SheafFont{F}(f)](\phi)
+            \arrow[d,mapsto]
+            \\
+            \&
+            {\xi_{X}([\SheafFont{F}(f)](\phi))}
+        \end{tikzcd}
+    \end{webcompile}
+    commutes. Indeed, for each $X\in\Obj(\CatFont{C})$ and each $g\in h^{A}_{X}$, we have
+    \begin{align*}
+        [\xi_{Y}(\phi)\circ h_{f}]_{X}(g) &\defeq [\xi_{Y}(\phi)_{X}\circ h_{f|X}](g)\\
+                                          &\defeq [\xi_{Y}(\phi)_{X}\circ f_{*}](g)\\
+                                          &\defeq \xi_{Y}(\phi)_{X}(f_{*}(g))\\
+                                          &\defeq \xi_{Y}(\phi)_{X}(f\circ g)\\
+                                          &\defeq [\SheafFont{F}(f\circ g)](\phi)
+    \end{align*}
+    and
+    \begin{align*}
+        [\xi_{X}([\SheafFont{F}(f)](\phi))]_{X}(g) &\defeq \SheafFont{F}(g)([\SheafFont{F}(f)](\phi))\\
+                                                   &=      [\SheafFont{F}(f\circ g)](\phi),
+    \end{align*}
+    where we have used the functoriality of $\SheafFont{F}$. Thus $\xi_{Y}(\phi)\circ h_{f}$ and $\xi_{X}([\SheafFont{F}(f)](\phi))$ are equal, and the naturality diagram for $\xi$ at $f$ above commutes, showing $\xi$ to be natural.
+
+    \ProofBox{Invertibility \rmI: $\ev\circ\xi=\id_{\SheafFont{F}}$}%
+    We claim that $\ev\circ\xi=\id_{\SheafFont{F}}$, i.e.\ that we have
+    \[
+        (\ev\circ\xi)_{A}%
+        =%
+        \id_{\SheafFont{F}(A)}%
+    \]%
+    for each $A\in\Obj(\CatFont{C})$. Indeed, we have
+    \begin{align*}
+        [\ev\circ\xi]_{A}(\phi) &\defeq [\ev_{A}\circ\xi_{A}](\phi)\\
+                                &\defeq \ev_{A}(\xi_{A}(\phi))\\
+                                &\defeq \xi_{A}(\phi)_{A}(\id_{A})\\
+                                &\defeq [\SheafFont{F}(\id_{A})](\phi)\\
+                                &=      [\id_{\SheafFont{F}(A)}](\phi)
+    \end{align*}
+    for each $\phi\in\SheafFont{F}(A)$.
+
+    \ProofBox{Invertibility \rmII: $\xi\circ\ev=\id_{\Nat(h_{(-)},\SheafFont{F})}$}%
+    We claim that $\xi\circ\ev=\id_{\Nat(h_{(-)},\SheafFont{F})}$, i.e.\ that we have
+    \[
+        (\xi\circ\ev)_{A}%
+        =%
+        \id_{\Nat(h_{A},\SheafFont{F})}%
+    \]%
+    for each $A\in\Obj(\CatFont{C})$. Indeed:
+    \begin{enumerate}
+        \item We have
+            \begin{align*}
+                [\xi\circ\ev]_{A}(\alpha) &\defeq [\xi_{A}\circ\ev_{A}](\alpha)\\
+                                          &\defeq \xi_{A}(\ev_{A}(\alpha))\\
+                                          &\defeq \xi_{A}(\alpha_{A}(\id_{A}))\\
+            \end{align*}
+            for each $\alpha\in\Nat(h_{A},\SheafFont{F})$.
+        \item For each $X\in\Obj(\CatFont{C})$, we have
+            \[
+                \xi_{A}(\alpha_{A}(\id_{A}))_{X}%
+                =%
+                \alpha_{X},%
+            \]%
+            since we have
+            \begin{align*}
+                \xi_{A}(\alpha_{A}(\id_{A}))_{X}(f) &\defeq  [\SheafFont{F}(f)](\alpha_{A}(\id_{A}))\\%
+                                                    &\eqstar \alpha_{X}(f)%
+            \end{align*}
+            for each $f\in h_{A}(X)$, where the equality marked with $(\dagger)$ follows from the commutativity of the naturality diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    h^{A}_{A}
+                    \arrow[r,"f_{*}"]%
+                    \arrow[d,"\alpha_{A}"']%
+                    \&
+                    h^{A}_{X}
+                    \arrow[d,"\alpha_{X}"]%
+                    \\
+                    \SheafFont{F}(A)
+                    \arrow[r,"{\SheafFont{F}(f)}"']
+                    \&
+                    \SheafFont{F}(X)
+                \end{tikzcd}
+            \]%
+            of $\alpha$ at $f\colon A\to X$, which acts on $\id_{A}$ as
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \id_{A}
+                    \arrow[r,mapsto]%
+                    \arrow[d,mapsto]%
+                    \&
+                    f
+                    \arrow[d,mapsto]%
+                    \\
+                    \alpha_{A}(\id_{A})
+                    \arrow[r,mapsto]
+                    \&
+                    {[\SheafFont{F}(f)](\alpha_{A}(\id_{A}))=\alpha_{X}(f)}\mrp{.}
+                \end{tikzcd}
+            \]%
+    \end{enumerate}
+    This finishes the proof.
+\end{Proof}%
+\subsection{Properties of Categories of Presheaves}\label{subsection-properties-of-categories-of-presheaves}
+\begin{proposition}{Properties of Categories of Presheaves}{properties-of-categories-of-presheaves}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-categories-of-presheaves-functoriality}\SloganFont{Functoriality. }The assignment $\CatFont{C}\mapsto\PSh(\CatFont{C})$ defines a functor
+            \[
+                \PSh%
+                \colon%
+                \Cats%
+                \to%
+                \Cats%
+            \]%
+            up to some set-theoretic considerations.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                For instance:
+                \begin{itemize}
+                    \item The $\Cats$ in the source of $\PSh$ could be small categories, and then the $\Cats$ in the right would be locally small categories.
+                    \item The $\Cats$ in the source of $\PSh$ could be locally small categories, and then the $\Cats$ on the right would be large categories.
+                \end{itemize}
+                In general, one can systematise and formalise this using Grothendieck universes.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+        \item\label{properties-of-categories-of-presheaves-interaction-with-slice-categories}\SloganFont{Interaction With Slice Categories. }Let $X\in\Obj(\CatFont{C})$. We have an equivalence of categories
+            \[
+                \PSh(\CatFont{C}_{/X})%
+                \eqcong%
+                \PSh(\CatFont{C})_{/h_{X}}.%
+            \]%
+        \item\label{properties-of-categories-of-presheaves-interaction-with-categories-of-elements}\SloganFont{Interaction With Categories of Elements. }Let $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$. We have an equivalence of categories
+            \[
+                \PSh(\catEl{\CatFont{C}}{\SheafFont{F}})%
+                \eqcong%
+                \PSh(\CatFont{C})_{/\SheafFont{F}}.%
+            \]%
+        %\item\label{properties-of-categories-of-presheaves-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-categories-of-presheaves}}%
+    \FirstProofBox{\cref{properties-of-categories-of-presheaves-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-categories-of-presheaves-interaction-with-slice-categories}: Interaction With Slice Categories}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-categories-of-presheaves-interaction-with-categories-of-elements}: Interaction With Categories of Elements}%
+    Omitted.
+\end{Proof}
+\section{Copresheaves}\label{section-copresheaves}
+\subsection{Foundations}\label{subsection-copresheaves-foundations}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{Copresheaves on a Category}{copresheaves-on-a-category}%
+    A \index[categories]{copresheaf}\textbf{copresheaf on $\CatFont{C}$} is a functor $F\colon\CatFont{C}\to\Sets$.
+\end{definition}
+\begin{example}{Copresheaves on One-Object Categories}{copresheaves-on-one-object-categories}%
+    Copresheaves on the delooping $\B{A}$ of a monoid $A$ are precisely the right $A$-sets; see \ChapterRef{\ChapterMonoidActions, \cref{monoid-actions:right-a-sets-as-copresheaves-on-ba}}{\cref{right-a-sets-as-copresheaves-on-ba}}.
+\end{example}
+\begin{definition}{Morphisms of Copresheaves}{morphisms-of-copresheaves}%
+    A \index[categories]{copresheaf!morphism of}\textbf{morphism of copresheaves} on $\CatFont{C}$ from $F$ to $G$ is a natural transformation $\alpha\colon F\Rightarrow G$.
+\end{definition}
+\begin{definition}{The Category of Copresheaves on a Category}{the-category-of-copresheaves-on-a-category}%
+    The \index[set-theory]{copresheaf!category of}\textbf{category of copresheaves on $\CatFont{C}$} is the category \index[notation]{CoPShC@$\CoPSh(\CatFont{C})$}$\CoPSh(\CatFont{C})$ defined by
+    \[
+        \CoPSh(\CatFont{C})
+        \defeq
+        \Fun(\CatFont{C},\Sets).
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-category-of-copresheaves-on-a-category}}{unwinding-the-category-of-copresheaves-on-a-category}%
+    In detail, the \textbf{category of copresheaves on $\CatFont{C}$} is the category $\CoPSh(\CatFont{C})$ where
+    \begin{itemize}
+        \item\SloganFont{Objects. }The objects of $\CoPSh(\CatFont{C})$ are copresheaves on $\CatFont{C}$ as in \cref{copresheaves-on-a-category}.
+        \item\SloganFont{Morphisms. }The morphisms of $\CoPSh(\CatFont{C})$ are morphisms of copresheaves as in \cref{morphisms-of-copresheaves}, i.e.\ we have
+            \[
+                \Hom_{\CoPSh(\CatFont{C})}(F,G)%
+                \defeq%
+                \Nat(F,G)%
+            \]%
+            for each $F,G\in\Obj(\CoPSh(\CatFont{C}))$.
+        \item\SloganFont{Identities. }For each $F\in\Obj(\CoPSh(\CatFont{C}))$, the unit map
+            \[
+                \Unit^{\CoPSh(\CatFont{C})}_{F}%
+                \colon%
+                \pt%
+                \to%
+                \Nat(F,F)%
+            \]%
+            of $\CoPSh(\CatFont{C})$ at $F$ is defined by
+            \[
+                \id^{\CoPSh(\CatFont{C})}_{F}
+                \defeq
+                \id_{F},%
+            \]%
+            where $\id_{F}\colon F\Rightarrow F$ is the identity natural transformation of \ChapterRef{\ChapterCategories, \cref{categories:identity-natural-transformations}}{\cref{identity-natural-transformations}}.
+        \item\SloganFont{Composition. }For each $F,G,H\in\Obj(\CoPSh(\CatFont{C}))$, the composition map
+            \[
+                \circ^{\CoPSh(\CatFont{C})}_{F,G,H}
+                \colon
+                \Nat(G,H)
+                \times
+                \Nat(F,G)
+                \to
+                \Nat(F,H)
+            \]%
+            of $\CoPSh(\CatFont{C})$ at $(F,G,H)$ is defined by
+            \[
+                \beta\circ^{\CoPSh(\CatFont{C})}_{F,G,H}\alpha%
+                \defeq
+                \beta\circ\alpha,%
+            \]%
+            where $\beta\circ\alpha\colon F\Rightarrow H$ is the vertical composition of $\alpha$ and $\beta$ of \ChapterRef{\ChapterCategories, \cref{categories:vertical-composition-of-natural-transformations}}{\cref{vertical-composition-of-natural-transformations}}.
+    \end{itemize}
+\end{remark}
+\subsection{Corepresentable Copresheaves}\label{subsection-corepresentable-copresheaves}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{Corepresentable Copresheaves}{corepresentable-copresheaves}%
+    Let $A\in\Obj(\CatFont{C})$.
+    \begin{enumerate}
+        \item\label{corepresentable-copresheaves-corepresentable-copresheaves-associated-to-an-object}The \index[categories]{copresheaf!corepresentable associated to an object}\textbf{corepresentable copresheaf associated to $A$} is the copresheaf \index[notation]{hA@$h^{A}$}
+            \[
+                h^{A}%
+                \colon%
+                \CatFont{C}%
+                \to%
+                \Sets%
+            \]%
+            where
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\CatFont{C})$, we have
+                    \[
+                        h^{A}(X)
+                        \defeq
+                        \Hom_{\CatFont{C}}(A,X).
+                    \]%
+                \item\SloganFont{Action on Morphisms. }For each $X,Y\in\Obj(\CatFont{C})$, the action on morphisms
+                    \[
+                        h^{A}_{X,Y}%
+                        \colon%
+                        \Hom_{\CatFont{C}}(X,Y)%
+                        \to%
+                        \Hom_{\Sets}(h^{A}(X),h^{A}(Y))%
+                    \]%
+                    of $h^{A}$ at $(X,Y)$ is given by sending a morphism
+                    \[
+                        f%
+                        \colon%
+                        X%
+                        \to%
+                        Y%
+                    \]%
+                    of $\CatFont{C}$ to the map of sets
+                    \[
+                        h^{A}(f)
+                        \colon
+                        \underbrace{h^{A}(X)}_{\defeq\Hom_{\CatFont{C}}(A,X)}
+                        \to
+                        \underbrace{h^{A}(Y)}_{\defeq\Hom_{\CatFont{C}}(A,Y)}
+                    \]%
+                    defined by
+                    \[
+                        h^{A}(f)
+                        \defeq
+                        f_{*},
+                    \]%
+                    where $f_{*}$ is the postcomposition by $f$ morphism of \ChapterRef{\ChapterCategories, \cref{categories:precomposition-and-postcomposition-functions-postcomposition} of \cref{categories:precomposition-and-postcomposition-functions}}{\cref{precomposition-and-postcomposition-functions-postcomposition} of \cref{precomposition-and-postcomposition-functions}}.
+            \end{itemize}
+        \item\label{corepresentable-copresheaves-corepresenting-objects-for-copresheaves}A \index[categories]{copresheaf!corepresenting object of}\textbf{corepresenting object} for a copresheaf $F\colon\CatFont{C}\to\Sets$ on $\CatFont{C}$ is an object $A$ of $\CatFont{C}$ such that we have $F\cong h^{A}$.
+        \item\label{corepresentable-copresheaves-corepresentable-copresheaves}A copresheaf $F\colon\CatFont{C}^{\op}\to\Sets$ on $\CatFont{C}$ is \index[categories]{copresheaf!corepresentable}\textbf{corepresentable} if $F$ admits a corepresenting object.
+    \end{enumerate}
+\end{definition}
+\begin{example}{Corepresentable Copresheaves on One-Object Categories}{corepresentable-copresheaves-on-one-object-categories}%
+    The corepresentable copresheaf on the delooping $\B{A}$ of a monoid $A$ associated to the unique object $\bullet$ of $\B{A}$ is the right regular representation of $A$ of \ChapterRef{\ChapterMonoidActions, \cref{monoid-actions:the-right-regular-representation-of-a-monoid}}{\cref{the-right-regular-representation-of-a-monoid}}.
+\end{example}
+\begin{proposition}{Uniqueness of Corepresenting Objects Up to Isomorphism}{uniqueness-of-corepresenting-objects-up-to-isomorphism}%
+    Let $F\colon\CatFont{C}\to\Sets$ be a copresheaf. If there exist $A,B\in\Obj(\CatFont{C})$ such that we have natural isomorphisms
+    \begin{align*}
+        h^{A} &\cong F,\\
+        h^{B} &\cong F,
+    \end{align*}
+    then $A\cong B$.
+\end{proposition}
+\begin{Proof}{Proof of \cref{uniqueness-of-corepresenting-objects-up-to-isomorphism}}%
+    By composing the isomorphisms $h^{A}\cong F\cong h^{B}$, we get a natural isomorphism $h^{A}\cong h^{B}$. By \cref{properties-of-the-contravariant-yoneda-embedding-preservation-and-reflection-of-isomorphisms} of \cref{properties-of-the-contravariant-yoneda-embedding}, we have $A\cong B$.
+\end{Proof}
+\subsection{Corepresentable Natural Transformations}\label{subsection-corepresentable-natural-transformations}
+Let $\CatFont{C}$ be a category, let $A,B\in\Obj(\CatFont{C})$, and let $f\colon A\to B$ be a morphism of $\CatFont{C}$.
+\begin{definition}{Corepresentable Natural Transformations}{corepresentable-natural-transformations}%
+    The \index[categories]{corepresentable natural transformation}\textbf{corepresentable natural transformation associated to $f$} is the natural transformation
+    \[
+        h^{f}%
+        \colon%
+        h^{B}%
+        \Rightarrow%
+        h^{A}%
+    \]%
+    consisting of the collection
+    \[
+        \{
+            h^{f}_{X}
+            \colon
+            \underbrace{h^{B}(X)}_{\defeq\Hom_{\CatFont{C}}(B,X)}
+            \to
+            \underbrace{h^{A}(X)}_{\defeq\Hom_{\CatFont{C}}(A,X)}
+        \}_{X\in\Obj(\CatFont{C})}
+    \]%
+    with
+    \[
+        h^{f}_{X}
+        \defeq
+        f^{*},
+    \]%
+    where $f_{*}$ is the precomposition by $f$ morphism of \ChapterRef{\ChapterCategories, \cref{categories:precomposition-and-postcomposition-functions-precomposition} of \cref{categories:precomposition-and-postcomposition-functions}}{\cref{precomposition-and-postcomposition-functions-precomposition} of \cref{precomposition-and-postcomposition-functions}}.
+\end{definition}
+\subsection{The Contravariant Yoneda Embedding}\label{subsection-the-contravariant-yoneda-embedding}
+\begin{definition}{The Contravariant Yoneda Embedding}{the-contravariant-yoneda-embedding}%
+    The \index[categories]{Yoneda embedding!contravariant}\textbf{contravariant Yoneda embedding of $\CatFont{C}$} is the functor\index[notation]{yo@$\coyo$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written $h^{(-)}$, or simply $\coyo$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    \[
+        \coyo_{\CatFont{C}}%
+        \colon%
+        \CatFont{C}^{\op}%
+        \longhookrightarrow%
+        \CoPSh(\CatFont{C})%
+    \]%
+    where
+    \begin{itemize}
+        \item\SloganFont{Action on Objects. }For each $A\in\Obj(\CatFont{C})$, we have
+            \[
+                \coyo_{\CatFont{C}}(A)
+                \defeq
+                h^{A}.
+            \]%
+        \item\SloganFont{Action on Morphisms. }For each $A,B\in\Obj(\CatFont{C})$, the action on morphisms
+            \[
+                \coyo_{\CatFont{C}|A,B}%
+                \colon%
+                \Hom_{\CatFont{C}}(A,B)%
+                \to%
+                \Nat(h^{B},h^{A})%
+            \]%
+            of $\coyo_{\CatFont{C}}$ at $(A,B)$ is given by
+            \[
+                \coyo_{\CatFont{C}|A,B}(f)%
+                \defeq%
+                h^{f}%
+            \]%
+            for each $f\in\Hom_{\CatFont{C}}(A,B)$, where $h^{f}$ is the corepresentable natural transformation associated to $f$ of \cref{corepresentable-natural-transformations}.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of the Contravariant Yoneda Embedding}{properties-of-the-contravariant-yoneda-embedding}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-the-contravariant-yoneda-embedding-fully-faithfulness}\SloganFont{Fully Faithfulness. }The contravariant Yoneda embedding
+            \[
+                \coyo_{\CatFont{C}}%
+                \colon%
+                \CatFont{C}^{\op}%
+                \hookrightarrow%
+                \CoPSh(\CatFont{C})%
+            \]%
+            is fully faithful.
+        \item\label{properties-of-the-contravariant-yoneda-embedding-preservation-and-reflection-of-isomorphisms}\SloganFont{Preservation and Reflection of Isomorphisms. }The contravariant Yoneda embedding
+            \[
+                \coyo_{\CatFont{C}}%
+                \colon%
+                \CatFont{C}^{\op}%
+                \hookrightarrow%
+                \CoPSh(\CatFont{C})%
+            \]%
+            preserves and reflects isomorphisms, i.e.\ given $A,B\in\Obj(\CatFont{C})$, the following conditions are equivalent:
+            \begin{enumerate}
+                \item We have $A\cong B$.
+                \item We have $h^{A}\cong h^{B}$.
+            \end{enumerate}
+        %\item\label{properties-of-the-contravariant-yoneda-embedding-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-contravariant-yoneda-embedding}}%
+    \FirstProofBox{\cref{properties-of-the-contravariant-yoneda-embedding-fully-faithfulness}: Fully Faithfulness}%
+    The proof is dual to that of \cref{properties-of-the-yoneda-embedding-fully-faithfulness} of \cref{properties-of-the-yoneda-embedding}, and is therefore omitted.
+
+    \ProofBox{\cref{properties-of-the-contravariant-yoneda-embedding-preservation-and-reflection-of-isomorphisms}: Preservation and Reflection of Isomorphisms}%
+    This follows from \ChapterRef{\ChapterCategories, \cref{categories:elementary-properties-of-functors-preservation-of-isomorphisms} of \cref{categories:elementary-properties-of-functors} and \cref{categories:properties-of-fully-faithful-functors-conservativity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{elementary-properties-of-functors-preservation-of-isomorphisms} of \cref{elementary-properties-of-functors} and \cref{properties-of-fully-faithful-functors-conservativity} of \cref{properties-of-fully-faithful-functors}}.
+\end{Proof}
+\subsection{The Contravariant Yoneda Lemma}\label{subsection-the-contravariant-yoneda-lemma}
+Let $F\colon\CatFont{C}\to\Sets$ be a copresheaf on $\CatFont{C}$.
+\begin{theorem}{The Contravariant Yoneda Lemma}{the-contravariant-yoneda-lemma}%
+    \index[categories]{Yoneda lemma!contravariant}We have a bijection
+    \[
+        \Nat(h^{A},F)
+        \cong
+        F(A),
+    \]%
+    natural in $A\in\Obj(\CatFont{C})$, determining a natural isomorphism of functors
+    \[
+        \Nat(h^{(-)},F)
+        \cong
+        F.
+    \]%
+\end{theorem}
+\begin{Proof}{Proof of \cref{the-contravariant-yoneda-lemma}}%
+    The proof is dual to that of \cref{the-yoneda-lemma}, and is therefore omitted.
+\end{Proof}%
+\section{Restricted Yoneda Embeddings and Yoneda Extensions}\label{section-restricted-yoneda-embeddings-and-yoneda-extensions}
+\subsection{Foundations}\label{subsection-restricted-yoneda-embeddings-foundations}
+let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
+\begin{definition}{The Restricted Yoneda Embedding Associated to a Functor}{the-restricted-yoneda-embedding-associated-to-a-functor}%
+    The \index[categories]{Yoneda embedding!restricted}\index[categories]{restricted Yoneda embedding}\textbf{restricted Yoneda embedding associated to $F$} is the functor\index[notation]{yoF@$\yo_{F}$}
+    \[
+        \yo_{F}%
+        \colon%
+        \CatFont{D}%
+        \longhookrightarrow%
+        \PSh(\CatFont{C})%
+    \]%
+    defined as the composition
+    \[
+        \CatFont{D}
+        \xhookrightarrow{\yo_{\CatFont{D}}}
+        \PSh(\CatFont{D})
+        \xrightarrow{F^{\op,*}}
+        \PSh(\CatFont{C}).
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-restricted-yoneda-embedding-associated-to-a-functor}}{unwinding-the-restricted-yoneda-embedding-associated-to-a-functor}%
+    In detail, the \textbf{restricted Yoneda embedding associated to $F$} is the functor
+    \[
+        \yo_{F}%
+        \colon%
+        \CatFont{D}%
+        \longhookrightarrow%
+        \PSh(\CatFont{C})%
+    \]%
+    where
+    \begin{itemize}
+        \item\SloganFont{Action on Objects. }For each $A\in\Obj(\CatFont{D})$, we have
+            \begin{align*}
+                \yo_{F}(A) &\defeq h_{A}\circ F^{\op}\\
+                           &\defeq h^{F(-)}_{A}.
+            \end{align*}
+        \item\SloganFont{Action on Morphisms. }For each $A,B\in\Obj(\CatFont{D})$, the action on morphisms
+            \[
+                \yo_{F|A,B}%
+                \colon%
+                \Hom_{\CatFont{D}}(A,B)%
+                \to%
+                \Nat(h^{F(-)}_{A},h^{F(-)}_{B})%
+            \]%
+            of $\yo_{F}$ at $(A,B)$ is given by
+            \begin{align*}
+                \yo_{F|A,B}(f) &\defeq h^{F(-)}_{f}\\%
+                               &\defeq h_{f}\star\id_{F^{\op}}%
+            \end{align*}
+            for each $f\in\Hom_{\CatFont{D}}(A,B)$, where $h_{f}$ is the representable natural transformation associated to $f$ of \cref{representable-natural-transformations}.
+    \end{itemize}
+\end{remark}
+\begin{example}{Examples of Restricted Yoneda Embeddings}{examples-of-restricted-yoneda-embeddings}%
+    Here are some examples of restricted Yoneda embeddings.
+    \begin{enumerate}
+        \item\label{examples-of-restricted-yoneda-embeddings-the-nerve-functor}\SloganFont{The Nerve Functor. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \Cats%
+            \]%
+            be the functor given by $[n]\to\OrdinalCategoryN{n}$. Then the restricted Yoneda embedding
+            \[
+                \yo_{\iota}%
+                \colon%
+                \Cats%
+                \to%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+            \]%
+            of $\iota$ is given by the nerve functor $\NerveB$ of \ChapterRef{\ChapterSimplicialObjects, \cref{simplicial-objects:the-nerve-functor}}{\cref{the-nerve-functor}}.
+        \item\label{examples-of-restricted-yoneda-embeddings-the-singular-complex-of-a-topological-space}\SloganFont{The Singular Simplicial Set Associated to a Topological Space. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \Top%
+            \]%
+            be the functor given by $[n]\to\abs{\Delta^{n}}$. Then the restricted Yoneda embedding
+            \[
+                \yo_{\iota}%
+                \colon%
+                \Top%
+                \to%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+            \]%
+            of $\iota$ is given by the singular simplicial set functor $\Sing_{\bullet}$ of \ChapterRef{\ChapterSimplicialHomotopyTheory, \cref{simplicial-homotopy-theory:the-singular-simplicial-set-functor}}{\cref{the-singular-simplicial-set-functor}}.
+        \item\label{examples-of-restricted-yoneda-embeddings-the-coherent-nerve-functor}\SloganFont{The Coherent Nerve Functor. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \sCats%
+            \]%
+            be the functor given by $[n]\to\Path(\Delta^{n})$, where $\Path(\Delta^{n})$ is the simplicial category of \ChapterRef{\ChapterSimplicialCategories, \cref{simplicial-categories-the-path-simplicial-category-of-delta-n}}{\cref{the-path-simplicial-category-of-delta-n}}. Then the restricted Yoneda embedding
+            \[
+                \yo_{\iota}%
+                \colon%
+                \sCats%
+                \to%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+            \]%
+            of $\iota$ is given by the coherent nerve functor $\sNerveB$ of \ChapterRef{\ChapterSimplicialCategories, \cref{simplicial-categories:the-homotopy-coherent-nerve-functor}}{\cref{the-homotopy-coherent-nerve-functor}}.
+        \item\label{examples-of-restricted-yoneda-embeddings-kan-s-ex-functor}\SloganFont{Kan's $\Ex$ Functor. }Let
+            \[
+                \sd%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \sSets%
+            \]%
+            be the functor given by $[n]\to\Sd(\Delta^{n})$, where $\Sd(\Delta^{n})$ is the barycentric subdivision of $\Delta^{n}$ of \cref{TODO}. Then the restricted Yoneda embedding
+            \[
+                \yo_{\sd}%
+                \colon%
+                \sSets%
+                \to%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+            \]%
+            of $\sd$ is given by Kan's $\Ex$ functor of \cref{TODO}.
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of the Restricted Yoneda Embedding}{properties-of-the-restricted-yoneda-embedding}%
+    let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
+    \begin{enumerate}
+        \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-fully-faithfulness}\SloganFont{Interaction With Fully Faithfulness. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-fully-faithfulness-1}The restricted Yoneda embedding $\yo_{F}$ is fully faithful.
+                \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-fully-faithfulness-2}The functor $F$ is dense (\ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:dense-functors}}{\cref{dense-functors}}).
+            \end{enumerate}
+        \item\label{properties-of-the-restricted-yoneda-embedding-as-a-left-kan-extension}\SloganFont{As a Left Kan Extension. }We have a natural isomorphism of functors
+            \begin{webcompile}
+                \yo_{F}%
+                \cong%
+                \Lan_{F}(\yo),%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \CatFont{D}
+                    \arrow[d, "\yo_{F}",dashed]
+                    \\
+                    \CatFont{C}
+                    \arrow[ru, "F"]
+                    \arrow[r, "\yo_{\CatFont{C}}"'{name=F}]
+                    \&
+                    {\PSh(\CatFont{C})}\mrp{.}
+                    % 2-Arrows
+                    \arrow[from=F,to=1-2,Rightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.45*\the\DL]}]
+                \end{tikzcd}
+            \end{webcompile}
+        %\item\label{properties-of-the-restricted-yoneda-embedding-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-restricted-yoneda-embedding}}%
+    \FirstProofBox{\cref{properties-of-the-restricted-yoneda-embedding-interaction-with-fully-faithfulness}: Interaction With Fully Faithfulness}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-the-restricted-yoneda-embedding-as-a-left-kan-extension}: As a Left Kan Extension}%
+    Omitted.
+\end{Proof}
+\subsection{The Yoneda Extension Functor}\label{subsection-the-yoneda-extension-functor}
+Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor with $\CatFont{C}$ small and $\CatFont{D}$ cocomplete.
+\begin{definition}{The Yoneda Extension Functor}{the-yoneda-extension-functor}%
+    The \index[categories]{Yoneda extension}\textbf{Yoneda extension functor associated to $F$} is the left Kan extension
+    \begin{webcompile}
+        \Lan_{\yo}(F)%
+        \colon%
+        \PSh(\CatFont{C})%
+        \to%
+        \CatFont{D},%
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            {\PSh(\CatFont{C})}
+            \arrow[d, "\Lan_{\yo}(F)",dashed]
+            \\
+            \CatFont{C}
+            \arrow[ru, "\yo_{\CatFont{C}}"]
+            \arrow[r, "F"'{name=F}]
+            \&
+            \CatFont{D}\mrp{.}
+            % 2-Arrows
+            \arrow[from=F,to=1-2,Rightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.2*\the\DL]}]
+        \end{tikzcd}
+    \end{webcompile}
+\end{definition}
+\begin{example}{Examples of Yoneda Extensions}{examples-of-yoneda-extensions}%
+    Here are some examples of Yoneda extensions.
+    \begin{enumerate}
+        \item\label{examples-of-yoneda-extensions-the-homotopy-category-functor}\SloganFont{The Homotopy Category Functor. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \Cats%
+            \]%
+            be the functor given by $[n]\to\OrdinalCategoryN{n}$. Then the Yoneda extension
+            \[
+                \Lan_{\yo}(\iota)%
+                \colon%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+                \to%
+                \Cats%
+            \]%
+            of $\iota$ is given by the homotopy category functor $\Ho$ of \ChapterRef{\ChapterSimplicialObjects, \cref{simplicial-objects:the-homotopy-category-functor}}{\cref{the-homotopy-category-functor}}.
+        \item\label{examples-of-yoneda-extensions-the-geometric-realisation-functor}\SloganFont{The Geometric Realisation Functor. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \Top%
+            \]%
+            be the functor given by $[n]\to\abs{\Delta^{n}}$. Then the Yoneda extension
+            \[
+                \Lan_{\yo}(\iota)%
+                \colon%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+                \to%
+                \Top%
+            \]%
+            of $\iota$ is given by the geometric realisation functor $\abs{-}$ of \ChapterRef{\ChapterSimplicialHomotopyTheory, \cref{simplicial-homotopy-theory:the-geometric-realisation-functor}}{\cref{the-geometric-realisation-functor}}.
+        \item\label{examples-of-yoneda-extensions-the-path-simplicial-category-functor}\SloganFont{The Path Simplicial Category Functor. }Let
+            \[
+                \iota%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \sCats%
+            \]%
+            be the functor given by $[n]\to\Path(\Delta^{n})$, where $\Path(\Delta^{n})$ is the simplicial category of \ChapterRef{\ChapterSimplicialCategories, \cref{simplicial-categories-the-path-simplicial-category-of-delta-n}}{\cref{the-path-simplicial-category-of-delta-n}}. Then the Yoneda extension
+            \[
+                \Lan_{\yo}(\iota)%
+                \colon%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+                \to%
+                \sCats%
+            \]%
+            of $\iota$ is given by the path simplicial category functor $\Path$ of \ChapterRef{\ChapterSimplicialCategories, \cref{simplicial-categories:the-path-simplicial-category-functor}}{\cref{the-path-simplicial-category-functor}}.
+        \item\label{examples-of-yoneda-extensions-the-barycenteric-subdivision-functor}\SloganFont{The Barycentric Subdivision Functor. }Let
+            \[
+                \sd%
+                \colon%
+                \SimplexCategory%
+                \hookrightarrow%
+                \sSets%
+            \]%
+            be the functor given by $[n]\to\Sd(\Delta^{n})$, where $\Sd(\Delta^{n})$ is the barycentric subdivision of $\Delta^{n}$ of \cref{TODO}. Then the Yoneda extension
+            \[
+                \Lan_{\yo}(\sd)%
+                \colon%
+                \underbrace{\PSh(\SimplexCategory)}_{\defeq\sSets}%
+                \to%
+                \sSets%
+            \]%
+            of $\sd$ is given by the barycentric subdivision functor $\Sd$ of \cref{TODO}.
+    \end{enumerate}
+\end{example}
+\begin{proposition}{Properties of Yoneda Extensions}{properties-of-yoneda-extensions}%
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor with $\CatFont{C}$ small and $\CatFont{D}$ cocomplete.
+    \begin{enumerate}
+        \item\label{properties-of-yoneda-extensions-functoriality}\SloganFont{Functoriality. }The assignment $F\mapsto\Lan_{\yo}(F)$ defines a functor
+            \[
+                \Lan_{\yo}%
+                \colon%
+                \Fun(\CatFont{C},\CatFont{D})%
+                \to%
+                \Fun(\PSh(\CatFont{C}),\CatFont{D}).%
+            \]%
+        \item\label{properties-of-yoneda-extensions-adjointness}\SloganFont{Adjointness. }We have an adjunction%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Applying \cref{properties-of-the-restricted-yoneda-embedding-as-a-left-kan-extension} of \cref{properties-of-the-restricted-yoneda-embedding}, we see that this adjunction has the form $\Lan_{\yo}(F)\dashv\Lan_{F}(\yo)$.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \begin{webcompile}
+                \Adjunction#\Lan_{\yo}(F)#\yo_{F}#\PSh(\CatFont{C})#\CatFont{D},#
+            \end{webcompile}%
+            witnessed by a bijection
+            \[
+                \Hom_{\CatFont{D}}([\Lan_{\yo}(F)](\SheafFont{F}),D)%
+                \cong
+                \Nat(\SheafFont{F},\yo_{F}(D)),
+            \]%
+            natural in $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$ and $D\in\Obj(\CatFont{D})$.
+        \item\label{properties-of-yoneda-extensions-interaction-with-the-yoneda-embedding}\SloganFont{Interaction With the Yoneda Embedding. }We have a natural isomorphism of functors
+            \begin{webcompile}
+                \Lan_{\yo}(F)\circ\yo_{\CatFont{C}}%
+                \cong%
+                F,%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    {\PSh(\CatFont{C})}
+                    \arrow[d, "\Lan_{\yo}(F)",dashed]
+                    \\
+                    \CatFont{C}
+                    \arrow[ru, "\yo_{\CatFont{C}}"]
+                    \arrow[r, "F"'{name=F}]
+                    \&
+                    \CatFont{D}\mrp{.}
+                    % 2-Arrows
+                    \arrow[from=F,to=1-2,Leftrightarrow,dashed,shorten=0.5em,pos=0.4,shift right=0.1*\the\DL]
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-yoneda-extensions-as-a-coend}\SloganFont{As a Coend. }We have
+            \begin{align*}
+                [\Lan_{\yo}(F)](\SheafFont{F}) &\cong \int^{A\in\CatFont{C}}\Nat(h_{A},\SheafFont{F})\odot F(A)\\
+                                               &\cong \int^{A\in\CatFont{C}}\SheafFont{F}(A)\odot F(A)
+            \end{align*}
+            for each $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$.
+        \item\label{properties-of-yoneda-extensions-interaction-with-tensors-of-presheaves-with-functors}\SloganFont{Interaction With Tensors of Presheaves With Functors. }We have a natural isomorphism
+            \[
+                \Lan_{\yo}(F)%
+                \cong
+                (-)\odot_{\CatFont{C}}F,%
+            \]%
+            natural in $F\in\Obj(\Fun(\CatFont{C},\CatFont{D}))$.
+        \item\label{properties-of-the-yoneda-extensions-interaction-with-finite-limits}\SloganFont{Interaction With Finite Limits. }Let $F\colon\CatFont{C}\to\Sets$ be a functor. The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-finite-limits-1}The functor $F$ preserves finite limits.
+                \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-finite-limits-2}The functor $\Lan_{\yo}(F)$ preserves finite limits.
+                \item\label{properties-of-the-restricted-yoneda-embedding-interaction-with-finite-limits-3}The category of elements $\catEl{\CatFont{C}}{F}$ of $F$ is cofiltered.
+            \end{enumerate}
+        %\item\label{properties-of-yoneda-extensions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-yoneda-extensions}}%
+    \FirstProofBox{\cref{properties-of-yoneda-extensions-functoriality}: Functoriality}%
+    This follows from \ChapterRef{\ChapterKanExtensions, \cref{categories:properties-of-kan-extensions-functoriality} of \cref{categories:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-functoriality} of \cref{properties-of-kan-extensions}}.
+
+    \ProofBox{\cref{properties-of-yoneda-extensions-adjointness}: Adjointness}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-yoneda-extensions-interaction-with-the-yoneda-embedding}: Interaction With the Yoneda Embedding}%
+    This follows from \ChapterRef{\ChapterKanExtensions, \cref{categories:properties-of-kan-extensions-interaction-with-fully-faithfulness} of \cref{categories:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-fully-faithfulness} of \cref{properties-of-kan-extensions}}.
+
+    \ProofBox{\cref{properties-of-yoneda-extensions-as-a-coend}: As a Coend}%
+    This follows from \ChapterRef{\ChapterKanExtensions, \cref{categories:properties-of-kan-extensions-as-co-ends} of \cref{categories:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-as-co-ends} of \cref{properties-of-kan-extensions}} and \cref{the-yoneda-lemma}.
+
+    \ProofBox{\cref{properties-of-yoneda-extensions-interaction-with-tensors-of-presheaves-with-functors}: Interaction With Tensors of Presheaves With Functors}%
+    This follows from \cref{properties-of-yoneda-extensions-as-a-coend}.
+
+    \ProofBox{\cref{properties-of-the-yoneda-extensions-interaction-with-finite-limits}: Interaction With Finite Limits}%
+    See \cite[Proposition 3.2.15]{coend-calculus}.
+\end{Proof}
+\section{Functor Tensor Products}\label{section-functor-tensor-products}
+\subsection{The Tensor Product of Presheaves With Copresheaves}\label{subsection-the-tensor-product-of-presheaves-with-copresheaves}
+Let $\CatFont{C}$ be a category, let $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ be a presheaf on $\CatFont{C}$, and let $G\colon\CatFont{C}\to\Sets$ be a copresheaf on $\CatFont{C}$.
+\begin{definition}{The Tensor Product of Presheaves With Copresheaves}{the-tensor-product-of-presheaves-with-copresheaves}%
+    The \index[categories]{tensor product of functors}\index[categories]{functor tensor product}\textbf{tensor product} of $\SheafFont{F}$ with $G$ is the set \index[notation]{FboxtimesCG@$\SheafFont{F}\boxtimes_{\CatFont{C}}G$}$\SheafFont{F}\boxtimes_{\CatFont{C}}G$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written simply \index[notation]{FboxtimesG@$\SheafFont{F}\boxtimes G$}$\SheafFont{F}\boxtimes G$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    defined by
+    \[
+        \SheafFont{F}\boxtimes_{\CatFont{C}}G%
+        \defeq%
+        \int^{A\in\CatFont{C}}\SheafFont{F}(A)\times G(A).%
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-tensor-product-of-presheaves-with-copresheaves}}{unwinding-the-tensor-product-of-presheaves-with-copresheaves}%
+    In other words, the tensor product of $\SheafFont{F}$ with $G$ is the set $\SheafFont{F}\boxtimes_{\CatFont{C}}G$ defined as the coend of the functor
+    \[
+        \CatFont{C}^{\op}\times\CatFont{C}%
+        \xrightarrow{\SheafFont{F}\times G}%
+        \Sets\times\Sets%
+        \xrightarrow{\times}%
+        \Sets,%
+    \]%
+    which is equivalently the composition
+    \begin{webcompile}
+        \mathord{\times}\circ(\SheafFont{F}\times G)%
+        \cong%
+        \SheafFont{F}\procirc F,%
+        \mkern27mu%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \CatFont{C}
+            \arrow[r,"F",mid vert]
+            \arrow[rd,"{\mathord{\times}\circ(\SheafFont{F}\times G)}"',mid vert]
+            \&
+            \PunctualCategory
+            \arrow[d,"\SheafFont{F}",mid vert]
+            \\
+            \&
+            \CatFont{C}
+        \end{tikzcd}
+    \end{webcompile}
+    in $\Prof$.
+\end{remark}
+\begin{example}{The Tensor Product of Presheaves With Copresheaves on One Object Categories}{the-tensor-product-of-presheaves-with-copresheaves-on-one-object-categories}%
+\end{example}
+\begin{proposition}{Properties of Tensor Products of Presheaves With Copresheaves}{properties-of-tensor-products-of-presheaves-with-copresheaves}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-functoriality}\SloganFont{Functoriality. }The assignments $\SheafFont{F},G,(\SheafFont{F},G)\mapsto\SheafFont{F}\boxtimes_{\CatFont{C}}G$ define functors
+            \[
+                \BifunctorialityPeriod{\SheafFont{F}\boxtimes_{\CatFont{C}}-}{-\boxtimes_{\CatFont{C}}G}{-_{1}\boxtimes_{\CatFont{C}}-_{2}}{\PSh(\CatFont{C})}{\CoPSh(\CatFont{C})}{\PSh(\CatFont{C})\times\CoPSh(\CatFont{C})}{\Sets}%
+            \]%
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-as-a-composition-of-profunctors}\SloganFont{As a Composition of Profunctors. }Let $\CatFont{C}$ be a category and let:
+            \begin{itemize}
+                \item $\SheafFont{F}\colon\PunctualCategory\rightproarrow\CatFont{C}$ be a presheaf on $\CatFont{C}$, viewed as a profunctor.
+                \item $F\colon\CatFont{C}\rightproarrow\PunctualCategory$             be a copresheaf on $\CatFont{C}$, viewed as a profunctor.
+            \end{itemize}
+            We have a natural isomorphism of profunctors
+            \begin{webcompile}
+                \SheafFont{F}\boxtimes_{\CatFont{C}}F%
+                \cong%
+                F\procirc\SheafFont{F},%
+                \mkern27mu%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \CatFont{C}
+                    \arrow[d,"F",mid vert]
+                    \\
+                    \PunctualCategory
+                    \arrow[ru,"\SheafFont{F}",mid vert]
+                    \arrow[r,"\SheafFont{F}\boxtimes_{\CatFont{C}}F"'{name=F},mid vert]
+                    \&
+                    \PunctualCategory\mrp{,}
+                    \arrow[from=F,to=1-2,Leftrightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.4*\the\DL]},end anchor={[xshift=0.175*\the\DL]},densely dashed]
+                \end{tikzcd}
+            \end{webcompile}
+            natural in $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$ and $F\in\Obj(\CoPSh(\CatFont{C}))$.
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-representable-presheaves}\SloganFont{Interaction With Representable Presheaves. }Let $\SheafFont{F}$ be a presheaf on $\CatFont{C}$. We have a bijection of sets
+            \[
+                \SheafFont{F}\boxtimes_{\CatFont{C}}h^{X}%
+                \cong
+                \SheafFont{F}(X),%
+            \]%
+            natural in $X\in\Obj(\CatFont{C})$, giving a natural isomorphism of functors
+            \begin{webcompile}
+                \SheafFont{F}\boxtimes_{\CatFont{C}}h^{(-)}%
+                \cong
+                \SheafFont{F},%
+                \mkern27mu%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \CoPSh(\CatFont{C})
+                    \arrow[d,"\SheafFont{F}\boxtimes_{\CatFont{C}}-"]
+                    \\
+                    \CatFont{C}^{\op}
+                    \arrow[ru,"\coyo_{\CatFont{C}}"]
+                    \arrow[r,"\SheafFont{F}"'{name=F}]
+                    \&
+                    \Sets\mrp{.}
+                    \arrow[from=F,to=1-2,Leftrightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.2*\the\DL]},densely dashed]
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-corepresentable-copresheaves}\SloganFont{Interaction With Corepresentable Copresheaves. }Let $G$ be a copresheaf on $\CatFont{C}$. We have a bijection of sets
+            \[
+                h_{X}\boxtimes_{\CatFont{C}}G%
+                \cong
+                G(X),%
+            \]%
+            natural in $X\in\Obj(\CatFont{C})$, giving a natural isomorphism of functors
+            \begin{webcompile}
+                h_{(-)}\boxtimes_{\CatFont{C}}G%
+                \cong
+                G,%
+                \mkern27mu%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    \PSh(\CatFont{C})
+                    \arrow[d,"-\boxtimes_{\CatFont{C}}G"]
+                    \\
+                    \CatFont{C}
+                    \arrow[ru,"\yo_{\CatFont{C}}"]
+                    \arrow[r,"G"'{name=F}]
+                    \&
+                    \Sets\mrp{.}
+                    \arrow[from=F,to=1-2,Leftrightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.3*\the\DL]},densely dashed]
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-yoneda-extensions}\SloganFont{Interaction With Yoneda Extensions. }Let $G\colon\CatFont{C}\to\Sets$ be a copresheaf on $\CatFont{C}$. We have a natural isomorphism
+            \begin{webcompile}
+                \Lan_{\yo}(G)%
+                \cong
+                (-)\boxtimes_{\CatFont{C}}G,%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    {\PSh(\CatFont{C})}
+                    \arrow[d, "{(-)\boxtimes_{\CatFont{C}}G}",dashed]
+                    \\
+                    \CatFont{C}
+                    \arrow[ru, "\yo_{\CatFont{C}}"]
+                    \arrow[r, "G"'{name=F}]
+                    \&
+                    \Sets\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=F,to=1-2,Rightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.3*\the\DL]}]
+                \end{tikzcd}
+            \end{webcompile}
+            natural in $G\in\Obj(\CoPSh(\CatFont{C}))$.
+        \item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-contravariant-yoneda-extensions}\SloganFont{Interaction With Contravariant Yoneda Extensions. }Let $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ be a presheaf on $\CatFont{C}$. We have a natural isomorphism
+            \begin{webcompile}
+                \Lan_{\coyo}(\SheafFont{F})%
+                \cong
+                \SheafFont{F}\boxtimes_{\CatFont{C}}(-),%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    {\CoPSh(\CatFont{C})}
+                    \arrow[d, "{\SheafFont{F}\boxtimes_{\CatFont{C}}(-)}",dashed]
+                    \\
+                    \CatFont{C}^{\op}
+                    \arrow[ru, "\coyo_{\CatFont{C}}"]
+                    \arrow[r, "\SheafFont{F}"'{name=F}]
+                    \&
+                    \Sets\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=F,to=1-2,Rightarrow,shorten=0.75em,pos=0.4,start anchor={[xshift=-0.15*\the\DL]},end anchor={[xshift=0.2*\the\DL]}]
+                \end{tikzcd}
+            \end{webcompile}
+            natural in $\SheafFont{F}\in\Obj(\PSh(\CatFont{C}))$.
+        %\item\label{properties-of-tensor-products-of-presheaves-with-copresheaves-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-tensor-products-of-presheaves-with-copresheaves}}%
+    \FirstProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-as-a-composition-of-profunctors}: As a Composition of Profunctors}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-representable-presheaves}: Interaction With Representable Presheaves}%
+    This follows from \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-corepresentable-copresheaves}: Interaction With Corepresentable Copresheaves}%
+    This follows from \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-yoneda-extensions}: Interaction With Yoneda Extensions}%
+    This is a special case of \cref{properties-of-yoneda-extensions-interaction-with-tensors-of-presheaves-with-functors} of \cref{properties-of-yoneda-extensions}.
+
+    \ProofBox{\cref{properties-of-tensor-products-of-presheaves-with-copresheaves-interaction-with-contravariant-yoneda-extensions}: Interaction With Contravariant Yoneda Extensions}%
+    This is a special case of \cref{properties-of-contravariant-yoneda-extensions-interaction-with-tensors-of-copresheaves-with-functors} of \cref{properties-of-contravariant-yoneda-extensions}.
+\end{Proof}
+\subsection{The Tensor of a Presheaf With a Functor}\label{subsection-the-tensor-of-a-presheaf-with-a-functor}
+Let $\CatFont{C}$ be a category, let $\CatFont{D}$ be a category with coproducts, let $\SheafFont{F}\colon\CatFont{C}^{\op}\to\Sets$ be a presheaf on $\CatFont{C}$, and let $G\colon\CatFont{C}\to\SheafFont{D}$ be a functor.
+\begin{definition}{The Tensor of a Presheaf With a Functor}{the-tensor-of-a-presheaf-with-a-functor}%
+    The \index[categories]{tensor of a presheaf with a functor}\textbf{tensor} of $\SheafFont{F}$ with $G$ is the object \index[notation]{FodotCG@$\SheafFont{F}\odot_{\CatFont{C}}G$}$\SheafFont{F}\odot_{\CatFont{C}}G$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written simply \index[notation]{FodotG@$\SheafFont{F}\odot G$}$\SheafFont{F}\odot G$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    of $\CatFont{D}$ defined by
+    \[
+        \SheafFont{F}\odot_{\CatFont{C}}G%
+        \defeq%
+        \int^{A\in\CatFont{C}}\SheafFont{F}(A)\odot G(A).%
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-tensor-of-a-presheaf-with-a-functor}}{unwinding-the-tensor-of-a-presheaf-with-a-functor}%
+    In other words, the tensor of $\SheafFont{F}$ with $G$ is the object $\SheafFont{F}\odot_{\CatFont{C}}G$ of $\CatFont{D}$ defined as the coend of the functor
+    \[
+        \CatFont{C}^{\op}\times\CatFont{C}%
+        \xrightarrow{\SheafFont{F}\times G}%
+        \Sets\times\CatFont{D}%
+        \xrightarrow{\odot}%
+        \CatFont{D}.%
+    \]%
+\end{remark}
+\begin{proposition}{Properties of Tensors of Presheaves With Functors}{properties-of-tensors-of-presheaves-with-functors}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-tensors-of-presheaves-with-functors-functoriality}\SloganFont{Functoriality. }The assignments $\SheafFont{F},G,(\SheafFont{F},G)\mapsto\SheafFont{F}\odot_{\CatFont{C}}G$ define functors
+            \[
+                \BifunctorialityPeriod{\SheafFont{F}\odot_{\CatFont{C}}-}{-\odot_{\CatFont{C}}G}{-_{1}\odot_{\CatFont{C}}-_{2}}{\PSh(\CatFont{C})}{\Fun(\CatFont{C},\CatFont{D})}{\PSh(\CatFont{C})\times\Fun(\CatFont{C},\CatFont{D})}{\CatFont{D}}%
+            \]%
+        \item\label{properties-of-tensors-of-presheaves-with-functors-}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
+            \[
+                h_{X}\odot_{\CatFont{C}}G%
+                \cong
+                G(X),%
+            \]%
+            natural in $X\in\Obj(\CatFont{C})$, giving a natural isomorphism of functors
+            \[
+                h_{(-)}\odot_{\CatFont{C}}G%
+                \cong
+                G.%
+            \]%
+        \item\label{properties-of-tensors-of-presheaves-with-functors-interaction-with-yoneda-extensions}\SloganFont{Interaction With Yoneda Extensions. }We have a natural isomorphism
+            \[
+                \Lan_{\yo}(G)%
+                \cong
+                (-)\odot_{\CatFont{C}}G,%
+            \]%
+            natural in $G\in\Obj(\Fun(\CatFont{C},\CatFont{D}))$.
+        %\item\label{properties-of-tensors-of-presheaves-with-functors-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-tensors-of-presheaves-with-functors}}%
+    \FirstProofBox{\cref{properties-of-tensors-of-presheaves-with-functors-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-tensors-of-presheaves-with-functors-}: Interaction With Corepresentable Copresheaves}%
+    This follows from \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-tensors-of-presheaves-with-functors-interaction-with-yoneda-extensions}: Interaction With Yoneda Extensions}%
+    This is a repetition of \cref{properties-of-yoneda-extensions-interaction-with-tensors-of-presheaves-with-functors} of \cref{properties-of-yoneda-extensions}, and is proved there.
+\end{Proof}
+\subsection{The Tensor of a Copresheaf With a Functor}\label{subsection-the-tensor-of-a-copresheaf-with-a-functor}
+Let $\CatFont{C}$ be a category, let $\CatFont{D}$ be a category with coproducts, let $F\colon\CatFont{C}\to\Sets$ be a copresheaf on $\CatFont{C}$, and let $G\colon\CatFont{C}^{\op}\to\SheafFont{D}$ be a functor.
+\begin{definition}{The Tensor of a Copresheaf With a Functor}{the-tensor-of-a-copresheaf-with-a-functor}%
+    The \index[categories]{tensor of a copresheaf with a functor}\textbf{tensor} of $F$ with $G$ is the set \index[notation]{FodotCG@$F\odot_{\CatFont{C}}G$}$F\odot_{\CatFont{C}}G$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written simply \index[notation]{FodotG@$F\odot G$}$F\odot G$.
+        \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    defined by
+    \[
+        F\odot_{\CatFont{C}}G%
+        \defeq%
+        \int^{A\in\CatFont{C}}F(A)\odot G(A).%
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-tensor-of-a-copresheaf-with-a-functor}}{unwinding-the-tensor-of-a-copresheaf-with-a-functor}%
+    In other words, the tensor of $F$ with $G$ is the object $F\odot_{\CatFont{C}}G$ of $\CatFont{D}$ defined as the coend of the functor
+    \[
+        \CatFont{C}^{\op}\times\CatFont{C}%
+        \rightisoarrow%
+        \CatFont{C}\times\CatFont{C}^{\op}%
+        \xrightarrow{F\times G}%
+        \Sets\times\CatFont{D}%
+        \xrightarrow{\odot}%
+        \CatFont{D}.%
+    \]%
+\end{remark}
+\begin{proposition}{Properties of Tensors of Copresheaves With Functors}{properties-of-tensors-of-copresheaves-with-functors}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-tensors-of-copresheaves-with-functors-functoriality}\SloganFont{Functoriality. }The assignments $F,G,(F,G)\mapsto F\odot_{\CatFont{C}}G$ define functors
+            \[
+                \BifunctorialityPeriod{F\odot_{\CatFont{C}}-}{-\odot_{\CatFont{C}}\SheafFont{G}}{-_{1}\odot_{\CatFont{C}}-_{2}}{\CoPSh(\CatFont{C})}{\Fun(\CatFont{C}^{\op},\CatFont{D})}{\Fun(\CatFont{C}^{\op},\CatFont{D})\times\CoPSh(\CatFont{C})}{\CatFont{D}}%
+            \]%
+        \item\label{properties-of-tensors-of-copresheaves-with-functors-}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
+            \[
+                h^{X}\odot_{\CatFont{C}}G%
+                \cong
+                G(X),%
+            \]%
+            natural in $X\in\Obj(\CatFont{C})$, giving a natural isomorphism of functors
+            \[
+                h^{(-)}\odot_{\CatFont{C}}G%
+                \cong
+                G.%
+            \]%
+        \item\label{properties-of-tensors-of-copresheaves-with-functors-interaction-with-contravariant-yoneda-extensions}\SloganFont{Interaction With Contravariant Yoneda Extensions. }We have a natural isomorphism
+            \[
+                \Lan_{\coyo}(G)%
+                \cong
+                G\odot_{\CatFont{C}}(-),%
+            \]%
+            natural in $G\in\Obj(\Fun(\CatFont{C}^{\op},\CatFont{D}))$.
+        %\item\label{properties-of-tensors-of-copresheaves-with-functors-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-tensors-of-copresheaves-with-functors}}%
+    \FirstProofBox{\cref{properties-of-tensors-of-copresheaves-with-functors-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-tensors-of-copresheaves-with-functors-}: Interaction With Representable Presheaves}%
+    This follows from \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-tensors-of-copresheaves-with-functors-}: Interaction With Corepresentable Copresheaves}%
+    This follows from \cref{TODO}.
+
+    \ProofBox{\cref{properties-of-tensors-of-copresheaves-with-functors-interaction-with-yoneda-extensions}: Interaction With Yoneda Extensions}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-tensors-of-copresheaves-with-functors-interaction-with-contravariant-yoneda-extensions}: Interaction With Contravariant Yoneda Extensions}%
+    Omitted.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

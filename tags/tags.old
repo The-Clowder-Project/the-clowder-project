@@ -650,9 +650,9 @@
 00L5,relations:subsection-internal-adjunctions-in-rel
 00L6,relations:adjunctions-in-rel
 00L7,relations:subsection-internal-monads-in-rel
-00L8,relations:monads-in-rel
+00L8,relations:internal-monads-in-rel
 00L9,relations:subsection-internal-comonads-in-rel
-00LA,relations:comonads-in-rel
+00LA,relations:internal-comonads-in-rel
 00LB,relations:subsection-co-monoids-in-rel
 00LC,relations:co-monoids-in-rel
 00LD,relations:subsection-monomorphisms-in-rel
@@ -2436,10 +2436,10 @@
 029K,relations:proof-of-adjunctions-in-rel-2
 029L,relations:proof-of-adjunctions-in-rel-3
 029M,relations:proof-of-adjunctions-in-rel-4
-029N,relations:proof-of-monads-in-rel-1
-029P,relations:proof-of-monads-in-rel-2
-029Q,relations:proof-of-comonads-in-rel-1
-029R,relations:proof-of-comonads-in-rel-2
+029N,relations:proof-of-internal-monads-in-rel-1
+029P,relations:proof-of-internal-monads-in-rel-2
+029Q,relations:proof-of-internal-comonads-in-rel-1
+029R,relations:proof-of-internal-comonads-in-rel-2
 029S,relations:characterisations-of-epimorphisms-in-rel-5
 029T,relations:characterisations-of-epimorphisms-in-rel-6
 029U,constructions-with-relations:constructions-with-relations-introduction-item-1

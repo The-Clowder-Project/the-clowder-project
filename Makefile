@@ -15,6 +15,7 @@ LIJST = introduction \
 		constructions-with-relations \
 		conditions-on-relations \
 		categories \
+		presheaves-and-the-yoneda-lemma \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories \
 		notes

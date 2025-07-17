@@ -68,14 +68,7 @@ This chapter is under revision. TODO:
 \begin{enumerate}
     \item Revise \cref{section-properties-of-the-2-category-of-relations}
         \begin{enumerate}
-            \item Add modules over monads in $\sfbfRel$
-            \item internal relations, \url{https://ncatlab.org/nlab/show/internal+relation}
             \item Co/limits in $\sfbfRel$.
-            \item Codensity monad $\Ran_{J}(J)$ of a relation (What about $\Rift_{J}(J)$?)
-                \begin{enumerate}
-                    \item Density comonad $\Lan_{J}(J)$ of a relation when it exists (what about $\Lift_{J}(J)$?)
-                \end{enumerate}
-            \item Fibrations in $\sfbfRel$, like discrete fibrations and Street fibrations
         \end{enumerate}
     \item Replicate \cref{section-properties-of-the-2-category-of-relations} for apartness composition
     \item Revise \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
@@ -94,8 +87,8 @@ This chapter is under revision. TODO:
             \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
                 \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
                 $R$ is functional                              & $R\procirc R^{\dagger}\subset \Delta_{B}$            \\\rowcolor{backgroundColor}
-                $R$ is total                                   & $\Delta_{A}           \subset R\procirc R^{\dagger}$ \\\rowcolor{black!05!backgroundColor}
-                $R$ is surjective                              & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
+                $R$ is surjective                              & $\Delta_{A}           \subset R^{\dagger}\procirc R$ \\\rowcolor{black!05!backgroundColor}
+                $R$ is total                                   & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
                 $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\hline
             \end{tabular}
         \end{center}
@@ -3200,6 +3193,52 @@ Let $A$ and $B$ be sets.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel}
 Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+\begin{lemma}{Conditions Involving a Relation and Its Converse}{conditions-involving-a-relation-and-its-converse}%
+    The conditions below are row-wise equivalent:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
+            $R$ is functional                              & $R\procirc R^{\dagger}\subset \Delta_{B}$            \\\rowcolor{backgroundColor}
+            $R$ is surjective                              & $\Delta_{A}           \subset R^{\dagger}\procirc R$ \\\rowcolor{black!05!backgroundColor}
+            $R$ is total                                   & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
+            $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{lemma}
+\begin{Proof}{Proof of \cref{conditions-involving-a-relation-and-its-converse}}%
+    \FirstProofBox{Functionality Is Equivalent to $R\procirc R^{\dagger}\subset\Delta_{B}$}%
+    The condition $R\procirc R^{\dagger}\subset\Delta_{B}$ unwinds to
+    \begin{itemize}
+        \itemstar For each $b,b'\in B$, if there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$, then $b=b'$.
+    \end{itemize}
+    Since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, the condition says that $a\sim_{R}b$ and $a\sim_{R}b'$ imply $b=b'$. This is precisely the condition for $R$ to be functional.
+
+    \ProofBox{Totality Is Equivalent to $\Delta_{A}\subset R^{\dagger}\procirc R$}%
+    The condition $\Delta_{A}\subset R^{\dagger}\procirc R$ unwinds to
+    \begin{itemize}
+        \itemstar For each $a,a'\in A$, if $a=a'$, then there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a'$.
+    \end{itemize}
+    Since $b\sim_{R^{\dagger}}a'$ is the same as $a'\sim_{R}b$, the condition says that for each $a\in A$, there is some $b\in B$ with $b\in R(a)$. This is precisely the condition for $R$ to be total.
+
+    \ProofBox{Surjectivity Is Equivalent to $\Delta_{B}\subset R\procirc R^{\dagger}$}%
+    The condition $\Delta_{B}\subset R\procirc R^{\dagger}$ unwinds to
+    \begin{itemize}
+        \itemstar For each $b,b'\in A$, if $b=b'$, then there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$.
+    \end{itemize}
+    Since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, the condition says that for each $b\in B$, there is some $a\in A$ with $b\in R(a)$. This is precisely the condition for $R$ to be surjective.
+
+    \ProofBox{Injectivity Is Equivalent to $R^{\dagger}\procirc R\subset\Delta_{A}$}%
+    The condition $R^{\dagger}\procirc R\subset\Delta_{A}$ unwinds to
+    \begin{itemize}
+        \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a'$, then $a=a'$.
+    \end{itemize}
+    Since $b\sim_{R^{\dagger}}a'$ is the same as $a'\sim_{R}b$, the condition says that for each $b\in B$, if $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$. This is precisely the condition for $R$ to be injective.
+\end{Proof}
 \begin{proposition}{Isomorphisms and Equivalences in $\sfbfRel$}{isomorphisms-and-equivalences-in-rel}%
     The following conditions are equivalent:
     \begin{enumerate}
@@ -3226,26 +3265,17 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     We claim that \cref{isomorphisms-and-equivalences-in-rel-1,isomorphisms-and-equivalences-in-rel-2,isomorphisms-and-equivalences-in-rel-3} are indeed equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-2}: }This follows from the fact that $\sfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-3}: }The equalities in \cref{isomorphisms-and-equivalences-in-rel-2} imply $R\dashv R^{-1}$, and thus by \cref{adjunctions-in-rel}, there exists a function $f_{R}\colon A\to B$ associated to $R$, where, for each $a\in A$, the image $f_{R}(a)$ of $a$ by $f_{R}$ is the unique element of $R(a)$, which implies $R=\Gr(f_{R})$ in particular. Furthermore, we have $R^{-1}=f^{-1}_{R}$ (as in \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:the-inverse-of-a-function}}{\cref{the-inverse-of-a-function}}). The conditions from \cref{isomorphisms-and-equivalences-in-rel-2} then become the following:
-            \begin{align*}
-                f^{-1}_{R}\procirc f_{R} = \Delta_{A},\\
-                f_{R}\procirc f^{-1}_{R} = \Delta_{B}.
-            \end{align*}
-            All that is left is to show then is that $f_{R}$ is a bijection:
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-3}: }We proceed in a few steps:
             \begin{itemize}
-                \item\SloganFont{The Function $f_{R}$ Is Injective. }Let $a,b\in A$ and suppose that $f_{R}(a)=f_{R}(b)$. Since $a\sim_{R}f_{R}(a)$ and $f_{R}(a)=f_{R}(b)\sim_{R^{-1}}b$, the condition $f^{-1}_{R}\procirc f_{R}=\Delta_{A}$ implies that $a=b$, showing $f_{R}$ to be injective.
-                \item\SloganFont{The Function $f_{R}$ Is Surjective. }Let $b\in B$. Applying the condition $f_{R}\procirc f^{-1}_{R}=\Delta_{B}$ to $(b,b)$, it follows that there exists some $a\in A$ such that $f^{-1}_{R}(b)=a$ and $f_{R}(a)=b$. This shows $f_{R}$ to be surjective.
+                \item First, note that the equalities in \cref{isomorphisms-and-equivalences-in-rel-2} imply $R\dashv R^{-1}$ and thus, by \cref{adjunctions-in-rel}, there exists a function $f_{R}\colon A\to B$ associated to $R$.
+                \item By \cref{conditions-involving-a-relation-and-its-converse}, $f_{R}$ is a bijection.
             \end{itemize}
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-2}: }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, we have an adjunction $\Gr(f)\dashv f^{-1}$, giving inclusions
+        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-2}: }By \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}, we have an adjunction $\Gr(f)\dashv f^{-1}$, giving inclusions
             \begin{gather*}
                 \Delta_{A}            \subset f^{-1}\procirc\Gr(f),\\
                 \Gr(f)\procirc f^{-1} \subset \Delta_{B}.
             \end{gather*}
-            We claim the reverse inclusions are also true:
-            \begin{itemize}
-                \item\SloganFont{$f^{-1}\procirc\Gr(f)\subset\Delta_{A}$: }This is equivalent to the statement that if $f(a)=b$ and $f^{-1}(b)=a'$, then $a=a'$, which follows from the injectivity of $f$.
-                \item\SloganFont{$\Delta_{B}\subset\Gr(f)\procirc f^{-1}$: }This is equivalent to the statement that given $b\in B$ there exists some $a\in A$ such that $f^{-1}(b)=a$ and $f(a)=b$, which follows from the surjectivity of $f$.
-            \end{itemize}
+            If $f$ is bijective, then the reverse inclusions are also true by \cref{conditions-involving-a-relation-and-its-converse}.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -3283,19 +3313,7 @@ Let $A$ and $B$ be sets.
                 \Delta_{A}  &\subset S\procirc R,\\
                 R\procirc S &\subset \Delta_{B}.
             \end{align*}
-            We claim that these conditions imply that $R$ is total and functional, i.e.\ that $R(a)$ is a singleton for each $a\in A$:
-            \begin{enumerate}
-                \item\label{proof-of-adjunctions-in-rel-1a}\SloganFont{$R(a)$ Has an Element. }Given $a\in A$, since $\Delta_{A}\subset S\procirc R$, we must have $\{a\}\subset S(R(a))$, implying that there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{S}a$, and thus $R(a)\neq\emptyset$, as $b\in R(a)$.
-                \item\label{proof-of-adjunctions-in-rel-1b}\SloganFont{$R(a)$ Has No More Than One Element. }Suppose that we have $a\sim_{R}b$ and $a\sim_{R}b'$ for $b,b'\in B$. We claim that $b=b'$:
-                    \begin{enumerate}
-                        \item\label{proof-of-adjunctions-in-rel-1bi}Since $\Delta_{A}\subset S\procirc R$, there exists some $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
-                        \item\label{proof-of-adjunctions-in-rel-1bii}Since $R\procirc S\subset\Delta_{B}$, if $b''\sim_{S}a'$ and $a'\sim_{R}b'''$, then $b''=b'''$.
-                        \item\label{proof-of-adjunctions-in-rel-1biii}Applying the above to $b''=k$, $b'''=b$, and $a'=a$, since $k\sim_{S}a$ and $a\sim_{R}b'$, we have $k=b$.
-                        \item\label{proof-of-adjunctions-in-rel-1biv}Similarly $k=b'$.
-                        \item\label{proof-of-adjunctions-in-rel-1bv}Thus $b=b'$.
-                    \end{enumerate}
-            \end{enumerate}
-            Together, the above two items show $R(a)$ to be a singleton, being thus given by $\Gr(f)$ for some function $f\colon A\to B$, which gives a map
+            By \cref{conditions-involving-a-relation-and-its-converse}, $R$ is total and functional. In particular, $R(a)$ is a singleton for all $a\in A$. Defining $f_{R}$ such that $f_{R}(a)$ is the unique element of $R(a)$ then gives us our desired function, forming a map
             \[
                 \{
                     \begin{gathered}
@@ -3311,8 +3329,8 @@ Let $A$ and $B$ be sets.
                     \end{gathered}
                 \}.
             \]%
-            Moreover, by uniqueness of adjoints (\ChapterRef{\ChapterInternalAdjunctions, \cref{internal-adjunctions:properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{internal-adjunctions:properties-of-internal-adjunctions}}{\cref{properties-of-internal-adjunctions-uniqueness-of-adjoints} of \cref{properties-of-internal-adjunctions}}), this implies also that $S=f^{-1}$.
-        \item\label{proof-of-adjunctions-in-rel-2}\SloganFont{From Functions to Adjunctions in $\sfbfRel$. }By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}}, every function $f\colon A\to B$ gives rise to an adjunction $\Gr(f)\dashv f^{-1}$ in $\Rel$, giving a map
+            Moreover, by uniqueness of adjoints (\cref{TODO}), this implies also that $S=f^{-1}$.
+        \item\label{proof-of-adjunctions-in-rel-2}\SloganFont{From Functions to Adjunctions in $\sfbfRel$. }By \cref{properties-of-graphs-of-functions-adjointness-inside-sfbfrel} of \cref{properties-of-graphs-of-functions}, every function $f\colon A\to B$ gives rise to an adjunction $\Gr(f)\dashv f^{-1}$ in $\Rel$, giving a map
             \[
                 \{
                     \begin{gathered}
@@ -3328,7 +3346,7 @@ Let $A$ and $B$ be sets.
                     \end{gathered}
                 \}.%
             \]%
-        \item\label{proof-of-adjunctions-in-rel-3}\SloganFont{Invertibility: From Functions to Adjunctions Back to Functions. }We need to show that starting with a function $f\colon A\to B$, passing to $\Gr(f)\dashv f^{-1}$, and then passing again to a function gives $f$ again. This is clear however, since we have $a\sim_{\Gr(f)}b$ iff $f(a)=b$.
+        \item\label{proof-of-adjunctions-in-rel-3}\SloganFont{Invertibility: From Functions to Adjunctions Back to Functions. }We need to show that starting with a function $f\colon A\to B$, passing to $\Gr(f)\dashv f^{-1}$, and then passing again to a function gives $f$ again. This follows form the fact that we have $a\sim_{\Gr(f)}b$ iff $f(a)=b$.
         \item\label{proof-of-adjunctions-in-rel-4}\SloganFont{Invertibility: From Adjunctions to Functions Back to Adjunctions. }We need to show that, given an adjunction $R\dashv S$ in $\sfbfRel$ giving rise to a function $f_{R,S}\colon A\to B$, we have
             \begin{align*}
                 \Gr(f_{R,S}) &= R,\\
@@ -3349,8 +3367,18 @@ Let $A$ and $B$ be sets.
                     \end{itemize}
                     Indeed:
                     \begin{itemize}
-                        \item\SloganFont{If $a\sim_{R}b$, then $b\sim_{S}a$: }Since $\Delta_{A}\subset S\procirc R$, there exists $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$, but since $a\sim_{R}b$ and $R$ is functional, we have $k=b$ and thus $b\sim_{S}a$.
-                        \item\SloganFont{If $b\sim_{S}a$, then $a\sim_{R}b$: }First note that since $R$ is total we have $a\sim_{R}b'$ for some $b'\in B$. Now, since $R\procirc S\subset\Delta_{B}$, $b\sim_{S}a$, and $a\sim_{R}b'$, we have $b=b'$, and thus $a\sim_{R}b$.
+                        \item\SloganFont{If $a\sim_{R}b$, then $b\sim_{S}a$: }We proceed in a few steps.
+                            \begin{itemize}
+                                \item Since $\Delta_{A}\subset S\procirc R$, there exists $k\in B$ such that $a\sim_{R}k$ and $k\sim_{S}a$.
+                                \item Since $a\sim_{R}b$ and $R$ is functional, we have $k=b$.
+                                \item Thus $b\sim_{S}a$.
+                            \end{itemize}
+                        \item\SloganFont{If $b\sim_{S}a$, then $a\sim_{R}b$: }We proceed in a few steps.
+                            \begin{itemize}
+                                \item First note that, since $R$ is total, we have $a\sim_{R}b'$ for some $b'\in B$.
+                                \item Since $R\procirc S\subset\Delta_{B}$, $b\sim_{S}a$, and $a\sim_{R}b'$, we have $b=b'$.
+                                \item Thus $a\sim_{R}b$.
+                            \end{itemize}
                     \end{itemize}
                     Having show this, we now have
                     \begin{align*}
@@ -3359,14 +3387,14 @@ Let $A$ and $B$ be sets.
                                         &=      \{a\in A\ \middle|\ b\sim_{S}a\}\\
                                         &\defeq S(b).
                     \end{align*}
-                    for each $b\in B$, showing $f^{-1}_{R,S}=S$.
+                    for each $b\in B$, and thus $f^{-1}_{R,S}=S$.
             \end{itemize}
     \end{enumerate}
     This finishes the proof.
 \end{Proof}
 \subsection{Internal Monads}\label{subsection-internal-monads-in-rel}
 Let $A$ be a set.
-\begin{proposition}{Monads in $\sfbfRel$}{monads-in-rel}%
+\begin{proposition}{Internal Monads in $\sfbfRel$}{internal-monads-in-rel}%
     We have a natural identification%
     %--- Begin Footnote ---%
     \footnote{%
@@ -3385,7 +3413,7 @@ Let $A$ be a set.
         \{\text{Preorders on $A$}\}.
     \]%
 \end{proposition}
-\begin{Proof}{Proof of \cref{monads-in-rel}}%
+\begin{Proof}{Proof of \cref{internal-monads-in-rel}}%
     A monad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
     \begin{align*}
         \mu_{R}  &\colon R\procirc R \subset R,\\
@@ -3447,14 +3475,85 @@ Let $A$ be a set.
     \end{webcompile}%%
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the two maps $\mu_{R}$ and $\eta_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item\label{proof-of-monads-in-rel-1}For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
-        \item\label{proof-of-monads-in-rel-2}For each $a\in A$, we have $a\sim_{R}a$.
+        \item\label{proof-of-internal-monads-in-rel-1}For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
+        \item\label{proof-of-internal-monads-in-rel-2}For each $a\in A$, we have $a\sim_{R}a$.
     \end{enumerate}
-    These are exactly the requirements for $R$ to be a preorder (\ChapterRef{\ChapterPreordersAndPartialOrders, \cref{preorders-and-partial-orders:preorders}}{\cref{preorders}}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
+    These are exactly the requirements for $R$ to be a preorder (\cref{TODO}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
 \end{Proof}
+\begin{example}{Codensity Monads in $\sfbfRel$}{codensity-monads-in-rel}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{codensity-monads-in-rel-ran}The codensity monad $\Ran_{R}(R)\colon B\rightproarrow B$ is given by
+            \begin{webcompile}
+                [\Ran_{R}(R)](b)%
+                =%
+                \bigcap_{a\in R^{-1}(b)}R(b)%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[d, "\Ran_{R}(R)", densely dashed for mid vert, mid vert]%
+                    \\%
+                    A%
+                    \arrow[ru, "R",mid vert]%
+                    \arrow[r, "R"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    B%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $b\in B$. Thus, it corresponds to the preorder
+            \[
+                \mathord{\preceq_{\Ran_{R}(R)}}%
+                \colon%
+                B\times B%
+                \to%
+                \TTV%
+            \]%
+            on $B$ obtained by declaring $b\preceq_{\Ran_{R}(R)}b'$ \textiff the following equivalent conditions are satisfied:
+            \begin{enumerate}
+                \item\label{codensity-monads-in-rel-1-a}For each $a\in A$, if $a\sim_{R}b$, then $a\sim_{R}b'$.
+                \item\label{codensity-monads-in-rel-1-b}We have $R^{-1}(b)\subset R^{-1}(b')$.
+            \end{enumerate}
+        \item\label{codensity-monads-in-rel-rift}The dual codensity monad $\Rift_{R}(R)\colon A\rightproarrow A$ is given by
+            \begin{webcompile}
+                [\Rift_{R}(R)](a)%
+                =%
+                \{a'\in A\ \middle|\ R(a')\subset R(a)\}%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    A%
+                    \arrow[d, "R", mid vert]%
+                    \\%
+                    A%
+                    \arrow[ru, "\Rift_{R}(R)",densely dashed for mid vert, mid vert]%
+                    \arrow[r, "R"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    B%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $a\in A$. Thus, it corresponds to the preorder
+            \[
+                \mathord{\preceq_{\Rift_{R}(R)}}%
+                \colon%
+                A\times A%
+                \to%
+                \TTV%
+            \]%
+            on $A$ obtained by declaring $a\preceq_{\Rift_{R}(R)}a'$ \textiff the following equivalent conditions are satisfied:
+            \begin{enumerate}
+                \item\label{codensity-monads-in-rel-2-a}For each $a\in A$, if $a\sim_{R}b$, then $a'\sim_{R}b$.
+                \item\label{codensity-monads-in-rel-2-b}We have $R(a')\subset R(a)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{example}
 \subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel}
 Let $A$ be a set.
-\begin{proposition}{Comonads in $\sfbfRel$}{comonads-in-rel}%
+\begin{proposition}{Internal Comonads in $\sfbfRel$}{internal-comonads-in-rel}%
     We have a natural identification
     \[
         \{
@@ -3467,7 +3566,7 @@ Let $A$ be a set.
         \{\text{Subsets of $A$}\}.
     \]%
 \end{proposition}
-\begin{Proof}{Proof of \cref{comonads-in-rel}}%
+\begin{Proof}{Proof of \cref{internal-comonads-in-rel}}%
     A comonad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
     \begin{align*}
         \Delta_{R}   &\colon R \subset R\procirc R,\\
@@ -3531,10 +3630,211 @@ Let $A$ be a set.
     \endgroup
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the two maps $\Delta_{R}$ and $\epsilon_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item\label{proof-of-comonads-in-rel-1}For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
-        \item\label{proof-of-comonads-in-rel-2}For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
+        \item\label{proof-of-internal-comonads-in-rel-1}For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
+        \item\label{proof-of-internal-comonads-in-rel-2}For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
     \end{enumerate}
     Taking $k=b$ in the first condition above shows it to be trivially satisfied, while the second condition implies $R\subset\Delta_{A}$, i.e.\ $R$ must be a subset of $A$. Conversely, any subset $U$ of $A$ satisfies $U\subset\Delta_{A}$, defining a comonad as above.
+\end{Proof}
+\begin{example}{Density Comonads in $\sfbfRel$}{density-comonads-in-rel}%
+    Let $f\colon A\to B$ be a function.
+    \begin{enumerate}
+        \item\label{density-comonads-in-rel-lan}The density comonad $\Lan_{f}(f)\colon B\rightproarrow B$ is given by
+            \begin{webcompile}
+                [\Lan_{f}(f)](b)%
+                =%
+                \bigcup_{a\in f^{-1}(b)}f(a)%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[d, "\Lan_{f}(f)", densely dashed for mid vert, mid vert]%
+                    \\%
+                    A%
+                    \arrow[ru, "f",mid vert]%
+                    \arrow[r, "f"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    B%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Leftarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $b\in B$. Thus, it corresponds to the image $\Im(f)$ of $f$ as a subset of $B$.
+        \item\label{density-comonads-in-rel-rift}The dual density comonad $\Lift_{f^{\dagger}}(f^{\dagger})\colon A\rightproarrow A$ is given by
+            \begin{webcompile}
+                [\Lift_{f^{\dagger}}(f^{\dagger})](b)%
+                =%
+                \bigcup_{a\in f^{-1}(b)}f(a)
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[d, "f^{\dagger}", mid vert]%
+                    \\%
+                    B%
+                    \arrow[ru, "\Lift_{f^{\dagger}}(f^{\dagger})",densely dashed for mid vert, mid vert]%
+                    \arrow[r, "f^{\dagger}"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    A%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Leftarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $b\in B$. Thus, it also corresponds to the image $\Im(f)$ of $f$ as a subset of $B$.
+    \end{enumerate}
+\end{example}
+\subsection{Modules Over Internal Monads}\label{subsection-modules-over-internal-monads-in-rel}
+Let $A$ be a set.
+\begin{proposition}{Modules Over Internal Monads in $\sfbfRel$}{modules-over-internal-monads-in-rel}%
+    Let $\preceq_{A}$ be a preorder on $A$, viewed also as an internal monad on $A$ via \cref{internal-monads-in-rel}.
+    \begin{enumerate}
+        \item\label{modules-over-internal-monads-in-rel-left-modules}\SloganFont{Left Modules. }We have a natural identification%
+            \[
+                \{\text{Left modules over $\mathord{\preceq_{A}}$}\}%
+                \cong
+                \{%
+                    \begin{aligned}
+                        &\text{Relations $R\colon B\rightproarrow A$ such that,}\\%
+                        &\text{for each $b\in B$, the set $R(b)$ is}\\%
+                        &\text{upward-closed in $A$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{modules-over-internal-monads-in-rel-right-modules}\SloganFont{Right Modules. }We have a natural identification%
+            \[
+                \{\text{Right modules over $\mathord{\preceq_{A}}$}\}%
+                \cong
+                \{%
+                    \begin{aligned}
+                        &\text{Relations $R\colon A\rightproarrow B$ such that,}\\%
+                        &\text{for each $b\in B$, the set $R^{-1}(b)$ is}\\%
+                        &\text{downward-closed in $A$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{modules-over-internal-monads-in-rel-bimodules}\SloganFont{Bimodules. }We have a natural identification
+            \[
+                \{\text{Bimodules over $\mathord{\preceq_{A}}$}\}%
+                \cong
+                \{%
+                    \begin{gathered}
+                        \text{Quadruples $(B,C,R,S)$ such that:}\\%
+                        \begin{aligned}
+                            &\text{1. For each $b\in B$, the set $R(b)$ is}\\
+                            &\phantom{\text{1. }}\text{upward-closed in $A$.}\\%
+                            &\text{2. For each $c\in C$, the set $S^{-1}(c)$ is}\\
+                            &\phantom{\text{2. }}\text{downward-closed in $A$.}%
+                        \end{aligned}
+                    \end{gathered}
+                \}.%
+            \]%
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{modules-over-internal-monads-in-rel}}%
+    \FirstProofBox{\cref{modules-over-internal-monads-in-rel-left-modules}: Left Modules}%
+    A left module over $\mathord{\preceq_{A}}$ in $\sfbfRel$ consists of a relation $R\colon B\rightproarrow A$ together with an inclusion
+    \[
+        \alpha_{B}%
+        \colon%
+        \mathord{\preceq_{A}}\procirc R%
+        \subset%
+        R
+    \]%
+    making appropriate diagrams commute. Since $\sfbfRel$ is locally posetal, however, the commutativity of the diagrams in question is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the inclusion $\alpha_{B}$. This corresponds to the following condition:
+    \begin{itemize}
+        \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that $b\sim_{R}a$ and $a\preceq_{a}a'$, then $b\sim_{R}a'$.
+    \end{itemize}
+    This condition is equivalent to $R(b)$ being downward-closed for all $b\in B$.
+
+    \ProofBox{\cref{modules-over-internal-monads-in-rel-right-modules}: Right Modules}%
+    The proof is dual to \cref{modules-over-internal-monads-in-rel-left-modules}, and is therefore omitted.
+
+    \ProofBox{\cref{modules-over-internal-monads-in-rel-bimodules}: Bimodules}%
+    Since $\sfbfRel$ is locally posetal, the diagram encoding the compatibility conditions for a bimodule commutes automatically (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence a bimodule is just a left module along with a right module.
+\end{Proof}
+\subsection{Comodules Over Internal Comonads}\label{subsection-comodules-over-internal-comonads-in-rel}
+Let $A$ be a set.
+\begin{proposition}{Comodules Over Internal Comonads in $\sfbfRel$}{comodules-over-internal-comonads-in-rel}%
+    Let $U$ be a subset of $A$, viewed also as an internal comonad on $A$ via \cref{internal-comonads-in-rel}.
+    \begin{enumerate}
+        \item\label{comodules-over-internal-comonads-in-rel-left-comodules}\SloganFont{Left Comodules. }We have a natural identification%
+            \[
+                \{\text{Left comodules over $U$}\}%
+                \cong
+                \{%
+                    \begin{aligned}
+                        &\text{Relations $R\colon B\rightproarrow A$ such that,}\\
+                        &\text{for each $b\in B$, we have $R(b)\subset U$}
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{comodules-over-internal-comonads-in-rel-right-comodules}\SloganFont{Right Comodules. }We have a natural identification%
+            \[
+                \{\text{Right comodules over $U$}\}%
+                \cong
+                \{%
+                    \begin{aligned}
+                        &\text{Relations $R\colon A\rightproarrow B$ such that,}\\%
+                        &\text{for each $b\in B$, we have $R^{-1}(b)\subset U$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{comodules-over-internal-comonads-in-rel-bicomodules}\SloganFont{Bicomodules. }We have a natural identification
+            \[
+                \{\text{Bicomodules over $U$}\}%
+                \cong
+                \{%
+                    \begin{gathered}
+                        \text{Quadruples $(B,C,R,S)$ such that:}\\%
+                        \begin{aligned}
+                            &\text{1. For each $b\in B$, we have $R(b)\subset U$}\\
+                            &\text{2. For each $c\in C$, we have $S^{-1}(c)\subset U$}
+                        \end{aligned}
+                    \end{gathered}
+                \}.%
+            \]%
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{comodules-over-internal-comonads-in-rel}}%
+    \FirstProofBox{\cref{comodules-over-internal-comonads-in-rel-left-comodules}: Left Comodules}%
+    A left comodule over $U$ in $\sfbfRel$ consists of a relation $R\colon B\rightproarrow A$ together with an inclusion
+    \[
+        R
+        \subset%
+        U\procirc R%
+    \]%
+    making appropriate diagrams commute. Since $\sfbfRel$ is locally posetal, however, the commutativity of the diagrams in question is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the inclusion. This corresponds to the following condition:
+    \begin{itemize}
+        \itemstar For each $b\in B$, if $b\sim_{R}a$, then there exists some $a'\in A$ such that $b\sim_{R}a'$ and $a'\sim_{U}a$.
+    \end{itemize}
+    Since $a'\sim_{U}a$ is true if $a=a'$ and $a\in U$, this condition ends up being equivalent to $R(b)\subset U$.
+
+    \ProofBox{\cref{comodules-over-internal-comonads-in-rel-right-comodules}: Right Comodules}%
+    A right comodule over $U$ in $\sfbfRel$ consists of a relation $R\colon A\rightproarrow B$ together with an inclusion
+    \[
+        R
+        \subset%
+        R\procirc U%
+    \]%
+    making appropriate diagrams commute. Since $\sfbfRel$ is locally posetal, however, the commutativity of the diagrams in question is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the inclusion. This corresponds to the following condition:
+    \begin{itemize}
+        \itemstar For each $a\in A$, if $a\sim_{R}b$, then there exists some $x\in A$ such that $a\sim_{U}x$ and $x\sim_{R}b$.
+    \end{itemize}
+    Since $a\sim_{U}x$ is true if $a=x$ and $a\in U$, this condition ends up being equivalent to $R^{-1}(b)\subset U$.
+
+    \ProofBox{\cref{comodules-over-internal-comonads-in-rel-bicomodules}: Bicomodules}%
+    Since $\sfbfRel$ is locally posetal, the diagram encoding the compatibility conditions for a bimodule commutes automatically (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence a bicomodule is just a left comodule along with a right comodule.
+\end{Proof}
+\subsection{Eilenberg--Moore and Kleisli Objects}\label{subsection-eilenberg-moore-and-kleisli-objects-in-rel}
+Let $X$ be a set.
+\begin{proposition}{Eilenberg--Moore and Kleisli Objects in $\sfbfRel$}{eilenberg-moore-and-kleisli-objects-in-rel}%
+    Let $R$ be a preorder on $X$, viewed as an internal monad on $X$ via \cref{internal-monads-in-rel}.
+    \begin{enumerate}
+        \item\label{eilenberg-moore-and-kleisli-objects-in-rel-eilenberg-moore-objects-in-rel}\SloganFont{Eilenberg--Moore Objects in $\sfbfRel$. }The Eilenberg--Moore object for $R$ exists \textiff it is an equivalence relation, in which case it is the quotient $X/\unsim_{R}$ of $X$ by $R$.
+        \item\label{eilenberg-moore-and-kleisli-objects-in-rel-kleisli-objects-in-rel}\SloganFont{Kleisli Objects in $\sfbfRel$. }[\ldots]
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{eilenberg-moore-and-kleisli-objects-in-rel}}%
+    Omitted.
 \end{Proof}
 \subsection{Co/Monoids}\label{subsection-co-monoids-in-rel}
 \begin{remark}{Co/Monoids in $\sfbfRel$}{co-monoids-in-rel}%
@@ -4330,7 +4630,195 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
     The 2-category $\sfbfRel$ admits all right Kan extensions and right Kan lifts, though not all left Kan extensions and neither does it admit all left Kan lifts. See \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} for a detailed discussion of this.
 \end{remark}
 \subsection{Internal Left Kan Extensions}\label{subsection-internal-left-kan-extensions-in-rel}
+\begin{proposition}{Internal Left Kan Extensions in $\sfbfRel$}{internal-left-kan-extensions-in-rel}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{internal-left-kan-extensions-in-rel-non-existence-of-all-internal-left-kan-extensions-in-rel}\SloganFont{Non-Existence of All Internal Left Kan Extensions in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan extensions.
+        \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Extensions Along Them. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-1}The left Kan extension
+                    \[
+                        \Lan_{R}%
+                        \colon%
+                        \eRel(A,X)%
+                        \to%
+                        \eRel(B,X)%
+                    \]%
+                    along $R$ exists.
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-2}The relation $R$ admits a left adjoint in $\sfbfRel$.
+                \item\label{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them-3}The relation $R$ is of the form $\Gr(f)$ (as in \cref{the-graph-of-a-function}) for some function $f$.
+            \end{enumerate}
+        %\item\label{internal-left-kan-extensions-in-rel-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{internal-left-kan-extensions-in-rel}}%
+    \FirstProofBox{\cref{internal-left-kan-extensions-in-rel-non-existence-of-all-internal-left-kan-extensions-in-rel}: Non-Existence of All Internal Left Kan Extensions in $\sfbfRel$}%
+    By \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}, it suffices to take a relation that doesn't have a left adjoint.
+
+    \ProofBox{\cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them}: Characterisation of Relations Admitting Left Kan Extensions Along Them}%
+    This proof is mostly due to Tim Campion, via \cite{MO460693}.
+    \begin{itemize}
+        \item We may view precomposition
+            \[
+                -\procirc R%
+                \colon%
+                \Rel(B,C)%
+                \to%
+                \Rel(A,C)%
+            \]%
+            with $R\colon A\rightproarrow B$ as a cocontinuous functor from $\mathcal{P}(B\times C)$ to $\mathcal{P}(A\times C)$ (via \cref{relations-5} of \cref{relations}).
+        \item By the adjoint functor theorem (\cref{TODO}), this map has a left adjoint \textiff it preserves limits.
+        \item If $C=\emptyset$, this holds trivially.
+        \item Otherwise, $C$ admits $\pt$ as a retract, and we reduce to the case $C=\pt$ via \cref{TODO}.
+        \item For the case $C=\pt$, a relation $T\colon B\rightproarrow\pt$ is the same as a subset of $B$, and $-\procirc R$ becomes the weak inverse image functor $R^{-1}$ of \cref{subsection-weak-inverse-images}.
+        \item Now, again by the adjoint functor theorem, $R^{-1}$ preserves limits exactly when it has a left adjoint.
+        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}).
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
+\begin{example}{Left Kan Extensions Along Functions}{left-kan-extensions-along-functions}%
+    Given a function $f\colon A\to B$, the left Kan extension
+    \[
+        \Lan_{f}%
+        \colon%
+        \eRel(A,X)%
+        \to%
+        \eRel(B,X)%
+    \]%
+    along $f$ exists by \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}. Explicitly, given a relation $R\colon A\rightproarrow X$, the left Kan extension
+    \begin{webcompile}
+        \Lan_{f}(R)%
+        \colon%
+        B%
+        \rightproarrow%
+        X,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&%
+            B%
+            \arrow[d, "\Lan_{f}(R)", densely dashed for mid vert, mid vert]%
+            \\%
+            A%
+            \arrow[ru, "f",mid vert]%
+            \arrow[r, "R"',""'{name=F,pos=0.425},mid vert]%
+            \&%
+            X%
+            % 2-Arrows
+            \arrow[from=1-2,to=F,shorten=0.75*\the\DL,Leftarrow,shift left=0.15*\the\DL]%
+        \end{tikzcd}
+    \end{webcompile}
+    may be described as follows:
+    \begin{enumerate}
+        \item\label{left-kan-extensions-along-functions-1}We declare $b\sim_{\Lan_{f}(R)}x$ \textiff there exists some $a\in R$ such that $b=f(a)$ and $a\sim_{R}x$.
+        \item\label{left-kan-extensions-along-functions-2}We have%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Cf.\ \cref{internal-right-kan-extensions-in-rel-3} of \cref{internal-right-kan-extensions-in-rel}.
+            }%
+            %---  End Footnote  ---%
+            \[
+                [\Lan_{f}(R)](b)%
+                =%
+                \bigcup_{a\in f^{-1}(b)}R(a)%
+            \]%
+            for each $b\in B$.
+    \end{enumerate}
+\end{example}
+\begin{remark}{Illustrating the Failure of Internal Left Kan Extensions in $\sfbfRel$ to Exist}{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist}%
+    Following \cref{left-kan-extensions-along-functions}, given a relation $R\colon A\rightproarrow B$ and a relation $F\colon A\rightproarrow X$, we could perhaps try to define an \say{honorary} left Kan extension
+    \[
+        \Lan'_{R}(F)%
+        \colon%
+        B%
+        \rightproarrow%
+        X%
+    \]%
+    by
+    \[
+        [\Lan'_{F}(F)](b)%
+        \defeq%
+        \bigcup_{a\in R^{-1}(b)}F(a)%
+    \]%
+    for each $b\in B$.
+
+    \indent The failure of $\Lan'_{R}(F)$ to be a Kan extension can then be seen as follows. Let $G\colon B\rightproarrow X$ be a relation. If $\Lan'_{R}(F)$ were a left Kan extension, then the following conditions \demph{would be} equivalent:
+    \begin{enumerate}
+        \item\label{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-1}For each $b\in B$, we have $\bigcup_{a\in R^{-1}(b)}F(a)\subset G(b)$.
+        \item\label{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-2}For each $a\in A$, we have $F(a)\subset\bigcup_{b\in R(a)}G(b)$.
+    \end{enumerate}
+    The issue is two-fold:
+    \begin{itemize}
+        \item\SloganFont{Totality. }If $R$ isn't total, then the implication \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-1} $\Rightarrow$ \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-2} fails.
+        \item\SloganFont{Functionality. }If $R$ isn't functional, then the implication \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-2} $\Rightarrow$ \cref{illustrating-the-failure-of-internal-left-kan-extensions-in-rel-to-exist-1} fails.
+    \end{itemize}
+\end{remark}
 \subsection{Internal Left Kan Lifts}\label{subsection-internal-left-kan-lifts-in-rel}
+\begin{proposition}{Internal Left Kan Lifts in $\sfbfRel$}{internal-left-kan-lifts-in-rel}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{internal-left-kan-lifts-in-rel-non-existence-of-all-internal-left-kan-lifts-in-rel}\SloganFont{Non-Existence of All Internal Left Kan Lifts in $\sfbfRel$. }Not all relations in $\sfbfRel$ admit left Kan lifts.
+        \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}\SloganFont{Characterisation of Relations Admitting Left Kan Lifts Along Them. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-1}The left Kan lift
+                    \[
+                        \Lift_{R}%
+                        \colon%
+                        \eRel(X,B)%
+                        \to%
+                        \eRel(X,A)%
+                    \]%
+                    along $R$ exists.
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-2}The relation $R$ admits a right adjoint in $\sfbfRel$.
+                \item\label{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them-3}The relation $R$ is of the form $f^{-1}$ (as in \cref{the-inverse-of-a-function}) for some function $f$.
+            \end{enumerate}
+        %\item\label{internal-left-kan-lifts-in-rel-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{internal-left-kan-lifts-in-rel}}%
+    \FirstProofBox{\cref{internal-left-kan-lifts-in-rel-non-existence-of-all-internal-left-kan-lifts-in-rel}: Non-Existence of All Internal Left Kan Lifts in $\sfbfRel$}%
+    By \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}, it suffices to take a relation that doesn't have a right adjoint.
+
+    \ProofBox{\cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them}: Characterisation of Relations Admitting Left Kan Lifts Along Them}%
+    This proof is dual to that of \cref{internal-left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{internal-left-kan-extensions-in-rel}, and is therefore omitted.
+\end{Proof}
+\begin{example}{Left Kan Lifts Along Functions}{left-kan-lifts-along-functions}%
+    Given a function $f\colon A\to B$, the left Kan lift
+    \[
+        \Lift_{f^{\dagger}}%
+        \colon%
+        \eRel(X,A)%
+        \to%
+        \eRel(X,B)%
+    \]%
+    along $f^{\dagger}$ exists by \cref{internal-left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{internal-left-kan-lifts-in-rel}. Explicitly, given a relation $R\colon X\rightproarrow A$, the left Kan lift
+    \begin{webcompile}
+        \Lift_{f^{\dagger}}(R)%
+        \colon%
+        X%
+        \rightproarrow%
+        B,%
+        \quad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&%
+            B%
+            \arrow[d, "f^{\dagger}", mid vert]%
+            \\%
+            X%
+            \arrow[ru, "\Lift_{f^{\dagger}}(R)",densely dashed for mid vert, mid vert]%
+            \arrow[r, "R"',""'{name=F,pos=0.425},mid vert]%
+            \&%
+            A\mrp{.}%
+            % 2-Arrows
+            \arrow[from=1-2,to=F,shorten=0.75*\the\DL,Leftarrow,shift left=0.15*\the\DL]%
+        \end{tikzcd}
+    \end{webcompile}
+    is given by
+    \begin{align*}
+        [\Lift_{f}(R)](x) &= [\Gr(f)\procirc R](a)\\
+                          &= \bigcup_{a\in R(x)}f(a)%
+    \end{align*}
+    for each $x\in X$.
+\end{example}
 \subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel}
 Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A\rightproarrow X$ be relations.
 \begin{motivation}{Setting for Internal Right Kan Extensions in $\sfbfRel$}{setting-for-internal-right-kan-extensions-in-rel}%
