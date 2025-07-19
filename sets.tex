@@ -529,7 +529,7 @@ Here we record some analogies between notions in set theory and category theory.
     \endgroup
 \end{remark}
 \begin{remark}{Analogies Between Set Theory and Category Theory: Functions Between Powersets and Functors Between Presheaf Categories}{analogies-between-set-theory-and-category-theory-functions-between-powersets-and-functors-between-presheaf-categories}%
-    We summarise the analogies between functions $\mathcal{P}(A)\to\mathcal{P}(B)$ and functors $\PSh(\CatFont{C})\to\PSh(\CatFont{D})$ in the following table:
+    We summarise the analogies between functions $\mathcal{P}(X)\to\mathcal{P}(Y)$ and functors $\PSh(\CatFont{C})\to\PSh(\CatFont{D})$ in the following table:
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
@@ -537,9 +537,9 @@ Here we record some analogies between notions in set theory and category theory.
     \begin{center}
         \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
             \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                   & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                \\\hline\rowcolor{backgroundColor}
-            \Gape[0pt][2pt]{\makecell{Direct image function\\$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}}   & \Gape[0pt][2pt]{\makecell{Direct image functor\\$F_{*}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}}                     \\\rowcolor{black!05!backgroundColor}
-            \Gape[0pt][2pt]{\makecell{Inverse image function\\$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$}} & \Gape[0pt][2pt]{\makecell{Inverse image functor\\$F^{*}\colon\PSh(\CatFont{D})\to\PSh(\CatFont{C})$}}                       \\\rowcolor{backgroundColor}
-            \Gape[0pt][2pt]{\makecell{Codirect image function\\$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}} & \Gape[0pt][2pt]{\makecell{Codirect image functor\\$F_{!}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
+            \Gape[0pt][2pt]{\makecell{Direct image function\\$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}}   & \Gape[0pt][2pt]{\makecell{Left Kan extension functor\\$F_{!}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}}                     \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Inverse image function\\$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$}} & \Gape[0pt][2pt]{\makecell{Precomposition functor\\$F^{*}\colon\PSh(\CatFont{D})\to\PSh(\CatFont{C})$}}                       \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Codirect image function\\$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}} & \Gape[0pt][2pt]{\makecell{Right Kan extension functor\\$F_{*}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
         \end{tabular}
     \end{center}
     \endgroup
