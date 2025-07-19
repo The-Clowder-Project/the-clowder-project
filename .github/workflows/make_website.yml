@@ -28,7 +28,8 @@ jobs:
         sudo apt-get install -y \
           pdf2svg \
           inkscape \
-          imagemagick
+          imagemagick \
+          sqlite3-pcre
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:
