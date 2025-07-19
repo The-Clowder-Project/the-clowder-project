@@ -1209,7 +1209,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             of $\Sets$ admits an internal Hom $[-_{1},-_{2}]_{\Sets}$.
         \item\label{the-universal-property-of-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}\cong\pt$.
     \end{enumerate}
-    More precisely, the full subcategory of the category $\ModuliCategory^{\cld}_{\E_{\infty}}(\Sets)$ of \cref{TODO} spanned by the closed symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ satisfying \cref{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom,the-universal-property-of-sets-times-pt-the-unit-object-is-pt} is contractible (i.e.\ equivalent to the punctual category).
+    More precisely, the full subcategory of the category $\ModuliCategory^{\cld}_{\E_{\infty}}(\Sets)$ of \cref{TODO47} spanned by the closed symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ satisfying \cref{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom,the-universal-property-of-sets-times-pt-the-unit-object-is-pt} is contractible (i.e.\ equivalent to the punctual category).
 \end{theorem}
 \begin{Proof}{Proof of \cref{the-universal-property-of-sets-times-pt}}%
     \FirstProofBox{Unwinding the Statement}%
@@ -1232,7 +1232,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     making it into a symmetric monoidal strongly closed isomorphism of categories from $\left(\phantom{\mrp{\LUnitor'}}\Sets\right.$, $\otimes_{\Sets}$, $[-_{1},-_{2}]_{\Sets}$, $\Unit_{\Sets}$, $\LUnitor'$, $\RUnitor'$, $\left.\sigma'\right)$ to the closed symmetric monoidal category $\left(\phantom{\mrp{\LUnitor^{\Sets}}}\Sets\right.$, $\times$, $\Sets(-_{1},-_{2})$, $\Unit_{\Sets}$, $\LUnitor^{\Sets}$, $\RUnitor^{\Sets}$, $\left.\sigma^{\Sets}\right)$ of \cref{the-monoidal-structure-on-sets-associated-to-the-product}.
 
     \ProofBox{Constructing an Isomorphism $[-_{1},-_{2}]_{\Sets}\cong\Sets(-_{1},-_{2})$}%
-    By \cref{TODO}, we have a natural isomorphism
+    By \cref{TODO48}, we have a natural isomorphism
     \[
         \Sets(\pt,[-_{1},-_{2}]_{\Sets})%
         \cong%
@@ -1261,12 +1261,12 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     for the component of this isomorphism at $(A,B)$.
 
     \ProofBox{Constructing an Isomorphism $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$}%
-    Since $\otimes_{\Sets}$ is adjoint in each variable to $[-_{1},-_{2}]_{\Sets}$ by assumption and $\times$ is adjoint in each variable to $\Sets(-_{1},-_{2})$ by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-sets-of-maps-adjointness} of \cref{constructions-with-sets:properties-of-sets-of-maps}}{\cref{properties-of-sets-of-maps-adjointness} of \cref{properties-of-sets-of-maps}}, uniqueness of adjoints (\cref{TODO}) gives us natural isomorphisms
+    Since $\otimes_{\Sets}$ is adjoint in each variable to $[-_{1},-_{2}]_{\Sets}$ by assumption and $\times$ is adjoint in each variable to $\Sets(-_{1},-_{2})$ by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-sets-of-maps-adjointness} of \cref{constructions-with-sets:properties-of-sets-of-maps}}{\cref{properties-of-sets-of-maps-adjointness} of \cref{properties-of-sets-of-maps}}, uniqueness of adjoints (\cref{TODO49}) gives us natural isomorphisms
     \begin{align*}
         A\otimes_{\Sets}- &\cong A\times-,\\
         -\otimes_{\Sets}B &\cong B\times-.
     \end{align*}
-    By \cref{TODO}, we then have $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$. We will write
+    By \cref{TODO50}, we then have $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$. We will write
     \[
         \id^{\otimes}_{\Sets|A,B}%
         \colon%
@@ -1280,7 +1280,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     Alternatively, we may construct a natural isomorphism $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$ as follows:
     \begin{enumerate}
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-1}Let $A\in\Obj(\Sets)$.
-        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-2}Since $\otimes_{\Sets}$ is part of a closed monoidal structure, it preserves colimits in each variable by \cref{TODO}.
+        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-2}Since $\otimes_{\Sets}$ is part of a closed monoidal structure, it preserves colimits in each variable by \cref{TODO51}.
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-3}Since $A\cong\icoprod_{a\in A}\pt$ and $\otimes_{\Sets}$ preserves colimits in each variable, we have
             \begin{align*}
                 A\otimes_{\Sets}B &\cong (\coprod_{a\in A}\pt)\otimes_{\Sets}B\\
@@ -1290,7 +1290,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \end{align*}
             naturally in $B\in\Obj(\Sets)$, where we have used that $\pt$ is the monoidal unit for $\otimes_{\Sets}$. Thus $A\otimes_{\Sets}-\cong A\times-$ for each $A\in\Obj(\Sets)$.
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-4}Similarly, $-\otimes_{\Sets}B\cong-\times B$ for each $B\in\Obj(\Sets)$.
-        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-5}By \cref{TODO}, we then have $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$.
+        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-5}By \cref{TODO52}, we then have $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$.
     \end{enumerate}
     Below, we'll show that if a natural isomorphism $\mathord{\otimes_{\Sets}}\cong\mathord{\times}$ exists, then it must be unique. This will show that the isomorphism constructed above is equal to the isomorphism $\id^{\otimes}_{\Sets|A,B}\colon A\otimes_{\Sets}B\to A\times B$ from before.
 
@@ -2627,10 +2627,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             of $\Sets$ preserves colimits separately in each variable.
         \item\label{a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt}\SloganFont{The Unit Object Is $\pt$. }We have $\Unit_{\Sets}\cong\pt$.
     \end{enumerate}
-    More precisely, the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets)$ of \cref{TODO} spanned by the symmetric monoidal categories $(\Sets,\otimes_{\Sets},\Unit_{\Sets},\LUnitor^{\Sets},\RUnitor^{\Sets},\sigma^{\Sets})$ satisfying \cref{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits,a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt} is contractible.
+    More precisely, the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets)$ of \cref{TODO53} spanned by the symmetric monoidal categories $(\Sets,\otimes_{\Sets},\Unit_{\Sets},\LUnitor^{\Sets},\RUnitor^{\Sets},\sigma^{\Sets})$ satisfying \cref{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits,a-second-universal-property-for-sets-times-pt-the-unit-object-is-pt} is contractible.
 \end{corollary}
 \begin{Proof}{Proof of \cref{a-second-universal-property-for-sets-times-pt}}%
-    Since $\Sets$ is locally presentable (\cref{TODO}), it follows from \cref{TODO} that \cref{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits} is equivalent to the existence of an internal Hom as in \cref{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom} of \cref{the-universal-property-of-sets-times-pt}. The result then follows from \cref{the-universal-property-of-sets-times-pt}.
+    Since $\Sets$ is locally presentable (\cref{TODO54}), it follows from \cref{TODO55} that \cref{a-second-universal-property-for-sets-times-pt-sided-preservation-of-colimits} is equivalent to the existence of an internal Hom as in \cref{the-universal-property-of-sets-times-pt-existence-of-an-internal-hom} of \cref{the-universal-property-of-sets-times-pt}. The result then follows from \cref{the-universal-property-of-sets-times-pt}.
 \end{Proof}
 \section{The Monoidal Category of Sets and Coproducts}\label{section-the-monoidal-category-of-sets-and-coproducts}
 \subsection{Coproducts of Sets}\label{subsection-the-monoidal-category-of-sets-and-coproducts-coproducts-of-sets}

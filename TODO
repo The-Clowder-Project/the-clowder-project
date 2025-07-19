@@ -1,0 +1,57 @@
+worked up to chapter on relations (but not including it)
+
+TODO1:  characterisation of presheaf categories as free cocompletions
+TODO2:  characterisation of copresheaf categories as free completions
+TODO3:  tensor products of E_k-monoids with E_l monoids on Sets
+TODO4:  p-adic integers
+TODO5:  section on p-adic integers
+TODO6:  ring of formal power series R[[t]]
+TODO7:  profinite groups
+TODO8:  Prüfer group
+TODO9:  tensor product of suplattices
+TODO10: category of suplattices
+TODO11: kan extensions as co/ends
+TODO12: co/ends in posets
+TODO13: tensor by truth value in a poset
+TODO14: category of inflattices
+TODO15: kan extensions as co/ends
+TODO16: co/ends in posets
+TODO17: tensor by truth value in a poset
+TODO18: Curry--Howard correspondence
+TODO19: definition of dualising objects
+TODO20: direct image functor of presheaves
+TODO21: kan extensions as co/limits
+TODO22: kan extensions as co/limits
+TODO23: six functor formalisms
+TODO24: a category has all co/limits \textiff it has co/products and co/equalisers
+TODO25: a category has all co/limits \textiff it has co/products and co/equalisers
+TODO26: left adjoints preserve colimits
+TODO27: moduli 2-category of closed symmetric monoidal category structures
+TODO28: Hom(1,[X,Y]) ≅ Hom(X,Y) (internal hom for monoidal category)
+TODO29: adjoints are unique when they exist
+TODO30: bifunctors are determined by its partial functors
+TODO31: left adjoints preserve colimits
+TODO32: bifunctors are determined by its partial functors
+TODO33: isomorphism rho_{X} x 1 with rho_{X x 1} right unitors
+TODO34: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
+TODO35: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
+TODO36: \RUnitor^{C,-1}_{1} o \LUnitor^{C}_{1} = braiding
+TODO37: \RUnitor^{C,-1}_{1} o \LUnitor^{C}_{1} = braiding
+TODO38: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
+TODO39: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
+TODO40: isomorphism rho_{X} x 1 with rho_{X x 1} right unitors
+TODO41: a certain proposition in the chapter on moduli categories of monoidal structures
+TODO42: more triangle identities for monoidal categories
+TODO43: moduli 2-category of symmetric monoidal category structures
+TODO44: Sets_* is locally presentable
+TODO45: adjoint functor theorem for locally presentable categories
+TODO46: moduli 2-category of symmetric monoidal category structures
+TODO47: moduli 2-category of closed symmetric monoidal category structures
+TODO48: Hom(1,[X,Y]) ≅ Hom(X,Y) (internal hom for monoidal category)
+TODO49: adjoints are unique when they exist
+TODO50: bifunctors are determined by its partial functors
+TODO51: left adjoints preserve colimits
+TODO52: bifunctors are determined by its partial functors
+TODO53: moduli 2-category of symmetric monoidal category structures
+TODO54: Sets_* is locally presentable
+TODO55: adjoint functor theorem for locally presentable categories

@@ -4838,7 +4838,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                   &\cong \bigvee_{x\in X^{-}}S^{0}\wedge Y\\
                   &\cong \bigvee_{x\in X^{-}}Y,
     \end{align*}
-    where we have used that $\wedge$ preserves colimits in both variables by \cref{TODO} for the second isomorphism above, since it has right adjoints in both variables by \cref{properties-of-smash-products-of-pointed-sets-adjointness}.
+    where we have used that $\wedge$ preserves colimits in both variables via \cref{TODO26} for the second isomorphism above, since it has right adjoints in both variables by \cref{properties-of-smash-products-of-pointed-sets-adjointness}.
 
     A similar proof applies to the isomorphism $X\wedge Y\cong\bigvee_{y\in Y^{-}}X$.
 \end{Proof}
@@ -6567,7 +6567,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             of $\Sets_{*}$ admits an internal Hom $[-_{1},-_{2}]_{\Sets_{*}}$.
         \item\label{the-universal-property-of-sets-star-smash-s-zero-the-unit-object-is-s-zero}\SloganFont{The Unit Object Is $S^{0}$. }We have $\Unit_{\Sets_{*}}\cong S^{0}$.
     \end{enumerate}
-    More precisely, the full subcategory of the category $\ModuliCategory^{\cld}_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO} spanned by the closed symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $[-_{1},-_{2}]_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ satisfying \cref{the-universal-property-of-sets-star-smash-s-zero-existence-of-an-internal-hom,the-universal-property-of-sets-star-smash-s-zero-the-unit-object-is-s-zero} is contractible (i.e.\ equivalent to the punctual category).
+    More precisely, the full subcategory of the category $\ModuliCategory^{\cld}_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO27} spanned by the closed symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $[-_{1},-_{2}]_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ satisfying \cref{the-universal-property-of-sets-star-smash-s-zero-existence-of-an-internal-hom,the-universal-property-of-sets-star-smash-s-zero-the-unit-object-is-s-zero} is contractible (i.e.\ equivalent to the punctual category).
 \end{theorem}
 \begin{Proof}{Proof of \cref{the-universal-property-of-sets-star-smash-s-zero}}%
     \FirstProofBox{Unwinding the Statement}%
@@ -6590,7 +6590,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     making it into a symmetric monoidal strongly closed isomorphism of categories from $\left(\phantom{\mrp{\LUnitor'}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $[-_{1},-_{2}]_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor'$, $\RUnitor'$, $\left.\sigma'\right)$ to the closed symmetric monoidal category $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\times$, $\Sets_{*}(-_{1},-_{2})$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ of \cref{the-monoidal-structure-on-pointed-sets-associated-to-the-smash-product-of-pointed-sets}.
 
     \ProofBox{Constructing an Isomorphism $[-_{1},-_{2}]_{\Sets_{*}}\cong\Sets_{*}(-_{1},-_{2})$}%
-    By \cref{TODO}, we have a natural isomorphism
+    By \cref{TODO28}, we have a natural isomorphism
     \[
         \Sets_{*}(S^{0},[-_{1},-_{2}]_{\Sets_{*}})%
         \cong%
@@ -6619,12 +6619,12 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     for the component of this isomorphism at $(X,Y)$.
 
     \ProofBox{Constructing an Isomorphism $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$}%
-    Since $\otimes_{\Sets_{*}}$ is adjoint in each variable to $[-_{1},-_{2}]_{\Sets_{*}}$ by assumption and $\wedge$ is adjoint in each variable to $\Sets_{*}(-_{1},-_{2})$ by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-sets-of-maps-adjointness} of \cref{constructions-with-sets:properties-of-sets-of-maps}}{\cref{properties-of-sets-of-maps-adjointness} of \cref{properties-of-sets-of-maps}}, uniqueness of adjoints (\cref{TODO}) gives us natural isomorphisms
+    Since $\otimes_{\Sets_{*}}$ is adjoint in each variable to $[-_{1},-_{2}]_{\Sets_{*}}$ by assumption and $\wedge$ is adjoint in each variable to $\Sets_{*}(-_{1},-_{2})$ by \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-sets-of-maps-adjointness} of \cref{constructions-with-sets:properties-of-sets-of-maps}}{\cref{properties-of-sets-of-maps-adjointness} of \cref{properties-of-sets-of-maps}}, uniqueness of adjoints (\cref{TODO29}) gives us natural isomorphisms
     \begin{align*}
         X\otimes_{\Sets_{*}}- &\cong X\wedge-,\\
         -\otimes_{\Sets_{*}}Y &\cong Y\wedge-.
     \end{align*}
-    By \cref{TODO}, we then have $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$. We will write
+    By \cref{TODO30}, we then have $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$. We will write
     \[
         \id^{\otimes}_{\Sets_{*}|X,Y}%
         \colon%
@@ -6638,7 +6638,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Alternatively, we may construct a natural isomorphism $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$ as follows:
     \begin{enumerate}
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-1}Let $X\in\Obj(\Sets_{*})$.
-        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-2}Since $\otimes_{\Sets_{*}}$ is part of a closed monoidal structure, it preserves colimits in each variable by \cref{TODO}.
+        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-2}Since $\otimes_{\Sets_{*}}$ is part of a closed monoidal structure, it preserves colimits in each variable by \cref{TODO31}.
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-3}Since $X\cong\bigvee_{x\in X^{-}}S^{0}$ and $\otimes_{\Sets_{*}}$ preserves colimits in each variable, we have
             \begin{align*}
                 X\otimes_{\Sets_{*}}Y &\cong (\bigvee_{x\in X^{-}}S^{0})\otimes_{\Sets_{*}}Y\\
@@ -6650,7 +6650,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{align*}
             naturally in $Y\in\Obj(\Sets_{*})$, where we have used that $S^{0}$ is the monoidal unit for $\otimes_{\Sets_{*}}$. Thus $X\otimes_{\Sets_{*}}-\cong X\wedge-$ for each $X\in\Obj(\Sets_{*})$.
         \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-4}Similarly, $-\otimes_{\Sets_{*}}Y\cong-\wedge Y$ for each $Y\in\Obj(\Sets_{*})$.
-        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-5}By \cref{TODO}, we then have $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$.
+        \item\label{proof-of-the-universal-property-of-sets-times-pt-constructing-an-isomorphism-otimes-times-5}By \cref{TODO32}, we then have $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$.
     \end{enumerate}
     Below, we'll show that if a natural isomorphism $\mathord{\otimes_{\Sets_{*}}}\cong\mathord{\wedge}$ exists, then it must be unique. This will show that the isomorphism constructed above is equal to the isomorphism $\id^{\otimes}_{\Sets_{*}|X,Y}\colon X\otimes_{\Sets_{*}}Y\to X\wedge Y$ from before.
 
@@ -6785,10 +6785,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     whose boundary diagram corresponds to the diagram $(\dagger)$ above. In this diagram:
     \begin{itemize}
         \item Subdiagrams $(1)$, $(2)$, and $(3)$ commute by the naturality of $\id^{\otimes}_{\Sets_{*}}$.
-        \item Subdiagram $(4)$ commutes by \cref{TODO}.
+        \item Subdiagram $(4)$ commutes by \cref{TODO33}.
         \item Subdiagram $(5)$ commutes by the naturality of $\RUnitor^{\Sets_{*},-1}$.
         \item Subdiagram $(6)$ commutes trivially.
-        \item Subdiagram $(7)$ commutes by the naturality of $\RUnitor^{\Sets_{*}}$, where the equality $\RUnitor^{\Sets_{*}}_{S^{0}}=\LUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO}.
+        \item Subdiagram $(7)$ commutes by the naturality of $\RUnitor^{\Sets_{*}}$, where the equality $\RUnitor^{\Sets_{*}}_{S^{0}}=\LUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO34}.
     \end{itemize}
     Since all subdiagrams commute, so does the boundary diagram, i.e.\ the diagram $(\dagger)$ above. As a result, the diagram
     \[
@@ -7101,7 +7101,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item Subdiagrams $(2)$ and $(3)$ commute by the functoriality of $\otimes$;
         \item Subdiagram  $(4)$ commutes by the left monoidal unity of $(\id^{\otimes},\id^{\otimes}_{\Unit})$, which we proved above;
         \item Subdiagram  $(5)$ commutes by the naturality of $\LUnitor'$;
-        \item Subdiagram  $(6)$ commutes by the naturality of $\RUnitor'$, where the equality $\RUnitor'_{\Unit_{\Sets_{*}}}=\LUnitor'_{\Unit_{\Sets_{*}}}$ comes from \cref{TODO};
+        \item Subdiagram  $(6)$ commutes by the naturality of $\RUnitor'$, where the equality $\RUnitor'_{\Unit_{\Sets_{*}}}=\LUnitor'_{\Unit_{\Sets_{*}}}$ comes from \cref{TODO35};
     \end{itemize}
     it follows that the boundary diagram, i.e.\ diagram $(\secS)$, also commutes. Next, consider the diagram
     \begin{scalemath}
@@ -7143,7 +7143,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \arrow[from=4-1,to=4-4,"\id^{\otimes,-1}_{\Sets_{*}|\Unit}"description]%
             \arrow[from=5-1,to=5-4,"\id^{\otimes}_{\Sets_{*}|\Unit_{\Sets_{*}},S^{0}}"']%
             % First Column
-            \arrow[from=1-1,to=5-1,"\sigma'_{S^{0},\Unit_{\Sets_{*}}}",ldddr_to_path]%
+            \arrow[from=1-1,to=5-1,ldddr_to_path={\sigma'_{S^{0},\Unit_{\Sets_{*}}}}]%
             \arrow[from=1-1,to=4-1,"\RUnitor'_{S^{0}}"description]%
             \arrow[from=4-1,to=5-1,"\LUnitor^{\prime,-1}_{S^{0}}"description]%
             % Third Column
@@ -7151,7 +7151,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             % Fourth Column
             \arrow[from=1-4,to=4-4,"\LUnitor^{\Sets_{*}}_{\Unit_{\Sets_{*}}}"description]%
             \arrow[from=4-4,to=5-4,"\RUnitor^{\Sets_{*},-1}_{\Unit_{\Sets_{*}}}"description]%
-            \arrow[from=1-4,to=5-4,"\sigma^{\Sets_{*}}_{S^{0},\Unit_{\Sets_{*}}}"description,rdddl_to_path]%
+            \arrow[from=1-4,to=5-4,rdddl_to_path={\sigma^{\Sets_{*}}_{S^{0},\Unit_{\Sets_{*}}}}]%
             % Diagonal Arrows
             \arrow[from=1-1,to=2-2,"\id_{S^{0}}\otimes_{\Sets_{*}}\id^{\otimes}_{\Sets_{*}|\Unit}"description]%
             \arrow[from=2-3,to=1-4,"\id_{S^{0}}\otimes_{\Sets_{*}}\id^{\otimes,-1}_{\Sets_{*}|\Unit}"description]%
@@ -7169,7 +7169,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \end{scalemath}
     whose boundary diagram corresponds to the diagram $(\ddagger)$ above. Since:
     \begin{itemize}
-        \item Subdiagrams $(1)$ and $(6)$ commute by \cref{TODO};
+        \item Subdiagrams $(1)$ and $(6)$ commute by \cref{TODO36};
         \item Subdiagram  $(2)$ commutes by the naturality of $\id^{\otimes}_{\Sets_{*}}$;
         \item Subdiagram  $(\secS)$ commutes, as was shown above;
         \item Subdiagram  $(3)$ commutes by the naturality of $\LUnitor^{\Sets_{*}}$;
@@ -7563,7 +7563,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     which commutes since:
     \begin{itemize}
         \item Subdiagram $(1)$ commutes by the braidedness of $\id^{\otimes}$, as proved above.
-        \item Subdiagram $(2)$ commutes by \cref{TODO}.
+        \item Subdiagram $(2)$ commutes by \cref{TODO37}.
     \end{itemize}
     Next, consider the diagram
     \begin{scalemath}
@@ -7625,10 +7625,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \arrow[from=2-3,to=3-4,"(6)",phantom]%
         \end{tikzcd}
     \end{scalemath}
-    whose boundary diagram corresponds to the diagram $(\dagger)$ above, since the composition in \textcolor{OIvermillion}{red} is equal to $\sigma'_{S^{0},\Unit_{\Sets_{*}}}$ as proved above, and then the composition in \textcolor{OIvermillion}{red} composed with $\LUnitor'_{S^{0}}$ is equal to $\RUnitor'_{S^{0}}$ by \cref{TODO}. In this diagram:
+    whose boundary diagram corresponds to the diagram $(\dagger)$ above, since the composition in \textcolor{OIvermillion}{red} is equal to $\sigma'_{S^{0},\Unit_{\Sets_{*}}}$ as proved above, and then the composition in \textcolor{OIvermillion}{red} composed with $\LUnitor'_{S^{0}}$ is equal to $\RUnitor'_{S^{0}}$ by \cref{TODO38}. In this diagram:
     \begin{itemize}
         \item Subdiagrams $(1)$, $(2)$, and $(3)$ commute by the naturality of $\id^{\otimes}_{\Sets_{*}}$.
-        \item Subdiagrams $(4)$, $(5)$, and $(6)$ commute by the naturality of $\LUnitor^{\Sets_{*}}$, where the equality $\LUnitor^{\Sets_{*}}_{S^{0}}=\RUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO}.
+        \item Subdiagrams $(4)$, $(5)$, and $(6)$ commute by the naturality of $\LUnitor^{\Sets_{*}}$, where the equality $\LUnitor^{\Sets_{*}}_{S^{0}}=\RUnitor^{\Sets_{*}}_{S^{0}}$ comes from \cref{TODO39}.
     \end{itemize}
     Since all subdiagrams commute, so does the boundary diagram, i.e.\ the diagram $(\dagger)$ above. As a result, the diagram
     \[
@@ -8009,10 +8009,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item Subdiagrams $(1)$, $(4)$, $(5)$, $(8)$, and $(11)$ commute by the naturality of $\id^{\otimes}_{\Sets_{*}}$;
         \item Subdiagram  $(2)$ commutes by the right monoidal unity of $(\id^{\otimes}_{\Sets_{*}},\id^{\otimes}_{\Unit|\Sets_{*}})$;
         \item Subdiagram  $(3)$ commutes by the triangle identity for $(\alpha',\LUnitor',\RUnitor')$;
-        \item Subdiagram  $(6)$ commutes by \cref{TODO};
+        \item Subdiagram  $(6)$ commutes by \cref{TODO40};
         \item Subdiagram  $(7)$ commutes by the naturality of $\RUnitor^{\Sets_{*}}$;
-        \item Subdiagram  $(9)$ commutes by \cref{TODO};
-        \item Subdiagram  $(10)$ commutes by \cref{TODO};
+        \item Subdiagram  $(9)$ commutes by \cref{TODO41};
+        \item Subdiagram  $(10)$ commutes by \cref{TODO42};
     \end{itemize}
     it follows that the boundary diagram, i.e.\ diagram $(\ddagger)$, also commutes. Consider now the diagram
     \begin{scalemath}
@@ -8625,10 +8625,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             of $\Sets_{*}$ preserves colimits separately in each variable.
         \item\label{a-second-universal-property-for-sets-star-smash-s-zero-the-unit-object-is-s-zero}\SloganFont{The Unit Object Is $S^{0}$. }We have $\Unit_{\Sets_{*}}\cong S^{0}$.
     \end{enumerate}
-    More precisely, the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO} spanned by the symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ satisfying \cref{a-second-universal-property-for-sets-star-smash-s-zero-sided-preservation-of-colimits,a-second-universal-property-for-sets-star-smash-s-zero-the-unit-object-is-s-zero} is contractible.
+    More precisely, the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO43} spanned by the symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ satisfying \cref{a-second-universal-property-for-sets-star-smash-s-zero-sided-preservation-of-colimits,a-second-universal-property-for-sets-star-smash-s-zero-the-unit-object-is-s-zero} is contractible.
 \end{corollary}
 \begin{Proof}{Proof of \cref{a-second-universal-property-for-sets-star-smash-s-zero}}%
-    Since $\Sets_{*}$ is locally presentable (\cref{TODO}), it follows from \cref{TODO} that \cref{a-second-universal-property-for-sets-star-smash-s-zero} is equivalent to the existence of an internal Hom as in \cref{the-universal-property-of-sets-star-smash-s-zero-existence-of-an-internal-hom} of \cref{the-universal-property-of-sets-star-smash-s-zero}. The result then follows from \cref{the-universal-property-of-sets-star-smash-s-zero}.
+    Since $\Sets_{*}$ is locally presentable (\cref{TODO44}), it follows from \cref{TODO45} that \cref{a-second-universal-property-for-sets-star-smash-s-zero} is equivalent to the existence of an internal Hom as in \cref{the-universal-property-of-sets-star-smash-s-zero-existence-of-an-internal-hom} of \cref{the-universal-property-of-sets-star-smash-s-zero}. The result then follows from \cref{the-universal-property-of-sets-star-smash-s-zero}.
 \end{Proof}
 \begin{corollary}{A Third Universal Property of the Smash Product of Pointed Sets}{a-third-universal-property-of-the-smash-product-of-pointed-sets}%
     The symmetric monoidal structure on the category $\Sets_{*}$ is the unique symmetric monoidal structure on $\Sets_{*}$ such that the free pointed set functor
@@ -8639,7 +8639,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \to
         \Sets_{*}
     \]%
-    admits a symmetric monoidal structure, i.e.\ the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO} spanned by the symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ with respect to which $(-)^{+}$ admits a symmetric monoidal structure is contractible.
+    admits a symmetric monoidal structure, i.e.\ the full subcategory of the category $\ModuliCategory_{\E_{\infty}}(\Sets_{*})$ of \cref{TODO46} spanned by the symmetric monoidal categories $\left(\phantom{\mrp{\LUnitor^{\Sets_{*}}}}\Sets_{*}\right.$, $\otimes_{\Sets_{*}}$, $\Unit_{\Sets_{*}}$, $\LUnitor^{\Sets_{*}}$, $\RUnitor^{\Sets_{*}}$, $\left.\sigma^{\Sets_{*}}\right)$ with respect to which $(-)^{+}$ admits a symmetric monoidal structure is contractible.
 \end{corollary}
 \begin{Proof}{Proof of \cref{a-third-universal-property-of-the-smash-product-of-pointed-sets}}%
     Let $(\otimes_{\Sets_{*}},\Unit_{\Sets_{*}},\LUnitor^{\Sets_{*}},\RUnitor^{\Sets_{*}},\sigma^{\Sets_{*}})$ be a symmetric monoidal structure on $\Sets_{*}$ such that $(-)^{+}$ admits a symmetric monoidal structure with respect to $\otimes_{\Sets_{*}}$ and $\wedge$. We have isomorphisms

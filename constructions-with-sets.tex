@@ -19,8 +19,8 @@ This chapter develops some material relating to constructions with sets with an 
         \begin{enumerate}
             \item\label{constructions-with-sets-introduction-item-2a}A discussion of the internal Hom of a powerset (\cref{subsection-the-internal-hom-of-a-powerset}).
             \item\label{constructions-with-sets-introduction-item-2b}A 0-categorical version of the Yoneda lemma (\ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}}), which we term the \textit{Yoneda lemma for sets} (\cref{the-yoneda-lemma-for-sets}).
-            \item\label{constructions-with-sets-introduction-item-2c}A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO}).
-            \item\label{constructions-with-sets-introduction-item-2d}A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO}).
+            \item\label{constructions-with-sets-introduction-item-2c}A characterisation of powersets as free cocompletions (\cref{subsection-powersets-as-free-cocompletions}), mimicking the corresponding statement for categories of presheaves (\cref{TODO1}).
+            \item\label{constructions-with-sets-introduction-item-2d}A characterisation of powersets as free completions (\cref{subsection-powersets-as-free-completions}), mimicking the corresponding statement for categories of copresheaves (\cref{TODO2}).
             \item\label{constructions-with-sets-introduction-item-2e}A $(-1)$-categorical version of un/straightening (\cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets} and \cref{powersets-as-sets-of-functions-and-un-straightening}).
             \item\label{constructions-with-sets-introduction-item-2f}A 0-categorical form of Isbell duality internal to powersets (\cref{subsection-isbell-duality-for-sets}).
         \end{enumerate}
@@ -804,7 +804,7 @@ Let $A$ and $B$ be sets.%
         \to%
         \Mon_{\E_{k+\ell}}(\Sets)%
     \]%
-    of tensor products of $\E_{k}$-monoid objects on $\Sets$ with $\E_{\ell}$-monoid objects on $\Sets$; see \cref{TODO}.
+    of tensor products of $\E_{k}$-monoid objects on $\Sets$ with $\E_{\ell}$-monoid objects on $\Sets$; see \cref{TODO3}.
 \end{remark}
 \begin{remark}{Diagrams for \cref{properties-of-products-of-sets-distributivity-over-unions,properties-of-products-of-sets-distributivity-over-intersections,properties-of-products-of-sets-distributivity-over-differences,properties-of-products-of-sets-distributivity-over-symmetric-differences} of \cref{properties-of-products-of-sets}}{diagrams-for-some-items-in-properties-of-products-of-sets}%
     We may state the equalities in \cref{properties-of-products-of-sets-distributivity-over-unions,properties-of-products-of-sets-distributivity-over-intersections,properties-of-products-of-sets-distributivity-over-differences,properties-of-products-of-sets-distributivity-over-symmetric-differences} of \cref{properties-of-products-of-sets} as the commutativity of the following diagrams:%
@@ -2639,21 +2639,21 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
 \begin{example}{Examples of Inverse Limits of Sets}{examples-of-inverse-limits-of-sets}%
     Here are some examples of inverse limits of sets.
     \begin{enumerate}
-        \item\label{examples-of-inverse-limits-of-sets-the-p-adic-integers}\SloganFont{The $p$-Adic Integers. }The ring of $p$-adic integers $\Z_{p}$ of \cref{TODO} is the inverse limit
+        \item\label{examples-of-inverse-limits-of-sets-the-p-adic-integers}\SloganFont{The $p$-Adic Integers. }The ring of $p$-adic integers $\Z_{p}$ of \cref{TODO4} is the inverse limit
             \[
                 \Z_{p}%
                 \cong%
                 \invlim_{n\in\N}(\Zn{p^{n}});%
             \]%
-            see \cref{TODO}.
+            see \cref{TODO5}.
         \item\label{examples-of-inverse-limits-of-sets-rings-of-formal-power-series}\SloganFont{Rings of Formal Power Series. }The ring $R\llbracket t\rrbracket$ of formal power series in a variable $t$ is the inverse limit
             \[
                 R\llbracket t\rrbracket%
                 \cong%
                 \invlim_{n\in\N}(R[t]/t^{n}R[t]);%
             \]%
-            see \cref{TODO}.
-        \item\label{examples-of-inverse-limits-of-sets-profinite-groups}\SloganFont{Profinite Groups. }Profinite groups are inverse limits of finite groups; see \cref{TODO}.
+            see \cref{TODO6}.
+        \item\label{examples-of-inverse-limits-of-sets-profinite-groups}\SloganFont{Profinite Groups. }Profinite groups are inverse limits of finite groups; see \cref{TODO7}.
         %\item\label{examples-of-inverse-limits-of-sets-}\SloganFont{. }
     \end{enumerate}
 \end{example}
@@ -4477,7 +4477,7 @@ We can now prove \cref{construction-of-direct-colimits-of-sets}:
                 \defeq%
                 \dircolim_{n\in\N}(\Zn{p^{n}});%
             \]%
-            see \cref{TODO}.
+            see \cref{TODO8}.
         %\item\label{examples-of-direct-colimits-of-sets-}\SloganFont{. }
     \end{enumerate}
 \end{example}
@@ -8626,7 +8626,7 @@ Let $X$ be a set.%
                 \cong
                 \mathcal{P}(X\times Y),%
             \]%
-            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
+            natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}, where $\otimes$ denotes the tensor product of suplattices of \cref{TODO9}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
         %\item\label{properties-of-powersets-as-categories-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -8946,7 +8946,7 @@ Let $X$ be a set.
     \]%
     natural in $X\in\Obj(\Sets)$ and $(Y,\preceq)\in\Obj(\SupLat)$, where:
     \begin{itemize}
-        \item The category $\SupLat$ is the category of suplattices of \cref{TODO}.
+        \item The category $\SupLat$ is the category of suplattices of \cref{TODO10}.
         \item The map
             \[
                 \chi^{*}_{X}
@@ -9006,11 +9006,11 @@ Let $X$ be a set.
             \end{align*}
             for each $U\in\mathcal{P}(X)$, where:
             \begin{itemize}
-                \item We have used \cref{TODO} for the first equality.
+                \item We have used \cref{TODO11} for the first equality.
                 \item We have used \cref{the-yoneda-lemma-for-sets} for the second equality.
-                \item We have used \cref{TODO} for the third equality.
+                \item We have used \cref{TODO12} for the third equality.
                 \item The symbol $\bigvee$ denotes the join in $(Y,\preceq)$.
-                \item The symbol $\odot$ denotes the tensor of an element of $Y$ by a truth value as in \cref{TODO}. In particular, we have
+                \item The symbol $\odot$ denotes the tensor of an element of $Y$ by a truth value as in \cref{TODO13}. In particular, we have
                     \begin{align*}
                         \true\odot f(x)  &\defeq f(x),\\
                         \false\odot f(x) &\defeq \BottomElement_{Y},
@@ -9274,7 +9274,7 @@ Let $X$ be a set.
     \]%
     natural in $X\in\Obj(\Sets)$ and $(Y,\preceq)\in\Obj(\InfLat)$, where:
     \begin{itemize}
-        \item The category $\InfLat$ is the category of inflattices of \cref{TODO}.
+        \item The category $\InfLat$ is the category of inflattices of \cref{TODO14}.
         \item The map
             \[
                 \chi^{*}_{X}
@@ -9336,11 +9336,11 @@ Let $X$ be a set.
             \end{align*}
             for each $U\in\mathcal{P}(X)$, where:
             \begin{itemize}
-                \item We have used \cref{TODO} for the first equality.
+                \item We have used \cref{TODO15} for the first equality.
                 \item We have used \cref{the-yoneda-lemma-for-sets} for the second equality.
-                \item We have used \cref{TODO} for the third equality.
+                \item We have used \cref{TODO16} for the third equality.
                 \item The symbol $\bigwedge$ denotes the meet in $(Y,\preceq)$.
-                \item The symbol $\pitchfork$ denotes the cotensor of an element of $Y$ by a truth value as in \cref{TODO}. In particular, we have
+                \item The symbol $\pitchfork$ denotes the cotensor of an element of $Y$ by a truth value as in \cref{TODO17}. In particular, we have
                     \begin{align*}
                         \true\pitchfork f(x)  &\defeq f(x),\\
                         \false\pitchfork f(x) &\defeq \TopElement_{Y},
@@ -9583,7 +9583,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     Henning Makholm suggests the following heuristic intuition for the internal Hom of $\mathcal{P}(X)$ from $U$ to $V$ (\cite{MSE267365}):
     \begin{enumerate}
         \item\label{intuition-for-the-internal-hom-of-px-1}Since products in $\mathcal{P}(X)$ are given by binary intersections (\cref{elementary-properties-of-powersets-co-completeness} of \cref{elementary-properties-of-powersets}), the right adjoint $\eHom_{\mathcal{P}(X)}(U,-)$ of $U\cap-$ may be thought of as a function type $[U,V]$.
-        \item\label{intuition-for-the-internal-hom-of-px-2}Under the Curry--Howard correspondence (\cref{TODO}), the function type $[U,V]$ corresponds to implication $U\Rightarrow V$.
+        \item\label{intuition-for-the-internal-hom-of-px-2}Under the Curry--Howard correspondence (\cref{TODO18}), the function type $[U,V]$ corresponds to implication $U\Rightarrow V$.
         \item\label{intuition-for-the-internal-hom-of-px-3}Implication $U\Rightarrow V$ is logically equivalent to $\neg U\vee V$.
         \item\label{intuition-for-the-internal-hom-of-px-4}The expression $\neg U\vee V$ then corresponds to the set $U^{\sfc}\cup V$ in $\mathcal{P}(X)$.
         \item\label{intuition-for-the-internal-hom-of-px-5}The set $U^{\sfc}\vee V$ turns out to indeed be the internal Hom of $\mathcal{P}(X)$.
@@ -9652,7 +9652,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 D_{X} &\defeq [-,\emptyset]_{X}\\%
                       &=      (-)^{\sfc}%
             \end{align*}
-            is an involutory isomorphism of categories, making $\emptyset$ into a dualising object for $(\mathcal{P}(X),\cap,X,[-,-]_{X})$ in the sense of \cref{TODO}. In particular:
+            is an involutory isomorphism of categories, making $\emptyset$ into a dualising object for $(\mathcal{P}(X),\cap,X,[-,-]_{X})$ in the sense of \cref{TODO19}. In particular:
             \begin{enumerate}
                 \item\label{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2-a}The diagram
                     \[
@@ -11137,7 +11137,7 @@ Let $f\colon X\to Y$ be a function.
                         \to%
                         \PSh(X).%
                     \]%
-                    The \emph{right} adjoint of this functor is the direct image functor of presheaves, defined in \cref{TODO}.
+                    The \emph{right} adjoint of this functor is the direct image functor of presheaves, defined in \cref{TODO20}.
             \end{enumerate}
         \item\label{notation-for-direct-images-is-confusing-2}The presheaf direct image functor is denoted $f_{*}$, but the direct image functor for powersets is denoted $f_{!}$ (as it's a left adjoint).
         \item\label{notation-for-direct-images-is-confusing-3}Adding to the confusion, it's somewhat common for $f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$ to be denoted $f_{*}$.
@@ -11175,7 +11175,7 @@ Let $f\colon X\to Y$ be a function.
                         &=      \colim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
                         &=      \bigvee_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
     \end{align*}
-    where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
+    where we have used \cref{TODO21} for the second equality. In other words, we have
     \begin{align*}
         [f_{!}(\chi_{U})](y)%
         &=%
@@ -12328,7 +12328,7 @@ Let $f\colon X\to Y$ be a function.
                         &=      \lim_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x))\\%
                         &=      \bigwedge_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)).%
     \end{align*}
-    where we have used \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:TODO}}{\cref{TODO}} for the second equality. In other words, we have
+    where we have used \cref{TODO22} for the second equality. In other words, we have
     \begin{align*}
         [f_{*}(\chi_{U})](y) &= \bigwedge_{\substack{x\in X\\f(x)=y}}(\chi_{U}(x))\\%
                              &= \begin{cases}
@@ -12999,7 +12999,7 @@ Let $f\colon X\to Y$ be a function.
         -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
         [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
     \end{align*}
-    of \cref{properties-of-binary-intersections-functoriality} of \cref{properties-of-binary-intersections} and \cref{properties-of-internal-homs-of-powersets-functoriality} of \cref{properties-of-internal-homs-of-powersets} satisfy several properties reminiscent of a six functor formalism in the sense of \cref{TODO}.
+    of \cref{properties-of-binary-intersections-functoriality} of \cref{properties-of-binary-intersections} and \cref{properties-of-internal-homs-of-powersets-functoriality} of \cref{properties-of-internal-homs-of-powersets} satisfy several properties reminiscent of a six functor formalism in the sense of \cref{TODO23}.
 
     \indent We collect these properties in \cref{a-six-functor-formalism-for-sets} below.%
     %--- Begin Footnote ---%
