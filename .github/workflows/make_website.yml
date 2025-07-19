@@ -28,18 +28,14 @@ jobs:
         sudo apt-get install -y \
           pdf2svg \
           inkscape \
-          imagemagick \
-          sqlite3-pcre
+          imagemagick
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
-        python-version: 3.6 # Or your desired version
-        # mamba-version: "*" # Optional: for faster solving
-        # channels: conda-forge,defaults # Optional
-        activate-environment: clowder_py36_env # Activate here
-        # Or create an environment from a file:
-        # environment-file: environment.yml
+        python-version: 3.6
+        channels: conda-forge,defaults
+        activate-environment: clowder_py36_env
 
     - name: Setup the LaTeX environment
       uses: TeX-Live/setup-texlive-action@v3
