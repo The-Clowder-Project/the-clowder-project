@@ -9547,7 +9547,7 @@ Let $X$ be a set.
 \end{warning}
 \subsection{The Internal Hom of a Powerset}\label{subsection-the-internal-hom-of-a-powerset}
 Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
-\begin{definition}{The Internal Hom of a Powerset}{the-internal-hom-of-a-powerset}%
+\begin{proposition}{The Internal Hom of a Powerset}{the-internal-hom-of-a-powerset}%
     The \index[set-theory]{powerset!internal Hom of@internal Hom of}\textbf{internal Hom of $\mathcal{P}(X)$ from $U$ to $V$} is the subset \index[notation]{UVX@$[U,V]_{X}$}$[U,V]_{X}$%
     %--- Begin Footnote ---%
     \footnote{%
@@ -9555,14 +9555,15 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    of $X$ defined by
+    of $X$ given by
     \begin{align*}
-        [U,V]_{X} &\defeq U^{\sfc}\cup V\\%
+        [U,V]_{X} &=      U^{\sfc}\cup V\\%
                   &=      (U\setminus V)^{\sfc}%
     \end{align*}
     where $U^{\sfc}$ is the complement of $U$ of \cref{complements}.
-\end{definition}
+\end{proposition}
 \begin{Proof}{Proof of \cref{the-internal-hom-of-a-powerset}}%
+    \FirstProofBox{Proof of the Equality $U^{\sfc}\cup V=(U\setminus V)^{\sfc}$}%
     We have
     \begin{align*}
         (U\setminus V)^{\sfc} &\defeq X\setminus(U\setminus V)\\%
@@ -9578,6 +9579,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
         \item\label{proof-of-the-internal-hom-of-a-powerset-3}\cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} for the last equality.
     \end{enumerate}
     This finishes the proof.
+
+    \ProofBox{Proof that $U^{\sfc}\cup V$ Is Indeed the Internal Hom}%
+    This follows from \cref{properties-of-binary-intersections-adjointness} of \cref{properties-of-binary-intersections}.
 \end{Proof}
 \begin{remark}{Intuition for the Internal Hom of $\mathcal{P}(X)$}{intuition-for-the-internal-hom-of-px}%
     Henning Makholm suggests the following heuristic intuition for the internal Hom of $\mathcal{P}(X)$ from $U$ to $V$ (\cite{MSE267365}):
