@@ -74,21 +74,6 @@ This chapter is under revision. TODO:
     \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
     \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
     \item functional total relations defined with \say{satisfying the following equivalent conditions:}
-    \item Add table:
-        \begingroup%
-        \setlength\cellspacetoplimit{3pt}
-        \setlength\cellspacebottomlimit{3pt}
-        \renewcommand{\arraystretch}{1.2}
-        \begin{center}
-            \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
-                \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
-                $R$ is functional                              & $R\procirc R^{\dagger}\subset \Delta_{B}$            \\\rowcolor{backgroundColor}
-                $R$ is surjective                              & $\Delta_{A}           \subset R^{\dagger}\procirc R$ \\\rowcolor{black!05!backgroundColor}
-                $R$ is total                                   & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
-                $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\hline
-            \end{tabular}
-        \end{center}
-        \endgroup
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -3962,7 +3947,8 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel}}%
-    Firstly note that \cref{characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2} are also equivalent:
+    \FirstProofBox{First Proof of the Equivalence of \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3}}%
+    Firstly note that \cref{characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3} are equivalent by \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}. We then claim that \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2} are also equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
             \[
@@ -3977,7 +3963,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     B\mrp{.}
                 \end{tikzcd}
             \]%
-            By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}, we have
+            By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
             \begin{align*}
                 R_{!}(U) &= R\procirc U,\\
                 R_{!}(V) &= R\procirc V.
@@ -4025,7 +4011,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                     B\mrp{,}
                 \end{tikzcd}
             \]%
-            for which we have $R\procirc S\procirc[x]=R\procirc T\procirc[x]$, implying that we have
+            where we have $R\procirc S\procirc[x]=R\procirc T\procirc[x]$, implying that we have
             \[
                 S(x)%
                 =%
@@ -4035,25 +4021,29 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                 =%
                 T(x)
             \]%
-            for each $x\in X$, implying $S=T$, and thus $R$ is a monomorphism.
+            for each $x\in X$. Thus $S=T$ and $R$ is a monomorphism.
     \end{itemize}
-    We can also prove this in a more abstract way, following \cite{MSE350788}:
+
+    \ProofBox{Second Proof of the Equivalence of \cref{characterisations-of-monomorphisms-in-rel-1,characterisations-of-monomorphisms-in-rel-2,characterisations-of-monomorphisms-in-rel-3}}%
+    A more abstract proof can also be given, following \cite{MSE350788}:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2}: }Assume that $R$ is a monomorphism.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
+                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \cref{unwinding-the-direct-image-function-associated-to-a-relation}.
                 \item Since $\Rel(\pt,-)$ preserves all limits by \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-commutativity-with-homs} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-commutativity-with-homs} of \cref{properties-of-co-limits}}, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-monomorphism-preserving-functors-interaction-with-limits} of \cref{types-of-morphisms-in-categories:properties-of-monomorphism-preserving-functors}}{\cref{properties-of-monomorphism-preserving-functors-interaction-with-limits} of \cref{properties-of-monomorphism-preserving-functors}} that $\Rel(\pt,-)$ also preserves monomorphisms.
                 \item Since $R$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{!}$, it follows that $R_{!}$ is also a monomorphism.
                 \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{!}$ is injective.
             \end{itemize}
         \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1}: }Assume that $R_{!}$ is injective.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-direct-image-function-associated-to-a-relation}}{\cref{unwinding-the-direct-image-function-associated-to-a-relation}}.
+                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R_{!}$ by \cref{unwinding-the-direct-image-function-associated-to-a-relation}.
                 \item Since the monomorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-monomorphisms-monomorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-monomorphisms}}{\cref{examples-of-monomorphisms-monomorphisms-in-sets} of \cref{examples-of-monomorphisms}}), it follows that $R_{!}$ is a monomorphism.
                 \item Since $\Rel(\pt,-)$ is faithful, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-monomorphism-reflecting-functors-interaction-with-faithfulness} of \cref{types-of-morphisms-in-categories:properties-of-monomorphism-reflecting-functors}}{\cref{properties-of-monomorphism-reflecting-functors-interaction-with-faithfulness} of \cref{properties-of-monomorphism-reflecting-functors}} that $\Rel(\pt,-)$ reflects monomorphisms.
                 \item Since $R_{!}$ is a monomorphism and $\Rel(\pt,-)$ maps $R$ to $R_{!}$, it follows that $R$ is also a monomorphism.
             \end{itemize}
     \end{itemize}
+
+    \ProofBox{Proof of the Second Half of \cref{characterisations-of-monomorphisms-in-rel}}%
     Finally, we prove the second part of the statement. Assume that $R$ is a monomorphism, let $a,a'\in A$ such that $a\sim_{R}b$ and $a'\sim_{R}b$ for some $b\in B$, and consider the diagram
     \[
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4067,8 +4057,13 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             B\mrp{.}
         \end{tikzcd}
     \]%
-    Since $\star\sim_{[a]}a$ and $a\sim_{R}b$, we have $\star\sim_{R\procirc[a]}b$. Similarly, $\star\sim_{R\procirc[a']}b$. Thus $R\procirc[a]=R\procirc[a']$, and since $R$ is a monomorphism, we have $[a]=[a']$, i.e.\ $a=a'$.
-
+    Then:
+    \begin{itemize}
+        \item Since $\star\sim_{[a]}a$ and $a\sim_{R}b$, we have $\star\sim_{R\procirc[a]}b$.
+        \item Similarly, $\star\sim_{R\procirc[a']}b$.
+        \item Thus $R\procirc[a]=R\procirc[a']$.
+        \item Since $R$ is a monomorphism, we have $[a]=[a']$, so $a=a'$.
+    \end{itemize}
     Conversely, assume the condition
     \begin{itemize}
         \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that
@@ -4091,9 +4086,17 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             B\mrp{,}
         \end{tikzcd}
     \]%
-    and let $(x,a)\in S$. Since $R$ is total and $a\in A$, there exists some $b\in B$ such that $a\sim_{R}b$. In this case, we have $x\sim_{R\procirc S}b$, and since $R\procirc S=R\procirc T$, we have also $x\sim_{R\procirc T}b$. Thus there must exist some $a'\in A$ such that $x\sim_{T}a'$ and $a'\sim_{R}b$. However, since $a,a'\sim_{R}b$, we must have $a=a'$, and thus $(x,a)\in T$ as well.
-
-    A similar argument shows that if $(x,a)\in T$, then $(x,a)\in S$, and thus $S=T$ and it follows that $R$ is a monomorphism.
+    and let $x\in X$ and $a\in A$ such that $x\sim_{S}a$.
+    \begin{itemize}
+        \item Since $R$ is total and $a\in A$, there exists some $b\in B$ such that $a\sim_{R}b$.
+        \item In this case, we have $x\sim_{R\procirc S}b$, and since $R\procirc S=R\procirc T$, we have also $x\sim_{R\procirc T}b$.
+        \item Thus there must exist some $a'\in A$ such that $x\sim_{T}a'$ and $a'\sim_{R}b$.
+        \item However, since $a\sim_{R}b$ and $a'\sim_{R}b$, we must have $a=a'$.
+        \item Thus $x\sim_{T}a$ as well.
+        \item A similar argument shows that if $x\sim_{T}a$, then $x\sim_{S}a$.
+        \item Thus $S=T$ and it follows that $R$ is a monomorphism.
+    \end{itemize}
+    This finishes the proof.
 \end{Proof}
 \subsection{2-Categorical Monomorphisms}\label{subsection-2-categorical-monomorphisms-in-rel}
 In this section we characterise (for now, some of) the 2-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-monomorphisms-in-bicategories}}{\cref{section-monomorphisms-in-bicategories}}.
@@ -4108,7 +4111,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                     \begin{itemize}
                         \itemstar If $R\procirc S\subset R\procirc T$, then $S\subset T$.
                     \end{itemize}
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}The functor
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}The direct image functor
                     \[
                         R_{!}%
                         \colon%
@@ -4116,9 +4119,8 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                         \to%
                         (\mathcal{P}(B),\subset)%
                     \]%
-                    is full.
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
-                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}The functor
+                    of \cref{properties-of-the-direct-image-function-operation-for-relations-functionality-2} of \cref{properties-of-the-direct-image-function-operation-for-relations} is full.
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}The codirect image functor
                     \[
                         R_{*}%
                         \colon%
@@ -4126,7 +4128,8 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                         \to%
                         (\mathcal{P}(B),\subset)%
                     \]%
-                    is full.
+                    of \cref{properties-of-the-codirect-image-function-operation-for-relations-functionality-2} of \cref{properties-of-the-codirect-image-function-operation-for-relations} is full.
+                \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
                 \item\label{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
             \end{enumerate}
         \item\label{2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel}\SloganFont{Representably Fully Faithful Morphisms in $\sfbfRel$. }Every representably full morphism in $\sfbfRel$ is a representably fully faithful morphism.
@@ -4153,7 +4156,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
     is injective for each $S,T\in\Obj(\eRel(X,A))$. However, $\Hom_{\eRel(X,A)}(S,T)$ is either empty or a singleton, in either case of which the map $R_{*|S,T}$ is necessarily injective.
 
     \ProofBox{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel}: Representably Full Morphisms in $\sfbfRel$}%
-    We claim \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6} are indeed equivalent:
+    We claim \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6} are indeed equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-1}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }This is simply a matter of unwinding definitions: The relation $R$ is a representably full morphism in $\sfbfRel$ \textiff, for each $X\in\Obj(\sfbfRel)$, the functor
             \[
@@ -4172,7 +4175,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                 \Hom_{\eRel(X,B)}(R\procirc S,R\procirc T)%
             \]%
             is surjective for each $S,T\in\Obj(\eRel(X,A))$, i.e.\ \textiff, whenever $R\procirc S\subset R\procirc T$, we also have $S\subset T$.
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }This is also simply a matter of unwinding definitions: The functor
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}: }This is also simply a matter of unwinding definitions: The functor
             \[
                 R_{!}%
                 \colon%
@@ -4189,8 +4192,8 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                 \Hom_{\mathcal{P}(B)}(R_{!}(U),R_{!}(V))%
             \]%
             is surjective, i.e.\ \textiff whenever $R_{!}(U)\subset R_{!}(V)$, we also necessarily have $U\subset V$.
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4} given above.
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\iff$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }This is once again simply a matter of unwinding definitions, and proceeds exactly in the same way as in the proof of the equivalence between \cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-3,2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5} given above.
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}: }Suppose that the following condition is true:
             \begin{itemize}
                 \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{!}(U)\subset R_{!}(V)$, then $U\subset V$.
             \end{itemize}
@@ -4210,7 +4213,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
             \end{itemize}
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Suppose that the following condition is true:
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}: }Suppose that the following condition is true:
             \begin{itemize}
                 \itemstar For each $U,V\in\mathcal{P}(A)$, if $R_{*}(U)\subset R_{*}(V)$, then $U\subset V$.
             \end{itemize}
@@ -4230,7 +4233,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                 \item By assumption, we then have $A\setminus V\subset A\setminus U$.
                 \item By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} again, we have $U\subset V$.
             \end{itemize}
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}: }Consider the diagram
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     X
@@ -4283,7 +4286,7 @@ In this section we characterise (for now, some of) the 2-categorical monomorphis
                 T(x)
             \]%
             for each $x\in X$, implying $S\subset T$.
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
@@ -4665,7 +4668,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
                 T^{-1}(x)
             \]%
             for each $x\in X$, implying $S\subset T$.
-        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-4}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(B)$ and consider the diagram
+        \item\SloganFont{\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5}$\implies$\cref{2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(B)$ and consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
