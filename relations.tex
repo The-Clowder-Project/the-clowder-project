@@ -3160,14 +3160,14 @@ Let $A$ and $B$ be sets.
             for each $(S,R)\in\sfbfRel(B,C)\times\sfbfRel(A,B)$, where $S\procirc R$ is the composition of $S$ and $R$ of \cref{composition-of-relations}.
     \end{itemize}
 \end{definition}
-\begin{proposition}{2-Isomorphism Between $\sfbfRel$ and $\aptsfbfRel$}{2-isomorphism-between-sfrel-and-sfaptrel}%
+\begin{proposition}{2-Isomorphism Between $\sfbfRel$ and $\aptsfbfRelco$}{2-isomorphism-between-sfrel-and-sfaptrel}%
     The functor
     \[
         (-)^{\sfc}%
         \colon%
         \sfbfRel%
         \to%
-        \aptsfbfRel%
+        \aptsfbfRelco%
     \]%
     given by the identity on objects and by $R\mapsto R^{\sfc}$ on 1-morphisms is a 2-isomorphism of 2-categories.
 \end{proposition}
@@ -3208,7 +3208,7 @@ Let $A$ and $B$ be sets.
         \item\label{other-categorical-structures-with-apartness-composition-double-categorical-structure}\SloganFont{Double Categorical Structure. }It seems the apartness composition of relations doesn't form a double category in a natural%
             %--- Begin Footnote ---%
             \footnote{%
-                I.e.\ such that the composition of vertical morphisms is the usual composition of functions, as in $\Sets$.  
+                I.e.\ such that the composition of vertical morphisms is the usual composition of functions, as in $\Sets$.
                 \par\vspace*{\TCBBoxCorrection}
             } %
             %---  End Footnote  ---%
@@ -3286,12 +3286,12 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \setlength\cellspacebottomlimit{3pt}
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
-        \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{black!05!backgroundColor}
             $R$ is functional                              & $R\procirc R^{\dagger}\subset \Delta_{B}$            \\\rowcolor{backgroundColor}
-            $R$ is surjective                              & $\Delta_{A}           \subset R^{\dagger}\procirc R$ \\\rowcolor{black!05!backgroundColor}
-            $R$ is total                                   & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\rowcolor{backgroundColor}
-            $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\hline
+            $R$ is total                                   & $\Delta_{A}           \subset R^{\dagger}\procirc R$ \\\rowcolor{black!05!backgroundColor}
+            $R$ is injective                               & $R^{\dagger}\procirc R\subset \Delta_{A}$            \\\rowcolor{backgroundColor}
+            $R$ is surjective                              & $\Delta_{B}           \subset R\procirc R^{\dagger}$ \\\hline
         \end{tabular}
     \end{center}
     \endgroup
@@ -3309,14 +3309,7 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
     \begin{itemize}
         \itemstar For each $a,a'\in A$, if $a=a'$, then there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a'$.
     \end{itemize}
-    Since $b\sim_{R^{\dagger}}a'$ is the same as $a'\sim_{R}b$, the condition says that for each $a\in A$, there is some $b\in B$ with $b\in R(a)$. This is precisely the condition for $R$ to be total.
-
-    \ProofBox{Surjectivity Is Equivalent to $\Delta_{B}\subset R\procirc R^{\dagger}$}%
-    The condition $\Delta_{B}\subset R\procirc R^{\dagger}$ unwinds to
-    \begin{itemize}
-        \itemstar For each $b,b'\in A$, if $b=b'$, then there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$.
-    \end{itemize}
-    Since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, the condition says that for each $b\in B$, there is some $a\in A$ with $b\in R(a)$. This is precisely the condition for $R$ to be surjective.
+    Since $b\sim_{R^{\dagger}}a'$ is the same as $a'\sim_{R}b$, the condition says that for each $a\in A$, there is some $b\in B$ with $b\in R(a)$, so $R(a)\neq\emptyset$. This is precisely the condition for $R$ to be total.
 
     \ProofBox{Injectivity Is Equivalent to $R^{\dagger}\procirc R\subset\Delta_{A}$}%
     The condition $R^{\dagger}\procirc R\subset\Delta_{A}$ unwinds to
@@ -3324,6 +3317,13 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
         \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that $a\sim_{R}b$ and $b\sim_{R^{\dagger}}a'$, then $a=a'$.
     \end{itemize}
     Since $b\sim_{R^{\dagger}}a'$ is the same as $a'\sim_{R}b$, the condition says that for each $b\in B$, if $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$. This is precisely the condition for $R$ to be injective.
+
+    \ProofBox{Surjectivity Is Equivalent to $\Delta_{B}\subset R\procirc R^{\dagger}$}%
+    The condition $\Delta_{B}\subset R\procirc R^{\dagger}$ unwinds to
+    \begin{itemize}
+        \itemstar For each $b,b'\in B$, if $b=b'$, then there exists some $a\in A$ such that $b\sim_{R^{\dagger}}a$ and $a\sim_{R}b'$.
+    \end{itemize}
+    Since $b\sim_{R^{\dagger}}a$ is the same as $a\sim_{R}b$, the condition says that for each $b\in B$, there is some $a\in A$ with $b\in R(a)$, so $R^{-1}(b)\neq\emptyset$. This is precisely the condition for $R$ to be surjective.
 \end{Proof}
 \begin{proposition}{Isomorphisms and Equivalences in $\sfbfRel$}{isomorphisms-and-equivalences-in-rel}%
     The following conditions are equivalent:
@@ -3479,7 +3479,7 @@ Let $A$ and $B$ be sets.
     This finishes the proof.
 \end{Proof}
 \subsection{Internal Monads}\label{subsection-internal-monads-in-rel}
-Let $A$ be a set.
+Let $X$ be a set.
 \begin{proposition}{Internal Monads in $\sfbfRel$}{internal-monads-in-rel}%
     We have a natural identification%
     %--- Begin Footnote ---%
@@ -3492,25 +3492,25 @@ Let $A$ be a set.
         \{
             \begin{gathered}
                 \text{Monads in}\\
-                \text{$\sfbfRel$ on $A$}
+                \text{$\sfbfRel$ on $X$}
             \end{gathered}
         \}
         \cong
-        \{\text{Preorders on $A$}\}.
+        \{\text{Preorders on $X$}\}.
     \]%
 \end{proposition}
 \begin{Proof}{Proof of \cref{internal-monads-in-rel}}%
-    A monad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
+    A monad in $\sfbfRel$ on $X$ consists of a relation $R\colon X\rightproarrow X$ together with maps
     \begin{align*}
         \mu_{R}  &\colon R\procirc R \subset R,\\
-        \eta_{R} &\colon \Delta_{A}    \subset R
+        \eta_{R} &\colon \Delta_{X}    \subset R
     \end{align*}
     making the diagrams
     \begin{webcompile}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
-            \Delta_{A}\procirc R
+            \Delta_{X}\procirc R
             \arrow[r,"\eta_{R}\procirc\id_{R}",mid vert]
-            \arrow[rd,"\LUnitor^{\eRel(A,B)}_{R}"'{pos=0.55},Equals]
+            \arrow[rd,"\LUnitor^{\sfbfRel}_{R}"'{pos=0.55},Equals]
             \&
             R\procirc R
             \arrow[d,"\mu_{R}",mid vert]
@@ -3540,7 +3540,7 @@ Let $A$ be a set.
             \&[0.30901699437\TwoCm]
             % 1-Arrows
             % Left Boundary
-            \arrow[from=2-1,to=1-3,"\alpha^{\eRel(A,B)}_{R,R,R}"{pos=0.35},Equals]%
+            \arrow[from=2-1,to=1-3,"\alpha^{\sfbfRel}_{R,R,R}"{pos=0.35},Equals]%
             \arrow[from=1-3,to=2-5,"\id_{R}\procirc\mu_{R}"{pos=0.6},mid vert]%
             \arrow[from=2-5,to=3-4,"\mu_{R}"{pos=0.35},mid vert]%
             % Right Boundary
@@ -3548,9 +3548,9 @@ Let $A$ be a set.
             \arrow[from=3-2,to=3-4,"\mu_{R}"',mid vert]%
         \end{tikzcd}
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
-            R\procirc\Delta_{A}
+            R\procirc\Delta_{X}
             \arrow[r,"\id_{R}\procirc\eta_{R}",mid vert]
-            \arrow[rd,"\RUnitor^{\eRel(A,B)}_{R}"'{pos=0.55},Equals]
+            \arrow[rd,"\RUnitor^{\sfbfRel}_{R}"'{pos=0.55},Equals]
             \&
             R\procirc R
             \arrow[d,"\mu_{R}",mid vert]
@@ -3561,10 +3561,10 @@ Let $A$ be a set.
     \end{webcompile}%%
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the two maps $\mu_{R}$ and $\eta_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item\label{proof-of-internal-monads-in-rel-1}For each $a,b,c\in A$, if $a\sim_{R}b$ and $b\sim_{R}c$, then $a\sim_{R}c$.
-        \item\label{proof-of-internal-monads-in-rel-2}For each $a\in A$, we have $a\sim_{R}a$.
+        \item\label{proof-of-internal-monads-in-rel-1}For each $x,z\in X$, if there exists some $y\in Y$ such that $x\sim_{R}y$ and $y\sim_{R}z$, then $x\sim_{R}z$.
+        \item\label{proof-of-internal-monads-in-rel-2}For each $x\in X$, we have $x\sim_{R}x$.
     \end{enumerate}
-    These are exactly the requirements for $R$ to be a preorder (\cref{TODO}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $A$.
+    These are exactly the requirements for $R$ to be a preorder (\cref{TODO}). Conversely, any preorder $\preceq$ gives rise to a pair of maps $\mu_{\preceq}$ and $\eta_{\preceq}$, forming a monad on $X$.
 \end{Proof}
 \begin{example}{Codensity Monads in $\sfbfRel$}{codensity-monads-in-rel}%
     Let $R\colon A\rightproarrow B$ be a relation.
@@ -3638,25 +3638,25 @@ Let $A$ be a set.
     \end{enumerate}
 \end{example}
 \subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel}
-Let $A$ be a set.
+Let $X$ be a set.
 \begin{proposition}{Internal Comonads in $\sfbfRel$}{internal-comonads-in-rel}%
     We have a natural identification
     \[
         \{
             \begin{gathered}
                 \text{Comonads in}\\
-                \text{$\sfbfRel$ on $A$}
+                \text{$\sfbfRel$ on $X$}
             \end{gathered}
         \}
         \cong
-        \{\text{Subsets of $A$}\}.
+        \{\text{Subsets of $X$}\}.
     \]%
 \end{proposition}
 \begin{Proof}{Proof of \cref{internal-comonads-in-rel}}%
-    A comonad in $\sfbfRel$ on $A$ consists of a relation $R\colon A\rightproarrow A$ together with maps
+    A comonad in $\sfbfRel$ on $X$ consists of a relation $R\colon X\rightproarrow X$ together with maps
     \begin{align*}
         \Delta_{R}   &\colon R \subset R\procirc R,\\
-        \epsilon_{R} &\colon R \subset \Delta_{A}
+        \epsilon_{R} &\colon R \subset \Delta_{X}
     \end{align*}
     making the diagrams
     \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
@@ -3664,13 +3664,13 @@ Let $A$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
             R
             \arrow[r,"\Delta_{R}",mid vert]
-            \arrow[rd,"\LUnitor^{\eRel(A,B),-1}_{R}"'{pos=0.55},Equals]
+            \arrow[rd,"\LUnitor^{\sfbfRel,-1}_{R}"'{pos=0.55},Equals]
             \&
             R\procirc R
             \arrow[d,"\epsilon_{R}\procirc\id_{R}",mid vert]
             \\
             \&
-            \Delta_{A}\procirc R
+            \Delta_{X}\procirc R
         \end{tikzcd}
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&[0.30901699437\TwoCmPlusAQuarter]
@@ -3696,7 +3696,7 @@ Let $A$ be a set.
             % Left Boundary
             \arrow[from=2-1,to=1-3,"\Delta_{R}"{pos=0.5},mid vert]%
             \arrow[from=1-3,to=2-5,"\id_{R}\procirc\Delta_{R}"{pos=0.35},mid vert]%
-            \arrow[from=2-5,to=3-4,"\alpha^{\eRel(A,B),-1}_{R,R,R}"{pos=0.35},Equals]%
+            \arrow[from=2-5,to=3-4,"\alpha^{\sfbfRel,-1}_{R,R,R}"{pos=0.35},Equals]%
             % Right Boundary
             \arrow[from=2-1,to=3-2,"\Delta_{R}"'{pos=0.375},mid vert]%
             \arrow[from=3-2,to=3-4,"\Delta_{R}\procirc\id_{R}"',mid vert]%
@@ -3704,22 +3704,22 @@ Let $A$ be a set.
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
             R
             \arrow[r,"\Delta_{R}",mid vert]
-            \arrow[rd,"\RUnitor^{\eRel(A,B),-1}_{R}"'{pos=0.55},Equals]
+            \arrow[rd,"\RUnitor^{\sfbfRel,-1}_{R}"'{pos=0.55},Equals]
             \&
             R\procirc R
             \arrow[d,"\id_{R}\procirc\epsilon_{R}",mid vert]
             \\
             \&
-            R\procirc\Delta_{A}
+            R\procirc\Delta_{X}
         \end{tikzcd}%
     \end{webcompile}%
     \endgroup
     commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the two maps $\Delta_{R}$ and $\epsilon_{R}$, which correspond respectively to the following conditions:
     \begin{enumerate}
-        \item\label{proof-of-internal-comonads-in-rel-1}For each $a,b\in A$, if $a\sim_{R}b$, then there exists some $k\in A$ such that $a\sim_{R}k$ and $k\sim_{R}b$.
-        \item\label{proof-of-internal-comonads-in-rel-2}For each $a,b\in A$, if $a\sim_{R}b$, then $a=b$.
+        \item\label{proof-of-internal-comonads-in-rel-1}For each $x,y\in X$, if $x\sim_{R}y$, then there exists some $k\in X$ such that $x\sim_{R}k$ and $k\sim_{R}y$.
+        \item\label{proof-of-internal-comonads-in-rel-2}For each $x,y\in X$, if $x\sim_{R}y$, then $x=y$.
     \end{enumerate}
-    Taking $k=b$ in the first condition above shows it to be trivially satisfied, while the second condition implies $R\subset\Delta_{A}$, i.e.\ $R$ must be a subset of $A$. Conversely, any subset $U$ of $A$ satisfies $U\subset\Delta_{A}$, defining a comonad as above.
+    The second condition implies that $R\subset\Delta_{X}$, so $R$ must be a subset of $X$. Taking $k=y$ in the first condition above then shows it to be trivially satisfied. Conversely, any subset $U$ of $X$ satisfies $U\subset\Delta_{X}$, defining a comonad as above.
 \end{Proof}
 \begin{example}{Density Comonads in $\sfbfRel$}{density-comonads-in-rel}%
     Let $f\colon A\to B$ be a function.
@@ -5609,58 +5609,68 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
     Thus $(-)^{\dagger}$ is indeed a 2-isomorphism of categories.
 \end{Proof}
 \subsection{Isomorphisms and Equivalences}\label{subsection-isomorphisms-and-equivalences-in-rel-apartness}
-Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$, and recall that $R^{\sfc}\defeq B\times A\setminus R$.
 \begin{lemma}{Conditions Involving a Relation and Its Converse \rmII}{conditions-involving-a-relation-and-its-converse-2}%
-    Let $R^{\sfc}=B\times A\setminus R$. The conditions below are row-wise equivalent:
+    The conditions below are row-wise equivalent:
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
-        \begin{tabular}{|Sc|Sc|}\\\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{backgroundColor}
-            $R^{\sfc}$ is functional                       & $R\aptcirc R^{\dagger}\subset \nabla_{B}$            \\\rowcolor{backgroundColor}
-            $R^{\sfc}$ is surjective                       & $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ \\\rowcolor{black!05!backgroundColor}
-            $R^{\sfc}$ is total                            & $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ \\\rowcolor{backgroundColor}
-            $R^{\sfc}$ is injective                        & $R^{\dagger}\aptcirc R\subset \nabla_{A}$            \\\hline
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Condition}}} & \textcolor{white}{\textbf{\textsc{Inclusion}}}       \\\hline\rowcolor{black!05!backgroundColor}
+            $R^{\sfc}$ is functional                       & $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ \\\rowcolor{backgroundColor}
+            $R^{\sfc}$ is total                            & $R\aptcirc R^{\dagger}\subset \nabla_{A}$            \\\rowcolor{black!05!backgroundColor}
+            $R^{\sfc}$ is injective                        & $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ \\\rowcolor{backgroundColor}
+            $R^{\sfc}$ is surjective                       & $R^{\dagger}\aptcirc R\subset \nabla_{B}$            \\\hline
         \end{tabular}
     \end{center}
     \endgroup
 \end{lemma}
 \begin{Proof}{Proof of \cref{conditions-involving-a-relation-and-its-converse-2}}%
-    This follows from \cref{conditions-involving-a-relation-and-its-converse-1} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}. Still, here we note what each statement unwinds to:
+    This follows from \cref{conditions-involving-a-relation-and-its-converse-1} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}. For instance:
+    \begin{itemize}
+        \item Suppose we have $R\aptcirc R^{\dagger}\subset\nabla_{B}$.
+        \item Taking complements, we obtain $\nabla^{\sfc}_{B}\subset(R\aptcirc R^{\dagger})^{\sfc}$.
+        \item Applying \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}, this becomes $\Delta_{B}\subset R^{\sfc}\procirc(R^{\dagger})^{\sfc}$.
+        \item Then, by \cref{conditions-involving-a-relation-and-its-converse-1}, this is equivalent to $R^{\sfc}$ being total.
+    \end{itemize}
+    The proof of the other equivalences is similar, and thus omitted.
+\end{Proof}
+\begin{remark}{Unwinding \cref{conditions-involving-a-relation-and-its-converse-2}}{unwinding-conditions-involving-a-relation-and-its-converse-2}%
+    The statements in \cref{conditions-involving-a-relation-and-its-converse-2} unwind to the following:
     \begingroup%
     \setlength\cellspacetoplimit{3pt}
     \setlength\cellspacebottomlimit{3pt}
     \renewcommand{\arraystretch}{1.2}
     \begin{center}
-        \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
-            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If, for each $x\in A$,\\$x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$,\\then $b_{1}\neq b_{2}$.}}  \\\rowcolor{backgroundColor}
-            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If $a_{1}\neq a_{2}$, then, for each $x\in A$, \\we have $x\sim_{R}b_{1}$ or $x\sim_{R}b_{2}$.}} \\\rowcolor{black!05!backgroundColor}
-            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If $b_{1}\neq b_{2}$, then, for each $y\in B$, \\we have $a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$.}} \\\rowcolor{backgroundColor}
-            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If, for each $y\in B$,\\$a_{1}\sim_{R}y$ or $a_{2}\sim_{R}y$,\\then $a_{1}\neq a_{2}$}} \\\hline
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}                                                                             \\\hline\rowcolor{black!05!backgroundColor}
+            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If $b_{1}\neq b_{2}$, then, for each $a\in A$, \\we have $a\sim_{R}b_{1}$ or $a\sim_{R}b_{2}$.}} \\\rowcolor{backgroundColor}
+            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & \Gape[0pt][2pt]{\makecell{If, for each $a\in A$,\\$a\sim_{R}b_{1}$ or $a\sim_{R}b_{2}$,\\then $b_{1}\neq b_{2}$.}}         \\\rowcolor{black!05!backgroundColor}
+            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If $a_{1}\neq a_{2}$, then, for each $b\in B$, \\we have $a_{1}\sim_{R}b$ or $a_{2}\sim_{R}b$.}} \\\rowcolor{backgroundColor}
+            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & \Gape[0pt][2pt]{\makecell{If, for each $b\in B$,\\$a_{1}\sim_{R}b$ or $a_{2}\sim_{R}b$,\\then $a_{1}\neq a_{2}$.}}         \\\hline
         \end{tabular}
     \end{center}
     \endgroup
     Equivalently:
-    \begingroup%
-    \setlength\cellspacetoplimit{3pt}
-    \setlength\cellspacebottomlimit{3pt}
-    \renewcommand{\arraystretch}{1.2}
-    \begin{center}
-        \begin{tabular}{|Sc|Sc|Sc|}\\\hline\rowcolor{darkRed}
-            \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{Condition}}}       \\\hline\rowcolor{backgroundColor}
-            $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $(R^{-1}(b_{1})\cup R^{-1}(b_{2})=A)\implies(b_{1}\neq b_{2})$ \\\rowcolor{backgroundColor}
-            $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $(a_{1}\neq a_{2})\implies(R(a_{1})\cup R(a_{2})=B)$           \\\rowcolor{black!05!backgroundColor}
-            $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $(b_{1}\neq b_{2})\implies(R^{-1}(b_{1})\cup R^{-1}(b_{2})=A)$ \\\rowcolor{backgroundColor}
-            $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $(R(a_{1})\cup R(a_{2})=B)\implies(a_{1}\neq a_{2})$           \\\hline
-        \end{tabular}
-    \end{center}
-    \endgroup
-    This finishes the description.
-\end{Proof}
-Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+    \begin{envfootnotesize}
+        \begingroup%
+        \setlength\cellspacetoplimit{3pt}
+        \setlength\cellspacebottomlimit{3pt}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{center}
+            \begin{tabular}{|Sc|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+                \textcolor{white}{\textbf{\textsc{Inclusion}}}       & \textcolor{white}{\textbf{\textsc{Quantifier}}}         & \textcolor{white}{\textbf{\textsc{If}}} & \textcolor{white}{\textbf{\textsc{Then}}} \\\hline\rowcolor{black!05!backgroundColor}
+                $\nabla_{B}           \subset R\aptcirc R^{\dagger}$ & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $b_{1}\neq b_{2}$                       & $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$       \\\rowcolor{backgroundColor}
+                $R\aptcirc R^{\dagger}\subset \nabla_{B}$            & \Gape[0pt][2pt]{\makecell{For each $b_{1},b_{2}\in B$}} & $R^{-1}(b_{1})\cup R^{-1}(b_{2})=A$     & $b_{1}\neq b_{2}$                         \\\rowcolor{black!05!backgroundColor}
+                $\nabla_{A}           \subset R^{\dagger}\aptcirc R$ & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $a_{1}\neq a_{2}$                       & $R(a_{1})\cup R(a_{2})=B$                 \\\rowcolor{backgroundColor}
+                $R^{\dagger}\aptcirc R\subset \nabla_{A}$            & \Gape[0pt][2pt]{\makecell{For each $a_{1},a_{2}\in A$}} & $R(a_{1})\cup R(a_{2})=B$               & $a_{1}\neq a_{2}$                         \\\hline
+            \end{tabular}
+        \end{center}
+        \endgroup
+    \end{envfootnotesize}
+\end{remark}
 \begin{proposition}{Isomorphisms and Equivalences in $\aptsfbfRel$}{isomorphisms-and-equivalences-in-rel-apartness}%
     The following conditions are equivalent:
     \begin{enumerate}
@@ -5680,30 +5690,228 @@ Let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
                         R\aptcirc R^{-1} &= \nabla_{B}.
                     \end{align*}
             \end{itemize}
-        \item\label{isomorphisms-and-equivalences-in-rel-apartness-3}There exists a bijection $f\colon A\isorightarrow B$ with $R=\Gr(f)$.
+        \item\label{isomorphisms-and-equivalences-in-rel-apartness-3}There exists a bijection $f\colon B\isorightarrow A$ with $R^{\sfc}=f^{-1}$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{isomorphisms-and-equivalences-in-rel-apartness}}%
-    We claim that \cref{isomorphisms-and-equivalences-in-rel-apartness-1,isomorphisms-and-equivalences-in-rel-apartness-2,isomorphisms-and-equivalences-in-rel-apartness-3} are indeed equivalent:
-    \begin{itemize}
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-1}$\iff$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }This follows from the fact that $\aptsfbfRel$ is locally posetal, so that natural isomorphisms and equalities of $1$-morphisms in $\sfbfRel$ coincide.
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-2}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-3}: }
-        \item\SloganFont{\cref{isomorphisms-and-equivalences-in-rel-apartness-3}$\implies$\cref{isomorphisms-and-equivalences-in-rel-apartness-2}: }
-    \end{itemize}
-    This finishes the proof.
+    This follows from \cref{isomorphisms-and-equivalences-in-rel} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}.
 \end{Proof}
 \subsection{Internal Adjunctions}\label{subsection-internal-adjunctions-in-rel-apartness}
+Let $A$ and $B$ be sets.
+\begin{proposition}{Adjunctions in $\aptsfbfRel$}{adjunctions-in-rel-apartness}%
+    We have a natural bijection
+    \[
+        \{
+            \begin{gathered}
+                \text{Adjunctions in $\aptsfbfRel$}\\
+                \text{from $A$ to $B$}
+            \end{gathered}
+        \}%
+        \cong
+        \{
+            \begin{gathered}
+                \text{Functions}\\
+                \text{from $B$ to $A$}
+            \end{gathered}
+        \},
+    \]%
+    with every adjunction in $\aptsfbfRel$ being of the form $(f^{-1})^{\sfc}\dashv\Gr(f)^{\sfc}$ for some function $f\colon B\to A$.
+\end{proposition}
+\begin{Proof}{Proof of \cref{adjunctions-in-rel-apartness}}%
+    This follows from \cref{adjunctions-in-rel} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}.
+\end{Proof}
 \subsection{Internal Monads}\label{subsection-internal-monads-in-rel-apartness}
+Let $X$ be a set.
+\begin{proposition}{Internal Monads in $\aptsfbfRel$}{internal-monads-in-rel-apartness}%
+    We have a natural identification%
+    \[
+        \{
+            \begin{gathered}
+                \text{Monads in}\\
+                \text{$\aptsfbfRel$ on $X$}
+            \end{gathered}
+        \}
+        \cong
+        \{\text{Subsets of $X$}\}.
+    \]%
+\end{proposition}
+\begin{Proof}{Proof of \cref{internal-monads-in-rel-apartness}}%
+    This follows from \cref{internal-monads-in-rel-apartness} and \cref{properties-of-apartness-composition-of-relations-relation-to-composition-with-relations} of \cref{properties-of-apartness-composition-of-relations}.
+\end{Proof}
 \subsection{Internal Comonads}\label{subsection-internal-comonads-in-rel-apartness}
-\subsection{Co/Monoids}\label{subsection-co-monoids-in-rel-apartness}
+Let $X$ be a set.
+\begin{proposition}{Internal Comonads in $\aptsfbfRel$}{internal-comonads-in-rel-apartness}%
+    We have a natural identification%
+    \[
+        \{
+            \begin{gathered}
+                \text{Comonads in}\\
+                \text{$\aptsfbfRel$ on $X$}
+            \end{gathered}
+        \}
+        \cong
+        \{\text{Strict total orders on $X$}\}.
+    \]%
+\end{proposition}
+\begin{Proof}{Proof of \cref{internal-comonads-in-rel-apartness}}%
+    A comonad in $\aptsfbfRel$ on $X$ consists of a relation $R\colon X\rightproarrow X$ together with maps
+    \begin{align*}
+        \Delta_{R}   &\colon R \subset R\aptcirc R,\\
+        \epsilon_{R} &\colon R \subset \nabla_{X}
+    \end{align*}
+    making the diagrams
+    \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
+            R
+            \arrow[r,"\Delta_{R}",mid vert]
+            \arrow[rd,"\LUnitor^{\aptsfbfRel,-1}_{R}"'{pos=0.55},Equals]
+            \&
+            R\aptcirc R
+            \arrow[d,"\epsilon_{R}\aptcirc\id_{R}",mid vert]
+            \\
+            \&
+            \nabla_{X}\aptcirc R
+        \end{tikzcd}
+        \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            \&[0.5\TwoCmPlusAQuarter]
+            R\aptcirc R
+            \&[0.5\TwoCmPlusAQuarter]
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            \\[0.58778525229\TwoCmPlusAQuarter]
+            R
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            \&[0.5\TwoCmPlusAQuarter]
+            \&[0.5\TwoCmPlusAQuarter]
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            R\aptcirc(R\aptcirc R)
+            \\[0.95105651629\TwoCmPlusAQuarter]
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            R\aptcirc R
+            \&[0.5\TwoCmPlusAQuarter]
+            \&[0.5\TwoCmPlusAQuarter]
+            (R\aptcirc R)\aptcirc R
+            \&[0.30901699437\TwoCmPlusAQuarter]
+            % 1-Arrows
+            % Left Boundary
+            \arrow[from=2-1,to=1-3,"\Delta_{R}"{pos=0.5},mid vert]%
+            \arrow[from=1-3,to=2-5,"\id_{R}\aptcirc\Delta_{R}"{pos=0.35},mid vert]%
+            \arrow[from=2-5,to=3-4,"\alpha^{\aptsfbfRel,-1}_{R,R,R}"{pos=0.35},Equals]%
+            % Right Boundary
+            \arrow[from=2-1,to=3-2,"\Delta_{R}"'{pos=0.375},mid vert]%
+            \arrow[from=3-2,to=3-4,"\Delta_{R}\aptcirc\id_{R}"',mid vert]%
+        \end{tikzcd}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,outer sep=0.2*\the\DL]
+            R
+            \arrow[r,"\Delta_{R}",mid vert]
+            \arrow[rd,"\RUnitor^{\aptsfbfRel,-1}_{R}"'{pos=0.55},Equals]
+            \&
+            R\aptcirc R
+            \arrow[d,"\id_{R}\aptcirc\epsilon_{R}",mid vert]
+            \\
+            \&
+            R\aptcirc\nabla_{X}
+        \end{tikzcd}%
+    \end{webcompile}%
+    \endgroup
+    commute. However, since all morphisms involved are inclusions, the commutativity of the above diagrams is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}), and hence all that is left is the data of the two maps $\mu_{R}$ and $\eta_{R}$, which correspond respectively to the following conditions:
+    \begin{enumerate}
+        \item\label{proof-of-internal-comonads-in-rel-apartness-1}For each $x,z\in X$, if $x\sim_{R}z$, then, for each $y\in X$, we have $x\sim_{R}y$ or $y\sim_{R}z$.
+        \item\label{proof-of-internal-comonads-in-rel-apartness-2}For each $x,y\in X$, if $x\sim_{R}y$, then $x\neq y$.
+    \end{enumerate}
+    Replacing $\sim_{R}$ with $<_{R}$ and taking the contrapositive of each condition, we obtain:
+    \begin{enumerate}
+        \item\label{proof-of-internal-comonads-in-rel-apartness-3}For each $x,z\in X$, if there exists some $y\in X$ such that $x<_{R}y$ and $y<_{R}z$, then $x<_{R}z$.
+        \item\label{proof-of-internal-comonads-in-rel-apartness-4}For each $x\in X$, we have $x\nless_{R}x$.
+    \end{enumerate}
+    These are exactly the requirements for $R$ to be a strict linear order (\cref{TODO}). Conversely, any strict linear order $<_{R}$ gives rise to a pair of maps $\Delta_{<_{R}}$ and $\epsilon_{<_{R}}$, forming a comonad on $X$.
+\end{Proof}
+\begin{example}{Density Comonads in $\sfbfRel$}{density-comonads-in-rel-apartness}%
+    Let $R\colon A\rightproarrow B$ be a relation.
+    \begin{enumerate}
+        \item\label{density-comonads-in-rel-apartness-ran}The codensity monad $\Ran_{R}(R)\colon B\rightproarrow B$ is given by
+            \begin{webcompile}
+                [\Ran_{R}(R)](b)%
+                =%
+                \bigcap_{a\in R^{-1}(b)}R(b)%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    B%
+                    \arrow[d, "\Ran_{R}(R)", densely dashed for mid vert, mid vert]%
+                    \\%
+                    A%
+                    \arrow[ru, "R",mid vert]%
+                    \arrow[r, "R"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    B%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $b\in B$. Thus, it corresponds to the preorder
+            \[
+                \mathord{\preceq_{\Ran_{R}(R)}}%
+                \colon%
+                B\times B%
+                \to%
+                \TTV%
+            \]%
+            on $B$ obtained by declaring $b\preceq_{\Ran_{R}(R)}b'$ \textiff the following equivalent conditions are satisfied:
+            \begin{enumerate}
+                \item\label{density-comonads-in-rel-apartness-1-a}For each $a\in A$, if $a\sim_{R}b$, then $a\sim_{R}b'$.
+                \item\label{density-comonads-in-rel-apartness-1-b}We have $R^{-1}(b)\subset R^{-1}(b')$.
+            \end{enumerate}
+        \item\label{density-comonads-in-rel-apartness-rift}The dual codensity monad $\Rift_{R}(R)\colon A\rightproarrow A$ is given by
+            \begin{webcompile}
+                [\Rift_{R}(R)](a)%
+                =%
+                \{a'\in A\ \middle|\ R(a')\subset R(a)\}%
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&%
+                    A%
+                    \arrow[d, "R", mid vert]%
+                    \\%
+                    A%
+                    \arrow[ru, "\Rift_{R}(R)",densely dashed for mid vert, mid vert]%
+                    \arrow[r, "R"',""'{name=R,pos=0.425},mid vert]%
+                    \&%
+                    B%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=R,shorten=0.75*\the\DL,Rightarrow,shift left=0.15*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            for each $a\in A$. Thus, it corresponds to the preorder
+            \[
+                \mathord{\preceq_{\Rift_{R}(R)}}%
+                \colon%
+                A\times A%
+                \to%
+                \TTV%
+            \]%
+            on $A$ obtained by declaring $a\preceq_{\Rift_{R}(R)}a'$ \textiff the following equivalent conditions are satisfied:
+            \begin{enumerate}
+                \item\label{density-comonads-in-rel-apartness-2-a}For each $a\in A$, if $a\sim_{R}b$, then $a'\sim_{R}b$.
+                \item\label{density-comonads-in-rel-apartness-2-b}We have $R(a')\subset R(a)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{example}
+\subsection{Modules Over Internal Monads}\label{subsection-modules-over-internal-monads-in-rel-apartness}
+\subsection{Comodules Over Internal Comonads}\label{subsection-comodules-over-internal-comonads-in-rel-apartness}
+\subsection{Eilenberg--Moore and Kleisli Objects}\label{subsection-eilenberg-moore-and-kleisli-objects-in-rel-apartness}
 \subsection{Monomorphisms}\label{subsection-monomorphisms-in-rel-apartness}
 \subsection{2-Categorical Monomorphisms}\label{subsection-2-categorical-monomorphisms-in-rel-apartness}
 \subsection{Epimorphisms}\label{subsection-epimorphisms-in-rel-apartness}
 \subsection{2-Categorical Epimorphisms}\label{subsection-2-categorical-epimorphisms-in-rel-apartness}
 \subsection{Co/Limits}\label{subsection-co-limits-in-rel-apartness}
-\subsection{Internal Kan Extensions and Lifts}\label{subsection-internal-kan-extensions-and-lifts-in-rel-apartness}
-\subsection{Closedness}\label{subsection-closedness-of-rel-apartness}
-\subsection{$\aptsfRel$ as a Category of Free Algebras}\label{subsection-rel-apartness-as-a-category-of-free-algebras}
+This will be expanded later on.
+\subsection{Internal Left Kan Extensions}\label{subsection-internal-left-kan-extensions-in-rel-apartness}
+\subsection{Internal Left Kan Lifts}\label{subsection-internal-left-kan-lifts-in-rel-apartness}
+\subsection{Internal Right Kan Extensions}\label{subsection-internal-right-kan-extensions-in-rel-apartness}
+\subsection{Internal Right Kan Lifts}\label{subsection-internal-right-kan-lifts-in-rel-apartness}
+\subsection{Coclosedness}\label{subsection-coclosedness-of-rel-apartness}
 \section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
