@@ -28,6 +28,10 @@ This chapter contains some elementary material about categories, functors, and n
     \item\label{categories-introduction-item-7}Natural transformations (\cref{section-natural-transformations}).
     \item\label{categories-introduction-item-8}The various categorical and 2-categorical structures formed by categories, functors, and natural transformations (\cref{section-categories-of-categories}).
 \end{enumerate}
+This chapter is under active revision. TODO:
+\begin{itemize}
+    \item Fix categories having an underlying set of objects by having them have an underlying setoid of objects (not necessarily by definition, as that'll likely be bothersome; at least \cref{section-the-quadruple-adjunction-with-sets} should be fixed and several remarks should be added at several points). Related: \cref{the-quadruple-adjunction-between-sets-and-cats-cannot-be-enhanced-to-a-two-categorical-adjunction}
+\end{itemize}
 
 \ChapterTableOfContents
 
@@ -850,6 +854,11 @@ Let $\CatFont{C}$ be a category.
 \begin{Proof}{Proof of \cref{the-quadruple-adjunction-between-sets-and-cats}}%
     Omitted.
 \end{Proof}
+\begin{warning}{\cref{the-quadruple-adjunction-between-sets-and-cats} Cannot Be Enhanced to a 2-Categorical Adjunction}{the-quadruple-adjunction-between-sets-and-cats-cannot-be-enhanced-to-a-two-categorical-adjunction}%
+    (This is a stub, to be revised and expanded upon later.)
+
+    The discrete category functor of \cref{the-quadruple-adjunction-between-sets-and-cats} lifts to a $2$-functor, but it fails to preserve 2-categorical colimits, and hence lacks a right 2-adjoint. For instance, the 2-pushout of $\pt\leftarrow S^{0}\to\pt$ in $\Sets_{\ldisc}$ is $\pt$, but in $\TwoCategoryOfCategories$ it is given by $\B{\Z}$.
+\end{warning}
 \subsection{Connected Components and Connected Categories}\label{subsection-connected-components-and-connected-categories}
 \subsubsection{Connected Components of Categories}\label{subsubsection-the-quadruple-adjunction-with-sets-connected-components-of-categories}
 Let $\CatFont{C}$ be a category.

@@ -3978,17 +3978,27 @@ clean:
 	rm -f tmp/cm/*; \
 	rm -f tmp/alegreya/*; \
 	rm -f tmp/alegreya-sans/*; \
-	rm -f tmp/alegreya-sans-tcb/*; \
 	rm -f tmp/crimson-pro/*; \
 	rm -f tmp/eb-garamond/*; \
 	rm -f tmp/xcharter/*; \
+	rm -f tmp/cm-tcb/*; \
+	rm -f tmp/alegreya-tcb/*; \
+	rm -f tmp/alegreya-sans-tcb/*; \
+	rm -f tmp/crimson-pro-tcb/*; \
+	rm -f tmp/eb-garamond-tcb/*; \
+	rm -f tmp/xcharter-tcb/*; \
 	rm -f tmp/tags/cm/*; \
 	rm -f tmp/tags/alegreya/*; \
 	rm -f tmp/tags/alegreya-sans/*; \
-	rm -f tmp/tags/alegreya-sans-tcb/*; \
 	rm -f tmp/tags/crimson-pro/*; \
 	rm -f tmp/tags/eb-garamond/*; \
 	rm -f tmp/tags/xcharter/*; \
+	rm -f tmp/tags/cm-tcb/*; \
+	rm -f tmp/tags/alegreya-tcb/*; \
+	rm -f tmp/tags/alegreya-sans-tcb/*; \
+	rm -f tmp/tags/crimson-pro-tcb/*; \
+	rm -f tmp/tags/eb-garamond-tcb/*; \
+	rm -f tmp/tags/xcharter-tcb/*; \
 	rm -f output/book/*; \
 	rm -f output/tags-book/*; \
 	rm -f output/chapters/cm/*; \
