@@ -4353,7 +4353,8 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel}}%
-    Firstly note that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3} are equivalent by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}. We then claim that \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2} are also equivalent:
+    \FirstProofBox{First Proof of the Equivalence of \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3}}%
+    Firstly note that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3} are equivalent by \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}. We then claim that \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2} are also equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
             \[
@@ -4426,9 +4427,11 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                 =%
                 T^{-1}(x)
             \]%
-            for each $x\in X$, implying $S=T$, and thus $R$ is an epimorphism.
+            for each $x\in X$. Thus $S=T$ and $R$ is an epimorphism.
     \end{itemize}
-    We can also prove this in a more abstract way, following \cite{MSE350788}:
+
+    \ProofBox{Second Proof of the Equivalence of \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3}}%
+    A more abstract proof can also be given, following \cite{MSE350788}:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Assume that $R$ is an epimorphism.
             \begin{itemize}
@@ -4450,13 +4453,26 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             \end{itemize}
     \end{itemize}
 
-    We also claim that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-4} are equivalent, following \cite{MO455260}:
+    \ProofBox{Proof of the Equivalence of \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-4}}%
+    We claim that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-4} are equivalent, following \cite{MO455260}:
     \begin{itemize}
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-4}: }Since $B\setminus\{b\}\subset B$ and $R^{-1}$ is injective, we have $R^{-1}(B\setminus\{b\})\subsetneq R^{-1}(B)$. So taking some $a\in R^{-1}(B)\setminus R^{-1}(B\setminus\{b\})$ we get an element of $A$ such that $R(a)=\{b\}$.
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-4}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Let $U,V\subset B$ with $U\neq V$. Without loss of generality, we can assume $U\setminus V\neq\emptyset$; otherwise just swap $U$ and $V$. Let then $b\in U\setminus V$. By assumption, there exists an $a\in A$ with $R(a)=\{b\}$. Then $a\in R^{-1}(U)$ but $a\nin R^{-1}(V)$, and thus $R^{-1}(U)\neq R^{-1}(V)$, showing $R^{-1}$ to be injective.
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-4}: }We proceed in two steps.
+            \begin{itemize}
+                \item Since $B\setminus\{b\}\subset B$ and $R^{-1}$ is injective, we have $R^{-1}(B\setminus\{b\})\subsetneq R^{-1}(B)$.
+                \item Taking some $a\in R^{-1}(B)\setminus R^{-1}(B\setminus\{b\})$, we obtain an element of $A$ such that $R(a)=\{b\}$.
+            \end{itemize}
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-4}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }We proceed in a few steps.
+            \begin{itemize}
+                \item Let $U,V\subset B$ with $U\neq V$.
+                \item Without loss of generality, we can assume $U\setminus V\neq\emptyset$; otherwise just swap $U$ and $V$.
+                \item Let then $b\in U\setminus V$.
+                \item By assumption, there exists an $a\in A$ with $R(a)=\{b\}$.
+                \item Then $a\in R^{-1}(U)$ but $a\nin R^{-1}(V)$, so $R^{-1}(U)\neq R^{-1}(V)$, showing $R^{-1}$ to be injective.
+            \end{itemize}
     \end{itemize}
 
-    Finally, we prove the second part of the statement. So assume $R$ is a total epimorphism in $\sfRel$ and consider the diagram
+    \ProofBox{Proof of the Second Half of \cref{characterisations-of-epimorphisms-in-rel}}%
+    Finally, we prove the second part of the statement. Assume $R$ is a total epimorphism in $\sfRel$ and consider the diagram
     \[
         \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             A
@@ -4478,7 +4494,14 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
             1 &\text{otherwise}
         \end{cases}
     \]%
-    for each $b\in B$. Since $R$ is total, we have $a\sim_{S\procirc R}0$ and $a\sim_{T\procirc R}0$ for all $a\in A$, and no element of $A$ is related to $1$ by $S\procirc R$ or $T\procirc R$. Thus $S\procirc R=T\procirc R$, and since $R$ is an epimorphism, we have $S=T$. But by the definition of $T$, this implies $\Im(R)=B$.
+    for each $b\in B$.
+    \begin{itemize}
+        \item Since $R$ is total, we have $a\sim_{S\procirc R}0$ and $a\sim_{T\procirc R}0$ for all $a\in A$, and no element of $A$ is related to $1$ by $S\procirc R$ or $T\procirc R$.
+        \item Thus $S\procirc R=T\procirc R$.
+        \item Since $R$ is an epimorphism, we have $S=T$.
+        \item But by the definition of $T$, this implies $\Im(R)=B$.
+    \end{itemize}
+    This finishes the proof.
 \end{Proof}
 \subsection{2-Categorical Epimorphisms}\label{subsection-2-categorical-epimorphisms-in-rel}
 In this section we characterise (for now, some of) the 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-epimorphisms-in-bicategories}}{\cref{section-epimorphisms-in-bicategories}}.
