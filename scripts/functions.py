@@ -256,7 +256,10 @@ list_of_labeled_envs = [ \
         'warning']
 
 # Standard labels
-list_of_standard_labels = list_of_labeled_envs.append(['item', 'section', 'subsection', 'subsubsection'])
+list_of_standard_labels = list_of_labeled_envs.append('item')
+list_of_standard_labels = list_of_labeled_envs.append('section')
+list_of_standard_labels = list_of_labeled_envs.append('subsection')
+list_of_standard_labels = list_of_labeled_envs.append('subsubsection')
 
 def list_of_labeled_envs_function():
     return list_of_labeled_envs
