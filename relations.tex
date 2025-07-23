@@ -4205,7 +4205,12 @@ Let $X$ be a set.
         \item\label{characterisations-of-monomorphisms-in-rel-2-1}The relation $R$ is a monomorphism in $\sfRel$.
         \item\label{characterisations-of-monomorphisms-in-rel-2-2}For each $a\in A$ and each $U\in\mathcal{P}(A)$, if $R(a)\subset R(U)$, then $a\in U$.
         \item\label{characterisations-of-monomorphisms-in-rel-2-3}For each $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$.
-        \item\label{characterisations-of-monomorphisms-in-rel-2-4}There exists an injective function $f\colon A\hookrightarrow B$ satisfying the following conditions:
+        \item\label{characterisations-of-monomorphisms-in-rel-2-4}There exists an injective function $f\colon A\hookrightarrow B$ satisfying the following conditions:%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Here we are assuming the axiom of choice.
+            }%
+            %---  End Footnote  ---%
             \begin{enumerate}
                 \item\label{characterisations-of-monomorphisms-in-rel-2-4-a}We have $\Gr(f)\subset R$.%
                     %--- Begin Footnote ---%
@@ -4252,7 +4257,7 @@ Let $X$ be a set.
                 \end{tikzcd}
             \end{webcompile}
     \end{enumerate}
-    If $R$ is a monomorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
+    Moreover, if $R$ is a monomorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
     \begin{itemize}
         \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$.
     \end{itemize}
@@ -4263,7 +4268,8 @@ Let $X$ be a set.
         \item Step 1: \cref{characterisations-of-monomorphisms-in-rel-2-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-2}.
         \item Step 2: \cref{characterisations-of-monomorphisms-in-rel-2-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-3}.
         \item Step 3: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-1}.
-        \item Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-4}.
+        \item Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-4}.
+        \item Step 5: \cref{characterisations-of-monomorphisms-in-rel-2-2}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-5}.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-monomorphisms-in-rel-2-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-2}}%
@@ -4306,7 +4312,26 @@ Let $X$ be a set.
         \item Therefore $u\in V$, showing that $U\subset V$.
     \end{itemize}
 
-    \ProofBox{Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-5}}%
+    \ProofBox{Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-4}}%
+    We claim that \cref{characterisations-of-monomorphisms-in-rel-2-3} and \cref{characterisations-of-monomorphisms-in-rel-2-4} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-4}: }By assumption, given $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$. Invoking the axiom of choice, we may pick one such $b$ for each $a\in A$, giving us our desired function $f\colon A\to B$. All the requirements listed in \cref{characterisations-of-monomorphisms-in-rel-2-4} then follow by construction.
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2-4}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-3}: }Given $a\in A$, we may pick $b=f(a)$, in which case $R^{-1}(f(a))$ will be equal to $\{a\}$ by assumption.
+    \end{itemize}
+
+    \ProofBox{Step 5: \cref{characterisations-of-monomorphisms-in-rel-2-2}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-5}}%
+    We have
+    \begin{align*}
+        [R_{-1}\circ R_{!}](U) &\defeq R_{-1}(R_{!}(U))\\
+                               &\defeq \{a\in A\ \middle|\ R(a)\subset R(U)\}%
+    \end{align*}
+    for each $a\in A$. As a result, the condition $R_{-1}\circ R_{!}=\id_{\mathcal{P}(A)}$ becomes
+    \[
+        \{a\in A\ \middle|\ R(a)\subset R(U)\}%
+        =%
+        U,%
+    \]%
+    which holds precisely when \cref{characterisations-of-monomorphisms-in-rel-2-2} does.
 
     \ProofBox{Proof of the Second Half of \cref{characterisations-of-monomorphisms-in-rel-2}}%
     We claim that $R$ being a monomorphism implies condition ($\star$), and the converse holds if $R$ is total:
@@ -4331,7 +4356,7 @@ Let $X$ be a set.
                 \item Thus $R\procirc[a]=R\procirc[a']$.
                 \item Since $R$ is a monomorphism, we have $[a]=[a']$, so $a=a'$.
             \end{itemize}
-        \item\SloganFont{If $R$ Is Total and ($\Star$) Holds, Then $R$ Is a Monomorphism: }Consider the diagram
+        \item\SloganFont{If $R$ Is Total and ($\star$) Holds, Then $R$ Is a Monomorphism: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     X
@@ -4352,7 +4377,7 @@ Let $X$ be a set.
                 \item However, since $a\sim_{R}b$ and $a'\sim_{R}b$, we must have $a=a'$.
                 \item Thus $x\sim_{T}a$ as well.
                 \item A similar argument shows that if $x\sim_{T}a$, then $x\sim_{S}a$.
-                \item Thus $S=T$ and it follows that $R$ is a monomorphism.
+                \item Thus $S=T$, showing $R$ to be a monomorphism.
             \end{itemize}
     \end{itemize}
     This finishes the proof.
