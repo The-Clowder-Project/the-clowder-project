@@ -244,6 +244,7 @@ list_of_labeled_envs = [ \
         'definition', \
         'equation', \
         'example', \
+        'explanation', \
         'gap', \
         'lemma', \
         'motivation', \
