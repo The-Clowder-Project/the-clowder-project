@@ -3987,7 +3987,42 @@ Let $X$ be a set.
             \begin{itemize}
                 \itemstar If $R\procirc S\subset R\procirc T$, then $S\subset T$.
             \end{itemize}
-        \item\label{characterisations-of-monomorphisms-in-rel-1-7}We have
+        \item\label{characterisations-of-monomorphisms-in-rel-1-7}There exists an injective function $f\colon A\hookrightarrow B$ satisfying the following conditions:%
+            %--- Begin Footnote ---%
+            \footnote{%
+                We are assuming the axiom of choice for this item (\cref{characterisations-of-monomorphisms-in-rel-1-7}).
+            }%
+            %---  End Footnote  ---%
+            \begin{enumerate}
+                \item\label{characterisations-of-monomorphisms-in-rel-1-7-a}We have $\Gr(f)\subset R$.%
+                    %--- Begin Footnote ---%
+                    \footnote{%
+                        In other words, for each $a\in A$, we have $f(a)\in R(a)$.
+                    }%
+                    %---  End Footnote  ---%
+                \item\label{characterisations-of-monomorphisms-in-rel-1-7-b}The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,"f"]
+                            \arrow[rd,"\chi_{A}"',hook]
+                            \&
+                            \mathcal{P}(B)
+                            \arrow[d,"R^{-1}"]
+                            \\
+                            \&
+                            \mathcal{P}(A)%
+                        \end{tikzcd}
+                    \]%
+                    commutes.%
+                    %--- Begin Footnote ---%
+                    \footnote{%
+                        In other words, for each $a\in A$, we have $R^{-1}(f(a))=\{a\}$.%
+                        \par\vspace*{\TCBBoxCorrection}
+                    }%
+                    %---  End Footnote  ---%
+            \end{enumerate}
+        \item\label{characterisations-of-monomorphisms-in-rel-1-8}We have
             \begin{webcompile}
                 R_{-1}\circ R_{!}%
                 =%
@@ -4015,6 +4050,7 @@ Let $X$ be a set.
         \item Step 3: \cref{characterisations-of-monomorphisms-in-rel-1-2}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-4}.
         \item Step 4: \cref{characterisations-of-monomorphisms-in-rel-1-4}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-6}.
         \item Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-7}.
+        \item Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-monomorphisms-in-rel-1-2}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-3} and \cref{characterisations-of-monomorphisms-in-rel-1-3}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-5}}%
@@ -4218,10 +4254,19 @@ Let $X$ be a set.
     \end{itemize}
     This finishes the proof.
 
-    \ProofBox{Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-7}}%
-    We will use the next proposition, \cref{characterisations-of-monomorphisms-in-rel-2}, which shows that \cref{characterisations-of-monomorphisms-in-rel-2-2} there is equivalent to \cref{characterisations-of-monomorphisms-in-rel-1-7} here. The proof of \cref{characterisations-of-monomorphisms-in-rel-2} will therefore make no reference to \cref{characterisations-of-monomorphisms-in-rel-1-7} of this proposition to avoid circular reasoning.
+    \ProofBox{Warning For Steps 5 and 6}%
+    Originally, Steps 5 and 6 of this proof appeared at the end of the proof of the next proposition (\cref{characterisations-of-monomorphisms-in-rel-2}). We will use it for steps 5 and 6, but do note that the proof of the next proposition does not make reference to \cref{characterisations-of-monomorphisms-in-rel-1-7,characterisations-of-monomorphisms-in-rel-1-8} of this proposition, avoiding circular reasoning. If you're checking this proof, please skip the next two steps, read the proof of \cref{characterisations-of-monomorphisms-in-rel-2}, and only then come back to this point.
 
-    \indent Indeed, we have
+    \ProofBox{Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-7}}%
+    We claim that \cref{characterisations-of-monomorphisms-in-rel-2-3} of \cref{characterisations-of-monomorphisms-in-rel-2} is equivalent to \cref{characterisations-of-monomorphisms-in-rel-1-7} of this proposition:
+    \begin{itemize}
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2-3} of \cref{characterisations-of-monomorphisms-in-rel-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-7}: }By assumption, given $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$. Invoking the axiom of choice, we may pick one such $b$ for each $a\in A$, giving us our desired function $f\colon A\to B$. All the requirements listed in \cref{characterisations-of-monomorphisms-in-rel-1-7} then follow by construction.
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1-7}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-3} of \cref{characterisations-of-monomorphisms-in-rel-2}: }Given $a\in A$, we may pick $b=f(a)$, in which case $R^{-1}(f(a))$ will be equal to $\{a\}$ by assumption.
+    \end{itemize}
+    By \cref{characterisations-of-monomorphisms-in-rel-2}, \cref{characterisations-of-monomorphisms-in-rel-2-3} of \cref{characterisations-of-monomorphisms-in-rel-2} is equivalent to \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2}. Since \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2} is the exactly same condition as \cref{characterisations-of-monomorphisms-in-rel-1-1} of this proposition, the result follows.
+
+    \ProofBox{Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}}%
+    Indeed, we have
     \begin{align*}
         [R_{-1}\circ R_{!}](U) &\defeq R_{-1}(R_{!}(U))\\
                                &\defeq \{a\in A\ \middle|\ R(a)\subset R(U)\}%
@@ -4232,7 +4277,7 @@ Let $X$ be a set.
         =%
         U,%
     \]%
-    which holds precisely when \cref{characterisations-of-monomorphisms-in-rel-2-2} of \cref{characterisations-of-monomorphisms-in-rel-2} does. By \cref{characterisations-of-monomorphisms-in-rel-2}, that in turn holds precisely if \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2} holds, which is the exact same condition as \cref{characterisations-of-monomorphisms-in-rel-1-1} of this proposition.
+    which holds precisely when \cref{characterisations-of-monomorphisms-in-rel-2-2} of \cref{characterisations-of-monomorphisms-in-rel-2} does. By \cref{characterisations-of-monomorphisms-in-rel-2}, that in turn holds precisely if \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2} holds. Since \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2} is the exactly same condition as \cref{characterisations-of-monomorphisms-in-rel-1-1} of this proposition, the result follows.
 \end{Proof}
 \begin{proposition}{Characterisations of Monomorphisms in $\sfRel$ \rmII}{characterisations-of-monomorphisms-in-rel-2}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:%
@@ -4240,39 +4285,6 @@ Let $X$ be a set.
         \item\label{characterisations-of-monomorphisms-in-rel-2-1}The relation $R$ is a monomorphism in $\sfRel$.
         \item\label{characterisations-of-monomorphisms-in-rel-2-2}For each $a\in A$ and each $U\in\mathcal{P}(A)$, if $R(a)\subset R(U)$, then $a\in U$.
         \item\label{characterisations-of-monomorphisms-in-rel-2-3}For each $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$.
-        \item\label{characterisations-of-monomorphisms-in-rel-2-4}There exists an injective function $f\colon A\hookrightarrow B$ satisfying the following conditions:%
-            %--- Begin Footnote ---%
-            \footnote{%
-                We are assuming the axiom of choice for \cref{characterisations-of-monomorphisms-in-rel-2-4}.
-            }%
-            %---  End Footnote  ---%
-            \begin{enumerate}
-                \item\label{characterisations-of-monomorphisms-in-rel-2-4-a}We have $\Gr(f)\subset R$.%
-                    %--- Begin Footnote ---%
-                    \footnote{%
-                        In other words, for each $a\in A$, we have $f(a)\in R(a)$.
-                        \par\vspace*{\TCBBoxCorrection}
-                    }%
-                    %---  End Footnote  ---%
-                \item\label{characterisations-of-monomorphisms-in-rel-2-4-b}For each $a\in A$, we have
-                    \begin{webcompile}
-                        R^{-1}(f(a))%
-                        =%
-                        \{a\},%
-                        \quad%
-                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                            A
-                            \arrow[r,"f"]
-                            \arrow[rd,"\chi_{A}"',hook]
-                            \&
-                            \mathcal{P}(B)
-                            \arrow[d,"R^{-1}"]
-                            \\
-                            \&
-                            \mathcal{P}(A)\mrp{.}%
-                        \end{tikzcd}
-                    \end{webcompile}
-            \end{enumerate}
     \end{enumerate}
     Moreover, if $R$ is a monomorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
     \begin{itemize}
@@ -4285,7 +4297,7 @@ Let $X$ be a set.
         \item Step 1: \cref{characterisations-of-monomorphisms-in-rel-2-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-2}.
         \item Step 2: \cref{characterisations-of-monomorphisms-in-rel-2-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-3}.
         \item Step 3: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-1}.
-        \item Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-4}.
+        \item Step 4: The second half of the statement of this proposition.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-monomorphisms-in-rel-2-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-2}}%
@@ -4318,7 +4330,7 @@ Let $X$ be a set.
     \ProofBox{Step 3: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-1}}%
     We proceed in a few steps:
     \begin{itemize}
-        \item By \cref{characterisations-of-monomorphisms-in-rel-1}, to show \cref{characterisations-of-monomorphisms-in-rel-2-1} it suffices to show that, for each $U,V\in\mathcal{P}(A)$, if $R(U)\subset R(V)$, then $U\subset V$.
+        \item By the equivalence between \cref{characterisations-of-monomorphisms-in-rel-1-1,characterisations-of-monomorphisms-in-rel-1-4} of \cref{characterisations-of-monomorphisms-in-rel-1}, to show that $R$ is a monomorphism it suffices to prove that, for each $U,V\in\mathcal{P}(A)$, if $R(U)\subset R(V)$, then $U\subset V$.
         \item So let $u\in U$ and assume $R(U)\subset R(V)$.
         \item By assumption, there exists some $b\in B$ with $R^{-1}(b)=\{u\}$.
         \item In particular, $b\in R(U)$.
@@ -4326,13 +4338,6 @@ Let $X$ be a set.
         \item Thus, there exists some $v\in V$ with $b\in R(v)$.
         \item However, $R^{-1}(b)=\{u\}$, so we must in fact have $v=u$.
         \item Therefore $u\in V$, showing that $U\subset V$.
-    \end{itemize}
-
-    \ProofBox{Step 4: \cref{characterisations-of-monomorphisms-in-rel-2-3}$\iff$\cref{characterisations-of-monomorphisms-in-rel-2-4}}%
-    We claim that \cref{characterisations-of-monomorphisms-in-rel-2-3} and \cref{characterisations-of-monomorphisms-in-rel-2-4} are equivalent:
-    \begin{itemize}
-        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-4}: }By assumption, given $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$. Invoking the axiom of choice, we may pick one such $b$ for each $a\in A$, giving us our desired function $f\colon A\to B$. All the requirements listed in \cref{characterisations-of-monomorphisms-in-rel-2-4} then follow by construction.
-        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-2-4}$\implies$\cref{characterisations-of-monomorphisms-in-rel-2-3}: }Given $a\in A$, we may pick $b=f(a)$, in which case $R^{-1}(f(a))$ will be equal to $\{a\}$ by assumption.
     \end{itemize}
 
     \ProofBox{Proof of the Second Half of \cref{characterisations-of-monomorphisms-in-rel-2}}%
