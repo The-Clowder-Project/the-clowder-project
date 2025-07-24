@@ -655,7 +655,7 @@
 00LA,relations:internal-comonads-in-rel
 00LB,relations:subsection-co-monoids-in-rel
 00LC,relations:co-monoids-in-rel
-00LD,relations:subsection-monomorphisms-in-rel
+00LD,relations:subsection-monomorphisms-and-2-categorical-monomorphisms
 00LE,relations:characterisations-of-monomorphisms-in-rel
 00LF,relations:characterisations-of-monomorphisms-in-rel-1
 00LG,relations:characterisations-of-monomorphisms-in-rel-2
@@ -671,7 +671,7 @@
 00LS,relations:2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-5
 00LT,relations:2-categorical-monomorphisms-in-rel-representably-full-morphisms-in-rel-6
 00LU,relations:2-categorical-monomorphisms-in-rel-representably-fully-faithful-morphisms-in-rel
-00LV,relations:better-characterisations-of-representably-full-morphisms-in-rel
+00LV,notes:better-characterisations-of-representably-full-morphisms-in-rel
 00LW,relations:subsection-epimorphisms-in-rel
 00LX,relations:characterisations-of-epimorphisms-in-rel
 00LY,relations:characterisations-of-epimorphisms-in-rel-1
