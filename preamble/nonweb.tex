@@ -148,12 +148,6 @@
 \newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
 \newcommand{\less}{<}
 \newcommand{\greater}{>}
-\begingroup
-\catcode`(\active \xdef({\left\string(}  % ( is defined as \left(
-\catcode`)\active \xdef){\right\string)} % ) is defined as \right)
-\catcode`[\active \xdef[{\left\string[}  % [ is defined as \left[
-\catcode`]\active \xdef]{\right\string]} % ] is defined as \right]
-\endgroup
 \let\leftllbracket\relax
 \let\rightrrbracket\relax
 \newcommand{\leftllbracket}{\llbracket}
@@ -178,3 +172,12 @@
 \let\oldthesection\thesection
 \renewcommand{\thesection}{\oldthesection}
 \newcommand{\pastingdiagramequality}{\quad\scalebox{2.5}{$=$}\quad}
+%
+\begingroup
+\catcode`(\active\xdef({\left\string(}
+\catcode`)\active \xdef){\right\string)}
+\catcode`[\active \xdef[{\left\string[}
+\catcode`]\active \xdef]{\right\string]}
+\endgroup
+\mathcode`(="8000\mathcode`)="8000
+\mathcode`[="8000\mathcode`]="8000

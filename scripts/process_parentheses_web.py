@@ -162,9 +162,9 @@ def main(input_file):
         regexed.append(list(segment))
     for segment in regexed:
         if segment[1] == True:
-            segment[0] = regex_parentheses(segment[0])
-            segment[0] = regex_square_brackets(segment[0])
-            segment[0] = regex_exceptions(segment[0])
+            #segment[0] = regex_parentheses(segment[0])
+            #segment[0] = regex_square_brackets(segment[0])
+            #segment[0] = regex_exceptions(segment[0])
             segment[0] = regex_curly_braces(segment[0])
     # Step 5: Put things together again
     content = preamble

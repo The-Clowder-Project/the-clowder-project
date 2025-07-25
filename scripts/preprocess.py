@@ -108,17 +108,20 @@ def remove_index(line):
     return remove_index_with_parser(line)
 
 def leftright_square_brackets_and_curly_braces(line):
+    # Curly braces
     line = re.sub('(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\right)(?!right)}', '\\\\right\\}', line)
     line = re.sub('(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)\\\\(?!\\\\left)(?!left){', '\\\\left\\{', line)
-    # for square brackets
+    # Angular brackets
+    line = re.sub('\\\\langle', '\\\\left\\\\langle', line)
+    line = re.sub('\\\\rangle', '\\\\right\\\\rangle', line)
+    # Square brackets
     #line = re.sub(r'(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!\\right)(?!right)(?<![~[0-9][0-9]])\]', r'\\right\]', line)
     #line = re.sub(r'(?<![Gape|pt|cm|cite.*?])(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!\\left)(?!left)\[', r'\\left\[', line)
     #line = re.sub(r'(?<!right)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!right)(?<!")(?<!cramped)\]', r'\\right\]', line)
     #line = re.sub(r'(?<!left)(?<!big)(?<!bigg)(?<!Big)(?<!Bigg)(?!left)(?<!arrow)(?<!tikzcd})\[', r'\\left\[', line)
+    # old
     #line = re.sub('[?<!right][?<!big][?<!bigg][?<!Big][?<!Bigg]\\\\[?!\\\\right][?!right]}', '\\\\right\\\}', line)
     #line = re.sub('[?<!left][?<!big][?<!bigg][?<!Big][?<!Bigg]\\\\[?!\\\\left][?!left]{', '\\\\left\\\{', line)
-    line = re.sub('\\\\langle', '\\\\left\\\\langle', line)
-    line = re.sub('\\\\rangle', '\\\\right\\\\rangle', line)
     return line
 
 def expand_adjunctions(line):

@@ -491,10 +491,10 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
             \arrow[d,mapsto]
             \&
             \\
-            [\SheafFont{F}(h)](\phi)
+            {[\SheafFont{F}(h)](\phi)}
             \arrow[r,mapsto]
             \&
-            [\SheafFont{F}(f)]([\SheafFont{F}(h)](\phi))
+            {[\SheafFont{F}(f)]([\SheafFont{F}(h)](\phi))}
         \end{tikzcd}
         \quad
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -505,7 +505,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
             \arrow[d,mapsto]
             \\
             \&
-            [\SheafFont{F}(h\circ f)(\phi)]\mrp{,}
+            {[\SheafFont{F}(h\circ f)(\phi)]\mrp{,}}
         \end{tikzcd}
     \end{webcompile}
     where we have
@@ -649,7 +649,7 @@ Let $\SheafFont{F}\colon\smash{\CatFont{C}^{\op}}\to\Sets$ be a presheaf on $\Ca
             \phi
             \arrow[r,mapsto]
             \&
-            [\SheafFont{F}(f)](\phi)
+            {[\SheafFont{F}(f)](\phi)}
             \arrow[d,mapsto]
             \\
             \&
@@ -1640,7 +1640,7 @@ Let $\CatFont{C}$ be a category, let $\CatFont{D}$ be a category with coproducts
             \[
                 \BifunctorialityPeriod{\SheafFont{F}\odot_{\CatFont{C}}-}{-\odot_{\CatFont{C}}G}{-_{1}\odot_{\CatFont{C}}-_{2}}{\PSh(\CatFont{C})}{\Fun(\CatFont{C},\CatFont{D})}{\PSh(\CatFont{C})\times\Fun(\CatFont{C},\CatFont{D})}{\CatFont{D}}%
             \]%
-        \item\label{properties-of-tensors-of-presheaves-with-functors-}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
+        \item\label{properties-of-tensors-of-presheaves-with-functors-interaction-with-corepresentable-copresheaves}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
             \[
                 h_{X}\odot_{\CatFont{C}}G%
                 \cong
@@ -1708,7 +1708,7 @@ Let $\CatFont{C}$ be a category, let $\CatFont{D}$ be a category with coproducts
             \[
                 \BifunctorialityPeriod{F\odot_{\CatFont{C}}-}{-\odot_{\CatFont{C}}\SheafFont{G}}{-_{1}\odot_{\CatFont{C}}-_{2}}{\CoPSh(\CatFont{C})}{\Fun(\CatFont{C}^{\op},\CatFont{D})}{\Fun(\CatFont{C}^{\op},\CatFont{D})\times\CoPSh(\CatFont{C})}{\CatFont{D}}%
             \]%
-        \item\label{properties-of-tensors-of-copresheaves-with-functors-}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
+        \item\label{properties-of-tensors-of-copresheaves-with-functors-interaction-with-corepresentable-copresheaves}\SloganFont{Interaction With Corepresentable Copresheaves. }We have an isomorphism
             \[
                 h^{X}\odot_{\CatFont{C}}G%
                 \cong
