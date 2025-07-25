@@ -3930,6 +3930,63 @@ Let $X$ be a set.
             }%
             %---  End Footnote  ---%
     \end{itemize}
+    Essentially, a monomorphism $R\colon A\rightproarrow B$ in $\sfRel$ will look like this:
+    \begin{webcompile}
+        \mkern25mu
+        \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,%
+                execute at end picture={%
+                    % A
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=3:34:{1.5*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=40.5:43.5:{1.5*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=59:318:{1.5*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=327:357:{1.5*\the\DL} and {5.0*\the\DL}];
+                    % B
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:161:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=165:178:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=182:200:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=204:225:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=232:360:{2.0*\the\DL} and {8.0*\the\DL}];
+                    % (3)
+                    \node at (\tikzcdmatrixname-1-2.east) {$\mkern75mu\scriptstyle(3)$};%
+                }%
+            ]%
+            \&
+            \bullet
+            \\
+            \&
+            \bullet
+            \\
+            \bullet
+            \&
+            \bullet
+            \\
+            \bullet
+            \&
+            \bullet
+            \\
+            \bullet
+            \&
+            \bullet
+            \\[0.25*\the\DL]
+            A%
+            \&
+            B%
+            % 1-Arrows
+            \arrow[from=3-1,to=3-2,mapsto]%
+            \arrow[from=4-1,to=4-2,mapsto]%
+            \arrow[from=5-1,to=5-2,mapsto,"(1)"'sloped]%
+            %
+            \arrow[from=3-1,to=2-2,start anchor={[xshift=-0.05*\the\DL,yshift=0.5*\the\DL]},mapsto,"(2)"sloped]%
+            %
+            \arrow[from=6-1,to=6-2,"R"']%
+        \end{tikzcd}
+    \end{webcompile}
+    That is:
+    \begin{enumerate}
+        \item\label{explanation-for-result-on-monomorphisms-in-rel-1}$R$ should contain an injection $f\colon A\hookrightarrow B$ embedding a copy of $A$ into $B$.
+        \item\label{explanation-for-result-on-monomorphisms-in-rel-2}$R$ can be non-functional, mapping elements of $A$ into multiple elements of $B$ (but not to more than one in $\Im(f)$).
+        \item\label{explanation-for-result-on-monomorphisms-in-rel-3}$R$ doesn't need to be surjective, so $B$ can have elements that aren't in the image of $R$.
+    \end{enumerate}
 \end{explanation}
 \begin{proposition}{Characterisations of Monomorphisms in $\sfRel$ \rmI}{characterisations-of-monomorphisms-in-rel-1}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:%

@@ -4115,7 +4115,6 @@ tikzcd:
 	else \
 		python$(PYTHON_VERSION) ./scripts/make_book.py tikzcd > $(WEBDIR)/tikz.tex; \
 		cd $(WEBDIR); \
-		python$(PYTHON_VERSION) ../scripts/process_parentheses.py tikz.tex; \
 		python$(PYTHON_VERSION) ../scripts/process_separation.py tikz.tex; \
 		mv book.tex book.tex.bak; \
 		mv tikz.tex book.tex; \
@@ -4212,7 +4211,6 @@ web-and-serve:
 		printf "$(GREEN)Compiling and processing .TeX book...$(NC)\n"; \
 		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
-		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
 		cp book.tex tmp/; \
 		tex_end=$$(date +%s.%2N); \
 		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
@@ -4326,7 +4324,6 @@ web-and-serve-on-ipv6:
 		printf "$(GREEN)Compiling and processing .TeX book...$(NC)\n"; \
 		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
-		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
 		cp book.tex tmp/; \
 		tex_end=$$(date +%s.%2N); \
 		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
@@ -4438,7 +4435,6 @@ web-and-record:
 		printf "$(GREEN)Compiling and processing .TeX book...$(NC)\n"; \
 		tex_start=$$(date +%s.%2N); \
 		python$(PYTHON_VERSION) scripts/make_book.py web > book.tex \
-		python$(PYTHON_VERSION) scripts/process_parentheses.py book.tex; \
 		cp book.tex tmp/; \
 		tex_end=$$(date +%s.%2N); \
 		tex_duration=$$(echo "$$tex_end - $$tex_start" | bc); \
