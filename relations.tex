@@ -50,7 +50,7 @@ This chapter contains some material about relations. Notably, we discuss and exp
         Of particular note are the following points:
         \begin{enumerate}
             \item\label{relations-introduction-item-5a}These two pairs of adjoint functors are the counterpart for relations of the adjoint triple $f_{!}\dashv f^{-1}\dashv f_{*}$ induced by a function $f\colon A\to B$ studied in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}{\cref{section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}.
-            \item\label{relations-introduction-item-5b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}).
+            \item\label{relations-introduction-item-5b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations}).
             \item\label{relations-introduction-item-5c}As a consequence of the previous item, when $R$ comes from a function $f$, the pair of adjunctions
                 \[
                     R_{!}\dashv R_{-1}=R^{-1}\dashv R_{*}%
@@ -1631,7 +1631,7 @@ Let $f\colon A\to B$ be a function.
             \begin{enumerate}
                 \item\label{properties-of-graphs-of-functions-characterisations-1}There exists a function $f\colon A\to B$ such that $R=\Gr(f)$.
                 \item\label{properties-of-graphs-of-functions-characterisations-2}The relation $R$ is total and functional.
-                \item\label{properties-of-graphs-of-functions-characterisations-3}The weak and strong inverse images of $R$ agree, i.e.\ we have $R^{-1}=R_{-1}$.
+                \item\label{properties-of-graphs-of-functions-characterisations-3}The inverse and coinverse images of $R$ agree, i.e.\ we have $R^{-1}=R_{-1}$.
                 \item\label{properties-of-graphs-of-functions-characterisations-4}The relation $R$ has a right adjoint $R^{\dagger}$ in $\Rel$.
             \end{enumerate}
         %\item\label{properties-of-graphs-of-functions-}\SloganFont{. }
@@ -3936,16 +3936,16 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,%
                 execute at end picture={%
                     % A
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=3:34:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=40.5:43.5:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=59:318:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=327:357:{1.5*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=3:34:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=40.5:43.5:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=59:318:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=327:357:{2.0*\the\DL} and {5.0*\the\DL}];
                     % B
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:161:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=165:178:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=182:200:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=204:225:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=232:360:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:161:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=165:178:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=182:200:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=204:225:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=232:360:{2.5*\the\DL} and {8.0*\the\DL}];
                     % (3)
                     \node at (\tikzcdmatrixname-1-2.east) {$\mkern75mu\scriptstyle(3)$};%
                 }%
@@ -4433,12 +4433,12 @@ Let $X$ be a set.
                     B\mrp{,}
                 \end{tikzcd}
             \]%
-            and let $x\in X$ and $a\in A$ such that $x\sim_{S}a$.
+            $R\procirc S=R\procirc T$, and let $x\in X$ and $a\in A$ such that $x\sim_{S}a$.
             \begin{itemize}
                 \item Since $R$ is total and $a\in A$, there exists some $b\in B$ such that $a\sim_{R}b$.
                 \item In this case, we have $x\sim_{R\procirc S}b$, and since $R\procirc S=R\procirc T$, we have also $x\sim_{R\procirc T}b$.
                 \item Thus there must exist some $a'\in A$ such that $x\sim_{T}a'$ and $a'\sim_{R}b$.
-                \item However, since $a\sim_{R}b$ and $a'\sim_{R}b$, we must have $a=a'$.
+                \item However, since $a\sim_{R}b$ and $a'\sim_{R}b$, we must have $a=a'$ by condition ($\star$).
                 \item Thus $x\sim_{T}a$ as well.
                 \item A similar argument shows that if $x\sim_{T}a$, then $x\sim_{S}a$.
                 \item Thus $S=T$, showing $R$ to be a monomorphism.
@@ -4511,6 +4511,7 @@ Let $X$ be a set.
 \end{Proof}
 \subsection{Epimorphisms and 2-Categorical Epimorphisms}\label{subsection-epimorphisms-and-2-categorical-epimorphisms-in-rel}
 \begin{explanation}{Epimorphisms in $\sfRel$}{explanation-epimorphisms-in-rel}%
+    In this section, we characterise:
     \begin{itemize}
         \item The 1-categorical epimorphisms in $\sfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:section-epimorphisms}}{\cref{section-epimorphisms}}.
         \item The 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterTypesOfMorphismsInBicategories, \cref{types-of-morphisms-in-bicategories:section-epimorphisms-in-bicategories}}{\cref{section-epimorphisms-in-bicategories}}.
@@ -4527,31 +4528,35 @@ Let $X$ be a set.
             }%
             %---  End Footnote  ---%
     \end{itemize}
-    Essentially, a epimorphism $R\colon A\rightproarrow B$ in $\sfRel$ will look like this:
+    Essentially, an epimorphism $R\colon A\rightproarrow B$ in $\sfRel$ will look like this:
     \begin{webcompile}
-        \mkern25mu
         \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,%
                 execute at end picture={%
                     % A
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=3:34:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=40.5:43.5:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=59:318:{1.5*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=327:357:{1.5*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-2) [partial ellipse=0:130:{2.25*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-2) [partial ellipse=136.5:140.5:{2.25*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-2) [partial ellipse=146:186:{2.25*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-2) [partial ellipse=194:202:{2.25*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-2) [partial ellipse=211:360:{2.25*\the\DL} and {5.0*\the\DL}];
                     % B
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:161:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=165:178:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=182:200:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=204:225:{2.0*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=232:360:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-1) [partial ellipse=2:14.5:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-1) [partial ellipse=19.5:314:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-1) [partial ellipse=320:330:{2.0*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-1) [partial ellipse=335:358:{2.0*\the\DL} and {8.0*\the\DL}];
                     % (3)
-                    \node at (\tikzcdmatrixname-1-2.east) {$\mkern75mu\scriptstyle(3)$};%
+                    \node at (\tikzcdmatrixname-1-1.west -| {-7.0*\the\DL},0) {$\scriptstyle(3)$};%
+                    % (1)
+                    \node at (\tikzcdmatrixname-3-2.south west) {$\scriptscriptstyle(1)$};%
+                    \node at (\tikzcdmatrixname-5-2.south west) {$\scriptscriptstyle(1)$};%
                 }%
             ]%
-            \&
             \bullet
+            \&
+            {}%
             \\
-            \&
             \bullet
+            \&
+            {}%
             \\
             \bullet
             \&
@@ -4569,20 +4574,22 @@ Let $X$ be a set.
             \&
             B%
             % 1-Arrows
+            \arrow[from=2-1,to=3-2,end anchor={[xshift=0.1*\the\DL,yshift=0.1*\the\DL]},mapsto,"(2)"sloped]%
             \arrow[from=3-1,to=3-2,mapsto]%
-            \arrow[from=4-1,to=4-2,mapsto]%
-            \arrow[from=5-1,to=5-2,mapsto,"(1)"'sloped]%
-            %
-            \arrow[from=3-1,to=2-2,start anchor={[xshift=-0.05*\the\DL,yshift=0.5*\the\DL]},mapsto,"(2)"sloped]%
-            %
+            \arrow[from=4-1,to=5-2,mapsto]%
+            %\arrow[from=5-1,to=4-2,mapsto,crossing over,"\scriptscriptstyle(1)"'{pos=0.885}]%
+            \arrow[from=5-1,to=4-2,mapsto,"\scriptscriptstyle(1)"'{pos=0.885}]%
+            %%
+            %%
             \arrow[from=6-1,to=6-2,"R"']%
         \end{tikzcd}
+        \mkern35mu{}%
     \end{webcompile}
-    That is:
+    That is, $R$ is a partial surjective function from $A$ to $B$. In particular:
     \begin{enumerate}
-        \item\label{explanation-for-result-on-epimorphisms-in-rel-1}$R$ should contain an injection $f\colon A\hookrightarrow B$ embedding a copy of $A$ into $B$.
-        \item\label{explanation-for-result-on-epimorphisms-in-rel-2}$R$ can be non-functional, mapping elements of $A$ into multiple elements of $B$ (but not to more than one in $\Im(f)$).
-        \item\label{explanation-for-result-on-epimorphisms-in-rel-3}$R$ doesn't need to be surjective, so $B$ can have elements that aren't in the image of $R$.
+        \item\label{explanation-for-result-on-epimorphisms-in-rel-1}$R$ should contain a surjection $f\colon A\twoheadsrightarrow B$.
+        \item\label{explanation-for-result-on-epimorphisms-in-rel-2}$R$ doesn't need to be injective, so $R$ can map different elements of $A$ to the same element of $B$.
+        \item\label{explanation-for-result-on-epimorphisms-in-rel-3}$R$ can be non-total, so $R$ doesn't need to be defined on all of $A$.
     \end{enumerate}
 \end{explanation}
 \begin{proposition}{Characterisations of Epimorphisms in $\sfRel$ \rmI}{characterisations-of-epimorphisms-in-rel-1}%
@@ -4600,8 +4607,8 @@ Let $X$ be a set.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{characterisations-of-epimorphisms-in-rel-1-1}The relation $R$ is a epimorphism in $\sfRel$.
-        \item\label{characterisations-of-epimorphisms-in-rel-1-2}The direct image function%
+        \item\label{characterisations-of-epimorphisms-in-rel-1-1}The relation $R$ is an epimorphism in $\sfRel$.
+        \item\label{characterisations-of-epimorphisms-in-rel-1-2}The inverse image function%
             \[
                 R^{-1}%
                 \colon%
@@ -4610,7 +4617,7 @@ Let $X$ be a set.
                 \mathcal{P}(A)%
             \]%
             associated to $R$ is injective.
-        \item\label{characterisations-of-epimorphisms-in-rel-1-3}The codirect image function
+        \item\label{characterisations-of-epimorphisms-in-rel-1-3}The coinverse image function
             \[
                 R_{-1}%
                 \colon%
@@ -4619,7 +4626,7 @@ Let $X$ be a set.
                 \mathcal{P}(A)%
             \]%
             associated to $R$ is injective.
-        \item\label{characterisations-of-epimorphisms-in-rel-1-4}The direct image functor
+        \item\label{characterisations-of-epimorphisms-in-rel-1-4}The inverse image functor
             \[
                 R^{-1}%
                 \colon%
@@ -4628,7 +4635,7 @@ Let $X$ be a set.
                 (\mathcal{P}(A),\subset)%
             \]%
             associated to $R$ is full.
-        \item\label{characterisations-of-epimorphisms-in-rel-1-5}The codirect image functor
+        \item\label{characterisations-of-epimorphisms-in-rel-1-5}The coinverse image functor
             \[
                 R_{-1}%
                 \colon%
@@ -4639,7 +4646,7 @@ Let $X$ be a set.
             associated to $R$ is full.
         \item\label{characterisations-of-epimorphisms-in-rel-1-6}For each pair of relations $S,T\colon B\rightproarrows X$, the following condition is satisfied:
             \begin{itemize}
-                \itemstar If $R\procirc S\subset R\procirc T$, then $S\subset T$.
+                \itemstar If $S\procirc R\subset T\procirc R$, then $S\subset T$.
             \end{itemize}
         \item\label{characterisations-of-epimorphisms-in-rel-1-7}There exists an injective function $f\colon A\hookrightarrow B$ satisfying the following conditions:%
             %--- Begin Footnote ---%
@@ -4708,101 +4715,105 @@ Let $X$ be a set.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-epimorphisms-in-rel-1-2}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-3} and \cref{characterisations-of-epimorphisms-in-rel-1-3}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-5}}%
-    This follows from \cref{properties-of-direct-image-functions-associated-to-relations-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations}.
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations}.
 
     \ProofBox{Step 2: First Proof of \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-2}}%
     We claim that \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-2} are equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-2}: }Let $U,V\in\mathcal{P}(B)$ and consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "U", shift left=0.8,   mid vert]
-                    \arrow[r, "V"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{.}
+                    B
+                    \arrow[r, "U", shift left=0.8, mid vert]
+                    \arrow[r, "V"', shift right=0.8, mid vert]
+                    \&
+                    \pt\mrp{.}
                 \end{tikzcd}
             \]%
             By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
             \begin{align*}
-                R^{-1}(U) &= R\procirc U,\\
-                R^{-1}(V) &= R\procirc V.
+                R^{-1}(U) &= U\procirc R,\\
+                R^{-1}(V) &= V\procirc R.
             \end{align*}
-            Now, if $R\procirc U=R\procirc V$, i.e.\ $R^{-1}(U)=R^{-1}(V)$, then $U=V$ since $R$ is assumed to be a epimorphism, showing $R^{-1}$ to be injective.
+            Now, if $U\procirc R=V\procirc R$, i.e.\ $R^{-1}(U)=R^{-1}(V)$, then $U=V$ since $R$ is assumed to be an epimorphism, showing $R^{-1}$ to be injective.
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-1}: }Conversely, suppose that $R^{-1}$ is injective, consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    X
-                    \arrow[r, "S", shift left=0.8,   mid vert]
-                    \arrow[r, "T"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{,}
+                    B
+                    \arrow[r, "S", shift left=0.8, mid vert]
+                    \arrow[r, "T"', shift right=0.8, mid vert]
+                    \&
+                    X\mrp{,}
                 \end{tikzcd}
             \]%
-            and suppose that $R\procirc S=R\procirc T$. Note that, since $R^{-1}$ is injective, given a diagram of the form
+            and suppose that $S\procirc R=T\procirc R$. Note that, since $R^{-1}$ is injective, given a diagram of the form
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "U", shift left=0.8,   mid vert]
+                    A
+                    \arrow[r, "R",mid vert]
+                    \&
+                    B
+                    \arrow[r, "U", shift left=0.8, mid vert]
                     \arrow[r, "V"', shift right=0.8, mid vert]
                     \&
-                    A
-                    \arrow[r, "R",mid vert]
-                    \&
-                    B\mrp{,}
+                    \pt\mrp{,}
                 \end{tikzcd}
             \]%
-            if $R^{-1}(U)=R\procirc U=R\procirc V=R^{-1}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
+            if $R^{-1}(U)=U\procirc R=V\procirc R=R^{-1}(V)$, then $U=V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "{[x]}", shift left=0.8, mid vert]
-                    \&
-                    X
-                    \arrow[r, "S", shift left=0.8,   mid vert]
-                    \arrow[r, "T"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{,}
+                    B
+                    \arrow[r, "S",  shift left=0.8,  mid vert]
+                    \arrow[r, "T"', shift right=0.8, mid vert]
+                    \&
+                    X
+                    \arrow[r, "{[x]}", shift left=0.8, mid vert]
+                    \&
+                    \pt\mrp{,}
                 \end{tikzcd}
             \]%
-            where we have $R\procirc S\procirc[x]=R\procirc T\procirc[x]$, implying that we have
+            for which we have $[x]\procirc S\procirc R=[x]\procirc T\procirc R$, implying that we have
             \[
-                S(x)%
+                S^{-1}(x)%
                 =%
-                S\procirc[x]%
+                [x]\procirc S%
                 =%
-                T\procirc[x]%
+                [x]\procirc T%
                 =%
-                T(x)
+                T^{-1}(x)
             \]%
-            for each $x\in X$. Thus $S=T$ and $R$ is a epimorphism.
+            for each $x\in X$. Thus $S=T$ and $R$ is an epimorphism.
     \end{itemize}
 
     \ProofBox{Step 2.5: Second Proof of \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-2}}%
     A more abstract proof can also be given, following \cite{MSE350788}:
     \begin{itemize}
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Assume that $R$ is a epimorphism.
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-2}: }Assume that $R$ is an epimorphism.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R^{-1}$ by \cref{unwinding-the-direct-image-function-associated-to-a-relation}.
-                \item Since $\Rel(\pt,-)$ preserves all limits by \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-commutativity-with-homs} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-commutativity-with-homs} of \cref{properties-of-co-limits}}, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors}}{\cref{properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{properties-of-epimorphism-preserving-functors}} that $\Rel(\pt,-)$ also preserves epimorphisms.
-                \item Since $R$ is a epimorphism and $\Rel(\pt,-)$ maps $R$ to $R^{-1}$, it follows that $R^{-1}$ is also a epimorphism.
+                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \cref{unwinding-the-inverse-image-function-associated-to-a-relation}.
+                \item Since $\Rel(-,\pt)$ preserves limits by \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-commutativity-with-homs} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-commutativity-with-homs} of \cref{properties-of-co-limits}}, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors}}{\cref{properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{properties-of-epimorphism-preserving-functors}} that $\Rel(-,\pt)$ also preserves epimorphisms.
+                \item That is: $\Rel(-,\pt)$ sends epimorphisms in $\Rel^{\op}$ to epimorphisms in $\Sets$.
+                \item The epimorphisms $\Rel^{\op}$ are precisely the epimorphisms in $\Rel$ by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphisms-duality} of \cref{types-of-morphisms-in-categories:properties-of-epimorphisms}}{\cref{properties-of-epimorphisms-duality} of \cref{properties-of-epimorphisms}}.
+                \item Since $R$ is an epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R^{-1}$ is an epimorphism.
                 \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is injective.
             \end{itemize}
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1}: }Assume that $R^{-1}$ is injective.
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-1}: }Assume that $R^{-1}$ is injective.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(\pt,-)\colon\Rel\to\Sets$ maps $R$ to $R^{-1}$ by \cref{unwinding-the-direct-image-function-associated-to-a-relation}.
-                \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is a epimorphism.
-                \item Since $\Rel(\pt,-)$ is faithful, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors}}{\cref{properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{properties-of-epimorphism-reflecting-functors}} that $\Rel(\pt,-)$ reflects epimorphisms.
-                \item Since $R^{-1}$ is a epimorphism and $\Rel(\pt,-)$ maps $R$ to $R^{-1}$, it follows that $R$ is also a epimorphism.
+                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \cref{unwinding-the-inverse-image-function-associated-to-a-relation}.
+                \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is an epimorphism.
+                \item Since $\Rel(-,\pt)$ is faithful, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors}}{\cref{properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{properties-of-epimorphism-reflecting-functors}} that $\Rel(,\pt)$ reflects epimorphisms.
+                \item That is: $\Rel(-,\pt)$ reflects epimorphisms in $\Sets$ to epimorphisms in $\Rel^{\op}$.
+                \item The epimorphisms $\Rel^{\op}$ are precisely the epimorphisms in $\Rel$ by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphisms-duality} of \cref{types-of-morphisms-in-categories:properties-of-epimorphisms}}{\cref{properties-of-epimorphisms-duality} of \cref{properties-of-epimorphisms}}.
+                \item Since $R^{-1}$ is an epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R$ is an epimorphism.
             \end{itemize}
     \end{itemize}
 
@@ -4811,19 +4822,19 @@ Let $X$ be a set.
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-4}: }We proceed in a few steps:
             \begin{itemize}
-                \item Let $U,V\in\mathcal{P}(A)$ such that $R^{-1}(U)\subset R^{-1}(V)$, assume $R^{-1}$ to be injective, and consider the set $U\cup V$.
+                \item Let $U,V\in\mathcal{P}(B)$ such that $R^{-1}(U)\subset R^{-1}(V)$, assume $R^{-1}$ to be injective, and consider the set $U\cup V$.
                 \item Since $R^{-1}(U)\subset R^{-1}(V)$, we have
                     \begin{align*}
                         R^{-1}(U\cup V) &= R^{-1}(U)\cup R^{-1}(V)\\
-                        &= R^{-1}(V),
+                                        &= R^{-1}(V),
                     \end{align*}
-                    where we have used \cref{properties-of-direct-image-functions-associated-to-relations-symmetric-strict-epiidality-with-respect-to-unions} of \cref{properties-of-direct-image-functions-associated-to-relations} for the first equality.
+                    where we have used \cref{properties-of-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions} of \cref{properties-of-inverse-image-functions-associated-to-relations} for the first equality.
                 \item Since $R^{-1}$ is injective, this implies $U\cup V=V$.
                 \item Thus $U\subset V$, as we wished to show.
             \end{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-4}: }We proceed in a few steps:
             \begin{itemize}
-                \item Suppose \cref{characterisations-of-epimorphisms-in-rel-1-4} holds, and let $U,V\in\mathcal{P}(A)$ such that $R^{-1}(U)=R^{-1}(V)$.
+                \item Suppose \cref{characterisations-of-epimorphisms-in-rel-1-4} holds, and let $U,V\in\mathcal{P}(B)$ such that $R^{-1}(U)=R^{-1}(V)$.
                 \item Since $R^{-1}(U)=R^{-1}(V)$, we have $R^{-1}(U)\subset R^{-1}(V)$ and $R^{-1}(V)\subset R^{-1}(U)$.
                 \item By assumption, this implies $U\subset V$ and $V\subset U$.
                 \item Thus $U=V$, showing $R^{-1}$ to be injective.
@@ -4833,76 +4844,76 @@ Let $X$ be a set.
     \ProofBox{Step 4: \cref{characterisations-of-epimorphisms-in-rel-1-4}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-6}}%
     We claim that \cref{characterisations-of-epimorphisms-in-rel-1-4,characterisations-of-epimorphisms-in-rel-1-6} are equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-4}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-6}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-4}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-6}: }Let $U,V\in\mathcal{P}(B)$ and consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "U",  shift left=0.8,  mid vert]
-                    \arrow[r, "V"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{.}
-                \end{tikzcd}
-            \]%
-            By \cref{unwinding-the-direct-image-function-associated-to-a-relation}, we have
-            \begin{align*}
-                R^{-1}(U) &= R\procirc U,\\
-                R^{-1}(V) &= R\procirc V.
-            \end{align*}
-            Now, if $R\procirc U\subset R\procirc V$, then $R^{-1}(U)\subset R^{-1}(V)$. By assumption, we then have $U\subset V$.
-        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-6}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-4}: }Consider the diagram
-            \[
-                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    X
-                    \arrow[r, "S", shift left=0.8, mid vert]
-                    \arrow[r, "T"', shift right=0.8, mid vert]
-                    \&
-                    A
-                    \arrow[r, "R",mid vert]
-                    \&
-                    B\mrp{,}
-                \end{tikzcd}
-            \]%
-            and suppose that $R\procirc S\subset R\procirc T$. Note that, by assumption, given a diagram of the form
-            \[
-                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
+                    B
                     \arrow[r, "U", shift left=0.8, mid vert]
                     \arrow[r, "V"', shift right=0.8, mid vert]
                     \&
+                    \pt\mrp{.}
+                \end{tikzcd}
+            \]%
+            By \cref{unwinding-the-inverse-image-function-associated-to-a-relation}, we have
+            \begin{align*}
+                R^{-1}(U) &= U\procirc R,\\
+                R^{-1}(V) &= V\procirc R.
+            \end{align*}
+            Now, if $U\procirc R\subset V\procirc R$, then $R^{-1}(U)\subset R^{-1}(V)$. By assumption, we then have $U\subset V$.
+        \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1-6}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-4}: }Consider the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{,}
+                    B
+                    \arrow[r, "S", shift left=0.8, mid vert]
+                    \arrow[r, "T"', shift right=0.8, mid vert]
+                    \&
+                    X\mrp{,}
+                \end{tikzcd}
+            \]%
+            and suppose that $S\procirc R\subset T\procirc R$. Note that, by assumption, given a diagram of the form
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r, "R",mid vert]
+                    \&
+                    B
+                    \arrow[r, "U", shift left=0.8, mid vert]
+                    \arrow[r, "V"', shift right=0.8, mid vert]
+                    \&
+                    \pt\mrp{,}
                 \end{tikzcd}
             \]%
             if $R^{-1}(U)=R\procirc U\subset R\procirc V=R^{-1}(V)$, then $U\subset V$. In particular, for each $x\in X$, we may consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "{[x]}", shift left=0.8, mid vert]
-                    \&
-                    X
-                    \arrow[r, "S", shift left=0.8, mid vert]
-                    \arrow[r, "T"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{,}
+                    B
+                    \arrow[r, "S",  shift left=0.8,  mid vert]
+                    \arrow[r, "T"', shift right=0.8, mid vert]
+                    \&
+                    X
+                    \arrow[r, "{[x]}", shift left=0.8, mid vert]
+                    \&
+                    \pt\mrp{,}
                 \end{tikzcd}
             \]%
-            for which we have $R\procirc S\procirc[x]\subset R\procirc T\procirc[x]$, implying that we have
+            for which we have $[x]\procirc S\procirc R\subset[x]\procirc T\procirc R$, implying that we have
             \[
-                S(x)%
+                S^{-1}(x)%
                 =%
-                S\procirc[x]%
+                [x]\procirc S%
                 \subset%
-                T\procirc[x]%
+                [x]\procirc T%
                 =%
-                T(x)
+                T^{-1}(x)
             \]%
             for each $x\in X$, implying $S\subset T$.
     \end{itemize}
@@ -4936,14 +4947,15 @@ Let $X$ be a set.
 \begin{proposition}{Characterisations of Epimorphisms in $\sfRel$ \rmII}{characterisations-of-epimorphisms-in-rel-2}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:%
     \begin{enumerate}
-        \item\label{characterisations-of-epimorphisms-in-rel-2-1}The relation $R$ is a epimorphism in $\sfRel$.
-        \item\label{characterisations-of-epimorphisms-in-rel-2-2}For each $a\in A$ and each $U\in\mathcal{P}(A)$, if $R(a)\subset R(U)$, then $a\in U$.
-        \item\label{characterisations-of-epimorphisms-in-rel-2-3}For each $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$.
+        \item\label{characterisations-of-epimorphisms-in-rel-2-1}The relation $R$ is an epimorphism in $\sfRel$.
+        \item\label{characterisations-of-epimorphisms-in-rel-2-2}For each $b\in B$ and each $U\in\mathcal{P}(B)$, if $R^{-1}(b)\subset R^{-1}(U)$, then $b\in U$.
+        \item\label{characterisations-of-epimorphisms-in-rel-2-3}For each $b\in B$, there exists some $a\in A$ such that $R^{-1}(b)=\{a\}$.
     \end{enumerate}
-    Moreover, if $R$ is a epimorphism, then it satisfies the following condition, and the converse holds if $R$ is total:
-    \begin{itemize}
-        \itemstar For each $a,a'\in A$, if there exists some $b\in B$ such that $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$.
-    \end{itemize}
+    Moreover, if $R$ is an epimorphism, then it satisfies the following condition, and the converse holds if $R$ is functional:
+    \begin{enumerate}
+        \item\label{characterisations-of-epimorphisms-in-rel-2-4}For each $b\in B$, there exists some $a\in A$ such that $a\sim_{R}b$.
+        \item\label{characterisations-of-epimorphisms-in-rel-2-5}We have $\Im(R)=B$.
+    \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel-2}}%
     We will prove this by showing:
@@ -4957,7 +4969,7 @@ Let $X$ be a set.
     \ProofBox{Step 1: \cref{characterisations-of-epimorphisms-in-rel-2-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2-2}}%
     We proceed in a few steps:
     \begin{itemize}
-        \item If $R$ is a epimorphism, then, by \cref{characterisations-of-epimorphisms-in-rel-1-2} of \cref{characterisations-of-epimorphisms-in-rel-1}, the functor
+        \item If $R$ is an epimorphism, then, by \cref{characterisations-of-epimorphisms-in-rel-1-2} of \cref{characterisations-of-epimorphisms-in-rel-1}, the functor
             \[
                 R^{-1}%
                 \colon%
@@ -4984,7 +4996,7 @@ Let $X$ be a set.
     \ProofBox{Step 3: \cref{characterisations-of-epimorphisms-in-rel-2-3}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2-1}}%
     We proceed in a few steps:
     \begin{itemize}
-        \item By the equivalence between \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-4} of \cref{characterisations-of-epimorphisms-in-rel-1}, to show that $R$ is a epimorphism it suffices to prove that, for each $U,V\in\mathcal{P}(A)$, if $R(U)\subset R(V)$, then $U\subset V$.
+        \item By the equivalence between \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-4} of \cref{characterisations-of-epimorphisms-in-rel-1}, to show that $R$ is an epimorphism it suffices to prove that, for each $U,V\in\mathcal{P}(A)$, if $R(U)\subset R(V)$, then $U\subset V$.
         \item So let $u\in U$ and assume $R(U)\subset R(V)$.
         \item By assumption, there exists some $b\in B$ with $R^{-1}(b)=\{u\}$.
         \item In particular, $b\in R(U)$.
@@ -4995,50 +5007,68 @@ Let $X$ be a set.
     \end{itemize}
 
     \ProofBox{Step 4: Proof of the Second Half of \cref{characterisations-of-epimorphisms-in-rel-2}}%
-    We claim that $R$ being a epimorphism implies condition ($\star$), and the converse holds if $R$ is total:
+    We claim that $R$ being an epimorphism implies condition ($\star$), and the converse holds if $R$ is total:
     \begin{itemize}
-        \item\SloganFont{If $R$ Is a Epimorphism, Then ($\star$) Holds: }Let $a,a'\in A$ such that $a\sim_{R}b$ and $a'\sim_{R}b$ for some $b\in B$ and consider the diagram
+        \item\SloganFont{If $R$ Is an Epimorphism, Then ($\star$) Holds: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \pt
-                    \arrow[r, "{[a]}",   shift left=0.8, mid vert]
-                    \arrow[r, "{[a']}"', shift right=0.8, mid vert]
-                    \&
                     A
                     \arrow[r, "R",mid vert]
                     \&
-                    B\mrp{.}
-                \end{tikzcd}
-            \]%
-            Then:
-            \begin{itemize}
-                \item Since $\star\sim_{[a]}a$ and $a\sim_{R}b$, we have $\star\sim_{R\procirc[a]}b$.
-                \item Similarly, $\star\sim_{R\procirc[a']}b$.
-                \item Thus $R\procirc[a]=R\procirc[a']$.
-                \item Since $R$ is a epimorphism, we have $[a]=[a']$, so $a=a'$.
-            \end{itemize}
-        \item\SloganFont{If $R$ Is Total and ($\star$) Holds, Then $R$ Is a Epimorphism: }Consider the diagram
-            \[
-                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    X
-                    \arrow[r, "S",  shift left=0.8,  mid vert]
+                    B
+                    \arrow[r, "S", shift left=0.8, mid vert]
                     \arrow[r, "T"', shift right=0.8, mid vert]
                     \&
-                    A
-                    \arrow[r, "R",mid vert]
-                    \&
-                    B\mrp{,}
+                    {\{0,1\}\mrp{,}}
                 \end{tikzcd}
             \]%
-            and let $x\in X$ and $a\in A$ such that $x\sim_{S}a$.
+            where $b\sim_{S}0$ for each $b\in B$ and where we have
+            \[
+                b%
+                \sim_{T}%
+                \begin{cases}
+                    0 &\text{if $b\in\Im(R)$,}\\
+                    1 &\text{otherwise}
+                \end{cases}
+            \]%
+            for each $b\in B$.
             \begin{itemize}
-                \item Since $R$ is total and $a\in A$, there exists some $b\in B$ such that $a\sim_{R}b$.
-                \item In this case, we have $x\sim_{R\procirc S}b$, and since $R\procirc S=R\procirc T$, we have also $x\sim_{R\procirc T}b$.
-                \item Thus there must exist some $a'\in A$ such that $x\sim_{T}a'$ and $a'\sim_{R}b$.
-                \item However, since $a\sim_{R}b$ and $a'\sim_{R}b$, we must have $a=a'$.
-                \item Thus $x\sim_{T}a$ as well.
-                \item A similar argument shows that if $x\sim_{T}a$, then $x\sim_{S}a$.
-                \item Thus $S=T$, showing $R$ to be a epimorphism.
+                \item We claim that $S\procirc R=T\procirc R$:
+                    \begin{itemize}
+                        \item If $R(a)=\emptyset$, then
+                            \begin{align*}
+                                [S\procirc R](a) &= \emptyset\\ %
+                                [T\procirc R](a) &= \emptyset
+                            \end{align*}
+                            by the definition of relational composition, so $[S\procirc R](a)=[T\procirc R](a)$.
+                        \item If $R(a)\neq\emptyset$, then we have $a\sim_{S\procirc R}0$ and $a\sim_{T\procirc R}0$ by the definition of $S$ and $T$, with no element of $A$ being related to $1$ by $S\procirc R$ or $T\procirc R$.
+                    \end{itemize}
+                \item Now, since $R$ is an epimorphism, we have $S=T$.
+                \item However, by the definition of $T$, this implies $\Im(R)=B$.
+                \item Thus condition ($\star$) holds.
+            \end{itemize}
+        \item\SloganFont{If $R$ Is Functional and ($\star$) Holds, Then $R$ Is an Epimorphism: }Let $U,V\in\mathcal{P}(B)$, consider the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r, "R", mid vert]
+                    \&
+                    B
+                    \arrow[r, "U",  shift left=0.8,  mid vert]
+                    \arrow[r, "V"', shift right=0.8, mid vert]
+                    \&
+                    \pt\mrp{,}
+                \end{tikzcd}
+            \]%
+            where $R_{-1}(U)=R_{-1}(V)$, and let $b\in U$.
+            \begin{itemize}
+                \item By condition ($\star$), there exists some $a\in A$ such that $a\in R^{-1}(b)$.
+                \item Since $R_{-1}(U)=R_{-1}(V)$, \demph{if} $R(a)\subset U$, then $R(a)\subset V$.
+                \item Since $R$ is functional, we have $R(a)=\{b\}$, so $R(a)\subset U$.
+                \item Thus, $R(a)\subset V$, and $b\in V$.
+                \item A similar argument shows that if $b\in V$, then $b\in U$.
+                \item Thus $U=V$, showing $R_{-1}$ to be injective.
+                \item By the equivalence between \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-3} of \cref{characterisations-of-epimorphisms-in-rel-1}, this shows $R$ to be an epimorphism.
             \end{itemize}
     \end{itemize}
     This finishes the proof.
@@ -5081,7 +5111,7 @@ Let $X$ be a set.
 \begin{proposition}{Characterisations of 2-Categorical Epimorphisms in $\sfbfRel$ \rmII}{characterisations-of-2-categorical-epimorphisms-in-rel-2}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:
     \begin{enumerate}
-        \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-1}The morphism $R\colon A\rightproarrow B$ is a epimorphism in $\sfRel$.
+        \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-1}The morphism $R\colon A\rightproarrow B$ is an epimorphism in $\sfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-2}The 1-morphism $R\colon A\rightproarrow B$ is representably full in $\sfbfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-3}The 1-morphism $R\colon A\rightproarrow B$ is representably fully faithful in $\sfbfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-4}The 1-morphism $R\colon A\rightproarrow B$ is pseudomonic in $\sfbfRel$.
@@ -5112,7 +5142,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:
     \begin{enumerate}
         \item\label{characterisations-of-epimorphisms-in-rel-1}The relation $R$ is an epimorphism in $\sfRel$.
-        \item\label{characterisations-of-epimorphisms-in-rel-2}The weak inverse image function
+        \item\label{characterisations-of-epimorphisms-in-rel-2}The inverse image function
             \[
                 R^{-1}%
                 \colon%
@@ -5121,7 +5151,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
                 \mathcal{P}(A)%
             \]%
             associated to $R$ is injective.
-        \item\label{characterisations-of-epimorphisms-in-rel-3}The strong inverse image function
+        \item\label{characterisations-of-epimorphisms-in-rel-3}The coinverse image function
             \[
                 R_{-1}%
                 \colon%
@@ -5143,7 +5173,7 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel}}%
     \FirstProofBox{First Proof of the Equivalence of \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3}}%
-    Firstly note that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3} are equivalent by \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}. We then claim that \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2} are also equivalent:
+    Firstly note that \cref{characterisations-of-epimorphisms-in-rel-2,characterisations-of-epimorphisms-in-rel-3} are equivalent by \cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations}. We then claim that \cref{characterisations-of-epimorphisms-in-rel-1,characterisations-of-epimorphisms-in-rel-2} are also equivalent:
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Let $U,V\in\mathcal{P}(A)$ and consider the diagram
             \[
@@ -5224,21 +5254,21 @@ In this section we characterise the epimorphisms in the category $\sfRel$, follo
     \begin{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-2}: }Assume that $R$ is an epimorphism.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-weak-inverse-image-function-associated-to-a-relation}}{\cref{unwinding-the-weak-inverse-image-function-associated-to-a-relation}}.
+                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-inverse-image-function-associated-to-a-relation}}{\cref{unwinding-the-inverse-image-function-associated-to-a-relation}}.
                 \item Since $\Rel(-,\pt)$ preserves limits by \ChapterRef{\ChapterLimitsAndColimits, \cref{limits-and-colimits:properties-of-co-limits-commutativity-with-homs} of \cref{limits-and-colimits:properties-of-co-limits}}{\cref{properties-of-co-limits-commutativity-with-homs} of \cref{properties-of-co-limits}}, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-preserving-functors}}{\cref{properties-of-epimorphism-preserving-functors-interaction-with-limits} of \cref{properties-of-epimorphism-preserving-functors}} that $\Rel(-,\pt)$ also preserves epimorphisms.
                 \item That is: $\Rel(-,\pt)$ sends epimorphisms in $\Rel^{\op}$ to epimorphisms in $\Sets$.
                 \item The epimorphisms $\Rel^{\op}$ are precisely the epimorphisms in $\Rel$ by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphisms-duality} of \cref{types-of-morphisms-in-categories:properties-of-epimorphisms}}{\cref{properties-of-epimorphisms-duality} of \cref{properties-of-epimorphisms}}.
-                \item Since $R$ is an epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R^{-1}$ is a epimorphism.
+                \item Since $R$ is an epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R^{-1}$ is an epimorphism.
                 \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is injective.
             \end{itemize}
         \item\SloganFont{\cref{characterisations-of-epimorphisms-in-rel-2}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1}: }Assume that $R^{-1}$ is injective.
             \begin{itemize}
-                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-weak-inverse-image-function-associated-to-a-relation}}{\cref{unwinding-the-weak-inverse-image-function-associated-to-a-relation}}.
-                \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is a epimorphism.
+                \item We first notice that the functor $\Rel(-,\pt)\colon\Rel^{\op}\to\Sets$ maps $R$ to $R^{-1}$ by \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:unwinding-the-inverse-image-function-associated-to-a-relation}}{\cref{unwinding-the-inverse-image-function-associated-to-a-relation}}.
+                \item Since the epimorphisms in $\Sets$ are precisely the injections (\ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:examples-of-epimorphisms-epimorphisms-in-sets} of \cref{types-of-morphisms-in-categories:examples-of-epimorphisms}}{\cref{examples-of-epimorphisms-epimorphisms-in-sets} of \cref{examples-of-epimorphisms}}), it follows that $R^{-1}$ is an epimorphism.
                 \item Since $\Rel(-,\pt)$ is faithful, it follows by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{types-of-morphisms-in-categories:properties-of-epimorphism-reflecting-functors}}{\cref{properties-of-epimorphism-reflecting-functors-interaction-with-faithfulness} of \cref{properties-of-epimorphism-reflecting-functors}} that $\Rel(,\pt)$ reflects epimorphisms.
                 \item That is: $\Rel(-,\pt)$ reflects epimorphisms in $\Sets$ to epimorphisms in $\Rel^{\op}$.
                 \item The epimorphisms $\Rel^{\op}$ are precisely the epimorphisms in $\Rel$ by \ChapterRef{\ChapterTypesOfMorphismsInCategories, \cref{types-of-morphisms-in-categories:properties-of-epimorphisms-duality} of \cref{types-of-morphisms-in-categories:properties-of-epimorphisms}}{\cref{properties-of-epimorphisms-duality} of \cref{properties-of-epimorphisms}}.
-                \item Since $R^{-1}$ is a epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R$ is an epimorphism.
+                \item Since $R^{-1}$ is an epimorphism and $\Rel(-,\pt)$ maps $R$ to $R^{-1}$, it follows that $R$ is an epimorphism.
             \end{itemize}
     \end{itemize}
 
@@ -5398,7 +5428,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
             is also true. We proceed step by step:
             \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R_{-1}(U)\subset R_{-1}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}, we have
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1} of \cref{constructions-with-relations:properties-of-coinverse-image-functions-associated-to-relations}}{\cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
                         R_{-1}(U) &= B\setminus R^{-1}(A\setminus U),\\
                         R_{-1}(V) &= B\setminus R^{-1}(A\setminus V).
@@ -5418,7 +5448,7 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
             is also true. We proceed step by step:
             \begin{itemize}
                 \item Suppose we have $U,V\in\mathcal{P}(B)$ with $R^{-1}(U)\subset R^{-1}(V)$.
-                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}, we have
+                \item By \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-1} of \cref{constructions-with-relations:properties-of-inverse-image-functions-associated-to-relations}}{\cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations}}, we have
                     \begin{align*}
                         R^{-1}(U) &= B\setminus R_{-1}(A\setminus U),\\
                         R^{-1}(V) &= B\setminus R_{-1}(A\setminus V).
@@ -5567,9 +5597,9 @@ In this section we characterise (for now, some of) the 2-categorical epimorphism
         \item By the adjoint functor theorem (\cref{TODO}), this map has a left adjoint \textiff it preserves limits.
         \item If $C=\emptyset$, this holds trivially.
         \item Otherwise, $C$ admits $\pt$ as a retract, and we reduce to the case $C=\pt$ via \cref{TODO}.
-        \item For the case $C=\pt$, a relation $T\colon B\rightproarrow\pt$ is the same as a subset of $B$, and $-\procirc R$ becomes the weak inverse image functor $R^{-1}$ of \cref{subsection-weak-inverse-images}.
+        \item For the case $C=\pt$, a relation $T\colon B\rightproarrow\pt$ is the same as a subset of $B$, and $-\procirc R$ becomes the inverse image functor $R^{-1}$ of \cref{subsection-inverse-images}.
         \item Now, again by the adjoint functor theorem, $R^{-1}$ preserves limits exactly when it has a left adjoint.
-        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}).
+        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2} of \cref{properties-of-inverse-image-functions-associated-to-relations}).
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -6022,7 +6052,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                 =
                 \Rift_{R^{\dagger}}(F^{\dagger}).%
             \]%
-        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}\SloganFont{Interaction With Weak Inverse Images. }We have
+        \item\label{properties-of-internal-right-kan-extensions-in-rel-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }We have
             \[
                 [\Ran_{R}(F)]^{-1}(x)%
                 =%
@@ -6058,9 +6088,9 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon A
                                               &= \Ran_{R}(F)^{-1}(x)\\%
                                               &= \Ran_{R}(F)^{\dagger}(x)%
     \end{align*}
-    where we have used \cref{internal-right-kan-lifts-in-rel} and \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}.
+    where we have used \cref{internal-right-kan-lifts-in-rel} and \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-inverse-images}.
 
-    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-weak-inverse-images}: Interaction With Weak Inverse Images}%
+    \ProofBox{\cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-inverse-images}: Interaction With Inverse Images}%
     We proceed in a few steps.
     \begin{itemize}
         \item We have $b\in[\Ran_{R}(F)]^{-1}(x)$ \textiff, for each $a\in R^{-1}(b)$, we have $b\in F(a)$.
@@ -6259,7 +6289,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
                 =
                 \Ran_{R^{\dagger}}(F^{\dagger}).%
             \]%
-        \item\label{properties-of-internal-right-kan-lifts-in-rel-interaction-with-weak-inverse-images}\SloganFont{Interaction With Weak Inverse Images. }We have
+        \item\label{properties-of-internal-right-kan-lifts-in-rel-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }We have
             \begin{webcompile}
                 \Rift_{R}(F)^{\dagger}%
                 =%
@@ -6318,7 +6348,7 @@ Let $A$, $B$, and $X$ be sets and let $R\colon A\rightproarrow B$ and $F\colon X
     \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-converses}: Interaction With Converses}%
     This follows from \cref{properties-of-internal-right-kan-extensions-in-rel-interaction-with-converses} of \cref{properties-of-internal-right-kan-extensions-in-rel} by duality.
 
-    \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-weak-inverse-images}: Interaction With Weak Inverse Images}%
+    \ProofBox{\cref{properties-of-internal-right-kan-lifts-in-rel-interaction-with-inverse-images}: Interaction With Inverse Images}%
     We proceed in a few steps.
     \begin{itemize}
         \item We have $x\in\Rift_{R}(F)^{\dagger}(a)$ \textiff $a\in\Rift_{R}(F)(x)$.
@@ -7061,10 +7091,10 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(X)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations}. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
 \end{Proof}
-\subsection{Strong Inverse Images}\label{subsection-strong-inverse-images}
+\subsection{Coinverse Images}\label{subsection-coinverse-images}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
-\begin{definition}{Strong Inverse Images}{the-strong-inverse-image-function-associated-to-a-relation}%
-    The \index[set-theory]{relation!associated strong inverse image function}\textbf{strong inverse image function associated to $R$} is the function\index[notation]{Rminusone@$R_{-1}$}%
+\begin{definition}{Coinverse Images}{the-coinverse-image-function-associated-to-a-relation}%
+    The \index[set-theory]{relation!associated coinverse image function}\textbf{coinverse image function associated to $R$} is the function\index[notation]{Rminusone@$R_{-1}$}%
     \[%
         R_{-1}%
         \colon%
@@ -7075,7 +7105,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     defined by\index[notation]{RminusoneV@$R_{-1}(V)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $R_{-1}(V)$ is called the \textbf{strong inverse image of $V$ by $R$}.
+        \SloganFont{Further Terminology: }The set $R_{-1}(V)$ is called the \textbf{coinverse image of $V$ by $R$}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -7090,7 +7120,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \]%
     for each $V\in\mathcal{P}(Y)$.
 \end{definition}
-\begin{remark}{Unwinding \cref{the-strong-inverse-image-function-associated-to-a-relation}}{unwinding-the-strong-inverse-image-function-associated-to-a-relation}%
+\begin{remark}{Unwinding \cref{the-coinverse-image-function-associated-to-a-relation}}{unwinding-the-coinverse-image-function-associated-to-a-relation}%
     Identifying subsets of $Y$ with relations from $\pt$ to $Y$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the inverse image function associated to $R$ is equivalently the function
     \[
         R_{-1}%
@@ -7126,7 +7156,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     where we have used \cref{existence-of-right-kan-lifts-in-rel}.
 \end{remark}
-\begin{Proof}{Proof of \cref{unwinding-the-strong-inverse-image-function-associated-to-a-relation}}%
+\begin{Proof}{Proof of \cref{unwinding-the-coinverse-image-function-associated-to-a-relation}}%
     We have
     \begin{envsmallsize}
         \begin{align*}
@@ -7184,10 +7214,10 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of Strong Inverse Images}{properties-of-strong-inverse-image-functions-associated-to-relations}%
+\begin{proposition}{Properties of Coinverse Images}{properties-of-coinverse-image-functions-associated-to-relations}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R_{-1}(V)$ defines a functor
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R_{-1}(V)$ defines a functor
             \[
                 R_{-1}%
                 \colon%
@@ -7208,7 +7238,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                         \item If $U\subset V$, then $R_{-1}(U)\subset R_{-1}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#R_{!}#R_{-1}#\mathcal{P}(X)#\mathcal{P}(Y),#
             \end{webcompile}
@@ -7226,7 +7256,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                         \item We have $U\subset R_{-1}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
                 \bigcup_{i\in I}R_{-1}(U_{i})%
                 \subset%
@@ -7240,7 +7270,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
                     R_{-1}(\bigcap_{i\in I}U_{i})%
                     =%
@@ -7254,7 +7284,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-coinverse-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{-1},R^{\otimes}_{-1},R^{\otimes}_{-1|\Unit})
                 \colon
@@ -7270,7 +7300,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-coinverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{-1},R^{\otimes}_{-1},R^{\otimes}_{-1|\Unit})
                 \colon
@@ -7286,48 +7316,48 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1}\SloganFont{Interaction With Weak Inverse Images \rmI. }We have
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1}\SloganFont{Interaction With Inverse Images \rmI. }We have
             \[
                 R_{-1}(V)%
                 =%
                 X\setminus R^{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2}\SloganFont{Interaction With Weak Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2}\SloganFont{Interaction With Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
-                \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
                         R_{-1}(V)
                         \subset
                         R^{-1}(V)
                     \]%
                     natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
-        %\item\label{properties-of-strong-inverse-image-functions-associated-to-relations-}\SloganFont{. }
+        %\item\label{properties-of-coinverse-image-functions-associated-to-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}%
-    \FirstProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-coinverse-image-functions-associated-to-relations}}%
+    \FirstProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-functoriality}: Functoriality}%
     Clear.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-adjointness}: Adjointness}%
     This follows from \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-preservation-of-limits}: Preservation of Limits}%
-    This follows from \cref{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-preservation-of-limits}: Preservation of Limits}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
-    This follows from \cref{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-lax-preservation-of-colimits}.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
-    This follows from \cref{properties-of-strong-inverse-image-functions-associated-to-relations-preservation-of-limits}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1}: Interaction With Weak Inverse Images \rmI}%
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1}: Interaction With Inverse Images \rmI}%
     We claim we have an equality
     \[
         R_{-1}(Y\setminus V)%
@@ -7341,13 +7371,13 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     Taking $V=Y\setminus V$ then implies the original statement.
 
-    \ProofBox{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2}: Interaction With Weak Inverse Images \rmII}%
-    \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-a} is clear, while \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-b,properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2}: Interaction With Inverse Images \rmII}%
+    \cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-a} is clear, while \cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-b,properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
 \end{Proof}
-\begin{proposition}{Properties of the Strong Inverse Image Function Operation}{properties-of-the-strong-inverse-image-function-operation-for-relations}%
+\begin{proposition}{Properties of the Coinverse Image Function Operation}{properties-of-the-coinverse-image-function-operation-for-relations}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{-1}$ defines a function
+        \item\label{properties-of-the-coinverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{-1}$ defines a function
             \[
                 (-)_{-1}%
                 \colon%
@@ -7355,7 +7385,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{-1}$ defines a function
+        \item\label{properties-of-the-coinverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{-1}$ defines a function
             \[
                 (-)_{-1}%
                 \colon%
@@ -7363,13 +7393,13 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
+        \item\label{properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
                 (\id_{X})_{-1}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
+        \item\label{properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             \begin{webcompile}
                 (S\procirc R)_{-1}%
                 =%
@@ -7387,17 +7417,17 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
-        %\item\label{properties-of-the-strong-inverse-image-function-operation-for-relations-}\SloganFont{. }
+        %\item\label{properties-of-the-coinverse-image-function-operation-for-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-the-strong-inverse-image-function-operation-for-relations}}%
-    \FirstProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
+\begin{Proof}{Proof of \cref{properties-of-the-coinverse-image-function-operation-for-relations}}%
+    \FirstProofBox{\cref{properties-of-the-coinverse-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
+    \ProofBox{\cref{properties-of-the-coinverse-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
+    \ProofBox{\cref{properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
         (\chi_{X})_{-1}(U) &\defeq \{a\in X\ \middle|\ \chi_{X}(a)\subset U\}\\
@@ -7406,7 +7436,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})_{-1}=\id_{\mathcal{P}(X)}$.
 
-    \ProofBox{\cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
+    \ProofBox{\cref{properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
         (S\procirc R)_{-1}(U) &\defeq \{a\in X\ \middle|\ [S\procirc R](a)\subset U\}\\
@@ -7416,17 +7446,17 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                               &\defeq R_{-1}(S_{-1}(U))\\
                               &\defeq [R_{-1}\circ S_{-1}](U)
     \end{align*}
-    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-strong-inverse-image-functions-associated-to-relations-adjointness} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}, which implies that the conditions
+    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-coinverse-image-functions-associated-to-relations-adjointness} of \cref{properties-of-coinverse-image-functions-associated-to-relations}, which implies that the conditions
     \begin{itemize}
         \item We have $S_{!}(R(a))\subset U$.
         \item We have $R(a)\subset S_{-1}(U)$.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{-1}=R_{-1}\circ S_{-1}$.
 \end{Proof}
-\subsection{Weak Inverse Images}\label{subsection-weak-inverse-images}
+\subsection{Inverse Images}\label{subsection-inverse-images}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
-\begin{definition}{Weak Inverse Images}{the-weak-inverse-image-function-associated-to-a-relation}%
-    The \index[set-theory]{relation!associated weak inverse image function}\textbf{weak inverse image function associated to $R$}%
+\begin{definition}{Inverse Images}{the-inverse-image-function-associated-to-a-relation}%
+    The \index[set-theory]{relation!associated inverse image function}\textbf{inverse image function associated to $R$}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }Also called simply the \textbf{inverse image function associated to $R$}.
@@ -7443,7 +7473,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     defined by\index[notation]{RminusoneV@$R^{-1}(V)$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The set $R^{-1}(V)$ is called the \textbf{weak inverse image of $V$ by $R$} or simply the \textbf{inverse image of $V$ by $R$}.
+        \SloganFont{Further Terminology: }The set $R^{-1}(V)$ is called the \textbf{inverse image of $V$ by $R$} or simply the \textbf{inverse image of $V$ by $R$}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -7458,8 +7488,8 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \]%
     for each $V\in\mathcal{P}(Y)$.
 \end{definition}
-\begin{remark}{Unwinding \cref{the-weak-inverse-image-function-associated-to-a-relation}}{unwinding-the-weak-inverse-image-function-associated-to-a-relation}%
-    Identifying subsets of $Y$ with relations from $Y$ to $\pt$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the weak inverse image function associated to $R$ is equivalently the function
+\begin{remark}{Unwinding \cref{the-inverse-image-function-associated-to-a-relation}}{unwinding-the-inverse-image-function-associated-to-a-relation}%
+    Identifying subsets of $Y$ with relations from $Y$ to $\pt$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the inverse image function associated to $R$ is equivalently the function
     \[
         R^{-1}%
         \colon%
@@ -7487,7 +7517,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                   &\defeq \int^{b\in Y}V^{-_{1}}_{b}\times R^{b}_{-_{2}}.
     \end{align*}
 \end{remark}
-\begin{Proof}{Proof of \cref{unwinding-the-weak-inverse-image-function-associated-to-a-relation}}%
+\begin{Proof}{Proof of \cref{unwinding-the-inverse-image-function-associated-to-a-relation}}%
     We have
     \begin{align*}
         V\procirc R%
@@ -7538,10 +7568,10 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of Weak Inverse Image Functions}{properties-of-weak-inverse-image-functions-associated-to-relations}%
+\begin{proposition}{Properties of Inverse Image Functions}{properties-of-inverse-image-functions-associated-to-relations}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R^{-1}(V)$ defines a functor
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $V\mapsto R^{-1}(V)$ defines a functor
             \[
                 R^{-1}%
                 \colon%
@@ -7562,7 +7592,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                         \item If $U\subset V$, then $R^{-1}(U)\subset R^{-1}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#R^{-1}#R_{*}#\mathcal{P}(Y)#\mathcal{P}(X),#
             \end{webcompile}
@@ -7580,7 +7610,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                         \item We have $U\subset R_{*}(V)$.
                     \end{itemize}
             \end{itemize}
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
                 R^{-1}(\bigcup_{i\in I}U_{i})%
                 =%
@@ -7594,7 +7624,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}\SloganFont{Oplax Preservation of Limits. }We have an inclusion of sets
             \[
                 R^{-1}(\bigcap_{i\in I}U_{i})%
                 \subset%
@@ -7608,7 +7638,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}\SloganFont{Symmetric Strict Monoidality With Respect to Unions. }The direct image function of \cref{properties-of-inverse-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
             \[
                 (R^{-1},R^{-1,\otimes},R^{-1,\otimes}_{\Unit})
                 \colon
@@ -7624,7 +7654,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} has a symmetric oplax monoidal structure
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Oplax Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-inverse-image-functions-associated-to-relations-functoriality} has a symmetric oplax monoidal structure
             \[
                 (R^{-1},R^{-1,\otimes},R^{-1,\otimes}_{\Unit})
                 \colon
@@ -7640,56 +7670,56 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1}\SloganFont{Interaction With Strong Inverse Images \rmI. }We have
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-1}\SloganFont{Interaction With Coinverse Images \rmI. }We have
             \[
                 R^{-1}(V)%
                 =%
                 X\setminus R_{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2}\SloganFont{Interaction With Strong Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2}\SloganFont{Interaction With Coinverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
-                \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
                         R_{-1}(V)
                         \subset
                         R^{-1}(V)
                     \]%
                     natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}%
-    \FirstProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-inverse-image-functions-associated-to-relations}}%
+    \FirstProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-functoriality}: Functoriality}%
     Clear.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-adjointness}: Adjointness}%
     This follows from \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-preservation-of-colimits}: Preservation of Colimits}%
-    This follows from \cref{properties-of-weak-inverse-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-preservation-of-colimits}: Preservation of Colimits}%
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}: Oplax Preservation of Limits}%
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}: Oplax Preservation of Limits}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}: Symmetric Strict Monoidality With Respect to Unions}%
-    This follows from \cref{properties-of-weak-inverse-image-functions-associated-to-relations-preservation-of-colimits}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions}: Symmetric Strict Monoidality With Respect to Unions}%
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-preservation-of-colimits}.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}: Symmetric Oplax Monoidality With Respect to Intersections}%
-    This follows from \cref{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-symmetric-oplax-monoidality-with-respect-to-intersections}: Symmetric Oplax Monoidality With Respect to Intersections}%
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-1}: Interaction With Strong Inverse Images \rmI}%
-    This follows from \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-1} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-1}: Interaction With Coinverse Images \rmI}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations}.
 
-    \ProofBox{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-interaction-with-strong-inverse-images-2}: Interaction With Strong Inverse Images \rmII}%
-    This was proved in \cref{properties-of-strong-inverse-image-functions-associated-to-relations-interaction-with-weak-inverse-images-2} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-coinverse-images-2}: Interaction With Coinverse Images \rmII}%
+    This was proved in \cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations}.
 \end{Proof}
-\begin{proposition}{Properties of the Weak Inverse Image Function Operation}{properties-of-the-weak-inverse-image-function-operation-for-relations}%
+\begin{proposition}{Properties of the Inverse Image Function Operation}{properties-of-the-inverse-image-function-operation-for-relations}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R^{-1}$ defines a function
+        \item\label{properties-of-the-inverse-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R^{-1}$ defines a function
             \[
                 (-)^{-1}%
                 \colon%
@@ -7697,7 +7727,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R^{-1}$ defines a function
+        \item\label{properties-of-the-inverse-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R^{-1}$ defines a function
             \[
                 (-)^{-1}%
                 \colon%
@@ -7705,7 +7735,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have%
+        \item\label{properties-of-the-inverse-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, the postcomposition
@@ -7724,7 +7754,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
+        \item\label{properties-of-the-inverse-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             %--- Begin Footnote ---%
             \footnote{%
                 That is, we have
@@ -7765,17 +7795,17 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
-        %\item\label{properties-of-the-weak-inverse-image-function-operation-for-relations-}\SloganFont{. }
+        %\item\label{properties-of-the-inverse-image-function-operation-for-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-the-weak-inverse-image-function-operation-for-relations}}%
-    \FirstProofBox{\cref{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
+\begin{Proof}{Proof of \cref{properties-of-the-inverse-image-function-operation-for-relations}}%
+    \FirstProofBox{\cref{properties-of-the-inverse-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-weak-inverse-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
+    \ProofBox{\cref{properties-of-the-inverse-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
     Clear.
 
-    \ProofBox{\cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
+    \ProofBox{\cref{properties-of-the-inverse-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-identities} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-identities} of \cref{properties-of-pre-postcomposition}}.
     %Indeed, we have
     %\begin{align*}
@@ -7785,7 +7815,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     %\end{align*}
     %for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})^{-1}=\id_{\mathcal{P}(X)}$.
 
-    \ProofBox{\cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
+    \ProofBox{\cref{properties-of-the-inverse-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{properties-of-pre-postcomposition}}.
     %Indeed, we have
     %\begin{align*}
@@ -8218,11 +8248,11 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \mathcal{P}^{-1}(R) &\defeq R^{-1},\\%
                 \mathcal{P}_{*}(R)  &\defeq R_{*},%
             \end{align*}
-            as in \cref{the-direct-image-function-associated-to-a-relation,the-strong-inverse-image-function-associated-to-a-relation,the-weak-inverse-image-function-associated-to-a-relation,the-codirect-image-function-associated-to-a-relation}.
+            as in \cref{the-direct-image-function-associated-to-a-relation,the-coinverse-image-function-associated-to-a-relation,the-inverse-image-function-associated-to-a-relation,the-codirect-image-function-associated-to-a-relation}.
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{functoriality-of-powersets-1}}%
-    This follows from \cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-function-operation-for-relations}, \cref{properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-strong-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-strong-inverse-image-function-operation-for-relations}, \cref{properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-weak-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-weak-inverse-image-function-operation-for-relations}, and \cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities,properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-codirect-image-function-operation-for-relations}.
+    This follows from \cref{properties-of-the-direct-image-function-operation-for-relations-interaction-with-identities,properties-of-the-direct-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-direct-image-function-operation-for-relations}, \cref{properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-coinverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-coinverse-image-function-operation-for-relations}, \cref{properties-of-the-inverse-image-function-operation-for-relations-interaction-with-identities,properties-of-the-inverse-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-inverse-image-function-operation-for-relations}, and \cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities,properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-codirect-image-function-operation-for-relations}.
 \end{Proof}
 \subsection{Functoriality of Powersets: Relations on Powersets}\label{functoriality-of-powersets-relations-on-powersets}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
