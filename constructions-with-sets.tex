@@ -7789,7 +7789,7 @@ Let $X$ and $Y$ be sets.%
             \[
                 U\setminus X%
                 =%
-                U%
+                \emptyset%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-differences-invertibility}\SloganFont{Invertibility. }We have
@@ -7900,7 +7900,14 @@ Let $X$ and $Y$ be sets.%
     See \cite{proof-wiki:de-morgan-s-laws-set-theory-set-difference-difference-with-union}.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-2}: Interaction With Unions \rmII}%
-    Omitted.
+    We have
+    \begin{align*}
+      (U \setminus V) \cup W &\defeq \{x \in X\ \middle|\ \text{($x \in U$ and $x \nin V$) or $x \in W$}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
+                             &\defeq x \in (U \cup W) \setminus (V \setminus W).
+    \end{align*}
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-3}: Interaction With Unions \rmIII}%
     See \cite{proof-wiki:set-difference-with-union}.
@@ -7921,19 +7928,23 @@ Let $X$ and $Y$ be sets.%
     See \cite{proof-wiki:set-difference-with-set-difference-is-union-of-set-difference-with-intersection}.
 
     \ProofBox{\cref{properties-of-differences-left-annihilation}: Left Annihilation}%
-    Omitted.
+    The direction $\emptyset \subset \emptyset \setminus U$ always holds.
+    Now assume $x \in \emptyset \setminus U$. Then, $x \in \emptyset$ and $x \nin U$. Hence $\emptyset \setminus U \subset \emptyset$ must hold and the sets are equal.
 
     \ProofBox{\cref{properties-of-differences-right-unitality}: Right Unitality}%
     See \cite{proof-wiki:set-difference-with-empty-set-is-self}.
 
     \ProofBox{\cref{properties-of-differences-right-annihilation}: Right Annihilation}%
-    Omitted.
+    It suffices to show that no $x \in X$ can be an element of $U \setminus X$.
+    Assume $x \in U \setminus X$. Then $x \nin X$, contradicting $x \in X$.
+    This completes the proof.
 
     \ProofBox{\cref{properties-of-differences-invertibility}: Invertibility}%
     See \cite{proof-wiki:set-difference-with-self-is-empty-set}.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-containment}: Interaction With Containment}%
-    Omitted.
+    The conditions are symmetric in $U,W$, hence it suffices to show that $V \setminus U \subset W$ implies $V \setminus W \subset U$.
+    So assume $V \setminus U \subset W, x \in V \setminus W$. Then $x \in V, x \nin W$. So by contraposition, $x \nin V \setminus U$. But $x \in V$, so we must have $x \in U$, completing the proof.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
     See \cite{proof-wiki:characteristic-function-of-set-difference}.
@@ -8032,8 +8043,8 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
         \item\label{properties-of-complements-interaction-with-characteristic-functions}\SloganFont{Interaction With Characteristic Functions. }We have
             \[
                 \chi_{U^{\sfc}}%
-                \equiv%
-                1-\chi_{U}\mod{2}%
+                =%
+                1-\chi_{U}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-complements-interaction-with-direct-images}\SloganFont{Interaction With Direct Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -8119,8 +8130,14 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
     See \cite{proof-wiki:complement-of-complement}.
 
     \ProofBox{\cref{properties-of-complements-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
-    Omitted.
-
+    We consider the two cases $x \in U, x \nin U$.
+    \begin{enumerate}
+      \item If $x \in U$, then $x \nin U^\sfc$. So $\chi_{U}(x) = 1$ and
+            \[ \chi_{U^\sfc}(x) = 0 = 1 - \chi_{U}(x). \]
+      \item If $x \nin U$, then $x \in U^\sfc$. So $\chi_{U}(x) = 0$ and
+            \[ \chi_{U^\sfc}(x) = 1 = 1 - \chi_{U}(x). \]
+    \end{enumerate}
+    Hence, the equation holds for all $x \in X$.
     \ProofBox{\cref{properties-of-complements-interaction-with-direct-images}: Interaction With Direct Images}%
     This is a repetition of \cref{properties-of-direct-images-i-interaction-with-complements} of \cref{properties-of-direct-images-i} and is proved there.
 
