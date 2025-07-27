@@ -4080,7 +4080,28 @@ Let $X$ be a set.
                     }%
                     %---  End Footnote  ---%
             \end{enumerate}
-        \item\label{characterisations-of-monomorphisms-in-rel-1-9}We have
+        \item\label{characterisations-of-monomorphisms-in-rel-1-9}The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"R"]
+                    \arrow[rd,"\chi_{A}"',hook]
+                    \&
+                    \mathcal{P}(B)
+                    \arrow[d,"R^{-1}"]
+                    \\
+                    \&
+                    \mathcal{P}(A)%
+                \end{tikzcd}
+            \]%
+            commutes. In other words, we have
+            \[
+                R^{-1}(R(a))%
+                =%
+                \{a\}%
+            \]%
+            for each $a\in A$.%
+        \item\label{characterisations-of-monomorphisms-in-rel-1-10}We have
             \begin{webcompile}
                 R_{-1}\circ R_{!}%
                 =%
@@ -4098,6 +4119,115 @@ Let $X$ be a set.
                     \mathcal{P}(A)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        a\in A%
+                        \ \middle|\ %
+                        R(a)\subset R(U)%
+                    \}%
+                }_{=R_{-1}(R_{!}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(A)$.
+        \item\label{characterisations-of-monomorphisms-in-rel-1-11}We have
+            \begin{webcompile}
+                R^{-1}\circ R_{!}%
+                =%
+                \id_{\mathcal{P}(A)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(A)
+                    \arrow[r,"R_{!}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(B)
+                    \arrow[d,"R^{-1}"]
+                    \\
+                    \&
+                    \mathcal{P}(A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        a\in A%
+                        \ \middle|\ %
+                        R(a)\cap R(U)\neq\emptyset%
+                    \}%
+                }_{=R^{-1}(R_{!}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(A)$.
+        \item\label{characterisations-of-monomorphisms-in-rel-1-12}We have
+            \begin{webcompile}
+                R^{-1}\circ R_{*}%
+                =%
+                \id_{\mathcal{P}(A)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(A)
+                    \arrow[r,"R_{*}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(B)
+                    \arrow[d,"R^{-1}"]
+                    \\
+                    \&
+                    \mathcal{P}(A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        a\in A%
+                        \ \middle|\ %
+                        \begin{aligned}
+                            &\text{there exists some $b\in R(a)$}\\
+                            &\text{such that we have $R^{-1}(b)\subset U$}
+                        \end{aligned}
+                    \}%
+                }_{=R^{-1}(R_{*}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(A)$.
+        \item\label{characterisations-of-monomorphisms-in-rel-1-13}We have
+            \begin{webcompile}
+                R_{-1}\circ R_{*}%
+                =%
+                \id_{\mathcal{P}(A)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(A)
+                    \arrow[r,"R_{*}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(B)
+                    \arrow[d,"R_{-1}"]
+                    \\
+                    \&
+                    \mathcal{P}(A)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        a\in A%
+                        \ \middle|\ %
+                        R^{-1}(R(a))\subset U%
+                    \}%
+                }_{=R_{-1}(R_{*}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(A)$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel-1}}%
@@ -4110,6 +4240,10 @@ Let $X$ be a set.
         \item Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-5}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-7}.
         \item Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}.
         \item Step 7: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-9}.
+        \item Step 8: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-10}.
+        \item Step 9: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-11}.
+        \item Step 10: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-12}.
+        \item Step 11: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-13}.
     \end{itemize}
     
     \ProofBox{Step 1: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-2}}%
@@ -4316,11 +4450,23 @@ Let $X$ be a set.
     \end{itemize}
     This finishes the proof.
 
-    \ProofBox{Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}}%
+    \ProofBox{Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}}%
     We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-3}.
 
-    \ProofBox{Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-9}}%
+    \ProofBox{Step 7: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-9}}%
+    We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-5}.
+
+    \ProofBox{Step 8: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-10}}%
     We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-3}.
+
+    \ProofBox{Step 9: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-11}}%
+    We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-5}.
+
+    \ProofBox{Step 10: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-12}}%
+    We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-5}.
+
+    \ProofBox{Step 11: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-13}}%
+    We defer this proof to \cref{characterisations-of-monomorphisms-in-rel-5}.
 \end{Proof}
 \begin{proposition}{Characterisations of Monomorphisms in $\sfRel$ \rmII}{characterisations-of-monomorphisms-in-rel-2}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:%
@@ -4380,7 +4526,7 @@ Let $X$ be a set.
     This finishes the proof.
 \end{Proof}
 \begin{corollary}{Characterisations of Monomorphisms in $\sfRel$ \rmIII}{characterisations-of-monomorphisms-in-rel-3}%
-    \cref{characterisations-of-monomorphisms-in-rel-1-1,characterisations-of-monomorphisms-in-rel-1-8,characterisations-of-monomorphisms-in-rel-1-9} of \cref{characterisations-of-monomorphisms-in-rel-1} are indeed equivalent.%
+    \cref{characterisations-of-monomorphisms-in-rel-1-1,characterisations-of-monomorphisms-in-rel-1-8,characterisations-of-monomorphisms-in-rel-1-10} of \cref{characterisations-of-monomorphisms-in-rel-1} are indeed equivalent.%
 \end{corollary}
 \begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel-3}}%
     \FirstProofBox{\cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-8}}%
@@ -4391,7 +4537,7 @@ Let $X$ be a set.
     \end{itemize}
     By \cref{characterisations-of-monomorphisms-in-rel-2}, \cref{characterisations-of-monomorphisms-in-rel-2-3} of \cref{characterisations-of-monomorphisms-in-rel-2} is equivalent to \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2}. Since \cref{characterisations-of-monomorphisms-in-rel-2-1} of \cref{characterisations-of-monomorphisms-in-rel-2} is exactly the same condition as \cref{characterisations-of-monomorphisms-in-rel-1-1} of \cref{characterisations-of-monomorphisms-in-rel-1}, the result follows.
 
-    \ProofBox{\cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-9}}%
+    \ProofBox{\cref{characterisations-of-monomorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-10}}%
     Indeed, we have
     \begin{align*}
         [R_{-1}\circ R_{!}](U) &\defeq R_{-1}(R_{!}(U))\\
@@ -4460,6 +4606,158 @@ Let $X$ be a set.
                 \item A similar argument shows that if $x\sim_{T}a$, then $x\sim_{S}a$.
                 \item Thus $S=T$, showing $R$ to be a monomorphism.
             \end{itemize}
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
+\begin{corollary}{Characterisations of Monomorphisms in $\sfRel$ \rmV}{characterisations-of-monomorphisms-in-rel-5}%
+    \cref{characterisations-of-monomorphisms-in-rel-1-1,characterisations-of-monomorphisms-in-rel-1-9,characterisations-of-monomorphisms-in-rel-1-11,characterisations-of-monomorphisms-in-rel-1-12,characterisations-of-monomorphisms-in-rel-1-13} of \cref{characterisations-of-monomorphisms-in-rel-1} are indeed equivalent.%
+\end{corollary}
+\begin{Proof}{Proof of \cref{characterisations-of-monomorphisms-in-rel-5}}%
+    We will prove this by showing:
+    \begin{itemize}
+        \item Step 1: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-11}.
+        \item Step 2: \cref{characterisations-of-monomorphisms-in-rel-1-11}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-1}.
+        \item Step 3: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-12}.
+        \item Step 4: \cref{characterisations-of-monomorphisms-in-rel-1-12}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-1}.
+        \item Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-9}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-13}.
+        \item Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-9}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-2}.
+    \end{itemize}
+
+    \FirstProofBox{Step 1: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-11}}%
+    Assume that $R$ is a monomorphism, which is equivalent to $R$ being total and injective by \cref{characterisations-of-monomorphisms-in-rel-1}. Let $S(U)\defeq\{a\in A \mid R(a)\cap R(U)\neq\emptyset\}$. We need to show that $U = S(U)$ for any $U \in \mathcal{P}(A)$ by proving double inclusion.
+    \begin{itemize}
+        \item\SloganFont{$U\subset S(U)$: }Let $u\in U$.
+            \begin{itemize}
+                \item Since $R$ is total, we have $R(u)\neq\emptyset$.
+                \item By definition, $R(U)=\bigcup_{x\in U}R(x)$, so $R(u)\subset R(U)$.
+                \item Therefore, $R(u)\cap R(U)=R(u)$.
+                \item Since $R(u)\neq\emptyset$, we have $R(u)\cap R(U)\neq\emptyset$.
+                \item By the definition of $S(U)$, it follows that $u\in S(U)$.
+            \end{itemize}
+        \item\SloganFont{$S(U)\subset U$: }Let $a\in S(U)$.
+            \begin{itemize}
+                \item By assumption, $R(a)\cap R(U)\neq\emptyset$.
+                \item This means $R(a)\cap\bigcup_{u\in U}R(u)\neq\emptyset$.
+                \item Using the distributivity of intersection over union, this is equivalent to $\bigcup_{u\in U}(R(a)\cap R(u))\neq\emptyset$.
+                \item For this union of sets to be non-empty, at least one of the sets in the union must be non-empty. Thus, there must exist some $u\in U$ such that $R(a)\cap R(u)\neq\emptyset$.
+                \item Since $R$ is injective, the images of distinct elements are disjoint. For the intersection $R(a)\cap R(u)$ to be non-empty, we must therefore have $a=u$.
+                \item Since $u\in U$, it follows that $a\in U$.
+            \end{itemize}
+    \end{itemize}
+    As both inclusions hold, we conclude that $U=S(U)$.
+
+    \ProofBox{Step 2: \cref{characterisations-of-monomorphisms-in-rel-1-11}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-1}}%
+    Assume that for every $U\in\mathcal{P}(A)$, we have $U=\{a\in A\ \middle|\ R(a)\cap R(U)\neq\emptyset\}$. We must show that $R$ is both total and injective.
+    \begin{itemize}
+        \item\SloganFont{Totality: }Let $a\in A$. We must show that $R(a)\neq\emptyset$.
+            \begin{itemize}
+                \item Consider the singleton set $U=\{a\}$.
+                \item By assumption, $U=\{x\in A\ \middle|\ R(x)\cap R(U)\neq\emptyset\}$.
+                \item Since $a\in U$, we must have $R(a)\cap R(U)\neq\emptyset$.
+                \item Substituting $U=\{a\}$, we get $R(a)\cap R(\{a\})\neq\emptyset$.
+                \item Since $R(\{a\})=R(a)$, this simplifies to $R(a)\cap R(a)=R(a)\neq\emptyset$.
+                \item Thus $R(a)\neq\emptyset$ for all $a\in A$, showing $R$ to be total.
+            \end{itemize}
+        \item\SloganFont{Injectivity: }Let $a,a'\in A$ such that $a\neq a'$. We must show that $R(a)\cap R(a')=\emptyset$.
+            \begin{itemize}
+                \item Consider the singleton set $U=\{a\}$.
+                \item By assumption, $U=\{x\in A\ \middle|\ R(x)\cap R(U)\neq\emptyset\}$.
+                \item Since $a\neq a'$, we have $a'\nin U$.
+                \item Therefore, $a'$ cannot satisfy the membership condition for $U$. This means $R(a')\cap R(U)=\emptyset$.
+                \item Substituting $U=\{a\}$, we get $R(a')\cap R(\{a\})=\emptyset$, which simplifies to $R(a')\cap R(a)=\emptyset$.
+                \item As this holds for any pair of distinct elements, the relation $R$ is injective.
+            \end{itemize}
+    \end{itemize}
+    This completes the proof.
+
+    \ProofBox{Step 3: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-12}}%
+    We proceed by taking a specific choice of subset $U$:
+    \begin{itemize}
+        \item Let $a$ be an arbitrary element of $A$. By our assumption, the condition $R^{-1}(R_{*}(U))=U$ must hold for the singleton set $U=\{a\}$.
+        \item From $R^{-1}(R_{*}(\{a\}))=\{a\}$, it follows that $a\in R^{-1}(R_{*}(\{a\}))$.
+        \item This means there must exist some $b\in R(a)$ such that $R^{-1}(b)\subset\{a\}$.
+        \item The condition $b\in R(a)$ implies that $a\in R^{-1}(b)$. Therefore, $R^{-1}(b)$ is a non-empty subset of $\{a\}$.
+        \item The only non-empty subset of $\{a\}$ is $\{a\}$ itself.
+        \item Thus, we must have $R^{-1}(b)=\{a\}$.
+    \end{itemize}
+
+    \ProofBox{Step 4: \cref{characterisations-of-monomorphisms-in-rel-1-12}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-1}}%
+    By \cref{characterisations-of-monomorphisms-in-rel-2-2} of \cref{characterisations-of-monomorphisms-in-rel-2}, for each $a\in A$, there exists some $b\in B$ such that $R^{-1}(b)=\{a\}$. We need to show that $R^{-1}(R_{*}(U))=U$ for any $U\in\mathcal{P}(A)$, which requires proving two set inclusions.
+    \begin{itemize}
+        \item\SloganFont{$R^{-1}(R_{*}(U))\subset U$: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $a\in R^{-1}(R_{*}(U))$.
+                \item By definition, there exists some $b\in R(a)$ such that $R^{-1}(b)\subset U$.
+                \item Since $b\in R(a)$ implies $a\in R^{-1}(b)$, it follows immediately that $a\in U$.
+                \item Thus, $R^{-1}(R_{*}(U))\subset U$.
+            \end{itemize}
+        \item\SloganFont{$U\subset R^{-1}(R_{*}(U))$: }Let $a\in U$. By assumption, there exists an element $b\in B$ such that $R^{-1}(b)=\{a\}$. Thus $R^{-1}(b)\subset U$, so $a\in R^{-1}(R_{*}(U))$.
+    \end{itemize}
+    Combining both inclusions gives $R^{-1}(R_{*}(U))=U$.
+
+    \ProofBox{Step 5: \cref{characterisations-of-monomorphisms-in-rel-1-9}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-13}}%
+    We claim that \cref{characterisations-of-monomorphisms-in-rel-1-13,characterisations-of-monomorphisms-in-rel-1-9} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1-13}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-9}: }Let $a\in A$.
+            \begin{itemize}
+                \item First, let $U=\{a\}$. By assumption, we have
+                    \[
+                        \{a\}%
+                        =%
+                        \{%
+                            a'\in A%
+                            \ \middle|\ %
+                            R^{-1}(R(a'))\subset\{a\}%
+                        \}.%
+                    \]
+                    Since $a$ is in the set on the left-hand side, it must also be in the set on the right-hand side. Thus $R^{-1}(R(a'))\subset\{a\}$ must be true.
+                \item Next, consider the complement $U=A\setminus\{a\}$. By assumption, we have
+                    \[
+                        A\setminus\{a\}%
+                        =%
+                        \{
+                            a'\in A%
+                            \ \middle|\ %
+                            R^{-1}(R(a'))\subset A\setminus\{a\}%
+                        \}%
+                    \]
+                    Since $a$ is not in the set on the left-hand side, it cannot be in the set on the right-hand side. Thus $R^{-1}(R(a))\nsubset A\setminus\{a\}$.
+                \item The statement $R^{-1}(R(a))\nsubset A\setminus\{a\}$ implies that there exists an element $x\in R^{-1}(R(a))$ such that $x\nin A\setminus\{a\}$. The only such element is $a$, so we must have $a\in R^{-1}(R(a))$.
+                \item Combining these two results, namely $R^{-1}(R(a))\subset\{a\}$ and $a\in R^{-1}(R(a))$, we conclude that $R^{-1}(R(a))=\{a\}$, as we wished to show.
+            \end{itemize}
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1-9}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-13}: }We have
+            \begin{align*}
+                R^{-1}(R_{*}(U)) &= \{a\in A\ \middle|\ R^{-1}(R(a))\subset U\}\\%
+                                 &= \{a\in A\ \middle|\ \{a\}\subset U\}\\%
+                                 &= U.
+            \end{align*}
+    \end{itemize}
+
+    \ProofBox{Step 6: \cref{characterisations-of-monomorphisms-in-rel-1-9}$\iff$\cref{characterisations-of-monomorphisms-in-rel-1-2}}%
+    We claim that \cref{characterisations-of-monomorphisms-in-rel-1-9,characterisations-of-monomorphisms-in-rel-1-2} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1-9}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-2}: }By definition,
+            \[
+                R^{-1}(R(a))%
+                =%
+                \{x\in A \mid R(x)\cap R(a)\neq\emptyset\}.%
+            \]%
+            The condition $R^{-1}(R(a))=\{a\}$ implies two facts:
+            \begin{itemize}
+                \item The element $a$ must belong to the set $\{x\in A \mid R(x)\cap R(a)\neq\emptyset\}$. For this to be true, the condition must hold for $x=a$, so $R(a)\cap R(a)\neq\emptyset$. This is equivalent to $R(a)\neq\emptyset$. Since this must hold for all $a\in A$, the relation $R$ is total.
+                \item Any element $x\in A$ such that $x\neq a$ must not belong to the set. This means that for any $x\neq a$, we must have $R(x)\cap R(a) = \emptyset$. This means the image sets of distinct elements of $A$ are pairwise disjoint.
+            \end{itemize}
+            Thus, $R$ is total and injective.
+        \item\SloganFont{\cref{characterisations-of-monomorphisms-in-rel-1-2}$\implies$\cref{characterisations-of-monomorphisms-in-rel-1-9}: }Let $a\in A$. We wish to show $R^{-1}(R(a))=\{a\}$.
+        \begin{itemize}
+            \item Let $x\in R^{-1}(R(a))$. By definition, this means $R(x)\cap R(a)\neq\emptyset$.
+            \item Since the image sets are pairwise disjoint, this can only be true if $x=a$.
+            \item Therefore, $R^{-1}(R(a))\subset\{a\}$.
+            \item Since $R$ is total, $R(a)$ is non-empty.
+            \item Thus $R(a)\cap R(a)\neq\emptyset$, which implies $a\in R^{-1}(R(a))$.
+            \item Therefore, $\{a\}\subset R^{-1}(R(a))$.
+        \end{itemize}
+        Combining both inclusions, we have $R^{-1}(R(a))=\{a\}$.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -4535,8 +4833,9 @@ Let $X$ be a set.
     \end{itemize}
     More specifically:
     \begin{itemize}
-        \item \cref{characterisations-of-epimorphisms-in-rel-1}             gives \emph{conceptual} characterisations of the epimorphisms in $\sfRel$.
-        \item \cref{characterisations-of-epimorphisms-in-rel-2}             gives \emph{point-set} characterisations of the epimorphisms in $\sfRel$.
+        \item \cref{characterisations-of-epimorphisms-in-rel-1}                       gives \emph{conceptual} characterisations of the epimorphisms in $\sfRel$.
+        \item \cref{characterisations-of-epimorphisms-in-rel-2}                       gives \emph{point-set} characterisations of the epimorphisms in $\sfRel$.
+        \item \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel} lists a few conditions that look natural but fail to characterise epimorphisms in $\sfRel$.
         \item \cref{characterisations-of-2-categorical-epimorphisms-in-rel-1,characterisations-of-2-categorical-epimorphisms-in-rel-2} characterise the 2-categorical epimorphisms in $\sfbfRel$.%
             %--- Begin Footnote ---%
             \footnote{%
@@ -4722,6 +5021,53 @@ Let $X$ be a set.
                     \mathcal{P}(B)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        b\in B%
+                        \ \middle|\ %
+                        R^{-1}(b)\subset R^{-1}(U)%
+                    \}%
+                }_{=R_{*}(R^{-1}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(B)$.
+        \item\label{characterisations-of-epimorphisms-in-rel-1-9}We have
+            \begin{webcompile}
+                R_{!}\circ R_{-1}%
+                =%
+                \id_{\mathcal{P}(B)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(B)
+                    \arrow[r,"R_{-1}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(A)
+                    \arrow[d,"R_{!}"]
+                    \\
+                    \&
+                    \mathcal{P}(B)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        b\in B%
+                        \ \middle|\ %
+                        \begin{aligned}%
+                            &\text{there exists some $a\in R^{-1}(b)$}\\%
+                            &\text{such that we have $R(a)\subset U$}%
+                        \end{aligned}%
+                    \}%
+                }_{=R_{!}(R_{-1}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(B)$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel-1}}%
@@ -4733,6 +5079,7 @@ Let $X$ be a set.
         \item Step 4: \cref{characterisations-of-epimorphisms-in-rel-1-4}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-6}.
         \item Step 5: \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-7}.
         \item Step 6: \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-8}.
+        \item Step 7: \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-9}.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-epimorphisms-in-rel-1-2}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-3} and \cref{characterisations-of-epimorphisms-in-rel-1-3}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-5}}%
@@ -4945,6 +5292,9 @@ Let $X$ be a set.
 
     \ProofBox{Step 6: \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-8}}%
     We defer this proof to \cref{characterisations-of-epimorphisms-in-rel-3}.
+
+    \ProofBox{Step 6: \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-9}}%
+    We defer this proof to \cref{characterisations-of-epimorphisms-in-rel-4}.
 \end{Proof}
 \begin{proposition}{Characterisations of Epimorphisms in $\sfRel$ \rmII}{characterisations-of-epimorphisms-in-rel-2}%
     Let $R\colon A\rightproarrow B$ be a relation. The following conditions are equivalent:%
@@ -4953,11 +5303,7 @@ Let $X$ be a set.
         \item\label{characterisations-of-epimorphisms-in-rel-2-2}For each $b\in B$ and each $U\in\mathcal{P}(B)$, if $R^{-1}(b)\subset R^{-1}(U)$, then $b\in U$.
         \item\label{characterisations-of-epimorphisms-in-rel-2-3}For each $b\in B$, there exists some $a\in A$ such that $R(a)=\{b\}$.
     \end{enumerate}
-    Moreover, if $R$ is an epimorphism, then it satisfies the following condition, and the converse holds if $R$ is functional:
-    \begin{enumerate}
-        \item\label{characterisations-of-epimorphisms-in-rel-2-4}For each $b\in B$, there exists some $a\in A$ such that $a\sim_{R}b$.
-        \item\label{characterisations-of-epimorphisms-in-rel-2-5}We have $\Im(R)=B$.
-    \end{enumerate}
+    Moreover, if $R$ is an epimorphism, then it is surjective, and the converse holds if $R$ is functional.
 \end{proposition}
 \begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel-2}}%
     We will prove this by showing:
@@ -5009,9 +5355,9 @@ Let $X$ be a set.
     \end{itemize}
 
     \ProofBox{Step 4: Proof of the Second Half of \cref{characterisations-of-epimorphisms-in-rel-2}}%
-    We claim that $R$ being an epimorphism implies condition ($\star$), and the converse holds if $R$ is total:
+    We claim that $R$ being an epimorphism implies surjectivity, and the converse holds if $R$ is functional:
     \begin{itemize}
-        \item\SloganFont{If $R$ Is an Epimorphism, Then ($\star$) Holds: }Consider the diagram
+        \item\SloganFont{If $R$ Is an Epimorphism, Then $R$ Is Surjective: }Consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -5047,9 +5393,9 @@ Let $X$ be a set.
                     \end{itemize}
                 \item Now, since $R$ is an epimorphism, we have $S=T$.
                 \item However, by the definition of $T$, this implies $\Im(R)=B$.
-                \item Thus condition ($\star$) holds.
+                \item Thus $R$ is surjective.
             \end{itemize}
-        \item\SloganFont{If $R$ Is Functional and ($\star$) Holds, Then $R$ Is an Epimorphism: }Let $U,V\in\mathcal{P}(B)$, consider the diagram
+        \item\SloganFont{If $R$ Is Functional and Surjective, Then $R$ Is an Epimorphism: }Let $U,V\in\mathcal{P}(B)$, consider the diagram
             \[
                 \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
@@ -5064,7 +5410,7 @@ Let $X$ be a set.
             \]%
             where $R_{-1}(U)=R_{-1}(V)$, and let $b\in U$.
             \begin{itemize}
-                \item By condition ($\star$), there exists some $a\in A$ such that $a\in R^{-1}(b)$.
+                \item By surjectivity, there exists some $a\in A$ such that $a\in R^{-1}(b)$.
                 \item Since $R_{-1}(U)=R_{-1}(V)$, if $R(a)\subset U$, then $R(a)\subset V$.
                 \item Since $R$ is functional, we have $R(a)=\{b\}$, so $R(a)\subset U$.
                 \item Thus, $R(a)\subset V$, and $b\in V$.
@@ -5100,6 +5446,260 @@ Let $X$ be a set.
         U,%
     \]%
     which holds precisely when \cref{characterisations-of-epimorphisms-in-rel-2-2} of \cref{characterisations-of-epimorphisms-in-rel-2} does. By \cref{characterisations-of-epimorphisms-in-rel-2}, that in turn holds precisely if \cref{characterisations-of-epimorphisms-in-rel-2-1} of \cref{characterisations-of-epimorphisms-in-rel-2} holds. Since \cref{characterisations-of-epimorphisms-in-rel-2-1} of \cref{characterisations-of-epimorphisms-in-rel-2} is exactly the same condition as \cref{characterisations-of-epimorphisms-in-rel-1-1} of \cref{characterisations-of-epimorphisms-in-rel-1}, the result follows.
+\end{Proof}
+\begin{corollary}{Characterisations of Epimorphisms in $\sfRel$ \rmIV}{characterisations-of-epimorphisms-in-rel-4}%
+    \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-9} of \cref{characterisations-of-epimorphisms-in-rel-1} are indeed equivalent.
+\end{corollary}
+\begin{Proof}{Proof of \cref{characterisations-of-epimorphisms-in-rel-4}}%
+    \FirstProofBox{\cref{characterisations-of-epimorphisms-in-rel-1-1}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-9}}%
+    To show that $R$ is an epimorphism, we will prove that for each $b\in B$, there exists some $a\in A$ such that $R(a)=\{b\}$. The will then follow from \cref{characterisations-of-epimorphisms-in-rel-2-3} of \cref{characterisations-of-epimorphisms-in-rel-2}.
+    \begin{itemize}
+        \item Let $b\in B$ and consider $U=\{b\}$.
+        \item By assumption, we have $U=R_{!}(R_{-1}(U))$.
+        \item In particular, this means that $b\in R_{!}(R_{-1}(\{b\}))$.
+        \item Unwinding the definition, this means there exists some $a\in R^{-1}(b)$ such that $R(a)\subset\{b\}$.
+            \begin{itemize}
+                \item The condition $a\in R^{-1}(b)$ implies that $b\in R(a)$.
+                \item The condition $R(a)\subset\{b\}$ implies that every element of $R(a)$ must be $b$.
+            \end{itemize}
+        \item For $R(a)$ to be a non-empty subset of $\{b\}$, it must be the case that $R(a)=\{b\}$.
+    \end{itemize}
+    This completes the proof.
+
+    \ProofBox{\cref{characterisations-of-epimorphisms-in-rel-1-9}$\implies$\cref{characterisations-of-epimorphisms-in-rel-1-1}}%
+    We wish to show that for any $U\in\mathcal{P}(B)$, we have $U = R_{!}(R_{-1}(U))$. This requires proving two set inclusions.
+    \begin{itemize}
+        \item\SloganFont{$R_{!}(R_{-1}(U))\subset U$: }Let $b\in R_{!}(R_{-1}(U))$.
+            \begin{itemize}
+                \item By definition, there exists an $a\in A$ such that $a\in R^{-1}(b)$ and $R(a)\subset U$.
+                \item The condition $a\in R^{-1}(b)$ means that $b\in R(a)$.
+                \item Since $b\in R(a)$ and $R(a)\subset U$, it follows directly that $b\in U$.
+                \item Therefore, $R_{!}(R_{-1}(U))\subset U$.
+            \end{itemize}
+        \item\SloganFont{$U\subset R_{!}(R_{-1}(U))$: }Let $b \in U$.
+            \begin{itemize}
+                \item By \cref{characterisations-of-epimorphisms-in-rel-2-3} of \cref{characterisations-of-epimorphisms-in-rel-2}, there exists an element $a\in A$ such that $R(a)=\{b\}$.
+                \item We must verify that this choice of $a$ places $b$ into the set $R_{!}(R_{-1}(U))$. This requires checking two conditions:
+                    \begin{itemize}
+                        \item $a\in R^{-1}(b)$: Since $R(a)=\{b\}$, we have $b\in R(a)$, which is equivalent to $a\in R^{-1}(b)$.
+                        \item $R(a)\subset U$:  Since $R(a)=\{b\}$ and we assumed $b\in U$, we have $\{b\}\subset U$, so the condition holds.
+                    \end{itemize}
+                \item As both conditions are met, it follows that $b\in R_{!}(R_{-1}(U))$.
+                \item Therefore, $U\subset R_{!}(R_{-1}(U))$.
+            \end{itemize}
+    \end{itemize}
+    As both inclusions hold, we conclude that $U=R_{!}(R_{-1}(U))$, which is precisely the statement of \cref{characterisations-of-epimorphisms-in-rel-1-9}.
+\end{Proof}
+\begin{warning}{Natural Conditions That Fail To Characterise Epimorphisms in $\sfRel$}{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel}%
+    The following conditions are equivalent and imply $R$ is an epimorphism, but the converse may fail. Thus they are \demph{not} equivalent to $R$ being an epimorphism:
+    \begin{enumerate}
+        \item\label{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}The relation $R$ is a surjective partial function.
+        \item\label{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    B
+                    \arrow[r,"R^{-1}"]
+                    \arrow[rd,"\chi_{B}"',hook]
+                    \&
+                    \mathcal{P}(A)
+                    \arrow[d,"R_{!}"]
+                    \\
+                    \&
+                    \mathcal{P}(B)%
+                \end{tikzcd}
+            \]%
+            commutes. In other words, we have
+            \[
+                R_{!}(R^{-1}(b))%
+                =%
+                \{b\}%
+            \]%
+            for each $b\in B$.
+        \item\label{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-3}We have
+            \begin{webcompile}
+                R_{!}\circ R^{-1}%
+                =%
+                \id_{\mathcal{P}(B)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(B)
+                    \arrow[r,"R^{-1}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(A)
+                    \arrow[d,"R_{!}"]
+                    \\
+                    \&
+                    \mathcal{P}(B)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        b\in B%
+                        \ \middle|\ %
+                        R^{-1}(b)\cap R^{-1}(U)\neq\emptyset%
+                    \}%
+                }_{=R_{!}(R^{-1}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(B)$.
+        \item\label{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-4}We have
+            \begin{webcompile}
+                R_{*}\circ R_{-1}%
+                =%
+                \id_{\mathcal{P}(B)}%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(B)
+                    \arrow[r,"R_{-1}"]
+                    \arrow[rd,Equals]
+                    \&
+                    \mathcal{P}(A)
+                    \arrow[d,"R_{*}"]
+                    \\
+                    \&
+                    \mathcal{P}(B)\mrp{.}
+                \end{tikzcd}
+            \end{webcompile}
+            In other words, we have
+            \[
+                U%
+                =%
+                \underbrace{%
+                    \{%
+                        b\in B%
+                        \ \middle|\ %
+                        R(R^{-1}(b))\subset U%
+                    \}%
+                }_{=R_{*}(R_{-1}(U))}%
+            \]%
+            for each $U\in\mathcal{P}(B)$.
+    \end{enumerate}
+\end{warning}
+\begin{Proof}{Proof of \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel}}%
+    First, note that the relation depicted in \cref{explanation-epimorphisms-in-rel} is not a surjective partial function, but it is an epimorphism in $\sfRel$ by \cref{characterisations-of-epimorphisms-in-rel-2}, the next proposition. Moreover, partial surjective functions are epimorphisms by \cref{characterisations-of-epimorphisms-in-rel-2}. For the rest of the proposition, we proceed by showing:
+    \begin{itemize}
+        \item Step 1: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}$\iff$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}.
+        \item Step 2: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-3}.
+        \item Step 3: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-3}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}.
+        \item Step 4: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-4}.
+        \item Step 5: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-4}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}.
+    \end{itemize}
+
+    \ProofBox{Step 1: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}$\iff$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}}%
+    Note that we have
+    \[
+        R_{!}(R^{-1}(b))%
+        \defeq%
+        \{%
+            b'\in B%
+            \ \middle|\ %
+            R^{-1}(b')\cap R^{-1}(b)\neq\emptyset%
+        \}.%
+    \]%
+    We now claim \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1,natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Since $R$ is functional, $R^{-1}(b)$ has at most  one element.
+                \item Since $R$ is surjective, $R^{-1}(b)$ has at least one element.
+                \item Thus, $R^{-1}(b)$ is a singleton.
+                \item The set $R(R^{-1}(b))$ will then be precisely $\{b\}$.
+            \end{itemize}
+        \item\SloganFont{\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}: }We claim $R$ is functional and surjective.
+            \begin{itemize}
+                \item\SloganFont{Functionality. }The inclusion
+                    \[
+                        R_{!}(R^{-1}(b))%
+                        \subset%
+                        \{b\}%
+                    \]%
+                    implies that if $a\in R(b')$ and $a\in R(b)$, then $b=b'$. Thus $R$ must be functional.
+                \item\SloganFont{Surjectivity. }The inclusion
+                    \[
+                        \{b\}%
+                        \subset%
+                        R_{!}(R^{-1}(b))%
+                    \]%
+                    implies $R^{-1}(b)\neq\emptyset$, so $R$ must be surjective.
+            \end{itemize}
+            Since $R$ is functional and surjective, it is a surjective partial function.
+    \end{itemize}
+
+    \ProofBox{Step 2: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-3}}%
+    We have
+    \begin{align*}
+        [R_{!}\circ R^{-1}](U) &\defeq R_{!}(R^{-1}(U))\\
+                               &=      R_{!}\left(R^{-1}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
+                               &=      R_{!}\left(\bigcup_{u\in U}R^{-1}(\{u\})\right)\\
+                               &=      \bigcup_{u\in U}R_{!}(R^{-1}(\{u\}))\\
+                               &=      \bigcup_{u\in U}\{u\}\\
+                               &=      U
+    \end{align*}
+    for each $U\in\mathcal{P}(B)$, where we have used:
+    \begin{itemize}
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-interaction-with-binary-unions} of \cref{properties-of-inverse-image-functions-associated-to-relations} for the third equality.
+        \item \cref{properties-of-direct-image-functions-associated-to-relations-interaction-with-binary-unions} of \cref{properties-of-direct-image-functions-associated-to-relations} for the fourth equality.
+        \item \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2} of this proposition for the fifth equality.
+    \end{itemize}
+
+    \ProofBox{Step 3: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-3}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}}%
+    Taking $U=\{b\}$ gives $R_{!}(R^{-1}(b))=\{b\}$.
+
+    \ProofBox{Step 4: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-2}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-4}}%
+    We have
+    \begin{align*}
+        R_{*}(R_{-1}(U)) &= \{b\in B\ \middle|\ R(R^{-1}(b))\subset U\}\\
+                         &= \{b\in B\ \middle|\ \{b\}\subset U\}\\
+                         &= U.
+    \end{align*}
+
+    \ProofBox{Step 5: \cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-4}$\implies$\cref{natural-conditions-that-fail-to-characterise-epimorphisms-in-rel-1}}%
+    Suppose that for each $U\in\mathcal{P}(B)$, we have $R_{*}(R_{-1}(U))=U$. We must show that $R$ is functional and surjective.
+    \begin{itemize}
+        \item\SloganFont{Functionality: }We show that if $b,b'\in R(a)$, then $b=b'$.
+            \begin{itemize}
+                \item Consider the singleton set $U=\{b\}$. By the assumed identity, we have
+                    \[
+                        \{b\}%
+                        =%
+                        \{%
+                            b\in B%
+                            \ \middle|\ %
+                            R(R^{-1}(b))\subset\{b\}%
+                        \}.%
+                    \]
+                \item Since $b$ is an element of the set on the left-hand side, it must satisfy the membership condition on the right-hand side. Thus, we have $R(R^{-1}(b))\subset\{b\}$.
+                \item By assumption, $b\in R(a)$, which implies $a\in R^{-1}(b)$.
+                \item By assumption, we also have $b'\in R(a)$.
+                \item Since $a\in R^{-1}(b)$, it follows that the image of $a$ is contained in the image of the set $R^{-1}(b)$, i.e., $R(a)\subset R(R^{-1}(b))$.
+                \item Combining these steps, we have $b'\in R(a)\subset R(R^{-1}(b))$.
+                \item As we established that $R(R^{-1}(b))\subset\{b\}$, we must have $b'\in\{b\}$.
+                \item Therefore, $b'=b$, which shows $R$ to be functional.
+            \end{itemize}
+        \item\SloganFont{Surjectivity: }We show that for each $b\in B$, the preimage set $R^{-1}(b)$ is non-empty.
+            \begin{itemize}
+                \item Consider the empty set $U=\emptyset$. By the assumed identity, we have
+                    \[
+                        \emptyset%
+                        =%
+                        \{%
+                            b\in B%
+                            \ \middle|\ %
+                            R(R^{-1}(b))\subset\emptyset%
+                        \}.%
+                    \]
+                \item The identity thus states that there is no element $b\in B$ for which $R(R^{-1}(b))$ is the empty set.
+                \item In other words, for each $b\in B$, we must have $R(R^{-1}(b))\neq\emptyset$.
+                \item The image of a set $R(S)$ is empty \textiff the set $S$ is empty.
+                \item Therefore, the condition $R(R^{-1}(b))\neq\emptyset$ is equivalent to the condition $R^{-1}(b)\neq\emptyset$.
+                \item Thus, $R$ is surjective.
+            \end{itemize}
+    \end{itemize}
+    Since $R$ is both functional and surjective, it is a surjective partial function. This finishes the proof.
 \end{Proof}
 \begin{remark}{Epimorphisms in $\sfRel$ Give Rise to Antichains}{epimorphisms-in-rel-give-rise-to-antichains}%
     Taking the contrapositive of \cref{characterisations-of-epimorphisms-in-rel-2-2} of \cref{characterisations-of-epimorphisms-in-rel-2} and letting $U=\{b'\}$ shows that the subset
@@ -5142,7 +5742,7 @@ Let $X$ be a set.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-1}The morphism $R\colon A\rightproarrow B$ is an epimorphism in $\sfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-2}The 1-morphism $R\colon A\rightproarrow B$ is corepresentably full in $\sfbfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-3}The 1-morphism $R\colon A\rightproarrow B$ is corepresentably fully faithful in $\sfbfRel$.
-        \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-4}The 1-morphism $R\colon A\rightproarrow B$ is pseudomonic in $\sfbfRel$.
+        \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-4}The 1-morphism $R\colon A\rightproarrow B$ is pseudoepic in $\sfbfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-5}The 1-morphism $R\colon A\rightproarrow B$ is corepresentably essentially injective in $\sfbfRel$.
         \item\label{characterisations-of-2-categorical-epimorphisms-in-rel-2-6}The 1-morphism $R\colon A\rightproarrow B$ is corepresentably conservative in $\sfbfRel$.
     \end{enumerate}
@@ -6383,6 +6983,7 @@ This will be expanded later on.
 \section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
+% modify the definition below so that the formula R_!(U) = B in B | R^{-1}(B)\cap U\neq\emptyset appears.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rshriek@$R^{"!}$}%
     %--- Begin Footnote ---%

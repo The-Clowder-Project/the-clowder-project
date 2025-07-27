@@ -13535,6 +13535,618 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor}: The Dualisation Functor}%
     This is a repetition of \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2,properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3} of \cref{properties-of-internal-homs-of-powersets} and is proved there.
 \end{Proof}
+\section{Miscellany}\label{section-constructions-with-sets-miscellany}
+\subsection{Injective Functions}\label{subsection-injective-functions}
+Let $A$ and $B$ be sets.
+\begin{definition}{Injective Functions}{injective-functions}%
+    A function $f\colon A\to B$ is \index[set-theory]{injective}\textbf{injective} if it satisfies the following condition:
+    \begin{itemize}
+        \itemstar For each $a,a'\in A$, if $f(a)=f(a')$, then $a=a'$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Injective Functions}{properties-of-injective-functions}%
+    Let $f\colon A\to B$ be a function.
+    \begin{enumerate}
+        \item\label{properties-of-injective-functions-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \cref{properties-of-injective-functions-characterisations-3,properties-of-injective-functions-characterisations-4,properties-of-injective-functions-characterisations-5,properties-of-injective-functions-characterisations-6} unwind respectively to the following statements:
+                \begin{itemize}
+                    \item For each $U,V\in\mathcal{P}(A)$, if $f_{!}(U)=f_{!}(V)$, then $U=V$.%
+                    \item For each $U,V\in\mathcal{P}(A)$, if $f_{*}(U)=f_{*}(V)$, then $U=V$.
+                    \item For each $U,V\in\mathcal{P}(A)$, if $f_{!}(U)\subset f_{!}(V)$, then $U\subset V$.
+                    \item For each $U,V\in\mathcal{P}(A)$, if $f_{*}(U)\subset f_{*}(V)$, then $U\subset V$.
+                \end{itemize}
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{enumerate}
+                \item\label{properties-of-injective-functions-characterisations-1}The function $f$ is injective.
+                \item\label{properties-of-injective-functions-characterisations-2}The function $f$ is a monomorphism in $\Sets$.
+                \item\label{properties-of-injective-functions-characterisations-3}The direct image function
+                    \[
+                        f_{!}%
+                        \colon%
+                        \mathcal{P}(A)%
+                        \to%
+                        \mathcal{P}(B)%
+                    \]%
+                    associated to $f$ is injective.
+                \item\label{properties-of-injective-functions-characterisations-4}The codirect image function
+                    \[
+                        f_{*}%
+                        \colon%
+                        \mathcal{P}(A)%
+                        \to%
+                        \mathcal{P}(B)%
+                    \]%
+                    associated to $f$ is injective.
+                \item\label{properties-of-injective-functions-characterisations-5}The direct image functor
+                    \[
+                        f_{!}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is full.
+                \item\label{properties-of-injective-functions-characterisations-6}The codirect image function
+                    \[
+                        f_{*}%
+                        \colon%
+                        \mathcal{P}(A)%
+                        \to%
+                        \mathcal{P}(B)%
+                    \]%
+                    associated to $f$ is full.
+                \item\label{properties-of-injective-functions-characterisations-7}The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            A
+                            \arrow[r,"f"]
+                            \arrow[rd,"\chi_{A}"',hook]
+                            \&
+                            B
+                            \arrow[d,"f^{-1}"]
+                            \\
+                            \&
+                            \mathcal{P}(A)%
+                        \end{tikzcd}
+                    \]%
+                    commutes. That is, we have
+                    \[
+                        f^{-1}(f(a))=\{a\}%
+                    \]%
+                    for each $a\in A$.
+                \item\label{properties-of-injective-functions-characterisations-8}We have
+                    \begin{webcompile}
+                        f^{-1}\circ f_{!}%
+                        =%
+                        \id_{\mathcal{P}(A)}%
+                        \quad%
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(A)
+                            \arrow[r,"f_{!}"]
+                            \arrow[rd,Equals]
+                            \&
+                            \mathcal{P}(B)
+                            \arrow[d,"f^{-1}"]
+                            \\
+                            \&
+                            \mathcal{P}(A)\mrp{.}
+                        \end{tikzcd}
+                    \end{webcompile}
+                    In other words, we have
+                    \[
+                        \{%
+                            a\in A%
+                            \ \middle|\ %
+                            f(a)\in f(U)%
+                        \}%
+                        =%
+                        U%
+                    \]%
+                    for each $U\in\mathcal{P}(A)$.
+                \item\label{properties-of-injective-functions-characterisations-9}We have
+                    \begin{webcompile}
+                        f^{-1}\circ f_{*}%
+                        =%
+                        \id_{\mathcal{P}(A)}%
+                        \quad%
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(A)
+                            \arrow[r,"f_{*}"]
+                            \arrow[rd,Equals]
+                            \&
+                            \mathcal{P}(B)
+                            \arrow[d,"f^{-1}"]
+                            \\
+                            \&
+                            \mathcal{P}(A)\mrp{.}
+                        \end{tikzcd}
+                    \end{webcompile}
+                    In other words, we have
+                    \[
+                        \{%
+                            a\in A%
+                            \ \middle|\ %
+                            f^{-1}(f(a))\subset U%
+                        \}%
+                        =%
+                        U%
+                    \]%
+                    for each $U\in\mathcal{P}(A)$.
+            \end{enumerate}
+        %\item\label{properties-of-injective-functions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-injective-functions}}%
+    \FirstProofBox{\cref{properties-of-injective-functions-characterisations}: Characterisations}%
+    We will proceed by showing:
+    \begin{itemize}
+        \item Step 1: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-2}.
+        \item Step 2: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-3}.
+        \item Step 3: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-4}.
+        \item Step 4: \cref{properties-of-injective-functions-characterisations-3}$\iff$\cref{properties-of-injective-functions-characterisations-5}.
+        \item Step 5: \cref{properties-of-injective-functions-characterisations-5}$\iff$\cref{properties-of-injective-functions-characterisations-6}.
+        \item Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-7}.
+        \item Step 7: \cref{properties-of-injective-functions-characterisations-7}$\iff$\cref{properties-of-injective-functions-characterisations-8}.
+        \item Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-9}.
+    \end{itemize}
+
+    \SubProofBox{Step 1: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-2}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-1,properties-of-injective-functions-characterisations-2} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-2}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Proceeding by contrapositive, we claim that given a pair of maps $g,h\colon C\rightrightarrows A$ such that $g\neq h$, we have $f\circ g\neq f\circ h$.
+                \item Indeed, as $g$ and $h$ are different maps, there must exist at least one element $x\in C$ such that $g(x)\neq h(x)$.
+                \item But then we have $f(g(x))\neq f(h(x))$, as $f$ is injective.
+                \item Thus $f\circ g\neq f\circ h$, and we are done.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-2}$\implies$\cref{properties-of-injective-functions-characterisations-1}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Consider the diagram
+                    \[
+                        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \pt%
+                            \arrow[r, "{[x]}",  shift left =0.8]%
+                            \arrow[r, "{[y]}"', shift right=0.8]%
+                            \&%
+                            A
+                            \arrow[r, "f"]%
+                            \&%
+                            B\mrp{,}%
+                        \end{tikzcd}
+                    \]%
+                    where $[x]$ and $[y]$ are the morphisms picking the elements $x$ and $y$ of $A$.
+                \item Note that we have $f(x)=f(y)$ \textiff $f\circ[x]=f\circ[y]$.
+                \item Since $f$ is assumed to be a monomorphism, if $f(x)=f(y)$, then $f\circ[x]=f\circ[y]$ and therefore $[x]=[y]$.
+                \item This shows that if $f(x)=f(y)$, then $x=y$, so $f$ is injective.
+            \end{itemize}
+    \end{itemize}
+
+    \SubProofBox{Step 2: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-3}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-1,properties-of-injective-functions-characterisations-3} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-3}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Assume that $f$ is injective and let $U,V\in\mathcal{P}(A)$ such that $f_{!}(U)=f_{!}(V)$. We wish to show that $U=V$.
+                \item To show that $U\subset V$, let $u\in U$.
+                \item By the definition of the direct image, we have $f(u)\in f_{!}(U)$.
+                \item Since $f_{!}(U)=f_{!}(V)$, it follows that $f(u)\in f_{!}(V)$.
+                \item Thus, there exists some $v\in V$ such that $f(v)=f(u)$.
+                \item Since $f$ is injective, the equality $f(v)=f(u)$ implies that $v=u$.
+                \item Thus $u\in V$ and $U\subset V$.
+                \item A symmetric argument shows that $V\subset U$.
+                \item Therefore $U=V$, showing $f_{!}$ to be injective.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-3}$\implies$\cref{properties-of-injective-functions-characterisations-1}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Assume that the direct image function $f_{!}$ is injective and let $a,a'\in A$ such that $f(a)=f(a')$. We wish to show that $a=a'$.
+                \item Since
+                    \begin{align*}
+                        f_{!}(\{a\}) &= \{f(a)\}\\
+                                     &= \{f(a')\}\\
+                                     &= f_{!}(\{a'\}),
+                    \end{align*}
+                    we must have $\{a\}=\{a'\}$, as $f_{!}$ is injective, so $a=a'$, showing $f$ to be injective.
+            \end{itemize}
+    \end{itemize}
+
+    \SubProofBox{Step 3: \cref{properties-of-injective-functions-characterisations-3}$\iff$\cref{properties-of-injective-functions-characterisations-4}}%
+    This follows from \cref{properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}.
+
+    \SubProofBox{Step 4: \cref{properties-of-injective-functions-characterisations-3}$\iff$\cref{properties-of-injective-functions-characterisations-5}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-3,properties-of-injective-functions-characterisations-5} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-3}$\implies$\cref{properties-of-injective-functions-characterisations-5}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $U,V\in\mathcal{P}(A)$ such that $f_{!}(U)\subset f_{!}(V)$, assume $f_{!}$ to be injective, and consider the set $U\cup V$.
+                \item Since $f_{!}(U)\subset f_{!}(V)$, we have
+                    \begin{align*}
+                        f_{!}(U\cup V) &= f_{!}(U)\cup f_{!}(V)\\
+                                       &= f_{!}(V),
+                    \end{align*}
+                    where we have used \cref{properties-of-direct-images-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-i} for the first equality.
+                \item Since $f_{!}$ is injective, this implies $U\cup V=V$.
+                \item Thus $U\subset V$, as we wished to show.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-3}$\implies$\cref{properties-of-injective-functions-characterisations-5}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Suppose \cref{properties-of-injective-functions-characterisations-5} holds, and let $U,V\in\mathcal{P}(A)$ such that $f_{!}(U)=f_{!}(V)$.
+                \item Since $f_{!}(U)=f_{!}(V)$, we have $f_{!}(U)\subset f_{!}(V)$ and $f_{!}(V)\subset f_{!}(U)$.
+                \item By assumption, this implies $U\subset V$ and $V\subset U$.
+                \item Thus $U=V$, showing $f_{!}$ to be injective.
+            \end{itemize}
+    \end{itemize}
+
+    \SubProofBox{Step 5: \cref{properties-of-injective-functions-characterisations-5}$\iff$\cref{properties-of-injective-functions-characterisations-6}}%
+    This follows from \cref{properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}.
+
+    \SubProofBox{Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-7}}%
+    We have
+    \[
+        f^{-1}(f(a))%
+        =%
+        \{%
+            a'\in A%
+            \ \middle|\ %
+            f(a')=f(a)%
+        \}%
+    \]%
+    so the condition $f^{-1}(f(a))=\{a\}$ states precisely that if $f(a')=f(a)$, then $a'=a$.
+
+    \SubProofBox{Step 7: \cref{properties-of-injective-functions-characterisations-7}$\iff$\cref{properties-of-injective-functions-characterisations-8}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-7,properties-of-injective-functions-characterisations-8} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-7}$\implies$\cref{properties-of-injective-functions-characterisations-8}: }We have
+            \begin{align*}
+                [f^{-1}\circ f_{!}](U) &\defeq f^{-1}(f_{!}(U))\\
+                                       &=      f^{-1}\left(f_{!}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
+                                       &=      f^{-1}\left(\bigcup_{u\in U}f_{!}(\{u\})\right)\\
+                                       &=      \bigcup_{u\in U}f^{-1}(f_{!}(\{u\}))\\
+                                       &=      \bigcup_{u\in U}f^{-1}(f_{!}(u))\\
+                                       &=      \bigcup_{u\in U}\{u\}\\
+                                       &=      U
+            \end{align*}
+            for each $U\in\mathcal{P}(A)$, where we have used \cref{properties-of-direct-images-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-i} for the third equality and \cref{properties-of-inverse-images-i-interaction-with-binary-unions} of \cref{properties-of-inverse-images-i} for the fourth equality.
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-8}$\implies$\cref{properties-of-injective-functions-characterisations-7}: }Applying the condition $f^{-1}\circ f_{!}=\id_{\mathcal{P}(A)}$ to $U=\{a\}$ gives
+            \[
+                f^{-1}(f_{!}(\{a\}))%
+                =%
+                \{a\}.%
+            \]%
+    \end{itemize}
+
+    \SubProofBox{Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-9}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-1,properties-of-injective-functions-characterisations-9} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-9}: }If $f$ is injective, then $f^{-1}(f(a))=\{a\}$, so we have
+            \begin{align*}
+                f^{-1}(f_{*}(a)) &= \{%
+                                        a\in A%
+                                        \ \middle|\ %
+                                        \{a\}\subset U%
+                                    \}\\%
+                                 &= U.
+            \end{align*}
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-9}$\implies$\cref{properties-of-injective-functions-characterisations-1}: }For $U=\{a\}$, the condition $f^{-1}(f_{*}(U))=U$ becomes
+            \[
+                \{%
+                    a'\in A%
+                    \ \middle|\ %
+                    f^{-1}(f(a'))\subset\{a\}%
+                \}%
+                =%
+                \{a\}.%
+            \]%
+            Since the set $f^{-1}(f(a'))$ is given by%
+            \[
+                \{%
+                    a\in A%
+                    \ \middle|\ %
+                    f(a)=f(a')%
+                \},%
+            \]%
+            it follows that $f$ is injective.
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
+\subsection{Surjective Functions}\label{subsection-surjective-functions}
+Let $A$ and $B$ be sets.
+\begin{definition}{Surjective Functions}{surjective-functions}%
+    A function $f\colon A\to B$ is \index[set-theory]{surjective}\textbf{surjective} if it satisfies the following condition:
+    \begin{itemize}
+        \itemstar For each $b\in B$, there exists some $a\in A$ such that $f(a)=b$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Surjective Functions}{properties-of-surjective-functions}%
+    Let $f\colon A\to B$ be a function.
+    \begin{enumerate}
+        \item\label{properties-of-surjective-functions-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-surjective-functions-characterisations-1}The function $f$ is surjective.
+                \item\label{properties-of-surjective-functions-characterisations-2}The function $f$ is an epimorphism in $\Sets$.
+                \item\label{properties-of-surjective-functions-characterisations-3}The inverse image function
+                    \[
+                        f^{-1}%
+                        \colon%
+                        \mathcal{P}(B)%
+                        \to%
+                        \mathcal{P}(A)%
+                    \]%
+                    associated to $f$ is injective.
+                \item\label{properties-of-surjective-functions-characterisations-4}The inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        (\mathcal{P}(B),\subset)%
+                        \to%
+                        (\mathcal{P}(A),\subset)%
+                    \]%
+                    associated to $f$ is full.
+                \item\label{properties-of-surjective-functions-characterisations-5}The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            B
+                            \arrow[r,"f^{-1}"]
+                            \arrow[rd,"\chi_{B}"',hook]
+                            \&
+                            \mathcal{P}(A)
+                            \arrow[d,"f_{!}"]
+                            \\
+                            \&
+                            \mathcal{P}(B)%
+                        \end{tikzcd}
+                    \]%
+                    commutes. That is, we have
+                    \[
+                        f_{!}(f^{-1}(b))=\{b\}%
+                    \]%
+                    for each $b\in B$.
+                \item\label{properties-of-surjective-functions-characterisations-6}We have
+                    \begin{webcompile}
+                        f_{!}\circ f^{-1}%
+                        =%
+                        \id_{\mathcal{P}(B)}%
+                        \quad%
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(B)
+                            \arrow[r,"f^{-1}"]
+                            \arrow[rd,Equals]
+                            \&
+                            \mathcal{P}(A)
+                            \arrow[d,"f_{!}"]
+                            \\
+                            \&
+                            \mathcal{P}(B)\mrp{.}
+                        \end{tikzcd}
+                    \end{webcompile}
+                    In other words, we have
+                    \[
+                        \{%
+                            b\in B%
+                            \ \middle|\ %
+                            \begin{aligned}
+                                &\text{there exists some $a\in f^{-1}(U)$}\\%
+                                &\text{such that $f(a)=b$}%
+                            \end{aligned}
+                        \}%
+                        =%
+                        U%
+                    \]%
+                    for each $U\in\mathcal{P}(A)$.%
+                \item\label{properties-of-surjective-functions-characterisations-7}We have
+                    \begin{webcompile}
+                        f_{*}\circ f^{-1}%
+                        =%
+                        \id_{\mathcal{P}(B)}%
+                        \quad%
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(B)
+                            \arrow[r,"f^{-1}"]
+                            \arrow[rd,Equals]
+                            \&
+                            \mathcal{P}(A)
+                            \arrow[d,"f_{*}"]
+                            \\
+                            \&
+                            \mathcal{P}(B)\mrp{.}
+                        \end{tikzcd}
+                    \end{webcompile}
+                    In other words, we have
+                    \[
+                        \{%
+                            b\in B%
+                            \ \middle|\ %
+                            f^{-1}(b)%
+                            \subset%
+                            f^{-1}(U)%
+                        \}%
+                        =%
+                        U%
+                    \]%
+                    for each $U\in\mathcal{P}(B)$.%
+            \end{enumerate}
+        %\item\label{properties-of-surjective-functions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-surjective-functions}}%
+    \FirstProofBox{\cref{properties-of-surjective-functions-characterisations}: Characterisations}%
+    We will proceed by showing:
+    \begin{itemize}
+        \item Step 1: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-2}.
+        \item Step 2: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-3}.
+        \item Step 3: \cref{properties-of-surjective-functions-characterisations-3}$\iff$\cref{properties-of-surjective-functions-characterisations-4}.
+        \item Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-5}.
+        \item Step 5: \cref{properties-of-surjective-functions-characterisations-5}$\iff$\cref{properties-of-surjective-functions-characterisations-6}.
+        \item Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-7}.
+    \end{itemize}
+
+    \SubProofBox{Step 1: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-2}}%
+    We claim \cref{properties-of-surjective-functions-characterisations-1,properties-of-surjective-functions-characterisations-2} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-1}$\implies$\cref{properties-of-surjective-functions-characterisations-2}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $g,h\colon B\rightrightarrows C$ be morphisms such that $g\circ f=h\circ f$.
+                \item For each $a\in A$, we have
+                    \[g(f(a))=h(f(a)).\]
+                \item However, this implies that
+                    \[g(b)=h(b)\]
+                    for each $b\in B$, as $f$ is surjective.
+                \item Thus $g=h$ and $f$ is an epimorphism.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-2}$\implies$\cref{properties-of-surjective-functions-characterisations-1}: }We proceed by contrapositive. Consider the diagram
+            \[
+                \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r, "f"]
+                    \&
+                    B
+                    \arrow[r, "g",  shift left =0.8]
+                    \arrow[r, "h"', shift right=0.8]
+                    \&
+                    C\mrp{,}
+                \end{tikzcd}
+            \]%
+            where $h$ is the map defined by $h(b)=0$ for each $b\in B$ and $g$ is the map defined by
+            \[
+                g(b)%
+                =%
+                \begin{cases}
+                    1   &\text{if }b\in\Im(f),\\
+                    0   &\text{otherwise.}
+                \end{cases}
+            \]
+            Then $h\circ f=g\circ f$, as $h(f(a))=1=g(f(a))$ for each $a\in A$. However, for any $b\in B\setminus\Im(f)$, we have
+            \[
+                g(b)%
+                =%
+                0%
+                \neq%
+                1%
+                =%
+                h(b).%
+            \]
+            Therefore $g\neq h$ and $f$ is not an epimorphism.
+    \end{itemize}
+
+    \SubProofBox{Step 2: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-3}}%
+    We claim \cref{properties-of-surjective-functions-characterisations-1,properties-of-surjective-functions-characterisations-3} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-1}$\implies$\cref{properties-of-surjective-functions-characterisations-3}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Assume that $f$ is surjective. Let $U,V\in\mathcal{P}(B)$ such that $f^{-1}(U)=f^{-1}(V)$. We wish to show that $U=V$.
+                \item To show that $U\subset V$, let $b\in U$.
+                \item Since $f$ is surjective, there must exist some $a\in A$ such that $f(a)=b$.
+                \item By the definition of the inverse image, since $f(a)=b$ and $b\in U$, we have $a\in f^{-1}(U)$.
+                \item By our initial assumption, $f^{-1}(U)=f^{-1}(V)$, so it follows that $a\in f^{-1}(V)$.
+                \item Again, by the definition of the inverse image, $a\in f^{-1}(V)$ means that $f(a)\in V$.
+                \item Since $f(a)=b$, we have shown that $b\in V$.
+                \item This establishes that $U\subset V$. A symmetric argument shows that $V\subset U$.
+                \item Thus $U=V$, proving that $f^{-1}$ is injective.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-3}$\implies$\cref{properties-of-surjective-functions-characterisations-1}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Assume that the inverse image function $f^{-1}$ is injective. Suppose, for the sake of contradiction, that $f$ is not surjective.
+                \item The assumption that $f$ is not surjective means there exists some $b_{0}\in B$ such that for all $a\in A$, we have $f(a)\neq b_{0}$.
+                \item By the definition of the inverse image, this is equivalent to stating that $f^{-1}(\{b_{0}\})=\emptyset$.
+                \item Since $f^{-1}(\emptyset)=\emptyset$, we have $f^{-1}(\{b_{0}\})=f^{-1}(\emptyset)$.
+                \item Since $f^{-1}$ is injective, this implies that $\{b_{0}\}=\emptyset$.
+                \item This is a contradiction, as the singleton set $\{b_{0}\}$ is non-empty.
+                \item Therefore, $f$ is surjective.
+            \end{itemize}
+    \end{itemize}
+
+    \SubProofBox{Step 3: \cref{properties-of-surjective-functions-characterisations-3}$\iff$\cref{properties-of-surjective-functions-characterisations-4}}%
+    We claim that \cref{properties-of-surjective-functions-characterisations-3,properties-of-surjective-functions-characterisations-4} are equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-3}$\implies$\cref{properties-of-surjective-functions-characterisations-4}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $U,V\in\mathcal{P}(B)$ such that $f^{-1}(U)\subset f^{-1}(V)$, assume $f^{-1}$ to be injective, and consider the set $U\cup V$.
+                \item Since $f^{-1}(U)\subset f^{-1}(V)$, we have
+                    \begin{align*}
+                        f^{-1}(U\cup V) &= f^{-1}(U)\cup f^{-1}(V)\\
+                                        &= f^{-1}(V),
+                    \end{align*}
+                    where we have used \cref{properties-of-inverse-images-i-interaction-with-binary-unions} of \cref{properties-of-inverse-images-i} for the first equality.
+                \item Since $f^{-1}$ is injective, this implies $U\cup V=V$.
+                \item Thus $U\subset V$, as we wished to show.
+            \end{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-4}$\implies$\cref{properties-of-surjective-functions-characterisations-3}: }We proceed in a few steps:
+            \begin{itemize}
+                \item Suppose \cref{properties-of-surjective-functions-characterisations-4} holds, and let $U,V\in\mathcal{P}(B)$ such that $f^{-1}(U)=f^{-1}(V)$.
+                \item Since $f^{-1}(U)=f^{-1}(V)$, we have $f^{-1}(U)\subset f^{-1}(V)$ and $f^{-1}(V)\subset f^{-1}(U)$.
+                \item By assumption, this implies $U\subset V$ and $V\subset U$.
+                \item Thus $U=V$, showing $f^{-1}$ to be injective.
+            \end{itemize}
+    \end{itemize}
+
+    \SubProofBox{Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-5}}%
+    We have
+    \[
+        f_{!}(f^{-1}(b))%
+        =%
+        \{%
+            b\in B%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{there exists some $a\in f^{-1}(b)$}\\%
+                &\text{such that $f(a)=b$}%
+            \end{aligned}
+        \},%
+    \]%
+    so the condition $f_{!}(f^{-1}(b))=\{b\}$ holds \textiff $f$ is surjective.
+
+    \SubProofBox{Step 5: \cref{properties-of-surjective-functions-characterisations-5}$\iff$\cref{properties-of-surjective-functions-characterisations-6}}%
+    We claim that \cref{properties-of-surjective-functions-characterisations-5,properties-of-surjective-functions-characterisations-6} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-5}$\implies$\cref{properties-of-surjective-functions-characterisations-6}: }We have
+            \begin{align*}
+                [f_{!}\circ f^{-1}](U) &\defeq f_{!}(f^{-1}(U))\\
+                                       &=      f_{!}\left(f^{-1}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
+                                       &=      f_{!}\left(\bigcup_{u\in U}f^{-1}(\{u\})\right)\\
+                                       &=      \bigcup_{u\in U}f_{!}(f^{-1}(\{u\}))\\
+                                       &=      \bigcup_{u\in U}f_{!}(f^{-1}(u))\\
+                                       &=      \bigcup_{u\in U}\{u\}\\
+                                       &=      U
+            \end{align*}
+            for each $U\in\mathcal{P}(B)$, where we have used \cref{properties-of-direct-images-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-i} for the third equality and \cref{properties-of-inverse-images-i-interaction-with-binary-unions} of \cref{properties-of-inverse-images-i} for the fourth equality.
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-6}$\implies$\cref{properties-of-surjective-functions-characterisations-5}: }Applying the condition $f_{!}\circ f^{-1}=\id_{\mathcal{P}(B)}$ to $U=\{b\}$ gives
+            \[
+                f_{!}(f^{-1}(\{b\}))%
+                =%
+                \{b\}.%
+            \]%
+    \end{itemize}
+
+    \SubProofBox{Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-7}}%
+    First, note that for the condition $f^{-1}(b)\subset f^{-1}(U)$ to hold, we must have $b\in U$ or $f^{-1}(b)=\emptyset$. Thus
+    \[
+        f_{*}(f^{-1}(U))%
+        =%
+        (U\cap\Im(f))%
+        \cup%
+        (B\setminus\Im(f)).%
+    \]%
+    We now claim that \cref{properties-of-surjective-functions-characterisations-1,properties-of-surjective-functions-characterisations-7} are indeed equivalent:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-1}$\implies$\cref{properties-of-surjective-functions-characterisations-7}: }If $f$ is surjective, we have
+            \begin{align*}
+                (U\cap\Im(f))\cup(B\setminus\Im(f)) &= U\cup\emptyset\\
+                                                    &= U,
+            \end{align*}
+            so $f_{*}\circ f^{-1}=\id_{\mathcal{P}(B)}$.
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-7}$\implies$\cref{properties-of-surjective-functions-characterisations-1}: }Taking $U=\emptyset$ gives
+            \begin{align*}
+                f_{*}(f^{-1}(\emptyset)) &= (\emptyset\cap\Im(f))\cup(B\setminus\Im(f))\\%
+                                         &= B\setminus\Im(f),%
+            \end{align*}
+            so the condition $f_{*}(f^{-1}(\emptyset))=\emptyset$ implies $B\setminus\Im(f)=\emptyset$. Thus $\Im(f)=B$ and $f$ is surjective.
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
