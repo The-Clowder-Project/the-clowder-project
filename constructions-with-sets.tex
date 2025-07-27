@@ -4818,7 +4818,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}\SloganFont{Interaction With Unions \rmII. }The diagrams
             \begin{scalemath}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(\mathcal{P}(X))
+                    \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(U\cup-)}"]
                     \arrow[d,"\bigcup"']
                     \&
@@ -4832,7 +4832,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 \end{tikzcd}
                 \quad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(\mathcal{P}(X))
+                    \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(-\cup V)}"]
                     \arrow[d,"\bigcup"']
                     \&
@@ -4850,7 +4850,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 U\cup\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cup V),\\%
                 \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= \bigcup_{U\in\mathcal{U}}(U\cup V)%
             \end{align*}
-            for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
+            for each nonempty $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-intersections-1}\SloganFont{Interaction With Intersections \rmI. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4910,8 +4910,8 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \end{scalemath}
             commute, i.e.\ we have
             \begin{align*}
-                U\cup\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cup V),\\%
-                \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= \bigcup_{U\in\mathcal{U}}(U\cup V)%
+                U\cap\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cap V),\\%
+                \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= \bigcup_{U\in\mathcal{U}}(U\cap V)%
             \end{align*}
             for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-differences}\SloganFont{Interaction With Differences. }The diagram
@@ -5462,7 +5462,49 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}: Interaction With Unions \rmII}%
-    Omitted.
+      Assume $\mathcal V$ is nonempty.
+      We have
+    \begin{align*}
+        U \cup \bigcup_{V\in\mathcal{V}}V &\defeq \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ or $x \in \bigcup_{V\in\mathcal{V}}V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &=      \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ or there exists some}\\
+                                                                  &\text{$V\in\mathcal{V}$ such that $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U$ or $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U \cup V$}
+                                                              \end{aligned}
+                                                    \}\\
+                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cup V.
+    \end{align*}
+    This concludes the proof of the first statement.
+    For the second statement, use \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} to rewrite
+    \begin{align*}
+      \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= V \cup \left(\bigcup_{U\in\mathcal{U}}U\right),\\
+      \bigcup_{U\in\mathcal{U}}(U\cup V) &= \bigcup_{U\in\mathcal{U}}(V\cup U).
+    \end{align*}
+    But these two sets are equal by the first statement.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-1}: Interaction With Intersections \rmI}%
     We have
@@ -5504,9 +5546,49 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}%
-    Omitted.
-
+    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}
+    We have
+        \begin{align*}
+        U \cap \bigcup_{V\in\mathcal{V}}V &\defeq \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ and $x \in \bigcup_{V\in\mathcal{V}}V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &=      \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ amd there exists some}\\
+                                                                  &\text{$V\in\mathcal{V}$ such that $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U$ and $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U \cap V$}
+                                                              \end{aligned}
+                                                    \}\\
+                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cap V.
+        \end{align*}
+    This concludes the proof of the first statement.
+    For the second statement, use \cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} to rewrite
+    \begin{align*}
+      \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= V \cap \left(\bigcup_{U\in\mathcal{U}}U\right),\\
+      \bigcup_{U\in\mathcal{U}}(U\cap V) &= \bigcup_{U\in\mathcal{U}}(V\cap U).
+    \end{align*}
+    But these two sets are equal by the first statement.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-differences}: Interaction With Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\}\}$. We have
     \begin{align*}
