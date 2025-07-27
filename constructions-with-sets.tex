@@ -5636,11 +5636,42 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2}: Interaction With Complements \rmII}%
-    Omitted.
+    We have
+    \begin{align*}
+      \left( \bigcup_{U \in \mathcal U} U \right)^{\sfc} &\defeq \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{there exists no $U\in\mathcal{U}$}\\%
+                &\text{such that we have $x\in U$}%
+            \end{aligned}
+                                                      \}
+          \\ &= \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{for all $U\in\mathcal{U}$}\\%
+                &\text{we have $x\nin U$}%
+            \end{aligned}
+               \}
+          \\ &\defeq \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{for all $U\in\mathcal{U}$}\\%
+                &\text{we have $x\in U^{\sfc}$}%
+            \end{aligned}
+                                                      \}
+        \\ &\defeq \bigcap_{U \in \mathcal U} U^{\sfc}.
+    \end{align*}
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3}: Interaction With Complements \rmIII}%
-    Omitted.
-
+    By \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} \cref{properties-of-complements-involutority} of \cref{properties-of-complements}, we have
+    \begin{align*}
+      \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^\sfc)^\sfc \right)^{\sfc}\\
+      &= \left(\left( \bigcup_{U \in \mathcal U} U^\sfc \right)^{\sfc}\right)^{\sfc}\\
+      &= \bigcup_{U \in \mathcal U} U^\sfc\\.
+    \end{align*}
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\},\{0,1\}\}$. We have
     \begin{align*}
