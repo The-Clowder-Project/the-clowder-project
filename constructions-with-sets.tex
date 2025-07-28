@@ -8361,7 +8361,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 (U\sdiff V)\sdiff(V\sdiff W)%
                 =%
-                U\sdiff W%
+               U\sdiff W%
             \]%
             for each $U,V,W\in\mathcal{P}(X)$.
         \item\label{properties-of-symmetric-differences-the-triangle-inequality-for-symmetric-differences}\SloganFont{The Triangle Inequality for Symmetric Differences. }We have
@@ -8402,10 +8402,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 U\sdiff-  &\colon \mathcal{P}(X) \to \mathcal{P}(X),\\
                 -\sdiff V &\colon \mathcal{P}(X) \to \mathcal{P}(X)
             \end{align*}
-            are bijections with inverses given by
-            \begin{align*}
-                (U\sdiff-)^{-1}  &= -\cup(U\cap-),\\
-                (-\sdiff V)^{-1} &= -\cup(V\cap-).
+            are self-inverse bijections.
             \end{align*}
             Moreover, the map
             \begin{webcompile}
@@ -8558,7 +8555,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-symmetric-differences}}%
     \FirstProofBox{\cref{properties-of-symmetric-differences-lack-of-functoriality}: Lack of Functoriality}%
-    Omitted.
+    Let $X = \{0,1\}, U = \{0\}$. Then $\emptyset \subset U$, but
+    $U \sdiff \emptyset = U \nsubset \emptyset = U \sdiff U$ from \cref{properties-of-symmetric-differences-unitality} and \cref{properties-of-symmetric-differences-invertibility}. This gives a counterexample to the first statement. By using \cref{properties-of-symmetric-differences-commutativity}, we can adapt it to the second and third statement.
 
     \ProofBox{\cref{properties-of-symmetric-differences-via-unions-and-intersections}: Via Unions and Intersections}%
     See \cite{proof-wiki:equivalence-of-definitions-of-symmetric-difference}.
@@ -8616,7 +8614,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     See \cite{proof-wiki:characteristic-function-of-symmetric-difference}.
 
     \ProofBox{\cref{properties-of-symmetric-differences-bijectivity}: Bijectivity}%
-    Omitted.
+    \begin{enumerate}
+      \item We show that
+            \[ (U\sdiff-) &\colon \mathcal{P}(X) \to \mathcal{P}(X) \]
+            is self-inverse.
+
+            Let $W \in \mathcal{P}(X)$. Then,
+            \begin{palign}
+              $U \sdiff (U \sdiff W)$ & $\mathord{=}$ & $(U \sdiff U) \sdiff W$ & {\small(by \cref{properties-of-symmetric-differences-associativity})}\\
+              & $\mathord{=}$ & $\emptyset \sdiff W$ & {\small(by \cref{properties-of-symmetric-differences-invertibility})}\\
+              & $\mathord{=}$ & $W$. & {\small(by \cref{properties-of-symmetric-differences-unitality})}
+            \end{palign}
+      \item By \cref{properties-of-symmetric-differences-commutativity}, $(- \sdiff V) = (V \sdiff -)$, hence the former is also self-inverse by the first point.
+      \item The map $- \sdiff (U \sdiff V)$ is a bijection as a special case of the second point.
+            From the first two points and \cref{properties-of-symmetric-differences-commutativity}, we get
+            \[ U \sdiff (U \sdiff V) = V,\ V \sdiff (U \sdiff V) = V \sdiff (V \sdiff U) = U. \]
+            Hence the function maps $U$ to $V$ and $V$ to $U$.
+    \end{enumerate}
 
     \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups}: Interaction With Powersets and Groups}%
     \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-a} follows from \cref{properties-of-symmetric-differences-associativity,properties-of-symmetric-differences-unitality,properties-of-symmetric-differences-invertibility,properties-of-symmetric-differences-commutativity}, while \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-b} follows from \cref{properties-of-symmetric-differences-invertibility}.%
