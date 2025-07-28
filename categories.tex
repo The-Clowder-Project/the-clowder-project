@@ -349,8 +349,8 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
             \end{webcompile}%
         \item\label{properties-of-pre-postcomposition-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }We have
             \begin{webcompile}
-                \begin{aligned}
-                    (g\circ f)^{*} &= f^{*}\circ g^{*},%
+              \begin{aligned}
+                    (g\circ f)_{*} &= g_{*}\circ f_{*},
                     \quad
                     \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         \Hom_{\CatFont{C}}(X,A)
@@ -364,7 +364,7 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                         \Hom_{\CatFont{C}}(X,C)\mrp{,}
                     \end{tikzcd}
                     \\
-                    (g\circ f)_{*} &= g_{*}\circ f_{*},%
+                    (g\circ f)^{*} &= f^{*}\circ g^{*},%
                     \quad
                     \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         \Hom_{\CatFont{C}}(C,X)
@@ -410,13 +410,13 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                     \Hom_{\CatFont{C}}(A,C)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}%
-        \item\label{properties-of-pre-postcomposition-interaction-with-composition-3}\SloganFont{Interaction With Composition \rmIII. }We have
+        \item\label{properties-of-pre-postcomposition-interaction-with-composition-3}\SloganFont{Interaction With Composition \rmIII. }Now let $f \colon X \to A, g \colon C \to D$ in $\CatFont C$. Then we have
             \begin{envfootnotesize}
                 \begin{webcompile}
                     \begin{aligned}
                         f^{*}\circ\circ^{\CatFont{C}}_{A,B,C}
                         &=
-                        \circ^{\CatFont{C}}_{X,B,C}\circ(f^{*}\times\sfid),%
+                        \circ^{\CatFont{C}}_{X,B,C}\circ(\sfid \times f^{*}),%
                         %
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
@@ -434,7 +434,7 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                         \\
                         g_{*}\circ\circ^{\CatFont{C}}_{A,B,C}
                         &=
-                        \circ^{\CatFont{C}}_{A,B,D}\circ(\sfid\times g_{*}),%
+                        \circ^{\CatFont{C}}_{A,B,D}\circ(g_{*} \times \sfid),%
                         %
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
@@ -462,19 +462,75 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-pre-postcomposition}}%
     \FirstProofBox{\cref{properties-of-pre-postcomposition-interaction-between-precomposition-and-postcomposition}: Interaction Between Precomposition and Postcomposition}%
-    Clear.
+    For any $h \in \Hom_{\CatFont C}(B,C)$, we have
+    \begin{align*}
+      (g_* \circ f^*)(h) &= g_* (h \circ f) \\
+                         &= g \circ (h \circ f) \\
+                         &= (g \circ h) \circ f \\
+                         &= f^*(g \circ h) = (f^* \circ g_*)(h).
+    \end{align*}
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-1}: Interaction With Composition \rmI}%
-    Clear.
+    \begin{enumerate}
+      \item For any $h \in \Hom_{\CatFont C}(X,A)$, we have
+            \begin{align*}
+              (g \circ f)_*(h) &= (g \circ f) \circ h \\
+                               &= g \circ (f \circ h) \\
+                               &= g \circ f_*(h) \\
+                               &= g_* (f_*(h)) = (g_* \circ f_*)(h).
+            \end{align*}
+      \item For any $h \in \Hom_{\CatFont C}(C,X)$, we have
+            \begin{align*}
+              (g \circ f)^*(h) &= h \circ (g \circ f) \\
+                               &= (h \circ g) \circ f \\
+                               &= (g^*(h)) \circ f \\
+                               &= f^* (g^*(h)) = (f^* \circ g^*)(h).
+            \end{align*}
+    \end{enumerate}
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-2}: Interaction With Composition \rmII}%
-    Clear.
-
+    It suffices to show the equalities of the maps on $\point \in \pt$:
+    We have
+    \begin{align*}
+      [g \circ f](\point) &= g \circ f \\
+                          &= g_*(f) \\
+                          &= g_*([f](\point)) = (g_* \circ [f])(\point),
+      [g \circ f](\point) &= g \circ f \\
+                          &= f^*(g) \\
+                          &= f^*([g](\point)) = (f^* \circ[g])(\point).
+    \end{align*}
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-3}: Interaction With Composition \rmIII}%
-    Clear.
+    We show the two equations pointwise on $(h,k) \in \Hom_{\CatFont C}(B,C) \times \Hom_{\CatFont C}(A,B)$.
+    \begin{enumerate}
+      \item We have
+            \begin{align*}
+              (f^* \circ \circ^{\CatFont C}_{A,B,C})(h,k)
+                &= f^* (h \circ k)\\
+                &= (h \circ k) \circ f\\
+                &= h \circ (k \circ f)\\
+                &= \circ^{\CatFont C}_{X,B,C}(h, k \circ f)\\
+                &= \circ^{\CatFont C}_{X,B,C}(h, f^*(k))\\
+                &= (\circ^{\CatFont C}_{X,B,C} \circ (\sfid \times f^*))(h,k).
+            \end{align*}
+      \item We have
+            \begin{align*}
+              (g_* \circ \circ^{\CatFont C}_{A,B,C})(h,k)
+                &= g_* (h \circ k)\\
+                &= g \circ (h \circ k)\\
+                &= (g \circ h) \circ k\\
+                &= \circ^{\CatFont C}_{A,B,D}(g \circ h, k)\\
+                &= \circ^{\CatFont C}_{A,B,D}(g_*(h), k)\\
+                &= (\circ^{\CatFont C}_{A,B,D} \circ (g_* \times \sfid))(h,k).
+            \end{align*}
+            \end{align*}
+    \end{enumerate}
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-identities}: Interaction With Identities}%
-    Clear.
+    For $h \in \Hom_{\CatFont C}(A,B)$ we have
+    \[ (\sfid_A)^*(h) = h \circ \sfid = h = \sfid_{\Hom_{\CatFont C}(A,B)}(h) \]
+    and
+    \[ (\sfid_B)_*(h) = \sfid \circ h = h = \sfid_{\Hom_{\CatFont C}(A,B)}(h). \]
+    Hence the maps are identical.
 \end{Proof}
 \section{Examples of Categories}\label{section-examples-of-categories}
 \subsection{The Empty Category}\label{subsection-the-empty-category}
@@ -785,17 +841,48 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-posetal-categories}}%
-    \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
-    Omitted.
-
+  \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
+  \begin{enumerate}
+    \item We construct a functor $f_\pos \colon X_\pos \to Y_\pos$ from a monotone map $f \in \Hom_\Pos(X,Y)$ by
+          \[ f_\pos(a) \defeq f(a), f_\pos(\pt_{\Hom_{X_\pos}(a,b)}) \defeq \pt_{\Hom_{Y_\pos}(f(a),f(b)}\] for any $a,b \in X$.
+          This map is well-defined, since $a \preceq_X b$ implies $f(a) \preceq_Y f(b)$, hence $\pt$ is an element of $\Hom_{Y_\pos}(f(a),f(b)}$ if it is one of $\Hom_{X_\pos}(a,b)$.
+          $f_\pos$ is indeed a functor: It preserves identities and compositions trivially, since all morphisms in $\Hom$-sets of $Y_\pos$ are equal.
+    \item The constructions $X \mapsto X_\pos$ for any poset $(X, \preceq_X)$, $f \mapsto f_\pos$ for any $f \in \Hom_\Pos(X,Y)$ define the functor
+          \[
+                (-)_{\pos}%
+                \colon%
+                \Pos%
+                \to%
+                \Cats.
+          \]
+          Indeed, this mapping preserves identities and compositions:
+          \begin{itemize}
+            \item For $X$ a poset, $a,b \in X, a \preceq_X b$, we have
+                  \[ (\sfid_X)_\pos(a) = \sfid_X(a) = \sfid_{X_\pos}(a),\]
+                  so $(\sfid_X)_\pos$ acts like the identity functor of $X_\pos$ on objects, and
+                  \[ (\sfid_X)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{X_\pos}((\sfid_X)_\pos(a),(\sfid_X)_\pos(b))} = \pt_{\Hom_{X_\pos}(a,b)},\]
+                  so the same holds for morphisms and $(\sfid_X)_\pos = \sfid_{X_\pos}$.
+            \item For $X,Y,Z$ posets, $f \in \Hom_\Pos(X,Y), g \in \Hom_\Pos(Y,Z)$, we need to show
+                  \[ (g \circ f)_\pos = g_\pos \circ f_\pos. \]
+                  Let $a, b \in X, a \preceq_X b$. Then we have
+                  \begin{align*}
+                    (g \circ f)_\pos(a) &= (g \circ f)(a)\\
+                                        & = g(f(a)) = g_\pos(f_\pos(a)),
+                  \end{align*}
+                  so the identity holds on objects.
+                  Since $Z_\pos$ is a posetal category, the identity automatically holds on morphisms since
+                  \[(g \circ f)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{Z_\pos}(g_\pos(f_\pos(a)), g_\pos(f_\pos(b)))} = (g_\pos \circ f_\pos)(\pt_{\Hom_{X_\pos}(a,b)}).\]
+          \end{itemize}
+  \end{enumerate}
+    Hence $(-)_{\pos}$ is indeed a functor.
     \ProofBox{\cref{properties-of-posetal-categories-fully-faithfulness}: Fully Faithfulness}%
     Omitted.
 
     \ProofBox{\cref{properties-of-posetal-categories-characterisations}: Characterisations}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-posetal-categories-automatic-commutativity-of-diagrams}: Automatic Commutativity of Diagrams}%
-    This follows from the fact that if $\CatFont{C}$ is posetal, then there's at most one morphism between any two objects.
+    This follows from the fact that if $\CatFont{C}$ is posetal, then there is at most one morphism between any two objects, namely $\pt$.
 \end{Proof}
 \section{The Quadruple Adjunction With Sets}\label{section-the-quadruple-adjunction-with-sets}
 \subsection{Statement}\label{subsection-the-quadruple-adjunction-with-sets-statement}
