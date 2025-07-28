@@ -4818,7 +4818,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}\SloganFont{Interaction With Unions \rmII. }The diagrams
             \begin{scalemath}
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(\mathcal{P}(X))
+                    \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(U\cup-)}"]
                     \arrow[d,"\bigcup"']
                     \&
@@ -4832,7 +4832,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 \end{tikzcd}
                 \quad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \mathcal{P}(\mathcal{P}(X))
+                    \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(-\cup V)}"]
                     \arrow[d,"\bigcup"']
                     \&
@@ -4850,7 +4850,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                 U\cup\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cup V),\\%
                 \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= \bigcup_{U\in\mathcal{U}}(U\cup V)%
             \end{align*}
-            for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
+            for each nonempty $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-intersections-1}\SloganFont{Interaction With Intersections \rmI. }We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4910,8 +4910,8 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \end{scalemath}
             commute, i.e.\ we have
             \begin{align*}
-                U\cup\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cup V),\\%
-                \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= \bigcup_{U\in\mathcal{U}}(U\cup V)%
+                U\cap\left(\bigcup_{V\in\mathcal{V}}V\right)  &= \bigcup_{V\in\mathcal{V}}(U\cap V),\\%
+                \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= \bigcup_{U\in\mathcal{U}}(U\cap V)%
             \end{align*}
             for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$ and each $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-differences}\SloganFont{Interaction With Differences. }The diagram
@@ -5462,7 +5462,49 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}: Interaction With Unions \rmII}%
-    Omitted.
+      Assume $\mathcal V$ is nonempty.
+      We have
+    \begin{align*}
+        U \cup \bigcup_{V\in\mathcal{V}}V &\defeq \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ or $x \in \bigcup_{V\in\mathcal{V}}V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &=      \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ or there exists some}\\
+                                                                  &\text{$V\in\mathcal{V}$ such that $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U$ or $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U \cup V$}
+                                                              \end{aligned}
+                                                    \}\\
+                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cup V.
+    \end{align*}
+    This concludes the proof of the first statement.
+    For the second statement, use \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} to rewrite
+    \begin{align*}
+      \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= V \cup \left(\bigcup_{U\in\mathcal{U}}U\right),\\
+      \bigcup_{U\in\mathcal{U}}(U\cup V) &= \bigcup_{U\in\mathcal{U}}(V\cup U).
+    \end{align*}
+    But these two sets are equal by the first statement.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-1}: Interaction With Intersections \rmI}%
     We have
@@ -5504,9 +5546,49 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}%
-    Omitted.
-
+    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}
+    We have
+        \begin{align*}
+        U \cap \bigcup_{V\in\mathcal{V}}V &\defeq \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ and $x \in \bigcup_{V\in\mathcal{V}}V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &=      \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{$x \in U$ amd there exists some}\\
+                                                                  &\text{$V\in\mathcal{V}$ such that $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U$ and $x\in V$}
+                                                              \end{aligned}
+                                                          \}\\%
+                                                  &= \{
+                                                              x\in X%
+                                                              \ \middle|\ %
+                                                              \begin{aligned}
+                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
+                                                                  &\text{such that $x \in U \cap V$}
+                                                              \end{aligned}
+                                                    \}\\
+                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cap V.
+        \end{align*}
+    This concludes the proof of the first statement.
+    For the second statement, use \cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} to rewrite
+    \begin{align*}
+      \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= V \cap \left(\bigcup_{U\in\mathcal{U}}U\right),\\
+      \bigcup_{U\in\mathcal{U}}(U\cap V) &= \bigcup_{U\in\mathcal{U}}(V\cap U).
+    \end{align*}
+    But these two sets are equal by the first statement.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-differences}: Interaction With Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\}\}$. We have
     \begin{align*}
@@ -5554,11 +5636,42 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2}: Interaction With Complements \rmII}%
-    Omitted.
+    We have
+    \begin{align*}
+      \left( \bigcup_{U \in \mathcal U} U \right)^{\sfc} &\defeq \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{there exists no $U\in\mathcal{U}$}\\%
+                &\text{such that we have $x\in U$}%
+            \end{aligned}
+                                                      \}
+          \\ &= \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{for all $U\in\mathcal{U}$}\\%
+                &\text{we have $x\nin U$}%
+            \end{aligned}
+               \}
+          \\ &\defeq \{%
+            x\in X%
+            \ \middle|\ %
+            \begin{aligned}
+                &\text{for all $U\in\mathcal{U}$}\\%
+                &\text{we have $x\in U^{\sfc}$}%
+            \end{aligned}
+                                                      \}
+        \\ &\defeq \bigcap_{U \in \mathcal U} U^{\sfc}.
+    \end{align*}
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3}: Interaction With Complements \rmIII}%
-    Omitted.
-
+    By \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} \cref{properties-of-complements-involutority} of \cref{properties-of-complements}, we have
+    \begin{align*}
+      \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^\sfc)^\sfc \right)^{\sfc}\\
+      &= \left(\left( \bigcup_{U \in \mathcal U} U^\sfc \right)^{\sfc}\right)^{\sfc}\\
+      &= \bigcup_{U \in \mathcal U} U^\sfc\\.
+    \end{align*}
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\},\{0,1\}\}$. We have
     \begin{align*}
@@ -7676,7 +7789,7 @@ Let $X$ and $Y$ be sets.%
             \[
                 U\setminus X%
                 =%
-                U%
+                \emptyset%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-differences-invertibility}\SloganFont{Invertibility. }We have
@@ -7787,7 +7900,14 @@ Let $X$ and $Y$ be sets.%
     See \cite{proof-wiki:de-morgan-s-laws-set-theory-set-difference-difference-with-union}.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-2}: Interaction With Unions \rmII}%
-    Omitted.
+    We have
+    \begin{align*}
+      (U \setminus V) \cup W &\defeq \{x \in X\ \middle|\ \text{($x \in U$ and $x \nin V$) or $x \in W$}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
+                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
+                             &\defeq x \in (U \cup W) \setminus (V \setminus W).
+    \end{align*}
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-3}: Interaction With Unions \rmIII}%
     See \cite{proof-wiki:set-difference-with-union}.
@@ -7808,19 +7928,23 @@ Let $X$ and $Y$ be sets.%
     See \cite{proof-wiki:set-difference-with-set-difference-is-union-of-set-difference-with-intersection}.
 
     \ProofBox{\cref{properties-of-differences-left-annihilation}: Left Annihilation}%
-    Omitted.
+    The direction $\emptyset \subset \emptyset \setminus U$ always holds.
+    Now assume $x \in \emptyset \setminus U$. Then, $x \in \emptyset$ and $x \nin U$. Hence $\emptyset \setminus U \subset \emptyset$ must hold and the sets are equal.
 
     \ProofBox{\cref{properties-of-differences-right-unitality}: Right Unitality}%
     See \cite{proof-wiki:set-difference-with-empty-set-is-self}.
 
     \ProofBox{\cref{properties-of-differences-right-annihilation}: Right Annihilation}%
-    Omitted.
+    It suffices to show that no $x \in X$ can be an element of $U \setminus X$.
+    Assume $x \in U \setminus X$. Then $x \nin X$, contradicting $x \in X$.
+    This completes the proof.
 
     \ProofBox{\cref{properties-of-differences-invertibility}: Invertibility}%
     See \cite{proof-wiki:set-difference-with-self-is-empty-set}.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-containment}: Interaction With Containment}%
-    Omitted.
+    The conditions are symmetric in $U,W$, hence it suffices to show that $V \setminus U \subset W$ implies $V \setminus W \subset U$.
+    So assume $V \setminus U \subset W, x \in V \setminus W$. Then $x \in V, x \nin W$. So by contraposition, $x \nin V \setminus U$. But $x \in V$, so we must have $x \in U$, completing the proof.
 
     \ProofBox{\cref{properties-of-differences-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
     See \cite{proof-wiki:characteristic-function-of-set-difference}.
@@ -7919,8 +8043,8 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
         \item\label{properties-of-complements-interaction-with-characteristic-functions}\SloganFont{Interaction With Characteristic Functions. }We have
             \[
                 \chi_{U^{\sfc}}%
-                \equiv%
-                1-\chi_{U}\mod{2}%
+                =%
+                1-\chi_{U}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-complements-interaction-with-direct-images}\SloganFont{Interaction With Direct Images. }Let $f\colon X\to Y$ be a function. The diagram
@@ -8006,8 +8130,14 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
     See \cite{proof-wiki:complement-of-complement}.
 
     \ProofBox{\cref{properties-of-complements-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
-    Omitted.
-
+    We consider the two cases $x \in U, x \nin U$.
+    \begin{enumerate}
+      \item If $x \in U$, then $x \nin U^\sfc$. So $\chi_{U}(x) = 1$ and
+            \[ \chi_{U^\sfc}(x) = 0 = 1 - \chi_{U}(x). \]
+      \item If $x \nin U$, then $x \in U^\sfc$. So $\chi_{U}(x) = 0$ and
+            \[ \chi_{U^\sfc}(x) = 1 = 1 - \chi_{U}(x). \]
+    \end{enumerate}
+    Hence, the equation holds for all $x \in X$.
     \ProofBox{\cref{properties-of-complements-interaction-with-direct-images}: Interaction With Direct Images}%
     This is a repetition of \cref{properties-of-direct-images-i-interaction-with-complements} of \cref{properties-of-direct-images-i} and is proved there.
 
@@ -8231,7 +8361,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \[
                 (U\sdiff V)\sdiff(V\sdiff W)%
                 =%
-                U\sdiff W%
+               U\sdiff W%
             \]%
             for each $U,V,W\in\mathcal{P}(X)$.
         \item\label{properties-of-symmetric-differences-the-triangle-inequality-for-symmetric-differences}\SloganFont{The Triangle Inequality for Symmetric Differences. }We have
@@ -8272,10 +8402,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 U\sdiff-  &\colon \mathcal{P}(X) \to \mathcal{P}(X),\\
                 -\sdiff V &\colon \mathcal{P}(X) \to \mathcal{P}(X)
             \end{align*}
-            are bijections with inverses given by
-            \begin{align*}
-                (U\sdiff-)^{-1}  &= -\cup(U\cap-),\\
-                (-\sdiff V)^{-1} &= -\cup(V\cap-).
+            are self-inverse bijections.
             \end{align*}
             Moreover, the map
             \begin{webcompile}
@@ -8428,7 +8555,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-symmetric-differences}}%
     \FirstProofBox{\cref{properties-of-symmetric-differences-lack-of-functoriality}: Lack of Functoriality}%
-    Omitted.
+    Let $X = \{0,1\}, U = \{0\}$. Then $\emptyset \subset U$, but
+    $U \sdiff \emptyset = U \nsubset \emptyset = U \sdiff U$ from \cref{properties-of-symmetric-differences-unitality} and \cref{properties-of-symmetric-differences-invertibility}. This gives a counterexample to the first statement. By using \cref{properties-of-symmetric-differences-commutativity}, we can adapt it to the second and third statement.
 
     \ProofBox{\cref{properties-of-symmetric-differences-via-unions-and-intersections}: Via Unions and Intersections}%
     See \cite{proof-wiki:equivalence-of-definitions-of-symmetric-difference}.
@@ -8486,7 +8614,23 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     See \cite{proof-wiki:characteristic-function-of-symmetric-difference}.
 
     \ProofBox{\cref{properties-of-symmetric-differences-bijectivity}: Bijectivity}%
-    Omitted.
+    \begin{enumerate}
+      \item We show that
+            \[ (U\sdiff-) &\colon \mathcal{P}(X) \to \mathcal{P}(X) \]
+            is self-inverse.
+
+            Let $W \in \mathcal{P}(X)$. Then,
+            \begin{palign}
+              $U \sdiff (U \sdiff W)$ & $\mathord{=}$ & $(U \sdiff U) \sdiff W$ & {\small(by \cref{properties-of-symmetric-differences-associativity})}\\
+              & $\mathord{=}$ & $\emptyset \sdiff W$ & {\small(by \cref{properties-of-symmetric-differences-invertibility})}\\
+              & $\mathord{=}$ & $W$. & {\small(by \cref{properties-of-symmetric-differences-unitality})}
+            \end{palign}
+      \item By \cref{properties-of-symmetric-differences-commutativity}, $(- \sdiff V) = (V \sdiff -)$, hence the former is also self-inverse by the first point.
+      \item The map $- \sdiff (U \sdiff V)$ is a bijection as a special case of the second point.
+            From the first two points and \cref{properties-of-symmetric-differences-commutativity}, we get
+            \[ U \sdiff (U \sdiff V) = V,\ V \sdiff (U \sdiff V) = V \sdiff (V \sdiff U) = U. \]
+            Hence the function maps $U$ to $V$ and $V$ to $U$.
+    \end{enumerate}
 
     \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups}: Interaction With Powersets and Groups}%
     \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-a} follows from \cref{properties-of-symmetric-differences-associativity,properties-of-symmetric-differences-unitality,properties-of-symmetric-differences-invertibility,properties-of-symmetric-differences-commutativity}, while \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-b} follows from \cref{properties-of-symmetric-differences-invertibility}.%
