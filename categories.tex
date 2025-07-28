@@ -841,17 +841,48 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-posetal-categories}}%
-    \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
-    Omitted.
-
+  \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
+  \begin{enumerate}
+    \item We construct a functor $f_\pos \colon X_\pos \to Y_\pos$ from a monotone map $f \in \Hom_\Pos(X,Y)$ by
+          \[ f_\pos(a) \defeq f(a), f_\pos(\pt_{\Hom_{X_\pos}(a,b)}) \defeq \pt_{\Hom_{Y_\pos}(f(a),f(b)}\] for any $a,b \in X$.
+          This map is well-defined, since $a \preceq_X b$ implies $f(a) \preceq_Y f(b)$, hence $\pt$ is an element of $\Hom_{Y_\pos}(f(a),f(b)}$ if it is one of $\Hom_{X_\pos}(a,b)$.
+          $f_\pos$ is indeed a functor: It preserves identities and compositions trivially, since all morphisms in $\Hom$-sets of $Y_\pos$ are equal.
+    \item The constructions $X \mapsto X_\pos$ for any poset $(X, \preceq_X)$, $f \mapsto f_\pos$ for any $f \in \Hom_\Pos(X,Y)$ define the functor
+          \[
+                (-)_{\pos}%
+                \colon%
+                \Pos%
+                \to%
+                \Cats.
+          \]
+          Indeed, this mapping preserves identities and compositions:
+          \begin{itemize}
+            \item For $X$ a poset, $a,b \in X, a \preceq_X b$, we have
+                  \[ (\sfid_X)_\pos(a) = \sfid_X(a) = \sfid_{X_\pos}(a),\]
+                  so $(\sfid_X)_\pos$ acts like the identity functor of $X_\pos$ on objects, and
+                  \[ (\sfid_X)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{X_\pos}((\sfid_X)_\pos(a),(\sfid_X)_\pos(b))} = \pt_{\Hom_{X_\pos}(a,b)},\]
+                  so the same holds for morphisms and $(\sfid_X)_\pos = \sfid_{X_\pos}$.
+            \item For $X,Y,Z$ posets, $f \in \Hom_\Pos(X,Y), g \in \Hom_\Pos(Y,Z)$, we need to show
+                  \[ (g \circ f)_\pos = g_\pos \circ f_\pos. \]
+                  Let $a, b \in X, a \preceq_X b$. Then we have
+                  \begin{align*}
+                    (g \circ f)_\pos(a) &= (g \circ f)(a)\\
+                                        & = g(f(a)) = g_\pos(f_\pos(a)),
+                  \end{align*}
+                  so the identity holds on objects.
+                  Since $Z_\pos$ is a posetal category, the identity automatically holds on morphisms since
+                  \[(g \circ f)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{Z_\pos}(g_\pos(f_\pos(a)), g_\pos(f_\pos(b)))} = (g_\pos \circ f_\pos)(\pt_{\Hom_{X_\pos}(a,b)}).\]
+          \end{itemize}
+  \end{enumerate}
+    Hence $(-)_{\pos}$ is indeed a functor.
     \ProofBox{\cref{properties-of-posetal-categories-fully-faithfulness}: Fully Faithfulness}%
     Omitted.
 
     \ProofBox{\cref{properties-of-posetal-categories-characterisations}: Characterisations}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-posetal-categories-automatic-commutativity-of-diagrams}: Automatic Commutativity of Diagrams}%
-    This follows from the fact that if $\CatFont{C}$ is posetal, then there's at most one morphism between any two objects.
+    This follows from the fact that if $\CatFont{C}$ is posetal, then there is at most one morphism between any two objects, namely $\pt$.
 \end{Proof}
 \section{The Quadruple Adjunction With Sets}\label{section-the-quadruple-adjunction-with-sets}
 \subsection{Statement}\label{subsection-the-quadruple-adjunction-with-sets-statement}
