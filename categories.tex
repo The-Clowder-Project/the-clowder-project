@@ -282,13 +282,13 @@ Let $\CatFont{C}$ be a category.
     See \cite[Section \say{Skeletons as an Endo-Pseudofunctor on $\mathfrak{Cat}$}]{nlab:skeleton}.
 
     \ProofBox{\cref{properties-of-skeletons-of-categories-uniqueness-up-to-equivalence}: Uniqueness Up to Equivalence}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-skeletons-of-categories-inclusions-of-skeletons-are-equivalences}: Inclusions of Skeletons Are Equivalences}%
-    Clear.
+    Omitted.
 \end{Proof}
 \subsection{Precomposition and Postcomposition}\label{subsection-precomposition-and-postcomposition}
-Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
+Let $\CatFont{C}$ be a category and let $A,B,C,X\in\Obj(\CatFont{C})$.
 \begin{definition}{Precomposition and Postcomposition Functions}{precomposition-and-postcomposition-functions}%
     Let $f\colon A\to B$ and $g\colon B\to C$ be morphisms of $\CatFont{C}$.
     \begin{enumerate}
@@ -296,9 +296,9 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
             \[
                 f^{*}
                 \colon
-                \Hom_{\CatFont{C}}(B,C)
+                \Hom_{\CatFont{C}}(B,X)
                 \to
-                \Hom_{\CatFont{C}}(A,C)
+                \Hom_{\CatFont{C}}(A,X)
             \]%
             defined by
             \[
@@ -306,14 +306,14 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                 \defeq
                 \phi\circ f
             \]%
-            for each $\phi\in\Hom_{\CatFont{C}}(B,C)$.
+            for each $\phi\in\Hom_{\CatFont{C}}(B,X)$.
         \item\label{precomposition-and-postcomposition-functions-postcomposition}The \index[categories]{postcomposition}\textbf{postcomposition function associated to $g$} is the function\index[notation]{fstar@$f^{*}$}%
             \[
                 g_{*}
                 \colon
-                \Hom_{\CatFont{C}}(A,B)
+                \Hom_{\CatFont{C}}(X,B)
                 \to
-                \Hom_{\CatFont{C}}(A,C)
+                \Hom_{\CatFont{C}}(X,C)
             \]%
             defined by
             \[
@@ -321,38 +321,38 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                 \defeq
                 g\circ\phi
             \]%
-            for each $\phi\in\Hom_{\CatFont{C}}(A,B)$.
+            for each $\phi\in\Hom_{\CatFont{C}}(X,B)$.
     \end{enumerate}
 \end{definition}
 \begin{proposition}{Properties of Pre/Postcomposition}{properties-of-pre-postcomposition}%
-    Let $A,B,C,D\in\Obj(\CatFont{C})$ and let $f\colon A\to B$ and $g\colon B\to C$ be morphisms of $\CatFont{C}$.
+    Let $A,B,C,D,X\in\Obj(\CatFont{C})$.
     \begin{enumerate}
-        \item\label{properties-of-pre-postcomposition-interaction-between-precomposition-and-postcomposition}\SloganFont{Interaction Between Precomposition and Postcomposition. }We have
+        \item\label{properties-of-pre-postcomposition-interaction-between-precomposition-and-postcomposition}\SloganFont{Interaction Between Precomposition and Postcomposition. }Let $f\colon A\to B$ and $g\colon X\to Y$ be morphisms of $\CatFont{C}$. We have
             \begin{webcompile}
                 g_{*}\circ f^{*}%
                 =%
                 f^{*}\circ g_{*},%
                 \quad%
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Hom_{\CatFont{C}}(B,C)
+                    \Hom_{\CatFont{C}}(B,X)
                     \arrow[r,"g_{*}"]
                     \arrow[d,"f^{*}"']
                     \&
-                    \Hom_{\CatFont{C}}(B,D)
+                    \Hom_{\CatFont{C}}(B,Y)
                     \arrow[d,"f^{*}"]
                     \\
-                    \Hom_{\CatFont{C}}(A,C)
+                    \Hom_{\CatFont{C}}(A,X)
                     \arrow[r,"g_{*}"']
                     \&
-                    \Hom_{\CatFont{C}}(A,D)\mrp{.}
+                    \Hom_{\CatFont{C}}(A,Y)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}%
-        \item\label{properties-of-pre-postcomposition-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }We have
+        \item\label{properties-of-pre-postcomposition-interaction-with-composition-1}\SloganFont{Interaction With Composition \rmI. }Let $f\colon A\to B$ and $g\colon B\to C$ be morphisms of $\CatFont{C}$. We have
             \begin{webcompile}
               \begin{aligned}
                     (g\circ f)_{*} &= g_{*}\circ f_{*},
                     \quad
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         \Hom_{\CatFont{C}}(X,A)
                         \arrow[r,"f_{*}"]
                         \arrow[rd,"(g\circ f)_{*}"']
@@ -366,7 +366,7 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                     \\
                     (g\circ f)^{*} &= f^{*}\circ g^{*},%
                     \quad
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                         \Hom_{\CatFont{C}}(C,X)
                         \arrow[r,"g^{*}"]
                         \arrow[rd,"(g\circ f)^{*}"']
@@ -379,9 +379,9 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                     \end{tikzcd}
                 \end{aligned}
             \end{webcompile}%
-        \item\label{properties-of-pre-postcomposition-interaction-with-composition-2}\SloganFont{Interaction With Composition \rmII. }We have
+        \item\label{properties-of-pre-postcomposition-interaction-with-composition-2}\SloganFont{Interaction With Composition \rmII. }Let $f\colon A\to B$ and $g\colon B\to C$ be morphisms of $\CatFont{C}$. We have
             \begin{webcompile}
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
                     \arrow[r,"{[f]}"]
                     \arrow[rd,"{[g\circ f]}"']
@@ -398,7 +398,7 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                     [g\circ f] &= f^{*}\circ[g],
                 \end{aligned}
                 \quad
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \pt
                     \arrow[r,"{[g]}"]
                     \arrow[rd,"{[g\circ f]}"']
@@ -410,51 +410,49 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                     \Hom_{\CatFont{C}}(A,C)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}%
-        \item\label{properties-of-pre-postcomposition-interaction-with-composition-3}\SloganFont{Interaction With Composition \rmIII. }Now let $f \colon X \to A, g \colon C \to D$ in $\CatFont C$. Then we have
-            \begin{envfootnotesize}
-                \begin{webcompile}
-                    \begin{aligned}
-                        f^{*}\circ\circ^{\CatFont{C}}_{A,B,C}
-                        &=
-                        \circ^{\CatFont{C}}_{X,B,C}\circ(\sfid \times f^{*}),%
-                        %
-                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
-                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
-                            \arrow[d,"\sfid\times f^{*}"']
-                            \&
-                            \Hom_{\CatFont{C}}(A,C)
-                            \arrow[d,"f^{*}"]
-                            \\
-                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(X,B)
-                            \arrow[r,"\circ^{\CatFont{C}}_{X,B,C}"']
-                            \&
-                            \Hom_{\CatFont{C}}(X,C)\mrp{,}
-                        \end{tikzcd}
+        \item\label{properties-of-pre-postcomposition-interaction-with-composition-3}\SloganFont{Interaction With Composition \rmIII. }Let $f\colon X\to A$ and $g\colon C\to D$ be morphisms of $\CatFont{C}$. We have
+            \begin{scalemath}
+                \begin{aligned}
+                    f^{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}%
+                    &=
+                    \mathord{\circ^{\CatFont{C}}_{X,B,C}}\circ(\sfid\times f^{*}),%
+                    \quad%
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={13.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
+                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
+                        \arrow[d,"\sfid\times f^{*}"']
+                        \&
+                        \Hom_{\CatFont{C}}(A,C)
+                        \arrow[d,"f^{*}"]
                         \\
-                        g_{*}\circ\circ^{\CatFont{C}}_{A,B,C}
-                        &=
-                        \circ^{\CatFont{C}}_{A,B,D}\circ(g_{*} \times \sfid),%
-                        %
-                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                            \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
-                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
-                            \arrow[d,"g_{*}\times\sfid"']
-                            \&
-                            \Hom_{\CatFont{C}}(A,C)
-                            \arrow[d,"g^{*}"]
-                            \\
-                            \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
-                            \arrow[r,"\circ^{\CatFont{C}}_{A,B,D}"']
-                            \&
-                            \Hom_{\CatFont{C}}(A,D)\mrp{.}
-                        \end{tikzcd}
-                    \end{aligned}
-                \end{webcompile}%
-            \end{envfootnotesize}
+                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(X,B)
+                        \arrow[r,"\circ^{\CatFont{C}}_{X,B,C}"']
+                        \&
+                        \Hom_{\CatFont{C}}(X,C)\mrp{,}
+                    \end{tikzcd}
+                    \\
+                    g_{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}
+                    &=
+                    \mathord{\circ^{\CatFont{C}}_{A,B,D}}\circ(g_{*}\times\sfid),%
+                    \quad%
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={13.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                        \Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)
+                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,C}"]
+                        \arrow[d,"g_{*}\times\sfid"']
+                        \&
+                        \Hom_{\CatFont{C}}(A,C)
+                        \arrow[d,"g^{*}"]
+                        \\
+                        \Hom_{\CatFont{C}}(B,D)\times\Hom_{\CatFont{C}}(A,B)
+                        \arrow[r,"\circ^{\CatFont{C}}_{A,B,D}"']
+                        \&
+                        \Hom_{\CatFont{C}}(A,D)\mrp{.}
+                    \end{tikzcd}
+                \end{aligned}
+            \end{scalemath}%
         \item\label{properties-of-pre-postcomposition-interaction-with-identities}\SloganFont{Interaction With Identities. }We have
             \begin{align*}
-                (\id_{A})^{*} &= \id_{\Hom_{\CatFont{C}}(A,B)},\\
+                \id^{*}_{A}   &= \id_{\Hom_{\CatFont{C}}(A,B)},\\
                 (\id_{B})_{*} &= \id_{\Hom_{\CatFont{C}}(A,B)}.
             \end{align*}
         %\item\label{properties-of-pre-postcomposition-}\SloganFont{. }
@@ -462,75 +460,95 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-pre-postcomposition}}%
     \FirstProofBox{\cref{properties-of-pre-postcomposition-interaction-between-precomposition-and-postcomposition}: Interaction Between Precomposition and Postcomposition}%
-    For any $h \in \Hom_{\CatFont C}(B,C)$, we have
+    For each $\phi\in\Hom_{\CatFont{C}}(B,X)$, we have
     \begin{align*}
-      (g_* \circ f^*)(h) &= g_* (h \circ f) \\
-                         &= g \circ (h \circ f) \\
-                         &= (g \circ h) \circ f \\
-                         &= f^*(g \circ h) = (f^* \circ g_*)(h).
+        [g_{*}\circ f^{*}](\phi) &= g_{*}(\phi\circ f)\\
+                                 &= g\circ(\phi\circ f)\\
+                                 &= (g\circ\phi)\circ f\\
+                                 &= f^{*}(g\circ\phi)\\
+                                 &= [f^{*}\circ g_{*}](\phi).
     \end{align*}
+    Thus $g_{*}\circ f^{*}=f^{*}\circ g_{*}$.
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-1}: Interaction With Composition \rmI}%
-    \begin{enumerate}
-      \item For any $h \in \Hom_{\CatFont C}(X,A)$, we have
-            \begin{align*}
-              (g \circ f)_*(h) &= (g \circ f) \circ h \\
-                               &= g \circ (f \circ h) \\
-                               &= g \circ f_*(h) \\
-                               &= g_* (f_*(h)) = (g_* \circ f_*)(h).
-            \end{align*}
-      \item For any $h \in \Hom_{\CatFont C}(C,X)$, we have
-            \begin{align*}
-              (g \circ f)^*(h) &= h \circ (g \circ f) \\
-                               &= (h \circ g) \circ f \\
-                               &= (g^*(h)) \circ f \\
-                               &= f^* (g^*(h)) = (f^* \circ g^*)(h).
-            \end{align*}
-    \end{enumerate}
+    \SubProofBox{$(g\circ f)_{*}=g_{*}\circ f_{*}$}%
+    For each $\phi\in\Hom_{\CatFont{C}}(X,A)$, we have
+    \begin{align*}
+        (g\circ f)_{*}(\phi) &= (g\circ f)\circ \phi\\
+                             &= g\circ(f\circ \phi)\\
+                             &= g\circ f_{*}(\phi)\\
+                             &= g_{*}(f_{*}(\phi))\\
+                             &= [g_{*}\circ f_{*}](\phi).
+    \end{align*}
+    Thus $(g\circ f)_{*}=g_{*}\circ f_{*}$.
+
+    \SubProofBox{$(g\circ f)^{*}=g^{*}\circ f^{*}$}%
+    For each $\phi\in\Hom_{\CatFont{C}}(C,X)$, we have
+    \begin{align*}
+        (g\circ f)^{*}(\phi) &= \phi\circ(g\circ f)\\
+                             &= (\phi\circ g)\circ f\\
+                             &= (g^{*}(\phi))\circ f\\
+                             &= f^{*}(g^{*}(\phi))\\
+                             &= [f^{*}\circ g^{*}](\phi).
+    \end{align*}
+    Thus $(g\circ f)^{*}=g^{*}\circ f^{*}$.
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-2}: Interaction With Composition \rmII}%
-    It suffices to show the equalities of the maps on $\point \in \pt$:
-    We have
+    It suffices to show the equalities of the maps on $\point\in\pt$. We have
     \begin{align*}
-      [g \circ f](\point) &= g \circ f \\
-                          &= g_*(f) \\
-                          &= g_*([f](\point)) = (g_* \circ [f])(\point),
-      [g \circ f](\point) &= g \circ f \\
-                          &= f^*(g) \\
-                          &= f^*([g](\point)) = (f^* \circ[g])(\point).
+        [g\circ f](\point) &= g\circ f\\
+                           &= g_{*}(f)\\
+                           &= g_{*}([f](\point))\\
+                           &= (g_{*}\circ[f])(\point),
     \end{align*}
+    and
+    \begin{align*}
+        [g\circ f](\point) &= g\circ f\\
+                           &= f^{*}(g)\\
+                           &= f^{*}([g](\point))\\
+                           &= (f^{*}\circ[g])(\point).%
+    \end{align*}
+    Thus $[g\circ f]=g_{*}\circ[f]$ and $[g\circ f]=f^{*}\circ[g]$.
+
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-composition-3}: Interaction With Composition \rmIII}%
-    We show the two equations pointwise on $(h,k) \in \Hom_{\CatFont C}(B,C) \times \Hom_{\CatFont C}(A,B)$.
-    \begin{enumerate}
-      \item We have
-            \begin{align*}
-              (f^* \circ \circ^{\CatFont C}_{A,B,C})(h,k)
-                &= f^* (h \circ k)\\
-                &= (h \circ k) \circ f\\
-                &= h \circ (k \circ f)\\
-                &= \circ^{\CatFont C}_{X,B,C}(h, k \circ f)\\
-                &= \circ^{\CatFont C}_{X,B,C}(h, f^*(k))\\
-                &= (\circ^{\CatFont C}_{X,B,C} \circ (\sfid \times f^*))(h,k).
-            \end{align*}
-      \item We have
-            \begin{align*}
-              (g_* \circ \circ^{\CatFont C}_{A,B,C})(h,k)
-                &= g_* (h \circ k)\\
-                &= g \circ (h \circ k)\\
-                &= (g \circ h) \circ k\\
-                &= \circ^{\CatFont C}_{A,B,D}(g \circ h, k)\\
-                &= \circ^{\CatFont C}_{A,B,D}(g_*(h), k)\\
-                &= (\circ^{\CatFont C}_{A,B,D} \circ (g_* \times \sfid))(h,k).
-            \end{align*}
-            \end{align*}
-    \end{enumerate}
+    \SubProofBox{$f^{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}=\mathord{\circ^{\CatFont{C}}_{X,B,C}}\circ(\sfid\times f^{*})$}%
+    For each $(\psi,\phi)\in\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)$, we have
+    \begin{align*}
+        [f^{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}](\psi,\phi) &= f^{*}(\psi\circ\phi)\\
+                                                                     &= (\psi\circ\phi)\circ f\\
+                                                                     &= \psi\circ(\phi\circ f)\\
+                                                                     &= \mathord{\circ^{\CatFont{C}}_{X,B,C}}(\psi,\phi\circ f)\\
+                                                                     &= \mathord{\circ^{\CatFont{C}}_{X,B,C}}(\psi,f^{*}(\phi))\\
+                                                                     &= [\mathord{\circ^{\CatFont{C}}_{X,B,C}}\circ(\sfid\times f^{*})](\psi,\phi).
+    \end{align*}
+    Thus $f^{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}=\mathord{\circ^{\CatFont{C}}_{X,B,C}}\circ(\sfid\times f^{*})$.
+
+    \SubProofBox{$g_{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}=\mathord{\circ^{\CatFont{C}}_{A,B,D}}\circ(g_{*}\times\sfid)$}%
+    For each $(\psi,\phi)\in\Hom_{\CatFont{C}}(B,C)\times\Hom_{\CatFont{C}}(A,B)$, we have
+    \begin{align*}
+        [g_{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}](\psi,\phi) &= g_{*}(\psi\circ\phi)\\
+                                                                     &= g\circ(\psi\circ\phi)\\
+                                                                     &= (g\circ\psi)\circ\phi\\
+                                                                     &= \mathord{\circ^{\CatFont{C}}_{A,B,D}}(g\circ\psi,\phi)\\
+                                                                     &= \mathord{\circ^{\CatFont{C}}_{A,B,D}}(g_{*}(\psi),\phi)\\
+                                                                     &= [\mathord{\circ^{\CatFont{C}}_{A,B,D}}\circ(g_{*}\times\sfid)](\psi,\phi).
+    \end{align*}
+    Thus $g_{*}\circ\mathord{\circ^{\CatFont{C}}_{A,B,C}}=\mathord{\circ^{\CatFont{C}}_{A,B,D}}\circ(g_{*}\times\sfid)$.
 
     \ProofBox{\cref{properties-of-pre-postcomposition-interaction-with-identities}: Interaction With Identities}%
-    For $h \in \Hom_{\CatFont C}(A,B)$ we have
-    \[ (\sfid_A)^*(h) = h \circ \sfid = h = \sfid_{\Hom_{\CatFont C}(A,B)}(h) \]
+    We have
+    \begin{align*}
+        \id^{*}_{A}(\phi) &= \phi\circ\id_{A}\\
+                          &= \phi\\
+                          &= \id_{\Hom_{\CatFont{C}}(A,B)}(\phi)%
+    \end{align*}
     and
-    \[ (\sfid_B)_*(h) = \sfid \circ h = h = \sfid_{\Hom_{\CatFont C}(A,B)}(h). \]
-    Hence the maps are identical.
+    \begin{align*}
+        (\id_{B})_{*}(\phi) &= \id_{B}\circ\phi\\
+                            &= \phi\\
+                            &= \id_{\Hom_{\CatFont{C}}(A,B)}(\phi)%
+    \end{align*}
+    for each $\phi\in\Hom_{\CatFont{C}}(A,B)$.
 \end{Proof}
 \section{Examples of Categories}\label{section-examples-of-categories}
 \subsection{The Empty Category}\label{subsection-the-empty-category}
@@ -830,6 +848,48 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
                 \to%
                 \Cats.
             \]%
+            where:
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Pos)$, we have
+                    \[
+                        [(-)_{\pos}](X)%
+                        \defeq%
+                        X_{\pos},
+                    \]%
+                    where $X_{pos}$ is the category of of \cref{posetal-categories-posetal-category-associated-to-poset} of \cref{posetal-categories}.
+                \item\SloganFont{Action on Morphisms. }For each morphism of posets $f\colon X\to Y$ in $\Pos$, the image
+                    \[
+                        f_{\pos}%
+                        \colon%
+                        X_{\pos}%
+                        \to%
+                        Y_{\pos}%
+                    \]%
+                    of $f$ by $(-)_{\pos}$ is the functor defined as follows:
+                    \begin{itemize}
+                        \item\SloganFont{The Action of $f_{\pos}$ on Objects. }For each $x\in\Obj(X_{\pos})$, we have
+                            \[
+                                f_{\pos}(x)%
+                                \defeq%
+                                f(x).%
+                            \]%
+                        \item\SloganFont{The Action of $f_{\pos}$ on Morphisms. }For each $x,y\in\Obj(X_{\pos})$, the action
+                            \[
+                                f_{\pos|x,y}%
+                                \colon%
+                                \Hom_{X_{\pos}}(x,y)%
+                                \to%
+                                \Hom_{Y_{\pos}}(f(x),f(y))%
+                            \]%
+                            of $f$ at $(x,y)$ is given by
+                            \[
+                                f_{\pos|x,y}(\pt_{\Hom_{X_{\pos}}(x,y)})%
+                                \defeq%
+                                \pt_{\Hom_{Y_{\pos}}(f(x),f(y))}%
+                            \]%
+                            if $x\preceq_{X}y$ or, otherwise, by the inclusion of the empty set into $\Hom_{Y_{\pos}}(f(x),f(y))$.
+                    \end{itemize}
+            \end{itemize}
         \item\label{properties-of-posetal-categories-fully-faithfulness}\SloganFont{Fully Faithfulness. }The functor $(-)_{\pos}$ of \cref{properties-of-posetal-categories-functoriality} is fully faithful.
         \item\label{properties-of-posetal-categories-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
             \begin{enumerate}
@@ -841,40 +901,44 @@ Let $\CatFont{C}$ be a category and let $A,B,C\in\Obj(\CatFont{C})$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-posetal-categories}}%
-  \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
-  \begin{enumerate}
-    \item We construct a functor $f_\pos \colon X_\pos \to Y_\pos$ from a monotone map $f \in \Hom_\Pos(X,Y)$ by
-          \[ f_\pos(a) \defeq f(a), f_\pos(\pt_{\Hom_{X_\pos}(a,b)}) \defeq \pt_{\Hom_{Y_\pos}(f(a),f(b)}\] for any $a,b \in X$.
-          This map is well-defined, since $a \preceq_X b$ implies $f(a) \preceq_Y f(b)$, hence $\pt$ is an element of $\Hom_{Y_\pos}(f(a),f(b)}$ if it is one of $\Hom_{X_\pos}(a,b)$.
-          $f_\pos$ is indeed a functor: It preserves identities and compositions trivially, since all morphisms in $\Hom$-sets of $Y_\pos$ are equal.
-    \item The constructions $X \mapsto X_\pos$ for any poset $(X, \preceq_X)$, $f \mapsto f_\pos$ for any $f \in \Hom_\Pos(X,Y)$ define the functor
-          \[
-                (-)_{\pos}%
-                \colon%
-                \Pos%
-                \to%
-                \Cats.
-          \]
-          Indeed, this mapping preserves identities and compositions:
-          \begin{itemize}
-            \item For $X$ a poset, $a,b \in X, a \preceq_X b$, we have
-                  \[ (\sfid_X)_\pos(a) = \sfid_X(a) = \sfid_{X_\pos}(a),\]
-                  so $(\sfid_X)_\pos$ acts like the identity functor of $X_\pos$ on objects, and
-                  \[ (\sfid_X)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{X_\pos}((\sfid_X)_\pos(a),(\sfid_X)_\pos(b))} = \pt_{\Hom_{X_\pos}(a,b)},\]
-                  so the same holds for morphisms and $(\sfid_X)_\pos = \sfid_{X_\pos}$.
-            \item For $X,Y,Z$ posets, $f \in \Hom_\Pos(X,Y), g \in \Hom_\Pos(Y,Z)$, we need to show
-                  \[ (g \circ f)_\pos = g_\pos \circ f_\pos. \]
-                  Let $a, b \in X, a \preceq_X b$. Then we have
-                  \begin{align*}
-                    (g \circ f)_\pos(a) &= (g \circ f)(a)\\
-                                        & = g(f(a)) = g_\pos(f_\pos(a)),
-                  \end{align*}
-                  so the identity holds on objects.
-                  Since $Z_\pos$ is a posetal category, the identity automatically holds on morphisms since
-                  \[(g \circ f)_\pos(\pt_{\Hom_{X_\pos}(a,b)}) = \pt_{\Hom_{Z_\pos}(g_\pos(f_\pos(a)), g_\pos(f_\pos(b)))} = (g_\pos \circ f_\pos)(\pt_{\Hom_{X_\pos}(a,b)}).\]
-          \end{itemize}
-  \end{enumerate}
-    Hence $(-)_{\pos}$ is indeed a functor.
+    \FirstProofBox{\cref{properties-of-posetal-categories-functoriality}: Functoriality}%
+    First, note that given a morphism of posets $f\colon X\to Y$, the corresponding functor $f_{\pos}\colon X_{\pos}\to Y_{\pos}$ is indeed a functor: since all morphisms in the Hom-sets of $Y_{\pos}$ are equal, it preserves identities and compositions trivially.
+
+    \indent Next, we claim that $(-)_{\pos}$ is indeed a functor:
+    \begin{itemize}
+        \item\SloganFont{Preservation of Identities. }Let $X\in\Obj(\Pos)$. Given $x,y\in X$ with $x\preceq_{X}y$, we have
+            \begin{align*}
+                (\id_{X})_{\pos}(x) &= \id_{X}(x)\\
+                                    &= \id_{X_{\pos}}(x),
+            \end{align*}
+            so $(\id_{X})_{\pos}$ acts like the identity functor of $X_{\pos}$ on objects, and
+            \begin{align*}
+                (\id_{X})_{\pos}(\pt_{\Hom_{X_{\pos}}(x,y)}) &= \pt_{\Hom_{X_{\pos}}((\id_{X})_{\pos}(x),(\id_{X})_{\pos}(y))}\\
+                                                             &= \pt_{\Hom_{X_{\pos}}(a,b)},
+            \end{align*}
+            so the same holds for morphisms. Thus $(\id_{X})_{\pos}=\id_{X_{\pos}}$.
+        \item\SloganFont{Preservation of Composition. }Let $X,Y,Z\in\Obj(\Pos)$. Given morphisms of posets $f\colon X\to Y$ and $g\colon Y\to Z$, we need to show
+            \[
+                (g\circ f)_{\pos}%
+                =%
+                g_{\pos}\circ f_{\pos}.%
+            \]%
+            Indeed, given $x\in X$, we have
+            \begin{align*}
+                (g\circ f)_{\pos}(x) &= (g\circ f)(x)\\
+                                     &= g(f(x))\\
+                                     &= g_{\pos}(f_{\pos}(x))\\
+                                     &= [g_{\pos}\circ f_{\pos}](x),
+            \end{align*}
+            so the identity holds on objects. Since $Z_{\pos}$ is a posetal category, the identity automatically holds on morphisms since
+            \begin{align*}
+                (g\circ f)_{\pos}(\pt_{\Hom_{X_{\pos}}(x,y)}) &= \pt_{\Hom_{Z_{\pos}}(g_{\pos}(f_{\pos}(x)),g_{\pos}(f_{\pos}(y)))}\\
+                                                              &= [g_{\pos}\circ f_{\pos}](\pt_{\Hom_{X_{\pos}}(x,y)})
+            \end{align*}
+            for each $x,y\in X$ with $x\preceq_{X}y$.
+    \end{itemize}
+    Thus $(-)_{\pos}$ is indeed a functor.
+
     \ProofBox{\cref{properties-of-posetal-categories-fully-faithfulness}: Fully Faithfulness}%
     Omitted.
 
@@ -1038,22 +1102,22 @@ Let $\CatFont{C}$ be a category.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-sets-of-connected-components-of-categories}}%
     \FirstProofBox{\cref{properties-of-sets-of-connected-components-of-categories-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-sets-of-connected-components-of-categories-adjointness}: Adjointness}%
     This is proved in \cref{the-quadruple-adjunction-between-sets-and-cats}.
 
     \ProofBox{\cref{properties-of-sets-of-connected-components-of-categories-interaction-with-groupoids}: Interaction With Groupoids}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-sets-of-connected-components-of-categories-preservation-of-colimits}: Preservation of Colimits}%
     This follows from \cref{properties-of-sets-of-connected-components-of-categories-adjointness} and \cref{properties-of-adjunctions-interaction-with-co-limits} of \cref{properties-of-adjunctions}.
 
     \ProofBox{\cref{properties-of-sets-of-connected-components-of-categories-symmetric-strong-monoidality-with-respect-to-coproducts}: Symmetric Strong Monoidality With Respect to Coproducts}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-sets-of-connected-components-of-categories-symmetric-strong-monoidality-with-respect-to-products}: Symmetric Strong Monoidality With Respect to Products}%
-    Clear.
+    Omitted.
 \end{Proof}
 \subsubsection{Connected Categories}\label{subsubsection-the-quadruple-adjunction-with-sets-connected-categories}
 \begin{definition}{Connected Categories}{connected-categories}%
@@ -1177,16 +1241,16 @@ Let $\CatFont{C}$ be a category.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-discrete-categories-on-sets}}%
     \FirstProofBox{\cref{properties-of-discrete-categories-on-sets-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-discrete-categories-on-sets-adjointness}: Adjointness}%
     This is proved in \cref{the-quadruple-adjunction-between-sets-and-cats}.
 
     \ProofBox{\cref{properties-of-discrete-categories-on-sets-symmetric-strong-monoidality-with-respect-to-coproducts}: Symmetric Strong Monoidality With Respect to Coproducts}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-discrete-categories-on-sets-symmetric-strong-monoidality-with-respect-to-products}: Symmetric Strong Monoidality With Respect to Products}%
-    Clear.
+    Omitted.
 \end{Proof}
 \subsection{Indiscrete Categories}\label{subsection-the-quadruple-adjunction-with-sets-indiscrete-categories}
 \begin{definition}{Indiscrete Categories}{indiscrete-categories}%
@@ -1282,13 +1346,13 @@ Let $\CatFont{C}$ be a category.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-indiscrete-categories-on-sets}}%
     \FirstProofBox{\cref{properties-of-indiscrete-categories-on-sets-functoriality}: Functoriality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-indiscrete-categories-on-sets-adjointness}: Adjointness}%
     This is proved in \cref{the-quadruple-adjunction-between-sets-and-cats}.
 
     \ProofBox{\cref{properties-of-indiscrete-categories-on-sets-symmetric-strong-monoidality-with-respect-to-products}: Symmetric Strong Monoidality With Respect to Products}%
-    Clear.
+    Omitted.
 \end{Proof}
 \section{Groupoids}\label{section-groupoids}
 \subsection{Isomorphisms}\label{subsection-isomorphisms}
@@ -2283,13 +2347,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-natural-transformations-associated-to-functors}}%
     \FirstProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-composition}: Interaction With Composition}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-identities}: Interaction With Identities}%
-    Clear.
+    Omitted.
 \end{Proof}
 \section{Conditions on Functors}\label{section-conditions-on-functors}
 \subsection{Faithful Functors}\label{subsection-faithful-functors}
@@ -3402,7 +3466,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \FirstProofBox{\cref{properties-of-equivalences-of-categories-characterisations}: Characterisations}%
     We claim that \cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-b,properties-of-equivalences-of-categories-characterisations-c,properties-of-equivalences-of-categories-characterisations-d,properties-of-equivalences-of-categories-characterisations-e} are indeed equivalent:
     \begin{enumerate}
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}: }Clear.
+        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}: }Omitted.
         \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-b}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}: }Since $F$ is essentially surjective and $\CatFont{C}$ and $\CatFont{D}$ are small, we can choose, using the axiom of choice, for each $B\in\Obj(\CatFont{D})$, an object $j_{B}$ of $\CatFont{C}$ and an isomorphism $i_{B}\colon B\to F_{j_{B}}$ of $\CatFont{D}$.
 
             Since $F$ is fully faithful, we can extend the assignment $B\mapsto j_{B}$ to a \emph{unique} functor $j\colon\CatFont{D}\to\CatFont{C}$ such that the isomorphisms $i_{B}\colon B\to F_{j_{B}}$ assemble into a natural isomorphism $\eta\colon\id_{\CatFont{D}}\Longrightisoarrow F\circ j$, with a similar natural isomorphism $\epsilon\colon\id_{\CatFont{C}}\Longrightisoarrow j\circ F$. Hence $F$ is an equivalence.
@@ -3416,7 +3480,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     Omitted.
 
     \ProofBox{\cref{properties-of-equivalences-of-categories-stability-under-composition}: Stability Under Composition}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-equivalences-of-categories-equivalences-vs-adjoint-equivalences}: Equivalences \vs Adjoint Equivalences}%
     See \cite[Proposition 4.4.5]{category-theory-in-context}.
@@ -4744,7 +4808,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\
     \]%
 \end{remark}
 \begin{Proof}{Proof of \cref{the-set-of-transformations-as-a-product}}%
-    Clear.
+    Omitted.
 \end{Proof}
 \subsection{Natural Transformations}\label{subsection-natural-transformations-natural-transformations}
 Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors.
@@ -5130,7 +5194,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-vertical-composition-of-natural-transformations}}%
     \FirstProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-functionality}: Functionality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-associativity}: Associativity}%
     Indeed, we have
@@ -5515,7 +5579,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-horizontal-composition-of-natural-transformations}}%
     \FirstProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-functionality}: Functionality}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity}: Associativity}%
     Omitted.

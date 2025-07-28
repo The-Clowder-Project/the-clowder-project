@@ -4817,7 +4817,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             for each $\mathcal{U},\mathcal{V}\in\mathcal{P}(\mathcal{P}(X))$.
         \item\label{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}\SloganFont{Interaction With Unions \rmII. }The diagrams
             \begin{scalemath}
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={14.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(U\cup-)}"]
                     \arrow[d,"\bigcup"']
@@ -4831,7 +4831,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                     \mathcal{P}(X)
                 \end{tikzcd}
                 \quad
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={14.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X)) \setminus \{\emptyset\}
                     \arrow[r,"{\id_{\mathcal{P}(\mathcal{P}(X))}\times(-\cup V)}"]
                     \arrow[d,"\bigcup"']
@@ -5546,7 +5546,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}
+    \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}%
     We have
         \begin{align*}
         U \cap \bigcup_{V\in\mathcal{V}}V &\defeq \{
@@ -5560,7 +5560,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
-                                                                  &\text{$x \in U$ amd there exists some}\\
+                                                                  &\text{$x \in U$ and there exists some}\\
                                                                   &\text{$V\in\mathcal{V}$ such that $x\in V$}
                                                               \end{aligned}
                                                           \}\\%
@@ -5589,6 +5589,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
       \bigcup_{U\in\mathcal{U}}(U\cap V) &= \bigcup_{U\in\mathcal{U}}(V\cap U).
     \end{align*}
     But these two sets are equal by the first statement.
+
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-differences}: Interaction With Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\}\}$. We have
     \begin{align*}
@@ -5668,10 +5669,11 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3}: Interaction With Complements \rmIII}%
     By \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} \cref{properties-of-complements-involutority} of \cref{properties-of-complements}, we have
     \begin{align*}
-      \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^\sfc)^\sfc \right)^{\sfc}\\
-      &= \left(\left( \bigcup_{U \in \mathcal U} U^\sfc \right)^{\sfc}\right)^{\sfc}\\
-      &= \bigcup_{U \in \mathcal U} U^\sfc\\.
+        \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^{\sfc})^{\sfc} \right)^{\sfc}\\
+        &= \left(\left( \bigcup_{U \in \mathcal U} U^{\sfc} \right)^{\sfc}\right)^{\sfc}\\
+        &= \bigcup_{U \in \mathcal U} U^{\sfc}.
     \end{align*}
+
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\},\{0,1\}\}$. We have
     \begin{align*}
@@ -7903,10 +7905,11 @@ Let $X$ and $Y$ be sets.%
     We have
     \begin{align*}
       (U \setminus V) \cup W &\defeq \{x \in X\ \middle|\ \text{($x \in U$ and $x \nin V$) or $x \in W$}\}\\
-                             &= \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
-                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
-                             &= \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
-                             &\defeq x \in (U \cup W) \setminus (V \setminus W).
+                             &=      \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
+                             &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
+                             &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
+                             &=      \{x \in X\ \middle|\ \text{($x \in (U \cup W) \setminus (V \setminus W)$)}\}\\
+                             &=      (U \cup W) \setminus (V \setminus W).
     \end{align*}
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-3}: Interaction With Unions \rmIII}%
@@ -8132,12 +8135,19 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
     \ProofBox{\cref{properties-of-complements-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
     We consider the two cases $x \in U, x \nin U$.
     \begin{enumerate}
-      \item If $x \in U$, then $x \nin U^\sfc$. So $\chi_{U}(x) = 1$ and
-            \[ \chi_{U^\sfc}(x) = 0 = 1 - \chi_{U}(x). \]
-      \item If $x \nin U$, then $x \in U^\sfc$. So $\chi_{U}(x) = 0$ and
-            \[ \chi_{U^\sfc}(x) = 1 = 1 - \chi_{U}(x). \]
+        \item If $x \in U$, then $x \nin U^{\sfc}$. So $\chi_{U}(x) = 1$ and
+          \begin{align*}
+              \chi_{U^{\sfc}}(x) &= 0\\
+                             &= 1-\chi_{U}(x).%
+          \end{align*}
+      \item If $x \nin U$, then $x \in U^{\sfc}$. So $\chi_{U}(x) = 0$ and
+          \begin{align*}
+              \chi_{U^{\sfc}}(x) &= 1\\
+                             &= 1-\chi_{U}(x).%
+          \end{align*}
     \end{enumerate}
     Hence, the equation holds for all $x \in X$.
+
     \ProofBox{\cref{properties-of-complements-interaction-with-direct-images}: Interaction With Direct Images}%
     This is a repetition of \cref{properties-of-direct-images-i-interaction-with-complements} of \cref{properties-of-direct-images-i} and is proved there.
 
@@ -8402,9 +8412,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                 U\sdiff-  &\colon \mathcal{P}(X) \to \mathcal{P}(X),\\
                 -\sdiff V &\colon \mathcal{P}(X) \to \mathcal{P}(X)
             \end{align*}
-            are self-inverse bijections.
-            \end{align*}
-            Moreover, the map
+            are self-inverse bijections. Moreover, the map
             \begin{webcompile}
                 \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.0*\the\DL, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(X)
@@ -8614,9 +8622,15 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     See \cite{proof-wiki:characteristic-function-of-symmetric-difference}.
 
     \ProofBox{\cref{properties-of-symmetric-differences-bijectivity}: Bijectivity}%
-    \begin{enumerate}
-      \item We show that
-            \[ (U\sdiff-) &\colon \mathcal{P}(X) \to \mathcal{P}(X) \]
+    \begin{itemize}
+        \item We show that
+            \[%
+                (U\sdiff-)%
+                \colon%
+                \mathcal{P}(X)%
+                \to%
+                \mathcal{P}(X)%
+            \]%
             is self-inverse.
 
             Let $W \in \mathcal{P}(X)$. Then,
@@ -8630,7 +8644,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             From the first two points and \cref{properties-of-symmetric-differences-commutativity}, we get
             \[ U \sdiff (U \sdiff V) = V,\ V \sdiff (U \sdiff V) = V \sdiff (V \sdiff U) = U. \]
             Hence the function maps $U$ to $V$ and $V$ to $U$.
-    \end{enumerate}
+    \end{itemize}
 
     \ProofBox{\cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups}: Interaction With Powersets and Groups}%
     \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-a} follows from \cref{properties-of-symmetric-differences-associativity,properties-of-symmetric-differences-unitality,properties-of-symmetric-differences-invertibility,properties-of-symmetric-differences-commutativity}, while \cref{properties-of-symmetric-differences-interaction-with-powersets-and-groups-b} follows from \cref{properties-of-symmetric-differences-invertibility}.%
@@ -10751,8 +10765,8 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
         \item\label{properties-of-characteristic-functions-of-subsets-interaction-with-complements}\SloganFont{Interaction With Complements. }We have
             \[
                 \chi_{U^{\sfc}}%
-                \equiv%
-                1-\chi_{U}\mod{2}%
+                =%
+                1-\chi_{U}%
             \]%
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-characteristic-functions-of-subsets-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }We have
