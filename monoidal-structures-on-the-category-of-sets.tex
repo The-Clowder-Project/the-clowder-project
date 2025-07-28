@@ -4404,12 +4404,43 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \colon%
         \emptyset\times A%
         \isorightarrow%
-        \emptyset.%
+        \emptyset, \zeta^{\Sets}_{\ell|A} \defeq \pr_1%
     \]%
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-left-annihilator-of-the-product-of-sets}}%
-    Omitted. For a partial proof, see \cite{proof-wiki:cartesian-product-is-empty-iff-factor-is-empty}.
-\end{Proof}
+  \FirstProofBox{Invertibility}
+  The inverse of $\zeta^{\Sets}_{\ell|A}$ is the map
+  \[\zeta^{\Sets,-1}_{\ell| A} \colon \emptyset \isorightarrow \emptyset \times A\]
+  given by
+  \[\zeta^{\Sets,-1}_{\ell| A} \defeq \iota_{A},\]
+  where $\iota_A$ is as defined in \cref{construction-of-the-initial-set}:
+  \begin{itemize}
+    \item\SloganFont{Invertibility \rmI. } The map $\zeta^{\Sets}_{\ell|A} \circ \iota_A \colon \emptyset \to \emptyset$ is equal to $\id_\emptyset$, as $\emptyset$ is the initial object of $\Sets$.
+    \item\SloganFont{Invertibility \rmII. } The map $\iota_A \circ \zeta^{\Sets}_{\ell|A}$ is equal to the identity on every $(x,a) \in \emptyset \times A$, as there are none.
+  \end{itemize}
+  Hence $\zeta^{\Sets}_{\ell|A}$ is an isomorphism.
+  \ProofBox{Naturality}
+  We need to show that given a function $f \colon A \to B$, the diagram
+   \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \emptyset \times A
+            \arrow[r,"{\id_{\emptyset} \times f}"]
+            \arrow[d,"\zeta^{\Sets}_{\ell|A}"']
+            \&
+            \emptyset \times B
+            \arrow[d,"\zeta^{\Sets}_{\ell|B}"]
+            \\
+            \emptyset
+            \arrow[r,"\id_{\emptyset}"']
+            \&
+            \emptyset
+        \end{tikzcd}
+      \]%
+      commutes.
+    But since $\emptyset \times A$ has no elements, this is trivially true.
+    \ProofBox{Being a Natural Isomorphism}%
+    Since $\zeta^{\Sets}_{\ell}$ is natural and $\zeta^{\Sets, -1}_{\ell}$ is a componentwise inverse to $\zeta^{\Sets}_{\ell}$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\zeta^{\Sets,-1}_{\ell}$ is also natural. Thus $\zeta^{\Sets}_{\ell}$ is a natural isomorphism.
+  \end{Proof}
 \subsection{The Right Annihilator}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts-right-annihilator}
 \begin{definition}{The Right Annihilator of $\times$}{the-right-annihilator-of-the-product-of-sets}%
     The \index[set-theory]{product of sets!right annihilator}\textbf{right annihilator of the product of sets} is the natural isomorphism
@@ -4461,11 +4492,42 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \colon%
         A\times\emptyset%
         \isorightarrow%
-        \emptyset.%
+        \emptyset, \zeta^{\Sets}_{r|A} \defeq \pr_2.%
     \]%
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-right-annihilator-of-the-product-of-sets}}%
-    Omitted. For a partial proof, see \cite{proof-wiki:cartesian-product-is-empty-iff-factor-is-empty}.
+      \FirstProofBox{Invertibility}
+  The inverse of $\zeta^{\Sets}_{r|A}$ is the map
+  \[\zeta^{\Sets,-1}_{r|A} \colon \emptyset \isorightarrow A \times \emptyset \]
+  given by
+  \[\zeta^{\Sets,-1}_{r| A} \defeq \iota_{A},\]
+  where $\iota_A$ is as defined in \cref{construction-of-the-initial-set}:
+  \begin{itemize}
+    \item\SloganFont{Invertibility \rmI. } The map $\zeta^{\Sets}_{r|A} \circ \iota_A \colon \emptyset \to \emptyset$ is equal to $\id_\emptyset$, as $\emptyset$ is the initial object of $\Sets$.
+    \item\SloganFont{Invertibility \rmII. } The map $\iota_A \circ \zeta^{\Sets}_{r|A}$ is equal to the identity on every $(a,x) \in A \times \emptyset$, as there are none.
+  \end{itemize}
+  Hence $\zeta^{\Sets}_{r|A}$ is an isomorphism.
+  \ProofBox{Naturality}
+  We need to show that given a function $f \colon A \to B$, the diagram
+   \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A \times \emptyset
+            \arrow[r,"{f \times \id_{\emptyset}}"]
+            \arrow[d,"\zeta^{\Sets}_{r|A}"']
+            \&
+            B \times \emptyset
+            \arrow[d,"\zeta^{\Sets}_{r|B}"]
+            \\
+            \emptyset
+            \arrow[r,"\id_{\emptyset}"']
+            \&
+            \emptyset
+        \end{tikzcd}
+      \]%
+      commutes.
+    But since $A \times \emptyset$ has no elements, this is trivially true.
+    \ProofBox{Being a Natural Isomorphism}%
+    Since $\zeta^{\Sets}_{r}$ is natural and $\zeta^{\Sets, -1}_{r}$ is a componentwise inverse to $\zeta^{\Sets}_{r}$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\zeta^{\Sets,-1}_{r}$ is also natural. Thus $\zeta^{\Sets}_{r}$ is a natural isomorphism.
 \end{Proof}
 \subsection{The Bimonoidal Category of Sets, Products, and Coproducts}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts}
 \begin{proposition}{The Bimonoidal Structure on Sets Associated to $\times$ and $\icoprod$}{the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}%
