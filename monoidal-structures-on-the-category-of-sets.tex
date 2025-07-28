@@ -4074,7 +4074,112 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     for each $(x,a)\in X\times(Y\icoprod Z)$.
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}%
-    Omitted.
+  \FirstProofBox{Invertibility}
+  The inverse of $\delta^{\Sets}_{\ell|X,Y,Z}$ is the map
+  \[\delta^{\Sets,-1}_{\ell|X,Y,Z}%
+        \colon%
+
+        (X\times Y)\icoprod(X\times Z)
+        \isorightarrow
+        X\times(Y\icoprod Z)\]
+      given by
+      \[\delta^{\Sets,-1}_{\ell|X,Y,Z}(a) \defeq
+        \begin{cases}
+            (x,(0,y)) &\text{if $a=(0,(x,y))$,}\\
+            (x,(1,z)) &\text{if $a=(1,(x,z))$}\
+        \end{cases} \]
+      for $a \in (X\times Y)\icoprod(X\times Z)$. Indeed:
+     \begin{itemize}
+       \item\SloganFont{Invertibility \rmI. }The map
+             $\delta^{\Sets,-1}_{\ell|X,Y,Z} \circ \delta^{\Sets}_{\ell|X,Y,Z}$ acts on elements as
+            \begin{align*}
+                &\mkern40mu\mcp{(x,(0,y))}\mkern40mu \mapsto \mkern40mu\mcp{(0,(x,y))}    \mkern40mu \mapsto \mkern40mu\mcp{(x,(0,y))}\mkern35mu\mrp{,}\\
+                &\mkern40mu\mcp{(x,(1,z))}\mkern40mu \mapsto \mkern40mu\mcp{(1,(x,z))}\mkern40mu \mapsto \mkern40mu\mcp{(x,(1,z))}\mkern35mu\mrp{,}\\
+            \end{align*}
+            but these are the two possible cases for elements of $X \times (Y \icoprod Z)$. Hence the map is equal to the identity.
+        \item\SloganFont{Invertibility \rmII. }The map
+             $\delta^{\Sets}_{\ell|X,Y,Z} \circ \delta^{\Sets,-1}_{\ell|X,Y,Z}$ acts on elements as
+            \begin{align*}
+                &\mkern40mu\mcp{(0,(x,y))}\mkern40mu \mapsto \mkern40mu\mcp{(x,(0,y))}    \mkern40mu \mapsto \mkern40mu\mcp{(0,(x,y))}\mkern35mu\mrp{,}\\
+                &\mkern40mu\mcp{(1,(x,z))}\mkern40mu \mapsto \mkern40mu\mcp{(x,(1,z))}\mkern40mu \mapsto \mkern40mu\mcp{(1,(x,z))}\mkern35mu\mrp{,}\\
+            \end{align*}
+            but these are the two possible cases for elements of $(X \times Y) \icoprod (X \times Z)$. Hence the map is equal to the identity.
+     \end{itemize}
+     So $\delta^{\Sets}_{\ell|X,Y,Z}$ is an isomorphism for all $X,Y,Z$.
+
+    \ProofBox{Naturality}%
+    We need to show that, given functions
+    \begin{align*}
+        f &\colon X \to X',\\
+        g &\colon Y \to Y',\\
+        h &\colon Z \to Z'
+    \end{align*}
+    the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            X\times(Y\icoprod Z)
+            \arrow[r,"{f\times (g\icoprod h)}"]
+            \arrow[d,"\delta^{\Sets}_{\ell|X,Y,Z}"']
+            \&
+            X'\times(Y'\icoprod Z')
+            \arrow[d,"\delta^{\Sets}_{\ell|X',Y',Z'}"]
+            \\
+            (X\times Y)\icoprod(X\times Z)
+            \arrow[r,"{(f\times g)\icoprod(f\times h)}"']
+            \&
+            (X'\times Y')\icoprod(X'\times Z')
+        \end{tikzcd}
+      \]
+      commutes. Indeed, this diagram acts on elements as
+      \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(x,(0,y))}
+            \arrow[d,mapsto]
+            \&
+            \\
+            {(0,(x,y))}
+            \arrow[r,mapsto]
+            \&
+            {(0,(f(x),g(y)))}
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(x,(0,y))}
+            \arrow[r,mapsto]
+            \&
+            {(f(x),(0,f(y)))}
+            \arrow[d,mapsto]
+            \\
+            \&
+            {(0,(f(x),g(y)))}
+        \end{tikzcd}
+    \end{webcompile}
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(x,(1,z))}
+            \arrow[d,mapsto]
+            \&
+            \\
+            {(1,(x,z))}
+            \arrow[r,mapsto]
+            \&
+            {(1,(f(x),h(z)))}
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(x,(1,z))}
+            \arrow[r,mapsto]
+            \&
+            {(f(x),(1,h(z)))}
+            \arrow[d,mapsto]
+            \\
+            \&
+            {(1,(f(x),h(z)))}
+        \end{tikzcd}
+      \end{webcompile}
+      so it commutes and $\delta^{\Sets}_{\ell}$ is a natural transformation.
+      \ProofBox{Being a Natural Isomorphism}%
+    Since $\delta^{\Sets}_{\ell}$ is natural and $\delta^{\Sets,-1}_{\ell}$ is a componentwise inverse to $\delta^{\Sets}_{\ell}$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\delta^{\Sets,-1}_{\ell}$ is also natural. Thus $\delta^{\Sets}_{\ell}$ is a natural isomorphism.
 \end{Proof}
 \subsection{The Right Distributor}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts-right-distributor}
 \begin{definition}{The Right Distributor of $\times$ over $\icoprod$}{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}%
@@ -4141,7 +4246,112 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     for each $(a,z)\in(X\icoprod Y)\times Z$.
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}%
-    Omitted.
+\FirstProofBox{Invertibility}
+  The inverse of $\delta^{\Sets}_{r|X,Y,Z}$ is the map
+  \[\delta^{\Sets,-1}_{r|X,Y,Z}%
+        \colon%
+
+        (X\times Z)\icoprod(Y\times Z)
+        \isorightarrow
+        (X\icoprod Y)\times Z\]
+      given by
+      \[\delta^{\Sets,-1}_{r|X,Y,Z}(a) \defeq
+        \begin{cases}
+            ((0,x),z) &\text{if $a=(0,(x,z))$,}\\
+            ((1,y),z) &\text{if $a=(1,(y,z))$}\
+        \end{cases} \]
+      for $a \in (X\times Z)\icoprod(Y\times Z)$. Indeed:
+     \begin{itemize}
+       \item\SloganFont{Invertibility \rmI. }The map
+             $\delta^{\Sets,-1}_{r|X,Y,Z} \circ \delta^{\Sets}_{r|X,Y,Z}$ acts on elements as
+            \begin{align*}
+                &\mkern40mu\mcp{((0,x),z)}\mkern40mu \mapsto \mkern40mu\mcp{(0,(x,z))}    \mkern40mu \mapsto \mkern40mu\mcp{(0,(x,z))}\mkern35mu\mrp{,}\\
+                &\mkern40mu\mcp{((1,y),z)}\mkern40mu \mapsto \mkern40mu\mcp{(1,(y,z))}\mkern40mu \mapsto \mkern40mu\mcp{(1,(y,z))}\mkern35mu\mrp{,}\\
+            \end{align*}
+            but these are the two possible cases for elements of $(X \icoprod Y) \times Z$. Hence the map is equal to the identity.
+        \item\SloganFont{Invertibility \rmII. }The map
+             $\delta^{\Sets}_{r|X,Y,Z} \circ \delta^{\Sets,-1}_{r|X,Y,Z}$ acts on elements as
+            \begin{align*}
+                &\mkern40mu\mcp{(0,(x,z))}\mkern40mu \mapsto \mkern40mu\mcp{((0,x),z))}    \mkern40mu \mapsto \mkern40mu\mcp{(0,(x,z))}\mkern35mu\mrp{,}\\
+                &\mkern40mu\mcp{(1,(y,z))}\mkern40mu \mapsto \mkern40mu\mcp{((1,y),z)}\mkern40mu \mapsto \mkern40mu\mcp{(1,(y,z))}\mkern35mu\mrp{,}\\
+            \end{align*}
+            but these are the two possible cases for elements of $(X \times Z) \icoprod (Y \times Z)$. Hence the map is equal to the identity.
+     \end{itemize}
+     So $\delta^{\Sets}_{r|X,Y,Z}$ is an isomorphism for all $X,Y,Z$.
+
+    \ProofBox{Naturality}%
+    We need to show that, given functions
+    \begin{align*}
+        f &\colon X \to X',\\
+        g &\colon Y \to Y',\\
+        h &\colon Z \to Z'
+    \end{align*}
+    the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            (X\icoprod Y)\times Z'
+            \arrow[r,"{(f\icoprod g)\times h}"]
+            \arrow[d,"\delta^{\Sets}_{r|X,Y,Z}"']
+            \&
+            (X'\icoprod Y')\times Z'
+            \arrow[d,"\delta^{\Sets}_{r|X',Y',Z'}"]
+            \\
+            (X \times Z) \icoprod (Y \times Z)
+            \arrow[r,"{(f\times h)\icoprod(g\times h)}"']
+            \&
+            (X' \times Z') \icoprod (Y' \times Z')
+        \end{tikzcd}
+      \]
+      commutes. Indeed, this diagram acts on elements as
+      \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {((0,x),z)}
+            \arrow[d,mapsto]
+            \&
+            \\
+            {(0,(x,z))}
+            \arrow[r,mapsto]
+            \&
+            {(0,(f(x),h(z)))}
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {((0,x),z)}
+            \arrow[r,mapsto]
+            \&
+            {((0, f(x)), h(z))}
+            \arrow[d,mapsto]
+            \\
+            \&
+            {(0,(f(x),h(z)))}
+        \end{tikzcd}
+    \end{webcompile}
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {((1,y),z)}
+            \arrow[d,mapsto]
+            \&
+            \\
+            {(1,(y,z))}
+            \arrow[r,mapsto]
+            \&
+            {(1,(g(y),h(z)))}
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {((1,y),z)}
+            \arrow[r,mapsto]
+            \&
+            {((1,g(y)),h(z))}
+            \arrow[d,mapsto]
+            \\
+            \&
+            {(1,(g(y),h(z)))}
+        \end{tikzcd}
+      \end{webcompile}
+      so it commutes and $\delta^{\Sets}_{r}$ is a natural transformation.
+      \ProofBox{Being a Natural Isomorphism}%
+    Since $\delta^{\Sets}_{r}$ is natural and $\delta^{\Sets,-1}_{r}$ is a componentwise inverse to $\delta^{\Sets}_{r}$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\delta^{\Sets,-1}_{r}$ is also natural. Thus $\delta^{\Sets}_{r}$ is a natural isomorphism.
 \end{Proof}
 \subsection{The Left Annihilator}\label{subsection-the-bimonoidal-category-of-sets-products-and-coproducts-left-annihilator}
 \begin{definition}{The Left Annihilator of $\times$}{the-left-annihilator-of-the-product-of-sets}%
