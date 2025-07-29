@@ -143,10 +143,11 @@ Let $A$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-reflexive-relations}}%
     \FirstProofBox{\cref{properties-of-reflexive-relations-interaction-with-inverses}: Interaction With Inverses}%
-    Clear.
+    If $R$ is reflexive, then for all $a \in A$, we have $a \sim_R a$. But $a \sim_{R^\dagger} b$ iff $b \sim_R a$. Hence $a \sim_{R^\dagger} a$ for all $a$, such that $R^\dagger$ is reflexive.
 
     \ProofBox{\cref{properties-of-reflexive-relations-interaction-with-composition}: Interaction With Composition}%
-    Clear.
+    If $R,S$ are reflexive, then $a \sim_R a, a \sim_S a$ for all $a \in A$.
+    To prove $a \sim_{S \procirc R} a$, it suffices to exhibit some $b$ such that $a \sim_R b, b \sim_S a$ (compare \cref{composition-of-relation-1}). Choose $b = a$, then these are satisfied and $S \procirc R$ must be reflexive.
 \end{Proof}
 \subsection{The Reflexive Closure of a Relation}\label{subsection-reflexive-relations-the-reflexive-closure-of-a-relation}
 Let $R$ be a relation on $A$.

@@ -1241,7 +1241,26 @@ Let $\CatFont{C}$ be a category.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-discrete-categories-on-sets}}%
     \FirstProofBox{\cref{properties-of-discrete-categories-on-sets-functoriality}: Functoriality}%
-    Omitted.
+    \begin{enumerate}
+      \item We define the action of $(-)_\disc$ on morphisms $f \colon X \to Y$ between sets $X,Y$, e.g. a functor
+            \[f_\disc \colon X_\disc \to Y_\disc.\]
+            Let $A$ be an object of $X_\disc$, so $A \in X$.
+            Then we set
+            \begin{align*}
+              f_\disc(A) &\defeq f(A) \in Y = \Obj(Y_\disc),
+              f_\disc(\id_A) &\defeq \id_{f(A)}.
+            \end{align*}
+            Since the identities are the only morphisms in $X_\disc$, this map is well-defined.
+            Then, $f_\disc$ is a functor, since the Hom-sets of $Y_\disc$ all have at most one element such that the functor equations must automatically hold.
+      \item We need to show that the assignment $(-)_\disc \colon \Sets \to \Cats$ with the previously defined action on morphisms is functorial.
+            Let $X,Y,Z$ be sets, $f \colon X \to Y, g \colon Y \to Z$, $A \in X$. Then
+            \begin{align*}
+            (\id_X)_\disc(A) &= \id_X(A) = A,\\
+            (g \circ f)_\disc(A) &= (g\circ f)(A) \\&= g(f(A)) \\&= g_\disc(f_\disc(A)) = (g_\disc \circ f_\disc)(A).
+            \end{align*}
+            Again, the equations also hold on morphisms in $X_\disc$ due to there being at most one element in the Hom-sets of $Z_\disc$.
+            Hence $(\id_X)_\disc = \id_{X_\disc}$, $(g \circ f)_\disc = g_\disc \circ f_\disc$, so $(-)_\disc$ is a functor.
+      \end{enumerate}
 
     \ProofBox{\cref{properties-of-discrete-categories-on-sets-adjointness}: Adjointness}%
     This is proved in \cref{the-quadruple-adjunction-between-sets-and-cats}.
