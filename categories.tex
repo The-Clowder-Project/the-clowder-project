@@ -3415,7 +3415,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \]%
                     is an equivalence of categories.
             \end{enumerate}
-        \item\label{properties-of-equivalences-of-categories-two-out-of-three}\SloganFont{Two-Out-of-Three. }Let
+      \item\label{properties-of-equivalences-of-categories-inverses}\SloganFont{Inverses. }If $(F,G,\eta,\epsilon)$ is an equivalence with $F \colon \CatFont C \to CatFont D$, so is
+            $(G,F,\epsilon^{-1},\eta^{-1})$.
+      \item\label{properties-of-equivalences-of-categories-two-out-of-three}\SloganFont{Two-Out-of-Three. }Let
             \[
                 \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={2.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}
@@ -3485,7 +3487,95 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \FirstProofBox{\cref{properties-of-equivalences-of-categories-characterisations}: Characterisations}%
     We claim that \cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-b,properties-of-equivalences-of-categories-characterisations-c,properties-of-equivalences-of-categories-characterisations-d,properties-of-equivalences-of-categories-characterisations-e} are indeed equivalent:
     \begin{enumerate}
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}: }Omitted.
+      \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}: }
+            Let $F \colon \CatFont C \to \CatFont D$ be an equivalence. We show the three properties.
+            \begin{enumerate}
+              \item\SloganFont{Faithfulness: } Let $f,g \in \Hom_{\CatFont C}(A,B)$, $F(f) = F(g)$. Then $GF(f) = GF(g)$ and we have the following diagramm:
+                \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                      GF(A)
+                      \arrow[r, "{GF(f)}", shift left]
+                      \arrow[r, "{GF(g)}"', shift right]
+                      \arrow[d, "\eta^{-1}_{A}"']
+                      \&
+                      GF(B)
+                      \arrow[d, "\eta^{-1}_{B}"]
+                      \\
+                      A
+                      \arrow[r, "{f}", shift left]
+                      \arrow[r, "{g}"', shift right]
+                      \&
+                      B
+                    \end{tikzcd}
+                    \]%
+                    The squares where we remove $GF(g), g$ or $GF(f), f$ from the diagrams commute by naturality of $\eta^{-1}$ and the two upper morphisms are equal.
+                    So we have
+                    \[ f \circ \eta^{-1}_A = \eta^{-1}_B \circ GF(f) = \eta^{-1}_B \circ GF(g) = g \circ \eta^{-1}_A. \]
+                    But $\eta^{-1}_A$ is an isomorphism, so $f = g$ and $F$ is faithful.
+              \item\SloganFont{Fullness: } Let $f \in \Hom_{\CatFont D}(F(A), F(B))$.
+                    Define \[h \in \Hom_{\CatFont C}(A,B), h = \eta^{-1}_B \circ G(f) \circ \eta_A,\]
+                    yielding the commutative diagram
+                    \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                      A
+                      \arrow[r, "{h}"]
+                      \arrow[d, "\eta_{A}"']
+                      \&
+                      B
+                      \arrow[d, "\eta_{B}"]
+                      \\
+                      GF(A)
+                      \arrow[r, "{G(f)}"']
+                      \&
+                      GF(B)
+                    \end{tikzcd}
+                    \]%
+                    We must show $F(h) = f$.
+                    Since $(G,F,\epsilon^{-1},\eta^{-1})$ is also an equivalence due to \cref{properties-of-equivalences-of-categories-inverses}, $G$ is faithful, so it suffices to show $GF(h) = G(f)$.
+
+                    Note how from the naturality of $\eta$ applied to itself we get
+                    \[ GF(\eta_A) \circ \eta_A = \eta_{GFA} \circ \eta_A, \]
+                    for all $A \in \Obj(\CatFont C)$, and since $\eta$ is an isomorphism, this implies $\eta_{GFA} = GF(\eta_A)$.
+
+                    By applying $GF$ to the above diagram and incorporating the equality, we can see that
+                     \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                      GF(A)
+                      \arrow[r, "{GF(h)}"]
+                      \arrow[d, "\eta_{GF(A)} = GF(\eta_A)"']
+                      \&
+                      GF(B)
+                      \arrow[d, "\eta_{GF(B)} = GF(\eta_B)"]
+                      \\
+                      GFGF(A)
+                      \arrow[r, "{GFG(f)}"']
+                      \&
+                      GFGF(B)
+                    \end{tikzcd}
+                    \]%
+                    must commute.
+                    By naturality of $\eta$, so does
+                      \[
+                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                      GF(A)
+                      \arrow[r, "{G(f)}"]
+                      \arrow[d, "\eta_{GF(A)}"']
+                      \&
+                      GF(B)
+                      \arrow[d, "\eta_{GF(B)}"]
+                      \\
+                      GFGF(A)
+                      \arrow[r, "{GFG(f)}"']
+                      \&
+                      GFGF(B)
+                    \end{tikzcd}
+                    \]%
+                    and we have
+                    \[ \eta_{GF(A)} \circ GF(h) = GFG(f) \circ \eta_{GF(B)} = \eta_{GF(A)} \circ G(f). \]
+                    But $\eta$ is an isomorphism, so $GF(h) = G(f)$.
+              \item\SloganFont{Essential surjectivity: }
+                    Let $B \in \Obj(\CatFont D)$. We need to find some $A \in \Obj(\CatFont C)$ with $F(A) \cong B$. Choose $A \defeq G(B)$. Then $\epsilon_B \colon FG(B) \to B$ is an isomorphism by assumption. Hence $F$ is essentially surjective.
+            \end{enumerate}
         \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-b}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}: }Since $F$ is essentially surjective and $\CatFont{C}$ and $\CatFont{D}$ are small, we can choose, using the axiom of choice, for each $B\in\Obj(\CatFont{D})$, an object $j_{B}$ of $\CatFont{C}$ and an isomorphism $i_{B}\colon B\to F_{j_{B}}$ of $\CatFont{D}$.
 
             Since $F$ is fully faithful, we can extend the assignment $B\mapsto j_{B}$ to a \emph{unique} functor $j\colon\CatFont{D}\to\CatFont{C}$ such that the isomorphisms $i_{B}\colon B\to F_{j_{B}}$ assemble into a natural isomorphism $\eta\colon\id_{\CatFont{D}}\Longrightisoarrow F\circ j$, with a similar natural isomorphism $\epsilon\colon\id_{\CatFont{C}}\Longrightisoarrow j\circ F$. Hence $F$ is an equivalence.
@@ -3494,7 +3584,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
         \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-d,properties-of-equivalences-of-categories-characterisations-e} Are Equivalent: }This follows from \cref{TODO}.%
     \end{enumerate}
     This finishes the proof of \cref{properties-of-equivalences-of-categories-characterisations}.
-
+    \ProofBox{\cref{properties-of-equivalences-of-categories-inverses}: Inverses}%
+    Follows since
+    \begin{align*}
+                \epsilon^{-1}     &\colon \id_{\CatFont{D}} \Longrightisoarrow F \circ G,\\%
+                \eta^{-1} &\colon G\circ F \Longrightisoarrow \id_{\CatFont{C}}
+    \end{align*}
+    are natural isomorphisms if $\epsilon$ and $\eta$ are.
     \ProofBox{\cref{properties-of-equivalences-of-categories-two-out-of-three}: Two-Out-of-Three}%
     Omitted.
 
