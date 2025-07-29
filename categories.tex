@@ -3592,7 +3592,8 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     \end{align*}
     are natural isomorphisms if $\epsilon$ and $\eta$ are.
     \ProofBox{\cref{properties-of-equivalences-of-categories-two-out-of-three}: Two-Out-of-Three}%
-    Omitted.
+    Let $F \colon \CatFont C \to \CatFont D, G \colon \CatFont D \to \CatFont E$ be functors.
+    By \cref{properties-of-equivalences-of-categories-stability-under-composition}, if $F$ and $G$ are equivalences, so is $G \circ F$. If $G \circ F$ and $G$ are equivalences, note that by \cref{properties-of-equivalences-of-categories-stability-under-composition} and \cref{properties-of-equivalences-of-categories-inverses}, so are $G^{-1}$ and $G^{-1} \circ G \circ F = F$. If $G \circ F$ and $F$ are equivalences, so are $F^{-1}$ and $G \circ F \circ F^{-1} = G$ by the same two results.
 
     \ProofBox{\cref{properties-of-equivalences-of-categories-stability-under-composition}: Stability Under Composition}%
     Assume $(F,G,\eta,\epsilon),(F',G',\eta',\epsilon')$ are equivalences as in the theorem statement.
