@@ -5704,11 +5704,18 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-horizontal-composition-of-natural-transformations}}%
     \FirstProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-functionality}: Functionality}%
-    Omitted.
-
+    There is nothing to prove.
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity}: Associativity}%
-    Omitted.
-
+    Assume $\gamma, \beta, \alpha$ are as in the statement. Then for any $A \in \Obj(\CatFont C)$,
+    \begin{align*}
+      ((\gamma \twocirc \beta) \twocirc \alpha)_A &\defeq (\gamma \twocirc \beta)_{G_1(A)} \circ (F_3F_2)(\alpha_A)\\
+      &\defeq (\gamma_{(G_2G_1)(A)} \circ F_3(\beta_{G_1(A)})) \circ (F_3F_2)(\alpha_A)\\
+      &= \gamma_{(G_2G_1)(A)} \circ (F_3(\beta_{G_1(A)}) \circ (F_3F_2)(\alpha_A))\\
+      &= \gamma_{(G_2G_1)(A)} \circ F_3(\beta_{G_1(A)} \circ F_2(\alpha_A))\\
+      &\defeq \gamma_{G_2G_1(A)} \circ F_3((\beta \twocirc \alpha)_A)\\
+      &\defeq(\gamma \twocirc (\beta \twocirc \alpha))_A.
+    \end{align*}
+    So the operation must be associative, since it is associative componentwise.
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-identities}: Interaction With Identities}%
     We have
     \begin{align*}
