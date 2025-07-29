@@ -3379,7 +3379,6 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
             then the following conditions are equivalent:%
             %--- Begin Footnote ---%
             \footnote{%
-                In ZFC, the equivalence between \cref{properties-of-equivalences-of-categories-characterisations-a} and \cref{properties-of-equivalences-of-categories-characterisations-b} is equivalent to the axiom of choice; see \cite{MO119454}.%
                 In ZF, the equivalence between \cref{properties-of-equivalences-of-categories-characterisations-a} and \cref{properties-of-equivalences-of-categories-characterisations-b} is equivalent to the axiom of choice; see \cite{MO119454}.%
 
                 In Univalent Foundations, this is true without requiring neither the axiom of choice nor the law of excluded middle.
@@ -3596,8 +3595,17 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
     Omitted.
 
     \ProofBox{\cref{properties-of-equivalences-of-categories-stability-under-composition}: Stability Under Composition}%
-    dfjhdsf
-
+    Assume $(F,G,\eta,\epsilon),(F',G',\eta',\epsilon')$ are equivalences as in the theorem statement.
+    Define
+    \begin{align*}
+      \eta^\circ &\colon \id_{\CatFont C} \Longrightarrow G \circ G' \circ F' \circ F,\\
+      \epsilon^\circ &\colon F' \circ F \circ G \circ G' \Longrightarrow \id_{\CatFont D},\\
+      \eta^\circ_A &\defeq G \eta'_{F(A)} \circ \eta_A,\\
+      \epsilon^\circ_A &\defeq \varepsilon'_A \circ F' \varepsilon_{G'(A)}.
+    \end{align*}
+    Note that $\eta^\circ,\epsilon^\circ$ are compositions of whiskerings of natural isomorphisms.
+    Hence they are natural transformations due to \cref{whiskering-of-functors-with-natural-transformations} and natural isomorphisms due to the functoriality of the whiskering as in \cref{properties-of-horizontal-composition-of-natural-transformations-functionality}.
+    In conclusion $(F' \circ F, G \circ G', \eta^\circ, \epsilon^\circ)$ must be an equivalence.
     \ProofBox{\cref{properties-of-equivalences-of-categories-equivalences-vs-adjoint-equivalences}: Equivalences \vs Adjoint Equivalences}%
     See \cite[Proposition 4.4.5]{category-theory-in-context}.
 
