@@ -2366,13 +2366,19 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-natural-transformations-associated-to-functors}}%
     \FirstProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
-    Omitted.
-
+    By \cref{properties-of-natural-isomorphisms-characterisations}, \cref{properties-of-natural-isomorphisms, $F^\dagger$ is a natural isomorphism if each $F^\dagger_{A,B} \defeq F_{A,B}$ is an isomorphism in $\Sets$. But that means each $F_{A,B}$ is bijective, i.e. injective and surjective. By \cref{faithful-functors} and \cref{full-functors}, this is the case iff $F$ is fully faithful.
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-composition}: Interaction With Composition}%
-    Omitted.
-
+    We have
+    \begin{align*}
+      (G \circ F)^\dagger_{A,B}(f) &= (G \circ F)_{A,B}(f)\\
+                                  &= G_{F(A),F(B)}(F_{A,B}(f))\\
+                                   &=  G^\dagger_{F^{\op}(A),F(B)}(F_{A,B}(f))\\
+                                   &=  (G^\dagger\twocirc \id_{F^{\op}\times F})_{A,B} (F_{A,B}(f))\\
+                                   &=  ((G^\dagger\twocirc \id_{F^{\op}\times F}) \circ F^\dagger)_{A,B}(f).\\
+    \end{align*}
+    Hence the two natural transformation must be identical.
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-identities}: Interaction With Identities}%
-    Omitted.
+    The component $\idfun^\dagger_{\CatFont C, A,B}$ for $A,B \in \CatFont C$ is given by $\idfun_{\CatFont C, A,B} \colon \Hom_{\CatFont C}(A,B) \to \Hom_{\CatFont C}(A,B)$, which acts as the identity. Hence $\idfun^\dagger$ is indeed the identity natural transformation.
 \end{Proof}
 \section{Conditions on Functors}\label{section-conditions-on-functors}
 \subsection{Faithful Functors}\label{subsection-faithful-functors}
