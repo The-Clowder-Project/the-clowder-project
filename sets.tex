@@ -105,7 +105,31 @@ This chapter (will eventually) contain material on axiomatic set theory, as well
         \AdjunctionShort#A\times -#{\Hom_{\Sets}(A,-)}#\Sets#\Sets,#
     \end{webcompile}
     stated in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}}.
-\end{notation}
+  \end{notation}
+\subsection{Injective Functions}\label{subsection-sets-and-functions-injective-functions}
+\begin{definition}{Injective Functions}{injective-functions}%
+  A function $f \colon A \to B$ is \index[set-theory]{injective}\textbf{injective} if, for all $a, a' \in A$ with $f(a) = f(a')$, we have $a = a'$.
+\end{definition}
+\begin{proposition}{Properties of Injective Functions}{properties-of-injective-functions}%
+  Let $f \colon A \to B, g \colon B \to C$ be functions.
+  \begin{enumerate} \item\label{properties-of-injective-functions-interaction-with-composition}\SloganFont{Interaction With Composition. }If $f$ and $g$ are injective, so is $g \circ f$, and if $g \circ f$ is injective, so is $f$.
+    \item\label{properties-of-injective-functions-interaction-with-identities}\SloganFont{Interaction With Identities. }For any set $A$, the identity function $\id_A$ is injective.
+  \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-injective-functions}}%
+  \FirstProofBox{\cref{properties-of-injective-functions-interaction-with-composition}: Interaction With Composition}%
+  Assume $f,g$ are injective and $(g \circ f)(a) = (g \circ f)(a')$ for some $a,a' \in A$.
+  Then $g(f(a)) = g(f(a'))$, so by injectivity of $g$, we have $f(a) = f(a')$, and by injectivity of $f$, we have $a = a'$, such that $g \circ f$ is injective.
+
+  Now assume $g \circ f$ is injective and $f(a) = f(a')$ for some $a, a' \in A$. Then
+  \[ (g \circ f)(a) = g(f(a)) = g(f(a')) = (g \circ f)(a'), \]
+  so by injectivity of $g \circ f$, $a = a'$ and $f$ must be injective
+
+  \ProofBox{\cref{properties-of-injective-functions-interaction-with-identities}: Interaction With Identities}%
+  Assume $a, a' \in A$ such that $\id_A(a) = \id_{A'}(a')$. But then,
+  \[ a \defeq \id_A(a) = \id_{A'}(a') \defeq a', \]
+  so $\id_A$ is injective.
+\end{Proof}
 \section{The Enrichment of Sets in Classical Truth Values}\label{section-the-enrichment-of-sets-in-classical-truth-values}
 \subsection{$(-2)$-Categories}\label{subsection-minus-two-categories}
 \begin{definition}{$(-2)$-Categories}{minus-two-categories}%
