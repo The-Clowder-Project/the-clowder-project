@@ -338,7 +338,7 @@ Let $A$ and $B$ be sets.
 \subsection{Composition of Relations}\label{subsection-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
 \begin{definition}{Composition of Relations}{composition-of-relations}%
-    The \index[set-theory]{relation!composition of}\textbf{composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\procirc R$}$S\procirc R$ defined as follows:%
+    The \index[set-theory]{relation!composition of}\textbf{composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\procirc R$}$S\procirc R$ defined in one of three equivalent ways:%
     \begin{enumerate}
         \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
             \[
@@ -403,7 +403,10 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             \end{align*}
             for each $a\in A$.
     \end{enumerate}
-\end{definition}
+  \end{definition}
+  \begin{Proof}{Proof of equivalence of \cref{composition-of-relations}}%
+    Omitted.
+  \end{Proof}
 \begin{remark}{Composing Relations With Right Kan Extensions}{composing-relations-with-right-kan-extensions}%
     You might wonder what happens if we instead define an alternative composition of relations $\mathord{\procirc'}$ via right Kan extensions. In this case, we would take the right Kan extension of $S$ along the dual characteristic embedding $B\hookrightarrow\mathcal{P}(B)^{\op}$:
     \begin{webcompile}
