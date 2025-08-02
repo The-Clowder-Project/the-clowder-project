@@ -1639,8 +1639,22 @@ Let $f\colon A\to B$ be a function.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-graphs-of-functions}}%
     \FirstProofBox{\cref{properties-of-graphs-of-functions-functoriality}: Functoriality}%
-    Omitted.
+    The well-definedness follows from \cref{the-graph-of-a-function}. We need to show $\Gr$ preserves identities and compositions.
+    \begin{enumerate}
+      \item \SloganFont{Preservation of Identities. } For $A$ a set, $a,b \in A$ we have
+            \[ a \sim_{\Gr(\id_A)} b \iff \id_A a = b \iff a = b \iff a \sim_{\chi_A} b, \]
+            so $\Gr(\id_A) = \chi_A.$
+      \item \SloganFont{Preservation of composition. } For $A, B, C$ sets, $f \colon A \to B, g \colon B \to C, a \in A, c \in C$ we have
+            \begin{align*}
+              a \sim_{\Gr (g \circ f)} c &\iff (g \circ f)(a) = c\\
+                                       &\iff g(f(a)) = c\\
+                                       &\iff \text{there exists } b \in B \text{ such that } f(a) = b \text{ and } g(b) = c\\
+                                       &\iff \text{there exists } b \in B \text{ such that } a \sim_{\Gr(f)} b \text{ and } b \sim_{\Gr(g)} c \\
+                                       &\iff a \sim_{\Gr(g) \procirc \Gr(f)} c
 
+            \end{align*}
+            so $\Gr(g \circ f) = \Gr(g) \procirc \Gr(f)$.
+    \end{enumerate}
     \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
     This is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:adjointness-of-powersets-2}}{\cref{adjointness-of-powersets-2}}, and is proved there.
 
