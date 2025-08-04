@@ -857,7 +857,7 @@ Let $\CatFont{C}$ be a category and let $A,B,C,X\in\Obj(\CatFont{C})$.
                         X_{\pos},
                     \]%
                     where $X_{pos}$ is the category of of \cref{posetal-categories-posetal-category-associated-to-poset} of \cref{posetal-categories}.
-                \item\SloganFont{Action on Morphisms. }For each morphism of posets $f\colon X\to Y$ in $\Pos$, the image
+                \item\SloganFont{Action on Morphisms. }Given a morphism of posets $f\colon X\to Y$ in $\Pos$, the image
                     \[
                         f_{\pos}%
                         \colon%
@@ -1198,8 +1198,26 @@ Let $\CatFont{C}$ be a category.
                 \colon
                 \Sets
                 \to
-                \Cats.
+                \Cats%
             \]%
+            where:
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $X\in\Obj(\Sets)$, we have
+                    \[
+                        [(-)_{\disc}](X)%
+                        \defeq%
+                        X_{\disc}%
+                    \]%
+                \item\SloganFont{Action on Morphisms. }Given a function $f\colon X\to Y$, the image
+                    \[
+                        f_{\disc}%
+                        \colon%
+                        X_{\disc}%
+                        \to%
+                        Y_{\disc}%
+                    \]%
+                    of $f$ by $(-)_{\disc}$ is the functor given by $x\mapsto f(x)$ on objects and $\id_{x}\mapsto\id_{f(x)}$ on morphisms.
+            \end{itemize}
         \item\label{properties-of-discrete-categories-on-sets-adjointness}\SloganFont{Adjointness. }We have a quadruple adjunction
             \begin{webcompile}
                 \QuadrupleAdjunction#\pi_{0}#{(-)_{\disc}}#\Obj#{(-)_{\indisc}}#\Sets#\Cats.#
@@ -1241,26 +1259,28 @@ Let $\CatFont{C}$ be a category.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-discrete-categories-on-sets}}%
     \FirstProofBox{\cref{properties-of-discrete-categories-on-sets-functoriality}: Functoriality}%
-    \begin{enumerate}
-      \item We define the action of $(-)_\disc$ on morphisms $f \colon X \to Y$ between sets $X,Y$, e.g. a functor
-            \[f_\disc \colon X_\disc \to Y_\disc.\]
-            Let $A$ be an object of $X_\disc$, so $A \in X$.
-            Then we set
+    First, note that since the Hom-sets of $Y_{\disc}$ all have at most one element, it follows that the preservation of identities and composition conditions for functors hold automatically for $f_{\disc}$, so it is indeed a functor.
+
+    \indent Next, we claim that $(-)_{\disc}$ is, indeed, also a functor:
+    \begin{itemize}
+        \item\SloganFont{Preservation of Identities. }For each $X\in\Obj(\Sets)$, we have
             \begin{align*}
-              f_\disc(A) &\defeq f(A) \in Y = \Obj(Y_\disc),\\
-              f_\disc(\id_A) &\defeq \id_{f(A)}.
+                (\id_{X})_{\disc}(x) &= \id_{X}(x)\\
+                                     &= x\\
+                                     &= \id_{X_{\disc}}(x)
             \end{align*}
-            Since the identities are the only morphisms in $X_\disc$, this map is well-defined.
-            Then, $f_\disc$ is a functor, since the Hom-sets of $Y_\disc$ all have at most one element such that the functor equations must automatically hold.
-      \item We need to show that the assignment $(-)_\disc \colon \Sets \to \Cats$ with the previously defined action on morphisms is functorial.
-            Let $X,Y,Z$ be sets, $f \colon X \to Y, g \colon Y \to Z$, $A \in X$. Then
+            for each $x\in X$. Since there's at most one element in the Hom-sets of $X_{\disc}$, the corresponding equalities also hold for morphisms. Thus $(\id_{X})_{\disc}=\id_{X_{\disc}}$.
+        \item\SloganFont{Preservation of Composition. }Given functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
             \begin{align*}
-            (\id_X)_\disc(A) &= \id_X(A) = A,\\
-            (g \circ f)_\disc(A) &= (g\circ f)(A) \\&= g(f(A)) \\&= g_\disc(f_\disc(A)) = (g_\disc \circ f_\disc)(A).
+                (g\circ f)_{\disc}(x) &= [g\circ f](x)\\
+                                      &= g(f(x))\\
+                                      &= g(f_{\disc}(x))\\
+                                      &= g_{\disc}(f_{\disc}(x))\\
+                                      &= [g_{\disc}\circ f_{\disc}](x)
             \end{align*}
-            Again, the equations also hold on morphisms in $X_\disc$ due to there being at most one element in the Hom-sets of $Z_\disc$.
-            Hence $(\id_X)_\disc = \id_{X_\disc}$, $(g \circ f)_\disc = g_\disc \circ f_\disc$, so $(-)_\disc$ is a functor.
-      \end{enumerate}
+            for each $x\in X$. Again, the equations must also hold on morphisms due to there being at most one element in the Hom-sets of $Z_{\disc}$. Thus $(g\circ f)_{\disc}=g_{\disc}\circ f_{\disc}$.
+    \end{itemize}
+    This completes the proof.
 
     \ProofBox{\cref{properties-of-discrete-categories-on-sets-adjointness}: Adjointness}%
     This is proved in \cref{the-quadruple-adjunction-between-sets-and-cats}.
@@ -2366,7 +2386,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-natural-transformations-associated-to-functors}}%
     \FirstProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
-    By \cref{properties-of-natural-isomorphisms-characterisations}, \cref{properties-of-natural-isomorphisms, $F^\dagger$ is a natural isomorphism if each $F^\dagger_{A,B} \defeq F_{A,B}$ is an isomorphism in $\Sets$. But that means each $F_{A,B}$ is bijective, i.e. injective and surjective. By \cref{faithful-functors} and \cref{full-functors}, this is the case iff $F$ is fully faithful.
+    By \cref{properties-of-natural-isomorphisms-characterisations}, \cref{properties-of-natural-isomorphisms}, $F^\dagger$ is a natural isomorphism if each $F^\dagger_{A,B} \defeq F_{A,B}$ is an isomorphism in $\Sets$. But that means each $F_{A,B}$ is bijective, i.e. injective and surjective. By \cref{faithful-functors} and \cref{full-functors}, this is the case iff $F$ is fully faithful.
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-composition}: Interaction With Composition}%
     We have
     \begin{align*}
@@ -2378,7 +2398,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
     \end{align*}
     Hence the two natural transformation must be identical.
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-identities}: Interaction With Identities}%
-    The component $\idfun^\dagger_{\CatFont C, A,B}$ for $A,B \in \CatFont C$ is given by $\idfun_{\CatFont C, A,B} \colon \Hom_{\CatFont C}(A,B) \to \Hom_{\CatFont C}(A,B)$, which acts as the identity. Hence $\idfun^\dagger$ is indeed the identity natural transformation.
+    The component $\idfun^\dagger_{\CatFont{C}, A,B}$ for $A,B \in \CatFont{C}$ is given by $\idfun_{\CatFont{C}, A,B} \colon \Hom_{\CatFont{C}}(A,B) \to \Hom_{\CatFont{C}}(A,B)$, which acts as the identity. Hence $\idfun^\dagger$ is indeed the identity natural transformation.
 \end{Proof}
 \section{Conditions on Functors}\label{section-conditions-on-functors}
 \subsection{Faithful Functors}\label{subsection-faithful-functors}
@@ -3376,18 +3396,10 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
 \begin{proposition}{Properties of Equivalences of Categories}{properties-of-equivalences-of-categories}%
     Let $F\colon\CatFont{C}\to\CatFont{D}$ be a functor.
     \begin{enumerate}
-        \item\label{properties-of-equivalences-of-categories-characterisations}\SloganFont{Characterisations. }If $\CatFont{C}$ and $\CatFont{D}$ are small%
+        \item\label{properties-of-equivalences-of-categories-characterisations}\SloganFont{Characterisations. }If $\CatFont{C}$ and $\CatFont{D}$ are small, then the following conditions are equivalent:%
             %--- Begin Footnote ---%
             \footnote{%
-                Otherwise there will be size issues. One can also work with large categories and universes, or require $F$ to be \emph{constructively} essentially surjective; see \cite{MSE1465107}.
-            }, %
-            %---  End Footnote  ---%
-            then the following conditions are equivalent:%
-            %--- Begin Footnote ---%
-            \footnote{%
-                In ZF, the equivalence between \cref{properties-of-equivalences-of-categories-characterisations-a} and \cref{properties-of-equivalences-of-categories-characterisations-b} is equivalent to the axiom of choice; see \cite{MO119454}.%
-
-                In Univalent Foundations, this is true without requiring neither the axiom of choice nor the law of excluded middle.
+                There are some foundational issues that are relevant here; see \cref{foundational-issues-with-characterisations-of-equivalences} below.
             }%
             %---  End Footnote  ---%
             \begin{enumerate}
@@ -3421,11 +3433,11 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                     \]%
                     is an equivalence of categories.
             \end{enumerate}
-      \item\label{properties-of-equivalences-of-categories-inverses}\SloganFont{Inverses. }If $(F,G,\eta,\epsilon)$ is an equivalence with $F \colon \CatFont C \to CatFont D$, so is
-            $(G,F,\epsilon^{-1},\eta^{-1})$.
-      \item\label{properties-of-equivalences-of-categories-two-out-of-three}\SloganFont{Two-Out-of-Three. }Let
+        \item\label{properties-of-equivalences-of-categories-invariance-under-natural-isomorphism}\SloganFont{Invariance Under Natural Isomorphism. }If $F$ is (part of) an equivalence of categories and $F\cong F'$, then so is $F'$.
+        \item\label{properties-of-equivalences-of-categories-inverses}\SloganFont{Inverses. }If $(F,G,\eta,\epsilon)$ is an equivalence, then so is $(G,F,\epsilon^{-1},\eta^{-1})$.
+        \item\label{properties-of-equivalences-of-categories-two-out-of-three}\SloganFont{Two-Out-of-Three. }Let
             \[
-                \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={2.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}
                     \arrow[rd, "F"']
                     \arrow[rr, "G\circ F"]
@@ -3462,163 +3474,329 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-        \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids}\SloganFont{Interaction With Groupoids. }If $\CatFont{C}$ and $\CatFont{D}$ are groupoids, then the following conditions are equivalent:
+        \item\label{properties-of-equivalences-of-categories-equivalences-of-groupoids}\SloganFont{Equivalences of Groupoids. }Let $F\colon\CatFont{G}\to\CatFont{H}$ be a functor between groupoids. The following conditions are equivalent:
             \begin{enumerate}
-                \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-a}The functor $F$ is an equivalence of groupoids.
+                \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-a}The functor $F\colon\CatFont{G}\to\CatFont{H}$ is an equivalence of groupoids.
                 \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-b}The following conditions are satisfied:
                     \begin{enumerate}
                         \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-b-a}The functor $F$ induces a bijection
                             \[
                                 \pi_{0}(F)%
                                 \colon%
-                                \pi_{0}(\CatFont{C})%
+                                \pi_{0}(\CatFont{G})%
                                 \to%
-                                \pi_{0}(\CatFont{D})%
+                                \pi_{0}(\CatFont{H})%
                             \]%
                             of sets.
-                        \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-b-b}For each $A\in\Obj(\CatFont{C})$, the induced map
+                        \item\label{properties-of-equivalences-of-categories-interaction-with-groupoids-b-b}For each $x\in\Obj(\CatFont{G})$, the action on morphisms
                             \[
                                 F_{x,x}%
                                 \colon%
-                                \Aut_{\CatFont{C}}(A)%
+                                \Aut_{\CatFont{G}}(x)%
                                 \to%
-                                \Aut_{\CatFont{D}}(F_{A})%
+                                \Aut_{\CatFont{H}}(F_{x})%
                             \]%
-                            is an isomorphism of groups.
+                            of $F$ at $(x,x)$ is an isomorphism of groups.
                     \end{enumerate}
             \end{enumerate}
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-equivalences-of-categories}}%
     \FirstProofBox{\cref{properties-of-equivalences-of-categories-characterisations}: Characterisations}%
-    We claim that \cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-b,properties-of-equivalences-of-categories-characterisations-c,properties-of-equivalences-of-categories-characterisations-d,properties-of-equivalences-of-categories-characterisations-e} are indeed equivalent:
-    \begin{enumerate}
-      \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}: }
-            Let $F \colon \CatFont C \to \CatFont D$ be an equivalence. We show the three properties.
-            \begin{enumerate}
-              \item\SloganFont{Faithfulness: } Let $f,g \in \Hom_{\CatFont C}(A,B)$, $F(f) = F(g)$. Then $GF(f) = GF(g)$ and we have the following diagramm:
-                \[
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                      GF(A)
-                      \arrow[r, "{GF(f)}", shift left]
-                      \arrow[r, "{GF(g)}"', shift right]
-                      \arrow[d, "\eta^{-1}_{A}"']
-                      \&
-                      GF(B)
-                      \arrow[d, "\eta^{-1}_{B}"]
-                      \\
-                      A
-                      \arrow[r, "{f}", shift left]
-                      \arrow[r, "{g}"', shift right]
-                      \&
-                      B
-                    \end{tikzcd}
-                    \]%
-                    The squares where we remove $GF(g), g$ or $GF(f), f$ from the diagrams commute by naturality of $\eta^{-1}$ and the two upper morphisms are equal.
-                    So we have
-                    \[ f \circ \eta^{-1}_A = \eta^{-1}_B \circ GF(f) = \eta^{-1}_B \circ GF(g) = g \circ \eta^{-1}_A. \]
-                    But $\eta^{-1}_A$ is an isomorphism, so $f = g$ and $F$ is faithful.
-              \item\SloganFont{Fullness: } Let $f \in \Hom_{\CatFont D}(F(A), F(B))$.
-                    Define \[h \in \Hom_{\CatFont C}(A,B), h = \eta^{-1}_B \circ G(f) \circ \eta_A,\]
-                    yielding the commutative diagram
-                    \[
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                      A
-                      \arrow[r, "{h}"]
-                      \arrow[d, "\eta_{A}"']
-                      \&
-                      B
-                      \arrow[d, "\eta_{B}"]
-                      \\
-                      GF(A)
-                      \arrow[r, "{G(f)}"']
-                      \&
-                      GF(B)
-                    \end{tikzcd}
-                    \]%
-                    We must show $F(h) = f$.
-                    Since $(G,F,\epsilon^{-1},\eta^{-1})$ is also an equivalence due to \cref{properties-of-equivalences-of-categories-inverses}, $G$ is faithful, so it suffices to show $GF(h) = G(f)$.
+    We proceed by showing:
+    \begin{itemize}
+        \item \cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}.
+        \item \cref{properties-of-equivalences-of-categories-characterisations-b}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}.
+        \item \cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-c}.
+        \item \cref{properties-of-equivalences-of-categories-characterisations-c}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}.
+        \item \cref{properties-of-equivalences-of-categories-characterisations-a}$\iff$\cref{properties-of-equivalences-of-categories-characterisations-d}$\iff$\cref{properties-of-equivalences-of-categories-characterisations-e}.
+    \end{itemize}
 
-                    Note how from the naturality of $\eta$ applied to itself we get
-                    \[ GF(\eta_A) \circ \eta_A = \eta_{GFA} \circ \eta_A, \]
-                    for all $A \in \Obj(\CatFont C)$, and since $\eta$ is an isomorphism, this implies $\eta_{GFA} = GF(\eta_A)$.
+    \SubProofBox{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-b}}%
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ be an equivalence with inverse $G\colon\CatFont{D}\to\CatFont{E}$, and write $GF\defeq G\circ F$. We claim that $F$ is full, faithful, and essentially surjective:
+    \begin{itemize}
+        \item\SloganFont{Faithfulness: }Let $f,g\in\Hom_{\CatFont{C}}(A,B)$ with $F(f)=F(g)$. Then $GF(f)=GF(g)$ and we have the following diagrams:
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {GF(A)}
+                    \arrow[r,"{GF(f)}"]
+                    \arrow[d, "\eta^{-1}_{A}"']
+                    \&
+                    {GF(B)}
+                    \arrow[d, "\eta^{-1}_{B}"]
+                    \\
+                    A
+                    \arrow[r,"f"']
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=2-1,to=2-2,"\scriptstyle(1)"description,phantom,yshift=2.5*\the\DL]%
+                \end{tikzcd}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {GF(A)}
+                    \arrow[r,"{GF(g)}"]
+                    \arrow[d, "\eta^{-1}_{A}"']
+                    \&
+                    {GF(B)}
+                    \arrow[d, "\eta^{-1}_{B}"]
+                    \\
+                    A
+                    \arrow[r,"g"']
+                    \&
+                    B\mrp{.}
+                    % 2-Arrows
+                    \arrow[from=2-1,to=2-2,"\scriptstyle(2)"description,phantom,yshift=2.5*\the\DL]%
+                \end{tikzcd}
+            \end{webcompile}
+            Since $\eta^{-1}$ is natural, these commute. We then have
+            \begin{align*}
+                f\circ\eta^{-1}_{A} &= \eta^{-1}_{B}\circ GF(f)\\
+                                    &= \eta^{-1}_{B}\circ GF(g)\\
+                                    &= g\circ\eta^{-1}_{A}.
+            \end{align*}
+            Precomposing both sides with $\eta_{A}$ then gives $f=g$, showing $F$ to be faithful.
+      \item\SloganFont{Fullness: }Given $f\in\Hom_{\CatFont{D}}(F(A),F(B))$, define a morphism $h\colon A\to B$ by
+          \[
+              h%
+              \defeq%
+              \eta^{-1}_{B}\circ G(f)\circ\eta_{A},%
+          \]%
+          yielding the commutative diagram
+          \[
+              \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                  A
+                  \arrow[r, "{h}"]
+                  \arrow[d, "\eta_{A}"']
+                  \&
+                  B
+                  \arrow[d, "\eta_{B}"]
+                  \\
+                  GF(A)
+                  \arrow[r, "{G(f)}"']
+                  \&
+                  GF(B)
+                  % 2-Arrows
+                  \arrow[from=2-1,to=2-2,"\scriptstyle(\dagger)"description,phantom,yshift=2.5*\the\DL]%
+              \end{tikzcd}
+          \]%
+          We must show $F(h) = f$. Since $(G,F,\epsilon^{-1},\eta^{-1})$ is also an equivalence due to \cref{properties-of-equivalences-of-categories-inverses}, the functor $G$ is faithful, so it suffices to show $GF(h) = G(f)$.
 
-                    By applying $GF$ to the above diagram and incorporating the equality, we can see that
-                     \[
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                      GF(A)
-                      \arrow[r, "{GF(h)}"]
-                      \arrow[d, "\eta_{GF(A)} = GF(\eta_A)"']
-                      \&
-                      GF(B)
-                      \arrow[d, "\eta_{GF(B)} = GF(\eta_B)"]
-                      \\
-                      GFGF(A)
-                      \arrow[r, "{GFG(f)}"']
-                      \&
-                      GFGF(B)
-                    \end{tikzcd}
-                    \]%
-                    must commute.
-                    By naturality of $\eta$, so does
-                      \[
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                      GF(A)
-                      \arrow[r, "{G(f)}"]
-                      \arrow[d, "\eta_{GF(A)}"']
-                      \&
-                      GF(B)
-                      \arrow[d, "\eta_{GF(B)}"]
-                      \\
-                      GFGF(A)
-                      \arrow[r, "{GFG(f)}"']
-                      \&
-                      GFGF(B)
-                    \end{tikzcd}
-                    \]%
-                    and we have
-                    \[ \eta_{GF(A)} \circ GF(h) = GFG(f) \circ \eta_{GF(B)} = \eta_{GF(A)} \circ G(f). \]
-                    But $\eta$ is an isomorphism, so $GF(h) = G(f)$.
-              \item\SloganFont{Essential surjectivity: }
-                    Let $B \in \Obj(\CatFont D)$. We need to find some $A \in \Obj(\CatFont C)$ with $F(A) \cong B$. Choose $A \defeq G(B)$. Then $\epsilon_B \colon FG(B) \to B$ is an isomorphism by assumption. Hence $F$ is essentially surjective.
-            \end{enumerate}
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-b}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}: }Since $F$ is essentially surjective and $\CatFont{C}$ and $\CatFont{D}$ are small, we can choose, using the axiom of choice, for each $B\in\Obj(\CatFont{D})$, an object $j_{B}$ of $\CatFont{C}$ and an isomorphism $i_{B}\colon B\to F_{j_{B}}$ of $\CatFont{D}$.
+          From the naturality of $\eta$ applied to $\eta_{A}\colon A\to GF(A)$, we have
+          \begin{webcompile}
+              GF(\eta_{A})\circ\eta_{A}%
+              =%
+              \eta_{GF(A)}\circ\eta_{A}%
+              \quad
+              \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                  A
+                  \arrow[r,"{\eta_{A}}"]
+                  \arrow[d,"{\eta_{A}}"']
+                  \&
+                  {GF(A)}
+                  \arrow[d,"{\eta_{GF(A)}}"]
+                  \\
+                  {GF(A)}
+                  \arrow[r,"{GF(\eta_{A})}"']
+                  \&
+                  {GF(GF(A))}
+              \end{tikzcd}
+          \end{webcompile}
+          for all $A\in\Obj(\CatFont{C})$. Since $\eta$ is an isomorphism, this implies $\eta_{GF(A)} = GF(\eta_{A})$.
 
-            Since $F$ is fully faithful, we can extend the assignment $B\mapsto j_{B}$ to a \emph{unique} functor $j\colon\CatFont{D}\to\CatFont{C}$ such that the isomorphisms $i_{B}\colon B\to F_{j_{B}}$ assemble into a natural isomorphism $\eta\colon\id_{\CatFont{D}}\Longrightisoarrow F\circ j$, with a similar natural isomorphism $\epsilon\colon\id_{\CatFont{C}}\Longrightisoarrow j\circ F$. Hence $F$ is an equivalence.
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-c}: }This follows from \cref{properties-of-skeletons-of-categories-inclusions-of-skeletons-are-equivalences} of \cref{properties-of-skeletons-of-categories}.
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-c}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}: }Omitted.
-        \item\SloganFont{\cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-d,properties-of-equivalences-of-categories-characterisations-e} Are Equivalent: }This follows from \cref{TODO}.%
-    \end{enumerate}
-    This finishes the proof of \cref{properties-of-equivalences-of-categories-characterisations}.
+          \indent By applying $GF$ to the diagram $(\dagger)$ and incorporating the equality, we see that the diagram
+          \[
+              \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                  GF(A)
+                  \arrow[r, "{GF(h)}"]
+                  \arrow[d, "\eta_{GF(A)} = GF(\eta_{A})"']
+                  \&
+                  GF(B)
+                  \arrow[d, "\eta_{GF(B)} = GF(\eta_{B})"]
+                  \\
+                  GFGF(A)
+                  \arrow[r, "{GFG(f)}"']
+                  \&
+                  GFGF(B)
+              \end{tikzcd}
+          \]%
+          must commute. By naturality of $\eta$, so does the diagram
+          \[
+              \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                  GF(A)
+                  \arrow[r, "{G(f)}"]
+                  \arrow[d, "\eta_{GF(A)}"']
+                  \&
+                  GF(B)
+                  \arrow[d, "\eta_{GF(B)}"]
+                  \\
+                  GFGF(A)
+                  \arrow[r, "{GFG(f)}"']
+                  \&
+                  GFGF(B)\mrp{.}
+              \end{tikzcd}
+          \]%
+          We then have
+          \begin{align*}
+              \eta_{GF(B)}\circ GF(h) &= GFG(f)\circ\eta_{GF(A)}\\
+                                      &= \eta_{GF(B)}\circ G(f).
+          \end{align*}
+          Postcomposing with $\eta^{-1}_{GF(B)}$ then gives $GF(h) = G(f)$. This shows $F$ to be full.
+      \item\SloganFont{Essential surjectivity: }Let $B\in\Obj(\CatFont{D})$. We need to find some $A\in \Obj(\CatFont{C})$ with $F(A)\cong B$. Choose $A\defeq G(B)$. Then $\epsilon_{B}\colon FG(B)\to B$ is an isomorphism by assumption. Hence $F$ is essentially surjective.
+    \end{itemize}
+
+    \SubProofBox{\cref{properties-of-equivalences-of-categories-characterisations-b}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}}%
+    Since $F$ is essentially surjective and $\CatFont{C}$ and $\CatFont{D}$ are small, we can choose, using the axiom of choice, for each $B\in\Obj(\CatFont{D})$, an object $j_{B}$ of $\CatFont{C}$ and an isomorphism $i_{B}\colon B\rightisoarrow F(j_{B})$ of $\CatFont{D}$.
+
+    \indent Since $F$ is fully faithful, we can extend the assignment $B\mapsto j_{B}$ to a \emph{unique} functor $j\colon\CatFont{D}\to\CatFont{C}$ such that the isomorphisms $i_{B}\colon B\rightisoarrow F(j_{B})$ assemble into a natural isomorphism $\eta\colon\id_{\CatFont{D}}\Longrightisoarrow F\circ j$, with a similar natural isomorphism $\epsilon\colon\id_{\CatFont{C}}\Longrightisoarrow j\circ F$. Hence $F$ is an equivalence.
+
+    \SubProofBox{\cref{properties-of-equivalences-of-categories-characterisations-a}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-c}}%
+    This follows from \cref{properties-of-skeletons-of-categories-inclusions-of-skeletons-are-equivalences} of \cref{properties-of-skeletons-of-categories}.
+
+    \SubProofBox{\cref{properties-of-equivalences-of-categories-characterisations-c}$\implies$\cref{properties-of-equivalences-of-categories-characterisations-a}}%
+    This follows from \cref{properties-of-skeletons-of-categories-inclusions-of-skeletons-are-equivalences} of \cref{properties-of-skeletons-of-categories} and \cref{properties-of-equivalences-of-categories-stability-under-composition} of this proposition.
+
+    \SubProofBox{\cref{properties-of-equivalences-of-categories-characterisations-a}$\iff$\cref{properties-of-equivalences-of-categories-characterisations-d}$\iff$\cref{properties-of-equivalences-of-categories-characterisations-e}}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-equivalences-of-categories-invariance-under-natural-isomorphism}: Invariance Under Natural Isomorphism}%
+    Omitted.
+
     \ProofBox{\cref{properties-of-equivalences-of-categories-inverses}: Inverses}%
-    Follows since
+    The result follows from the fact that
     \begin{align*}
-                \epsilon^{-1}     &\colon \id_{\CatFont{D}} \Longrightisoarrow F \circ G,\\%
-                \eta^{-1} &\colon G\circ F \Longrightisoarrow \id_{\CatFont{C}}
+        \epsilon^{-1} &\colon \id_{\CatFont{D}} \Longrightisoarrow F \circ G,\\%
+        \eta^{-1}     &\colon G\circ F          \Longrightisoarrow \id_{\CatFont{C}}
     \end{align*}
-    are natural isomorphisms if $\epsilon$ and $\eta$ are.
+    are natural isomorphisms \textiff $\epsilon$ and $\eta$ are.
+
     \ProofBox{\cref{properties-of-equivalences-of-categories-two-out-of-three}: Two-Out-of-Three}%
-    Let $F \colon \CatFont C \to \CatFont D, G \colon \CatFont D \to \CatFont E$ be functors.
-    By \cref{properties-of-equivalences-of-categories-stability-under-composition}, if $F$ and $G$ are equivalences, so is $G \circ F$. If $G \circ F$ and $G$ are equivalences, note that by \cref{properties-of-equivalences-of-categories-stability-under-composition} and \cref{properties-of-equivalences-of-categories-inverses}, so are $G^{-1}$ and $G^{-1} \circ G \circ F = F$. If $G \circ F$ and $F$ are equivalences, so are $F^{-1}$ and $G \circ F \circ F^{-1} = G$ by the same two results.
+    Let $F\colon\CatFont{C}\to\CatFont{D}$ and $G\colon\CatFont{D}\to\CatFont{E}$ be functors.
+    \begin{itemize}
+        \item\SloganFont{When $F$ and $G$ Are Equivalences: }By \cref{properties-of-equivalences-of-categories-stability-under-composition}, if $F$ and $G$ are equivalences, then so is $G\circ F$.
+        \item\SloganFont{When $G$ and $G\circ F$ Are Equivalences: }If $G\circ F$ and $G$ are equivalences, note that by \cref{properties-of-equivalences-of-categories-stability-under-composition} and \cref{properties-of-equivalences-of-categories-inverses}, so are $G^{-1}$ and $G^{-1}\circ G\circ F\cong F$. Therefore $F$ will be an equivalence by \cref{properties-of-equivalences-of-categories-invariance-under-natural-isomorphism}.
+        \item\SloganFont{When $F$ and $G\circ F$ Are Equivalences: }If $G\circ F$ and $F$ are equivalences, so are $F^{-1}$ and $G\circ F\circ F^{-1}\cong G$ by \cref{properties-of-equivalences-of-categories-stability-under-composition} and \cref{properties-of-equivalences-of-categories-inverses}. Therefore $G$ will be an equivalence by \cref{properties-of-equivalences-of-categories-invariance-under-natural-isomorphism}.
+    \end{itemize}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-equivalences-of-categories-stability-under-composition}: Stability Under Composition}%
-    Assume $(F,G,\eta,\epsilon),(F',G',\eta',\epsilon')$ are equivalences as in the theorem statement.
-    Define
+    Assume $(F,G,\eta,\epsilon)$ and $(F',G',\eta',\epsilon')$ are equivalences as in the theorem statement. Define a natural transformation
+    \[
+        \eta^{\circ}%
+        \colon%
+        \id_{\CatFont{C}}%
+        \Longrightarrow%
+        (G\circ G')\circ(F'\circ F)%
+    \]%
+    as the composition
+    \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \id_{\CatFont{C}}%
+        \arrow[r,"\eta",Rightarrow]
+        \&
+        \mrp{G\circ F}\phantom{{(G\circ G')\circ(F'\circ F)}}
+        \\
+        \phantom{\id_{\CatFont{C}}}%
+        \arrow[r,equals]
+        \&
+        \mrp{G\circ\id_{\CatFont{D}}\circ F}\phantom{{(G\circ G')\circ(F'\circ F)}}%
+        \\
+        \phantom{\id_{\CatFont{C}}}%
+        \arrow[r,"{\id_{G}\twocirc\eta'\twocirc\id_{F}}",Rightarrow]
+        \&
+        {G\circ(G'\circ F')\circ F}
+        \\
+        \phantom{\id_{\CatFont{C}}}%
+        \arrow[r,equals]
+        \&
+        {(G\circ G')\circ(F'\circ F)}
+    \end{tikzcd}
+    and a natural transformation
+    \[
+        \epsilon^{\circ}
+        \colon%
+        (F'\circ F)\circ(G\circ G')%
+        \Longrightarrow%
+        \id_{\CatFont{E}}%
+    \]%
+    as the composition
+    \begin{tikzcd}[row sep={2.0*\the\DL,between origins}, column sep={14.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        {(F'\circ F)\circ(G\circ G')}%
+        \arrow[r,equals]
+        \&
+        {F'\circ(F\circ G)\circ G'}%
+        \\
+        \phantom{(F'\circ F)\circ(G\circ G')}%
+        \arrow[r,"{\id_{F'}\twocirc\epsilon\twocirc\id_{G'}}",Rightarrow]
+        \&
+        \mrp{F'\circ\id_{\CatFont{D}}\circ G'}\phantom{F'\circ(F\circ G)\circ G'}%
+        \\
+        \phantom{(F'\circ F)\circ(G\circ G')}%
+        \arrow[r,equals]
+        \&
+        \mrp{F'\circ G'}\phantom{F'\circ(F\circ G)\circ G'}
+        \\
+        \phantom{(F'\circ F)\circ(G\circ G')}%
+        \arrow[r,"\epsilon'",Rightarrow]
+        \&
+        \mrp{\id_{\CatFont{E}}.}\phantom{F'\circ(F\circ G)\circ G'}
+    \end{tikzcd}
+    In other words, define
     \begin{align*}
-      \eta^\circ &\colon \id_{\CatFont C} \Longrightarrow G \circ G' \circ F' \circ F,\\
-      \epsilon^\circ &\colon F' \circ F \circ G \circ G' \Longrightarrow \id_{\CatFont D},\\
-      \eta^\circ_A &\defeq G \eta'_{F(A)} \circ \eta_A,\\
-      \epsilon^\circ_A &\defeq \varepsilon'_A \circ F' \varepsilon_{G'(A)}.
+        \eta^{\circ}     &= (\id_{G}\twocirc\eta'\twocirc\id_{F})\circ\eta,\\%
+        \epsilon^{\circ} &= \epsilon'\circ(\id_{F'}\twocirc\epsilon\twocirc\id_{G'}),%
     \end{align*}
-    Note that $\eta^\circ,\epsilon^\circ$ are compositions of whiskerings of natural isomorphisms.
-    Hence they are natural transformations due to \cref{whiskering-of-functors-with-natural-transformations} and natural isomorphisms due to the functoriality of the whiskering as in \cref{properties-of-horizontal-composition-of-natural-transformations-functionality}.
-    In conclusion $(F' \circ F, G \circ G', \eta^\circ, \epsilon^\circ)$ must be an equivalence.
+    so that the components of $\eta^{\circ}$ and $\epsilon^{\circ}$ are of the form
+    \begin{align*}
+        \eta^{\circ}_{A}     &= G(\eta'_{F(A)})\circ\eta_{A},\\%
+        \epsilon^{\circ}_{A} &= \epsilon'_{A}\circ F'(\epsilon_{G'(A)}).%
+    \end{align*}
+    Since $\eta^{\circ}$ and $\epsilon^{\circ}$ are compositions of whiskerings of natural isomorphisms, they are natural transformations by \cref{whiskering-of-functors-with-natural-transformations} and natural isomorphisms by the functoriality of horizontal composition (and hence whiskerings) as in \cref{properties-of-horizontal-composition-of-natural-transformations-functionality} of \cref{properties-of-horizontal-composition-of-natural-transformations}.
+
+    \indent Thus, $(F'\circ F,G\circ G',\eta^{\circ},\epsilon^{\circ})$ is an equivalence.
+
     \ProofBox{\cref{properties-of-equivalences-of-categories-equivalences-vs-adjoint-equivalences}: Equivalences \vs Adjoint Equivalences}%
     See \cite[Proposition 4.4.5]{category-theory-in-context}.
 
-    \ProofBox{\cref{properties-of-equivalences-of-categories-interaction-with-groupoids}: Interaction With Groupoids}%
+    \ProofBox{\cref{properties-of-equivalences-of-categories-equivalences-of-groupoids}: Equivalences of Groupoids}%
     See \cite[Proposition 4.4]{nlab:groupoid}.
 \end{Proof}
+\begin{remark}{Foundational Issues With Characterisations of Equivalences}{foundational-issues-with-characterisations-of-equivalences}%
+    The equivalence between \cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-b} of \cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories} --- i.e.\ that $F$ is an equivalence of categories \textiff it is fully faithful and essentially surjective --- depend on which foundations of mathematics one uses.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        See also \cite{MSE1465107} and \cite{MO119454}.%
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{foundational-issues-with-characterisations-of-equivalences-dependence-on-the-axiom-of-choice}\SloganFont{Dependence on the Axiom of Choice. }Given a functor $F\colon\CatFont{C}\to\CatFont{D}$ that is fully faithful essentially surjective and an object $B$ of $\CatFont{D}$, the set
+            \[
+                \{%
+                    A\in\Obj(\CatFont{C})%
+                    \ \middle|\ %
+                    F(A)\cong B%
+                \}%
+            \]%
+            will in general have more than one element. To construct the inverse $F^{-1}$ of $F$, we will therefore have to choose one element from this set for each $B\in\Obj(\CatFont{D})$. This requires the axiom of choice.
+        \item\label{foundational-issues-with-characterisations-of-equivalences-size-issues}\SloganFont{Size Issues. }In ZFC, \cref{properties-of-equivalences-of-categories-characterisations-a,properties-of-equivalences-of-categories-characterisations-b} of \cref{properties-of-equivalences-of-categories-characterisations} of \cref{properties-of-equivalences-of-categories} will be equivalent if $\CatFont{C}$ and $\CatFont{D}$ are small. If we assume stronger set-theoretical foundations like:
+            \begin{itemize}
+                \item NBG (von Neumann--Bernays--Gödel set theory) with global choice, which introduces a notion of proper class and has the axiom of choice hold for them;
+                \item Grothendieck universes/inaccessible cardinals with global choice;
+            \end{itemize}
+            then we can do away with the assumption that $\CatFont{C}$ and $\CatFont{D}$ be small.
+        \item\label{foundational-issues-with-characterisations-of-equivalences-fix-01-constructively-essentially-surjective-functors}\SloganFont{Fix \#01: Constructively Essentially Surjective Functors. }Alternatively, one can introduce a notion of a functor being \emph{constructively} essentially surjective, i.e.:
+            \begin{itemize}
+                \itemstar A functor $F\colon\CatFont{C}\to\CatFont{D}$ is constructively essentially surjective if there exists maps
+                    \begin{align*}
+                        G        &\colon \Obj(\CatFont{D}) \to \Obj(\CatFont{C}),\\
+                        \epsilon &\colon \Obj(\CatFont{D}) \to \Mor(\CatFont{D})
+                    \end{align*}
+                    such that, for each $B\in\Obj(\CatFont{D})$, the morphism $\epsilon(B)$ is an isomorphism of the form $F(G(\epsilon(B)))\cong B$.
+            \end{itemize}
+            Now, if we do away with the axiom of choice, $F$ will be an equivalence of categories \textiff it is fully faithful and constructively essentially surjective.
+        \item\label{foundational-issues-with-characterisations-of-equivalences-fix-02-anafunctors}\SloganFont{Fix \#02: Anafunctors. }Alternatively, one may use the notion of anafunctors instead of functors to obtain a version of the statement \say{a functor is an equivalence of categories \textiff it is fully faithful and essentially surjective} that doesn't depend on the axiom of choice.
+    \end{enumerate}
+\end{remark}
 \subsection{Isomorphisms of Categories}\label{subsection-isomorphisms-of-categories}
 \begin{definition}{Isomorphisms of Categories}{isomorphisms-of-categories}%
     An \index[categories]{category!isomorphism of}\index[categories]{isomorphism of categories}\textbf{isomorphism of categories} is a pair of functors
@@ -5711,17 +5889,19 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \begin{Proof}{Proof of \cref{properties-of-horizontal-composition-of-natural-transformations}}%
     \FirstProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-functionality}: Functionality}%
     There is nothing to prove.
+
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity}: Associativity}%
-    Assume $\gamma, \beta, \alpha$ are as in the statement. Then for any $A \in \Obj(\CatFont C)$,
+    Write $G_{2}G_{1}\defeq G_{2}\circ G_{1}$, and similarly for other compositions. For each $A\in\Obj(\CatFont{C})$, we have
     \begin{align*}
-      ((\gamma \twocirc \beta) \twocirc \alpha)_A &\defeq (\gamma \twocirc \beta)_{G_1(A)} \circ (F_3F_2)(\alpha_A)\\
-      &\defeq (\gamma_{(G_2G_1)(A)} \circ F_3(\beta_{G_1(A)})) \circ (F_3F_2)(\alpha_A)\\
-      &= \gamma_{(G_2G_1)(A)} \circ (F_3(\beta_{G_1(A)}) \circ (F_3F_2)(\alpha_A))\\
-      &= \gamma_{(G_2G_1)(A)} \circ F_3(\beta_{G_1(A)} \circ F_2(\alpha_A))\\
-      &\defeq \gamma_{G_2G_1(A)} \circ F_3((\beta \twocirc \alpha)_A)\\
-      &\defeq(\gamma \twocirc (\beta \twocirc \alpha))_A.
+        ((\gamma\twocirc\beta)\twocirc\alpha)_{A} &\defeq (\gamma\twocirc\beta)_{G_{1}(A)}\circ F_{3}F_{2}(\alpha_{A})\\
+                                                  &\defeq (\gamma_{G_{2}G_{1}(A)}\circ F_{3}(\beta_{G_{1}(A)}))\circ F_{3}F_{2}(\alpha_{A})\\
+                                                  &=      \gamma_{G_{2}G_{1}(A)}\circ F_{3}(\beta_{G_{1}(A)})\circ F_{3}F_{2}(\alpha_{A})\\
+                                                  &=      \gamma_{G_{2}G_{1}(A)}\circ F_{3}(\beta_{G_{1}(A)}\circ F_{2}(\alpha_{A}))\\
+                                                  &\defeq \gamma_{G_{2}G_{1}(A)}\circ F_{3}((\beta\twocirc\alpha)_{A})\\
+                                                  &\defeq (\gamma\twocirc(\beta\twocirc\alpha))_{A}.
     \end{align*}
-    So the operation must be associative, since it is associative componentwise.
+    Thus we have $(\gamma\twocirc\beta)\twocirc\alpha=\gamma\twocirc(\beta\twocirc\alpha)$, showing horizontal composition to be associative.
+
     \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-identities}: Interaction With Identities}%
     We have
     \begin{align*}

@@ -1793,11 +1793,14 @@ chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py cm "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/cm/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/cm/$${item_basename}.tex"; \
+			cd tmp/cm/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py cm "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -1870,11 +1873,14 @@ chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/alegreya/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/alegreya/$${item_basename}.tex"; \
+			cd tmp/alegreya/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -1947,11 +1953,14 @@ chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/alegreya-sans/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-sans/$${item_basename}P.tex"; \
+			cd tmp/alegreya-sans/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-sans "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2024,11 +2033,14 @@ chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/crimson-pro/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/crimson-pro/$${item_basename}.tex"; \
+			cd tmp/crimson-pro/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py crimson-pro "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2101,11 +2113,14 @@ chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/eb-garamond/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/eb-garamond/$${item_basename}.tex"; \
+			cd tmp/eb-garamond/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py eb-garamond "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2178,11 +2193,14 @@ chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/xcharter/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/xcharter/$${item_basename}.tex"; \
+			cd tmp/xcharter/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py xcharter "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2255,11 +2273,14 @@ chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/alegreya-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-tcb/$${item_basename}P.tex"; \
+			cd tmp/alegreya-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2332,11 +2353,14 @@ chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py alegreya-sans-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/alegreya-sans-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-sans-tcb/$${item_basename}P.tex"; \
+			cd tmp/alegreya-sans-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-sans-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2409,11 +2433,14 @@ chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py cm-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/cm-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/cm-tcb/$${item_basename}.tex"; \
+			cd tmp/cm-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py cm-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2486,11 +2513,14 @@ chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py crimson-pro-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/crimson-pro-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/crimson-pro-tcb/$${item_basename}P.tex"; \
+			cd tmp/crimson-pro-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py crimson-pro-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2563,11 +2593,14 @@ chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py eb-garamond-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/eb-garamond-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/eb-garamond-tcb/$${item_basename}P.tex"; \
+			cd tmp/eb-garamond-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py eb-garamond-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2640,11 +2673,14 @@ chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py xcharter-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/xcharter-tcb/$${item_basename}.tex"; \
-			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
+			cp "$${item_basename}.tex" "tmp/xcharter-tcb/$${item_basename}.tex"; \
+			cd tmp/xcharter-tcb/; \
+			python$(PYTHON_VERSION) ../../scripts/process_chapter.py xcharter-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
 			i=$$((i+1)); \
+			cd -; \
+			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 		printf "$(GREEN)Compiling chapters (2/4): First LaTeX run + biber$(NC)\n"; \
@@ -2724,11 +2760,14 @@ tags-chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/cm/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/cm/$${item_basename}P.tex"; \
+			cd tmp/tags/cm/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-cm "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2812,11 +2851,14 @@ tags-chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya/$${item_basename}P.tex"; \
+			cd tmp/tags/alegreya/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2900,11 +2942,14 @@ tags-chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans/$${item_basename}P.tex"; \
+			cd tmp/tags/alegreya-sans/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-sans "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -2988,11 +3033,14 @@ tags-chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/crimson-pro/$${item_basename}P.tex"; \
+			cd tmp/tags/crimson-pro/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-crimson-pro "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3076,11 +3124,14 @@ tags-chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/eb-garamond/$${item_basename}P.tex"; \
+			cd tmp/tags/eb-garamond/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-eb-garamond "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3164,11 +3215,14 @@ tags-chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/xcharter/$${item_basename}P.tex"; \
+			cd tmp/tags/xcharter/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-xcharter "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3252,11 +3306,14 @@ tags-chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/alegreya-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/alegreya-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3340,11 +3397,14 @@ tags-chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-alegreya-sans-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/alegreya-sans-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-sans-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3428,11 +3488,14 @@ tags-chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-cm-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/cm-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/cm-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/cm-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-cm-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/cm-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3516,11 +3579,14 @@ tags-chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-crimson-pro-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/crimson-pro-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/crimson-pro-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/crimson-pro-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-crimson-pro-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3604,11 +3670,14 @@ tags-chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-eb-garamond-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/eb-garamond-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/eb-garamond-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/eb-garamond-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-eb-garamond-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -3692,11 +3761,14 @@ tags-chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			python$(PYTHON_VERSION) scripts/process_chapter.py tags-xcharter-tcb "$${i}" "$${item_basename}"; \
-			python$(PYTHON_VERSION) scripts/process_parentheses.py "$${item_basename}P.tex"; \
-			mv "$${item_basename}P.tex" "tmp/tags/xcharter-tcb/$${item_basename}.tex"; \
-			python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter-tcb/ $${item_basename}; \
+			cp "$${item_basename}.tex" "tmp/tags/xcharter-tcb/$${item_basename}P.tex"; \
+			cd tmp/tags/xcharter-tcb/; \
+			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-xcharter-tcb "$${i}" "$${item_basename}"; \
+			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
+			mv "$${item_basename}P.tex" "$${item_basename}.tex"; \
+			python$(PYTHON_VERSION) ../../../scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter-tcb/ $${item_basename}; \
 			i=$$((i+1)); \
+			cd -; \
 			printf "$(GREEN)Finished processing $$item_basename.$(NC)\n"; \
 		done; \
 		printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
@@ -4522,3 +4594,1287 @@ web-and-record:
 	    	echo -n ","; \
 		} >> ../../log.log; \
 	fi
+# ===================================================================
+# PARALLEL BUILD DEFINITIONS
+# ===================================================================
+.PHONY: nontitlepage-cm
+nontitlepage-cm:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/cm; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py cm > tmp/cm/book.tex; \
+		cd tmp/cm/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/cm.pdf; \
+	fi
+
+.PHONY: nontitlepage-alegreya
+nontitlepage-alegreya:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/alegreya; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py alegreya > tmp/alegreya/book.tex; \
+		cd tmp/alegreya/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/alegreya.pdf; \
+	fi
+
+.PHONY: nontitlepage-alegreya-sans
+nontitlepage-alegreya-sans:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/alegreya-sans; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans > tmp/alegreya-sans/book.tex; \
+		cd tmp/alegreya-sans/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/alegreya-sans.pdf; \
+	fi
+
+.PHONY: nontitlepage-crimson-pro
+nontitlepage-crimson-pro:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/crimson-pro; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py crimson-pro > tmp/crimson-pro/book.tex; \
+		cd tmp/crimson-pro/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/crimson-pro.pdf; \
+	fi
+
+.PHONY: nontitlepage-eb-garamond
+nontitlepage-eb-garamond:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/eb-garamond; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py eb-garamond > tmp/eb-garamond/book.tex; \
+		cd tmp/eb-garamond/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/eb-garamond.pdf; \
+	fi
+
+.PHONY: nontitlepage-xcharter
+nontitlepage-xcharter:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/xcharter; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py xcharter > tmp/xcharter/book.tex; \
+		cd tmp/xcharter/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/xcharter.pdf; \
+	fi
+
+.PHONY: nontitlepage-alegreya-tcb
+nontitlepage-alegreya-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/alegreya-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py alegreya-tcb > tmp/alegreya-tcb/book.tex; \
+		cd tmp/alegreya-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/alegreya-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-alegreya-sans-tcb
+nontitlepage-alegreya-sans-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/alegreya-sans-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py alegreya-sans-tcb > tmp/alegreya-sans-tcb/book.tex; \
+		cd tmp/alegreya-sans-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/alegreya-sans-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-eb-garamond-tcb
+nontitlepage-eb-garamond-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/eb-garamond-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py eb-garamond-tcb > tmp/eb-garamond-tcb/book.tex; \
+		cd tmp/eb-garamond-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/eb-garamond-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-crimson-pro-tcb
+nontitlepage-crimson-pro-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/crimson-pro-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py crimson-pro-tcb > tmp/crimson-pro-tcb/book.tex; \
+		cd tmp/crimson-pro-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/crimson-pro-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-xcharter-tcb
+nontitlepage-xcharter-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/xcharter-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py xcharter-tcb > tmp/xcharter-tcb/book.tex; \
+		cd tmp/xcharter-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/xcharter-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-cm-tcb
+nontitlepage-cm-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/cm-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py cm-tcb > tmp/cm-tcb/book.tex; \
+		cd tmp/cm-tcb/; \
+		cp ../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../scripts/process_parentheses.py book.tex; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/3...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../output/book/cm-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-cm
+nontitlepage-tags-cm:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/cm; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-cm > tmp/tags/cm/book.tex; \
+		cd tmp/tags/cm/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm/ book; \
+		cd tmp/tags/cm/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/cm.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-alegreya
+nontitlepage-tags-alegreya:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/alegreya; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya > tmp/tags/alegreya/book.tex; \
+		cd tmp/tags/alegreya/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya/ book; \
+		cd tmp/tags/alegreya/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/alegreya.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-alegreya-sans
+nontitlepage-tags-alegreya-sans:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/alegreya-sans; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya-sans > tmp/tags/alegreya-sans/book.tex; \
+		cd tmp/tags/alegreya-sans/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans/ book; \
+		cd tmp/tags/alegreya-sans/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/alegreya-sans.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-crimson-pro
+nontitlepage-tags-crimson-pro:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/crimson-pro; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-crimson-pro > tmp/tags/crimson-pro/book.tex; \
+		cd tmp/tags/crimson-pro/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/crimson-pro/ book; \
+		cd tmp/tags/crimson-pro/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/crimson-pro.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-eb-garamond
+nontitlepage-tags-eb-garamond:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/eb-garamond; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-eb-garamond > tmp/tags/eb-garamond/book.tex; \
+		cd tmp/tags/eb-garamond/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond/ book; \
+		cd tmp/tags/eb-garamond/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/eb-garamond.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-xcharter
+nontitlepage-tags-xcharter:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/xcharter; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-xcharter > tmp/tags/xcharter/book.tex; \
+		cd tmp/tags/xcharter/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter/ book; \
+		cd tmp/tags/xcharter/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/xcharter.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-alegreya-tcb
+nontitlepage-tags-alegreya-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/alegreya-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya-tcb > tmp/tags/alegreya-tcb/book.tex; \
+		cd tmp/tags/alegreya-tcb/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-tcb/ book; \
+		cd tmp/tags/alegreya-tcb/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/alegreya-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-alegreya-sans-tcb
+nontitlepage-tags-alegreya-sans-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/alegreya-sans-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-alegreya-sans-tcb > tmp/tags/alegreya-sans-tcb/book.tex; \
+		cd tmp/tags/alegreya-sans-tcb/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/alegreya-sans-tcb/ book; \
+		cd tmp/tags/alegreya-sans-tcb/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/alegreya-sans-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-cm-tcb
+nontitlepage-tags-cm-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/cm-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-cm-tcb > tmp/tags/cm-tcb/book.tex; \
+		cd tmp/tags/cm-tcb/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/cm-tcb/ book; \
+		cd tmp/tags/cm-tcb/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/cm-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-crimson-pro-tcb
+nontitlepage-tags-crimson-pro-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/eb-garamond-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-eb-garamond-tcb > tmp/tags/eb-garamond-tcb/book.tex; \
+		cd tmp/tags/eb-garamond-tcb/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/eb-garamond-tcb/ book; \
+		cd tmp/tags/eb-garamond-tcb/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/eb-garamond-tcb.pdf; \
+	fi
+
+.PHONY: nontitlepage-tags-xcharter-tcb
+nontitlepage-tags-xcharter-tcb:
+	@echo "--- Checking if conda environment '$(CONDA_ENV_NAME)' is active ---"
+	@# Check if the CONDA_PREFIX environment variable is set and if its
+	@# basename (the last part of the path) matches the desired environment name.
+	@# This is the most common way Conda indicates the active environment.
+	@# We use $$CONDA_PREFIX because make interprets single $.
+	@# We use $${CONDA_PREFIX##*/} which is shell parameter expansion for basename.
+	@if [ -z "$$CONDA_PREFIX" ] || [ "$${CONDA_PREFIX##*/}" != "$(CONDA_ENV_NAME)" ]; then \
+		echo >&2 ""; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 "!! ERROR: Conda environment '$(CONDA_ENV_NAME)' does not appear to be active."; \
+		echo >&2 "!! Please activate it first by running:"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!   conda activate $(CONDA_ENV_NAME)"; \
+		echo >&2 "!!"; \
+		echo >&2 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; \
+		echo >&2 ""; \
+		exit 1; \
+	else \
+		mkdir -p output; \
+		mkdir -p tmp/tags/xcharter-tcb; \
+		printf "$(GREEN)Generating the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
+		python$(PYTHON_VERSION) scripts/make_book.py tags-xcharter-tcb > tmp/tags/xcharter-tcb/book.tex; \
+		cd tmp/tags/xcharter-tcb/; \
+		cp ../../../index_style.ist ./; \
+		printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
+		python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py book.tex; \
+		cd ../../../; \
+		python$(PYTHON_VERSION) scripts/tag_up.py "$(CURDIR)" tmp/tags/xcharter-tcb/ book; \
+		cd tmp/tags/xcharter-tcb/; \
+		printf "$(GREEN)Compiling with LuaLaTeX 1/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling indices...$(NC)\n"; \
+		splitindex book; \
+		makeindex -s index_style.ist book-notation.idx; \
+		makeindex -s index_style.ist book-set-theory.idx; \
+		makeindex -s index_style.ist book-categories.idx; \
+		makeindex -s index_style.ist book-higher-categories.idx; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 2/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Running Biber...$(NC)\n"; \
+		biber book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 3/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Compiling with LuaLaTeX 4/4...$(NC)\n"; \
+		$(LUALATEX_ARGS) $(LUALATEX) book; \
+		printf "$(GREEN)Saving PDF...$(NC)\n"; \
+		mv book.pdf ../../../output/tags-book/xcharter-tcb.pdf; \
+	fi
+
+# Define all 12 styles
+STYLES := \
+    cm \
+    cm-tcb \
+    crimson-pro \
+    crimson-pro-tcb \
+    alegreya \
+    alegreya-tcb \
+    alegreya-sans \
+    alegreya-sans-tcb \
+    xcharter \
+    xcharter-tcb \
+    eb-garamond \
+    eb-garamond-tcb
+
+# Generate the 4 sets of targets from the styles list
+TARGETS_STYLE         := $(addprefix nontitlepage-, $(STYLES))
+TARGETS_TAGS          := $(addprefix nontitlepage-tags-, $(STYLES))
+TARGETS_CHAPTERS      := $(addprefix chapters-, $(STYLES))
+TARGETS_TAGS_CHAPTERS := $(addprefix tags-chapters-, $(STYLES))
+
+# Combine all 48 targets into a single variable
+ALL_PARALLEL_TARGETS := \
+    $(TARGETS_STYLE) \
+    $(TARGETS_TAGS) \
+    $(TARGETS_CHAPTERS) \
+    $(TARGETS_TAGS_CHAPTERS)
+
+# The new user-facing target.
+# It depends on the 'setup' target. Its recipe will only run AFTER
+# 'setup' is complete.
+.PHONY: all-parallel
+all-parallel: setup
+	@echo "🚀 Setup complete. Starting parallel builds..."
+	# This command starts a new 'make' process to build all 48 targets in parallel.
+	# $(MAKE) is a special variable that refers to the make command itself.
+	$(MAKE) -j12 $(ALL_PARALLEL_TARGETS)
+
+# The target for your prerequisite commands.
+# Add any commands you need to run sequentially here.
+.PHONY: setup
+setup:
+	@echo "⚙️ Running setup commands..."
+	# Replace these example commands with your actual ones
+	make titlepage
+	make pictures
+	@echo "✅ Setup finished."
+
+# A final success message. This part is optional but good practice.
+# This rule will be triggered by the recursive 'make' call above.
+.PHONY: all-builds-complete
+$(ALL_PARALLEL_TARGETS): all-builds-complete
+all-builds-complete:
+	@echo "✅ All 48 targets compiled successfully."

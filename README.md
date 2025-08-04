@@ -28,7 +28,7 @@ make init
 This will install all required dependencies. You can now proceed to build the website or the PDFs.
 
 ## Building the PDFs
-The PDFs can be built by running `make all`.
+The PDFs can be built by running `make all`, and in parallel by running `make all-parallel`.
 
 There are also individual `make` commands for the chapters, books, etc.:
 1. `make all-books` will build all book PDFs.

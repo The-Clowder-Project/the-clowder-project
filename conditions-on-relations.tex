@@ -143,11 +143,12 @@ Let $A$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-reflexive-relations}}%
     \FirstProofBox{\cref{properties-of-reflexive-relations-interaction-with-inverses}: Interaction With Inverses}%
-    If $R$ is reflexive, then for all $a \in A$, we have $a \sim_R a$. But $a \sim_{R^\dagger} b$ iff $b \sim_R a$. Hence $a \sim_{R^\dagger} a$ for all $a$, such that $R^\dagger$ is reflexive.
+    If $R$ is reflexive, then, for all $a\in A$, we have $a\sim_{R}a$. But $a\sim_{R^{\dagger}}b$ \textiff $b\sim_{R}a$, so $a\sim_{R^{\dagger}}a$ holds for all $a\in A$ as well. This shows $R^{\dagger}$ to be reflexive.
 
     \ProofBox{\cref{properties-of-reflexive-relations-interaction-with-composition}: Interaction With Composition}%
-    If $R,S$ are reflexive, then $a \sim_R a, a \sim_S a$ for all $a \in A$.
-    To prove $a \sim_{S \procirc R} a$, it suffices to exhibit some $b$ such that $a \sim_R b, b \sim_S a$ (compare \ChapterRef{\ChapterRelations,\cref{relations:composition-of-relation-1}}{\cref{composition-of-relation-1}}). Choose $b = a$, then these are satisfied and $S \procirc R$ must be reflexive.
+    If $R$ and $S$ are reflexive, then we have $a\sim_{R}a$ and $a\sim_{S}a$ for all $a\in A$.
+
+    \indent To prove $a\sim_{S\procirc R}a$ holds as well, it suffices to exhibit some $b$ such that $a\sim_{R}b$ and $b\sim_{S}a$, as per \ChapterRef{\ChapterRelations, \cref{relations:composition-of-relations-1} of \cref{relations:composition-of-relations}}{\cref{composition-of-relations-1} of \cref{composition-of-relations}}. Choosing $b=a$, we see that this condition is indeed satisfied, so $S\procirc R$ must be reflexive.
 \end{Proof}
 \subsection{The Reflexive Closure of a Relation}\label{subsection-reflexive-relations-the-reflexive-closure-of-a-relation}
 Let $R$ be a relation on $A$.
@@ -185,7 +186,7 @@ Let $R$ be a relation on $A$.
     \end{align*}
 \end{construction}
 \begin{Proof}{Proof of \cref{construction-of-the-reflexive-closure-of-a-relation}}%
-    Clear.
+    Omitted.
 \end{Proof}
 \begin{proposition}{Properties of the Reflexive Closure of a Relation}{properties-of-the-reflexive-closure-of-a-relation}%
     Let $R$ be a relation on $A$.
@@ -256,13 +257,13 @@ Let $R$ be a relation on $A$.
     This is a rephrasing of the universal property of the reflexive closure of a relation, stated in \cref{the-reflexive-closure-of-a-relation}.
 
     \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-the-reflexive-closure-of-a-reflexive-relation}: The Reflexive Closure of a Reflexive Relation}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-idempotency}: Idempotency}%
     This follows from \cref{properties-of-the-reflexive-closure-of-a-relation-the-reflexive-closure-of-a-reflexive-relation}.
 
     \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-interaction-with-inverses}: Interaction With Inverses}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
     This follows from \cref{properties-of-reflexive-relations-interaction-with-composition} of \cref{properties-of-reflexive-relations}.
@@ -296,10 +297,10 @@ Let $A$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-symmetric-relations}}%
     \FirstProofBox{\cref{properties-of-symmetric-relations-interaction-with-inverses}: Interaction With Inverses}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-symmetric-relations-interaction-with-composition}: Interaction With Composition}%
-    Clear.
+    Omitted.
 \end{Proof}
 \subsection{The Symmetric Closure of a Relation}\label{subsection-symmetric-relations-the-symmetric-closure-of-a-relation}
 Let $R$ be a relation on $A$.
@@ -330,7 +331,7 @@ Let $R$ be a relation on $A$.
     \end{align*}
 \end{construction}
 \begin{Proof}{Proof of \cref{construction-of-the-symmetric-closure-of-a-relation}}%
-    Clear.
+    Omitted.
 \end{Proof}
 \begin{proposition}{Properties of the Symmetric Closure of a Relation}{properties-of-the-symmetric-closure-of-a-relation}%
     Let $R$ be a relation on $A$.
@@ -401,13 +402,13 @@ Let $R$ be a relation on $A$.
     This is a rephrasing of the universal property of the symmetric closure of a relation, stated in \cref{the-symmetric-closure-of-a-relation}.
 
     \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation}: The Symmetric Closure of a Symmetric Relation}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-idempotency}: Idempotency}%
     This follows from \cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation}.
 
     \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses}: Interaction With Inverses}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
     This follows from \cref{properties-of-symmetric-relations-interaction-with-composition} of \cref{properties-of-symmetric-relations}.
@@ -459,7 +460,7 @@ Let $A$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-transitive-relations}}%
     \FirstProofBox{\cref{properties-of-transitive-relations-interaction-with-inverses}: Interaction With Inverses}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-transitive-relations-interaction-with-composition}: Interaction With Composition}%
     See \cite{MSE2096272}.%
@@ -528,7 +529,7 @@ Let $R$ be a relation on $A$.
     \end{align*}
 \end{construction}
 \begin{Proof}{Proof of \cref{construction-of-the-transitive-closure-of-a-relation}}%
-    Clear.
+    Omitted.
 \end{Proof}
 \begin{proposition}{Properties of the Transitive Closure of a Relation}{properties-of-the-transitive-closure-of-a-relation}%
     Let $R$ be a relation on $A$.
@@ -601,7 +602,7 @@ Let $R$ be a relation on $A$.
     This is a rephrasing of the universal property of the transitive closure of a relation, stated in \cref{the-transitive-closure-of-a-relation}.
 
     \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation}: The Transitive Closure of a Transitive Relation}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-transitive-closure-of-a-relation-idempotency}: Idempotency}%
     This follows from \cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation}.
@@ -738,7 +739,7 @@ Let $R$ be a relation on $A$.
     This is a rephrasing of the universal property of the equivalence closure of a relation, stated in \cref{the-equivalence-closure-of-a-relation}.
 
     \ProofBox{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation}: The Equivalence Closure of an Equivalence Relation}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-the-equivalence-closure-of-a-relation-idempotency}: Idempotency}%
     This follows from \cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation}.
@@ -991,7 +992,7 @@ Let $A$ be a set and let $R$ be a relation on $A$.
     Omitted.
 
     \ProofBox{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets}: The First Isomorphism Theorem for Sets}%
-    Clear.
+    Omitted.
 
     \ProofBox{\cref{properties-of-quotient-sets-descending-functions-to-quotient-sets-1}: Descending Functions to Quotient Sets, \rmI}%
     See \cite{proof-wiki:condition-for-mapping-from-quotient-set-to-be-well-defined}.
