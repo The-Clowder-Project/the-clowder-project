@@ -8743,7 +8743,7 @@ Let $X$ be a set.%
                     {(U,V)}
                     \arrow[r, mapsto]
                     \&
-                    {U\cup V}
+                    {U\icoprod V}
                 \end{tikzcd}
             \end{webcompile}%
             is an isomorphism of sets, natural in $X,Y\in\Obj(\Sets)$ with respect to each of the functor structures $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ on $\mathcal{P}$ of \cref{functoriality-of-powersets}. Moreover, this makes each of $\mathcal{P}_{!}$, $\mathcal{P}^{-1}$, and $\mathcal{P}_{*}$ into a symmetric monoidal functor.
@@ -9715,8 +9715,8 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     %---  End Footnote  ---%
     of $X$ given by
     \begin{align*}
-        [U,V]_{X} &=      U^{\sfc}\cup V\\%
-                  &=      (U\setminus V)^{\sfc}%
+        [U,V]_{X} &= U^{\sfc}\cup V\\%
+                  &= (U\setminus V)^{\sfc}%
     \end{align*}
     where $U^{\sfc}$ is the complement of $U$ of \cref{complements}.
 \end{proposition}
@@ -11254,6 +11254,11 @@ Let $f\colon X\to Y$ be a function.
                              \end{aligned}
                          \}\\%
                  &=      \{%
+                             y\in Y%
+                             \ \middle|\ %
+                             f^{-1}(y)\cap U\neq\emptyset%
+                         \}\\%
+                 &=      \{%
                              f(x)\in Y%
                              \ \middle|\ %
                              x\in U%
@@ -11387,22 +11392,16 @@ Let $f\colon X\to Y$ be a function.
                         \qquad
                         \begin{aligned}
                             \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
-                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)}.
                         \end{aligned}
                     \]%
-                    having components of the form
-                    \[
-                        \begin{gathered}
-                            U                \subset f^{-1}(f_{!}(U)),\\
-                            f_{!}(f^{-1}(V)) \subset V,
-                        \end{gathered}
-                        \qquad
-                        \begin{gathered}
-                            V                \subset f_{*}(f^{-1}(V)),\\
-                            f^{-1}(f_{*}(U)) \subset U
-                        \end{gathered}
-                    \]%
-                    indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
+                    In particular:
+                    \begin{itemize}
+                        \item For each $U\in\mathcal{P}(X)$, we have $U\subset f^{-1}(f_{!}(U))$.
+                        \item For each $U\in\mathcal{P}(X)$, we have $f^{-1}(f_{*}(U))\subset U$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $f_{!}(f^{-1}(V))\subset V$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $V\subset f_{*}(f^{-1}(V))$.
+                    \end{itemize}
                 \item\label{properties-of-direct-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
                         \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
@@ -11672,16 +11671,48 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-direct-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-direct-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[r,"{f_{!}\times g_{!}}"]
+                    \arrow[d,"{\icoprod}"']
+                    \&
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[d,"{\icoprod}"]
+                    \\
+                    {\mathcal{P}(X\icoprod Y)}
+                    \arrow[r,"{(f\icoprod g)_{!}}"']
+                    \&
+                    {\mathcal{P}(X'\icoprod Y')}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
             \[
                 (f\icoprod g)_{!}(U\icoprod V)%
                 =%
                 f_{!}(U)\icoprod g_{!}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-direct-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-direct-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
             \[
-                (f\boxtimes_{X\times Y} g)_{!}(U\boxtimes_{X\times Y}V)%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[r,"{f_{!}\times g_{!}}"]
+                    \arrow[d,"{\boxtimes_{X\times Y}}"']
+                    \&
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[d,"{\boxtimes_{X'\times Y'}}"]
+                    \\
+                    {\mathcal{P}(X\times Y)}
+                    \arrow[r,"{(f\boxtimes_{X\times Y}g)_{!}}"']
+                    \&
+                    {\mathcal{P}(X'\times Y')}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                (f\boxtimes_{X\times Y}g)_{!}(U\boxtimes_{X\times Y}V)%
                 =%
                 f_{!}(U)\boxtimes_{X'\times Y'}g_{!}(V)%
             \]%
@@ -11692,6 +11723,7 @@ Let $f\colon X\to Y$ be a function.
                          &\defeq Y\setminus f_{*}(X\setminus U)%
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
+        %\item\label{properties-of-direct-images-i-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-direct-images-i}}%
@@ -11751,17 +11783,17 @@ Let $f\colon X\to Y$ be a function.
         \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-2}\cref{properties-of-direct-images-i-interaction-with-binary-intersections} of this proposition together with \cref{properties-of-differences-functoriality} of \cref{properties-of-differences} for the first inclusion.
         \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-3}\cref{properties-of-direct-images-i-interaction-with-binary-unions} for the second equality.
         \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-4}\cref{properties-of-direct-images-i-interaction-with-differences} for the second inclusion.
-        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-5}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the tchird equality.
+        \item\label{proof-of-properties-of-direct-images-i-interaction-with-symmetric-differences-of-5}\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences} for the third equality.
     \end{enumerate}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
     \ProofBox{\cref{properties-of-direct-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        f_{!}([U,V]_{X}) &\defeq f_{!}(U^{\sfc}\cup V)\\
-                         &=      f_{!}(U^{\sfc})\cup f_{!}(V)\\
-                         &=      f_{*}(U)^{\sfc}\cup f_{!}(V)\\
-                         &\defeq [f_{*}(U),f_{!}(V)]_{Y},%
+        f_{!}([U,V]_{X}) &= f_{!}(U^{\sfc}\cup V)\\
+                         &= f_{!}(U^{\sfc})\cup f_{!}(V)\\
+                         &= f_{*}(U)^{\sfc}\cup f_{!}(V)\\
+                         &= [f_{*}(U),f_{!}(V)]_{Y},%
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -11808,7 +11840,7 @@ Let $f\colon X\to Y$ be a function.
     which finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Direct Images \rmII}{properties-of-direct-images-ii}%
-    Let $f\colon X\to Y$ be a function.
+    Let $f\colon X\to Y$ and $g\colon Y\to Z$ be functions.
     \begin{enumerate}
         \item\label{properties-of-direct-images-ii-functionality-1}\SloganFont{Functionality \rmI. }The assignment $f\mapsto f_{!}$ defines a function
             \[
@@ -11826,13 +11858,13 @@ Let $f\colon X\to Y$ be a function.
                 \to%
                 \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-direct-images-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
+        \item\label{properties-of-direct-images-ii-interaction-with-identities}\SloganFont{Interaction With Identities. }We have
             \[
                 (\id_{X})_{!}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-direct-images-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable functions $f\colon X\to Y$ and $g\colon Y\to Z$, we have
+        \item\label{properties-of-direct-images-ii-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
             \begin{webcompile}
                 (g\circ f)_{!}%
                 =%
@@ -11955,22 +11987,16 @@ Let $f\colon X\to Y$ be a function.
                         \qquad
                         \begin{aligned}
                             \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
-                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)}.
                         \end{aligned}
                     \]%
-                    having components of the form
-                    \[
-                        \begin{gathered}
-                            U                \subset f^{-1}(f_{!}(U)),\\
-                            f_{!}(f^{-1}(V)) \subset V,
-                        \end{gathered}
-                        \qquad
-                        \begin{gathered}
-                            V                \subset f_{*}(f^{-1}(V)),\\
-                            f^{-1}(f_{*}(U)) \subset U
-                        \end{gathered}
-                    \]%
-                    indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
+                    In particular:
+                    \begin{itemize}
+                        \item For each $U\in\mathcal{P}(X)$, we have $U\subset f^{-1}(f_{!}(U))$.
+                        \item For each $U\in\mathcal{P}(X)$, we have $f^{-1}(f_{*}(U))\subset U$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $f_{!}(f^{-1}(V))\subset V$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $V\subset f_{*}(f^{-1}(V))$.
+                    \end{itemize}
                 \item\label{properties-of-inverse-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
                         \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
@@ -11994,7 +12020,7 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(Y))
-                    \arrow[r,"{(f^{-1})^{-1}}"]
+                    \arrow[r,"{(f^{-1})_{!}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(X))
@@ -12012,12 +12038,12 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcup_{U\in f^{-1}(\mathcal{U})}U%
             \]%
-            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})^{-1}(\mathcal{V})$.
+            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})_{!}(\mathcal{V})$.
         \item\label{properties-of-inverse-images-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(Y))
-                    \arrow[r,"{(f^{-1})^{-1}}"]
+                    \arrow[r,"{(f^{-1})_{!}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(X))
@@ -12035,7 +12061,7 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcap_{U\in f^{-1}(\mathcal{U})}U%
             \]%
-            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})^{-1}(\mathcal{V})$.
+            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $f^{-1}(\mathcal{V})\defeq(f^{-1})_{!}(\mathcal{V})$.
         \item\label{properties-of-inverse-images-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -12235,20 +12261,53 @@ Let $f\colon X\to Y$ be a function.
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
         %\item\label{properties-of-inverse-images-i-}\SloganFont{. }
-        \item\label{properties-of-inverse-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-inverse-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{f^{-1}\times g^{-1}}"]
+                    \arrow[d,"{\icoprod}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\icoprod}"]
+                    \\
+                    {\mathcal{P}(X'\icoprod Y')}
+                    \arrow[r,"{(f\icoprod g)^{-1}}"']
+                    \&
+                    {\mathcal{P}(X\icoprod Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
             \[
                 (f\icoprod g)^{-1}(U'\icoprod V')%
                 =%
                 f^{-1}(U')\icoprod g^{-1}(V')
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
-        \item\label{properties-of-inverse-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-inverse-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{f^{-1}\times g^{-1}}"]
+                    \arrow[d,"{\boxtimes_{X'\times Y'}}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\boxtimes_{X\times Y}}"]
+                    \\
+                    {\mathcal{P}(X'\times Y')}
+                    \arrow[r,"{(f\boxtimes_{X\times Y}g)^{-1}}"']
+                    \&
+                    {\mathcal{P}(X\times Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
             \[
                 (f\boxtimes_{X'\times Y'}g)^{-1}(U'\boxtimes_{X'\times Y'} V')%
                 =%
-                f^{-1}(U')\boxtimes_{X\times Y} g^{-1}(V')%
+                f^{-1}(U')\boxtimes_{X\times Y}g^{-1}(V')%
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        %\item\label{properties-of-inverse-images-i-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-inverse-images-i}}%
@@ -12308,10 +12367,10 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-inverse-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        f^{-1}([U,V]_{Y}) &\defeq f^{-1}(U^{\sfc}\cup V)\\
-                          &=      f^{-1}(U^{\sfc})\cup f^{-1}(V)\\
-                          &=      f^{-1}(U)^{\sfc}\cup f^{-1}(V)\\
-                          &\defeq [f^{-1}(U),f^{-1}(V)]_{X},%
+        f^{-1}([U,V]_{Y}) &= f^{-1}(U^{\sfc}\cup V)\\
+                          &= f^{-1}(U^{\sfc})\cup f^{-1}(V)\\
+                          &= f^{-1}(U)^{\sfc}\cup f^{-1}(V)\\
+                          &= [f^{-1}(U),f^{-1}(V)]_{X},%
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -12668,22 +12727,16 @@ Let $f\colon X\to Y$ be a function.
                         \qquad
                         \begin{aligned}
                             \id_{\mathcal{P}(Y)} &\hookrightarrow f_{*}\circ f^{-1},\\
-                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)},
+                            f^{-1}\circ f_{*}    &\hookrightarrow \id_{\mathcal{P}(X)}.
                         \end{aligned}
                     \]%
-                    having components of the form
-                    \[
-                        \begin{gathered}
-                            U                \subset f^{-1}(f_{!}(U)),\\
-                            f_{!}(f^{-1}(V)) \subset V,
-                        \end{gathered}
-                        \qquad
-                        \begin{gathered}
-                            V                \subset f_{*}(f^{-1}(V)),\\
-                            f^{-1}(f_{*}(U)) \subset U
-                        \end{gathered}
-                    \]%
-                    indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
+                    In particular:
+                    \begin{itemize}
+                        \item For each $U\in\mathcal{P}(X)$, we have $U\subset f^{-1}(f_{!}(U))$.
+                        \item For each $U\in\mathcal{P}(X)$, we have $f^{-1}(f_{*}(U))\subset U$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $f_{!}(f^{-1}(V))\subset V$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $V\subset f_{*}(f^{-1}(V))$.
+                    \end{itemize}
                 \item\label{properties-of-codirect-images-i-triple-adjointness-2}Bijections of sets
                     \begin{align*}
                         \Hom_{\mathcal{P}(Y)}(f_{!}(U),V)  &\cong \Hom_{\mathcal{P}(X)}(U,f^{-1}(V)),\\
@@ -12707,7 +12760,7 @@ Let $f\colon X\to Y$ be a function.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{*})_{!}}"]
                     \arrow[d,"\bigcup"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -12725,12 +12778,12 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcup_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{!}(\mathcal{U})$.
         \item\label{properties-of-codirect-images-i-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(\mathcal{P}(X))
-                    \arrow[r,"{(f_{*})_{*}}"]
+                    \arrow[r,"{(f_{*})_{!}}"]
                     \arrow[d,"\bigcap"']
                     \&
                     \mathcal{P}(\mathcal{P}(Y))
@@ -12748,7 +12801,7 @@ Let $f\colon X\to Y$ be a function.
                 =%
                 \bigcap_{V\in f_{*}(\mathcal{U})}V%
             \]%
-            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{*}(\mathcal{U})$.
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $f_{*}(\mathcal{U})\defeq(f_{*})_{!}(\mathcal{U})$.
         \item\label{properties-of-codirect-images-i-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }Let $f\colon X\to Y$ be a function. We have a natural transformation
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -12931,14 +12984,46 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-codirect-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-codirect-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[r,"{f_{*}\times g_{*}}"]
+                    \arrow[d,"{\icoprod}"']
+                    \&
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[d,"{\icoprod}"]
+                    \\
+                    {\mathcal{P}(X\icoprod Y)}
+                    \arrow[r,"{(f\icoprod g)_{*}}"']
+                    \&
+                    {\mathcal{P}(X'\icoprod Y')}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
             \[
                 (f\icoprod g)_{*}(U\icoprod V)%
                 =%
                 f_{*}(U)\icoprod g_{*}(V)%
             \]%
             for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-codirect-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. We have
+        \item\label{properties-of-codirect-images-i-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[r,"{f_{*}\times g_{*}}"]
+                    \arrow[d,"{\boxtimes_{X\times Y}}"']
+                    \&
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[d,"{\boxtimes_{X'\times Y'}}"]
+                    \\
+                    {\mathcal{P}(X\times Y)}
+                    \arrow[r,"{(f\boxtimes_{X\times Y}g)_{*}}"']
+                    \&
+                    {\mathcal{P}(X'\times Y')}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
             \[
                 (f\boxtimes_{X\times Y} g)_{*}(U\boxtimes_{X\times Y}V)%
                 =%
@@ -13031,10 +13116,10 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
     We have
     \begin{align*}
-        \big[f_{!}(U),f^{!}(V)\big]_{X} &\defeq  f_{!}(U)^{\sfc}\cup f_{*}(V)\\
+        \big[f_{!}(U),f^{!}(V)\big]_{X} &=       f_{!}(U)^{\sfc}\cup f_{*}(V)\\
                                         &=       f_{*}(U^{\sfc})\cup f_{*}(V)\\
                                         &\subset f_{*}(U^{\sfc}\cup V)\\
-                                        &\defeq  f_{*}([U,V]_{X}),
+                                        &=       f_{*}([U,V]_{X}),
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -13155,8 +13240,8 @@ Let $f\colon X\to Y$ be a function.
     This follows from \cref{unwinding-the-codirect-image-function-associated-to-a-function} and \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-interaction-with-composition} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-interaction-with-composition} of \cref{properties-of-kan-extensions}}.
 \end{Proof}
 \subsection{A Six-Functor Formalism for Sets}\label{subsection-a-six-functor-formalism-for-sets}
-\begin{remark}{A Six-Functor Formalism for Sets}{remark-a-six-functor-formalism-for-sets}%
-    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{*}$, $f^{-1}$, and $f_{!}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-codirect-images-i-functoriality} of \cref{properties-of-codirect-images-i}, and the functors
+\begin{explanation}{A Six-Functor Formalism for Sets}{explanation-a-six-functor-formalism-for-sets}%
+    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $f_{!}$, $f^{-1}$, and $f_{*}$ of \cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}, \cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}, and \cref{properties-of-codirect-images-i-functoriality} of \cref{properties-of-codirect-images-i}, and the functors
     \begin{align*}
         -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
         [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
@@ -13170,7 +13255,7 @@ Let $f\colon X\to Y$ be a function.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
-\end{remark}
+\end{explanation}
 \begin{proposition}{A Six-Functor Formalism for Sets}{a-six-functor-formalism-for-sets}%
     Let $X$ be a set.
     \begin{enumerate}
@@ -13468,7 +13553,7 @@ Let $f\colon X\to Y$ be a function.
                             \mathcal{P}(X)\mrp{.}
                         \end{tikzcd}
                     \end{webcompile}
-                \item\label{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs}\SloganFont{Duality. }The diagram
+                \item\label{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs}\SloganFont{Interaction With Internal Homs. }The diagram
                     \[
                         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \&[0.5\ThreeCmPlusAQuarter]
@@ -13693,7 +13778,7 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor}: The Dualisation Functor}%
     This is a repetition of \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2,properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3} of \cref{properties-of-internal-homs-of-powersets} and is proved there.
 \end{Proof}
-\section{Miscellany}\label{section-constructions-with-sets-miscellany}
+\section{Injective, Surjective, and Bijective Functions}\label{section-constructions-with-sets-injective-surjective-and-bijective-functions}
 \subsection{Injective Functions}\label{subsection-injective-functions}
 Let $A$ and $B$ be sets.
 \begin{definition}{Injective Functions}{injective-functions}%
@@ -13835,6 +13920,14 @@ Let $A$ and $B$ be sets.
                     \]%
                     for each $U\in\mathcal{P}(A)$.
             \end{enumerate}
+        \item\label{properties-of-injective-functions-interaction-with-composition}\SloganFont{Interaction With Composition. }Let $f\colon A\to B$ and $g\colon B\to C$ be functions.
+            \begin{enumerate}
+                \item\label{properties-of-injective-functions-interaction-with-composition-a}If $f$ and $g$ are injective, then so is $g\circ f$.
+                \item\label{properties-of-injective-functions-interaction-with-composition-b}If $g\circ f$ is injective, then so is $f$.
+                \item\label{properties-of-injective-functions-interaction-with-composition-c}If $f$ and $g\circ f$ are injective, then $f$ may fail to be injective.
+                \item\label{properties-of-injective-functions-interaction-with-composition-d}The class of injective functions does not satisfy the two-out-of-three property of \cref{TODO}.
+            \end{enumerate}
+        \item\label{properties-of-injective-functions-interaction-with-identities}\SloganFont{Interaction With Identities. }For any set $A$, the identity function $\id_{A}$ is injective.
         %\item\label{properties-of-injective-functions-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -14010,6 +14103,39 @@ Let $A$ and $B$ be sets.
             it follows that $f$ is injective.
     \end{itemize}
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-injective-functions-interaction-with-composition}: Interaction With Composition}%
+    We claim that \cref{properties-of-injective-functions-interaction-with-composition-a,properties-of-injective-functions-interaction-with-composition-b} are indeed true:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-a}: }Suppose $f$ and $g$ injective and let $a,a'\in A$ such that $[g\circ f](a)=[g\circ f](a')$. Then $g(f(a)) = g(f(a'))$, so by injectivity of $g$, we have $f(a) = f(a')$, and by injectivity of $f$, we have $a = a'$. Thus $g \circ f$ is injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-b}: }Suppose $g\circ f$ is injective and let $a,a'\in A$ such that $f(a) = f(a')$. We have
+            \begin{align*}
+                [g\circ f](a) &\defeq g(f(a))\\
+                              &=      g(f(a'))\\
+                              &\defeq [g\circ f](a'),
+            \end{align*}
+            so by the injectivity of $g\circ f$, we have $a = a'$. Thus $f$ must be injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-c}: }Let:
+            \begin{itemize}
+                \item $A=\{1\}$;
+                \item $B=\{p,q\}$;
+                \item $C=\{z\}$;
+                \item $f(1)=p$;
+                \item $g(p)=z$ and $g(q)=z$.
+            \end{itemize}
+            Since $A$ is a singleton set, the functions $f$ and $g\circ f$ are trivially injective. However, $g(p)=g(q)$ while $p\neq q$, so $g$ fails to be injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-d}: }This follows from \cref{properties-of-injective-functions-interaction-with-composition-c}.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-injective-functions-interaction-with-identities}: Interaction With Identities}%
+    Let $a,a'\in A$ such that $\id_{A}(a)=\id_{A'}(a')$. We have
+    \begin{align*}
+        a &\defeq \id_{A}(a)\\
+          &=      \id_{A'}(a')\\
+          &\defeq a'
+    \end{align*}
+    so $\id_{A}$ is injective.
 \end{Proof}
 \subsection{Surjective Functions}\label{subsection-surjective-functions}
 Let $A$ and $B$ be sets.
@@ -14304,6 +14430,25 @@ Let $A$ and $B$ be sets.
             so the condition $f_{*}(f^{-1}(\emptyset))=\emptyset$ implies $B\setminus\Im(f)=\emptyset$. Thus $\Im(f)=B$ and $f$ is surjective.
     \end{itemize}
     This finishes the proof.
+\end{Proof}
+\subsection{Bijective Functions}\label{subsection-bijective-functions}
+Let $A$ and $B$ be sets.
+\begin{definition}{Bijective Functions}{bijective-functions}%
+    A function $f\colon A\to B$ is \index[set-theory]{bijective}\textbf{bijective} if it is injective and surjective.
+\end{definition}
+\begin{proposition}{Properties of Bijective Functions}{properties-of-bijective-functions}%
+    Let $f\colon A\to B$ be a function.
+    \begin{enumerate}
+        \item\label{properties-of-bijective-functions-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-bijective-functions-characterisations-1}The function $f$ is bijective.
+                \item\label{properties-of-bijective-functions-characterisations-2}The function $f$ is an isomorphism in $\Sets$.
+                \item\label{properties-of-bijective-functions-characterisations-3}The function $f$ is a monomorphism and an epimorphism in $\Sets$.
+            \end{enumerate}
+        %\item\label{properties-of-bijective-functions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-bijective-functions}}%
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

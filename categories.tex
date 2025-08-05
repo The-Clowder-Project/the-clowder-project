@@ -2232,7 +2232,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
     Every functor $F\colon\CatFont{C}\to\CatFont{D}$ defines a natural transformation%
     %--- Begin Footnote ---%
     \footnote{%
-        This is the $1$-categorical version of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-functions-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{constructions-with-sets:properties-of-characteristic-functions}}{\cref{properties-of-characteristic-functions-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{properties-of-characteristic-functions}}.
+        This is the $1$-categorical version of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-characteristic-relations-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{constructions-with-sets:properties-of-characteristic-relations}}{\cref{properties-of-characteristic-relations-the-inclusion-of-characteristic-relations-associated-to-a-function} of \cref{properties-of-characteristic-relations}}.
     }%
     %---  End Footnote  ---%
     \begin{webcompile}
@@ -2386,19 +2386,29 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories, and let $\CatFont{C}^{\op}$ d
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-natural-transformations-associated-to-functors}}%
     \FirstProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
-    By \cref{properties-of-natural-isomorphisms-characterisations}, \cref{properties-of-natural-isomorphisms}, $F^\dagger$ is a natural isomorphism if each $F^\dagger_{A,B} \defeq F_{A,B}$ is an isomorphism in $\Sets$. But that means each $F_{A,B}$ is bijective, i.e. injective and surjective. By \cref{faithful-functors} and \cref{full-functors}, this is the case iff $F$ is fully faithful.
+    By \cref{properties-of-natural-isomorphisms-characterisations}, \cref{properties-of-natural-isomorphisms}, $F^{\dagger}$ is a natural isomorphism if each $F^{\dagger}_{A,B}\defeq F_{A,B}$ is an isomorphism in $\Sets$. By \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-bijective-functions-characterisations-2} of \cref{constructions-with-sets:properties-of-bijective-functions-characterisations} of \cref{constructions-with-sets:properties-of-bijective-functions}}{\cref{properties-of-bijective-functions-characterisations-2} of \cref{properties-of-bijective-functions-characterisations} of \cref{properties-of-bijective-functions}}, this is the same as $F_{A,B}$ being bijective, i.e.\ injective and surjective. By \cref{faithful-functors} and \cref{full-functors}, this is the case \textiff $F$ is fully faithful.
+
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-composition}: Interaction With Composition}%
-    We have
+    Given $f\in\Hom_{\CatFont{C}}(A,B)$, we have
     \begin{align*}
-      (G \circ F)^\dagger_{A,B}(f) &= (G \circ F)_{A,B}(f)\\
-                                  &= G_{F(A),F(B)}(F_{A,B}(f))\\
-                                   &=  G^\dagger_{F^{\op}(A),F(B)}(F_{A,B}(f))\\
-                                   &=  (G^\dagger\twocirc \id_{F^{\op}\times F})_{A,B} (F_{A,B}(f))\\
-                                   &=  ((G^\dagger\twocirc \id_{F^{\op}\times F}) \circ F^\dagger)_{A,B}(f).\\
+        (G\circ F)^{\dagger}_{A,B}(f) &= (G\circ F)_{A,B}(f)\\
+                                      &= G_{F(A),F(B)}(F_{A,B}(f))\\
+                                      &= G^{\dagger}_{F^{\op}(A),F(B)}(F_{A,B}(f))\\
+                                      &= (G^{\dagger}\twocirc\id_{F^{\op}\times F})_{A,B}(F_{A,B}(f))\\
+                                      &= ((G^{\dagger}\twocirc\id_{F^{\op}\times F})\circ F^{\dagger})_{A,B}(f).
     \end{align*}
-    Hence the two natural transformation must be identical.
+    Hence the two natural transformations must be identical.
+
     \ProofBox{\cref{properties-of-natural-transformations-associated-to-functors-interaction-with-identities}: Interaction With Identities}%
-    The component $\idfun^\dagger_{\CatFont{C}, A,B}$ for $A,B \in \CatFont{C}$ is given by $\idfun_{\CatFont{C}, A,B} \colon \Hom_{\CatFont{C}}(A,B) \to \Hom_{\CatFont{C}}(A,B)$, which acts as the identity. Hence $\idfun^\dagger$ is indeed the identity natural transformation.
+    The component $\id^{\dagger}_{\CatFont{C}|A,B}$ for $A,B\in\CatFont{C}$ is given by the morphism
+    \[
+        \id_{\CatFont{C}|A,B}%
+        \colon%
+        \Hom_{\CatFont{C}}(A,B)%
+        \to%
+        \Hom_{\CatFont{C}}(A,B),%
+    \]%
+    which acts as the identity. Hence $\id^{\dagger}$ is indeed the identity natural transformation.
 \end{Proof}
 \section{Conditions on Functors}\label{section-conditions-on-functors}
 \subsection{Faithful Functors}\label{subsection-faithful-functors}
@@ -2557,7 +2567,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
         \xrightarrow{G_{F(A),F(B)}}%
         \Hom_{\CatFont{D}}(G_{F_{A}},G_{F_{B}}),%
     \]%
-    is a composition of injective functions, it follows from \cref{TODO} that it is also injective. Therefore $G\circ F$ is faithful.
+    is a composition of injective functions, it follows from \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-injective-functions-interaction-with-composition-a} of \cref{constructions-with-sets:properties-of-injective-functions-interaction-with-composition} of \cref{constructions-with-sets:properties-of-injective-functions}}{\cref{properties-of-injective-functions-interaction-with-composition-a} of \cref{properties-of-injective-functions-interaction-with-composition} of \cref{properties-of-injective-functions}} that it is also injective. Therefore $G\circ F$ is faithful.
 
     \ProofBox{\cref{properties-of-faithful-functors-interaction-with-postcomposition}: Interaction With Postcomposition}%
     Omitted.
@@ -5109,15 +5119,15 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\
     We write \index[notation]{TransFG@$\Trans(F,G)$}$\Trans(F,G)$ for the set of transformations from $F$ to $G$.
 \end{notation}
 \begin{remark}{The Set of Transformations as a Product}{the-set-of-transformations-as-a-product}%
-    We have an isomorphism
+    We have an equality%
     \[
         \Trans(F,G)%
-        \cong%
+        =%
         \prod_{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A}).%
     \]%
 \end{remark}
 \begin{Proof}{Proof of \cref{the-set-of-transformations-as-a-product}}%
-    By definition.
+    This follows by definition.
 \end{Proof}
 \subsection{Natural Transformations}\label{subsection-natural-transformations-natural-transformations}
 Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\rightrightarrows\CatFont{D}$ be functors.
@@ -5503,7 +5513,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-vertical-composition-of-natural-transformations}}%
     \FirstProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-functionality}: Functionality}%
-    Immediately follows from well-definedness of \cref{vertical-composition-of-natural-transformations}.
+    This follows from the well-definedness of \cref{vertical-composition-of-natural-transformations}.
 
     \ProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-associativity}: Associativity}%
     Indeed, we have
