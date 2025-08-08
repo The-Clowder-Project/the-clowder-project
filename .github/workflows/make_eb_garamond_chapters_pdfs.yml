@@ -1,0 +1,60 @@
+name: Make EB Garamond Chapter PDFs
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y \
+          pdf2svg \
+          inkscape \
+          imagemagick
+
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        auto-update-conda: true
+        python-version: 3.6 # Or your desired version
+        # mamba-version: "*" # Optional: for faster solving
+        # channels: conda-forge,defaults # Optional
+        activate-environment: clowder_py36_env # Activate here
+        # Or create an environment from a file:
+        # environment-file: environment.yml
+
+    - name: Setup the LaTeX environment
+      uses: TeX-Live/setup-texlive-action@v3
+      with:
+        packages: |
+          scheme-full
+          hyperref
+          microtype
+
+    # `pdflatex` is now available
+    # along with hyperlink and microtypography support.
+    - name: Initialize repository, installing depencies and such
+      run: make init
+
+    - name: Compile pictures
+      run: make pictures
+
+    - name: Compile chapter PDFs
+      run: make chapters-eb-garamond
+
+    - name: Upload chapters
+      uses: actions/upload-artifact@v4
+      with:
+        name: chapters-eb-garamond
+        path: output/chapters/eb-garamond
