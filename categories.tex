@@ -1406,6 +1406,33 @@ Let $\CatFont{C}$ be a category.
 \begin{notation}{The Set of Isomorphisms Between Two Objects in a Category}{the-set-of-isomorphisms-between-two-objects-in-a-category}%
     We write \index[notation]{IsoCAB@$\Iso_{\CatFont{C}}(A,B)$}$\Iso_{\CatFont{C}}(A,B)$ for the set of all isomorphisms in $\CatFont{C}$ from $A$ to $B$.
 \end{notation}
+\begin{proposition}{Properties of Isomorphisms}{properties-of-isomorphisms}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-isomorphisms-two-out-of-three}\SloganFont{Two-Out-of-Three. }Let
+            \[
+                \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[rd, "f"']
+                    \arrow[rr, "g\circ f"]
+                    \&
+                    \&
+                    B
+                    \\
+                    \&
+                    C
+                    \arrow[ru, "g"']
+                    \&
+                \end{tikzcd}
+            \]%
+            be a diagram in $\CatFont{C}$. If two out of the three morphisms among $f$, $g$, and $g\circ f$ are isomorphisms, then so is the third.
+        %\item\label{properties-of-isomorphisms-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-isomorphisms}}%
+    \FirstProofBox{\cref{properties-of-isomorphisms-two-out-of-three}: Two-Out-of-Three}%
+    Omitted.
+\end{Proof}
 \subsection{Groupoids}\label{subsection-groupoids}
 \begin{definition}{Groupoids}{groupoids}%
     A \index[categories]{groupoid}\textbf{groupoid} is a category in which every morphism is an isomorphism.
@@ -3760,7 +3787,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories.
         \eta^{\circ}_{A}     &= G(\eta'_{F(A)})\circ\eta_{A},\\%
         \epsilon^{\circ}_{A} &= \epsilon'_{A}\circ F'(\epsilon_{G'(A)}).%
     \end{align*}
-    Since $\eta^{\circ}$ and $\epsilon^{\circ}$ are compositions of whiskerings of natural isomorphisms, they are natural transformations by \cref{whiskering-of-functors-with-natural-transformations} and natural isomorphisms by the functoriality of horizontal composition (and hence whiskerings) as in \cref{properties-of-horizontal-composition-of-natural-transformations-functionality} of \cref{properties-of-horizontal-composition-of-natural-transformations}.
+    Since $\eta^{\circ}$ and $\epsilon^{\circ}$ are compositions of whiskerings of natural isomorphisms, they are natural transformations by \cref{whiskering-of-functors-with-natural-transformations} and natural isomorphisms by \cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms-b,properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms-c} of \cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms} of \cref{properties-of-horizontal-composition-of-natural-transformations}.
 
     \indent Thus, $(F'\circ F,G\circ G',\eta^{\circ},\epsilon^{\circ})$ is an equivalence.
 
@@ -5508,6 +5535,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                 =%
                 (\beta'\circ\beta)\twocirc(\alpha'\circ\alpha).%
             \]%
+        \item\label{properties-of-vertical-composition-of-natural-transformations-interaction-with-natural-isomorphisms}\SloganFont{Interaction With Natural Isomorphisms. }If $\alpha$ and $\beta$ are natural isomorphisms, then so is $\beta\circ\alpha$.
         %\item\label{properties-of-vertical-composition-of-natural-transformations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -5538,6 +5566,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
 
     \ProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-middle-four-exchange}: Middle Four Exchange}%
     This is proved in \cref{properties-of-horizontal-composition-of-natural-transformations-middle-four-exchange} of \cref{properties-of-horizontal-composition-of-natural-transformations}.
+
+    \ProofBox{\cref{properties-of-vertical-composition-of-natural-transformations-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
+    Omitted.
 \end{Proof}
 \subsection{Horizontal Composition of Natural Transformations}\label{subsection-horizontal-composition-properties-of-natural-transformations}
 \begin{definition}{Horizontal Composition of Natural Transformations}{horizontal-composition-of-two-natural-transformations}%
@@ -5893,6 +5924,12 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
                 =%
                 (\beta'\circ\beta)\twocirc(\alpha'\circ\alpha).%
             \]%
+        \item\label{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms}\SloganFont{Interaction With Natural Isomorphisms. }Let $\alpha\colon F_{1}\Rightarrow G_{1}$ and $\beta\colon F_{2}\Rightarrow G_{2}$ be natural transformations.
+            \begin{enumerate}
+                \item\label{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms-a}If $\alpha$ and $\beta$ are natural isomorphisms, then so is $\beta\twocirc\alpha$.
+                \item\label{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms-b}If $\alpha$ is an isomorphism, then so is $\id_{G_{1}}\twocirc\alpha\colon G_{1}\circ F_{1}\Rightarrow G_{1}\circ F_{2}$.
+                \item\label{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms-c}If $\beta$ is an isomorphism, then so is $\beta\twocirc\id_{F_{1}}\colon G_{1}\circ F_{1}\Rightarrow G_{2}\circ F_{1}$.
+            \end{enumerate}
         %\item\label{properties-of-horizontal-composition-of-natural-transformations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -6056,6 +6093,9 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and $F,G\colon\CatFont{C}\righ
         (\beta'\circ\beta)\twocirc(\alpha'\circ\alpha).%
     \]%
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms}: Interaction With Natural Isomorphisms}%
+    Omitted.
 \end{Proof}
 \subsection{Properties of Natural Transformations}\label{subsection-properties-of-natural-transformations}
 \begin{proposition}{Natural Transformations as Categorical Homotopies}{natural-transformations-as-categorical-homotopies}%
@@ -6162,7 +6202,7 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\
     \end{align*}
 \end{definition}
 \begin{proposition}{Properties of Natural Isomorphisms}{properties-of-natural-isomorphisms}%
-    Let $\alpha\colon F\Longrightarrow G$ be a natural transformation.
+    Let $\alpha\colon F\Longrightarrow G$ and $\beta\colon G\Rightarrow H$ be natural transformations.
     \begin{enumerate}
         \item\label{properties-of-natural-isomorphisms-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
             \begin{enumerate}
@@ -6175,6 +6215,13 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\
                 \alpha_{A}\circ\alpha^{-1}_{A} &= \id_{G(A)}.
             \end{align*}
             Then $\alpha^{-1}$ is a natural transformation.
+        \item\label{properties-of-natural-isomorphisms-interaction-with-vertical-composition}\SloganFont{Interaction With Vertical Composition. }If $\alpha$ and $\beta$ are natural isomorphisms, then so is $\beta\circ\alpha$.
+        \item\label{properties-of-natural-isomorphisms-interaction-with-horizontal-composition}\SloganFont{Interaction With Horizontal Composition. }Let $\alpha\colon F_{1}\Rightarrow G_{1}$ and $\beta\colon F_{2}\Rightarrow G_{2}$ be natural transformations.
+            \begin{enumerate}
+                \item\label{properties-of-natural-isomorphisms-interaction-with-horizontal-composition-a}If $\alpha$ and $\beta$ are natural isomorphisms, then so is $\beta\twocirc\alpha$.
+                \item\label{properties-of-natural-isomorphisms-interaction-with-horizontal-composition-b}If $\alpha$ is an isomorphism, then so is $\id_{G_{1}}\twocirc\alpha\colon G_{1}\circ F_{1}\Rightarrow G_{1}\circ F_{2}$.
+                \item\label{properties-of-natural-isomorphisms-interaction-with-horizontal-composition-c}If $\beta$ is an isomorphism, then so is $\beta\twocirc\id_{F_{1}}\colon G_{1}\circ F_{1}\Rightarrow G_{2}\circ F_{1}$.
+            \end{enumerate}
         %\item\label{properties-of-natural-isomorphisms-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -6238,6 +6285,12 @@ Let $\CatFont{C}$ and $\CatFont{D}$ be categories and let $F,G\colon\CatFont{C}\
                                   &= F(f)\circ\alpha^{-1}_{A},
     \end{align*}
     which is the naturality condition we wanted to show. Thus $\alpha^{-1}$ is a natural transformation.
+
+    \ProofBox{\cref{properties-of-natural-isomorphisms-interaction-with-vertical-composition}: Interaction With Vertical Composition}%
+    This is a repetition of \cref{properties-of-vertical-composition-of-natural-transformations-interaction-with-natural-isomorphisms} of \cref{properties-of-vertical-composition-of-natural-transformations} and is proved there.
+
+    \ProofBox{\cref{properties-of-natural-isomorphisms-interaction-with-horizontal-composition}: Interaction With Horizontal Composition}%
+    This is a repetition of \cref{properties-of-horizontal-composition-of-natural-transformations-interaction-with-natural-isomorphisms} of \cref{properties-of-horizontal-composition-of-natural-transformations} and is proved there.
 \end{Proof}
 \section{Categories of Categories}\label{section-categories-of-categories}
 \subsection{Functor Categories}\label{subsection-functor-categories}
