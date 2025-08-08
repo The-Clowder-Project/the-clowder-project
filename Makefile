@@ -4185,6 +4185,8 @@ tikzcd:
 		echo >&2 ""; \
 		exit 1; \
 	else \
+		mkdir -p tmp; \
+		mkdir -p $(WEBDIR); \
 		python$(PYTHON_VERSION) ./scripts/make_book.py tikzcd > $(WEBDIR)/tikz.tex; \
 		cd $(WEBDIR); \
 		python$(PYTHON_VERSION) ../scripts/process_parentheses.py tikz.tex; \
