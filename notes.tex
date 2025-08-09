@@ -1064,6 +1064,7 @@ Here we list things to be explored in or added to this work in the future. This 
         \item \url{https://math.stackexchange.com/questions/200389/show-that-the-set-of-all-finite-subsets-of-mathbbn-is-countable}
         \item \url{https://mathoverflow.net/a/479528}
         \item \url{https://www.maths.ed.ac.uk/~tl/ast/ast.pdf}
+        \item Leinster ETCS \url{https://webhomes.maths.ed.ac.uk/~tl/ast/ast.pdf}
     \end{enumerate}
     Type Theory:
     \begin{enumerate}
@@ -1507,10 +1508,10 @@ Here we list things to be explored in or added to this work in the future. This 
                 \defeq%
                 \int_{A\in\CatFont{C}}\mathfrak{p}^{-_{1}}_{A}\icoprod\mathfrak{q}^{A}_{-_{2}}%
             \]%
-            fails to be unital for profunctors with the unit $h^{A}_{-}$. Is it unital for some other unit? Is there a less obvious analogue of apartness composition for profunctors? Or maybe does $\Prof$ equipped with $\square$ and units $h^{A}_{-}$ form a skew bicategory?
+            fails to be unital for profunctors with the unit $h^{A}_{-}$. The issue is that while $\mathcal{P}(X)$ is *-autonomous, $\PSh(\CatFont{C})$ need not be so.
 
-            Is $\Delta_{\emptyset}$ a unit?
-        \item Figure what monoidal category structures on $\Sets$ induce associative and unital compositions on $\Prof$.
+            However, if $\CatFont{V}$ is $*$-autonomous, then $\mathsf{Prof}_{\CatFont{V}}$ is a linear bicategory (Proposition 6.6 of \url{https://arxiv.org/abs/2209.05693}). In that case, there's probably a calculus of left/right Kan extensions/lifts one can develop. What is it?
+        \item What monoidal category structures on $\Sets$ induce associative and unital compositions on $\Prof$ via co/ends?
         \item \url{https://mathoverflow.net/questions/470213/a-distributor-between-categories-induces-a-distributor-between-their-categories}
         \item Different compositions for profunctors from monoidal structures on the category of sets (e.g.\ \url{https://mathoverflow.net/questions/155939/what-other-monoidal-structures-exist-on-the-category-of-sets})
         \item Nucleus of a profunctor;
@@ -1807,10 +1808,23 @@ Here we list things to be explored in or added to this work in the future. This 
         \item Bicategories of Lax Fractions, \url{https://arxiv.org/abs/2507.12044}
         \item Linear bicategories, \url{https://ncatlab.org/nlab/show/linear+bicategory}
             \begin{enumerate}
+                \item Frobenius algebras, *-autonomous categories
                 \item Linearly distributive category, \url{https://ncatlab.org/nlab/show/linearly+distributive+category}
                 \item \href{https://arxiv.org/abs/2401.07055}{Diagrammatic Algebra of First Order Logic}
                 \item \href{https://arxiv.org/abs/2209.05693}{Constructing linear bicategories}
                 \item \href{https://www.math.mcgill.ca/rags/bicats/bicat.pdf}{Introduction to linear bicategories}
+                \item quoting from elsewhere here:
+                    \begin{quote}
+                        Apartness defines a composition for relations, but its analogue
+                        \[
+                            \mathfrak{q}\mathbin{\square}\mathfrak{p}%
+                            \defeq%
+                            \int_{A\in\CatFont{C}}\mathfrak{p}^{-_{1}}_{A}\icoprod\mathfrak{q}^{A}_{-_{2}}%
+                        \]%
+                        fails to be unital for profunctors with the unit $h^{A}_{-}$. The issue is that while $\mathcal{P}(X)$ is *-autonomous, $\PSh(\CatFont{C})$ need not be so.
+
+                        However, if $\CatFont{V}$ is $*$-autonomous, then $\mathsf{Prof}_{\CatFont{V}}$ is a linear bicategory (Proposition 6.6 of \url{https://arxiv.org/abs/2209.05693}). In that case, there's probably a calculus of left/right Kan extensions/lifts one can develop. What is it?
+                    \end{quote}
             \end{enumerate}
         \item Allegories, \url{https://ncatlab.org/nlab/show/allegory}
         \item Skew bicategories
@@ -1990,6 +2004,8 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     $\infty$-Categories:
     \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2508.03145}
+        \item \url{https://runegha.folk.ntnu.no/naivecat_web.pdf}
         \item \url{https://arxiv.org/abs/2505.22640}
         \item \url{https://arxiv.org/abs/2410.17102}
         \item \url{https://arxiv.org/abs/2410.02578}, \url{https://scholar.colorado.edu/concern/graduate_thesis_or_dissertations/st74cr650}, \url{https://arxiv.org/abs/2206.00849}
@@ -2307,9 +2323,14 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Lie algebras:
     \begin{enumerate}
+        \item \url{https://arxiv.org/abs/2310.20300}
         \item Pre-Lie algebras
         \item Post-Lie algebras
         \item \url{https://arxiv.org/abs/2504.05929}
+    \end{enumerate}
+    Representation Theory:
+    \begin{enumerate}
+        \item \url{https://www.ams.org/journals/proc/1961-012-01/S0002-9939-1961-0123197-5/}
     \end{enumerate}
     Modular Representation Theory:
     \begin{enumerate}
