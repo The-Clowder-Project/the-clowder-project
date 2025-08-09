@@ -1,0 +1,53 @@
+name: Make Pictures
+     
+defaults:
+  run:
+    shell: bash -l {0}
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y \
+          pdf2svg \
+          inkscape \
+          imagemagick
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        auto-update-conda: true
+        python-version: 3.6
+        channels: conda-forge,defaults
+        activate-environment: clowder_py36_env
+
+    - name: Setup the LaTeX environment
+      uses: TeX-Live/setup-texlive-action@v3
+      with:
+        packages: |
+          scheme-full
+          hyperref
+          microtype
+  # `pdflatex` is now available
+  # along with hyperlink and microtypography support.
+    - name: Initialize repository, installing dependencies and such
+      run: make init
+      
+    - name: Compile pictures
+      run: make pictures
