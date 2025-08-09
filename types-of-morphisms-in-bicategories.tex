@@ -56,7 +56,7 @@ Let $\CatFont{C}$ be a bicategory.
             B\mrp{,}
             % 2-Arrows
             \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
         \end{tikzcd}
     \]%
     if we have
@@ -212,7 +212,7 @@ Let $\CatFont{C}$ be a bicategory.
                     B\mrp{,}
                     % 2-Arrows
                     \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
                 \end{tikzcd}
             \]%
             if we have
@@ -327,7 +327,7 @@ Let $\CatFont{C}$ be a bicategory.
             B\mrp{,}
             % 2-Arrows
             \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
         \end{tikzcd}
     \]%
     if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
@@ -442,98 +442,98 @@ Let $\CatFont{C}$ be a bicategory.
 \begin{remark}{Unwinding \cref{morphisms-representably-fully-faithful-on-cores}}{unwinding-morphisms-representably-fully-faithful-on-cores}%
     In detail, $f$ is representably fully faithful on cores if the conditions in \cref{unwinding-morphisms-representably-faithful-on-cores} and \cref{unwinding-morphisms-representably-full-on-cores} hold:
     \begin{enumerate}
-            \item For all diagrams in $\CatFont{C}$ of the form
-                \[
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        X
-                        \arrow[r,"\phi"{name=1}, bend left=30]
-                        \arrow[r,"\psi"'{name=2},bend right=30]
-                        \&
-                        A
-                        \arrow[r,"f"]
-                        \&[-1.5*\the\DL]
-                        B\mrp{,}
-                        % 2-Arrows
-                        \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                        \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
-                    \end{tikzcd}
-                \]%
-                if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
-                \[
-                    \id_{f}\twocirc\alpha%
-                    =%
-                    \id_{f}\twocirc\beta,%
-                \]%
-                then $\alpha=\beta$.
-            \item For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
-                \begin{webcompile}
-                    \beta%
-                    \colon%
-                    f\circ\phi%
-                    \Longrightisoarrow%
-                    f\circ\psi,%
-                    \quad%
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        X
-                        \arrow[r,"f\circ\phi"{name=1}, bend left=30]
-                        \arrow[r,"f\circ\psi"'{name=2},bend right=30]
-                        \&
-                        B
-                        % 2-Arrows
-                        \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
-                    \end{tikzcd}
-                \end{webcompile}
-                of $\CatFont{C}$, there exists a $2$-isomorphism
-                \begin{webcompile}
-                    \alpha%
-                    \colon%
-                    \phi%
-                    \Longrightisoarrow%
-                    \psi,%
-                    \quad%
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        X
-                        \arrow[r,"\phi"{name=1}, bend left=30]
-                        \arrow[r,"\psi"'{name=2},bend right=30]
-                        \&
-                        A
-                        % 2-Arrows
-                        \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
-                    \end{tikzcd}
-                \end{webcompile}
-                of $\CatFont{C}$ such that we have an equality
-                \begin{webcompile}
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        X
-                        \arrow[r,"\phi"{name=1}, bend left=30]
-                        \arrow[r,"\psi"'{name=2},bend right=30]
-                        \&
-                        A
-                        \arrow[r,"f"]
-                        \&[-1.5*\the\DL]
-                        B
-                        % 2-Arrows
-                        \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
-                    \end{tikzcd}
-                    \quad
-                    \bigequalssign
-                    \quad
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        X
-                        \arrow[r,"f\circ\phi"{name=1}, bend left=30]
-                        \arrow[r,"f\circ\psi"'{name=2},bend right=30]
-                        \&
-                        B
-                        % 2-Arrows
-                        \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
-                    \end{tikzcd}
-                \end{webcompile}
-                of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
-                \[
-                    \beta%
-                    =%
-                    \id_{f}\twocirc\alpha.%
-                \]%
+        \item For all diagrams in $\CatFont{C}$ of the form
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B\mrp{,}
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \]%
+            if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
+            \[
+                \id_{f}\twocirc\alpha%
+                =%
+                \id_{f}\twocirc\beta,%
+            \]%
+            then $\alpha=\beta$.
+        \item For each $X\in\Obj(\CatFont{C})$ and each $2$-isomorphism
+            \begin{webcompile}
+                \beta%
+                \colon%
+                f\circ\phi%
+                \Longrightisoarrow%
+                f\circ\psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$, there exists a $2$-isomorphism
+            \begin{webcompile}
+                \alpha%
+                \colon%
+                \phi%
+                \Longrightisoarrow%
+                \psi,%
+                \quad%
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of $\CatFont{C}$ such that we have an equality
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"\phi"{name=1}, bend left=30]
+                    \arrow[r,"\psi"'{name=2},bend right=30]
+                    \&
+                    A
+                    \arrow[r,"f"]
+                    \&[-1.5*\the\DL]
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\alpha"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+                \quad
+                \bigequalssign
+                \quad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[r,"f\circ\phi"{name=1}, bend left=30]
+                    \arrow[r,"f\circ\psi"'{name=2},bend right=30]
+                    \&
+                    B
+                    % 2-Arrows
+                    \arrow[from=1,to=2,"\beta"',shorten=0.25em,Rightarrow]%
+                \end{tikzcd}
+            \end{webcompile}
+            of pasting diagrams in $\CatFont{C}$, i.e.\ such that we have
+            \[
+                \beta%
+                =%
+                \id_{f}\twocirc\alpha.%
+            \]%
     \end{enumerate}
 \end{remark}
 \subsection{Representably Essentially Injective Morphisms}\label{subsection-representably-essentially-injective-morphisms}
@@ -680,7 +680,7 @@ Let $\CatFont{C}$ be a bicategory.
                     B\mrp{,}
                     % 2-Arrows
                     \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
                 \end{tikzcd}
             \]%
             if we have
@@ -856,7 +856,7 @@ Let $\CatFont{C}$ be a bicategory.
             X\mrp{,}
             % 2-Arrows
             \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
         \end{tikzcd}
     \]%
     if we have
@@ -1005,7 +1005,7 @@ Let $\CatFont{C}$ be a bicategory.
                     X\mrp{,}
                     % 2-Arrows
                     \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
                 \end{tikzcd}
             \]%
             if we have
@@ -1120,7 +1120,7 @@ Let $\CatFont{C}$ be a bicategory.
             X\mrp{,}
             % 2-Arrows
             \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-            \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+            \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
         \end{tikzcd}
     \]%
     if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
@@ -1248,7 +1248,7 @@ Let $\CatFont{C}$ be a bicategory.
                     X\mrp{,}
                     % 2-Arrows
                     \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
                 \end{tikzcd}
             \]%
             if $\alpha$ and $\beta$ are $2$-isomorphisms and we have
@@ -1473,7 +1473,7 @@ Let $\CatFont{C}$ be a bicategory.
                     X\mrp{,}
                     % 2-Arrows
                     \arrow[from=1,to=2,"\alpha"',xshift=-0.3em,shorten=0.25em,Rightarrow]%
-                    \arrow[from=1,to=2,"\beta",  xshift=+0.3em,shorten=0.25em,Rightarrow]%
+                    \arrow[from=1,to=2,"\beta",  xshift=0.3em,shorten=0.25em,Rightarrow]%
                 \end{tikzcd}
             \]%
             if we have
