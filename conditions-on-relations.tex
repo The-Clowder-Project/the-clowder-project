@@ -99,6 +99,20 @@ Let $A$ and $B$ be sets.
     \end{itemize}
     This finishes the proof.
 \end{Proof}
+\subsection{Injective Relations}\label{subsection-injective-relations}
+\begin{definition}{Injective Relations}{injective-relations}%
+    A relation $R\colon A\rightproarrow B$ is \index[set-theory]{relation!injective}\textbf{injective} if, for each $a,a'\in A$, the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{injective-relations-1}If there exists some $b\in B$ such that $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$.
+        \item\label{injective-relations-2}If $R(a)\cap R(a')\neq\emptyset$, then $a=a'$.
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Proof of the Equivalences in \cref{injective-relations}}%
+    Since we have $R(a)\cap R(a')\neq\emptyset$ \textiff $a\sim_{R}b$ and $a'\sim_{R}b$ for some $b\in B$, the result follows.
+\end{Proof}
+\begin{warning}{Injections \vs Monomorphisms in $\sfRel$}{injections-vs-monomorphisms-in-rel}%
+    A
+\end{warning}
 \section{Reflexive Relations}\label{section-reflexive-relations}
 \subsection{Foundations}\label{subsection-reflexive-relations-foundations}
 Let $A$ be a set.
