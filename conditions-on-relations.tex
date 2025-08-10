@@ -145,12 +145,12 @@ Let $A$ be a set.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-reflexive-relations}}%
     \FirstProofBox{\cref{properties-of-reflexive-relations-interaction-with-inverses}: Interaction With Inverses}%
-    If $R$ is reflexive, then, for all $a\in A$, we have $a\sim_{R}a$. But $a\sim_{R^{\dagger}}b$ \textiff $b\sim_{R}a$, so $a\sim_{R^{\dagger}}a$ holds for all $a\in A$ as well. This shows $R^{\dagger}$ to be reflexive.
+    Since $R$ is reflexive, we have $a\sim_{R}a$ for each $a\in A$. Since $a\sim_{R^{\dagger}}b$ \textiff $b\sim_{R}a$, it follows that $a\sim_{R^{\dagger}}a$ as well for each $a\in A$. Thus $R^{\dagger}$ is reflexive.
 
     \ProofBox{\cref{properties-of-reflexive-relations-interaction-with-composition}: Interaction With Composition}%
-    If $R$ and $S$ are reflexive, then we have $a\sim_{R}a$ and $a\sim_{S}a$ for all $a\in A$.
+    Since $R$ and $S$ are reflexive, we have $a\sim_{R}a$ and $a\sim_{S}a$ for each $a\in A$.
 
-    \indent To prove $a\sim_{S\procirc R}a$ holds as well, it suffices to exhibit some $b$ such that $a\sim_{R}b$ and $b\sim_{S}a$, as per \ChapterRef{\ChapterRelations, \cref{relations:composition-of-relations-1} of \cref{relations:composition-of-relations}}{\cref{composition-of-relations-1} of \cref{composition-of-relations}}. Choosing $b=a$, we see that this condition is indeed satisfied, so $S\procirc R$ must be reflexive.
+    \indent To prove that $a\sim_{S\procirc R}a$ holds as well, we have to exhibit some $b\in A$ such that $a\sim_{R}b$ and $b\sim_{S}a$, following \ChapterRef{\ChapterRelations, \cref{relations:composition-of-relations-1} of \cref{relations:composition-of-relations}}{\cref{composition-of-relations-1} of \cref{composition-of-relations}}. Choosing $b=a$, we see that this condition is indeed satisfied. Thus $S\procirc R$ is reflexive.
 \end{Proof}
 \subsection{The Reflexive Closure of a Relation}\label{subsection-reflexive-relations-the-reflexive-closure-of-a-relation}
 Let $R$ be a relation on $A$.
@@ -268,6 +268,20 @@ Let $R$ be a relation on $A$.
     Omitted.
 
     \ProofBox{\cref{properties-of-the-reflexive-closure-of-a-relation-interaction-with-composition}: Interaction With Composition}%
+\subsection{Injective Relations}\label{subsection-injective-relations}
+\begin{definition}{Injective Relations}{injective-relations}%
+    A relation $R\colon A\rightproarrow B$ is \index[set-theory]{relation!injective}\textbf{injective} if, for each $a,a'\in A$, the following equivalent conditions are satisfied:
+    \begin{enumerate}
+        \item\label{injective-relations-1}If there exists some $b\in B$ such that $a\sim_{R}b$ and $a'\sim_{R}b$, then $a=a'$.
+        \item\label{injective-relations-2}If $R(a)\cap R(a')\neq\emptyset$, then $a=a'$.
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Proof of the Equivalences in \cref{injective-relations}}%
+    Since we have $R(a)\cap R(a')\neq\emptyset$ \textiff $a\sim_{R}b$ and $a'\sim_{R}b$ for some $b\in B$, the result follows.
+\end{Proof}
+\begin{warning}{Injections \vs Monomorphisms in $\sfRel$}{injections-vs-monomorphisms-in-rel}%
+    Injective and total relations are monomorphisms in $\sfRel$, but there are monomorphisms which are neither injective nor total; see \ChapterRef{\ChapterRelations, \cref{relations:subsection-monomorphisms-and-2-categorical-monomorphisms}}{\cref{subsection-monomorphisms-and-2-categorical-monomorphisms}}.
+\end{warning}
     This follows from \cref{properties-of-reflexive-relations-interaction-with-composition} of \cref{properties-of-reflexive-relations}.
 \end{Proof}
 \section{Symmetric Relations}\label{section-symmetric-relations}

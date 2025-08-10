@@ -4615,6 +4615,10 @@ Let $X$ be a set.
             \]%
             for each $U\in\mathcal{P}(A)$.
     \end{enumerate}
+    Moreover, if $R$ is a monomorphism, then it satisfies the following condition, but the converse may fail:
+    \begin{itemize}
+        \itemstar For each $a,a'\in A$, if $R(a)=R(a')$, then $a=a'$.
+    \end{itemize}
 \end{warning}
 \begin{Proof}{Proof of \cref{natural-conditions-that-fail-to-characterise-monomorphisms-in-rel}}%
     We proceed by showing:
@@ -4627,6 +4631,8 @@ Let $X$ be a set.
         \item Step 6: \cref{natural-conditions-that-fail-to-characterise-monomorphisms-in-rel-3}$\implies$\cref{natural-conditions-that-fail-to-characterise-monomorphisms-in-rel-1}.
         \item Step 7: $R$ is a monomorphism $\centernot{\implies}$\cref{characterisations-of-monomorphisms-in-rel-1-1}.%
         \item Step 8: \cref{characterisations-of-monomorphisms-in-rel-1-1}$\implies$ $R$ is a monomorphism.%
+        \item Step 9: Proof of $(\star)$.%
+        \item Step 10: Counterexample to the converse of $(\star)$.%
     \end{itemize}
 
     \ProofBox{Step 1: \cref{natural-conditions-that-fail-to-characterise-monomorphisms-in-rel-1}$\implies$\cref{natural-conditions-that-fail-to-characterise-monomorphisms-in-rel-2}}%
@@ -4772,6 +4778,20 @@ Let $X$ be a set.
         \item Thus $S=T$, showing $R$ to be a monomorphism.
     \end{itemize}
     This finishes the proof.
+
+    \ProofBox{Step 9: Proof of $(\star)$}%
+    This follows from \cref{characterisations-of-monomorphisms-in-rel-1-2} of \cref{characterisations-of-monomorphisms-in-rel-1}.
+
+    \ProofBox{Step 10: Counterexample to the converse of $(\star)$}%
+    Let $A=\{a_{1},a_{2},a_{3}\}$, $B=\{b_{1},b_{2}\}$, and let $R\colon A\rightproarrow B$ be the relation defined by
+    \begin{align*}
+        R(a_{1}) &= \{b_{1}\},\\
+        R(a_{2}) &= \{b_{2}\},\\
+        R(a_{3}) &= \{b_{1},b_{2}\}.
+    \end{align*}
+    Since $R(a_{1})$, $R(a_{2})$, and $R(a_{3})$ are all distinct, $R$ satisfies the condition in $(\star)$.
+
+    However, taking $U=\{a_{1},a_{2}\}$ and $V=\{a_{3}\}$ shows that $R(U)=R(V)$ holds while $U\neq V$.
 \end{Proof}
 \begin{remark}{Monomorphisms in $\sfRel$ Give Rise to Antichains}{monomorphisms-in-rel-give-rise-to-antichains}%
     Taking the contrapositive of \cref{characterisations-of-monomorphisms-in-rel-2-2} of \cref{characterisations-of-monomorphisms-in-rel-2} and letting $U=\{a'\}$ shows that the subset
