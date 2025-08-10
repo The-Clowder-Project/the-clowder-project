@@ -1212,6 +1212,30 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                 =
                 \nabla_{A}.
             \]%
+        \item\label{properties-of-converses-of-relations-interaction-with-direct-images}\SloganFont{Interaction With Direct Images. }We have
+            \[
+                R^{\dagger}_{!}%
+                =%
+                R^{-1}.%
+            \]%
+        \item\label{properties-of-converses-of-relations-interaction-with-coinverse-images}\SloganFont{Interaction With Coinverse Images. }We have
+            \[
+                R^{\dagger}_{-1}%
+                =%
+                R_{*}.%
+            \]%
+        \item\label{properties-of-converses-of-relations-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }We have
+            \[
+                (R^{\dagger})^{-1}%
+                =%
+                R_{!}.%
+            \]%
+        \item\label{properties-of-converses-of-relations-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }We have
+            \[
+                R^{\dagger}_{*}%
+                =%
+                R_{-1}.%
+            \]%
         %\item\label{properties-of-converses-of-relations-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -1332,6 +1356,18 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
                              &=      \nabla_{A}.
     \end{align*}
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-direct-images}: Interaction With Direct Images}%
+    This is a repetition of \cref{properties-of-direct-image-functions-associated-to-relations-2-interaction-with-converses} of \cref{properties-of-direct-image-functions-associated-to-relations-2} and is proved there.
+
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-coinverse-images}: Interaction With Coinverse Images}%
+    This is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-converses} of \cref{properties-of-coinverse-image-functions-associated-to-relations-2} and is proved there.
+
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-inverse-images}: Interaction With Inverse Images}%
+    This is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-converses} of \cref{properties-of-inverse-image-functions-associated-to-relations-2} and is proved there.
+
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-codirect-images}: Interaction With Codirect Images}%
+    This is a repetition of \cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-converses} of \cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-converses} and is proved there.
 \end{Proof}
 \section{Examples of Relations}\label{section-examples-of-relations}
 \subsection{Elementary Examples of Relations}\label{subsection-elementary-examples-of-relations}
@@ -5231,7 +5267,7 @@ Let $X$ be a set.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-epimorphisms-in-rel-1-4}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-3} and \cref{characterisations-of-epimorphisms-in-rel-1-6}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-7}}%
-    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}.
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}.
 
     \ProofBox{Step 2: Proof of \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-2}}%
     We defer this proof to \cref{characterisations-of-epimorphisms-in-rel-5}.
@@ -8552,6 +8588,12 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                R^{\dagger}_{-1}%
+                =%
+                R_{*}.%
+            \]%
         %\item\label{properties-of-coinverse-image-functions-associated-to-relations-2-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -8587,6 +8629,9 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
         \item We have $R(a)\subset S_{-1}(U)$.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{-1}=R_{-1}\circ S_{-1}$.
+
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-converses}: Interaction With Converses}%
+    Omitted.
 \end{Proof}
 \subsection{Inverse Images}\label{subsection-inverse-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
@@ -9139,7 +9184,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-complements}: Interaction With Complements}%
-    Applying \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} to $X\setminus U$, we have
+    Applying \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images} to $X\setminus U$, we have
     \begin{align*}
         R^{-1}(U^{\sfc}) &= R^{-1}(X\setminus U)\\
                          &= Y\setminus R_{-1}(X\setminus(X\setminus U))\\
@@ -9178,7 +9223,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     where we have used:
     \begin{itemize}
         \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-unions} for the second equality.
-        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} for the third equality.
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images} for the third equality.
     \end{itemize}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
@@ -9258,6 +9303,12 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(X)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (R^{\dagger})^{-1}%
+                =%
+                R_{!}.%
+            \]%
         %\item\label{properties-of-inverse-image-functions-associated-to-relations-2-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -9273,6 +9324,9 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-composition}: Interaction With Composition}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{properties-of-pre-postcomposition}}.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-converses}: Interaction With Converses}%
+    Omitted.
 \end{Proof}
 \subsection{Codirect Images}\label{subsection-codirect-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
@@ -10046,6 +10100,12 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(C)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                R^{\dagger}_{*}%
+                =%
+                R_{-1}.%
+            \]%
         %\item\label{properties-of-codirect-image-functions-associated-to-relations-2-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -10080,6 +10140,9 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
         \item We have $R^{-1}(c)\subset S_{*}(U)$.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{*}=S_{*}\circ R_{*}$.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-converses}: Interaction With Converses}%
+    Omitted.
 \end{Proof}
 \subsection{A Six-Functor Formalism for Sets, Part \rmII}\label{subsection-a-six-functor-formalism-for-sets-2}
 \begin{explanation}{A Six-Functor Formalism for Sets \rmII}{explanation-a-six-functor-formalism-for-sets-2}%
@@ -10560,7 +10623,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
         \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-internal-homs} is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets}}{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs} of \cref{a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{a-six-functor-formalism-for-sets}} and is proved there.
         \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-direct-images} is a repetition of \cref{properties-of-direct-image-functions-associated-to-relations-1-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations-1} and is proved there.
         \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-coinverse-images} is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
-        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-inverse-images} is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-inverse-images} is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} and is proved there.
         \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-codirect-images} is a repetition of \cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} and is proved there.
     \end{itemize}
     This finishes the proof.
