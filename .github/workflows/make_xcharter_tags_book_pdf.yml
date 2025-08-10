@@ -6,7 +6,7 @@ defaults:
 
 on:
   push:
-    branches: [ "main", "fix-xcharter" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main", "fix-xcharter" ]
 
