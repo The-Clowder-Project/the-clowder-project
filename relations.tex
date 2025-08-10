@@ -547,10 +547,10 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                 =
                 R^{\dagger}\procirc S^{\dagger}.
             \]%
-        \item\label{properties-of-composition-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+        \item\label{properties-of-composition-of-relations-interaction-with-images-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
-                \dom(S\procirc R)   &\subset \dom(R),\\
-                \range(S\procirc R) &\subset \range(S).
+                \Dom(S\procirc R) &\subset \Dom(R),\\
+                \Im(S\procirc R)  &\subset \Im(S).
             \end{align*}
         %\item\label{properties-of-composition-of-relations-}\SloganFont{. }
     \end{enumerate}
@@ -716,10 +716,10 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-converses}: Interaction With Converses}%
     This is a repetition of \cref{properties-of-converses-of-relations-interaction-with-composition} of \cref{properties-of-converses-of-relations} and is proved there.
 
-    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    \ProofBox{\cref{properties-of-composition-of-relations-interaction-with-images-and-domains}: Interaction With Ranges and Domains}%
     We have
     \begin{align*}
-        \dom(S\procirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\procirc R}c\text{ for some $c\in C$}\},\\
+        \Dom(S\procirc R) &\defeq  \{a\in A\ \middle|\ a\sim_{S\procirc R}c\text{ for some $c\in C$}\},\\
                           &=       \{%
                                        a\in A%
                                        \ \middle|\ %
@@ -736,28 +736,28 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
                                            &\text{such that $a\sim_{R}b$}
                                        \end{aligned}
                                    \},\\
-                          &\defeq  \dom(R)
+                          &\defeq  \Dom(R)
     \end{align*}
     and
     \begin{align*}
-        \range(S\procirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\procirc R}c\text{ for some $a\in A$}\},\\
-                            &=       \{%
-                                         c\in C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $a\in A$ and $b\in B$}\\
-                                             &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
-                                         \end{aligned}
-                                     \},\\
-                            &\subset \{%
-                                         c\in C%
-                                         \ \middle|\ %
-                                         \begin{aligned}
-                                             &\text{there exists some $b\in B$}\\
-                                             &\text{such that $b\sim_{S}c$}
-                                         \end{aligned}
-                                     \},\\
-                            &\defeq  \range(S).
+        \Im(S\procirc R) &\defeq  \{c\in C\ \middle|\ a\sim_{S\procirc R}c\text{ for some $a\in A$}\},\\
+                         &=       \{%
+                                      c\in C%
+                                      \ \middle|\ %
+                                      \begin{aligned}
+                                          &\text{there exists some $a\in A$ and $b\in B$}\\
+                                          &\text{such that $a\sim_{R}b$ and $b\sim_{R}c$}
+                                      \end{aligned}
+                                  \},\\
+                         &\subset \{%
+                                      c\in C%
+                                      \ \middle|\ %
+                                      \begin{aligned}
+                                          &\text{there exists some $b\in B$}\\
+                                          &\text{such that $b\sim_{S}c$}
+                                      \end{aligned}
+                                  \},\\
+                         &\defeq  \Im(S).
     \end{align*}
     This finishes the proof.
 \end{Proof}
@@ -1177,10 +1177,10 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
             \begin{itemize}
                 \itemstar If $R\subset S$, then $R^{\dagger}\subset S^{\dagger}$.
             \end{itemize}
-        \item\label{properties-of-converses-of-relations-interaction-with-ranges-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
+        \item\label{properties-of-converses-of-relations-interaction-with-images-and-domains}\SloganFont{Interaction With Ranges and Domains. }We have
             \begin{align*}
-                \dom(R^{\dagger})   &= \range(R),\\
-                \range(R^{\dagger}) &= \dom(R).
+                \Dom(R^{\dagger}) &= \Im(R),\\
+                \Im(R^{\dagger})  &= \Dom(R).
             \end{align*}
         \item\label{properties-of-converses-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
             \[
@@ -1225,18 +1225,18 @@ Let $A$, $B$, and $C$ be sets and let $R\subset A\times B$ be a relation.
     \end{align*}
     This finishes the proof.
 
-    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-ranges-and-domains}: Interaction With Ranges and Domains}%
+    \ProofBox{\cref{properties-of-converses-of-relations-interaction-with-images-and-domains}: Interaction With Ranges and Domains}%
     We have
     \begin{align*}
-        \dom(R^{\dagger}) &\defeq \{b\in B\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $a\in A$}\}\\
+        \Dom(R^{\dagger}) &\defeq \{b\in B\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $a\in A$}\}\\
                           &=      \{b\in B\ \middle|\ \text{$a\sim_{R}b$ for some $a\in A$}\}\\
-                          &\defeq \range(R)
+                          &\defeq \Im(R)
     \end{align*}
     and
     \begin{align*}
-        \range(R^{\dagger}) &\defeq \{a\in A\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $b\in B$}\}\\
-                            &=      \{a\in A\ \middle|\ \text{$a\sim_{R}b$ for some $b\in B$}\}\\
-                            &\defeq \dom(R).
+        \Im(R^{\dagger}) &\defeq \{a\in A\ \middle|\ \text{$b\sim_{R^{\dagger}}a$ for some $b\in B$}\}\\
+                         &=      \{a\in A\ \middle|\ \text{$a\sim_{R}b$ for some $b\in B$}\}\\
+                         &\defeq \Dom(R).
     \end{align*}
     This finishes the proof.
 
@@ -4783,7 +4783,7 @@ Let $X$ be a set.
     This follows from \cref{characterisations-of-monomorphisms-in-rel-1-2} of \cref{characterisations-of-monomorphisms-in-rel-1}.
 
     \ProofBox{Step 10: Counterexample to the converse of $(\star)$}%
-    Let $A=\{a_{1},a_{2},a_{3}\}$, $B=\{b_{1},b_{2}\}$, and let $R\colon A\rightproarrow B$ be the relation defined by
+    Let $A=\{a_{1},a_{2},a_{3}\}$, let $B=\{b_{1},b_{2}\}$, and let $R\colon A\rightproarrow B$ be the relation defined by
     \begin{align*}
         R(a_{1}) &= \{b_{1}\},\\
         R(a_{2}) &= \{b_{2}\},\\
@@ -4791,7 +4791,7 @@ Let $X$ be a set.
     \end{align*}
     Since $R(a_{1})$, $R(a_{2})$, and $R(a_{3})$ are all distinct, $R$ satisfies the condition in $(\star)$.
 
-    However, taking $U=\{a_{1},a_{2}\}$ and $V=\{a_{3}\}$ shows that $R(U)=R(V)$ holds while $U\neq V$.
+    \indent Taking $U=\{a_{1},a_{2}\}$ and $V=\{a_{3}\}$, however, shows that $R(U)=R(V)$ holds while $U\neq V$, so $R$ can't be a monomorphism.
 \end{Proof}
 \begin{remark}{Monomorphisms in $\sfRel$ Give Rise to Antichains}{monomorphisms-in-rel-give-rise-to-antichains}%
     Taking the contrapositive of \cref{characterisations-of-monomorphisms-in-rel-2-2} of \cref{characterisations-of-monomorphisms-in-rel-2} and letting $U=\{a'\}$ shows that the subset
@@ -7754,6 +7754,58 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     This finishes the proof.
 \end{Proof}
+\begin{definition}{The Domain and Complement Parts of $R_{-1}$}{the-domain-and-complement-parts-of-coinverse-images-of-relations}%
+    Let $V$ be a subset of $Y$.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that we have
+        \[%
+            R_{-1}(V)%
+            =%
+            R^{\rmdom}_{-1}(V)%
+            \cup%
+            R^{\rmcp}_{-1}(V),%
+        \]%
+        as
+        \begin{align*}
+            R_{-1}(V) &=      R_{-1}(V)\cap X\\
+                      &=      R_{-1}(V)\cap(\Dom(R)\cup(X\setminus\Dom(R)))\\
+                      &=      (R_{-1}(V)\cap\Dom(R))\cup(R_{-1}(V)\cap(X\setminus\Dom(R)))\\
+                      &\defeq R^{\rmdom}_{-1}(V)\cup R^{\rmcp}_{-1}(V).
+        \end{align*}
+        for each $V\in\mathcal{P}(Y)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{the-domain-and-complement-parts-of-coinverse-images-of-relations-domain-part}The \index[set-theory]{relation!associated coinverse image function, domain part}\textbf{domain part of the coinverse image $R_{-1}(V)$ of $V$} is the set \index[notation]{RdomminusoneU@$R^{\rmdom}_{-1}(U)$}$R^{\rmdom}_{-1}(U)$ defined by
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &\defeq R_{-1}(V)\cap\Dom(R)\\
+                                   &=      \{%
+                                               a\in X%
+                                               \ \middle|\ %
+                                               \begin{aligned}%
+                                                   &\text{we have $R(a)\subset V$}\\
+                                                   &\text{and $R(a)\neq\emptyset$.}
+                                               \end{aligned}%
+                                           \}.%
+            \end{align*}
+        \item\label{image-and-complement-parts-of-coinverse-images-complement-part}The \index[set-theory]{function!associated coinverse image function, complement part}\textbf{complement part of the coinverse image $R_{-1}(V)$ of $V$} is the set \index[notation]{RcpminusoneV@$R^{\rmcp}_{-1}(V)$}$R^{\rmcp}_{-1}(V)$ defined by
+            \begin{align*}
+                R^{\rmcp}_{-}(V) &\defeq R_{-1}(V)\cap(X\setminus\Dom(R))\\
+                                 &=      X\setminus\Dom(R)\\
+                                 &=      \{%
+                                             a\in X%
+                                             \ \middle|\ %
+                                             \begin{aligned}%
+                                                 &\text{we have $R(a)\subset V$}\\
+                                                 &\text{and $R(a)=\emptyset$.}
+                                             \end{aligned}%
+                                         \}\\%
+                                 &=      \{a\in X\ \middle|\ R(a)=\emptyset\}.%
+            \end{align*}
+    \end{enumerate}
+\end{definition}
 \begin{proposition}{Properties of Coinverse Images \rmI}{properties-of-coinverse-image-functions-associated-to-relations-1}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
@@ -8098,25 +8150,43 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 R_{-1}(U')\boxtimes_{X\times Y}S_{-1}(V')%
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
-        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1}\SloganFont{Relation to Inverse Images \rmI. }We have
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images}\SloganFont{Relation to Inverse Images. }We have
             \[
                 R_{-1}(V)%
                 =%
                 X\setminus R^{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2}\SloganFont{Relation to Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
-            \begin{enumerate}
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
-                    \[
-                        R_{-1}(V)
-                        \subset
-                        R^{-1}(V)
-                    \]%
-                    natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
-            \end{enumerate}
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functional-relations}\SloganFont{Interaction With Functional Relations. }If $R$ is functional, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &= R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &= X\setminus\Dom(R),%
+            \end{align*}
+            so
+            \begin{align*}
+                R_{-1}(V) &= R^{\rmdom}_{-1}(V)\cup R^{\rmcp}_{-1}(V)\\%
+                          &= R^{-1}(V)\cup(X\setminus\Dom(R))%
+            \end{align*}
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-total-relations}\SloganFont{Interaction With Total Relations. }If $R$ is total, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &\subset R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &=       \emptyset,%
+            \end{align*}
+            so
+            \[
+                R_{-1}(V)%
+                \subset%
+                R^{-1}(V)%
+            \]%
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-1}\SloganFont{Interaction With Functions \rmI. }If $R$ is a function, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &= R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &= \emptyset,%
+            \end{align*}
+            so $R_{-1}=R^{-1}$.
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-2}\SloganFont{Interaction With Functions \rmII. }If $R_{-1}=R^{-1}$, then $R$ is a function.
         %\item\label{properties-of-coinverse-image-functions-associated-to-relations-1-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -8214,7 +8284,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-products}: Interaction With Products}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1}: Relation to Inverse Images \rmI}%
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images}: Relation to Inverse Images}%
     We claim we have an equality
     \[
         R_{-1}(Y\setminus V)%
@@ -8228,8 +8298,23 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     Taking $V=Y\setminus V$ then implies the original statement.
 
-    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2}: Relation to Inverse Images \rmII}%
-    \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-a} is clear, while \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-b,properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functional-relations}: Interaction With Functional Relations}%
+    When $a\in\Dom(R)$, the set $R(a)$ will have exactly one element, so the condition $R(a)\cap V\neq\emptyset$ will then be equivalent to $R(a)\subset V$. Thus $R^{\rmdom}_{-1}(V)=R^{-1}(V)$.
+
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-total-relations}: Interaction With Total Relations}%
+    Indeed, we have
+    \begin{align*}
+        R^{\rmcp}_{-1}(V) &\defeq X\setminus\Dom(R)\\%
+                          &=      X\setminus X\\
+                          &=      \emptyset.
+    \end{align*}
+    Since $R(a)\subset V$ is a strictly stronger condition than $R(a)\cap V\neq\emptyset$ when $R(a)$ is nonempty, we have $R^{\rmdom}_{-1}(V)\subset R^{-1}(V)$. Thus $R_{-1}(V)\subset R^{-1}(V)$.
+
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-1}: Interaction With Functions \rmI}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functional-relations,properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-total-relations}.
+
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-2}: Interaction With Functions \rmII}%
+    This follows from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
 \end{Proof}
 \begin{proposition}{Properties of Coinverse Images \rmII}{properties-of-coinverse-image-functions-associated-to-relations-2}%
     Let $R\colon X\rightproarrow Y$ be a relation.
@@ -8765,25 +8850,44 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 R^{-1}(U')\boxtimes_{X\times Y}S^{-1}(V')%
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
-        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1}\SloganFont{Relation to Coinverse Images \rmI. }We have
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images}\SloganFont{Relation to Coinverse Images. }We have
             \[
                 R^{-1}(V)%
                 =%
                 X\setminus R_{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2}\SloganFont{Relation to Coinverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
-            \begin{enumerate}
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
-                    \[
-                        R_{-1}(V)
-                        \subset
-                        R^{-1}(V)
-                    \]%
-                    natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
-            \end{enumerate}
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functional-relations}\SloganFont{Interaction With Functional Relations. }If $R$ is functional, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &= R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &= X\setminus\Dom(R),%
+            \end{align*}
+            so
+            \begin{align*}
+                R_{-1}(V) &= R^{\rmdom}_{-1}(V)\cup R^{\rmcp}_{-1}(V)\\%
+                          &= R^{-1}(V)\cup(X\setminus\Dom(R))%
+            \end{align*}
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-total-relations}\SloganFont{Interaction With Total Relations. }If $R$ is total, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &\subset R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &=       \emptyset,%
+            \end{align*}
+            so
+            \[
+                R_{-1}(V)%
+                \subset%
+                R^{-1}(V)%
+            \]%
+            for each $V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functions-1}\SloganFont{Interaction With Functions \rmI. }If $R$ is a function, then we have
+            \begin{align*}
+                R^{\rmdom}_{-1}(V) &= R^{-1}(V),\\%
+                R^{\rmcp}_{-1}(V)  &= \emptyset,%
+            \end{align*}
+            so $R_{-1}=R^{-1}$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functions-2}\SloganFont{Interaction With Functions \rmII. }If $R_{-1}=R^{-1}$, then $R$ is a function.
+        %\item\label{properties-of-inverse-image-functions-associated-to-relations-1-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-inverse-image-functions-associated-to-relations-1}}%
@@ -8903,11 +9007,20 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-products}: Interaction With Products}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1}: Relation to Coinverse Images \rmI}%
-    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images}: Relation to Coinverse Images}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
 
-    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2}: Relation to Coinverse Images \rmII}%
-    This was proved in \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functional-relations}: Interaction With Functional Relations}%
+    This is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functional-relations} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-total-relations}: Interaction With Total Relations}%
+    This is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-total-relations} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functions-1}: Interaction With Functions \rmI}%
+    This is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-functions-2}: Interaction With Functions \rmII}%
+    This is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-functions-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
 \end{Proof}
 \begin{proposition}{Properties of Inverse Images \rmII}{properties-of-inverse-image-functions-associated-to-relations-2}%
     Let $R\colon X\rightproarrow Y$ be a relation.
@@ -9113,6 +9226,58 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
+\begin{definition}{The Image and Complement Parts of $R_{*}$}{image-and-complement-parts-of-codirect-images-for-relations}%
+    Let $U$ be a subset of $X$.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that we have
+        \[%
+            R_{*}(U)%
+            =%
+            R^{\rmim}_{*}(U)%
+            \cup%
+            R^{\rmcp}_{*}(U),%
+        \]%
+        as
+        \begin{align*}
+            R_{*}(U) &= R_{*}(U)\cap Y\\
+                     &=      R_{*}(U)\cap(\Im(R)\cup(Y\setminus\Im(R)))\\
+                     &=      (R_{*}(U)\cap\Im(R))\cup(R_{*}(U)\cap(Y\setminus\Im(R)))\\
+                     &\defeq R^{\rmim}_{*}(U)\cup R^{\rmcp}_{*}(U).
+        \end{align*}
+        for each $U\in\mathcal{P}(X)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{image-and-complement-parts-of-codirect-images-for-relations-image-part}The \index[set-theory]{relation!associated codirect image function, image      part}\textbf{image      part of the codirect image $R_{*}(U)$ of $U$} is the set \index[notation]{RimstarU@$R^{\rmim}_{*}(U)$}$R^{\rmim}_{*}(U)$ defined by
+            \begin{align*}
+                R^{\rmim}_{*}(U) &\defeq R_{*}(U)\cap\Im(R)\\
+                                 &=      \{%
+                                             y\in Y%
+                                             \ \middle|\ %
+                                             \begin{aligned}%
+                                                 &\text{we have $R^{-1}(y)\subset U$}\\
+                                                 &\text{and $R^{-1}(y)\neq\emptyset$.}
+                                             \end{aligned}%
+                                         \}.%
+            \end{align*}
+        \item\label{image-and-complement-parts-of-codirect-images-for-relations-complement-part}The \index[set-theory]{relation!associated codirect image function, complement part}\textbf{complement part of the codirect image $R_{*}(U)$ of $U$} is the set \index[notation]{RcpstarU@$R^{\rmcp}_{*}(U)$}$R^{\rmcp}_{*}(U)$ defined by
+            \begin{align*}
+                R^{\rmcp}_{*}(U) &\defeq R_{*}(U)\cap(Y\setminus\Im(R))\\
+                                 &=      Y\setminus\Im(R)\\
+                                 &=      \{%
+                                             y\in Y%
+                                             \ \middle|\ %
+                                             \begin{aligned}%
+                                                 &\text{we have $R^{-1}(y)\subset U$}\\
+                                                 &\text{and $R^{-1}(y)=\emptyset$.}
+                                             \end{aligned}%
+                                         \}\\%
+                                 &=      \{y\in Y\ \middle|\ R^{-1}(y)=\emptyset\}.%
+            \end{align*}
+    \end{enumerate}
+\end{definition}
 \begin{proposition}{Properties of Codirect Images \rmI}{properties-of-codirect-image-functions-associated-to-relations-1}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
@@ -9464,6 +9629,36 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 Y\setminus R_{!}(X\setminus U)
             \]%
             for each $U\in\mathcal{P}(X)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-injections}\SloganFont{Interaction With Injections. }If $R$ is injective, then we have
+            \begin{align*}
+                R^{\rmim}_{*}(U) &= R_{!}(U),\\
+                R^{\rmcp}_{*}(U) &= Y\setminus\Im(R),
+            \end{align*}
+            so
+            \begin{align*}
+                R_{*}(U) &= R^{\rmim}_{*}(U)\cup R^{\rmcp}_{*}(U)\\
+                         &= R_{!}(U)\cup(Y\setminus\Im(R))
+            \end{align*}
+            for each $U\in\mathcal{P}(X)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $R$ is surjective, then we have
+            \begin{align*}
+                R^{\rmim}_{*}(U) &\subset  R_{!}(U),\\
+                R^{\rmcp}_{*}(U) &=       \emptyset,\\
+            \end{align*}
+            so
+            \[
+                R_{*}(U)%
+                \subset%
+                R_{!}(U)%
+            \]%
+            for each $U\in\mathcal{P}(X)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-bijections-1}\SloganFont{Interaction With Bijections \rmI. }If $R$ is bijective, then we have
+            \begin{align*}
+                R^{\rmim}_{*}(U) &=  R_{!}(U),\\
+                R^{\rmcp}_{*}(U) &= \emptyset,
+            \end{align*}
+            so $R_{!}=R_{*}$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-bijections-2}\SloganFont{Interaction With Bijections \rmII. }If $R_{!}=R_{*}$, then $R$ is bijective.
         %\item\label{properties-of-codirect-image-functions-associated-to-relations-1-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -9578,6 +9773,40 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \item Since $b\nin R_{!}(X\setminus U)$, there exists no $a\in X\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
                 \item Thus $b\in R_{*}(U)$.
             \end{itemize}
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-injections}: Interaction With Injections}%
+    If $R$ is injective, then the condition $R^{-1}(y)\subset U$ is equivalent to $R^{-1}(y)\cap U\neq\emptyset$ when $y\in\Im(R)$. Thus $R^{\rmim}_{*}(U)=R_{!}(U)$.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-surjections}: Interaction With Surjections}%
+    Indeed, we have
+    \begin{align*}
+        R^{\rmcp}_{*}(U) &\defeq Y\setminus\Im(R)\\%
+                         &=      Y\setminus Y\\
+                         &=      \emptyset.
+    \end{align*}
+    Since $R^{-1}(y)\subset U$ is a strictly stronger condition than $R^{-1}(y)\cap U\neq\emptyset$ when $R^{-1}(y)$ is nonempty, we have $R^{\rmim}_{*}(U)\subset R_{!}(U)$. Thus $R_{*}(U)\subset R_{!}(U)$.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-bijections-1}: Interaction With Bijections \rmI}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-injections,properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-surjections}.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-bijections-2}: Interaction With Bijections \rmII}%
+    First, recall from \cref{properties-of-codirect-image-functions-associated-to-relations-i-relation-to-direct-images} that we have
+    \[
+        R_{*}(U)%
+        =%
+        Y\setminus R_{!}(X\setminus U)%
+    \]%
+    for all $U\in\mathcal{P}(A)$. We now claim that $R$ is bijective:
+    \begin{itemize}
+        \item\SloganFont{Injectivity: }We proceed in a few steps:
+            \begin{itemize}
+                \item Choosing $U=\{a\}$, we obtain $R(a)=Y\setminus R(X\setminus\{a\})$.
+                \item This implies $R(a)\cap R(X\setminus\{a\})=\emptyset$.
+                \item Thus there can be no $a'\in X$ other than $a$ with $R(a')\cap R(a')\neq\emptyset$.
+            \end{itemize}
+        \item\SloganFont{Surjectivity: }Choosing $U=X$ gives $R_{*}(X)=Y$. But since $R_{!}=R_{*}$, we have $R_{!}(X)=Y$, so $R$ must be surjective.
     \end{itemize}
     This finishes the proof.
 \end{Proof}

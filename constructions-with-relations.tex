@@ -15,11 +15,10 @@
 This chapter contains some material about constructions with relations. Notably, we discuss and explore:
 \begin{enumerate}
     \item\label{constructions-with-relations-introduction-item-1}The existence or non-existence of Kan extensions and Kan lifts in the $2$-category $\sfbfRel$ (\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}).
-    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, converse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
+    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, images, unions, intersections, products, converse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
 \end{enumerate}
 This chapter is under revision. TODO:
 \begin{enumerate}
-    \item Rename range to image
     \item Co/limits in $\sfbfRel$.
 \end{enumerate}
 
@@ -28,18 +27,18 @@ This chapter is under revision. TODO:
 \section{Co/Limits in the Category of Relations}\label{section-co-limits-in-the-category-of-relations}
 This section is currently just a stub, and will be properly developed later on.
 \section{More Constructions With Relations}\label{section-more-constructions-with-relations}
-\subsection{The Domain and Range of a Relation}\label{subsection-the-domain-and-range-of-a-relation}
+\subsection{The Domain and Range of a Relation}\label{subsection-the-domain-and-image-of-a-relation}
 Let $A$ and $B$ be sets.
-\begin{definition}{The Domain and Range of a Relation}{the-domain-and-range-of-a-relation}%
+\begin{definition}{The Domain and Range of a Relation}{the-domain-and-image-of-a-relation}%
     Let $R\colon A\rightproarrow B$ be a relation.%
     %--- Begin Footnote ---%
     \footnote{%
-        Following \ChapterRef{\ChapterProfunctors, \cref{profunctors:the-domain-and-range-of-a-profunctor}}{\cref{the-domain-and-range-of-a-profunctor}}, we may compute the (characteristic functions associated to the) domain and range of a relation using the following colimit formulas:
+        Following \ChapterRef{\ChapterProfunctors, \cref{profunctors:the-domain-and-image-of-a-profunctor}}{\cref{the-domain-and-image-of-a-profunctor}}, we may compute the (characteristic functions associated to the) domain and image of a relation using the following colimit formulas:
         \begin{align*}
-            \chi_{\dom(R)}(a)   &\cong \colim_{b\in B}(R^{b}_{a})\qquad(a\in A)\\
-                                &\cong \bigvee_{b\in B}R^{b}_{a},\\
-            \chi_{\range(R)}(b) &\cong \colim_{a\in A}(R^{b}_{a})\qquad(b\in B)\\
-                                &\cong \bigvee_{a\in A}R^{b}_{a},
+            \chi_{\Dom(R)}(a) &\cong \colim_{b\in B}(R^{b}_{a})\qquad(a\in A)\\
+                              &\cong \bigvee_{b\in B}R^{b}_{a},\\
+            \chi_{\Im(R)}(b)  &\cong \colim_{a\in A}(R^{b}_{a})\qquad(b\in B)\\
+                              &\cong \bigvee_{a\in A}R^{b}_{a},
         \end{align*}
         where the join $\bigvee$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
     }%
@@ -48,18 +47,18 @@ Let $A$ and $B$ be sets.
     \footnote{%
         Viewing $R$ as a function $R\colon A\to\mathcal{P}(B)$, we have
         \begin{align*}
-            \dom(R)   &\cong \colim_{y\in Y}(R(y))\\
-                      &\cong \bigcup_{y\in Y}R(y),\\
-            \range(R) &\cong \colim_{x\in X}(R(x))\\
-                      &\cong \bigcup_{x\in X}R(x),
+            \Dom(R) &\cong \colim_{y\in Y}(R(y))\\
+                    &\cong \bigcup_{y\in Y}R(y),\\
+            \Im(R)  &\cong \colim_{x\in X}(R(x))\\
+                    &\cong \bigcup_{x\in X}R(x),
         \end{align*}
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{the-domain-of-a-relation}The \index[set-theory]{relation!domain of}\textbf{domain of $R$} is the subset \index[notation]{domR@$\dom(R)$}$\dom(R)$ of $A$ defined by
+        \item\label{the-domain-of-a-relation}The \index[set-theory]{relation!domain of}\textbf{domain of $R$} is the subset \index[notation]{domR@$\Dom(R)$}$\Dom(R)$ of $A$ defined by
             \[
-                \dom(R)%
+                \Dom(R)%
                 \defeq%
                 \{%
                     a\in A%
@@ -70,9 +69,9 @@ Let $A$ and $B$ be sets.
                     \end{aligned}
                 \}.%
             \]%
-        \item\label{the-range-of-a-relation}The \index[set-theory]{relation!range of}\textbf{range of $R$} is the subset \index[notation]{rangeR@$\range(R)$}$\range(R)$ of $B$ defined by
+        \item\label{the-image-of-a-relation}The \index[set-theory]{relation!image of}\textbf{image of $R$} is the subset \index[notation]{ImR@$\Im(R)$}$\Im(R)$ of $B$ defined by
             \[
-                \range(R)%
+                \Im(R)%
                 \defeq%
                 \{%
                     b\in B%

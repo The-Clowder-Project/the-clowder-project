@@ -12572,17 +12572,18 @@ Let $f\colon X\to Y$ be a function.
         \[%
             f_{*}(U)%
             =%
-            f_{*,\rmim}(U)%
+            f^{\rmim}_{*}(U)%
             \cup%
-            f_{*,\rmcp}(U),%
+            f^{\rmcp}_{*}(U),%
         \]%
         as
         \begin{align*}
             f_{*}(U) &= f_{*}(U)\cap Y\\
                      &=      f_{*}(U)\cap(\Im(f)\cup(Y\setminus\Im(f)))\\
                      &=      (f_{*}(U)\cap\Im(f))\cup(f_{*}(U)\cap(Y\setminus\Im(f)))\\
-                     &\defeq f_{*,\rmim}(U)\cup f_{*,\rmcp}(U).
+                     &\defeq f^{\rmim}_{*}(U)\cup f^{\rmcp}_{*}(U).
         \end{align*}
+        for each $U\in\mathcal{P}(X)$.
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
@@ -12593,14 +12594,14 @@ Let $f\colon X\to Y$ be a function.
             =%
             \bigwedge_{\substack{x\in X\\f(x)=-_{1}}}(\chi_{U}(x)),%
         \]%
-        we see that $\smash{f_{*,\rmim}}$ corresponds to meets indexed over nonempty sets, while $\smash{f_{*,\rmcp}}$ corresponds to meets indexed over the empty set.
+        we see that $\smash{f^{\rmim}_{*}}$ corresponds to meets indexed over nonempty sets, while $\smash{f^{\rmcp}_{*}}$ corresponds to meets indexed over the empty set.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarimU@$f_{*,\rmim}(U)$}$f_{*,\rmim}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarimU@$f^{\rmim}_{*}(U)$}$f^{\rmim}_{*}(U)$ defined by
             \begin{align*}
-                f_{*,\rmim}(U) &\defeq f_{*}(U)\cap\Im(f)\\
+                f^{\rmim}_{*}(U) &\defeq f_{*}(U)\cap\Im(f)\\
                                &=      \{%
                                            y\in Y%
                                            \ \middle|\ %
@@ -12610,9 +12611,9 @@ Let $f\colon X\to Y$ be a function.
                                            \end{aligned}%
                                        \}.%
             \end{align*}
-        \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarcpU@$f_{*,\rmcp}(U)$}$f_{*,\rmcp}(U)$ defined by
+        \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarcpU@$f^{\rmcp}_{*}(U)$}$f^{\rmcp}_{*}(U)$ defined by
             \begin{align*}
-                f_{*,\rmcp}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
+                f^{\rmcp}_{*}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
                                &=      Y\setminus\Im(f)\\
                                &=      \{%
                                            y\in Y%
@@ -12637,8 +12638,8 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $n\in\N$. Since $f$ is injective, we have
             \begin{align*}
-                f_{*,\rmim}(U) &= f_{!}(U)\\
-                f_{*,\rmcp}(U) &= \{\text{odd natural numbers}\}
+                f^{\rmim}_{*}(U) &= f_{!}(U)\\
+                f^{\rmcp}_{*}(U) &= \{\text{odd natural numbers}\}
             \end{align*}
             for any $U\subset\N$. In particular, we have
             \[
@@ -12654,19 +12655,19 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $x\in\R$. We have
             \[
-                f_{*,\rmcp}(U)%
+                f^{\rmcp}_{*}(U)%
                 =%
                 \R_{<0}
             \]%
             for any $U\subset\R$. Moreover, since $f^{-1}(x)=\{-\sqrt{x},\sqrt{x}\}$, we have e.g.:
             \begin{gather*}
                 \begin{aligned}
-                    f_{*,\rmim}([0,1])        &= \{0\},\\
-                    f_{*,\rmim}([-1,1])       &= [0,1],\\
-                    f_{*,\rmim}([1,2])        &= \emptyset,
+                    f^{\rmim}_{*}([0,1])        &= \{0\},\\
+                    f^{\rmim}_{*}([-1,1])       &= [0,1],\\
+                    f^{\rmim}_{*}([1,2])        &= \emptyset,
                 \end{aligned}
                 \\
-                f_{*,\rmim}([-2,-1]\cup[1,2])  = [1,4].
+                f^{\rmim}_{*}([-2,-1]\cup[1,2])  = [1,4].
             \end{gather*}
         \item\label{examples-of-codirect-images-circles}\SloganFont{Circles. }Consider the function $f\colon\R^{2}\to\R$ given by
             \[
@@ -12676,7 +12677,7 @@ Let $f\colon X\to Y$ be a function.
             \]%
             for each $(x,y)\in\R^{2}$. We have
             \[
-                f_{*,\rmcp}(U)%
+                f^{\rmcp}_{*}(U)%
                 =%
                 \R_{<0}
             \]%
@@ -12692,8 +12693,8 @@ Let $f\colon X\to Y$ be a function.
             \]%
             we have e.g.:
             \begin{gather*}
-                f_{*,\rmim}([-1,1]\times[-1,1])                             = [0,1],\\
-                f_{*,\rmim}(([-1,1]\times[-1,1])\setminus[-1,1]\times\{0\}) = \emptyset.
+                f^{\rmim}_{*}([-1,1]\times[-1,1])                             = [0,1],\\
+                f^{\rmim}_{*}(([-1,1]\times[-1,1])\setminus[-1,1]\times\{0\}) = \emptyset.
             \end{gather*}
     \end{enumerate}
 \end{example}
@@ -13038,21 +13039,21 @@ Let $f\colon X\to Y$ be a function.
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-injections}\SloganFont{Interaction With Injections. }If $f$ is injective, then we have
             \begin{align*}
-                f_{*,\rmim}(U) &= f_{!}(U),\\
-                f_{*,\rmcp}(U) &= Y\setminus\Im(f),\\
+                f^{\rmim}_{*}(U) &= f_{!}(U),\\
+                f^{\rmcp}_{*}(U) &= Y\setminus\Im(f),
             \end{align*}
-            and so
+            so
             \begin{align*}
-                f_{*}(U) &= f_{*,\rmim}(U)\cup f_{*,\rmcp}(U)\\
+                f_{*}(U) &= f^{\rmim}_{*}(U)\cup f^{\rmcp}_{*}(U)\\
                          &= f_{!}(U)\cup(Y\setminus\Im(f))
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-surjections}\SloganFont{Interaction With Surjections. }If $f$ is surjective, then we have
             \begin{align*}
-                f_{*,\rmim}(U) &\subset  f_{!}(U),\\
-                f_{*,\rmcp}(U) &=       \emptyset,\\
+                f^{\rmim}_{*}(U) &\subset  f_{!}(U),\\
+                f^{\rmcp}_{*}(U) &=       \emptyset,\\
             \end{align*}
-            and so
+            so
             \[
                 f_{*}(U)%
                 \subset%
@@ -13061,10 +13062,10 @@ Let $f\colon X\to Y$ be a function.
             for each $U\in\mathcal{P}(X)$.
         \item\label{properties-of-codirect-images-i-interaction-with-bijections-1}\SloganFont{Interaction With Bijections \rmI. }If $f$ is bijective, then we have
             \begin{align*}
-                f_{*,\rmim}(U) &=  f_{!}(U),\\
-                f_{*,\rmcp}(U) &= \emptyset,
+                f^{\rmim}_{*}(U) &=  f_{!}(U),\\
+                f^{\rmcp}_{*}(U) &= \emptyset,
             \end{align*}
-            and so $f_{!}=f_{*}$.
+            so $f_{!}=f_{*}$.
         \item\label{properties-of-codirect-images-i-interaction-with-bijections-2}\SloganFont{Interaction With Bijections \rmII. }If $f_{!}=f_{*}$, then $f$ is bijective.
         %\item\label{properties-of-codirect-images-i-}\SloganFont{. }
     \end{enumerate}
@@ -13182,10 +13183,16 @@ Let $f\colon X\to Y$ be a function.
     This finishes the proof of \cref{properties-of-codirect-images-i-relation-to-direct-images}.
 
     \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-injections}: Interaction With Injections}%
-    Omitted.
+    If $f$ is injective, then the condition $f^{-1}(y)\subset U$ is equivalent to $f^{-1}(y)\cap U\neq\emptyset$ when $y\in\Im(f)$. Thus $f^{\rmim}_{*}(U)=f_{!}(U)$.
 
     \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-surjections}: Interaction With Surjections}%
-    Omitted.
+    Indeed, we have
+    \begin{align*}
+        f^{\rmcp}_{*}(U) &\defeq Y\setminus\Im(f)\\%
+                         &=      Y\setminus Y\\
+                         &=      \emptyset.
+    \end{align*}
+    Since $f^{-1}(y)\subset U$ is a strictly stronger condition than $f^{-1}(y)\cap U\neq\emptyset$ when $f^{-1}(y)$ is nonempty, we have $f^{\rmim}_{*}(U)\subset f_{!}(U)$. Thus $f_{*}(U)\subset f_{!}(U)$.
 
     \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-bijections-1}: Interaction With Bijections \rmI}%
     This follows from \cref{properties-of-codirect-images-i-interaction-with-injections} and \cref{properties-of-codirect-images-i-interaction-with-surjections}.
@@ -13201,9 +13208,9 @@ Let $f\colon X\to Y$ be a function.
     \begin{itemize}
         \item\SloganFont{Injectivity: }We proceed in a few steps:
             \begin{itemize}
-                \item Choosing $U=\{a\}$, we obtain $\{f(a)\}=B\setminus f(X\setminus\{a\})$.
+                \item Choosing $U=\{a\}$, we obtain $\{f(a)\}=Y\setminus f(X\setminus\{a\})$.
                 \item This implies $\{f(a)\}\cap f(X\setminus\{a\})=\emptyset$.
-                \item Thus there can be no $a'\in A$ other than $a$ with $f(a')=f(a)$.
+                \item Thus there can be no $a'\in X$ other than $a$ with $f(a')=f(a)$.
             \end{itemize}
         \item\SloganFont{Surjectivity: }Choosing $U=X$ gives $f_{*}(X)=Y$. But since $f_{!}=f_{*}$, we have $f_{!}(X)=Y$, so $f$ must be surjective.
     \end{itemize}
