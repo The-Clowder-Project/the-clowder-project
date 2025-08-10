@@ -13887,7 +13887,34 @@ Let $A$ and $B$ be sets.
                         \mathcal{P}(B)%
                     \]%
                     associated to $f$ is full.
-                \item\label{properties-of-injective-functions-characterisations-8}The diagram
+                \item\label{properties-of-injective-functions-characterisations-8}The direct image functor
+                    \[
+                        f_{!}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is fully faithful.
+                \item\label{properties-of-injective-functions-characterisations-9}The inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        (\mathcal{P}(B),\subset)%
+                        \to%
+                        (\mathcal{P}(A),\subset)%
+                    \]%
+                    associated to $f$ is essentially surjective.
+                \item\label{properties-of-injective-functions-characterisations-10}The codirect image functor
+                    \[
+                        f_{*}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is fully faithful.
+                \item\label{properties-of-injective-functions-characterisations-11}The diagram
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             A
@@ -13906,7 +13933,7 @@ Let $A$ and $B$ be sets.
                         f^{-1}(f(a))=\{a\}%
                     \]%
                     for each $a\in A$.
-                \item\label{properties-of-injective-functions-characterisations-9}We have
+                \item\label{properties-of-injective-functions-characterisations-12}We have
                     \begin{webcompile}
                         f^{-1}\circ f_{!}%
                         =%
@@ -13935,7 +13962,7 @@ Let $A$ and $B$ be sets.
                         U%
                     \]%
                     for each $U\in\mathcal{P}(A)$.
-                \item\label{properties-of-injective-functions-characterisations-10}We have
+                \item\label{properties-of-injective-functions-characterisations-13}We have
                     \begin{webcompile}
                         f^{-1}\circ f_{*}%
                         =%
@@ -13985,11 +14012,14 @@ Let $A$ and $B$ be sets.
         \item Step 3: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-5}.
         \item Step 4: \cref{properties-of-injective-functions-characterisations-3}$\iff$\cref{properties-of-injective-functions-characterisations-6}.
         \item Step 5: \cref{properties-of-injective-functions-characterisations-6}$\iff$\cref{properties-of-injective-functions-characterisations-7}.
-        \item Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-8}.
-        \item Step 7: \cref{properties-of-injective-functions-characterisations-8}$\iff$\cref{properties-of-injective-functions-characterisations-9}.
-        \item Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-10}.
-        \item Step 9: \cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-4}.
+        \item Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-11}.
+        \item Step 7: \cref{properties-of-injective-functions-characterisations-11}$\iff$\cref{properties-of-injective-functions-characterisations-12}.
+        \item Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-13}.
+        \item Step 9: \cref{properties-of-injective-functions-characterisations-12}$\implies$\cref{properties-of-injective-functions-characterisations-4}.
         \item Step 10: \cref{properties-of-injective-functions-characterisations-4}$\implies$\cref{properties-of-injective-functions-characterisations-1}.
+        \item Step 11: \cref{properties-of-injective-functions-characterisations-6}$\iff$\cref{properties-of-injective-functions-characterisations-8}.
+        \item Step 12: \cref{properties-of-injective-functions-characterisations-7}$\iff$\cref{properties-of-injective-functions-characterisations-9}.
+        \item Step 13: \cref{properties-of-injective-functions-characterisations-4}$\iff$\cref{properties-of-injective-functions-characterisations-10}.
     \end{itemize}
 
     \SubProofBox{Step 1: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-2}}%
@@ -14082,7 +14112,7 @@ Let $A$ and $B$ be sets.
     \SubProofBox{Step 5: \cref{properties-of-injective-functions-characterisations-6}$\iff$\cref{properties-of-injective-functions-characterisations-7}}%
     This follows from \cref{properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}.
 
-    \SubProofBox{Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-8}}%
+    \SubProofBox{Step 6: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-11}}%
     We have
     \[
         f^{-1}(f(a))%
@@ -14095,10 +14125,10 @@ Let $A$ and $B$ be sets.
     \]%
     so the condition $f^{-1}(f(a))=\{a\}$ states precisely that if $f(a')=f(a)$, then $a'=a$.
 
-    \SubProofBox{Step 7: \cref{properties-of-injective-functions-characterisations-8}$\iff$\cref{properties-of-injective-functions-characterisations-9}}%
-    We claim that \cref{properties-of-injective-functions-characterisations-8,properties-of-injective-functions-characterisations-9} are indeed equivalent:
+    \SubProofBox{Step 7: \cref{properties-of-injective-functions-characterisations-11}$\iff$\cref{properties-of-injective-functions-characterisations-12}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-11,properties-of-injective-functions-characterisations-12} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-8}$\implies$\cref{properties-of-injective-functions-characterisations-9}: }We have
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-11}$\implies$\cref{properties-of-injective-functions-characterisations-12}: }We have
             \begin{align*}
                 [f^{-1}\circ f_{!}](U) &\defeq f^{-1}(f_{!}(U))\\
                                        &=      f^{-1}\left(f_{!}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
@@ -14109,7 +14139,7 @@ Let $A$ and $B$ be sets.
                                        &=      U
             \end{align*}
             for each $U\in\mathcal{P}(A)$, where we have used \cref{properties-of-direct-images-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-i} for the third equality and \cref{properties-of-inverse-images-i-interaction-with-binary-unions} of \cref{properties-of-inverse-images-i} for the fourth equality.
-        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-9}$\implies$\cref{properties-of-injective-functions-characterisations-8}: }Applying the condition $f^{-1}\circ f_{!}=\id_{\mathcal{P}(A)}$ to $U=\{a\}$ gives
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-12}$\implies$\cref{properties-of-injective-functions-characterisations-11}: }Applying the condition $f^{-1}\circ f_{!}=\id_{\mathcal{P}(A)}$ to $U=\{a\}$ gives
             \[
                 f^{-1}(f_{!}(\{a\}))%
                 =%
@@ -14117,10 +14147,10 @@ Let $A$ and $B$ be sets.
             \]%
     \end{itemize}
 
-    \SubProofBox{Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-10}}%
-    We claim that \cref{properties-of-injective-functions-characterisations-1,properties-of-injective-functions-characterisations-10} are equivalent:
+    \SubProofBox{Step 8: \cref{properties-of-injective-functions-characterisations-1}$\iff$\cref{properties-of-injective-functions-characterisations-13}}%
+    We claim that \cref{properties-of-injective-functions-characterisations-1,properties-of-injective-functions-characterisations-13} are equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-10}: }If $f$ is injective, then $f^{-1}(f(a))=\{a\}$, so we have
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-1}$\implies$\cref{properties-of-injective-functions-characterisations-13}: }If $f$ is injective, then $f^{-1}(f(a))=\{a\}$, so we have
             \begin{align*}
                 f^{-1}(f_{*}(a)) &= \{%
                                         a\in A%
@@ -14129,7 +14159,7 @@ Let $A$ and $B$ be sets.
                                     \}\\%
                                  &= U.
             \end{align*}
-        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-10}$\implies$\cref{properties-of-injective-functions-characterisations-1}: }For $U=\{a\}$, the condition $f^{-1}(f_{*}(U))=U$ becomes
+        \item\SloganFont{\cref{properties-of-injective-functions-characterisations-13}$\implies$\cref{properties-of-injective-functions-characterisations-1}: }For $U=\{a\}$, the condition $f^{-1}(f_{*}(U))=U$ becomes
             \[
                 \{%
                     a'\in A%
@@ -14151,8 +14181,8 @@ Let $A$ and $B$ be sets.
     \end{itemize}
     This finishes the proof.
 
-    \SubProofBox{Step 9: \cref{properties-of-injective-functions-characterisations-9}$\implies$\cref{properties-of-injective-functions-characterisations-4}}%
-    Given $U\in\mathcal{P}(A)$, we must show there exists some $V\in\mathcal{P}(B)$ such that $f^{-1}(V)=U$. Choosing $V=f_{!}(U)$, it follows from \cref{properties-of-injective-functions-characterisations-9} that we have $f^{-1}(f_{!}(U))=U$. Thus $f^{-1}$ is surjective.
+    \SubProofBox{Step 9: \cref{properties-of-injective-functions-characterisations-12}$\implies$\cref{properties-of-injective-functions-characterisations-4}}%
+    Given $U\in\mathcal{P}(A)$, we must show there exists some $V\in\mathcal{P}(B)$ such that $f^{-1}(V)=U$. Choosing $V=f_{!}(U)$, it follows from \cref{properties-of-injective-functions-characterisations-12} that we have $f^{-1}(f_{!}(U))=U$. Thus $f^{-1}$ is surjective.
 
     \SubProofBox{Step 10: \cref{properties-of-injective-functions-characterisations-4}$\implies$\cref{properties-of-injective-functions-characterisations-1}}%
     We proceed in a few steps:
@@ -14165,6 +14195,15 @@ Let $A$ and $B$ be sets.
         \item Thus $f$ is injective.
     \end{itemize}
     This finishes the proof.
+
+    \SubProofBox{Step 11: \cref{properties-of-injective-functions-characterisations-6}$\iff$\cref{properties-of-injective-functions-characterisations-8}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
+
+    \SubProofBox{Step 12: \cref{properties-of-injective-functions-characterisations-7}$\iff$\cref{properties-of-injective-functions-characterisations-9}}%
+    This follows from the fact that $\mathcal{P}(A)$ is locally posetal.
+
+    \SubProofBox{Step 13: \cref{properties-of-injective-functions-characterisations-4}$\iff$\cref{properties-of-injective-functions-characterisations-10}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
 
     \ProofBox{\cref{properties-of-injective-functions-interaction-with-composition}: Interaction With Composition}%
     We claim that \cref{properties-of-injective-functions-interaction-with-composition-a,properties-of-injective-functions-interaction-with-composition-b} are indeed true:
@@ -14250,7 +14289,34 @@ Let $A$ and $B$ be sets.
                         (\mathcal{P}(A),\subset)%
                     \]%
                     associated to $f$ is full.
-                \item\label{properties-of-surjective-functions-characterisations-7}The diagram
+                \item\label{properties-of-surjective-functions-characterisations-7}The direct image functor
+                    \[
+                        f_{!}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is essentially surjective.
+                \item\label{properties-of-surjective-functions-characterisations-8}The inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        (\mathcal{P}(B),\subset)%
+                        \to%
+                        (\mathcal{P}(A),\subset)%
+                    \]%
+                    associated to $f$ is fully faithful.
+                \item\label{properties-of-surjective-functions-characterisations-9}The codirect image functor
+                    \[
+                        f_{*}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is essentially surjective.
+                \item\label{properties-of-surjective-functions-characterisations-10}The diagram
                     \[
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             B
@@ -14269,7 +14335,7 @@ Let $A$ and $B$ be sets.
                         f_{!}(f^{-1}(b))=\{b\}%
                     \]%
                     for each $b\in B$.
-                \item\label{properties-of-surjective-functions-characterisations-8}We have
+                \item\label{properties-of-surjective-functions-characterisations-11}We have
                     \begin{webcompile}
                         f_{!}\circ f^{-1}%
                         =%
@@ -14301,7 +14367,7 @@ Let $A$ and $B$ be sets.
                         U%
                     \]%
                     for each $U\in\mathcal{P}(A)$.%
-                \item\label{properties-of-surjective-functions-characterisations-9}We have
+                \item\label{properties-of-surjective-functions-characterisations-12}We have
                     \begin{webcompile}
                         f_{*}\circ f^{-1}%
                         =%
@@ -14351,12 +14417,15 @@ Let $A$ and $B$ be sets.
         \item Step 1: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-2}.
         \item Step 2: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-3}.
         \item Step 3: \cref{properties-of-surjective-functions-characterisations-3}$\iff$\cref{properties-of-surjective-functions-characterisations-6}.
-        \item Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-7}.
-        \item Step 5: \cref{properties-of-surjective-functions-characterisations-7}$\iff$\cref{properties-of-surjective-functions-characterisations-8}.
-        \item Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-9}.
-        \item Step 7: \cref{properties-of-surjective-functions-characterisations-8}$\iff$\cref{properties-of-surjective-functions-characterisations-4}.
+        \item Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-10}.
+        \item Step 5: \cref{properties-of-surjective-functions-characterisations-10}$\iff$\cref{properties-of-surjective-functions-characterisations-11}.
+        \item Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-12}.
+        \item Step 7: \cref{properties-of-surjective-functions-characterisations-11}$\iff$\cref{properties-of-surjective-functions-characterisations-4}.
         \item Step 8: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-1}.
         \item Step 9: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-5}.
+        \item Step 10: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-7}.
+        \item Step 11: \cref{properties-of-surjective-functions-characterisations-6}$\iff$\cref{properties-of-surjective-functions-characterisations-8}.
+        \item Step 12: \cref{properties-of-surjective-functions-characterisations-5}$\iff$\cref{properties-of-surjective-functions-characterisations-9}.
     \end{itemize}
 
     \SubProofBox{Step 1: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-2}}%
@@ -14458,7 +14527,7 @@ Let $A$ and $B$ be sets.
             \end{itemize}
     \end{itemize}
 
-    \SubProofBox{Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-7}}%
+    \SubProofBox{Step 4: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-10}}%
     We have
     \[
         f_{!}(f^{-1}(b))%
@@ -14474,10 +14543,10 @@ Let $A$ and $B$ be sets.
     \]%
     so the condition $f_{!}(f^{-1}(b))=\{b\}$ holds \textiff $f$ is surjective.
 
-    \SubProofBox{Step 5: \cref{properties-of-surjective-functions-characterisations-7}$\iff$\cref{properties-of-surjective-functions-characterisations-8}}%
-    We claim that \cref{properties-of-surjective-functions-characterisations-7,properties-of-surjective-functions-characterisations-8} are indeed equivalent:
+    \SubProofBox{Step 5: \cref{properties-of-surjective-functions-characterisations-10}$\iff$\cref{properties-of-surjective-functions-characterisations-11}}%
+    We claim that \cref{properties-of-surjective-functions-characterisations-10,properties-of-surjective-functions-characterisations-11} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-7}$\implies$\cref{properties-of-surjective-functions-characterisations-8}: }We have
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-10}$\implies$\cref{properties-of-surjective-functions-characterisations-11}: }We have
             \begin{align*}
                 [f_{!}\circ f^{-1}](U) &\defeq f_{!}(f^{-1}(U))\\
                                        &=      f_{!}\left(f^{-1}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
@@ -14488,7 +14557,7 @@ Let $A$ and $B$ be sets.
                                        &=      U
             \end{align*}
             for each $U\in\mathcal{P}(B)$, where we have used \cref{properties-of-direct-images-i-interaction-with-binary-unions} of \cref{properties-of-direct-images-i} for the third equality and \cref{properties-of-inverse-images-i-interaction-with-binary-unions} of \cref{properties-of-inverse-images-i} for the fourth equality.
-        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-8}$\implies$\cref{properties-of-surjective-functions-characterisations-7}: }Applying the condition $f_{!}\circ f^{-1}=\id_{\mathcal{P}(B)}$ to $U=\{b\}$ gives
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-11}$\implies$\cref{properties-of-surjective-functions-characterisations-10}: }Applying the condition $f_{!}\circ f^{-1}=\id_{\mathcal{P}(B)}$ to $U=\{b\}$ gives
             \[
                 f_{!}(f^{-1}(\{b\}))%
                 =%
@@ -14496,7 +14565,7 @@ Let $A$ and $B$ be sets.
             \]%
     \end{itemize}
 
-    \SubProofBox{Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-9}}%
+    \SubProofBox{Step 6: \cref{properties-of-surjective-functions-characterisations-1}$\iff$\cref{properties-of-surjective-functions-characterisations-12}}%
     First, note that for the condition $f^{-1}(b)\subset f^{-1}(U)$ to hold, we must have $b\in U$ or $f^{-1}(b)=\emptyset$. Thus
     \[
         f_{*}(f^{-1}(U))%
@@ -14505,15 +14574,15 @@ Let $A$ and $B$ be sets.
         \cup%
         (B\setminus\Im(f)).%
     \]%
-    We now claim that \cref{properties-of-surjective-functions-characterisations-1,properties-of-surjective-functions-characterisations-9} are indeed equivalent:
+    We now claim that \cref{properties-of-surjective-functions-characterisations-1,properties-of-surjective-functions-characterisations-12} are indeed equivalent:
     \begin{itemize}
-        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-1}$\implies$\cref{properties-of-surjective-functions-characterisations-9}: }If $f$ is surjective, we have
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-1}$\implies$\cref{properties-of-surjective-functions-characterisations-12}: }If $f$ is surjective, we have
             \begin{align*}
                 (U\cap\Im(f))\cup(B\setminus\Im(f)) &= U\cup\emptyset\\
                                                     &= U,
             \end{align*}
             so $f_{*}\circ f^{-1}=\id_{\mathcal{P}(B)}$.
-        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-9}$\implies$\cref{properties-of-surjective-functions-characterisations-1}: }Taking $U=\emptyset$ gives
+        \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-12}$\implies$\cref{properties-of-surjective-functions-characterisations-1}: }Taking $U=\emptyset$ gives
             \begin{align*}
                 f_{*}(f^{-1}(\emptyset)) &= (\emptyset\cap\Im(f))\cup(B\setminus\Im(f))\\%
                                          &= B\setminus\Im(f),%
@@ -14522,14 +14591,23 @@ Let $A$ and $B$ be sets.
     \end{itemize}
     This finishes the proof.
 
-    \SubProofBox{Step 8: \cref{properties-of-surjective-functions-characterisations-8}$\iff$\cref{properties-of-surjective-functions-characterisations-4}}%
-    Given $V\in\mathcal{P}(B)$, we must show there exists some $U\in\mathcal{P}(A)$ such that $f_{!}(U)=V$. Choosing $U=f^{-1}(V)$, it follows from \cref{properties-of-surjective-functions-characterisations-8} that we have $f_{!}(f^{-1}(V))=V$. Thus $f_{!}$ is surjective.
+    \SubProofBox{Step 8: \cref{properties-of-surjective-functions-characterisations-11}$\iff$\cref{properties-of-surjective-functions-characterisations-4}}%
+    Given $V\in\mathcal{P}(B)$, we must show there exists some $U\in\mathcal{P}(A)$ such that $f_{!}(U)=V$. Choosing $U=f^{-1}(V)$, it follows from \cref{properties-of-surjective-functions-characterisations-11} that we have $f_{!}(f^{-1}(V))=V$. Thus $f_{!}$ is surjective.
 
     \SubProofBox{Step 9: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-1}}%
     Let $b\in B$. Since $f_{!}$ is a surjection, there exists some $U\in\mathcal{P}(A)$ such that $f_{!}(U)=\{b\}$. Since $f_{!}(U)=\emptyset$ \textiff $U=\emptyset$, it follows that there exists some $a\in U$ with $f(a)=b$. Thus $f$ is surjective.
 
     \SubProofBox{Step 10: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-5}}%
     This follows from \cref{properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}.
+
+    \SubProofBox{Step 10: \cref{properties-of-surjective-functions-characterisations-4}$\iff$\cref{properties-of-surjective-functions-characterisations-7}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
+
+    \SubProofBox{Step 11: \cref{properties-of-surjective-functions-characterisations-6}$\iff$\cref{properties-of-surjective-functions-characterisations-8}}%
+    This follows from the fact that $\mathcal{P}(A)$ is locally posetal.
+
+    \SubProofBox{Step 12: \cref{properties-of-surjective-functions-characterisations-5}$\iff$\cref{properties-of-surjective-functions-characterisations-9}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
 
     \ProofBox{\cref{properties-of-surjective-functions-interaction-with-composition}: Interaction With Composition}%
     Omitted.
@@ -14578,7 +14656,34 @@ Let $A$ and $B$ be sets.
                         \mathcal{P}(B)%
                     \]%
                     associated to $f$ is bijective.
-                \item\label{properties-of-bijective-functions-characterisations-8}We have
+                \item\label{properties-of-bijective-functions-characterisations-8}The direct image functor
+                    \[
+                        f_{!}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is an equivalence of categories.
+                \item\label{properties-of-bijective-functions-characterisations-9}The inverse image functor
+                    \[
+                        f^{-1}%
+                        \colon%
+                        (\mathcal{P}(B),\subset)%
+                        \to%
+                        (\mathcal{P}(A),\subset)%
+                    \]%
+                    associated to $f$ is an equivalence of categories.
+                \item\label{properties-of-bijective-functions-characterisations-10}The codirect image functor
+                    \[
+                        f_{*}%
+                        \colon%
+                        (\mathcal{P}(A),\subset)%
+                        \to%
+                        (\mathcal{P}(B),\subset)%
+                    \]%
+                    associated to $f$ is an equivalence of categories.
+                \item\label{properties-of-bijective-functions-characterisations-11}We have
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             A
@@ -14615,7 +14720,7 @@ Let $A$ and $B$ be sets.
                         f_{!}(f^{-1}(b)) &= \{b\}
                     \end{align*}
                     for each $a\in A$ and each $b\in B$.
-                \item\label{properties-of-bijective-functions-characterisations-9}We have
+                \item\label{properties-of-bijective-functions-characterisations-12}We have
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(A)
@@ -14646,7 +14751,7 @@ Let $A$ and $B$ be sets.
                             \mathcal{P}(B)\mrp{.}
                         \end{tikzcd}
                     \end{webcompile}
-                \item\label{properties-of-bijective-functions-characterisations-10}We have
+                \item\label{properties-of-bijective-functions-characterisations-13}We have
                     \begin{webcompile}
                         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                             \mathcal{P}(A)
@@ -14708,9 +14813,12 @@ Let $A$ and $B$ be sets.
         \item Step 4: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-5}.
         \item Step 5: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-6}.
         \item Step 6: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-7}.
-        \item Step 7: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-8}.
-        \item Step 8: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-9}.
-        \item Step 9: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-10}.
+        \item Step 7: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-11}.
+        \item Step 8: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-12}.
+        \item Step 9: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-13}.
+        \item Step 10: \cref{properties-of-bijective-functions-characterisations-5}$\iff$\cref{properties-of-bijective-functions-characterisations-8}.
+        \item Step 11: \cref{properties-of-bijective-functions-characterisations-6}$\iff$\cref{properties-of-bijective-functions-characterisations-9}.
+        \item Step 12: \cref{properties-of-bijective-functions-characterisations-7}$\iff$\cref{properties-of-bijective-functions-characterisations-10}.
     \end{itemize}
 
     \SubProofBox{Step 1: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-2}}%
@@ -14731,14 +14839,23 @@ Let $A$ and $B$ be sets.
     \SubProofBox{Step 6: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-7}}%
     This follows from \cref{properties-of-injective-functions-characterisations-5} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-5} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
 
-    \SubProofBox{Step 7: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-8}}%
-    This follows from \cref{properties-of-injective-functions-characterisations-8} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-7} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
+    \SubProofBox{Step 7: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-11}}%
+    This follows from \cref{properties-of-injective-functions-characterisations-11} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-10} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
 
-    \SubProofBox{Step 8: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-9}}%
-    This follows from \cref{properties-of-injective-functions-characterisations-9} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-8} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
+    \SubProofBox{Step 8: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-12}}%
+    This follows from \cref{properties-of-injective-functions-characterisations-12} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-11} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
 
-    \SubProofBox{Step 9: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-9}}%
-    This follows from \cref{properties-of-injective-functions-characterisations-10} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-9} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
+    \SubProofBox{Step 9: \cref{properties-of-bijective-functions-characterisations-1}$\iff$\cref{properties-of-bijective-functions-characterisations-12}}%
+    This follows from \cref{properties-of-injective-functions-characterisations-13} of \cref{properties-of-injective-functions-characterisations} of \cref{properties-of-injective-functions} and \cref{properties-of-surjective-functions-characterisations-12} of \cref{properties-of-surjective-functions-characterisations} of \cref{properties-of-surjective-functions}.
+
+    \SubProofBox{Step 10: \cref{properties-of-bijective-functions-characterisations-5}$\iff$\cref{properties-of-bijective-functions-characterisations-8}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
+
+    \SubProofBox{Step 11: \cref{properties-of-bijective-functions-characterisations-6}$\iff$\cref{properties-of-bijective-functions-characterisations-9}}%
+    This follows from the fact that $\mathcal{P}(A)$ is locally posetal.
+
+    \SubProofBox{Step 12: \cref{properties-of-bijective-functions-characterisations-7}$\iff$\cref{properties-of-bijective-functions-characterisations-10}}%
+    This follows from the fact that $\mathcal{P}(B)$ is locally posetal.
 
     \ProofBox{\cref{properties-of-bijective-functions-two-out-of-three}: Two-Out-of-Three}%
     This is a special case of \ChapterRef{\ChapterCategories, \cref{categories:properties-of-isomorphisms-two-out-of-three} of \cref{categories:properties-of-isomorphisms}}{\cref{properties-of-isomorphisms-two-out-of-three} of \cref{properties-of-isomorphisms}}.
