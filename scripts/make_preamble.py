@@ -207,7 +207,8 @@ def main():
 
     # PREAMBLE_XCHARTER
     with open(absolute_path+'/preamble/compiled/preamble-xcharter.tex', 'w') as preamble_xcharter:
-        preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex', 'preamble/widebar.tex']))
+        preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex']))
+        #preamble_xcharter.write(expand_latex_inputs(content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex', 'preamble/widebar.tex']))
         preamble_xcharter.write(content_xcharter)
         preamble_xcharter.write(content_toc)
 
