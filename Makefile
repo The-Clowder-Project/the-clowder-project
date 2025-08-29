@@ -2,7 +2,7 @@
 .SUFFIXES: .aux .bbl .bib .blg .dvi .htm .html .css .log .out .pdf .ps .tex \
 	.toc .foo .bar
 
-# Master list of stems of tex files in the project.
+# Master list of tex files in the project.
 # This should be in order.
 LIJST = introduction \
         a-guide-to-the-literature \
